@@ -244,7 +244,9 @@ button {
   padding: clamp(28px, 3vw, 40px) clamp(16px, 2vw, 32px) 96px;
 }
 
-.cell { display: flex; flex-direction: column; }
+/* Full row height so the booking button can sit on a common baseline even when
+   product names wrap to different depths. */
+.cell { display: flex; flex-direction: column; height: 100%; }
 
 .card { display: flex; flex-direction: column; }
 
@@ -266,6 +268,7 @@ button {
   flex-direction: column;
   gap: 8px;
   padding-top: 20px;
+  padding-bottom: 14px;
 }
 
 .card-name {
@@ -281,6 +284,29 @@ button {
   font-size: 14px;
   line-height: 22px;
   color: var(--muted);
+}
+
+/* Quiet secondary CTA under each product — a hairline outline that fills on
+   hover, so it reads as an invitation rather than a shop button. */
+.card-book {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 11px 16px;
+  border: 1px solid rgba(32, 30, 29, 0.2);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+.card-book:hover {
+  background: var(--ink-soft);
+  border-color: var(--ink-soft);
+  color: #fff;
 }
 
 /* editorial banner tile */
@@ -633,21 +659,19 @@ button {
   .hdr-side, .hdr-side--end { min-width: 0; }
   .hdr-side--end { gap: 18px; }
 
-  .intro { padding: 22px 20px 32px; }
-  .intro-title { margin-top: 16px; letter-spacing: 4px; }
+  /* Breadcrumb and design count are desktop furniture — the mobile header is
+     just the title and the lede. */
+  .crumbs { display: none; }
+  .toolbar-count { display: none; }
+
+  .intro { padding: 26px 20px 30px; }
+  .intro-title { margin-top: 0; letter-spacing: 4px; }
   .intro-lede { margin-top: 14px; font-size: 15px; line-height: 24px; }
 
-  /* Count on its own line, then Sort and Filter share a row of equal targets. */
-  .toolbar { flex-wrap: wrap; }
-  .toolbar-count {
-    flex: 1 0 100%;
-    justify-content: flex-start;
-    padding: 0 20px;
-    min-height: 48px;
-    border-bottom: 1px solid var(--rule);
-  }
+  /* Sort and Filter split the bar as two equal, centred targets. */
   .toolbar-sort, .toolbar-filter { flex: 1 1 0; }
-  .toolbar-btn { justify-content: center; padding: 0 16px; }
+  .toolbar-sort { border-left: 0; }
+  .toolbar-btn { justify-content: center; padding: 0 16px; min-height: 58px; }
   .sort-menu { left: 0; right: 0; min-width: 0; }
 
   .chips { padding: 16px 20px; }
@@ -662,9 +686,18 @@ button {
   .cell--banner .banner { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   .banner-body { padding: 24px 20px; }
 
-  .card-info { padding-top: 14px; gap: 6px; }
+  .card-info { padding-top: 14px; padding-bottom: 12px; gap: 6px; }
   .card-name { font-size: 11px; letter-spacing: 2px; }
   .card-materials { font-size: 13px; line-height: 20px; }
+
+  /* Spans the column: a comfortable tap target, and the label cannot crowd
+     the narrow card. */
+  .card-book {
+    align-self: stretch;
+    text-align: center;
+    padding: 11px 8px;
+    letter-spacing: 1.4px;
+  }
 
   .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
 

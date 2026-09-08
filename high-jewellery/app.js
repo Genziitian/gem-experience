@@ -58,6 +58,10 @@
      four-column rhythm: three products then a banner. */
   var MOBILE = window.matchMedia("(max-width: 700px)");
   function perBanner() { return MOBILE.matches ? 4 : 3; }
+
+  /* Only two banners run on the page — after the 4th and 8th product on mobile,
+     the 3rd and 6th on desktop. Products run uninterrupted after that. */
+  var MAX_BANNERS = 2;
   var FILLERS = [
     "alt-serengeti", "alt-collar", "alt-earrings", "alt-kilimanjaro", "alt-rift",
     "alt-mahenge", "alt-ring", "alt-merelani", "alt-oldoinyo"
@@ -255,6 +259,16 @@
     return a;
   }
 
+  /* Sits outside the card so it stays valid markup when the card is a link.
+     No destination is wired up yet — point this at the booking flow. */
+  function bookButton(p) {
+    var b = el("button", "card-book", {
+      type: "button", "aria-label": "Book an appointment for " + p.name
+    });
+    b.textContent = "Book an Appointment";
+    return b;
+  }
+
   function renderGrid(root) {
     var list = visible();
     var chips = activeChips();
@@ -347,8 +361,9 @@
     list.forEach(function (p, i) {
       var cell = el("div", "cell");
       cell.appendChild(productCard(p));
+      cell.appendChild(bookButton(p));
       grid.appendChild(cell);
-      if ((i + 1) % perBanner() === 0) {
+      if ((i + 1) % perBanner() === 0 && b < MAX_BANNERS) {
         b++;
         var bc = el("div", "cell cell--banner");
         var ban = el("a", "banner", { href: "#/" });

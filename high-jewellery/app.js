@@ -47,21 +47,17 @@
 
   var sortLabels = { featured: "Featured", asc: "Price low to high", desc: "Price high to low" };
 
-  /* The design filled three editorial tiles; a fourth banner is produced by the
-     "every third product" rule, so the three cycle. */
+  /* Three editorial tiles came from the design; the two banners take the first
+     two, and the list cycles if more banner slots are ever added. */
   var EDITORIAL = ["editorial-1", "editorial-2", "editorial-3"];
 
   var BANNER_LABEL = "Discover High Jewellery";
 
-  /* Mobile lays the grid out two-up, so the banner falls after every fourth
-     product (two full rows) and spans the width. Desktop keeps the design's
-     four-column rhythm: three products then a banner. */
-  var MOBILE = window.matchMedia("(max-width: 700px)");
-  function perBanner() { return MOBILE.matches ? 4 : 3; }
-
-  /* Only two banners run on the page — after the 4th and 8th product on mobile,
-     the 3rd and 6th on desktop. Products run uninterrupted after that. */
-  var MAX_BANNERS = 2;
+  /* Two banners at fixed positions: four products, banner, eight products,
+     banner, then the rest run uninterrupted. Both numbers divide evenly into
+     the two-up mobile grid and the four-up desktop grid, so the rhythm holds
+     at either breakpoint. */
+  var BANNER_AFTER = [4, 12];
   var FILLERS = [
     "alt-serengeti", "alt-collar", "alt-earrings", "alt-kilimanjaro", "alt-rift",
     "alt-mahenge", "alt-ring", "alt-merelani", "alt-oldoinyo"
@@ -363,12 +359,13 @@
       cell.appendChild(productCard(p));
       cell.appendChild(bookButton(p));
       grid.appendChild(cell);
-      if ((i + 1) % perBanner() === 0 && b < MAX_BANNERS) {
+      var slot = BANNER_AFTER.indexOf(i + 1);
+      if (slot !== -1) {
         b++;
         var bc = el("div", "cell cell--banner");
         var ban = el("a", "banner", { href: "#/" });
         ban.appendChild(el("img", null, {
-          src: IMG + EDITORIAL[(b - 1) % EDITORIAL.length] + ".webp",
+          src: IMG + EDITORIAL[slot % EDITORIAL.length] + ".webp",
           alt: "High Jewellery editorial", loading: "lazy", decoding: "async"
         }));
         var body = el("div", "banner-body");
@@ -633,11 +630,6 @@
   }
 
   window.addEventListener("hashchange", onRoute);
-
-  /* Banner cadence differs either side of the breakpoint, so redraw on cross.
-     addListener is the fallback for older WebKit. */
-  if (MOBILE.addEventListener) MOBILE.addEventListener("change", render);
-  else if (MOBILE.addListener) MOBILE.addListener(render);
 
   document.addEventListener("click", function () {
     if (state.sortOpen) { state.sortOpen = false; render(); }

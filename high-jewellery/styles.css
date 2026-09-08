@@ -279,11 +279,17 @@ button {
   line-height: 18px;
 }
 
+/* Held to a single line at every width: it shrinks with the viewport and
+   ellipsises rather than wrapping. Full string stays available via title. */
 .card-materials {
   font-weight: 300;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: clamp(10px, 0.86vw + 7px, 13px);
+  line-height: 18px;
   color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* Quiet secondary CTA under each product — a hairline outline that fills on
@@ -570,7 +576,11 @@ button {
   padding-top: 40px;
 }
 .related-name { padding-top: 16px; font-weight: 500; font-size: 12px; letter-spacing: 2.6px; text-transform: uppercase; }
-.related-materials { padding-top: 6px; font-weight: 300; font-size: 14px; line-height: 22px; color: var(--muted); }
+.related-materials {
+  padding-top: 6px; font-weight: 300;
+  font-size: clamp(10px, 0.86vw + 7px, 13px); line-height: 18px; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+}
 
 /* ---------------------------------------------------------------- drawer */
 
@@ -746,7 +756,7 @@ button {
 
   .card-info { padding-top: 14px; padding-bottom: 12px; gap: 6px; }
   .card-name { font-size: 11px; letter-spacing: 2px; }
-  .card-materials { font-size: 13px; line-height: 20px; }
+  .card-materials { line-height: 17px; }
 
   /* Spans the column: a comfortable tap target, and the label cannot crowd
      the narrow card. */
@@ -765,6 +775,16 @@ button {
   .ftr-signup { width: 100%; }
   .ftr-base { gap: 16px 24px; }
   .ftr-social { margin-right: 0; }
+}
+
+/* Smallest phones: the brand lettering was squeezing the icon buttons until the
+   menu glyph clipped, so it tightens and the icon groups stop shrinking. */
+@media (max-width: 380px) {
+  .hdr { padding: 16px 14px; gap: 10px; }
+  .hdr-brand { font-size: 11px; letter-spacing: 2.4px; }
+  .hdr-side { flex: 0 0 auto; }
+  .hdr-side--end { gap: 14px; }
+  .grid { gap: 24px 10px; padding: 20px 14px 60px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {

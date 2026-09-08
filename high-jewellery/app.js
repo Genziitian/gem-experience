@@ -23,25 +23,24 @@
 
   // ---------------------------------------------------------------- data
 
-  /* Order follows the client's list: the eleven new pieces first, then the
-     pieces carried over from the design. Banner slots fall after 4 and 12.
-     carat / origin / ref / story on the new pieces are placeholders — real
-     copy has not been supplied, and none of it is shown on the listing. */
+  /* Order follows the client's list. Names map to the uploaded filenames, which
+     were corrected after the first pass. Banner slots fall after 4 and 12.
+     carat / origin / ref / story on the new pieces are placeholders — real copy
+     has not been supplied, and none of it is shown on the listing. */
   var products = [
-    { id: "weaver", name: "Weaver", materials: "Rubellite, Diamond and 18k White Gold", price: 88000, type: "Earrings", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "the-crown", name: "The Crown", materials: "Diamond, Pink Sapphire and Aquamarine", price: 74000, type: "Earrings", collection: "Heritage", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "shamsa", name: "Shamsa", materials: "Aquamarine and Diamond", price: 132000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "jardin-bleu", name: "Jardin Bleu", materials: "Rubellite, Pink Spinel and Diamond", price: 96000, type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "hive", name: "Hive", materials: "Tanzanite, Aquamarine and Diamond", price: 68000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "georgie", name: "Georgie", materials: "South Sea Pearl, Tanzanite and 18k Rose Gold", price: 112000, type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k Rose Gold", ref: "—", story: "" },
-    { id: "usambara", name: "Flamenco", materials: "Tanzanite, Diamond and Blue Enamel", price: 46000, type: "Earrings", collection: "Nocturne", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "ember", name: "Ember", materials: "Tanzanite and Rose-Cut Diamond", price: 82000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "dew-fall", name: "Dew Fall", materials: "Rubellite, Diamond and 18k Yellow Gold", price: 168000, type: "Necklaces", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
-    { id: "celestine", name: "Celestine", materials: "Tanzanite, Diamond and 18k White Gold", price: 58000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "merelani", name: "Spinel Balls necklace", materials: "Tanzanite, Diamond and 18k White Gold", price: 145000, type: "Necklaces", collection: "Tanzania Universe", occasion: "Bridal", carat: "12.31ct", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1120", story: "The largest stone from the 2024 parcel, cut as a cushion and hung from a chain fine enough to leave it alone." },
+    { id: "the-crown", name: "The Crown", materials: "Tanzanite, Diamond and 18k White Gold", price: 74000, type: "Earrings", collection: "Heritage", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "shamsa", name: "Shamsa", materials: "Rubellite, Diamond and 18k Yellow Gold", price: 132000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
+    { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", price: 96000, type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "hive", name: "Hive", materials: "Tanzanite, Diamond and Blue Enamel", price: 68000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "georgie", name: "Georgie", materials: "Pearl, Tanzanite and 18k Rose Gold", price: 112000, type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k Rose Gold", ref: "—", story: "" },
+    { id: "usambara", name: "Flamenco", materials: "Tanzanite, Aquamarine and Diamond", price: 46000, type: "Earrings", collection: "Nocturne", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "ember", name: "Ember", materials: "Rubellite, Spinel and Diamond", price: 82000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "dew-fall", name: "Dew Fall", materials: "Aquamarine and Diamond", price: 168000, type: "Necklaces", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "celestine", name: "Celestine", materials: "Diamond, Sapphire and Aquamarine", price: 58000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "merelani", name: "Spinel Balls necklace", materials: "Rubellite, Diamond and 18k White Gold", price: 145000, type: "Earrings", collection: "Tanzania Universe", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "helix", name: "Helix", materials: "Tanzanite, Diamond and 18k White Gold", price: 78500, type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "crown", name: "Crown", materials: "Tanzanite, Diamond and 18k White Gold", price: 142000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "26.90ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1131", story: "Seven stones falling in decreasing size, articulated at every joint so the whole line moves with the head." },
-    { id: "rihla", name: "Rihla", materials: "Mother-of-Pearl, Tanzanite and Diamond", price: 158000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "rihla", name: "Rihla", materials: "Mother-of-Pearl and Tanzanite", price: 158000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "serengeti", name: "Wimbi", materials: "6.4ct Tanzanite, Diamond and Platinum", price: 48600, type: "Rings", collection: "Tanzania Universe", occasion: "Collector", carat: "6.42ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1042", story: "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn." },
     { id: "kilimanjaro", name: "Ocean Wave", materials: "Tanzanite, Diamond and 18k White Gold", price: 186000, type: "Necklaces", collection: "Tanzania Universe", occasion: "Gala", carat: "41.80ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1108", story: "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin." },
     { id: "rift", name: "Tsavorite necklace", materials: "9.1ct Tanzanite Pair and Diamond", price: 92400, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "9.14ct pair", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1073", story: "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light." },
@@ -256,12 +255,12 @@
     a.appendChild(frame(cardImg(p), p.name));
     if (opts.related) {
       var n = el("span", "related-name"); n.textContent = p.name;
-      var m = el("span", "related-materials"); m.textContent = p.materials;
+      var m = el("span", "related-materials", { title: p.materials }); m.textContent = p.materials;
       a.appendChild(n); a.appendChild(m);
     } else {
       var info = el("div", "card-info");
       var nm = el("span", "card-name"); nm.textContent = p.name;
-      var mt = el("span", "card-materials"); mt.textContent = p.materials;
+      var mt = el("span", "card-materials", { title: p.materials }); mt.textContent = p.materials;
       info.appendChild(nm); info.appendChild(mt);
       a.appendChild(info);
     }

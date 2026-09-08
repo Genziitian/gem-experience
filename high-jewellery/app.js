@@ -50,6 +50,14 @@
   /* The design filled three editorial tiles; a fourth banner is produced by the
      "every third product" rule, so the three cycle. */
   var EDITORIAL = ["editorial-1", "editorial-2", "editorial-3"];
+
+  var BANNER_LABEL = "Discover High Jewellery";
+
+  /* Mobile lays the grid out two-up, so the banner falls after every fourth
+     product (two full rows) and spans the width. Desktop keeps the design's
+     four-column rhythm: three products then a banner. */
+  var MOBILE = window.matchMedia("(max-width: 700px)");
+  function perBanner() { return MOBILE.matches ? 4 : 3; }
   var FILLERS = [
     "alt-serengeti", "alt-collar", "alt-earrings", "alt-kilimanjaro", "alt-rift",
     "alt-mahenge", "alt-ring", "alt-merelani", "alt-oldoinyo"
@@ -340,17 +348,17 @@
       var cell = el("div", "cell");
       cell.appendChild(productCard(p));
       grid.appendChild(cell);
-      if ((i + 1) % 3 === 0) {
+      if ((i + 1) % perBanner() === 0) {
         b++;
-        var bc = el("div", "cell");
+        var bc = el("div", "cell cell--banner");
         var ban = el("a", "banner", { href: "#/" });
         ban.appendChild(el("img", null, {
           src: IMG + EDITORIAL[(b - 1) % EDITORIAL.length] + ".webp",
-          alt: "Editorial image — Tanzania Universe", loading: "lazy", decoding: "async"
+          alt: "High Jewellery editorial", loading: "lazy", decoding: "async"
         }));
         var body = el("div", "banner-body");
         var lk = el("span", "banner-link");
-        lk.textContent = "Explore Tanzania";
+        lk.textContent = BANNER_LABEL;
         body.appendChild(lk);
         ban.appendChild(body);
         bc.appendChild(ban);
@@ -610,6 +618,11 @@
   }
 
   window.addEventListener("hashchange", onRoute);
+
+  /* Banner cadence differs either side of the breakpoint, so redraw on cross.
+     addListener is the fallback for older WebKit. */
+  if (MOBILE.addEventListener) MOBILE.addEventListener("change", render);
+  else if (MOBILE.addListener) MOBILE.addListener(render);
 
   document.addEventListener("click", function () {
     if (state.sortOpen) { state.sortOpen = false; render(); }

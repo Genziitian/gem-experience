@@ -16,6 +16,11 @@
 
   var IMG = "img/";
 
+  /* Product detail pages are switched off for now: product cards render inert
+     and `#/product/<id>` falls back to the listing. The detail view itself is
+     untouched below — flip this to true to bring it back. */
+  var PRODUCT_PAGE_ENABLED = false;
+
   // ---------------------------------------------------------------- data
 
   var products = [
@@ -221,7 +226,12 @@
 
   function productCard(p, opts) {
     opts = opts || {};
-    var a = el("a", opts.related ? "card card--related" : "card", { href: "#/product/" + p.id });
+    var cls = opts.related ? "card card--related" : "card";
+    /* When detail pages are off the card is a plain div, so there is nothing to
+       click, focus, middle-click or open in a new tab — inert, not just blocked. */
+    var a = PRODUCT_PAGE_ENABLED
+      ? el("a", cls, { href: "#/product/" + p.id })
+      : el("div", cls + " card--inert");
     a.appendChild(frame(cardImg(p), p.name));
     if (opts.related) {
       var n = el("span", "related-name"); n.textContent = p.name;
@@ -575,7 +585,7 @@
   // -------------------------------------------------------------- routing
 
   function readHash() {
-    var m = /^#\/product\/([\w-]+)$/.exec(location.hash);
+    var m = PRODUCT_PAGE_ENABLED ? /^#\/product\/([\w-]+)$/.exec(location.hash) : null;
     if (m) {
       for (var i = 0; i < products.length; i++) {
         if (products[i].id === m[1]) {

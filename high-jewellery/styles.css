@@ -248,6 +248,10 @@ button {
 
 .card { display: flex; flex-direction: column; }
 
+/* Detail pages are off: the card keeps its exact look but offers no
+   affordance — no pointer cursor and no hover motion. */
+.card--inert { cursor: default; }
+
 .frame {
   position: relative;
   width: 100%;
@@ -635,5 +639,5 @@ button {
 
 @media (prefers-reduced-motion: no-preference) {
   .frame img, .shot img, .banner img { transition: transform 600ms cubic-bezier(0.2, 0, 0.1, 1); }
-  .card:hover .frame img, .banner:hover img { transform: scale(1.03); }
+  .card:not(.card--inert):hover .frame img, .banner:hover img { transform: scale(1.03); }
 }

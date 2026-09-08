@@ -1,25 +1,21 @@
 /* High Jewellery — Gem Experience
-   Logic ported from the `Component extends DCLogic` block in the Claude Design
-   prototype `High Jewellery.dc.html`. Product data, filter groups, price bands,
-   sort keys, story truncation, finish/size rules, spec strip and related-product
-   ordering all follow the prototype exactly.
+   The collection listing follows the Claude Design prototype
+   `High Jewellery.dc.html`. The product page follows the PDP blueprint:
+   breadcrumb, gallery, title, variants, CTA, accordions, cross-sell,
+   editorial, FAQ and concierge band, with a sticky CTA on mobile.
 
-   Two things the prototype left to the design tool, resolved here:
-   - Displayed names come from the prototype's `name1..name12` prop defaults
-     (which override the raw `products[].name`), per `nm(p)`.
-   - The PDP gallery image slots (`hj-pdp-<id>-1..6`) were never filled in the
-     design, so each product leads with its own artwork and the remaining tiles
-     are drawn deterministically from the High Jewellery image pool. */
+   There is no pricing anywhere — no price field, no price filter, no price
+   sort. Pieces are quoted on enquiry, so sorting is alphabetical instead.
+
+   The design never filled the PDP gallery slots, so each piece leads with its
+   own artwork and the remaining frames come from the High Jewellery pool. */
 
 (function () {
   "use strict";
 
   var IMG = "img/";
 
-  /* Product detail pages are switched off for now: product cards render inert
-     and `#/product/<id>` falls back to the listing. The detail view itself is
-     untouched below — flip this to true to bring it back. */
-  var PRODUCT_PAGE_ENABLED = false;
+  var PRODUCT_PAGE_ENABLED = true;
 
   // ---------------------------------------------------------------- data
 
@@ -28,34 +24,33 @@
      carat / origin / ref / story on the new pieces are placeholders — real copy
      has not been supplied, and none of it is shown on the listing. */
   var products = [
-    { id: "weaver", name: "Weaver", materials: "Tanzanite, Diamond and 18k White Gold", price: 88000, type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "the-crown", name: "The Crown", materials: "Tanzanite, Diamond and 18k White Gold", price: 74000, type: "Earrings", collection: "Heritage", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "shamsa", name: "Shamsa", materials: "Rubellite, Diamond and 18k Yellow Gold", price: 132000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
-    { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", price: 96000, type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "hive", name: "Hive", materials: "Tanzanite, Diamond and Blue Enamel", price: 68000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "georgie", name: "Georgie", materials: "Pearl, Tanzanite and 18k Rose Gold", price: 112000, type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k Rose Gold", ref: "—", story: "" },
-    { id: "usambara", name: "Flamenco", materials: "Tanzanite, Aquamarine and Diamond", price: 46000, type: "Earrings", collection: "Nocturne", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "ember", name: "Ember", materials: "Rubellite, Spinel and Diamond", price: 82000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "dew-fall", name: "Dew Fall", materials: "Aquamarine and Diamond", price: 168000, type: "Necklaces", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "celestine", name: "Celestine", materials: "Diamond, Sapphire and Aquamarine", price: 58000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "merelani", name: "Spinel Balls necklace", materials: "Rubellite, Diamond and 18k White Gold", price: 145000, type: "Earrings", collection: "Tanzania Universe", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "helix", name: "Helix", materials: "Tanzanite, Diamond and 18k White Gold", price: 78500, type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "rihla", name: "Rihla", materials: "Mother-of-Pearl and Tanzanite", price: 158000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "serengeti", name: "Wimbi", materials: "6.4ct Tanzanite, Diamond and Platinum", price: 48600, type: "Rings", collection: "Tanzania Universe", occasion: "Collector", carat: "6.42ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1042", story: "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn." },
-    { id: "kilimanjaro", name: "Ocean Wave", materials: "Tanzanite, Diamond and 18k White Gold", price: 186000, type: "Necklaces", collection: "Tanzania Universe", occasion: "Gala", carat: "41.80ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1108", story: "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin." },
-    { id: "rift", name: "Tsavorite necklace", materials: "9.1ct Tanzanite Pair and Diamond", price: 92400, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "9.14ct pair", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1073", story: "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light." },
-    { id: "mahenge", name: "Samaah", materials: "Spinel, Diamond and Rose Gold", price: 64200, type: "Bracelets", collection: "Origin", occasion: "Collector", carat: "22.60ct total", origin: "Mahenge, Tanzania", metal: "18k Rose Gold", ref: "HJ-0994", story: "Mahenge spinel in the pink that made the deposit famous, held in rose gold links that take the colour warmer still." },
-    { id: "oldoinyo", name: "Mediterranea", materials: "Diamond and Platinum", price: 312000, type: "Tiaras", collection: "Heritage", occasion: "Bridal", carat: "28.40ct total", origin: "Various", metal: "Platinum 950", ref: "HJ-0921", story: "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own." },
+    { id: "weaver", name: "Weaver", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "the-crown", name: "The Crown", materials: "Tanzanite, Diamond and 18k White Gold", type: "Earrings", collection: "Heritage", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "shamsa", name: "Shamsa", materials: "Rubellite, Diamond and 18k Yellow Gold", type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
+    { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "hive", name: "Hive", materials: "Tanzanite, Diamond and Blue Enamel", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "georgie", name: "Georgie", materials: "Pearl, Tanzanite and 18k Rose Gold", type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k Rose Gold", ref: "—", story: "" },
+    { id: "usambara", name: "Flamenco", materials: "Tanzanite, Aquamarine and Diamond", type: "Earrings", collection: "Nocturne", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "ember", name: "Ember", materials: "Rubellite, Spinel and Diamond", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "dew-fall", name: "Dew Fall", materials: "Aquamarine and Diamond", type: "Necklaces", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "celestine", name: "Celestine", materials: "Diamond, Sapphire and Aquamarine", type: "Earrings", collection: "Tanzania Universe", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "merelani", name: "Spinel Balls necklace", materials: "Rubellite, Diamond and 18k White Gold", type: "Earrings", collection: "Tanzania Universe", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "helix", name: "Helix", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "rihla", name: "Rihla", materials: "Mother-of-Pearl and Tanzanite", type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "serengeti", name: "Wimbi", materials: "6.4ct Tanzanite, Diamond and Platinum", type: "Rings", collection: "Tanzania Universe", occasion: "Collector", carat: "6.42ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1042", story: "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn." },
+    { id: "kilimanjaro", name: "Ocean Wave", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Tanzania Universe", occasion: "Gala", carat: "41.80ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1108", story: "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin." },
+    { id: "rift", name: "Tsavorite necklace", materials: "9.1ct Tanzanite Pair and Diamond", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "9.14ct pair", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1073", story: "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light." },
+    { id: "mahenge", name: "Samaah", materials: "Spinel, Diamond and Rose Gold", type: "Bracelets", collection: "Origin", occasion: "Collector", carat: "22.60ct total", origin: "Mahenge, Tanzania", metal: "18k Rose Gold", ref: "HJ-0994", story: "Mahenge spinel in the pink that made the deposit famous, held in rose gold links that take the colour warmer still." },
+    { id: "oldoinyo", name: "Mediterranea", materials: "Diamond and Platinum", type: "Tiaras", collection: "Heritage", occasion: "Bridal", carat: "28.40ct total", origin: "Various", metal: "Platinum 950", ref: "HJ-0921", story: "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own." },
   ];
 
   var groupDefs = [
     { key: "type", label: "Category", opts: ["Rings", "Necklaces", "Earrings", "Bracelets", "Tiaras"] },
-    { key: "price", label: "Price", opts: ["Under $50,000", "$50,000 – $100,000", "$100,000 – $200,000", "Above $200,000"] },
     { key: "collection", label: "Collection", opts: ["Tanzania Universe", "Origin", "Nocturne", "Heritage"] },
     { key: "occasion", label: "Occasion", opts: ["Bridal", "Gala", "Collector", "Gifting"] }
   ];
 
-  var sortLabels = { featured: "Featured", asc: "Price low to high", desc: "Price high to low" };
+  var sortLabels = { featured: "Featured", asc: "Name A \u2013 Z", desc: "Name Z \u2013 A" };
 
   /* The two supplied interlink images, one per banner slot. */
   var EDITORIAL = ["interlink-1", "interlink-2"];
@@ -70,13 +65,6 @@
   var FILLERS = [
     "alt-serengeti", "alt-collar", "alt-earrings", "alt-kilimanjaro", "alt-rift",
     "alt-mahenge", "alt-ring", "alt-merelani", "alt-oldoinyo"
-  ];
-
-  var LINKS = [
-    { label: "Product details", d: "M12 16v-4M12 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" },
-    { label: "Contact us", d: "M21 11.5a8.4 8.4 0 0 1-9 8.4 9.9 9.9 0 0 1-4-.8L3 21l1.9-4.6A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4Z" },
-    { label: "Care and services", d: "M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4L12 3ZM18 15l.9 2.1 2.1.9-2.1.9L18 21l-.9-2.1-2.1-.9 2.1-.9L18 15Z" },
-    { label: "Shipping and returns", d: "M14 17h-9V5h9v12ZM14 9h4l3 3v5h-7M7.5 20a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2ZM17.5 20a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2Z" }
   ];
 
   var STAT_ICONS = {
@@ -98,17 +86,12 @@
     size: 0,
     finish: 0,
     storyOpen: false,
+    acc: null,
+    faq: null,
     wished: {}
   };
 
   // ------------------------------------------------------------- helpers
-
-  function band(p) {
-    if (p.price < 50000) return "Under $50,000";
-    if (p.price < 100000) return "$50,000 – $100,000";
-    if (p.price < 200000) return "$100,000 – $200,000";
-    return "Above $200,000";
-  }
 
   function sel(key) { return state.active[key] || []; }
 
@@ -116,7 +99,7 @@
     return groupDefs.every(function (g) {
       var s = sel(g.key);
       if (!s.length) return true;
-      return s.indexOf(g.key === "price" ? band(p) : p[g.key]) !== -1;
+      return s.indexOf(p[g.key]) !== -1;
     });
   }
 
@@ -143,11 +126,11 @@
     var alt = IMG + "alt-" + p.id + ".webp";
     var owned = ["serengeti", "kilimanjaro", "rift", "mahenge", "merelani", "oldoinyo"];
     if (owned.indexOf(p.id) !== -1) out.push(alt);
-    for (var i = 0; out.length < 6; i++) {
+    for (var i = 0; out.length < 4; i++) {
       var f = IMG + FILLERS[(base * 3 + i) % FILLERS.length] + ".webp";
       if (out.indexOf(f) === -1) out.push(f);
     }
-    return out.slice(0, 6);
+    return out.slice(0, 4);
   }
 
   function storyFor(p) {
@@ -156,7 +139,10 @@
   }
 
   function finishesFor(p) {
-    return [p.metal, "18k Yellow Gold"].map(function (m, i) {
+    /* second swatch always differs from the piece's own metal, so the pair
+       never renders as two identical circles */
+    var alt = /Yellow/.test(p.metal) ? "18k White Gold" : "18k Yellow Gold";
+    return [p.metal, alt].map(function (m, i) {
       return {
         label: m,
         hex: /Yellow/.test(m) ? "#c9a227" : /Rose/.test(m) ? "#d8a08c" : "#c6c9cd",
@@ -178,8 +164,8 @@
 
   function visible() {
     var list = products.filter(matches);
-    if (state.sortKey === "asc") list = list.slice().sort(function (a, b) { return a.price - b.price; });
-    if (state.sortKey === "desc") list = list.slice().sort(function (a, b) { return b.price - a.price; });
+    if (state.sortKey === "asc") list = list.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+    if (state.sortKey === "desc") list = list.slice().sort(function (a, b) { return b.name.localeCompare(a.name); });
     return list;
   }
 
@@ -400,20 +386,105 @@
     }
   }
 
+  /* ---- product page -------------------------------------------------
+     Component order follows the PDP blueprint: breadcrumb, gallery, title,
+     variants, CTA, accordions, cross-sell, editorial, FAQ, concierge band,
+     plus a sticky CTA on mobile once the in-panel button scrolls away.
+     No pricing anywhere — enquiry only. */
+
+  var stickyWatch = null;
+
+  function accordion(cls, items, openIdx, onToggle) {
+    var wrap = el("div", "acc " + cls);
+    items.forEach(function (it, i) {
+      var open = i === openIdx;
+      var row = el("div", "acc-row");
+      var btn = el("button", "acc-head", { type: "button", "aria-expanded": String(open) });
+      var lbl = el("span", "acc-label"); lbl.textContent = it.label;
+      var chev = svg(16, { stroke: "currentColor", sw: 1.3 }, ["M5 9l7 7 7-7"]);
+      chev.setAttribute("class", "acc-chev");
+      btn.appendChild(lbl); btn.appendChild(chev);
+      btn.addEventListener("click", function () { onToggle(open ? null : i); });
+      row.appendChild(btn);
+      if (open) {
+        var body = el("div", "acc-body");
+        it.render(body);
+        row.appendChild(body);
+      }
+      wrap.appendChild(row);
+    });
+    return wrap;
+  }
+
+  function specRows(host, pairs) {
+    var dl = el("dl", "spec-list");
+    pairs.forEach(function (pair) {
+      var dt = el("dt"); dt.textContent = pair[0];
+      var dd = el("dd"); dd.textContent = pair[1];
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    host.appendChild(dl);
+  }
+
+  function bullets(host, lines) {
+    var ul = el("ul", "acc-bullets");
+    lines.forEach(function (t) { var li = el("li"); li.textContent = t; ul.appendChild(li); });
+    host.appendChild(ul);
+  }
+
+  function buildGallery(p) {
+    var shots = galleryFor(p);
+    var gal = el("div", "gal");
+    var track = el("div", "gal-track");
+    shots.forEach(function (src, i) {
+      var slide = el("div", "gal-slide");
+      slide.appendChild(el("img", null, {
+        src: src, alt: p.name + " \u2014 view " + (i + 1),
+        loading: i === 0 ? "eager" : "lazy", decoding: "async"
+      }));
+      track.appendChild(slide);
+    });
+    gal.appendChild(track);
+
+    var dots = el("div", "gal-dots");
+    shots.forEach(function (_, i) {
+      var d = el("button", "gal-dot" + (i === 0 ? " is-on" : ""), {
+        type: "button", "aria-label": "View " + (i + 1)
+      });
+      d.addEventListener("click", function () {
+        track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
+      });
+      dots.appendChild(d);
+    });
+    gal.appendChild(dots);
+
+    track.addEventListener("scroll", function () {
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      Array.prototype.forEach.call(dots.children, function (d, j) {
+        d.classList.toggle("is-on", j === i);
+      });
+    }, { passive: true });
+
+    return gal;
+  }
+
   function renderProduct(root) {
     var p = current();
+
+    // breadcrumb
+    var crumbs = el("nav", "crumbs crumbs--pdp", { "aria-label": "Breadcrumb" });
+    var c1 = el("a", null, { href: "#/" }); c1.textContent = "Home";
+    var c2 = el("a", null, { href: "#/" }); c2.textContent = "High Jewellery";
+    var s1 = el("span"); s1.textContent = "/";
+    var s2 = el("span"); s2.textContent = "/";
+    var here = el("span", "crumbs-here", { "aria-current": "page" }); here.textContent = p.name;
+    crumbs.appendChild(c1); crumbs.appendChild(s1); crumbs.appendChild(c2);
+    crumbs.appendChild(s2); crumbs.appendChild(here);
+    root.appendChild(crumbs);
+
     var pdp = el("section", "pdp");
+    pdp.appendChild(buildGallery(p));
 
-    // gallery — first tile spans both columns at 4/5
-    var gal = el("div", "pdp-gallery");
-    galleryFor(p).forEach(function (src, i) {
-      var shot = frame(src, p.name + " — view " + (i + 1), "shot" + (i === 0 ? " shot--lead" : ""));
-      shot.querySelector("img").setAttribute("loading", i === 0 ? "eager" : "lazy");
-      gal.appendChild(shot);
-    });
-    pdp.appendChild(gal);
-
-    // panel
     var panel = el("div", "pdp-panel");
 
     var head = el("div", "pdp-head");
@@ -424,86 +495,101 @@
     wish.appendChild(svg(22, { stroke: "#201e1d", sw: 1 },
       ["M12 20s-7-4.4-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.6 12 20 12 20Z"]));
     wish.addEventListener("click", function () {
-      state.wished[p.id] = !state.wished[p.id];
-      render();
+      state.wished[p.id] = !state.wished[p.id]; render();
     });
     head.appendChild(h1); head.appendChild(wish);
     panel.appendChild(head);
 
-    var mat = el("span", "pdp-materials"); mat.textContent = p.materials;
-    var price = el("span", "pdp-price"); price.textContent = "Price on enquiry";
-    panel.appendChild(mat); panel.appendChild(price);
-
-    var story = el("p", "pdp-story"); story.textContent = storyFor(p);
-    panel.appendChild(story);
-    if (p.story.length > 150) {
-      var more = el("button", "pdp-more", { type: "button" });
-      more.textContent = state.storyOpen ? "Read less" : "Read more";
-      more.addEventListener("click", function () { state.storyOpen = !state.storyOpen; render(); });
-      panel.appendChild(more);
-    }
+    var sub = el("p", "pdp-sub"); sub.textContent = p.materials;
+    panel.appendChild(sub);
 
     // metal
     var metalBlock = el("div", "opt-block opt-block--metal");
     var metalLabel = el("span", "opt-label"); metalLabel.textContent = "Metal: " + p.metal;
     var fRow = el("div", "finishes");
     finishesFor(p).forEach(function (fi, i) {
-      var s = el("button", "finish", { type: "button", "aria-label": fi.label, "aria-pressed": String(i === state.finish) });
-      s.style.background = fi.hex;
-      s.style.boxShadow = fi.ring;
-      s.addEventListener("click", function () { state.finish = i; render(); });
-      fRow.appendChild(s);
+      var sw = el("button", "finish", {
+        type: "button", "aria-label": fi.label, "aria-pressed": String(i === state.finish)
+      });
+      sw.style.background = fi.hex;
+      sw.style.boxShadow = fi.ring;
+      sw.addEventListener("click", function () { state.finish = i; render(); });
+      fRow.appendChild(sw);
     });
     metalBlock.appendChild(metalLabel); metalBlock.appendChild(fRow);
     panel.appendChild(metalBlock);
 
     // size
     var sizeBlock = el("div", "opt-block opt-block--size");
-    var sizeLabel = el("span", "opt-label"); sizeLabel.textContent = "Size:";
+    var sizeLabel = el("span", "opt-label"); sizeLabel.textContent = "Size";
     var sRow = el("div", "sizes");
     sizesFor(p).forEach(function (z, i) {
-      var s = el("button", "size", { type: "button", "aria-pressed": String(i === state.size) });
-      s.textContent = z;
-      s.addEventListener("click", function () { state.size = i; render(); });
-      sRow.appendChild(s);
+      var b = el("button", "size", { type: "button", "aria-pressed": String(i === state.size) });
+      b.textContent = z;
+      b.addEventListener("click", function () { state.size = i; render(); });
+      sRow.appendChild(b);
     });
     sizeBlock.appendChild(sizeLabel); sizeBlock.appendChild(sRow);
     panel.appendChild(sizeBlock);
 
-    var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size Guide";
+    var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size guide";
     panel.appendChild(guide);
 
+    // CTA + the one availability line beneath it
     var ctas = el("div", "ctas");
-    var c1 = el("button", "cta cta--primary", { type: "button" }); c1.textContent = "Enquire now";
-    var c2 = el("button", "cta cta--ghost", { type: "button" }); c2.textContent = "Book a private viewing";
-    ctas.appendChild(c1); ctas.appendChild(c2);
+    var c1b = el("button", "cta cta--primary", { type: "button", id: "pdp-cta" });
+    c1b.textContent = "Enquire now";
+    var c2b = el("button", "cta cta--ghost", { type: "button" });
+    c2b.textContent = "Book a private viewing";
+    ctas.appendChild(c1b); ctas.appendChild(c2b);
     panel.appendChild(ctas);
 
-    var links = el("div", "pdp-links");
-    LINKS.forEach(function (l) {
-      var a = el("a", "pdp-link", { href: "#/" });
-      a.appendChild(svg(18, { stroke: "#201e1d", sw: 1.4, round: true }, [l.d]));
-      var sp = el("span"); sp.textContent = l.label;
-      a.appendChild(sp);
-      links.appendChild(a);
-    });
-    panel.appendChild(links);
+    var avail = el("span", "pdp-avail");
+    avail.textContent = "Price on enquiry \u00b7 Made to order, 8\u201312 weeks";
+    panel.appendChild(avail);
+
+    // three accordions, collapsed by default, one open at a time
+    panel.appendChild(accordion("acc--pdp", [
+      { label: "Description & details", render: function (b) {
+          if (p.story) { var s0 = el("p", "acc-copy"); s0.textContent = p.story; b.appendChild(s0); }
+          specRows(b, [["Stone", p.carat], ["Origin", p.origin], ["Metal", p.metal], ["Reference", p.ref]]);
+        } },
+      { label: "Care and services", render: function (b) {
+          bullets(b, [
+            "Cleaned and checked by our workshop at any time, without charge.",
+            "Store flat in the fitted case, away from direct light and heat.",
+            "Resizing and restringing handled in-house; allow four weeks.",
+            "Every piece carries a lifetime guarantee against manufacturing defect."
+          ]);
+        } },
+      { label: "Shipping and returns", render: function (b) {
+          bullets(b, [
+            "Insured delivery worldwide, hand-carried on request.",
+            "Made to order in 8\u201312 weeks; we will confirm a date on enquiry.",
+            "Returns accepted within 30 days on stock pieces, unworn and boxed.",
+            "Commissioned and resized pieces are final sale."
+          ]);
+        } }
+    ], state.acc, function (i) { state.acc = i; render(); }));
+
     pdp.appendChild(panel);
     root.appendChild(pdp);
 
-    // spec strip
-    var specs = el("div", "specs");
-    [["Stone", p.carat], ["Origin", p.origin], ["Metal", p.metal], ["Reference", p.ref]].forEach(function (pair) {
-      var s = el("div", "spec");
-      s.appendChild(svg(26, { stroke: "#201e1d", sw: 1.2, round: true }, [STAT_ICONS[pair[0]]]));
-      var k = el("span", "spec-k"); k.textContent = pair[0];
-      var v = el("span", "spec-v"); v.textContent = pair[1];
-      s.appendChild(k); s.appendChild(v);
-      specs.appendChild(s);
-    });
-    root.appendChild(specs);
+    // cross-sell — same collection first, then the rest
+    var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
+      .concat(products.filter(function (q) { return q.id !== p.id && q.collection !== p.collection; }))
+      .slice(0, 4);
+    var relWrap = el("section", "related");
+    var relHead = el("div", "related-head");
+    var rt = el("span", "related-title"); rt.textContent = "You may also like";
+    var ra = el("a", "related-all", { href: "#/" }); ra.textContent = "View all";
+    relHead.appendChild(rt); relHead.appendChild(ra);
+    var relGrid = el("div", "related-grid");
+    rel.forEach(function (q) { relGrid.appendChild(productCard(q, { related: true })); });
+    relWrap.appendChild(relHead); relWrap.appendChild(relGrid);
+    root.appendChild(relWrap);
 
-    // film band
+    // editorial — full-bleed image, then the copy block
     var film = el("div", "film");
     film.appendChild(el("img", null, {
       src: IMG + "interlink-2.webp", alt: "", loading: "lazy", decoding: "async"
@@ -517,21 +603,74 @@
     film.appendChild(fBody);
     root.appendChild(film);
 
-    // related — same collection first, then the rest
-    var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
-      .concat(products.filter(function (q) { return q.id !== p.id && q.collection !== p.collection; }))
-      .slice(0, 4);
+    var ed = el("section", "editorial");
+    var edK = el("span", "editorial-kicker"); edK.textContent = "The workshop";
+    var edH = el("h2", "editorial-title"); edH.textContent = "Followed out of the ground";
+    var edP = el("p", "editorial-copy");
+    edP.textContent = "Every stone is chosen at the mine, cut in our own workshop and set by "
+      + "the same hands that cut it. Nothing is bought finished, and nothing leaves "
+      + "the bench until it has been worn and checked.";
+    var edA = el("a", "editorial-link", { href: "#/" }); edA.textContent = "Read our provenance";
+    ed.appendChild(edK); ed.appendChild(edH); ed.appendChild(edP); ed.appendChild(edA);
+    root.appendChild(ed);
 
-    var relWrap = el("section", "related");
-    var relHead = el("div", "related-head");
-    var rt = el("span", "related-title"); rt.textContent = "You may also like";
-    var ra = el("button", "related-all", { type: "button" }); ra.textContent = "View all";
-    ra.addEventListener("click", function () { location.hash = "#/"; });
-    relHead.appendChild(rt); relHead.appendChild(ra);
-    var relGrid = el("div", "related-grid");
-    rel.forEach(function (q) { relGrid.appendChild(productCard(q, { related: true })); });
-    relWrap.appendChild(relHead); relWrap.appendChild(relGrid);
-    root.appendChild(relWrap);
+    // FAQ
+    var faqWrap = el("section", "faq");
+    var faqH = el("h2", "faq-title"); faqH.textContent = "Frequently asked";
+    faqWrap.appendChild(faqH);
+    faqWrap.appendChild(accordion("acc--faq", [
+      { label: "Can a piece be commissioned or altered?", render: function (b) {
+          var t = el("p", "acc-copy");
+          t.textContent = "Yes. Most pieces can be re-cut to a different stone, length or metal. "
+            + "Commissions begin with a private appointment and take three to six months.";
+          b.appendChild(t);
+        } },
+      { label: "Is the stone certified?", render: function (b) {
+          var t = el("p", "acc-copy");
+          t.textContent = "Every stone above one carat ships with an independent laboratory report, "
+            + "and every piece with our own certificate of origin naming the mine.";
+          b.appendChild(t);
+        } },
+      { label: "How do private viewings work?", render: function (b) {
+          var t = el("p", "acc-copy");
+          t.textContent = "We bring the piece to you, or you visit the workshop. Either way an "
+            + "adviser stays with you for the appointment; there is no obligation to buy.";
+          b.appendChild(t);
+        } },
+      { label: "Why are prices not shown?", render: function (b) {
+          var t = el("p", "acc-copy");
+          t.textContent = "High jewellery is priced per stone, and no two are alike. We quote on "
+            + "enquiry so the figure reflects the piece you are actually looking at.";
+          b.appendChild(t);
+        } }
+    ], state.faq, function (i) { state.faq = i; render(); }));
+    root.appendChild(faqWrap);
+
+    // concierge band
+    var band = el("section", "concierge");
+    var bK = el("span", "concierge-kicker"); bK.textContent = "Client care";
+    var bT = el("p", "concierge-copy");
+    bT.textContent = "An adviser can answer anything about this piece \u2014 the stone, the setting, "
+      + "or how it wears.";
+    var bA = el("a", "concierge-cta", { href: "#/" }); bA.textContent = "Speak to an adviser";
+    var bH = el("span", "concierge-hours"); bH.textContent = "Monday to Saturday, 9am \u2013 7pm";
+    band.appendChild(bK); band.appendChild(bT); band.appendChild(bA); band.appendChild(bH);
+    root.appendChild(band);
+
+    // sticky CTA — appears once the in-panel button leaves the viewport
+    var sticky = el("div", "pdp-sticky");
+    var sName = el("span", "pdp-sticky-name"); sName.textContent = p.name;
+    var sBtn = el("button", "pdp-sticky-btn", { type: "button" }); sBtn.textContent = "Enquire now";
+    sticky.appendChild(sName); sticky.appendChild(sBtn);
+    root.appendChild(sticky);
+
+    if (stickyWatch) { stickyWatch.disconnect(); stickyWatch = null; }
+    if (window.IntersectionObserver) {
+      stickyWatch = new IntersectionObserver(function (entries) {
+        sticky.classList.toggle("is-on", !entries[0].isIntersecting);
+      }, { rootMargin: "-70px 0px 0px 0px" });
+      stickyWatch.observe(c1b);
+    }
   }
 
   function renderDrawer() {
@@ -568,9 +707,7 @@
         row.appendChild(el("span", "fopt-box"));
         var ol = el("span", "fopt-label"); ol.textContent = o;
         var oc = el("span", "fopt-count");
-        oc.textContent = products.filter(function (p) {
-          return (g.key === "price" ? band(p) : p[g.key]) === o;
-        }).length;
+        oc.textContent = products.filter(function (p) { return p[g.key] === o; }).length;
         row.appendChild(ol); row.appendChild(oc);
         row.addEventListener("click", function () { toggle(g.key, o); });
         grp.appendChild(row);
@@ -633,6 +770,7 @@
     readHash();
     if (was !== state.view + ":" + state.pid) {
       state.size = 0; state.finish = 0; state.storyOpen = false; state.drawerOpen = false;
+      state.acc = null; state.faq = null;
       window.scrollTo(0, 0);
     }
     render();

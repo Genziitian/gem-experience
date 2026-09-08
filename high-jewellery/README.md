@@ -18,26 +18,34 @@ python3 -m http.server 8000
 | `app.js` | Product data and logic, ported from the prototype's `DCLogic` component |
 | `img/` | Photography extracted from the design's `.image-slots.state.json` |
 
-## What the design contains
+## What the site contains
 
 One component with two views, driven by state:
 
-- **Listing** — breadcrumb, title, 12 designs, sort menu, filter drawer with four
-  groups (Category / Price / Collection / Occasion), active-filter chips, empty
-  state, and an editorial banner after every third product.
-- **Product** — six-tile gallery, sticky detail panel (materials, story with
-  read-more, metal swatches, sizes, two CTAs, four info links), a four-column
-  spec strip, a film band, and four related products.
+- **Collection** — breadcrumb, title, sort menu, filter drawer (Category /
+  Collection / Occasion), active-filter chips, empty state, a booking button
+  under each piece, and an interlink banner after the 4th and 12th product.
+- **Product** — built to the PDP blueprint: breadcrumb, swipeable gallery with
+  dot pagination, title and one-line description, metal and size variants,
+  enquiry CTAs with an availability line, three accordions, a cross-sell rail,
+  a full-bleed editorial band and copy block, an FAQ accordion, and a concierge
+  band. On mobile the CTA pins to the bottom once it scrolls out of view.
 
-Clicking a product opens its detail view; "View all" returns to the listing.
+Clicking a piece opens its product page; the breadcrumb returns to the
+collection.
+
+## No pricing
+
+There is no price anywhere: no `price` field, no price filter, no price sort.
+Pieces are quoted on enquiry, so sorting is alphabetical and the line under the
+CTA reads "Price on enquiry · Made to order, 8–12 weeks".
 
 ## Ported exactly
 
 Every colour, font size, letter-spacing, `clamp()`, gap and border in
 `styles.css` comes from the prototype's inline styles. From the component logic:
-the 12 products with all their attributes, the four filter groups, the price
-banding, the three sort keys, the 150-character story truncation, the metal-swatch
-colour rules (`Yellow` → `#c9a227`, `Rose` → `#d8a08c`, else `#c6c9cd`), the
+the filter groups, the metal-swatch colour rules (`Yellow` → `#c9a227`,
+`Rose` → `#d8a08c`, else `#c6c9cd`), the
 size rules (rings get 52/54/56, everything else One size / Made to order), the
 spec strip, and the related-product ordering (same collection first).
 

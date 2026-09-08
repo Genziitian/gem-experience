@@ -28,6 +28,7 @@
      carat / origin / ref / story on the new pieces are placeholders — real copy
      has not been supplied, and none of it is shown on the listing. */
   var products = [
+    { id: "weaver", name: "Weaver", materials: "Tanzanite, Diamond and 18k White Gold", price: 88000, type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "the-crown", name: "The Crown", materials: "Tanzanite, Diamond and 18k White Gold", price: 74000, type: "Earrings", collection: "Heritage", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "shamsa", name: "Shamsa", materials: "Rubellite, Diamond and 18k Yellow Gold", price: 132000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
     { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", price: 96000, type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
@@ -39,15 +40,12 @@
     { id: "celestine", name: "Celestine", materials: "Diamond, Sapphire and Aquamarine", price: 58000, type: "Earrings", collection: "Tanzania Universe", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "merelani", name: "Spinel Balls necklace", materials: "Rubellite, Diamond and 18k White Gold", price: 145000, type: "Earrings", collection: "Tanzania Universe", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "helix", name: "Helix", materials: "Tanzanite, Diamond and 18k White Gold", price: 78500, type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "crown", name: "Crown", materials: "Tanzanite, Diamond and 18k White Gold", price: 142000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "26.90ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1131", story: "Seven stones falling in decreasing size, articulated at every joint so the whole line moves with the head." },
     { id: "rihla", name: "Rihla", materials: "Mother-of-Pearl and Tanzanite", price: 158000, type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "serengeti", name: "Wimbi", materials: "6.4ct Tanzanite, Diamond and Platinum", price: 48600, type: "Rings", collection: "Tanzania Universe", occasion: "Collector", carat: "6.42ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1042", story: "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn." },
     { id: "kilimanjaro", name: "Ocean Wave", materials: "Tanzanite, Diamond and 18k White Gold", price: 186000, type: "Necklaces", collection: "Tanzania Universe", occasion: "Gala", carat: "41.80ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1108", story: "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin." },
     { id: "rift", name: "Tsavorite necklace", materials: "9.1ct Tanzanite Pair and Diamond", price: 92400, type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "9.14ct pair", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1073", story: "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light." },
     { id: "mahenge", name: "Samaah", materials: "Spinel, Diamond and Rose Gold", price: 64200, type: "Bracelets", collection: "Origin", occasion: "Collector", carat: "22.60ct total", origin: "Mahenge, Tanzania", metal: "18k Rose Gold", ref: "HJ-0994", story: "Mahenge spinel in the pink that made the deposit famous, held in rose gold links that take the colour warmer still." },
     { id: "oldoinyo", name: "Mediterranea", materials: "Diamond and Platinum", price: 312000, type: "Tiaras", collection: "Heritage", occasion: "Bridal", carat: "28.40ct total", origin: "Various", metal: "Platinum 950", ref: "HJ-0921", story: "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own." },
-    { id: "ruvuma", name: "Wimbi", materials: "Emerald, Diamond and Platinum", price: 96000, type: "Rings", collection: "Origin", occasion: "Collector", carat: "7.80ct", origin: "Ruvuma, Tanzania", metal: "Platinum 950", ref: "HJ-1088", story: "An emerald left in its natural proportion rather than cut down for symmetry, set with a claw at each corner and nothing else." },
-    { id: "manyara", name: "Manyara Solitaire", materials: "4.8ct Tanzanite and Platinum", price: 38400, type: "Rings", collection: "Tanzania Universe", occasion: "Bridal", carat: "4.81ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1026", story: "The plainest setting we make: four platinum claws, a knife-edge band, and a stone chosen for depth of colour over size." }
   ];
 
   var groupDefs = [
@@ -59,9 +57,8 @@
 
   var sortLabels = { featured: "Featured", asc: "Price low to high", desc: "Price high to low" };
 
-  /* Three editorial tiles came from the design; the two banners take the first
-     two, and the list cycles if more banner slots are ever added. */
-  var EDITORIAL = ["editorial-1", "editorial-2", "editorial-3"];
+  /* The two supplied interlink images, one per banner slot. */
+  var EDITORIAL = ["interlink-1", "interlink-2"];
 
   var BANNER_LABEL = "Discover High Jewellery";
 
@@ -509,7 +506,7 @@
     // film band
     var film = el("div", "film");
     film.appendChild(el("img", null, {
-      src: IMG + "editorial-2.webp", alt: "", loading: "lazy", decoding: "async"
+      src: IMG + "interlink-2.webp", alt: "", loading: "lazy", decoding: "async"
     }));
     var fBody = el("div", "film-body");
     var play = el("button", "film-play", { type: "button", "aria-label": "Play film" });

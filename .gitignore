@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+
+# Duplicate of gem-experience-product-pages/project/ — the Claude Design zip
+# extracted both a flattened and a nested copy. The bundle copy is the one kept.
+/project/

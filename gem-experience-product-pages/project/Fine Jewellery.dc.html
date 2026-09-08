@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#fff; -webkit-font-smoothing:antialiased; }
+  a { color:#000; text-decoration:none; }
+  a:hover { color:#6b7280; }
+</style>
+</helmet>
+
+<div style="background:#e9e7e2;min-height:100vh;padding:{{ shellPad }};box-sizing:border-box">
+  <div style="font-family:Jost,-apple-system,'Segoe UI',sans-serif;color:#000;background:#fff;min-height:100vh;display:flex;flex-direction:column;width:100%;max-width:{{ shellWidth }};margin:0 auto;box-shadow:{{ shellShadow }}">
+
+  <div style="position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding:24px clamp(20px,4vw,48px);box-sizing:border-box;gap:16px">
+    <div style="display:flex;flex-direction:row;align-items:center;gap:10px;min-width:92px;cursor:pointer" onClick="{{ openDrawer }}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </div>
+    <a href="#" style="font-weight:500;font-size:14px;line-height:20px;letter-spacing:5.6px;text-transform:uppercase;white-space:nowrap">Gem Experience</a>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:20px;min-width:92px;justify-content:flex-end">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1"><path d="M5 8h14l-1.2 12H6.2L5 8Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+    </div>
+  </div>
+
+  <sc-if value="{{ isGrid }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="padding:28px clamp(20px,4vw,48px) 56px;box-sizing:border-box">
+      <div style="display:flex;flex-direction:row;gap:8px;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#6b7280">
+        <a href="#" style="color:#6b7280">Home</a><span>/</span><a href="#" style="color:#6b7280">Jewellery</a><span>/</span><span style="color:#000">Fine Jewellery</span>
+      </div>
+      <h1 style="margin:22px 0 0;font-family:ui-serif,Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(26px,3.4vw,36px);line-height:1.15;letter-spacing:6px;text-transform:uppercase">Fine Jewellery</h1>
+      <p style="margin:20px 0 0;max-width:52ch;font-weight:300;font-size:16px;line-height:26px;color:#201e1d">Pieces made in series, in three metals and a full range of sizes. The same stones and the same bench as High Jewellery, ready to wear now.</p>
+    </div>
+
+    <div style="border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;display:flex;flex-direction:row;align-items:stretch;flex-wrap:nowrap">
+      <div style="flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:0 clamp(20px,4vw,48px);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#6b7280;min-height:64px">{{ countLabel }}</div>
+      <div style="position:relative;flex:0 0 auto;border-left:1px solid #e5e7eb">
+        <div style="display:flex;flex-direction:row;align-items:center;gap:10px;padding:0 clamp(18px,3vw,40px);min-height:64px;cursor:pointer;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#6b7280" style-hover="color:#000" onClick="{{ toggleSort }}">
+          <span>Sort by</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 9l7 7 7-7"></path></svg>
+        </div>
+        <sc-if value="{{ sortOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;right:0;top:100%;z-index:30;background:#fff;border:1px solid #e5e7eb;min-width:240px;display:flex;flex-direction:column">
+            <sc-for list="{{ sortOptions }}" as="opt" hint-placeholder-count="3">
+              <div style="padding:16px 20px;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;cursor:pointer;color:{{ opt.color }}" style-hover="background:#f9f8f3" onClick="{{ opt.onPick }}">{{ opt.label }}</div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div style="flex:0 0 auto;border-left:1px solid #e5e7eb;display:flex;flex-direction:row;align-items:center;gap:10px;padding:0 clamp(18px,3vw,40px);min-height:64px;cursor:pointer;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#6b7280" style-hover="color:#000" onClick="{{ openDrawer }}">
+        <span>Filter</span><span style="color:#000">{{ activeLabel }}</span>
+      </div>
+    </div>
+
+    <sc-if value="{{ hasActive }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:10px;padding:20px clamp(20px,4vw,48px);border-bottom:1px solid #e5e7eb">
+        <sc-for list="{{ activeChips }}" as="chip" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:row;align-items:center;gap:10px;border:1px solid #201e1d;padding:8px 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer" style-hover="background:#f9f8f3" onClick="{{ chip.onRemove }}">
+            <span>{{ chip.label }}</span><span style="color:#6b7280">×</span>
+          </div>
+        </sc-for>
+        <div style="display:flex;align-items:center;padding:8px 4px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6b7280;cursor:pointer;text-decoration:underline;text-underline-offset:4px" onClick="{{ clearAll }}">Clear all</div>
+      </div>
+    </sc-if>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(max(150px,23%),1fr));gap:clamp(28px,3vw,44px) clamp(10px,1.6vw,24px);padding:clamp(28px,3vw,40px) clamp(16px,2vw,32px) 96px;box-sizing:border-box">
+      <sc-for list="{{ cells }}" as="c" hint-placeholder-count="8">
+        <div style="display:flex;flex-direction:column">
+          <sc-if value="{{ c.isProduct }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column">
+              <div style="position:relative;width:100%;aspect-ratio:1/1;background:#f9f8f3;overflow:hidden">
+                <image-slot id="{{ c.slotId }}" shape="rect" fit="cover" placeholder="{{ c.slotHint }}"></image-slot>
+                <div style="position:absolute;left:14px;bottom:14px;display:flex;flex-direction:row;gap:8px">
+                  <sc-for list="{{ c.swatches }}" as="s" hint-placeholder-count="3">
+                    <span style="width:14px;height:14px;border-radius:50%;background:{{ s.hex }};box-shadow:{{ s.ring }}"></span>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;cursor:pointer" onClick="{{ c.onOpen }}">
+                <span style="font-weight:500;font-size:12px;letter-spacing:2.6px;text-transform:uppercase;line-height:18px">{{ c.name }}</span>
+                <span style="font-weight:300;font-size:14px;line-height:22px;color:#6b7280">{{ c.materials }}</span>
+                <span style="font-weight:400;font-size:14px;letter-spacing:0.4px;color:#6b7280">{{ c.priceLabel }}</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ c.isBanner }}" hint-placeholder-val="{{ false }}">
+            <div style="position:relative;background:#201e1d;height:100%;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end">
+              <div style="position:absolute;inset:0"><image-slot id="{{ c.bannerId }}" shape="rect" fit="cover" placeholder="Editorial image — Everyday Blue"></image-slot></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.62) 0%,rgba(0,0,0,0.05) 62%);pointer-events:none"></div>
+              <div style="position:relative;padding:clamp(20px,2vw,34px);display:flex;flex-direction:column;pointer-events:none">
+                <a href="#" style="pointer-events:auto;align-self:flex-start;color:#fff;font-size:13px;font-weight:500;letter-spacing:3.4px;text-transform:uppercase;padding-bottom:6px">{{ c.bannerLabel }}</a>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:0 clamp(20px,4vw,48px) 120px;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+        <span style="font-family:ui-serif,Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:3px">Nothing matches those filters.</span>
+        <div style="border:1px solid #201e1d;padding:14px 22px;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer" style-hover="background:#201e1d;color:#fff" onClick="{{ clearAll }}">Clear filters</div>
+      </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isProduct }}" hint-placeholder-val="{{ false }}">
+  <div style="padding:28px clamp(20px,4vw,48px) 96px;box-sizing:border-box">
+    <div style="display:flex;flex-direction:row;gap:8px;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#6b7280">
+      <span style="cursor:pointer;color:#6b7280" onClick="{{ backToGrid }}">Fine Jewellery</span><span>/</span><span style="color:#000">{{ current.name }}</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);padding-top:32px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="position:relative;width:100%;aspect-ratio:4/5;background:#f9f8f3;overflow:hidden">
+          <image-slot id="{{ mainSlot }}" shape="rect" fit="cover" placeholder="{{ current.slotHint }}"></image-slot>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+          <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="4">
+            <div style="position:relative;aspect-ratio:1/1;background:#f9f8f3;cursor:pointer;outline:{{ t.ring }};outline-offset:-1px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:{{ t.color }}" onClick="{{ t.onPick }}">{{ t.hint }}</div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0;max-width:560px">
+        <span style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#6b7280">{{ current.collection }}</span>
+        <h1 style="margin:18px 0 0;font-family:ui-serif,Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(28px,3vw,36px);line-height:1.2;letter-spacing:-0.9px">{{ current.name }}</h1>
+        <span style="padding-top:14px;font-weight:300;font-size:16px;line-height:26px;color:#6b7280">{{ current.materials }}</span>
+        <span style="padding-top:28px;font-size:20px;letter-spacing:0.4px">{{ current.priceLabel }}</span>
+
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:32px">
+          <span style="font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:#6b7280">Metal — {{ metalLabel }}</span>
+          <div style="display:flex;flex-direction:row;gap:14px">
+            <sc-for list="{{ metals }}" as="m" hint-placeholder-count="3">
+              <span style="width:34px;height:34px;border-radius:50%;background:{{ m.hex }};cursor:pointer;box-shadow:{{ m.ring }}" onClick="{{ m.onPick }}"></span>
+            </sc-for>
+          </div>
+        </div>
+
+        <p style="margin:0;padding-top:32px;font-weight:300;font-size:16px;line-height:28px;color:#201e1d">{{ current.story }}</p>
+
+        <div style="display:flex;flex-direction:column;gap:12px;padding-top:36px">
+          <div style="background:#201e1d;color:#fff;padding:20px 24px;font-size:12px;letter-spacing:3.4px;text-transform:uppercase;cursor:pointer;text-align:left" style-hover="background:#000">Add to bag — {{ current.priceLabel }}</div>
+          <div style="border:1px solid #201e1d;padding:20px 24px;font-size:12px;letter-spacing:3.4px;text-transform:uppercase;cursor:pointer;text-align:left" style-hover="background:#f9f8f3">Enquire about this piece</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;padding-top:44px;border-top:1px solid #e5e7eb;margin-top:44px">
+          <sc-for list="{{ specs }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:row;justify-content:space-between;gap:24px;padding:16px 0;border-bottom:1px solid #e5e7eb">
+              <span style="font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#6b7280">{{ s.k }}</span>
+              <span style="font-weight:300;font-size:14px;line-height:20px;text-align:right">{{ s.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-top:96px">
+      <div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:baseline;border-bottom:1px solid #e5e7eb;padding-bottom:20px">
+        <span style="font-size:12px;letter-spacing:3.4px;text-transform:uppercase">Complete the look</span>
+        <span style="font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#6b7280;cursor:pointer;border-bottom:1px solid #6b7280;padding-bottom:3px" onClick="{{ backToGrid }}">View all</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,clamp(150px,18vw,230px)),1fr));gap:32px 16px;padding-top:40px">
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column">
+            <div style="position:relative;width:100%;aspect-ratio:1/1;background:#f9f8f3;overflow:hidden">
+              <image-slot id="{{ r.relSlotId }}" shape="rect" fit="cover" placeholder="{{ r.slotHint }}"></image-slot>
+            </div>
+            <span style="padding-top:16px;font-weight:500;font-size:12px;letter-spacing:2.6px;text-transform:uppercase;cursor:pointer" onClick="{{ r.onOpen }}">{{ r.name }}</span>
+            <span style="padding-top:6px;font-weight:400;font-size:14px;color:#6b7280">{{ r.priceLabel }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:60;display:flex;flex-direction:row;justify-content:flex-end">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.32)" onClick="{{ closeDrawer }}"></div>
+      <div style="position:relative;width:min(420px,100%);height:100%;background:#fff;display:flex;flex-direction:column">
+        <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding:26px 28px;border-bottom:1px solid #e5e7eb">
+          <span style="font-size:12px;letter-spacing:3.4px;text-transform:uppercase">Filter</span>
+          <span style="font-size:20px;line-height:1;cursor:pointer;color:#6b7280" style-hover="color:#000" onClick="{{ closeDrawer }}">×</span>
+        </div>
+        <div style="flex:1 1 auto;overflow-y:auto;padding:8px 28px 32px">
+          <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:14px;padding:28px 0;border-bottom:1px solid #e5e7eb">
+              <span style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#6b7280">{{ g.label }}</span>
+              <sc-for list="{{ g.options }}" as="o" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:row;align-items:center;gap:14px;cursor:pointer;padding:4px 0" onClick="{{ o.onToggle }}">
+                  <span style="width:14px;height:14px;flex:0 0 auto;border:1px solid #201e1d;background:{{ o.box }}"></span>
+                  <span style="font-weight:300;font-size:15px;line-height:22px">{{ o.label }}</span>
+                  <span style="font-size:12px;color:#6b7280">{{ o.count }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:row;gap:12px;padding:20px 28px;border-top:1px solid #e5e7eb">
+          <div style="flex:1 1 auto;background:#201e1d;color:#fff;padding:18px 20px;font-size:12px;letter-spacing:3px;text-transform:uppercase;cursor:pointer" style-hover="background:#000" onClick="{{ closeDrawer }}">{{ applyLabel }}</div>
+          <div style="flex:0 0 auto;border:1px solid #201e1d;padding:18px 20px;font-size:12px;letter-spacing:3px;text-transform:uppercase;cursor:pointer" style-hover="background:#f9f8f3" onClick="{{ clearAll }}">Clear</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="margin-top:auto;background:#f9f8f3;border-top:1px solid #e5e7eb;padding:56px clamp(20px,4vw,48px);display:flex;flex-direction:row;flex-wrap:wrap;gap:40px 64px;justify-content:space-between">
+    <span style="font-weight:500;font-size:13px;letter-spacing:5.6px;text-transform:uppercase">Gem Experience</span>
+    <div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:48px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:#6b7280">Jewellery</span>
+        <a href="High Jewellery.dc.html" style="font-weight:300;font-size:14px">High Jewellery</a>
+        <a href="#" style="font-weight:300;font-size:14px">Fine Jewellery</a>
+        <a href="#" style="font-weight:300;font-size:14px">Gifts</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:#6b7280">Client care</span>
+        <a href="#" style="font-weight:300;font-size:14px">Shipping &amp; returns</a>
+        <a href="#" style="font-weight:300;font-size:14px">Ring sizing</a>
+        <a href="#" style="font-weight:300;font-size:14px">Care &amp; repair</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mobilePreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;View&quot;},&quot;showEditorialTile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;View&quot;},&quot;name1&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Grace Tanzanite Pendant&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Keel Edge Studs&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name3&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Meridian Eternity Band&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name4&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Tide Hoops&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name5&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Merelani Drop Earrings&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name6&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Merelani Solitaire Ring&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name7&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Tide Chain Bracelet&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name8&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Meridian Diamond Pendant&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name9&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Mahenge Spinel Ring&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name10&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Tsavorite Studs&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name11&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Keshi Pearl Necklace&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;name12&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Merelani Signet&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Product names&quot;},&quot;banner1&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Discover Tanzania&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Banner links&quot;},&quot;banner2&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Discover Tanzania&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Banner links&quot;},&quot;banner3&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Discover Tanzania&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Banner links&quot;},&quot;banner4&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Discover Tanzania&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Banner links&quot;}}">
+class Component extends DCLogic {
+  state = { view: "grid", pid: null, sortKey: "featured", sortOpen: false, drawerOpen: false, active: {}, shot: 0, metal: 0 };
+
+  metalHex = { "Yellow Gold": "#c9a227", "White Gold": "#c9ccd1", "Rose Gold": "#d8a08c", "Platinum": "#c6c9cd" };
+
+  products = [
+    { id: "grace-pendant", name: "Grace Tanzanite Pendant", materials: "4mm Tanzanite, Diamond and Yellow Gold", price: 2480, type: "Necklaces", collection: "Everyday Blue", occasion: "Gifting", metals: ["Yellow Gold", "White Gold", "Rose Gold"], stone: "0.42ct tanzanite", origin: "Merelani, Tanzania", ref: "FJ-2104", story: "A single tanzanite on a fine trace chain, cut small enough to wear under a shirt collar and never take off." },
+    { id: "keel-studs", name: "Keel Edge Studs", materials: "3mm Tanzanite and Diamond", price: 1880, type: "Earrings", collection: "Everyday Blue", occasion: "Gifting", metals: ["White Gold", "Yellow Gold"], stone: "0.36ct pair", origin: "Merelani, Tanzania", ref: "FJ-2011", story: "The smallest stones from each parcel, matched in pairs and set in a four-claw basket with a knife edge." },
+    { id: "meridian-band", name: "Meridian Eternity Band", materials: "Diamond and 18k White Gold", price: 4680, type: "Rings", collection: "Meridian", occasion: "Bridal", metals: ["White Gold", "Yellow Gold", "Rose Gold"], stone: "0.55ct total", origin: "Various", ref: "FJ-2260", story: "Channel-set all the way around, 2.1mm wide, sized to be worn stacked or on its own." },
+    { id: "tide-hoops", name: "Tide Hoops", materials: "18k Yellow Gold", price: 1640, type: "Earrings", collection: "Tide", occasion: "Gifting", metals: ["Yellow Gold", "White Gold", "Rose Gold"], stone: "—", origin: "—", ref: "FJ-1988", story: "Hollow-formed hoops, 22mm, light enough to forget you have them on." },
+    { id: "merelani-drop", name: "Merelani Drop Earrings", materials: "5mm Tanzanite and White Gold", price: 3280, type: "Earrings", collection: "Everyday Blue", occasion: "Occasion", metals: ["White Gold", "Yellow Gold"], stone: "1.10ct pair", origin: "Merelani, Tanzania", ref: "FJ-2145", story: "Two stones hung from a hinged fitting so they swing forward and catch the light when you turn." },
+    { id: "solitaire-ring", name: "Merelani Solitaire Ring", materials: "6mm Tanzanite and Platinum", price: 5920, type: "Rings", collection: "Everyday Blue", occasion: "Bridal", metals: ["Platinum", "White Gold", "Yellow Gold"], stone: "1.24ct", origin: "Merelani, Tanzania", ref: "FJ-2222", story: "One cushion-cut stone, four claws, a plain band. Nothing between the stone and the light." },
+    { id: "tide-chain", name: "Tide Chain Bracelet", materials: "18k Rose Gold", price: 2180, type: "Bracelets", collection: "Tide", occasion: "Gifting", metals: ["Rose Gold", "Yellow Gold", "White Gold"], stone: "—", origin: "—", ref: "FJ-2032", story: "A flat curb chain with a concealed clasp, finished so the links lie flush on the wrist." },
+    { id: "meridian-pendant", name: "Meridian Diamond Pendant", materials: "Diamond and 18k Yellow Gold", price: 2940, type: "Necklaces", collection: "Meridian", occasion: "Bridal", metals: ["Yellow Gold", "White Gold"], stone: "0.30ct", origin: "Various", ref: "FJ-2178", story: "A bezel-set brilliant that sits flat against the skin, on an adjustable 42-45cm chain." },
+    { id: "spinel-ring", name: "Mahenge Spinel Ring", materials: "5mm Spinel and Rose Gold", price: 4120, type: "Rings", collection: "Origin", occasion: "Occasion", metals: ["Rose Gold", "Yellow Gold"], stone: "1.02ct spinel", origin: "Mahenge, Tanzania", ref: "FJ-2301", story: "Mahenge pink in a warm gold setting that pushes the colour further towards red." },
+    { id: "tsavorite-studs", name: "Tsavorite Studs", materials: "4mm Tsavorite and Yellow Gold", price: 2260, type: "Earrings", collection: "Origin", occasion: "Gifting", metals: ["Yellow Gold", "White Gold"], stone: "0.68ct pair", origin: "Umba Valley, Tanzania", ref: "FJ-2088", story: "Green garnet from the Umba, bright enough to read as emerald at arm's length." },
+    { id: "pearl-strand", name: "Keshi Pearl Necklace", materials: "5mm Keshi Pearls and White Gold", price: 3640, type: "Necklaces", collection: "Tide", occasion: "Occasion", metals: ["White Gold", "Yellow Gold"], stone: "5mm keshi", origin: "Indian Ocean", ref: "FJ-2199", story: "Keshi pearls spaced along a fine chain, knotted by hand at 45cm." },
+    { id: "signet", name: "Merelani Signet", materials: "Tanzanite and 18k Yellow Gold", price: 3480, type: "Rings", collection: "Everyday Blue", occasion: "Gifting", metals: ["Yellow Gold", "Rose Gold", "White Gold"], stone: "0.90ct", origin: "Merelani, Tanzania", ref: "FJ-2277", story: "A flush-set stone in a squared signet face, made to be knocked about and keep its shape." }
+  ];
+
+  groupDefs = [
+    { key: "type", label: "Category", opts: ["Rings", "Necklaces", "Earrings", "Bracelets"] },
+    { key: "price", label: "Price", opts: ["Under $2,000", "$2,000 – $3,500", "$3,500 – $5,000", "Above $5,000"] },
+    { key: "collection", label: "Collection", opts: ["Everyday Blue", "Meridian", "Tide", "Origin"] },
+    { key: "occasion", label: "Occasion", opts: ["Bridal", "Occasion", "Gifting"] }
+  ];
+
+  band(p) {
+    if (p.price < 2000) return "Under $2,000";
+    if (p.price < 3500) return "$2,000 – $3,500";
+    if (p.price < 5000) return "$3,500 – $5,000";
+    return "Above $5,000";
+  }
+
+  money(n) { return "$" + n.toLocaleString("en-AU") + " AUD"; }
+
+  sel(key) { return this.state.active[key] || []; }
+
+  matches(p) {
+    return this.groupDefs.every(g => {
+      const s = this.sel(g.key);
+      if (!s.length) return true;
+      return s.indexOf(g.key === "price" ? this.band(p) : p[g.key]) !== -1;
+    });
+  }
+
+  toggle(key, val) {
+    this.setState(st => {
+      const cur = (st.active[key] || []).slice();
+      const i = cur.indexOf(val);
+      i === -1 ? cur.push(val) : cur.splice(i, 1);
+      return { active: Object.assign({}, st.active, { [key]: cur }) };
+    });
+  }
+
+  open(p) {
+    this.setState({ view: "product", pid: p.id, shot: 0, metal: 0, drawerOpen: false });
+    if (typeof window !== "undefined") window.scrollTo(0, 0);
+  }
+
+  renderVals() {
+    const sortKey = this.state.sortKey;
+    let list = this.products.filter(p => this.matches(p));
+    if (sortKey === "asc") list = list.slice().sort((a, b) => a.price - b.price);
+    if (sortKey === "desc") list = list.slice().sort((a, b) => b.price - a.price);
+
+    const nm = p => this.props["name" + (this.products.findIndex(q => q.id === p.id) + 1)] || p.name;
+    const card = (p, metal) => ({
+      name: nm(p),
+      materials: metal && metal !== p.metals[0] ? p.materials.split(p.metals[0]).join(metal) : p.materials,
+      collection: p.collection, story: p.story,
+      priceLabel: this.money(p.price),
+      slotId: "fj2-" + p.id, relSlotId: "fj2-rel-" + p.id,
+      slotHint: p.name,
+      img: "assets/plate-" + (this.products.findIndex(q => q.id === p.id) % 8 + 1) + ".png",
+      swatches: p.metals.map((m, i) => ({
+        hex: this.metalHex[m],
+        ring: i === 0 ? "0 0 0 1px #fff, 0 0 0 2px #201e1d" : "0 0 0 1px rgba(255,255,255,0.85)"
+      })),
+      onOpen: () => this.open(p)
+    });
+
+    const current = this.products.find(p => p.id === this.state.pid) || this.products[0];
+    const sortLabels = { featured: "Featured", asc: "Price low to high", desc: "Price high to low" };
+    const activeChips = [];
+    this.groupDefs.forEach(g => this.sel(g.key).forEach(v =>
+      activeChips.push({ label: v, onRemove: () => this.toggle(g.key, v) })));
+    const mi = Math.min(this.state.metal, current.metals.length - 1);
+
+    const mob = this.props.mobilePreview ?? false;
+    return {
+      shellPad: mob ? "32px 16px" : "0",
+      shellWidth: mob ? "390px" : "none",
+      shellShadow: mob ? "0 18px 50px rgba(0,0,0,0.14)" : "none",
+      isGrid: this.state.view === "grid",
+      isProduct: this.state.view === "product",
+      cells: (() => {
+        const src = list.map(p => Object.assign({ isProduct: true, isBanner: false }, card(p)));
+        if (!(this.props.showEditorialTile ?? true)) return src;
+        const out = []; let b = 0;
+        src.forEach((c, i) => {
+          out.push(c);
+          if ((i + 1) % 3 === 0) {
+            b++;
+            out.push({ isProduct: false, isBanner: true, bannerLabel: this.props["banner" + b] || "Discover Tanzania", bannerId: "fj-editorial-" + b });
+          }
+        });
+        return out;
+      })(),
+      isEmpty: list.length === 0,
+      countLabel: list.length + (list.length === 1 ? " design" : " designs"),
+
+      sortOpen: this.state.sortOpen,
+      toggleSort: () => this.setState(s => ({ sortOpen: !s.sortOpen })),
+      sortOptions: Object.keys(sortLabels).map(k => ({
+        label: sortLabels[k],
+        color: k === sortKey ? "#000" : "#6b7280",
+        onPick: () => this.setState({ sortKey: k, sortOpen: false })
+      })),
+
+      drawerOpen: this.state.drawerOpen,
+      openDrawer: () => this.setState({ drawerOpen: true, sortOpen: false }),
+      closeDrawer: () => this.setState({ drawerOpen: false }),
+      clearAll: () => this.setState({ active: {} }),
+      hasActive: activeChips.length > 0,
+      activeChips,
+      activeLabel: activeChips.length ? "(" + activeChips.length + ")" : "",
+      applyLabel: "Show " + list.length + (list.length === 1 ? " design" : " designs"),
+      groups: this.groupDefs.map(g => ({
+        label: g.label,
+        options: g.opts.map(o => ({
+          label: o,
+          box: this.sel(g.key).indexOf(o) !== -1 ? "#201e1d" : "transparent",
+          count: this.products.filter(p => (g.key === "price" ? this.band(p) : p[g.key]) === o).length,
+          onToggle: () => this.toggle(g.key, o)
+        }))
+      })),
+
+      current: card(current, current.metals[mi]),
+      metalLabel: current.metals[mi],
+      metals: current.metals.map((m, i) => ({
+        hex: this.metalHex[m],
+        ring: i === mi ? "0 0 0 2px #fff inset, 0 0 0 1px #201e1d" : "0 0 0 1px #e5e7eb",
+        onPick: () => this.setState({ metal: i })
+      })),
+      mainSlot: "fj2-pdp-" + current.id + "-" + this.state.shot,
+      mainImg: "assets/shot-" + (this.state.shot + 1) + ".png",
+      thumbs: [0, 1, 2, 3].map(i => ({
+        slotId: "fj2-pdp-" + current.id + "-" + i,
+        hint: "View " + (i + 1),
+        color: i === this.state.shot ? "#201e1d" : "#9ca3af",
+        ring: i === this.state.shot ? "1px solid #201e1d" : "1px solid #e5e7eb",
+        onPick: () => this.setState({ shot: i })
+      })),
+      specs: [
+        { k: "Reference", v: current.ref },
+        { k: "Stone", v: current.stone },
+        { k: "Origin", v: current.origin },
+        { k: "Metal", v: current.metals[mi] === "Platinum" ? "Platinum 950" : "18k " + current.metals[mi] },
+        { k: "Delivery", v: "In stock — ships in 3 days" }
+      ],
+      related: this.products.filter(p => p.id !== current.id && p.collection === current.collection)
+        .concat(this.products.filter(p => p.id !== current.id && p.collection !== current.collection))
+        .slice(0, 4).map(card),
+      backToGrid: () => { this.setState({ view: "grid" }); if (typeof window !== "undefined") window.scrollTo(0, 0); }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

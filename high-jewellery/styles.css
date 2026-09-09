@@ -368,7 +368,9 @@ button {
 
 /* ------------------------------------------------------------------- pdp */
 
-.pdp { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(380px, 0.5fr); align-items: start; }
+/* 60/40 rather than 75/25 — the mosaic was taking three quarters of the width
+   and squeezing the copy into a narrow rail. */
+.pdp { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(400px, 0.8fr); align-items: start; }
 
 
 .pdp-panel {
@@ -376,8 +378,10 @@ button {
   top: 88px;
   display: flex;
   flex-direction: column;
-  padding: 56px clamp(28px, 3.4vw, 64px) 72px;
+  padding: 56px clamp(28px, 4vw, 76px) 72px;
 }
+/* text stops growing with the column so lines stay readable */
+.pdp-panel > * { max-width: 520px; }
 
 .pdp-head {
   display: flex;

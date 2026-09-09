@@ -106,6 +106,8 @@
     Stone: "M6 3h12l3 6-9 12L3 9l3-6ZM3 9h18M9 3 6 9l6 12M15 3l3 6-6 12",
     Origin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0ZM12 12a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z",
     Metal: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z",
+    Gemstone: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z",
+    Jewellery: "M12 2L3 9l9 13 9-13-9-14ZM5.5 9h13M8 9l4 10 4-10",
     Reference: "M3 8h18v8H3V8ZM7 11v2M11 11v2M15 11v2M19 11v2",
     Category: "M20.6 13.4 12 22l-9-9V4h9l8.6 8.6a1.4 1.4 0 0 1 0 2ZM7.5 7.5v.01",
     Collection: "M12 3 3 7.5l9 4.5 9-4.5L12 3ZM3 12.5 12 17l9-4.5M3 17 12 21.5 21 17",
@@ -732,7 +734,7 @@
     panel.appendChild(accordion("acc--pdp", [
       { label: "Description & details", render: function (b) {
           if (p.story) { var s0 = el("p", "acc-copy"); s0.textContent = p.story; b.appendChild(s0); }
-          specRows(b, [["Stone", p.carat], ["Origin", p.origin], ["Metal", p.metal], ["Reference", p.ref]]);
+          specRows(b, [["Stone", p.carat], ["Origin", p.origin], ["Gemstone", p.materials], ["Reference", p.ref]]);
         } },
       { label: "Care and services", render: function (b) {
           bullets(b, [
@@ -758,9 +760,9 @@
     // spec strip — icon, label, value; hairline top and bottom
     /* carat / origin / reference are placeholders on newer pieces, so drop any
        em-dash and top up from attributes every piece actually has. */
-    var specPairs = [["Stone", p.carat], ["Origin", p.origin], ["Metal", p.metal], ["Reference", p.ref]]
+    var specPairs = [["Stone", p.carat], ["Origin", p.origin], ["Gemstone", p.materials], ["Reference", p.ref]]
       .filter(function (x) { return x[1] && x[1] !== "\u2014"; });
-    [["Category", p.type], ["Collection", p.collection]].forEach(function (x) {
+    [["Category", p.type], ["Collection", p.collection], ["Jewellery", "High Jewellery"]].forEach(function (x) {
       if (specPairs.length < 4) specPairs.push(x);
     });
 

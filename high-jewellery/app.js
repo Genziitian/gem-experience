@@ -67,6 +67,18 @@
     "alt-mahenge", "alt-ring", "alt-merelani", "alt-oldoinyo"
   ];
 
+  var STORY = [
+    { img: "interlink-1", h: "Chosen at the source",
+      p: "Our cutters travel to the Merelani hills and buy rough at the pit, not "
+       + "through a broker. Nothing enters the workshop unless one of us has held it." },
+    { img: "interlink-2", h: "Cut in our own workshop",
+      p: "Each stone is cut for colour rather than weight, which means losing "
+       + "carats to keep the blue even from every angle. It is the slower way." },
+    { img: "alt-collar", h: "Finished by hand",
+      p: "Settings are raised, pierced and polished at the bench by the same hand "
+       + "from start to finish, then worn for a day before it is allowed to leave." }
+  ];
+
   var STAT_ICONS = {
     Stone: "M6 3h12l3 6-9 12L3 9l3-6ZM3 9h18M9 3 6 9l6 12M15 3l3 6-6 12",
     Origin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0ZM12 12a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z",
@@ -396,6 +408,8 @@
      No pricing anywhere — enquiry only. */
 
   var stickyWatch = null;
+  var galleryWatch = null;
+  var DESKTOP = window.matchMedia("(min-width: 901px)");
 
   /* Enquiries go to WhatsApp. Two lines, so the CTA opens a chooser rather than
      guessing; wa.me wants digits only, no plus or spaces. */
@@ -541,12 +555,29 @@
     });
     gal.appendChild(dots);
 
-    track.addEventListener("scroll", function () {
-      var i = Math.round(track.scrollLeft / track.clientWidth);
+    function mark(i) {
       Array.prototype.forEach.call(dots.children, function (d, j) {
         d.classList.toggle("is-on", j === i);
       });
+    }
+
+    /* Phones swipe the track sideways; desktop stacks the frames and scrolls
+       the page, so each layout needs its own way of knowing which is showing. */
+    track.addEventListener("scroll", function () {
+      if (DESKTOP.matches) return;
+      mark(Math.round(track.scrollLeft / track.clientWidth));
     }, { passive: true });
+
+    if (window.IntersectionObserver) {
+      if (galleryWatch) galleryWatch.disconnect();
+      galleryWatch = new IntersectionObserver(function (entries) {
+        if (!DESKTOP.matches) return;
+        entries.forEach(function (e) {
+          if (e.isIntersecting) mark(Array.prototype.indexOf.call(track.children, e.target));
+        });
+      }, { threshold: 0.55 });
+      Array.prototype.forEach.call(track.children, function (n) { galleryWatch.observe(n); });
+    }
 
     return gal;
   }
@@ -695,30 +726,21 @@
     relWrap.appendChild(relHead); relWrap.appendChild(relGrid);
     root.appendChild(relWrap);
 
-    // editorial — full-bleed image, then the copy block
-    var film = el("div", "film");
-    film.appendChild(el("img", null, {
-      src: IMG + "interlink-2.webp", alt: "", loading: "lazy", decoding: "async"
-    }));
-    var fBody = el("div", "film-body");
-    var play = el("button", "film-play", { type: "button", "aria-label": "Play film" });
-    play.appendChild(svg(20, { fill: "#fff" }, ["M8 5.5v13l11-6.5z"]));
-    var fLabel = el("span", "film-label");
-    fLabel.textContent = "The making of " + p.collection;
-    fBody.appendChild(play); fBody.appendChild(fLabel);
-    film.appendChild(fBody);
-    root.appendChild(film);
-
-    var ed = el("section", "editorial");
-    var edK = el("span", "editorial-kicker"); edK.textContent = "The workshop";
-    var edH = el("h2", "editorial-title"); edH.textContent = "Followed out of the ground";
-    var edP = el("p", "editorial-copy");
-    edP.textContent = "Every stone is chosen at the mine, cut in our own workshop and set by "
-      + "the same hands that cut it. Nothing is bought finished, and nothing leaves "
-      + "the bench until it has been worn and checked.";
-    var edA = el("a", "editorial-link", { href: "#/" }); edA.textContent = "Read our provenance";
-    ed.appendChild(edK); ed.appendChild(edH); ed.appendChild(edP); ed.appendChild(edA);
-    root.appendChild(ed);
+    /* Alternating sequence: a half-width frame with its paragraph beneath,
+       stepping left, right, left down the page. Replaces the video band. */
+    var story = el("section", "story");
+    STORY.forEach(function (b, i) {
+      var blk = el("div", "story-block" + (i % 2 ? " story-block--right" : ""));
+      var inner = el("div", "story-inner");
+      var f = el("div", "story-shot");
+      f.appendChild(el("img", null, { src: IMG + b.img + ".webp", alt: "", loading: "lazy", decoding: "async" }));
+      var h = el("h3", "story-h"); h.textContent = b.h;
+      var t = el("p", "story-p"); t.textContent = b.p;
+      inner.appendChild(f); inner.appendChild(h); inner.appendChild(t);
+      blk.appendChild(inner);
+      story.appendChild(blk);
+    });
+    root.appendChild(story);
 
     // FAQ
     var faqWrap = el("section", "faq");
@@ -766,10 +788,15 @@
 
     // sticky CTA — appears once the in-panel button leaves the viewport
     var sticky = el("div", "pdp-sticky");
-    var sName = el("span", "pdp-sticky-name"); sName.textContent = p.name;
+    var sMenu = el("button", "pdp-sticky-icon", { type: "button", "aria-label": "Open menu" });
+    sMenu.appendChild(svg(22, { stroke: "currentColor", sw: 1 }, ["M4 7h16M4 12h16M4 17h16"]));
+    sMenu.addEventListener("click", openDrawer);
+    var sBag = el("button", "pdp-sticky-icon", { type: "button", "aria-label": "Shopping bag" });
+    sBag.appendChild(svg(20, { stroke: "currentColor", sw: 1 },
+      ["M5 8h14l-1.2 12H6.2L5 8Z", "M9 8V6a3 3 0 0 1 6 0v2"]));
     var sBtn = el("button", "pdp-sticky-btn", { type: "button" }); sBtn.textContent = "Enquire now";
     sBtn.addEventListener("click", function () { openEnquiry(p); });
-    sticky.appendChild(sName); sticky.appendChild(sBtn);
+    sticky.appendChild(sMenu); sticky.appendChild(sBag); sticky.appendChild(sBtn);
     root.appendChild(sticky);
 
     if (stickyWatch) { stickyWatch.disconnect(); stickyWatch = null; }

@@ -32,8 +32,13 @@ One component with two views, driven by state:
   it scrolls out of view.
 
   The gallery is one set of markup in two layouts: a swipe track with dot
-  pagination on phones, and from 901px a two-column mosaic that scrolls against
-  the pinned info column.
+  pagination on phones, and from 901px a stacked single-frame scroller with the
+  dots running vertically at the bottom-left. Frames are capped at 76vh so a
+  wide column cannot make them tower.
+
+  Below the product block, an alternating sequence steps a half-width frame and
+  its paragraph left, right, left down the page. On mobile the bottom bar
+  carries a menu button and a bag button alongside the enquiry CTA.
 
 Clicking a piece opens its product page; the breadcrumb returns to the
 collection.

@@ -71,7 +71,9 @@
     Stone: "M6 3h12l3 6-9 12L3 9l3-6ZM3 9h18M9 3 6 9l6 12M15 3l3 6-6 12",
     Origin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0ZM12 12a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z",
     Metal: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z",
-    Reference: "M3 8h18v8H3V8ZM7 11v2M11 11v2M15 11v2M19 11v2"
+    Reference: "M3 8h18v8H3V8ZM7 11v2M11 11v2M15 11v2M19 11v2",
+    Category: "M20.6 13.4 12 22l-9-9V4h9l8.6 8.6a1.4 1.4 0 0 1 0 2ZM7.5 7.5v.01",
+    Collection: "M12 3 3 7.5l9 4.5 9-4.5L12 3ZM3 12.5 12 17l9-4.5M3 17 12 21.5 21 17"
   };
 
   // --------------------------------------------------------------- state
@@ -126,11 +128,11 @@
     var alt = IMG + "alt-" + p.id + ".webp";
     var owned = ["serengeti", "kilimanjaro", "rift", "mahenge", "merelani", "oldoinyo"];
     if (owned.indexOf(p.id) !== -1) out.push(alt);
-    for (var i = 0; out.length < 5; i++) {
+    for (var i = 0; out.length < 4; i++) {
       var f = IMG + FILLERS[(base * 3 + i) % FILLERS.length] + ".webp";
       if (out.indexOf(f) === -1) out.push(f);
     }
-    return out.slice(0, 5);
+    return out.slice(0, 4);
   }
 
   function storyFor(p) {
@@ -514,7 +516,7 @@
   }
 
   function buildGallery(p) {
-    var shots = galleryFor(p).slice(0, 3);
+    var shots = galleryFor(p);
     var gal = el("div", "gal");
     var track = el("div", "gal-track");
     shots.forEach(function (src, i) {
@@ -658,20 +660,26 @@
     pdp.appendChild(panel);
     root.appendChild(pdp);
 
-    // a full-bleed pair, so the page keeps leading with pictures
-    var pair = galleryFor(p).slice(3, 5);
-    if (pair.length === 2) {
-      var duo = el("div", "duo");
-      pair.forEach(function (src, i) {
-        var f = el("div", "duo-shot");
-        f.appendChild(el("img", null, {
-          src: src, alt: p.name + " \u2014 detail " + (i + 1),
-          loading: "lazy", decoding: "async"
-        }));
-        duo.appendChild(f);
+    // spec strip — icon, label, value; hairline top and bottom
+    /* carat / origin / reference are placeholders on newer pieces, so drop any
+       em-dash and top up from attributes every piece actually has. */
+    var specPairs = [["Stone", p.carat], ["Origin", p.origin], ["Metal", p.metal], ["Reference", p.ref]]
+      .filter(function (x) { return x[1] && x[1] !== "\u2014"; });
+    [["Category", p.type], ["Collection", p.collection]].forEach(function (x) {
+      if (specPairs.length < 4) specPairs.push(x);
+    });
+
+    var specs = el("div", "specs");
+    specPairs
+      .forEach(function (pair) {
+        var cell = el("div", "spec");
+        cell.appendChild(svg(24, { stroke: "#201e1d", sw: 1, round: true }, [STAT_ICONS[pair[0]]]));
+        var k = el("span", "spec-k"); k.textContent = pair[0];
+        var v = el("span", "spec-v"); v.textContent = pair[1];
+        cell.appendChild(k); cell.appendChild(v);
+        specs.appendChild(cell);
       });
-      root.appendChild(duo);
-    }
+    root.appendChild(specs);
 
     // cross-sell — same collection first, then the rest
     var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })

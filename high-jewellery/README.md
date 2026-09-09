@@ -25,11 +25,15 @@ One component with two views, driven by state:
 - **Collection** — breadcrumb, title, sort menu, filter drawer (Category /
   Collection / Occasion), active-filter chips, empty state, a booking button
   under each piece, and an interlink banner after the 4th and 12th product.
-- **Product** — built to the PDP blueprint: breadcrumb, swipeable gallery with
-  dot pagination, title and one-line description, metal and size variants,
-  enquiry CTAs with an availability line, three accordions, a cross-sell rail,
-  a full-bleed editorial band and copy block, an FAQ accordion, and a concierge
-  band. On mobile the CTA pins to the bottom once it scrolls out of view.
+- **Product** — breadcrumb, gallery, title and one-line description, metal and
+  size variants, enquiry CTAs with an availability line, three accordions, a
+  spec strip, a cross-sell rail, a full-bleed editorial band and copy block, an
+  FAQ accordion, and a concierge band. On mobile the CTA pins to the bottom once
+  it scrolls out of view.
+
+  The gallery is one set of markup in two layouts: a swipe track with dot
+  pagination on phones, and from 901px a two-column mosaic that scrolls against
+  the pinned info column.
 
 Clicking a piece opens its product page; the breadcrumb returns to the
 collection.

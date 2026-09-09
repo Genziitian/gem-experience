@@ -390,9 +390,9 @@ button {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(26px, 2.4vw, 34px);
-  line-height: 1.24;
-  letter-spacing: 2.4px;
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.18;
+  letter-spacing: 3px;
   text-transform: uppercase;
   text-wrap: pretty;
 }
@@ -403,7 +403,7 @@ button {
 
 
 .opt-block { display: flex; flex-direction: column; gap: 12px; }
-.opt-block--metal { padding-top: 34px; }
+.opt-block--metal { padding-top: 40px; }
 .opt-block--size { padding-top: 28px; }
 .opt-label { font-size: 14px; font-weight: 300; color: var(--ink-soft); }
 
@@ -424,7 +424,7 @@ button {
 
 .size-guide {
   align-self: flex-start;
-  margin-top: 30px;
+  margin-top: 34px;
   font-size: 14px;
   font-weight: 300;
   border-bottom: 1px solid var(--ink-soft);
@@ -433,7 +433,7 @@ button {
 
 .ctas { display: flex; flex-direction: column; gap: 10px; padding-top: 34px; }
 .cta {
-  padding: 20px 24px;
+  padding: 22px 26px;
   font-size: 12px;
   letter-spacing: 3.4px;
   text-transform: uppercase;
@@ -544,6 +544,7 @@ button {
   scroll-snap-align: start;
   /* the photography is square, so match it and crop nothing */
   aspect-ratio: 1 / 1;
+  min-width: 0;
   background: var(--tile);
   overflow: hidden;
 }
@@ -557,13 +558,26 @@ button {
 }
 .gal-dot.is-on { background: var(--ink-soft); }
 
+/* From tablet up the frames stop sliding and lay out as a two-column mosaic
+   that scrolls against the pinned info column — the Paspaley pattern. Same
+   markup either way, so there is no duplicate DOM. */
+@media (min-width: 901px) {
+  .gal-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    overflow: visible;
+  }
+  .gal-dots { display: none; }
+}
+
 /* ------------------------------------------------------- pdp info column */
 
 .crumbs--pdp { padding: 26px var(--gutter) 22px; }
 
 .pdp-sub {
   margin: 0;
-  padding-top: 14px;
+  padding-top: 18px;
   font-weight: 300;
   font-size: 15px;
   line-height: 24px;
@@ -732,6 +746,26 @@ button {
 }
 
 
+
+/* --------------------------------------------------------------- spec strip */
+
+.specs {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 44px 24px;
+  padding: 60px var(--gutter);
+}
+.spec { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.spec-k {
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.spec-v { font-weight: 300; font-size: 14px; line-height: 22px; color: var(--muted); }
+
 /* --------------------------------------------------------- enquiry modal */
 
 .modal { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; }
@@ -795,11 +829,6 @@ button {
 
 .modal-foot { font-size: 12px; font-weight: 300; color: var(--muted); }
 
-/* ------------------------------------------------------ full-bleed detail */
-
-.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: #fff; }
-.duo-shot { aspect-ratio: 4 / 5; background: var(--tile); overflow: hidden; }
-.duo-shot img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------------------------------------------------------------- drawer */
 
@@ -990,12 +1019,12 @@ button {
 
   .crumbs--pdp { padding: 16px 20px 14px; }
   .pdp-panel { padding: 30px 20px 44px; }
-  .duo { grid-template-columns: 1fr; gap: 2px; }
   .modal-card { padding: 32px 22px 26px; }
   .pdp-sticky { display: flex; }
   .editorial { padding: 48px 20px; }
   .faq { padding: 0 20px 48px; }
   .concierge { padding: 40px 20px; }
+  .specs { padding: 40px 20px; gap: 32px 20px; }
   .concierge-cta { align-self: stretch; text-align: center; }
 
   .ftr { padding: 44px 20px 28px; }

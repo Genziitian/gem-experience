@@ -453,7 +453,7 @@
     card.appendChild(x);
 
     var k = el("span", "modal-kicker"); k.textContent = "Enquire";
-    var t = el("h2", "modal-title"); t.textContent = p ? p.name : "Speak to an adviser";
+    var t = el("h2", "modal-title"); t.textContent = p ? p.name : "Contact us";
     var sub = el("p", "modal-sub");
     sub.textContent = "Choose the line closest to you. We will pick up on WhatsApp.";
     card.appendChild(k); card.appendChild(t); card.appendChild(sub);
@@ -780,7 +780,7 @@
     var bT = el("p", "concierge-copy");
     bT.textContent = "An adviser can answer anything about this piece \u2014 the stone, the setting, "
       + "or how it wears.";
-    var bA = el("button", "concierge-cta", { type: "button" }); bA.textContent = "Speak to an adviser";
+    var bA = el("button", "concierge-cta", { type: "button" }); bA.textContent = "Contact us";
     bA.addEventListener("click", function () { openEnquiry(p); });
     var bH = el("span", "concierge-hours"); bH.textContent = "Monday to Saturday, 9am \u2013 7pm";
     band.appendChild(bK); band.appendChild(bT); band.appendChild(bA); band.appendChild(bH);

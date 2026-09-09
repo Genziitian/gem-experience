@@ -24,7 +24,7 @@
      carat / origin / ref / story on the new pieces are placeholders — real copy
      has not been supplied, and none of it is shown on the listing. */
   var products = [
-    { id: "weaver", name: "Weaver", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "weaver", name: "Weaver", materials: "Tanzanite and Diamond", type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: null, ref: "—", story: "", isGemstone: true, cut: "—", colour: "—", clarity: "—", treatment: "—", cert: "—" },
     {
       id: "the-crown",
       name: "The Crown",

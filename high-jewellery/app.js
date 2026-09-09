@@ -126,11 +126,11 @@
     var alt = IMG + "alt-" + p.id + ".webp";
     var owned = ["serengeti", "kilimanjaro", "rift", "mahenge", "merelani", "oldoinyo"];
     if (owned.indexOf(p.id) !== -1) out.push(alt);
-    for (var i = 0; out.length < 4; i++) {
+    for (var i = 0; out.length < 5; i++) {
       var f = IMG + FILLERS[(base * 3 + i) % FILLERS.length] + ".webp";
       if (out.indexOf(f) === -1) out.push(f);
     }
-    return out.slice(0, 4);
+    return out.slice(0, 5);
   }
 
   function storyFor(p) {
@@ -257,6 +257,7 @@
       type: "button", "aria-label": "Book an appointment for " + p.name
     });
     b.textContent = "Book an Appointment";
+    b.addEventListener("click", function () { openEnquiry(p); });
     return b;
   }
 
@@ -394,6 +395,86 @@
 
   var stickyWatch = null;
 
+  /* Enquiries go to WhatsApp. Two lines, so the CTA opens a chooser rather than
+     guessing; wa.me wants digits only, no plus or spaces. */
+  var WHATSAPP = [
+    { label: "India", dial: "+91 73000 43093", wa: "917300043093" },
+    { label: "United Arab Emirates", dial: "+971 56 720 3896", wa: "971567203896" }
+  ];
+
+  function waHref(num, p) {
+    var msg = p
+      ? "Hello Gem Experience \u2014 I would like to enquire about " + p.name + " (" + p.materials + ")."
+      : "Hello Gem Experience \u2014 I would like to speak to an adviser.";
+    return "https://wa.me/" + num.wa + "?text=" + encodeURIComponent(msg);
+  }
+
+  /* Built imperatively rather than through render(), so opening the chooser
+     does not reset the gallery's scroll position. */
+  function closeEnquiry() {
+    var host = document.getElementById("modal-host");
+    var m = host.firstChild;
+    if (!m) return;
+    m.classList.remove("is-on");
+    document.body.style.overflow = "";
+    setTimeout(function () { if (m.parentNode === host) host.removeChild(m); }, 240);
+  }
+
+  function openEnquiry(p) {
+    var host = document.getElementById("modal-host");
+    host.innerHTML = "";
+
+    var wrap = el("div", "modal", { role: "dialog", "aria-modal": "true", "aria-label": "Enquire" });
+    var scrim = el("div", "modal-scrim");
+    scrim.addEventListener("click", closeEnquiry);
+    wrap.appendChild(scrim);
+
+    var card = el("div", "modal-card", { tabindex: "-1" });
+
+    var x = el("button", "modal-close", { type: "button", "aria-label": "Close" });
+    x.textContent = "\u00d7";
+    x.addEventListener("click", closeEnquiry);
+    card.appendChild(x);
+
+    var k = el("span", "modal-kicker"); k.textContent = "Enquire";
+    var t = el("h2", "modal-title"); t.textContent = p ? p.name : "Speak to an adviser";
+    var sub = el("p", "modal-sub");
+    sub.textContent = "Choose the line closest to you. We will pick up on WhatsApp.";
+    card.appendChild(k); card.appendChild(t); card.appendChild(sub);
+
+    var list = el("div", "modal-list");
+    WHATSAPP.forEach(function (num) {
+      var a = el("a", "modal-opt", {
+        href: waHref(num, p), target: "_blank", rel: "noopener noreferrer"
+      });
+      var ic = el("span", "modal-opt-icon");
+      ic.appendChild(svg(20, { fill: "currentColor" }, [
+        "M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.13c-.24.68-1.42 1.32-1.95 1.37-.5.05-.97.24-3.27-.68-2.75-1.08-4.5-3.87-4.64-4.05-.14-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.27.55-.34.73-.34.18 0 .37 0 .53.01.17.01.4-.6.62.48.24.57.8 1.96.87 2.1.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.12.59-.7.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.6.75 1.87.89.27.14.46.2.53.32.07.11.07.64-.17 1.32Z"
+      ]));
+      var body = el("span", "modal-opt-body");
+      var lb = el("span", "modal-opt-label"); lb.textContent = num.label;
+      var dl = el("span", "modal-opt-dial"); dl.textContent = num.dial;
+      body.appendChild(lb); body.appendChild(dl);
+      var arrow = svg(16, { stroke: "currentColor", sw: 1.3 }, ["M4 12h14M12 6l6 6-6 6"]);
+      arrow.setAttribute("class", "modal-opt-arrow");
+      a.appendChild(ic); a.appendChild(body); a.appendChild(arrow);
+      a.addEventListener("click", function () { setTimeout(closeEnquiry, 150); });
+      list.appendChild(a);
+    });
+    card.appendChild(list);
+
+    var foot = el("span", "modal-foot");
+    foot.textContent = "Monday to Saturday, 9am \u2013 7pm";
+    card.appendChild(foot);
+
+    wrap.appendChild(card);
+    host.appendChild(wrap);
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(function () { wrap.classList.add("is-on"); });
+    card.focus();  // move focus into the dialog without ringing the close button
+  }
+
+
   function accordion(cls, items, openIdx, onToggle) {
     var wrap = el("div", "acc " + cls);
     items.forEach(function (it, i) {
@@ -433,7 +514,7 @@
   }
 
   function buildGallery(p) {
-    var shots = galleryFor(p);
+    var shots = galleryFor(p).slice(0, 3);
     var gal = el("div", "gal");
     var track = el("div", "gal-track");
     shots.forEach(function (src, i) {
@@ -539,8 +620,10 @@
     var ctas = el("div", "ctas");
     var c1b = el("button", "cta cta--primary", { type: "button", id: "pdp-cta" });
     c1b.textContent = "Enquire now";
+    c1b.addEventListener("click", function () { openEnquiry(p); });
     var c2b = el("button", "cta cta--ghost", { type: "button" });
     c2b.textContent = "Book a private viewing";
+    c2b.addEventListener("click", function () { openEnquiry(p); });
     ctas.appendChild(c1b); ctas.appendChild(c2b);
     panel.appendChild(ctas);
 
@@ -574,6 +657,21 @@
 
     pdp.appendChild(panel);
     root.appendChild(pdp);
+
+    // a full-bleed pair, so the page keeps leading with pictures
+    var pair = galleryFor(p).slice(3, 5);
+    if (pair.length === 2) {
+      var duo = el("div", "duo");
+      pair.forEach(function (src, i) {
+        var f = el("div", "duo-shot");
+        f.appendChild(el("img", null, {
+          src: src, alt: p.name + " \u2014 detail " + (i + 1),
+          loading: "lazy", decoding: "async"
+        }));
+        duo.appendChild(f);
+      });
+      root.appendChild(duo);
+    }
 
     // cross-sell — same collection first, then the rest
     var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
@@ -652,7 +750,8 @@
     var bT = el("p", "concierge-copy");
     bT.textContent = "An adviser can answer anything about this piece \u2014 the stone, the setting, "
       + "or how it wears.";
-    var bA = el("a", "concierge-cta", { href: "#/" }); bA.textContent = "Speak to an adviser";
+    var bA = el("button", "concierge-cta", { type: "button" }); bA.textContent = "Speak to an adviser";
+    bA.addEventListener("click", function () { openEnquiry(p); });
     var bH = el("span", "concierge-hours"); bH.textContent = "Monday to Saturday, 9am \u2013 7pm";
     band.appendChild(bK); band.appendChild(bT); band.appendChild(bA); band.appendChild(bH);
     root.appendChild(band);
@@ -661,6 +760,7 @@
     var sticky = el("div", "pdp-sticky");
     var sName = el("span", "pdp-sticky-name"); sName.textContent = p.name;
     var sBtn = el("button", "pdp-sticky-btn", { type: "button" }); sBtn.textContent = "Enquire now";
+    sBtn.addEventListener("click", function () { openEnquiry(p); });
     sticky.appendChild(sName); sticky.appendChild(sBtn);
     root.appendChild(sticky);
 
@@ -784,7 +884,8 @@
 
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
-    if (state.drawerOpen) closeDrawer();
+    if (document.getElementById("modal-host").firstChild) closeEnquiry();
+    else if (state.drawerOpen) closeDrawer();
     else if (state.sortOpen) { state.sortOpen = false; render(); }
   });
 

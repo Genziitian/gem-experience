@@ -368,7 +368,7 @@ button {
 
 /* ------------------------------------------------------------------- pdp */
 
-.pdp { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.65fr); align-items: start; }
+.pdp { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(380px, 0.5fr); align-items: start; }
 
 
 .pdp-panel {
@@ -376,7 +376,7 @@ button {
   top: 88px;
   display: flex;
   flex-direction: column;
-  padding: 32px clamp(20px, 3vw, 48px) 56px;
+  padding: 56px clamp(28px, 3.4vw, 64px) 72px;
 }
 
 .pdp-head {
@@ -431,7 +431,7 @@ button {
   padding-bottom: 2px;
 }
 
-.ctas { display: flex; flex-direction: column; gap: 10px; padding-top: 22px; }
+.ctas { display: flex; flex-direction: column; gap: 10px; padding-top: 34px; }
 .cta {
   padding: 20px 24px;
   font-size: 12px;
@@ -495,7 +495,7 @@ button {
 
 /* related */
 
-.related { padding: 80px var(--gutter) 96px; }
+.related { padding: 96px var(--gutter) 104px; }
 .related-head {
   display: flex;
   flex-wrap: wrap;
@@ -516,9 +516,9 @@ button {
 }
 .related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(150px, 23%), 1fr));
-  gap: 32px 16px;
-  padding-top: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(max(160px, 23%), 1fr));
+  gap: 36px 20px;
+  padding-top: 48px;
 }
 .related-name { padding-top: 16px; font-weight: 500; font-size: 12px; letter-spacing: 2.6px; text-transform: uppercase; }
 .related-materials {
@@ -549,7 +549,7 @@ button {
 }
 .gal-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-.gal-dots { display: flex; justify-content: center; gap: 9px; padding: 20px 0 4px; }
+.gal-dots { display: flex; justify-content: center; gap: 9px; padding: 22px 0 6px; }
 .gal-dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: rgba(32, 30, 29, 0.22);
@@ -559,7 +559,7 @@ button {
 
 /* ------------------------------------------------------- pdp info column */
 
-.crumbs--pdp { padding: 24px var(--gutter) 0; }
+.crumbs--pdp { padding: 26px var(--gutter) 22px; }
 
 .pdp-sub {
   margin: 0;
@@ -581,7 +581,7 @@ button {
 /* accordions */
 
 .acc { display: flex; flex-direction: column; }
-.acc--pdp { margin-top: 34px; border-top: 1px solid var(--rule); }
+.acc--pdp { margin-top: 44px; border-top: 1px solid var(--rule); }
 .acc-row { border-bottom: 1px solid var(--rule); }
 .acc-head {
   width: 100%;
@@ -589,9 +589,9 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 0;
-  font-size: 12px;
-  letter-spacing: 2.4px;
+  padding: 22px 0;
+  font-size: 11px;
+  letter-spacing: 2.6px;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
@@ -635,8 +635,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  padding: 72px var(--gutter);
+  gap: 18px;
+  padding: 88px var(--gutter);
   max-width: 720px;
 }
 .editorial-kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
@@ -730,6 +730,76 @@ button {
   letter-spacing: 2.6px;
   text-transform: uppercase;
 }
+
+
+/* --------------------------------------------------------- enquiry modal */
+
+.modal { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; }
+.modal-scrim {
+  position: absolute; inset: 0;
+  background: rgba(32, 30, 29, 0.42);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.modal.is-on .modal-scrim { opacity: 1; }
+
+.modal-card:focus { outline: none; }
+.modal-card {
+  position: relative;
+  width: min(440px, calc(100% - 32px));
+  background: #fff;
+  padding: 40px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2, 0, 0.1, 1);
+}
+.modal.is-on .modal-card { opacity: 1; transform: none; }
+
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  font-size: 22px; line-height: 1; color: var(--muted);
+}
+.modal-close:hover { color: var(--ink); }
+
+.modal-kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+.modal-title {
+  margin: 12px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.24;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.modal-sub { margin: 12px 0 0; font-weight: 300; font-size: 14px; line-height: 22px; color: var(--muted); }
+
+.modal-list { display: flex; flex-direction: column; gap: 10px; padding: 26px 0 20px; }
+.modal-opt {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  transition: border-color 200ms ease, background 200ms ease;
+}
+.modal-opt:hover { border-color: var(--ink-soft); background: var(--tile); color: var(--ink-soft); }
+.modal-opt-icon { flex: 0 0 auto; display: flex; color: #25d366; }
+.modal-opt-body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.modal-opt-label { font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase; }
+.modal-opt-dial { font-weight: 300; font-size: 14px; color: var(--muted); }
+.modal-opt-arrow { flex: 0 0 auto; color: var(--muted); transition: transform 200ms ease; }
+.modal-opt:hover .modal-opt-arrow { transform: translateX(3px); }
+
+.modal-foot { font-size: 12px; font-weight: 300; color: var(--muted); }
+
+/* ------------------------------------------------------ full-bleed detail */
+
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: #fff; }
+.duo-shot { aspect-ratio: 4 / 5; background: var(--tile); overflow: hidden; }
+.duo-shot img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------------------------------------------------------------- drawer */
 
@@ -918,8 +988,10 @@ button {
 
   .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
 
-  .crumbs--pdp { padding: 18px 20px 0; }
-  .pdp-panel { padding: 24px 20px 40px; }
+  .crumbs--pdp { padding: 16px 20px 14px; }
+  .pdp-panel { padding: 30px 20px 44px; }
+  .duo { grid-template-columns: 1fr; gap: 2px; }
+  .modal-card { padding: 32px 22px 26px; }
   .pdp-sticky { display: flex; }
   .editorial { padding: 48px 20px; }
   .faq { padding: 0 20px 48px; }

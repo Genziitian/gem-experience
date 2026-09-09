@@ -34,6 +34,21 @@ One component with two views, driven by state:
 Clicking a piece opens its product page; the breadcrumb returns to the
 collection.
 
+## Enquiries
+
+Every CTA — "Enquire now", "Book a private viewing", the mobile sticky bar, the
+concierge band and the booking button on each collection card — opens a chooser
+with the two WhatsApp lines:
+
+| Line | Number |
+| --- | --- |
+| India | +91 73000 43093 |
+| United Arab Emirates | +971 56 720 3896 |
+
+Picking one opens `wa.me` in a new tab with the message pre-filled with the
+piece's name and materials. Numbers live in `WHATSAPP` at the top of `app.js`;
+`wa.me` needs digits only, no plus or spaces.
+
 ## No pricing
 
 There is no price anywhere: no `price` field, no price filter, no price sort.

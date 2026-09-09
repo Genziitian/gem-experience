@@ -88,15 +88,18 @@
   ];
 
   var STORY = [
-    { img: "interlink-1", h: "Chosen at the source",
+    { img: "story-half", h: "Chosen at the source",
       p: "Our cutters travel to the Merelani hills and buy rough at the pit, not "
        + "through a broker. Nothing enters the workshop unless one of us has held it." },
-    { img: "interlink-2", h: "Cut in our own workshop",
+    { img: "story-model1", h: "Cut in our own workshop",
       p: "Each stone is cut for colour rather than weight, which means losing "
        + "carats to keep the blue even from every angle. It is the slower way." },
-    { img: "alt-collar", h: "Finished by hand",
+    { img: "story-model2", h: "Finished by hand",
       p: "Settings are raised, pierced and polished at the bench by the same hand "
-       + "from start to finish, then worn for a day before it is allowed to leave." }
+       + "from start to finish, then worn for a day before it is allowed to leave." },
+    { img: "story-model3", h: "Worn with Elegance",
+      p: "Designed to be worn effortlessly and gracefully, complementing every occasion "
+       + "with a touch of unmatched sophistication." }
   ];
 
   var STAT_ICONS = {
@@ -158,6 +161,14 @@
   /* The design never filled the six PDP slots, so build a deterministic set:
      the product's own artwork first, then filler frames offset by its index. */
   function galleryFor(p) {
+    if (p.id === "weaver") {
+      return [
+        IMG + "weaver.webp",
+        IMG + "weaver-detail.webp",
+        IMG + "weaver-half.webp",
+        IMG + "weaver-model.webp"
+      ];
+    }
     if (p.id === "the-crown" || p.isGemstone) {
       return [
         IMG + "the-crown.webp",

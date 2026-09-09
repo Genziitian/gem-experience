@@ -731,13 +731,13 @@
     var story = el("section", "story");
     STORY.forEach(function (b, i) {
       var blk = el("div", "story-block" + (i % 2 ? " story-block--right" : ""));
-      var inner = el("div", "story-inner");
       var f = el("div", "story-shot");
       f.appendChild(el("img", null, { src: IMG + b.img + ".webp", alt: "", loading: "lazy", decoding: "async" }));
+      var txt = el("div", "story-text");
       var h = el("h3", "story-h"); h.textContent = b.h;
       var t = el("p", "story-p"); t.textContent = b.p;
-      inner.appendChild(f); inner.appendChild(h); inner.appendChild(t);
-      blk.appendChild(inner);
+      txt.appendChild(h); txt.appendChild(t);
+      blk.appendChild(f); blk.appendChild(txt);
       story.appendChild(blk);
     });
     root.appendChild(story);

@@ -36,8 +36,8 @@ One component with two views, driven by state:
   dots running vertically at the bottom-left. Frames are capped at 76vh so a
   wide column cannot make them tower.
 
-  Below the product block, an alternating sequence steps a half-width frame and
-  its paragraph left, right, left down the page. On mobile the bottom bar
+  Below the product block, an alternating sequence pairs a half-width frame with
+  its copy beside it, centred against the image, swapping sides each row. On mobile the bottom bar
   carries a menu button and a bag button alongside the enquiry CTA.
 
 Clicking a piece opens its product page; the breadcrumb returns to the

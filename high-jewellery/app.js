@@ -25,7 +25,27 @@
      has not been supplied, and none of it is shown on the listing. */
   var products = [
     { id: "weaver", name: "Weaver", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "the-crown", name: "The Crown", materials: "Tanzanite, Diamond and 18k White Gold", type: "Earrings", collection: "Heritage", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    {
+      id: "the-crown",
+      name: "The Crown",
+      materials: "Natural Royal Blue Tanzanite Gemstone",
+      type: "Gemstones",
+      collection: "Heritage",
+      occasion: "Collector",
+      gemstone: "Natural Tanzanite",
+      carat: "18.45ct total",
+      origin: "Merelani Hills, Tanzania",
+      metal: null,
+      cut: "Marquise Brilliant Cut",
+      colour: "Royal Velvet Blue / Deep Violet (AAA+)",
+      colourSummary: "Royal Blue",
+      clarity: "Eye Clean (VVS)",
+      treatment: "Natural / Unheated",
+      certification: "Gemological Lab Report & Certificate of Origin",
+      ref: "GEM-CRW-104",
+      story: "An extraordinary natural Tanzanite crystal formation of museum calibre, unearthed from the premier Merelani deposits of Tanzania. Celebrated for its intense royal blue saturation with rich violet flashes and exceptional optical clarity, The Crown exhibits dramatic trichroic fire and precision lapidary faceting designed to maximize brilliance and color dispersion in its purest crystalline state.",
+      isGemstone: true
+    },
     { id: "shamsa", name: "Shamsa", materials: "Rubellite, Diamond and 18k Yellow Gold", type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
     { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "hive", name: "Hive", materials: "Tanzanite, Diamond and Blue Enamel", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
@@ -45,7 +65,7 @@
   ];
 
   var groupDefs = [
-    { key: "type", label: "Category", opts: ["Rings", "Necklaces", "Earrings", "Bracelets", "Tiaras"] },
+    { key: "type", label: "Category", opts: ["Gemstones", "Rings", "Necklaces", "Earrings", "Bracelets", "Tiaras"] },
     { key: "collection", label: "Collection", opts: ["Tanzania Universe", "Origin", "Nocturne", "Heritage"] },
     { key: "occasion", label: "Occasion", opts: ["Bridal", "Gala", "Collector", "Gifting"] }
   ];
@@ -85,7 +105,10 @@
     Metal: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z",
     Reference: "M3 8h18v8H3V8ZM7 11v2M11 11v2M15 11v2M19 11v2",
     Category: "M20.6 13.4 12 22l-9-9V4h9l8.6 8.6a1.4 1.4 0 0 1 0 2ZM7.5 7.5v.01",
-    Collection: "M12 3 3 7.5l9 4.5 9-4.5L12 3ZM3 12.5 12 17l9-4.5M3 17 12 21.5 21 17"
+    Collection: "M12 3 3 7.5l9 4.5 9-4.5L12 3ZM3 12.5 12 17l9-4.5M3 17 12 21.5 21 17",
+    Carat: "M12 2L4 8l8 14 8-14-8-6ZM4 8h16M9 8l3 14 3-14",
+    Cut: "M12 2L3 9l9 13 9-13-9-14ZM5.5 9h13M8 9l4 10 4-10",
+    Colour: "M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9Zm0 15a6 6 0 0 1 0-12v12Z"
   };
 
   // --------------------------------------------------------------- state
@@ -135,6 +158,13 @@
   /* The design never filled the six PDP slots, so build a deterministic set:
      the product's own artwork first, then filler frames offset by its index. */
   function galleryFor(p) {
+    if (p.id === "the-crown" || p.isGemstone) {
+      return [
+        IMG + "the-crown.webp",
+        IMG + "the-crown-detail.webp",
+        IMG + "the-crown-macro.webp"
+      ];
+    }
     var base = indexOf(p);
     var out = [cardImg(p)];
     var alt = IMG + "alt-" + p.id + ".webp";
@@ -153,6 +183,7 @@
   }
 
   function finishesFor(p) {
+    if (!p.metal) return [];
     /* second swatch always differs from the piece's own metal, so the pair
        never renders as two identical circles */
     var alt = /Yellow/.test(p.metal) ? "18k White Gold" : "18k Yellow Gold";
@@ -168,6 +199,7 @@
   }
 
   function sizesFor(p) {
+    if (p.isGemstone || p.type === "Gemstones") return [];
     return p.type === "Rings" ? ["52", "54", "56"] : ["One size", "Made to order"];
   }
 
@@ -516,9 +548,11 @@
   function specRows(host, pairs) {
     var dl = el("dl", "spec-list");
     pairs.forEach(function (pair) {
-      var dt = el("dt"); dt.textContent = pair[0];
-      var dd = el("dd"); dd.textContent = pair[1];
-      dl.appendChild(dt); dl.appendChild(dd);
+      if (pair[1] != null && pair[1] !== "" && pair[1] !== "\u2014") {
+        var dt = el("dt"); dt.textContent = pair[0];
+        var dd = el("dd"); dd.textContent = pair[1];
+        dl.appendChild(dt); dl.appendChild(dd);
+      }
     });
     host.appendChild(dl);
   }
@@ -617,37 +651,56 @@
     var sub = el("p", "pdp-sub"); sub.textContent = p.materials;
     panel.appendChild(sub);
 
-    // metal
-    var metalBlock = el("div", "opt-block opt-block--metal");
-    var metalLabel = el("span", "opt-label"); metalLabel.textContent = "Metal: " + p.metal;
-    var fRow = el("div", "finishes");
-    finishesFor(p).forEach(function (fi, i) {
-      var sw = el("button", "finish", {
-        type: "button", "aria-label": fi.label, "aria-pressed": String(i === state.finish)
+    if (p.isGemstone) {
+      var badges = el("div", "gem-badges");
+      var props = [
+        { label: "Cut", val: p.cut },
+        { label: "Colour", val: p.colour },
+        { label: "Clarity", val: p.clarity },
+        { label: "Treatment", val: p.treatment },
+        { label: "Certification", val: p.cert }
+      ];
+      props.forEach(function (prop) {
+        if (prop.val) {
+          var badge = el("span", "gem-badge");
+          badge.textContent = prop.label + ": " + prop.val;
+          badges.appendChild(badge);
+        }
       });
-      sw.style.background = fi.hex;
-      sw.style.boxShadow = fi.ring;
-      sw.addEventListener("click", function () { state.finish = i; render(); });
-      fRow.appendChild(sw);
-    });
-    metalBlock.appendChild(metalLabel); metalBlock.appendChild(fRow);
-    panel.appendChild(metalBlock);
+      panel.appendChild(badges);
+    } else {
+      // metal
+      var metalBlock = el("div", "opt-block opt-block--metal");
+      var metalLabel = el("span", "opt-label"); metalLabel.textContent = "Metal: " + p.metal;
+      var fRow = el("div", "finishes");
+      finishesFor(p).forEach(function (fi, i) {
+        var sw = el("button", "finish", {
+          type: "button", "aria-label": fi.label, "aria-pressed": String(i === state.finish)
+        });
+        sw.style.background = fi.hex;
+        sw.style.boxShadow = fi.ring;
+        sw.addEventListener("click", function () { state.finish = i; render(); });
+        fRow.appendChild(sw);
+      });
+      metalBlock.appendChild(metalLabel); metalBlock.appendChild(fRow);
+      panel.appendChild(metalBlock);
 
-    // size
-    var sizeBlock = el("div", "opt-block opt-block--size");
-    var sizeLabel = el("span", "opt-label"); sizeLabel.textContent = "Size";
-    var sRow = el("div", "sizes");
-    sizesFor(p).forEach(function (z, i) {
-      var b = el("button", "size", { type: "button", "aria-pressed": String(i === state.size) });
-      b.textContent = z;
-      b.addEventListener("click", function () { state.size = i; render(); });
-      sRow.appendChild(b);
-    });
-    sizeBlock.appendChild(sizeLabel); sizeBlock.appendChild(sRow);
-    panel.appendChild(sizeBlock);
+      // size
+      var sizeBlock = el("div", "opt-block opt-block--size");
+      var sizeLabel = el("span", "opt-label"); sizeLabel.textContent = "Size";
+      var sRow = el("div", "sizes");
+      sizesFor(p).forEach(function (z, i) {
+        var b = el("button", "size", { type: "button", "aria-pressed": String(i === state.size) });
+        b.textContent = z;
+        b.addEventListener("click", function () { state.size = i; render(); });
+        sRow.appendChild(b);
+      });
+      sizeBlock.appendChild(sizeLabel); sizeBlock.appendChild(sRow);
+      panel.appendChild(sizeBlock);
 
-    var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size guide";
-    panel.appendChild(guide);
+      var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size guide";
+      panel.appendChild(guide);
+    }
 
     // CTA + the one availability line beneath it
     var ctas = el("div", "ctas");

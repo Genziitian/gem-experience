@@ -562,6 +562,28 @@ button {
   color: var(--muted);
 }
 
+.gem-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 20px;
+  padding-bottom: 6px;
+}
+
+.gem-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--tile);
+  font-weight: 400;
+}
+
 /* accordions */
 
 .acc { display: flex; flex-direction: column; }

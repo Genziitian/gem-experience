@@ -125,7 +125,6 @@
     sortOpen: false,
     drawerOpen: false,
     active: {},
-    size: 0,
     finish: 0,
     storyOpen: false,
     acc: null,
@@ -209,11 +208,6 @@
           : "0 0 0 1px #e5e7eb"
       };
     });
-  }
-
-  function sizesFor(p) {
-    if (p.isGemstone || p.type === "Gemstones") return [];
-    return p.type === "Rings" ? ["52", "54", "56"] : ["One size", "Made to order"];
   }
 
   function current() {
@@ -698,19 +692,8 @@
       metalBlock.appendChild(metalLabel); metalBlock.appendChild(fRow);
       if (p.metal) panel.appendChild(metalBlock);
 
-      // size
-      var sizeBlock = el("div", "opt-block opt-block--size");
-      var sizeLabel = el("span", "opt-label"); sizeLabel.textContent = "Size";
-      var sRow = el("div", "sizes");
-      sizesFor(p).forEach(function (z, i) {
-        var b = el("button", "size", { type: "button", "aria-pressed": String(i === state.size) });
-        b.textContent = z;
-        b.addEventListener("click", function () { state.size = i; render(); });
-        sRow.appendChild(b);
-      });
-      sizeBlock.appendChild(sizeLabel); sizeBlock.appendChild(sRow);
-      panel.appendChild(sizeBlock);
-
+      // No size selector: every High Jewellery piece is a single commission,
+      // so there is nothing to choose between. The guide stays for sizing.
       var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size guide";
       panel.appendChild(guide);
     }
@@ -725,10 +708,6 @@
     c2b.addEventListener("click", function () { openEnquiry(p); });
     ctas.appendChild(c1b); ctas.appendChild(c2b);
     panel.appendChild(ctas);
-
-    var avail = el("span", "pdp-avail");
-    avail.textContent = "Price on enquiry \u00b7 Made to order, 8\u201312 weeks";
-    panel.appendChild(avail);
 
     // three accordions, collapsed by default, one open at a time
     panel.appendChild(accordion("acc--pdp", [
@@ -970,7 +949,7 @@
     var was = state.view + ":" + state.pid;
     readHash();
     if (was !== state.view + ":" + state.pid) {
-      state.size = 0; state.finish = 0; state.storyOpen = false; state.drawerOpen = false;
+      state.finish = 0; state.storyOpen = false; state.drawerOpen = false;
       state.acc = null; state.faq = null;
       window.scrollTo(0, 0);
     }

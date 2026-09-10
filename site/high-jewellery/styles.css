@@ -409,27 +409,14 @@ button {
 
 .opt-block { display: flex; flex-direction: column; gap: 12px; }
 .opt-block--metal { padding-top: 24px; }
-.opt-block--size { padding-top: 24px; }
 .opt-label { font-size: 14px; font-weight: 300; color: var(--ink-soft); }
 
 .finishes { display: flex; gap: 14px; }
 .finish { width: 34px; height: 34px; border-radius: 50%; }
 
-.sizes { display: flex; gap: 12px; flex-wrap: wrap; }
-.size {
-  min-width: 62px;
-  text-align: center;
-  padding: 12px 14px;
-  border: 1px solid var(--swatch-rule);
-  background: #fff;
-  color: var(--ink-soft);
-  font-size: 14px;
-}
-.size[aria-pressed="true"] { background: var(--ink-soft); color: #fff; border-color: var(--ink-soft); }
-
 .size-guide {
   align-self: flex-start;
-  margin-top: 34px;
+  margin-top: 22px;
   font-size: 14px;
   font-weight: 300;
   border-bottom: 1px solid var(--ink-soft);
@@ -499,13 +486,16 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 .gal-track::-webkit-scrollbar { display: none; }
+/* The gallery mixes square plates with portrait model frames. A square box
+   in a tile-coloured ground matted every portrait in wide cream bands, which
+   read as a cutout stuck on the page. The ground is now the page itself, so
+   whatever the frame does not fill is invisible, and the box leans portrait
+   to leave less of it. `contain` still crops nothing. */
 .gal-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  /* the photography is square, so match it and crop nothing */
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   min-width: 0;
-  background: var(--tile);
   overflow: hidden;
 }
 .gal-slide img { width: 100%; height: 100%; object-fit: contain; }
@@ -527,7 +517,11 @@ button {
      info column stays pinned. Height is capped against the viewport so a wide
      column cannot make the frames tower. */
   .gal-track { display: flex; flex-direction: column; gap: 2px; overflow: visible; }
-  .gal-slide { flex: 0 0 auto; max-height: 76vh; }
+  /* Stacked frames are not a carousel, so they need no shared height: each one
+     takes the column's full width at its own proportions. Nothing is matted
+     and nothing is cropped. */
+  .gal-slide { flex: 0 0 auto; aspect-ratio: auto; max-height: none; }
+  .gal-slide img { height: auto; }
   .gal-dots {
     position: sticky;
     bottom: 40px;
@@ -553,14 +547,6 @@ button {
   font-weight: 300;
   font-size: 15px;
   line-height: 24px;
-  color: var(--muted);
-}
-
-.pdp-avail {
-  padding-top: 14px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
   color: var(--muted);
 }
 
@@ -739,8 +725,12 @@ button {
 }
 .story-block--right .story-shot { order: 2; }
 .story-text { display: flex; flex-direction: column; }
-.story-shot { aspect-ratio: 1 / 1; max-height: 620px; background: var(--tile); overflow: hidden; }
-.story-shot img { width: 100%; height: 100%; object-fit: contain; }
+/* The frame takes the photograph's own proportions. A fixed square with
+   `contain` letterboxed every portrait shot in tile-coloured bands, which
+   read as a cutout pasted onto the page; a square with `cover` would crop
+   them instead. Sized by the image, it does neither. */
+.story-shot { overflow: hidden; }
+.story-shot img { width: 100%; height: auto; }
 .story-h {
   margin: 0;
   font-family: var(--serif);

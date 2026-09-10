@@ -1,16 +1,26 @@
-# Gem Experience — High Jewellery
+# Gem Experience
 
-Implementation of the **High Jewellery** page for Gem Experience, built from a
-[Claude Design](https://claude.ai/design) prototype.
+Two pages for Gem Experience: the **Home** page, and **High Jewellery** built
+from a [Claude Design](https://claude.ai/design) prototype.
 
 ## Contents
 
 | Path | What it is |
 | --- | --- |
-| [`high-jewellery/`](high-jewellery/) | The built page — open `index.html`, or serve the folder |
-| [`gem-experience-product-pages/`](gem-experience-product-pages/) | The Claude Design handoff bundle the build came from |
+| [`home/`](home/) | The home page — serve the repository and open `/home/` |
+| [`high-jewellery/`](high-jewellery/) | The High Jewellery page — open `index.html`, or serve the folder |
+| [`gem-experience-product-pages/`](gem-experience-product-pages/) | The Claude Design handoff bundle the High Jewellery build came from |
 
-## The page
+## The home page
+
+Hero, a three-card collections row, the Tanzania Universe film band, and a
+footer with the newsletter, an editorial banner, accordion link groups, region
+and socials. Built to a mobile design spec at 390px, widening from there.
+
+`vercel.json` still publishes `high-jewellery/` as the site root, so the home
+page is not deployed yet. See [`home/README.md`](home/README.md).
+
+## The High Jewellery page
 
 One design with two views:
 
@@ -27,12 +37,11 @@ to the listing.
 ## Running it
 
 ```
-cd high-jewellery
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000>. No build step and no dependencies — plain
-HTML, CSS and JavaScript.
+Then open <http://localhost:8000/home/> or <http://localhost:8000/high-jewellery/>.
+No build step and no dependencies — plain HTML, CSS and JavaScript.
 
 ## How it was built
 

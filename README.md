@@ -7,18 +7,19 @@ from a [Claude Design](https://claude.ai/design) prototype.
 
 | Path | What it is |
 | --- | --- |
-| [`home/`](home/) | The home page — serve the repository and open `/home/` |
-| [`high-jewellery/`](high-jewellery/) | The High Jewellery page — open `index.html`, or serve the folder |
+| [`site/`](site/) | Everything that gets deployed. The home page is its root |
+| [`site/high-jewellery/`](site/high-jewellery/) | The High Jewellery page, served at `/high-jewellery/` |
 | [`gem-experience-product-pages/`](gem-experience-product-pages/) | The Claude Design handoff bundle the High Jewellery build came from |
+
+`vercel.json` publishes `site/`, so `/` is the home page and everything outside
+that folder stays out of the deployment.
 
 ## The home page
 
 Hero, a three-card collections row, the Tanzania Universe film band, and a
 footer with the newsletter, an editorial banner, accordion link groups, region
-and socials. Built to a mobile design spec at 390px, widening from there.
-
-`vercel.json` still publishes `high-jewellery/` as the site root, so the home
-page is not deployed yet. See [`home/README.md`](home/README.md).
+and socials. Built to a mobile design spec at 390px, widening from there. See
+[`site/README.md`](site/README.md).
 
 ## The High Jewellery page
 
@@ -37,11 +38,13 @@ to the listing.
 ## Running it
 
 ```
+cd site
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000/home/> or <http://localhost:8000/high-jewellery/>.
-No build step and no dependencies — plain HTML, CSS and JavaScript.
+Then open <http://localhost:8000> for the home page, or
+<http://localhost:8000/high-jewellery/>. No build step and no dependencies —
+plain HTML, CSS and JavaScript.
 
 ## How it was built
 
@@ -50,14 +53,14 @@ source: a prototype in Claude Design's canvas format, with the layout in inline
 styles and the behaviour in a `DCLogic` component.
 
 Every colour, font size, letter-spacing, `clamp()`, gap and border in
-`high-jewellery/styles.css` is taken from that file. The product data, filter
+`site/high-jewellery/styles.css` is taken from that file. The product data, filter
 groups, price banding, sort keys, story truncation, swatch and size rules, spec
-strip and related-product ordering in `high-jewellery/app.js` are ported from its
+strip and related-product ordering in `site/high-jewellery/app.js` are ported from its
 component logic.
 
 The photography was embedded as base64 in the design's
-`.image-slots.state.json` and was extracted into `high-jewellery/img/`.
+`.image-slots.state.json` and was extracted into `site/high-jewellery/img/`.
 
-See [`high-jewellery/README.md`](high-jewellery/README.md) for the detail,
+See [`site/high-jewellery/README.md`](site/high-jewellery/README.md) for the detail,
 including the four places where the design left image slots empty and a call had
 to be made.

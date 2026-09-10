@@ -1,22 +1,23 @@
 # Gem Experience — Home
 
-The home page, built to the mobile design spec at 390px.
+The home page, built to the mobile design spec at 390px. This folder is the
+deployed site root, so the home page is served at `/`.
 
 ```
-cd ..
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000/home/>. No build step and no dependencies.
+Then open <http://localhost:8000>. No build step and no dependencies.
 
 ## Contents
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The page |
+| `index.html` | The home page |
 | `styles.css` | Every colour, size, letter-spacing, padding and gap from the spec |
 | `app.js` | Menu drawer, footer accordions, newsletter validation, film lightbox |
 | `img/` | Photography |
+| `high-jewellery/` | The High Jewellery page, served at `/high-jewellery/` |
 
 ## The page
 
@@ -50,7 +51,7 @@ re-composing it. Three things change:
 ## Photography
 
 The design's own photographs were not in the handoff, so each slot uses the
-closest frame in `../high-jewellery/img/`. Six slots want real assets:
+closest frame in `high-jewellery/img/`. Six slots want real assets:
 
 | File | Design calls for | Standing in |
 | --- | --- | --- |
@@ -82,7 +83,7 @@ caption. Drop the file in at that path and the fallback stops firing.
 
 ## Deployment
 
-`vercel.json` still publishes `high-jewellery/` as the site root, so this page
-is not deployed yet. Serving it at `/` means either pointing the output
-directory at a folder holding both pages, or restructuring so the home page is
-the root and High Jewellery sits under it.
+`vercel.json` sets `outputDirectory` to `site`, so this folder is published as
+the site root: the home page at `/`, High Jewellery at `/high-jewellery/`.
+Anything outside this folder — the design handoff bundle in particular — stays
+out of the deployment.

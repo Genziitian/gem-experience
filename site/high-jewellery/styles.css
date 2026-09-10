@@ -13,7 +13,8 @@
   --cta-alt: #f4f2ee;
   --cta-alt-hover: #ece9e2;
   --swatch-rule: #d8d5cf;
-  --serif: ui-serif, Georgia, "Times New Roman", serif;
+  /* Matches the home page, so one serif runs across the whole site. */
+  --serif: Tinos, "Liberation Serif", "Times New Roman", Times, serif;
   --gutter: clamp(20px, 4vw, 48px);
 }
 

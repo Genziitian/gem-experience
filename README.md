@@ -23,7 +23,7 @@ and socials. Built to a mobile design spec at 390px, widening from there. See
 
 ## The High Jewellery page
 
-One design with two views:
+One design with two views, sharing the home page's type:
 
 - **Listing** — breadcrumb, title, 12 designs, sort menu, a filter drawer with four
   groups (Category / Price / Collection / Occasion), active-filter chips, empty
@@ -64,3 +64,9 @@ The photography was embedded as base64 in the design's
 See [`site/high-jewellery/README.md`](site/high-jewellery/README.md) for the detail,
 including the four places where the design left image slots empty and a call had
 to be made.
+
+## Fonts
+
+Both pages load Jost and Tinos from Google Fonts and share one serif stack:
+`Tinos, "Liberation Serif", "Times New Roman", Times, serif`. Tinos is metric
+compatible with the Liberation Serif the design specifies.

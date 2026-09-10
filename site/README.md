@@ -50,30 +50,30 @@ re-composing it. Three things change:
 
 ## Photography
 
-The design's own photographs were not in the handoff, so each slot uses the
-closest frame in `high-jewellery/img/`. Six slots want real assets:
+Every frame is the design's own photograph. Originals live in
+`../source-assets/home/`, outside the deployed folder; `img/` holds the webp
+exports.
 
-| File | Design calls for | Standing in |
-| --- | --- | --- |
-| `hero.webp` | Model in black, aqua suite, pale ground | `story-model2` |
-| `fine-jewellery.webp` | Pink sapphire floral suite | `story-model3` |
-| `high-jewellery.webp` | Tanzanite necklace, pale blue ground | `story-half` |
-| `gifts.jpg` | Hands holding a navy gift box, sage ground | `editorial-4`, trimmed |
-| `tanzania.webp` | Maasai elders at dusk | `story-model1` |
-| `banner-high-jewellery.webp` | Rough crystal lit warm against black | `the-crown-macro` |
+| File | The frame |
+| --- | --- |
+| `hero.webp` | Model in black, hand at the neck, aquamarine suite |
+| `hero-wide.webp` | The second model frame, used from 700px up |
+| `fine-jewellery.webp` | Pink sapphire and diamond floral suite |
+| `high-jewellery.webp` | Tanzanite and diamond necklace on pale blue |
+| `gifts.webp` | Hands holding an open navy case |
+| `tanzania.webp` | Maasai elders at dusk |
+| `banner-high-jewellery.webp` | Rough crystal lit warm against the dark |
 
-Three CSS treatments carry those substitutions, and each can go when the real
-photograph lands:
+Each photograph carries its own contrast where the copy sits, so nothing is
+scrimmed, tinted or blended at the design width. The one exception is the
+hero above 700px: a landscape window crops a band out of a portrait frame, so
+wide screens hold that band on the suite and carry the white type on a scrim.
 
-- **Gifts** — the product is shot on near-white, so `mix-blend-mode: darken`
-  drops the sage ground through everything lighter than it.
-- **Banner** — the macro is lit on white, so it is inverted: the ground falls
-  to black and the tanzanite reads amber. Its title is white rather than the
-  spec's black, which the design can use because its own photograph is dark
-  there.
-- **Hero and cards** — a soft scrim at the foot of each frame, because these
-  photographs run pale (hero) or dark (cards) exactly where the design's run
-  the other way.
+To re-export after replacing an original:
+
+```
+cwebp -q 86 -m 6 source-assets/home/<file> -o site/img/<name>.webp
+```
 
 ## The film
 

@@ -97,9 +97,10 @@
     { img: "story-model2", h: "Finished by hand",
       p: "Settings are raised, pierced and polished at the bench by the same hand "
        + "from start to finish, then worn for a day before it is allowed to leave." },
-    { img: "story-model3", h: "Worn with Elegance",
-      p: "Designed to be worn effortlessly and gracefully, complementing every occasion "
-       + "with a touch of unmatched sophistication." }
+    { img: "story-model3", h: "Made to be worn",
+      p: "Weight is balanced on the body before anything is set, so a collar sits "
+       + "flat and a drop hangs straight. A piece that has to be adjusted has not "
+       + "been finished." }
   ];
 
   var STAT_ICONS = {

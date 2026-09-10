@@ -556,10 +556,59 @@ button {
   .display--sm { font-size: 24px; line-height: 34px; }
 }
 
+/* client services — the one block in the footer that asks for a conversation
+   rather than a click, so it gets rules above and below and room to breathe */
+
+.advisor {
+  margin-top: 56px;
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.advisor-kicker {
+  margin: 0;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.advisor-line {
+  margin: 18px 0 0;
+  max-width: 34ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.advisor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+@media (min-width: 900px) {
+  .advisor {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 64px;
+    padding: 56px 0;
+  }
+  .advisor-kicker { grid-column: 1; }
+  .advisor-line { grid-column: 1; max-width: 40ch; font-size: 26px; line-height: 38px; }
+  .advisor-links { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; flex-direction: column; gap: 18px; }
+}
+
 /* accordion */
 
 .acc {
-  margin-top: 48px;
+  margin-top: 56px;
   border-top: 1px solid var(--rule);
 }
 
@@ -603,6 +652,33 @@ button {
 }
 
 .acc-panel a:hover { color: var(--muted); }
+
+/* Wide screens have the room to show the links rather than hide them, so the
+   three groups become open columns and the toggle is retired — app.js stops
+   wiring it above this width, so nothing is a button that does nothing. */
+@media (min-width: 900px) {
+  .acc {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 64px;
+    border-top: 0;
+  }
+
+  .acc-btn {
+    padding: 0 0 24px;
+    border-bottom: 0;
+    cursor: default;
+  }
+
+  .acc-icon { display: none; }
+
+  .acc-panel,
+  .acc-panel[hidden] {
+    display: flex;
+    padding: 0;
+    border-bottom: 0;
+  }
+}
 
 /* region + socials */
 
@@ -663,14 +739,16 @@ button {
 
 .social a:hover { opacity: 0.55; }
 
-/* signature */
+/* signature — the design left 128px of air above the wordmark. The brand line
+   now occupies some of it, so the gap closes to 88px and the block reads as
+   one thing rather than a mark adrift at the bottom of the page. */
 
 .signature {
-  padding: 128px 0 32px;
+  padding: 88px 0 0;
   text-align: center;
 }
 
-.signature p {
+.signature-mark {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
@@ -678,6 +756,53 @@ button {
   line-height: 20px;
   letter-spacing: 5.6px;
   text-transform: uppercase;
+}
+
+.signature-line {
+  margin: 18px auto 0;
+  max-width: 30ch;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--muted);
+}
+
+/* legal */
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.legal-copy,
+.legal-links a {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.legal-links {
+  display: flex;
+  gap: 24px;
+}
+
+.legal-links a { transition: color 0.3s ease; }
+.legal-links a:hover { color: var(--ink); }
+
+@media (min-width: 900px) {
+  .legal {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 72px;
+  }
+  .signature-line { max-width: 42ch; }
 }
 
 /* ------------------------------------------------------------- menu */
@@ -846,7 +971,7 @@ button {
   .acc-btn { letter-spacing: 3px; }
   .skip { letter-spacing: 3px; }
 
-  .signature p { font-size: 13px; letter-spacing: 5.6px; }
+  .signature-mark { font-size: 13px; letter-spacing: 5.6px; }
 }
 
 @media (max-width: 380px) {

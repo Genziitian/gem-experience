@@ -934,6 +934,72 @@ button {
 
 /* link columns */
 
+/* client services — the same band the home page footer carries, so the
+   invitation to talk to someone reads the same wherever you land */
+
+.ftr-advisor {
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.ftr-advisor-kicker {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ftr-advisor-line {
+  margin: 18px 0 0;
+  max-width: 34ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.ftr-advisor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.ftr-advisor-link {
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: opacity 200ms ease;
+}
+
+.ftr-advisor-link:hover { opacity: 0.6; }
+
+@media (min-width: 901px) {
+  .ftr-advisor {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 64px;
+    padding: 56px 0;
+  }
+  .ftr-advisor-kicker { grid-column: 1; }
+  .ftr-advisor-line { grid-column: 1; max-width: 40ch; font-size: 26px; line-height: 38px; }
+  .ftr-advisor-links {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+
 .ftr-cols {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));

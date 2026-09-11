@@ -12,6 +12,9 @@
   --sans: Jost, -apple-system, "Segoe UI", sans-serif;
   --serif: Tinos, "Liberation Serif", "Times New Roman", Times, serif;
 
+  /* the mobile action bar's height, reserved by the hero and the page foot */
+  --bar: calc(58px + env(safe-area-inset-bottom, 0px));
+
   /* 32px at 390, opening up on wider screens */
   --gutter: 32px;
   /* footer blocks sit 24px in on mobile */
@@ -19,7 +22,7 @@
 }
 
 @media (min-width: 700px) {
-  :root { --gutter: 48px; --ftr-gutter: 48px; }
+  :root { --gutter: 48px; --ftr-gutter: 48px; --bar: 0px; }
 }
 @media (min-width: 1100px) {
   :root { --gutter: 64px; --ftr-gutter: 64px; }
@@ -37,6 +40,7 @@ body {
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  padding-bottom: var(--bar);
 }
 
 body.is-locked { overflow: hidden; }
@@ -244,7 +248,7 @@ button {
   /* One screen, header included. svh is the viewport minus the mobile
      browser chrome, so the hero never ends up half-scrolled. */
   height: 100vh;
-  height: 100svh;
+  height: calc(100svh - var(--bar));
 }
 
 @media (min-width: 700px) {
@@ -985,4 +989,49 @@ button {
   .hdr-brand { font-size: 11px; letter-spacing: 2.4px; }
   .display--sm { letter-spacing: 3px; }
   .card-title { letter-spacing: 2.4px; }
+}
+
+/* --------------------------------------------------- mobile action bar
+
+   Menu, phone and enquiry within thumb reach, in the same restrained
+   register as the header: a hairline rule, line icons, small tracked
+   labels. Hidden from 700px up, where the header already carries these. */
+
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #fff;
+  border-top: 1px solid var(--rule);
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 6px calc(9px + env(safe-area-inset-bottom, 0px));
+  color: var(--ink);
+  transition: opacity 0.3s ease;
+}
+
+.bar-item + .bar-item { box-shadow: inset 1px 0 0 var(--rule); }
+
+.bar-item:active { opacity: 0.5; }
+
+.bar-label {
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 700px) {
+  .bar { display: none; }
 }

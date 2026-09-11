@@ -1,5 +1,6 @@
 /* Gem Experience — Home
-   Menu drawer, newsletter validation, the region picker and the film
+   Menu drawer, the mobile action bar, newsletter validation, the region
+   picker and the film
    lightbox. No dependencies. */
 
 (function () {
@@ -39,8 +40,11 @@
     menuBtn.focus();
   }
 
+  var barMenu = document.getElementById('bar-menu');
+
   if (menuBtn && nav) {
     menuBtn.addEventListener('click', openNav);
+    if (barMenu) barMenu.addEventListener('click', openNav);
     navClose.addEventListener('click', closeNav);
     nav.addEventListener('click', function (e) {
       if (e.target.hasAttribute('data-close-nav')) closeNav();

@@ -1,5 +1,5 @@
 /* Gem Experience — Home
-   Menu drawer, footer accordions, newsletter validation and the film
+   Menu drawer, newsletter validation, the region picker and the film
    lightbox. No dependencies. */
 
 (function () {
@@ -47,46 +47,6 @@
       if (e.target.closest('.nav-links a, .nav-sub a')) closeNav();
     });
   }
-
-  /* ----------------------------------------------------- accordions */
-
-  /* Below 900px the groups collapse. Above it the stylesheet lays them out as
-     open columns, so the control is retired rather than left as a button that
-     looks interactive and does nothing. */
-  var wide = window.matchMedia('(min-width: 900px)');
-
-  var accs = [];
-  Array.prototype.forEach.call(document.querySelectorAll('.acc-btn'), function (btn) {
-    var panel = document.getElementById(btn.getAttribute('aria-controls'));
-    if (!panel) return;
-
-    btn.addEventListener('click', function () {
-      if (wide.matches) return;
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      panel.hidden = open;
-    });
-
-    accs.push({ btn: btn, panel: panel });
-  });
-
-  function syncAccordions() {
-    accs.forEach(function (a) {
-      if (wide.matches) {
-        a.panel.hidden = false;
-        a.btn.removeAttribute('aria-expanded');
-        a.btn.setAttribute('tabindex', '-1');
-      } else {
-        a.panel.hidden = true;
-        a.btn.setAttribute('aria-expanded', 'false');
-        a.btn.removeAttribute('tabindex');
-      }
-    });
-  }
-
-  syncAccordions();
-  if (wide.addEventListener) wide.addEventListener('change', syncAccordions);
-  else if (wide.addListener) wide.addListener(syncAccordions);
 
   /* ------------------------------------------------------ newsletter */
 

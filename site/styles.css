@@ -87,9 +87,10 @@ button {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 36px;
-  line-height: 45px;
-  letter-spacing: -0.9px;
+  font-size: 26px;
+  line-height: 38px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
   color: #fff;
 }
 
@@ -240,12 +241,14 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 780px;
-  min-height: 600px;
+  /* One screen, header included. svh is the viewport minus the mobile
+     browser chrome, so the hero never ends up half-scrolled. */
+  height: 100vh;
+  height: 100svh;
 }
 
 @media (min-width: 700px) {
-  .hero { height: 100vh; height: 100svh; max-height: 980px; }
+  .hero { max-height: 980px; }
 }
 
 .hero-media {
@@ -417,7 +420,7 @@ button {
   position: relative;
   z-index: 4;
   align-self: stretch;
-  padding: 160px var(--gutter) 0;
+  padding: 104px var(--gutter) 0;
 }
 
 .play {
@@ -438,12 +441,12 @@ button {
 
 @media (min-width: 700px) {
   .film-band { height: 40vh; max-height: 440px; }
-  .film-copy { padding-top: 120px; }
+  .film-copy { padding-top: 96px; }
 }
 
 @media (min-width: 900px) {
   .film { height: 820px; }
-  .film .display { font-size: 56px; line-height: 66px; letter-spacing: -1.4px; }
+  .film .display { font-size: 38px; line-height: 54px; letter-spacing: 6px; }
 }
 
 /* ----------------------------------------------------------- footer */
@@ -560,8 +563,8 @@ button {
    rather than a click, so it gets rules above and below and room to breathe */
 
 .advisor {
-  margin-top: 56px;
-  padding: 40px 0;
+  margin-top: 48px;
+  padding: 36px 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
@@ -598,87 +601,90 @@ button {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
     column-gap: 64px;
-    padding: 56px 0;
+    padding: 48px 0;
   }
   .advisor-kicker { grid-column: 1; }
   .advisor-line { grid-column: 1; max-width: 40ch; font-size: 26px; line-height: 38px; }
   .advisor-links { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; flex-direction: column; gap: 18px; }
 }
 
-/* accordion */
+/* link groups — shown open rather than folded behind a plus. There is no
+   reason to hide five links behind a tap, and the collapsed version left the
+   footer looking empty. */
 
-.acc {
-  margin-top: 56px;
-  border-top: 1px solid var(--rule);
+.ftr-groups {
+  margin-top: 44px;
+  display: grid;
+  gap: 36px;
 }
 
-.acc-h { margin: 0; }
-
-.acc-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--rule);
+.ftr-group-title {
+  margin: 0 0 18px;
+  font-family: var(--sans);
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 4.2px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  color: var(--ink);
 }
 
-.acc-icon { flex: none; transition: transform 0.35s ease; }
-
-.acc-btn[aria-expanded="true"] .acc-icon { transform: rotate(45deg); }
-
-.acc-panel {
+.ftr-group-links {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 20px 0 28px;
-  border-bottom: 1px solid var(--rule);
 }
 
-.acc-panel[hidden] { display: none; }
-
-.acc-panel a {
+.ftr-group-links a {
   font-weight: 300;
   font-size: 15px;
   line-height: 22px;
-  color: var(--ink);
+  color: var(--muted);
   transition: color 0.3s ease;
 }
 
-.acc-panel a:hover { color: var(--muted); }
+.ftr-group-links a:hover { color: var(--ink); }
 
-/* Wide screens have the room to show the links rather than hide them, so the
-   three groups become open columns and the toggle is retired — app.js stops
-   wiring it above this width, so nothing is a button that does nothing. */
-@media (min-width: 900px) {
-  .acc {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 64px;
-    border-top: 0;
-  }
-
-  .acc-btn {
-    padding: 0 0 24px;
-    border-bottom: 0;
-    cursor: default;
-  }
-
-  .acc-icon { display: none; }
-
-  .acc-panel,
-  .acc-panel[hidden] {
-    display: flex;
-    padding: 0;
-    border-bottom: 0;
-  }
+.ftr-about {
+  margin: 0;
+  max-width: 46ch;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--muted);
 }
+
+.ftr-about-more {
+  display: inline-block;
+  margin-top: 16px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  transition: opacity 0.3s ease;
+}
+
+.ftr-about-more:hover { opacity: 0.6; }
+
+@media (min-width: 700px) {
+  .ftr-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 48px;
+    row-gap: 56px;
+  }
+  .ftr-group--about { grid-column: 1 / -1; }
+}
+
+@media (min-width: 1100px) {
+  .ftr-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 1.3fr;
+    column-gap: 64px;
+  }
+  .ftr-group--about { grid-column: auto; }
+}
+
 
 /* region + socials */
 
@@ -687,7 +693,8 @@ button {
   flex-direction: column;
   align-items: center;
   margin-top: 48px;
-  padding-top: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
 }
 
 .region-btn {
@@ -728,7 +735,7 @@ button {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .social a {
@@ -744,7 +751,7 @@ button {
    one thing rather than a mark adrift at the bottom of the page. */
 
 .signature {
-  padding: 88px 0 0;
+  padding: 48px 0 0;
   text-align: center;
 }
 
@@ -759,7 +766,7 @@ button {
 }
 
 .signature-line {
-  margin: 18px auto 0;
+  margin: 14px auto 0;
   max-width: 30ch;
   font-weight: 300;
   font-size: 14px;
@@ -774,8 +781,8 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  margin-top: 56px;
-  padding-top: 28px;
+  margin-top: 40px;
+  padding-top: 24px;
   border-top: 1px solid var(--rule);
 }
 
@@ -800,7 +807,7 @@ button {
   .legal {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 72px;
+    margin-top: 56px;
   }
   .signature-line { max-width: 42ch; }
 }
@@ -968,7 +975,7 @@ button {
   .eyebrow { letter-spacing: 2.6px; }
   .rule-link { letter-spacing: 3px; }
   .box-link { letter-spacing: 3px; }
-  .acc-btn { letter-spacing: 3px; }
+  .ftr-group-title { letter-spacing: 2.6px; }
   .skip { letter-spacing: 3px; }
 
   .signature-mark { font-size: 13px; letter-spacing: 5.6px; }

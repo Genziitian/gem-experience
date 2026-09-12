@@ -11,6 +11,7 @@
   --cream: #f9f8f3;
   --sans: Jost, -apple-system, "Segoe UI", sans-serif;
   --serif: Tinos, "Liberation Serif", "Times New Roman", Times, serif;
+  --script: "Cormorant Garamond", "Cormorant", Georgia, serif;
 
   /* the mobile action bar's height, reserved by the hero and the page foot */
   --bar: calc(58px + env(safe-area-inset-bottom, 0px));
@@ -91,9 +92,9 @@ button {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(19px, 1.6vw, 24px);
-  line-height: 1.3;
-  letter-spacing: 2.4px;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.25;
+  letter-spacing: clamp(3.2px, 0.6vw, 5px);
   text-transform: uppercase;
   color: #fff;
 }
@@ -127,13 +128,37 @@ button {
 
 .eyebrow--light { color: #fff; }
 
+.hero-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: clamp(5px, 1vw, 7px);
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 1px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-tagline {
+  margin: 0;
+  font-family: var(--script);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(22px, 2.8vw, 34px);
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
 .card-title {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: clamp(14px, 1.2vw, 16px);
   line-height: 20px;
-  letter-spacing: 4.2px;
+  letter-spacing: 3.6px;
   text-transform: uppercase;
   color: var(--ink);
 }
@@ -142,12 +167,13 @@ button {
 .rule-link {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
-  font-weight: 700;
+  font-family: var(--sans);
+  font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  letter-spacing: 4.8px;
+  letter-spacing: 3.8px;
   text-transform: uppercase;
   color: #fff;
 }
@@ -168,6 +194,7 @@ button {
   display: inline-block;
   padding-bottom: 4px;
   border-bottom: 1px solid currentColor;
+  font-family: var(--sans);
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -272,40 +299,36 @@ button {
 /* <picture> must not become a flex item between the media box and the frame. */
 .hero-media picture { display: contents; }
 
+.hero-media::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52%;
+  z-index: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.24) 50%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
 .hero-copy {
   position: absolute;
   left: var(--gutter);
   right: var(--gutter);
-  bottom: 32px;
+  bottom: clamp(36px, 5vh, 64px);
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
 }
 
-/* 8px under the eyebrow + 16px over the link = the design's 24px */
-.hero-copy .eyebrow { padding-bottom: 8px; }
-.hero-copy .rule-link { margin-top: 16px; }
+.hero-copy .rule-link { margin-top: 20px; }
 
-/* The design is a 390px frame, where the photograph's own dark clothing sits
-   under the copy. A landscape window crops a band out of the same portrait,
-   so wide screens hold that band on the suite and carry the white type on a
-   scrim. Neither applies at the design width. */
 @media (min-width: 700px) {
-  .hero-copy { bottom: 56px; }
+  .hero-copy { bottom: 64px; gap: 12px; }
   .hero-img { object-position: 50% 46%; }
-
-  .hero-media::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 38%;
-    z-index: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
-    pointer-events: none;
-  }
 }
 
 /* ------------------------------------------------------ collections */
@@ -449,7 +472,7 @@ button {
 
 @media (min-width: 900px) {
   .film { height: 820px; }
-  .film .display { font-size: 30px; }
+  .film .display { font-size: clamp(30px, 3.2vw, 42px); letter-spacing: 5px; }
 }
 
 /* ----------------------------------------------------------- footer */
@@ -559,7 +582,22 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
+}
+
+.banner-copy .rule-link {
+  align-items: flex-start;
+}
+
+.banner-tagline {
+  font-family: var(--script);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.3px;
 }
 
 @media (min-width: 900px) {
@@ -745,6 +783,17 @@ button {
   font-size: 14px;
   line-height: 24px;
   color: var(--muted);
+}
+
+.signature-line--script {
+  font-family: var(--script);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.5;
+  color: #6b7280;
+  max-width: 36ch;
+  letter-spacing: 0.2px;
 }
 
 /* legal */
@@ -938,7 +987,8 @@ button {
   .hdr-brand { font-size: 12px; letter-spacing: 4px; }
   .nav-brand { font-size: 12px; letter-spacing: 4px; }
 
-
+  .hero-title { font-size: 22px; letter-spacing: 5px; }
+  .hero-tagline { font-size: 20px; }
   .card-title { letter-spacing: 2.6px; }
   .eyebrow { letter-spacing: 2.6px; }
   .rule-link { letter-spacing: 3px; }
@@ -947,10 +997,13 @@ button {
   .skip { letter-spacing: 3px; }
 
   .signature-mark { font-size: 13px; letter-spacing: 5.6px; }
+  .signature-line--script { font-size: 18px; }
 }
 
 @media (max-width: 380px) {
   .hdr-brand { font-size: 11px; letter-spacing: 2.4px; }
+  .hero-title { font-size: 19px; letter-spacing: 4px; }
+  .hero-tagline { font-size: 18px; }
   .card-title { letter-spacing: 2.4px; }
 }
 

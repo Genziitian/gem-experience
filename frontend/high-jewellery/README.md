@@ -1,7 +1,7 @@
 # High Jewellery — Gem Experience
 
 Implementation of `High Jewellery.dc.html` from the Claude Design bundle in
-`../gem-experience-product-pages/`.
+`../../assets/design/`.
 
 Open `index.html` in a browser, or serve it:
 
@@ -99,7 +99,7 @@ first piece reads "Wimbi", not "Serengeti Halo Ring".
 
 ## Not used
 
-`../gem-experience-product-pages/project/_ds/` (the "Modernist" design system —
+`../../assets/design/project/_ds/` (the "Modernist" design system —
 Archivo, red accent) is a leftover from another project. This design does not
 link it and does not follow it.
 

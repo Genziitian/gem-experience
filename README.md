@@ -1,82 +1,49 @@
 # Gem Experience
 
-Two pages for Gem Experience: the **Home** page, and **High Jewellery** built
-from a [Claude Design](https://claude.ai/design) prototype.
+Monorepo for the public website, admin panel, database, and design assets.
 
-## Contents
+## Project layout
 
-| Path | What it is |
+| Folder | Role |
 | --- | --- |
-| [`site/`](site/) | Everything that gets deployed. The home page is its root |
-| [`site/high-jewellery/`](site/high-jewellery/) | The High Jewellery page, served at `/high-jewellery/` |
-| [`gem-experience-product-pages/`](gem-experience-product-pages/) | The Claude Design handoff bundle the High Jewellery build came from |
+| [`frontend/`](frontend/) | **Public website** (deploy root). Home at `/`, High Jewellery at `/high-jewellery/` |
+| [`admin/`](admin/) | **Staff admin** (React + Supabase). Local dev on port 5173 |
+| [`backend/`](backend/) | Backend docs — Supabase setup, roles, next steps |
+| [`migrations/`](migrations/) | **SQL schema + seed** — run in Supabase SQL Editor |
+| [`api/`](api/) | Placeholder for webhooks / Edge Functions (Razorpay, forms) |
+| [`assets/`](assets/) | **Non-deployed assets** — source photos, Claude Design handoff |
 
-`vercel.json` publishes `site/`, so `/` is the home page and everything outside
-that folder stays out of the deployment.
+Legacy duplicate at repo root `/project/` is gitignored (old zip extract).
 
-## The home page
+## Run locally
 
-Hero, a three-card collections row, the Tanzania Universe film band, and a
-footer with the newsletter, an editorial banner, accordion link groups, region
-and socials. Built to a mobile design spec at 390px, widening from there. See
-[`site/README.md`](site/README.md).
+**Website** (from repo root):
 
-## The High Jewellery page
-
-One design with two views, sharing the home page's type:
-
-- **Listing** — breadcrumb, title, 12 designs, sort menu, a filter drawer with four
-  groups (Category / Price / Collection / Occasion), active-filter chips, empty
-  state, and an editorial banner after every third product.
-- **Product** — six-tile gallery, sticky detail panel (materials, story with
-  read-more, metal swatches, sizes, two CTAs, four info links), a spec strip, a
-  film band, and four related products.
-
-Clicking a product opens its detail view at `#/product/<id>`; "View all" returns
-to the listing.
-
-## Running it
-
-```
-cd site
-python3 -m http.server 8000
+```bash
+cd frontend && python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000> for the home page, or
-<http://localhost:8000/high-jewellery/>. No build step and no dependencies —
-plain HTML, CSS and JavaScript.
+→ http://localhost:8000 · http://localhost:8000/high-jewellery/
 
-## Backend (Supabase) + Admin
+**Admin**:
 
-Catalog, users, orders, forms, traffic, SEO and security are managed via
-**Supabase** (not phpMyAdmin) and a React admin app:
+```bash
+cd admin && cp .env.example .env   # once: paste Supabase URL + anon key
+npm install && npm run dev
+```
 
-- Schema + seed: [`supabase/`](supabase/)
-- Admin UI: [`admin/`](admin/) → `npm install && npm run dev` (port 5173)
+→ http://localhost:5173
 
-See [`supabase/README.md`](supabase/README.md) for the 10-minute project setup.
+Or from root: `npm run dev:frontend` (run inside `frontend/`) and `npm run dev:admin`.
 
-## How it was built
+## Deploy
 
-`gem-experience-product-pages/project/High Jewellery.dc.html` is the design
-source: a prototype in Claude Design's canvas format, with the layout in inline
-styles and the behaviour in a `DCLogic` component.
+`vercel.json` publishes **`frontend/`** only. Admin can live on the same host at `/admin` later (build output) or a subdomain.
 
-Every colour, font size, letter-spacing, `clamp()`, gap and border in
-`site/high-jewellery/styles.css` is taken from that file. The product data, filter
-groups, price banding, sort keys, story truncation, swatch and size rules, spec
-strip and related-product ordering in `site/high-jewellery/app.js` are ported from its
-component logic.
+## Backend
 
-The photography was embedded as base64 in the design's
-`.image-slots.state.json` and was extracted into `site/high-jewellery/img/`.
+Supabase Postgres + Auth. See [`backend/README.md`](backend/README.md).
 
-See [`site/high-jewellery/README.md`](site/high-jewellery/README.md) for the detail,
-including the four places where the design left image slots empty and a call had
-to be made.
+## Design source
 
-## Fonts
-
-Both pages load Jost and Tinos from Google Fonts and share one serif stack:
-`Tinos, "Liberation Serif", "Times New Roman", Times, serif`. Tinos is metric
-compatible with the Liberation Serif the design specifies.
+High Jewellery was built from [`assets/design/project/High Jewellery.dc.html`](assets/design/project/High%20Jewellery.dc.html).

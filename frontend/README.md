@@ -51,7 +51,7 @@ re-composing it. Three things change:
 ## Photography
 
 Every frame is the design's own photograph. Originals live in
-`../source-assets/home/`, outside the deployed folder; `img/` holds the webp
+`../assets/source/`, outside the deployed folder; `img/` holds the webp
 exports.
 
 | File | The frame |
@@ -72,7 +72,7 @@ wide screens hold that band on the suite and carry the white type on a scrim.
 To re-export after replacing an original:
 
 ```
-cwebp -q 86 -m 6 source-assets/home/<file> -o site/img/<name>.webp
+cwebp -q 86 -m 6 assets/source/<file> -o frontend/img/<name>.webp
 ```
 
 ## The film
@@ -83,7 +83,7 @@ caption. Drop the file in at that path and the fallback stops firing.
 
 ## Deployment
 
-`vercel.json` sets `outputDirectory` to `site`, so this folder is published as
+`vercel.json` sets `outputDirectory` to `frontend`, so this folder is published as
 the site root: the home page at `/`, High Jewellery at `/high-jewellery/`.
-Anything outside this folder — the design handoff bundle in particular — stays
+Anything outside this folder — design assets under `assets/` in particular — stays
 out of the deployment.

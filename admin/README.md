@@ -10,4 +10,4 @@ npm run dev
 
 Open http://localhost:5173
 
-Full backend setup: [`../supabase/README.md`](../supabase/README.md)
+Full backend setup: [`../backend/README.md`](../backend/README.md)

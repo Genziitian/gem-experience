@@ -1,7 +1,7 @@
 .DS_Store
 *.log
 
-# Duplicate of gem-experience-product-pages/project/ — the Claude Design zip
+# Duplicate of assets/design/project/ — old Claude Design zip extract at repo root
 # extracted both a flattened and a nested copy. The bundle copy is the one kept.
 /project/
 

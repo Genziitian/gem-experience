@@ -23,8 +23,11 @@
      were corrected after the first pass. Banner slots fall after 4 and 12.
      carat / origin / ref / story on the new pieces are placeholders — real copy
      has not been supplied, and none of it is shown on the listing. */
+  /* visualiser: only on select stones. cut drives the facet mesh;
+     color / accent / ior approximate the real gem for the 360° viewer. */
   var products = [
-    { id: "weaver", name: "Weaver", materials: "Tanzanite and Diamond", type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: null, ref: "—", story: "" },
+    { id: "weaver", name: "Weaver", materials: "Tanzanite and Diamond", type: "Necklaces", collection: "Origin", occasion: "Gala", carat: "—", origin: "—", metal: null, ref: "—", story: "",
+      visualiser: { color: "#1e4a8c", accent: "#6b3fa0", ior: 1.7, cut: "brilliant", cutLabel: "Brilliant cut", attenuation: 0.5 } },
     {
       id: "the-crown",
       name: "The Crown",
@@ -44,23 +47,28 @@
       certification: "Gemological Lab Report & Certificate of Origin",
       ref: "GEM-CRW-104",
       story: "An extraordinary natural Tanzanite crystal formation of museum calibre, unearthed from the premier Merelani deposits of Tanzania. Celebrated for its intense royal blue saturation with rich violet flashes and exceptional optical clarity, The Crown exhibits dramatic trichroic fire and precision lapidary faceting designed to maximize brilliance and color dispersion in its purest crystalline state.",
-      isGemstone: true
+      isGemstone: true,
+      visualiser: { color: "#153a7a", accent: "#5a2d8e", ior: 1.7, cut: "marquise", cutLabel: "Marquise brilliant", attenuation: 0.45 }
     },
     { id: "shamsa", name: "Shamsa", materials: "Rubellite, Diamond and 18k Yellow Gold", type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k Yellow Gold", ref: "—", story: "" },
-    { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "jardin-bleu", name: "Jardin Bleu", materials: "Tanzanite and Rose-Cut Diamond", type: "Earrings", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "",
+      visualiser: { color: "#2456a0", accent: "#7a4cb0", ior: 1.7, cut: "pear", cutLabel: "Pear cut", attenuation: 0.55 } },
     { id: "hive", name: "Hive", materials: "Tanzanite, Diamond and Blue Enamel", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "georgie", name: "Georgie", materials: "Pearl, Tanzanite and 18k Rose Gold", type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k Rose Gold", ref: "—", story: "" },
     { id: "usambara", name: "Flamenco", materials: "Tanzanite, Aquamarine and Diamond", type: "Earrings", collection: "Nocturne", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "ember", name: "Ember", materials: "Rubellite, Spinel and Diamond", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
+    { id: "ember", name: "Ember", materials: "Rubellite, Spinel and Diamond", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "",
+      visualiser: { color: "#9b1c3a", accent: "#d4546a", ior: 1.62, cut: "emerald", cutLabel: "Emerald cut", attenuation: 0.6 } },
     { id: "dew-fall", name: "Dew Fall", materials: "Aquamarine and Diamond", type: "Necklaces", collection: "Origin", occasion: "Collector", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "celestine", name: "Celestine", materials: "Diamond, Sapphire and Aquamarine", type: "Earrings", collection: "Tanzania Universe", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "merelani", name: "Spinel Balls necklace", materials: "Rubellite, Diamond and 18k White Gold", type: "Earrings", collection: "Tanzania Universe", occasion: "Bridal", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "helix", name: "Helix", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Heritage", occasion: "Gifting", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
     { id: "rihla", name: "Rihla", materials: "Mother-of-Pearl and Tanzanite", type: "Necklaces", collection: "Nocturne", occasion: "Gala", carat: "—", origin: "—", metal: "18k White Gold", ref: "—", story: "" },
-    { id: "serengeti", name: "Wimbi", materials: "6.4ct Tanzanite, Diamond and Platinum", type: "Rings", collection: "Tanzania Universe", occasion: "Collector", carat: "6.42ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1042", story: "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn." },
+    { id: "serengeti", name: "Wimbi", materials: "6.4ct Tanzanite, Diamond and Platinum", type: "Rings", collection: "Tanzania Universe", occasion: "Collector", carat: "6.42ct", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1042", story: "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn.",
+      visualiser: { color: "#1a4588", accent: "#553a9a", ior: 1.7, cut: "oval", cutLabel: "Oval cut", attenuation: 0.48 } },
     { id: "kilimanjaro", name: "Ocean Wave", materials: "Tanzanite, Diamond and 18k White Gold", type: "Necklaces", collection: "Tanzania Universe", occasion: "Gala", carat: "41.80ct total", origin: "Merelani, Tanzania", metal: "18k White Gold", ref: "HJ-1108", story: "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin." },
     { id: "rift", name: "Tsavorite necklace", materials: "9.1ct Tanzanite Pair and Diamond", type: "Earrings", collection: "Tanzania Universe", occasion: "Gala", carat: "9.14ct pair", origin: "Merelani, Tanzania", metal: "Platinum 950", ref: "HJ-1073", story: "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light." },
-    { id: "mahenge", name: "Samaah", materials: "Spinel, Diamond and Rose Gold", type: "Bracelets", collection: "Origin", occasion: "Collector", carat: "22.60ct total", origin: "Mahenge, Tanzania", metal: "18k Rose Gold", ref: "HJ-0994", story: "Mahenge spinel in the pink that made the deposit famous, held in rose gold links that take the colour warmer still." },
+    { id: "mahenge", name: "Samaah", materials: "Spinel, Diamond and Rose Gold", type: "Bracelets", collection: "Origin", occasion: "Collector", carat: "22.60ct total", origin: "Mahenge, Tanzania", metal: "18k Rose Gold", ref: "HJ-0994", story: "Mahenge spinel in the pink that made the deposit famous, held in rose gold links that take the colour warmer still.",
+      visualiser: { color: "#c45a7a", accent: "#e8a0b4", ior: 1.72, cut: "cushion", cutLabel: "Cushion cut", attenuation: 0.52 } },
     { id: "oldoinyo", name: "Mediterranea", materials: "Diamond and Platinum", type: "Tiaras", collection: "Heritage", occasion: "Bridal", carat: "28.40ct total", origin: "Various", metal: "Platinum 950", ref: "HJ-0921", story: "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own." },
   ];
 
@@ -281,6 +289,22 @@
     return f;
   }
 
+  function openVisualiser(p) {
+    if (!p || !p.visualiser || !window.GemVisualiser) return;
+    var v = p.visualiser;
+    window.GemVisualiser.open({
+      name: p.name,
+      materials: p.materials,
+      carat: p.carat,
+      color: v.color,
+      accent: v.accent,
+      ior: v.ior,
+      cut: v.cut,
+      cutLabel: v.cutLabel,
+      attenuation: v.attenuation
+    });
+  }
+
   function productCard(p, opts) {
     opts = opts || {};
     var cls = opts.related ? "card card--related" : "card";
@@ -289,7 +313,13 @@
     var a = PRODUCT_PAGE_ENABLED
       ? el("a", cls, { href: "#/product/" + p.id })
       : el("div", cls + " card--inert");
-    a.appendChild(frame(cardImg(p), p.name));
+    var fr = frame(cardImg(p), p.name);
+    if (p.visualiser) {
+      var tag = el("span", "card-viz");
+      tag.textContent = "360°";
+      fr.appendChild(tag);
+    }
+    a.appendChild(fr);
     if (opts.related) {
       var n = el("span", "related-name"); n.textContent = p.name;
       var m = el("span", "related-materials", { title: p.materials }); m.textContent = p.materials;
@@ -666,7 +696,7 @@
         { label: "Colour", val: p.colour },
         { label: "Clarity", val: p.clarity },
         { label: "Treatment", val: p.treatment },
-        { label: "Certification", val: p.cert }
+        { label: "Certification", val: p.certification }
       ];
       props.forEach(function (prop) {
         if (prop.val) {
@@ -697,6 +727,19 @@
       // so there is nothing to choose between. The guide stays for sizing.
       var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size guide";
       panel.appendChild(guide);
+    }
+
+    if (p.visualiser) {
+      var vizBtn = el("button", "viz-launch", { type: "button" });
+      vizBtn.appendChild(svg(16, { stroke: "currentColor", sw: 1.2, round: true }, [
+        "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z",
+        "M12 2c2.5 2.8 4 6.2 4 10s-1.5 7.2-4 10c-2.5-2.8-4-6.2-4-10S9.5 4.8 12 2Z",
+        "M2 12h20"
+      ]));
+      var vizTxt = el("span"); vizTxt.textContent = "View stone in 360°";
+      vizBtn.appendChild(vizTxt);
+      vizBtn.addEventListener("click", function () { openVisualiser(p); });
+      panel.appendChild(vizBtn);
     }
 
     // CTA + the one availability line beneath it
@@ -952,6 +995,7 @@
     if (was !== state.view + ":" + state.pid) {
       state.finish = 0; state.storyOpen = false; state.drawerOpen = false;
       state.acc = null; state.faq = null;
+      if (window.GemVisualiser) window.GemVisualiser.close();
       window.scrollTo(0, 0);
     }
     render();
@@ -965,7 +1009,8 @@
 
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
-    if (document.getElementById("modal-host").firstChild) closeEnquiry();
+    if (window.GemVisualiser && window.GemVisualiser.isOpen()) window.GemVisualiser.close();
+    else if (document.getElementById("modal-host").firstChild) closeEnquiry();
     else if (state.drawerOpen) closeDrawer();
     else if (state.sortOpen) { state.sortOpen = false; render(); }
   });

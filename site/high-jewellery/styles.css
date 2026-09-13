@@ -1119,3 +1119,182 @@ button {
   .frame img, .shot img, .banner img { transition: transform 600ms cubic-bezier(0.2, 0, 0.1, 1); }
   .card:not(.card--inert):hover .frame img, .banner:hover img { transform: scale(1.03); }
 }
+
+/* -------------------------------------------------------- 360° visualiser */
+
+.viz-launch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 0;
+  font-size: 11px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--ink-soft);
+  padding-bottom: 4px;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.viz-launch:hover { color: var(--muted); border-color: var(--muted); }
+.viz-launch svg { flex: 0 0 auto; }
+
+.card-viz {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 6px 9px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+.viz {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.viz.is-on { opacity: 1; }
+
+.viz-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 18, 17, 0.72);
+}
+
+.viz-stage {
+  position: relative;
+  width: min(920px, calc(100% - 28px));
+  height: min(88vh, 760px);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 42%, #2a2623 0%, #141210 72%);
+  display: flex;
+  flex-direction: column;
+  color: #f4f2ee;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.viz-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  line-height: 1;
+  color: rgba(244, 242, 238, 0.7);
+}
+.viz-close:hover { color: #fff; }
+
+.viz-head {
+  flex: 0 0 auto;
+  padding: 28px 28px 8px;
+  text-align: center;
+}
+.viz-kicker {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  color: rgba(244, 242, 238, 0.55);
+}
+.viz-title {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+.viz-meta {
+  margin: 10px 0 0;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(244, 242, 238, 0.58);
+}
+
+.viz-canvas-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 4px 12px;
+}
+.viz-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+.viz-canvas:active { cursor: grabbing; }
+
+.viz-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 48%, transparent 40%, rgba(10, 9, 8, 0.35) 100%);
+}
+
+.viz-foot {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 20px;
+  padding: 12px 24px 22px;
+}
+.viz-hint {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(244, 242, 238, 0.45);
+}
+.viz-actions { display: flex; gap: 10px; }
+.viz-btn {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid rgba(244, 242, 238, 0.28);
+  font-size: 10px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: #f4f2ee;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.viz-btn:hover { border-color: rgba(244, 242, 238, 0.7); }
+.viz-btn--solid {
+  background: #f4f2ee;
+  border-color: #f4f2ee;
+  color: #141210;
+}
+.viz-btn--solid:hover { background: #fff; }
+
+@media (max-width: 700px) {
+  .viz-stage { width: 100%; height: 100%; max-height: none; }
+  .viz-head { padding: 56px 20px 4px; }
+  .viz-foot {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 10px 16px 28px;
+  }
+  .viz-actions { justify-content: center; }
+  .viz-hint { letter-spacing: 1.6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viz { transition: none; }
+}

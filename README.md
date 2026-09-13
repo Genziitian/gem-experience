@@ -46,6 +46,16 @@ Then open <http://localhost:8000> for the home page, or
 <http://localhost:8000/high-jewellery/>. No build step and no dependencies —
 plain HTML, CSS and JavaScript.
 
+## Backend (Supabase) + Admin
+
+Catalog, users, orders, forms, traffic, SEO and security are managed via
+**Supabase** (not phpMyAdmin) and a React admin app:
+
+- Schema + seed: [`supabase/`](supabase/)
+- Admin UI: [`admin/`](admin/) → `npm install && npm run dev` (port 5173)
+
+See [`supabase/README.md`](supabase/README.md) for the 10-minute project setup.
+
 ## How it was built
 
 `gem-experience-product-pages/project/High Jewellery.dc.html` is the design

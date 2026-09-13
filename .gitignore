@@ -4,3 +4,10 @@
 # Duplicate of gem-experience-product-pages/project/ — the Claude Design zip
 # extracted both a flattened and a nested copy. The bundle copy is the one kept.
 /project/
+
+# Admin / env
+admin/node_modules/
+admin/dist/
+admin/.env
+.env
+.env.local

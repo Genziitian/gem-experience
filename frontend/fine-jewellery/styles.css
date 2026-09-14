@@ -102,15 +102,35 @@ button {
 }
 
 .fj-nav-group { margin-top: 40px; border-bottom: 1px solid var(--rule); }
-.fj-nav-toggle {
-  width: 100%;
-  display: flex; justify-content: space-between; align-items: center;
+
+/* The label is a real link — it used to be a button that only ever toggled
+   the flyout open, so "Fine Jewellery" could never actually be reached from
+   the menu. The disclosure chevron is now its own small control beside it. */
+.fj-nav-toggle-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.fj-nav-toggle-link {
+  flex: 1;
   padding: 16px 0;
   font-family: var(--serif);
   font-size: 22px; letter-spacing: 1px;
+  transition: opacity 0.3s ease;
 }
-.fj-nav-toggle::after {
-  content: "";
+.fj-nav-toggle-link:hover { opacity: 0.55; }
+.fj-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -12px;
+  color: inherit;
+}
+.fj-nav-toggle span {
+  display: block;
   width: 8px; height: 8px;
   border-right: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -118,7 +138,7 @@ button {
   transition: transform 0.3s ease;
   opacity: 0.6;
 }
-.fj-nav-group.is-open .fj-nav-toggle::after { transform: rotate(-135deg); }
+.fj-nav-group.is-open .fj-nav-toggle span { transform: rotate(-135deg); }
 
 .fj-nav-fly {
   display: none;
@@ -199,6 +219,9 @@ button {
 }
 .fj-home-hero .fj-lede { margin-left: auto; margin-right: auto; }
 
+/* Two houses, always — the copy above this grid says so by name. A wider
+   grid asked for four columns regardless, which read as two portraits
+   stranded on the left half of the screen with the right half empty. */
 .fj-cats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -207,8 +230,9 @@ button {
 }
 @media (min-width: 900px) {
   .fj-cats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+    gap: 32px;
   }
 }
 
@@ -273,6 +297,9 @@ button {
   margin: clamp(36px, 5vw, 56px) var(--gutter) 0;
   padding: 22px 0 0;
   border-top: 1px solid var(--rule);
+}
+@media (min-width: 900px) {
+  .fj-shopall { max-width: 1080px; margin-left: auto; margin-right: auto; }
 }
 .fj-shopall p {
   margin: 0;
@@ -437,31 +464,22 @@ button {
   color: var(--ink-soft);
 }
 
+/* The story used to sit in its own fixed-height scrollbox (max-height:
+   min(32vh, 260px), a thin inner scrollbar of its own) inside a panel that
+   already scrolls with the page. A nested scroll region a few lines tall is
+   an easy trap: the wheel or a swipe gets captured by the small box instead
+   of moving the page, and on a first paragraph longer than four lines it
+   opened already showing the second paragraph with the first scrolled out
+   of view. The text now simply flows as part of the panel — on desktop the
+   image beside it is sticky, so it holds while this copy scrolls past. */
 .fj-hero-scroll {
   margin-top: 22px;
-  flex: 1 1 auto;
-  min-height: 0;
-  max-height: min(32vh, 260px);
-  overflow-y: auto;
-  padding-right: 14px;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(22, 20, 18, 0.35) rgba(22, 20, 18, 0.06);
-}
-.fj-hero-scroll::-webkit-scrollbar {
-  width: 4px;
-}
-.fj-hero-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-.fj-hero-scroll::-webkit-scrollbar-thumb {
-  background: rgba(22, 20, 18, 0.28);
 }
 .fj-story {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   max-width: 42ch;
   font-weight: 300;
-  font-size: 14.5px;
+  font-size: 15px;
   line-height: 1.7;
   color: var(--ink-soft);
 }

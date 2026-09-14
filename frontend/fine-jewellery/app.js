@@ -105,8 +105,9 @@
     n.addEventListener("click", function () { setNav(false); });
   });
   document.querySelector(".fj-nav-toggle").addEventListener("click", function () {
-    this.parentElement.classList.toggle("is-open");
-    this.setAttribute("aria-expanded", this.parentElement.classList.contains("is-open"));
+    var group = this.closest(".fj-nav-group");
+    group.classList.toggle("is-open");
+    this.setAttribute("aria-expanded", group.classList.contains("is-open"));
   });
   nav.querySelectorAll("a").forEach(function (a) {
     a.addEventListener("click", function () { setNav(false); });
@@ -284,7 +285,9 @@
         });
         panel.appendChild(storyWrap);
       }
-      if (col.meta) {
+      // Safar's meta line is word-for-word the designer byline above it —
+      // skip it rather than say "Designed with Shantanu Garg" twice.
+      if (col.meta && col.meta !== "Designed with " + (col.designer || "")) {
         panel.appendChild(el("p", "fj-col-meta", { text: col.meta }));
       }
 

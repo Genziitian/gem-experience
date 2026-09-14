@@ -48,14 +48,14 @@
     navClose.addEventListener('click', closeNav);
     nav.addEventListener('click', function (e) {
       if (e.target.hasAttribute('data-close-nav')) closeNav();
-      if (e.target.closest('.nav-flyout-links a, .nav-sub a') ||
+      if (e.target.closest('.nav-flyout-links a, .nav-flyout-link, .nav-sub a') ||
           (e.target.matches('.nav-links > a'))) closeNav();
     });
 
-    var flyBtn = nav.querySelector('.nav-flyout-btn');
+    var flyBtn = nav.querySelector('.nav-flyout-toggle');
     if (flyBtn) {
       flyBtn.addEventListener('click', function () {
-        var g = flyBtn.parentElement;
+        var g = flyBtn.closest('.nav-flyout');
         g.classList.toggle('is-open');
         flyBtn.setAttribute('aria-expanded', String(g.classList.contains('is-open')));
       });

@@ -204,19 +204,37 @@ button {
 .pg-nav-links > a:hover { opacity: 0.55; }
 
 .pg-nav-fly { border-bottom: 1px solid var(--rule); }
-.pg-nav-fly-btn {
-  width: 100%;
+
+/* The label is a real link — it used to be a button that only ever toggled
+   the flyout open, so "Fine Jewellery" could never actually be reached from
+   the menu. The disclosure chevron is now its own small control beside it. */
+.pg-nav-fly-head {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pg-nav-fly-link {
+  flex: 1;
   padding: 16px 0;
   font-family: var(--serif);
   font-size: 20px;
   line-height: 28px;
   letter-spacing: 1px;
+  transition: opacity 0.3s ease;
 }
-.pg-nav-fly-btn::after {
-  content: "";
+.pg-nav-fly-link:hover { opacity: 0.55; }
+.pg-nav-fly-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -12px;
+  color: inherit;
+}
+.pg-nav-fly-toggle span {
+  display: block;
   width: 8px; height: 8px;
   border-right: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -224,7 +242,7 @@ button {
   transition: transform 0.3s ease;
   opacity: 0.55;
 }
-.pg-nav-fly.is-open .pg-nav-fly-btn::after { transform: rotate(-135deg); }
+.pg-nav-fly.is-open .pg-nav-fly-toggle span { transform: rotate(-135deg); }
 .pg-nav-fly-links {
   display: none;
   flex-direction: column;

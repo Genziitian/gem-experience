@@ -50,8 +50,13 @@
           '<div class="pg-nav-links">' +
             '<a href="' + prefix + 'high-jewellery/">High Jewellery</a>' +
             '<div class="pg-nav-fly is-open">' +
-              '<button class="pg-nav-fly-btn" type="button" aria-expanded="true">Fine Jewellery</button>' +
-              '<div class="pg-nav-fly-links">' +
+              '<div class="pg-nav-fly-head">' +
+                '<a class="pg-nav-fly-link" href="' + prefix + 'fine-jewellery/">Fine Jewellery</a>' +
+                '<button class="pg-nav-fly-toggle" type="button" aria-expanded="true" aria-controls="pg-fly-fine" aria-label="Show Fine Jewellery collections">' +
+                  '<span aria-hidden="true"></span>' +
+                "</button>" +
+              "</div>" +
+              '<div class="pg-nav-fly-links" id="pg-fly-fine">' +
                 '<a href="' + prefix + 'fine-jewellery/#/shop">Shop all</a>' +
                 '<a href="' + prefix + 'fine-jewellery/#/bloom">Bloom</a>' +
                 '<a href="' + prefix + 'fine-jewellery/#/safar">Safar</a>' +
@@ -116,13 +121,13 @@
     panel.querySelectorAll("[data-nav-close]").forEach(function (n) {
       n.addEventListener("click", function () { setOpen(false); });
     });
-    panel.querySelectorAll(".pg-nav-fly-links a, .pg-nav-sub a, .pg-nav-links > a").forEach(function (a) {
+    panel.querySelectorAll(".pg-nav-fly-links a, .pg-nav-fly-link, .pg-nav-sub a, .pg-nav-links > a").forEach(function (a) {
       a.addEventListener("click", function () { setOpen(false); });
     });
-    var fly = panel.querySelector(".pg-nav-fly-btn");
+    var fly = panel.querySelector(".pg-nav-fly-toggle");
     if (fly) {
       fly.addEventListener("click", function () {
-        var g = fly.parentElement;
+        var g = fly.closest(".pg-nav-fly");
         g.classList.toggle("is-open");
         fly.setAttribute("aria-expanded", String(g.classList.contains("is-open")));
       });

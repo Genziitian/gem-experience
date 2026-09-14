@@ -49,6 +49,14 @@
           "</div>" +
           '<div class="pg-nav-links">' +
             '<a href="' + prefix + 'high-jewellery/">High Jewellery</a>' +
+            '<div class="pg-nav-fly is-open">' +
+              '<button class="pg-nav-fly-btn" type="button" aria-expanded="true">Fine Jewellery</button>' +
+              '<div class="pg-nav-fly-links">' +
+                '<a href="' + prefix + 'fine-jewellery/#/shop">Shop all</a>' +
+                '<a href="' + prefix + 'fine-jewellery/#/bloom">Bloom</a>' +
+                '<a href="' + prefix + 'fine-jewellery/#/safar">Safar</a>' +
+              "</div>" +
+            "</div>" +
             '<a href="' + prefix + 'offices/">Find Our Store</a>' +
             '<a href="' + prefix + 'appointment/">Book an Appointment</a>' +
             '<a href="' + prefix + 'quotation/">Request a Quotation</a>' +
@@ -74,6 +82,7 @@
             '<a href="' + prefix + 'contact/">Contact us</a></div>' +
           '<div><span class="pg-ftr-title">Maison</span>' +
             '<a href="' + prefix + 'high-jewellery/">High Jewellery</a>' +
+            '<a href="' + prefix + 'fine-jewellery/">Fine Jewellery</a>' +
             '<a href="' + prefix + 'offices/">Our Offices</a>' +
             '<a href="' + prefix + 'account/">My account</a></div>' +
           '<div><span class="pg-ftr-title">Gem Experience</span>' +
@@ -107,6 +116,17 @@
     panel.querySelectorAll("[data-nav-close]").forEach(function (n) {
       n.addEventListener("click", function () { setOpen(false); });
     });
+    panel.querySelectorAll(".pg-nav-fly-links a, .pg-nav-sub a, .pg-nav-links > a").forEach(function (a) {
+      a.addEventListener("click", function () { setOpen(false); });
+    });
+    var fly = panel.querySelector(".pg-nav-fly-btn");
+    if (fly) {
+      fly.addEventListener("click", function () {
+        var g = fly.parentElement;
+        g.classList.toggle("is-open");
+        fly.setAttribute("aria-expanded", String(g.classList.contains("is-open")));
+      });
+    }
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !panel.hidden) setOpen(false);
     });
@@ -122,7 +142,10 @@
       top.innerHTML = headerHtml(prefix, (w.Gem && w.Gem.cart.count()) || 0);
       wireNav();
     }
-    if (foot) foot.innerHTML = footerHtml(prefix);
+    if (foot) {
+      if (w.GemFooter) w.GemFooter.mount(foot, { prefix: prefix });
+      else foot.innerHTML = footerHtml(prefix);
+    }
 
     w.addEventListener("gem:cart", function () {
       if (!top) return;

@@ -48,8 +48,18 @@
     navClose.addEventListener('click', closeNav);
     nav.addEventListener('click', function (e) {
       if (e.target.hasAttribute('data-close-nav')) closeNav();
-      if (e.target.closest('.nav-links a, .nav-sub a')) closeNav();
+      if (e.target.closest('.nav-flyout-links a, .nav-sub a') ||
+          (e.target.matches('.nav-links > a'))) closeNav();
     });
+
+    var flyBtn = nav.querySelector('.nav-flyout-btn');
+    if (flyBtn) {
+      flyBtn.addEventListener('click', function () {
+        var g = flyBtn.parentElement;
+        g.classList.toggle('is-open');
+        flyBtn.setAttribute('aria-expanded', String(g.classList.contains('is-open')));
+      });
+    }
   }
 
   /* ------------------------------------------------------ newsletter */

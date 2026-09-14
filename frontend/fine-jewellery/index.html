@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine Jewellery | Gem Experience</title>
+<meta name="description" content="Bloom and Safar Fine Jewellery collections from Gem Experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+<div class="fj">
+  <header class="fj-hdr">
+    <button class="fj-icon" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="fj-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <a class="fj-brand" href="../">Gem Experience</a>
+    <div class="fj-hdr-end">
+      <a class="fj-icon" href="../login/" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="0.9" aria-hidden="true"><circle cx="10" cy="6.67" r="3.33"/><path d="M4.17 17.5c0-3.22 2.61-5.83 5.83-5.83s5.83 2.61 5.83 5.83"/></svg>
+      </a>
+      <a class="fj-icon" href="../cart/" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <div class="fj-nav" id="fj-nav" hidden>
+    <div class="fj-nav-scrim" data-close></div>
+    <nav class="fj-nav-panel" aria-label="Main">
+      <div class="fj-nav-head">
+        <span class="fj-nav-brand">Gem Experience</span>
+        <button class="fj-icon" type="button" id="nav-close" aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 5l14 14M19 5 5 19"/></svg>
+        </button>
+      </div>
+      <div class="fj-nav-group is-open">
+        <button class="fj-nav-toggle" type="button" aria-expanded="true">Fine Jewellery</button>
+        <div class="fj-nav-fly">
+          <a href="#/shop">Shop all</a>
+          <a href="#/bloom">Bloom</a>
+          <a href="#/safar">Safar</a>
+        </div>
+      </div>
+      <div class="fj-nav-links">
+        <a href="../high-jewellery/">High Jewellery</a>
+        <a href="../offices/">Find our store</a>
+        <a href="../appointment/">Book an appointment</a>
+        <a href="../quotation/">Request a quotation</a>
+      </div>
+      <div class="fj-nav-sub">
+        <a href="../account/">My account</a>
+        <a href="../contact/">Contact us</a>
+        <a href="../legal/">Legal</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="view"></main>
+
+  <div id="site-footer"></div>
+</div>
+<script src="../js/site-footer.js"></script>
+<script src="data.js?v=4"></script>
+<script src="app.js?v=4"></script>
+<script>
+  GemFooter.mount("#site-footer", { prefix: "../" });
+</script>
+</body>
+</html>

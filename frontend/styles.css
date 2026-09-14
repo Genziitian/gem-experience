@@ -899,6 +899,47 @@ button {
 
 .nav-links a:hover { opacity: 0.55; }
 
+.nav-flyout { border-bottom: 1px solid var(--rule); }
+.nav-flyout-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+.nav-flyout-btn::after {
+  content: "";
+  width: 8px; height: 8px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  opacity: 0.55;
+}
+.nav-flyout.is-open .nav-flyout-btn::after { transform: rotate(-135deg); }
+.nav-flyout-links {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 0 18px;
+}
+.nav-flyout.is-open .nav-flyout-links { display: flex; }
+.nav-flyout-links a {
+  padding: 0;
+  border: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+}
+.nav-flyout-links a:hover { color: var(--ink); opacity: 1; }
+
 .nav-sub {
   display: flex;
   flex-direction: column;

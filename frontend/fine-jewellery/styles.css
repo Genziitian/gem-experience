@@ -3,14 +3,17 @@
    panels, a left subcategory rail, and stone-tone product plates. */
 
 :root {
-  --ink: #161412;
-  --ink-soft: #2a2622;
-  --muted: #6a645c;
-  --rule: #ddd6cc;
-  --ground: #f3efe8;
-  --paper: #fffcf7;
-  --serif: "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+  /* Same warm ink, ground and serif as the rest of the site — this page used
+     to run its own palette and its own sans (Outfit); now it shares home,
+     High Jewellery and the utility pages' tokens, just laid out differently. */
+  --ink: #17140f;
+  --ink-soft: #2b2620;
+  --muted: #6b6259;
+  --rule: #e3ddd0;
+  --ground: #f5f1e8;
+  --paper: #fffdf8;
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
+  --sans: Jost, -apple-system, "Segoe UI", sans-serif;
   --gutter: 20px;
 }
 

@@ -5,12 +5,17 @@
    move from a stack to a row at 900px. */
 
 :root {
-  --ink: #000;
-  --muted: #6b7280;
-  --rule: #e5e7eb;
-  --cream: #f9f8f3;
+  /* Warm off-black and warm greys throughout — pure #000 on cream reads cold
+     and digital; ink-on-paper wants a touch of brown in it. */
+  --ink: #17140f;
+  --muted: #6b6259;
+  --rule: #e3ddd0;
+  --cream: #f5f1e8;
   --sans: Jost, -apple-system, "Segoe UI", sans-serif;
-  --serif: Tinos, "Liberation Serif", "Times New Roman", Times, serif;
+  /* The display serif site-wide. Cormorant Garamond has real lower-case
+     letterforms built for reading, not just for tracking out in caps —
+     that's what lets headlines run in mixed case instead of shouting. */
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
   --script: "Cormorant Garamond", "Cormorant", Georgia, serif;
 
   /* the mobile action bar's height, reserved by the hero and the page foot */
@@ -91,15 +96,17 @@ button {
 .display {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: 1.25;
-  letter-spacing: clamp(3.2px, 0.6vw, 5px);
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
   color: #fff;
 }
 
+/* A quieter section kicker-headline (e.g. "The Gem Experience" above the
+   three collection cards) rather than a repeat of the full display size. */
 .display--sm {
+  font-size: clamp(22px, 2vw, 28px);
   text-align: center;
   color: var(--ink);
 }
@@ -131,11 +138,10 @@ button {
 .hero-title {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(22px, 3vw, 34px);
-  line-height: 1.15;
-  letter-spacing: clamp(5px, 1vw, 7px);
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   color: #fff;
   text-shadow: 0 1px 20px rgba(0, 0, 0, 0.4);
 }
@@ -155,11 +161,10 @@ button {
 .card-title {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(14px, 1.2vw, 16px);
-  line-height: 20px;
-  letter-spacing: 3.6px;
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: clamp(19px, 1.8vw, 23px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 

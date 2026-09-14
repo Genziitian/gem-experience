@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Gem Experience</title>
+<meta name="description" content="Sign in to your Gem Experience account to follow enquiries and selections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+
+  <main class="auth">
+    <aside class="auth-media" role="img" aria-label="Aquamarine and diamond high jewellery worn against black.">
+      <div class="auth-media-copy">
+        <span class="pg-kicker">Gem Experience</span>
+        <p class="auth-media-line">Nothing begins above ground</p>
+      </div>
+    </aside>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <span class="pg-kicker">Client account</span>
+        <h1 class="pg-title" id="page-title">Sign in</h1>
+        <p class="pg-lede" id="page-lede">Save your wishlist, follow enquiries, and return to pieces you have set aside.</p>
+
+        <button class="auth-google" type="button" id="google-btn">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.91c1.7-1.57 2.69-3.88 2.69-6.62Z"></path>
+            <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.91-2.26c-.81.54-1.84.86-3.05.86-2.34 0-4.33-1.58-5.03-3.71H.96v2.34A9 9 0 0 0 9 18Z"></path>
+            <path fill="#FBBC05" d="M3.97 10.71a5.41 5.41 0 0 1 0-3.42V4.96H.96a9 9 0 0 0 0 8.08l3.01-2.33Z"></path>
+            <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59C13.46.89 11.43 0 9 0A9 9 0 0 0 .96 4.96l3.01 2.33C4.67 5.16 6.66 3.58 9 3.58Z"></path>
+          </svg>
+          <span id="google-label">Continue with Google</span>
+        </button>
+
+        <div class="auth-or"><span>or</span></div>
+
+        <form class="pg-form auth-form" id="auth-form">
+          <p class="pg-toast" id="toast" hidden></p>
+          <label id="name-field" hidden>Full name<input name="name" autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Password<input name="password" type="password" required autocomplete="current-password" minlength="6"></label>
+          <button class="pg-btn" type="submit" id="submit-btn">Sign in</button>
+        </form>
+
+        <p class="pg-auth-switch" id="switch-line">
+          New here? <button type="button" id="toggle-mode">Create an account</button>
+        </p>
+
+        <p class="auth-fine">
+          By continuing you agree to our <a href="../legal/#terms">Terms</a> and
+          <a href="../legal/#privacy">Privacy Policy</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+/* Where to land after signing in — checkout sends people here mid-enquiry. */
+var next = GemShell.qs("next") || "../account/";
+var mode = "signin";
+
+var nameField = document.getElementById("name-field");
+var title = document.getElementById("page-title");
+var lede = document.getElementById("page-lede");
+var submitBtn = document.getElementById("submit-btn");
+var switchLine = document.getElementById("switch-line");
+var googleLabel = document.getElementById("google-label");
+var toast = document.getElementById("toast");
+
+(async function () {
+  var s = await Gem.auth.getSession();
+  if (s) location.replace(next);
+})();
+
+function setMode(nextMode) {
+  mode = nextMode;
+  var signingIn = mode === "signin";
+  nameField.hidden = signingIn;
+  title.textContent = signingIn ? "Sign in" : "Create account";
+  lede.textContent = signingIn
+    ? "Save your wishlist, follow enquiries, and return to pieces you have set aside."
+    : "An account keeps your selections and enquiries close to the atelier.";
+  submitBtn.textContent = signingIn ? "Sign in" : "Create account";
+  googleLabel.textContent = signingIn ? "Continue with Google" : "Sign up with Google";
+  switchLine.innerHTML = signingIn
+    ? 'New here? <button type="button" id="toggle-mode">Create an account</button>'
+    : 'Already registered? <button type="button" id="toggle-mode">Sign in</button>';
+  document.querySelector("[name=password]").setAttribute(
+    "autocomplete", signingIn ? "current-password" : "new-password"
+  );
+  wireToggle();
+}
+
+function wireToggle() {
+  document.getElementById("toggle-mode").addEventListener("click", function () {
+    setMode(mode === "signin" ? "signup" : "signin");
+  });
+}
+
+wireToggle();
+
+document.getElementById("google-btn").addEventListener("click", async function (e) {
+  e.currentTarget.disabled = true;
+  try {
+    await Gem.auth.signInWithGoogle(new URL(next, location.href).href);
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Google sign-in is unavailable.", false);
+    e.currentTarget.disabled = false;
+  }
+});
+
+document.getElementById("auth-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var f = e.target;
+  submitBtn.disabled = true;
+  try {
+    if (mode === "signin") {
+      await Gem.auth.signIn(f.email.value.trim(), f.password.value);
+      location.href = next;
+    } else {
+      await Gem.auth.signUp(f.email.value.trim(), f.password.value, f.name.value.trim());
+      var s = await Gem.auth.getSession();
+      if (s) location.href = next;
+      else GemShell.toast(toast, "Check your inbox to confirm your email, then sign in.", true);
+    }
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Authentication failed.", false);
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

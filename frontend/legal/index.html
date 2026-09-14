@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legal — Gem Experience</title>
+<meta name="description" content="Privacy Policy, Cookie Policy, and Terms and Conditions of Use for Gem Experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Policies</span>
+    <h1 class="pg-title">Legal</h1>
+    <p class="pg-lede">Privacy, cookies, and terms for Gem Experience.</p>
+  </header>
+  <main class="pg-main pg-main--narrow">
+    <div class="pg-tabs pg-tabs--center" role="tablist">
+      <button class="pg-tab is-on" type="button" data-tab="privacy">Privacy</button>
+      <button class="pg-tab" type="button" data-tab="cookies">Cookies</button>
+      <button class="pg-tab" type="button" data-tab="terms">Terms</button>
+    </div>
+    <article class="pg-legal-body" id="legal-body"></article>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+var copy = {
+  privacy:
+    "<h2>Privacy Policy</h2>" +
+    '<p class="pg-legal-see">See also <a href="#terms">Terms and Conditions of Use</a> and <a href="#cookies">Cookie Policy</a>.</p>' +
+    "<ol>" +
+      "<li>We collect personal information from customers, including name, email address, shipping address, and payment information, to fulfill orders.</li>" +
+      "<li>We may use customer&rsquo;s personal information to communicate with them about their orders or to send promotional emails about our products and services.</li>" +
+      "<li>We do not share customer&rsquo;s personal information with third parties except for fulfilling orders (such as with shipping carriers).</li>" +
+      "<li>We use cookies and similar technologies to collect information about customer&rsquo;s browsing behaviour on our website and to personalize their experience.</li>" +
+      "<li>Customers can opt out of receiving promotional emails from us at any time by clicking the unsubscribe link at the bottom of the email.</li>" +
+      "<li>We take reasonable measures to protect customer&rsquo;s personal information from unauthorized access, disclosure, or alteration.</li>" +
+      "<li>Customers have the right to request access to their personal information or to have it deleted or corrected.</li>" +
+      "<li>We may update our privacy policy from time to time and will notify customers of any material changes.</li>" +
+      "<li>By using our website and submitting personal information, customers consent to the collection and use of their information following this privacy policy.</li>" +
+      "<li>If you have any questions or concerns about our privacy policy, please contact us by email: <a href=\"mailto:contact@gem-experience.com\">contact@gem-experience.com</a>.</li>" +
+    "</ol>",
+
+  cookies:
+    "<h2>Cookie Policy</h2>" +
+    '<p class="pg-legal-see">See also <a href="#terms">Terms and Conditions of Use</a> and <a href="#privacy">Privacy Policy</a>.</p>' +
+    "<p>We use cookies on our website to gather information about your use of our site and improve your user experience. Cookies are automated tools that allow us to optimize the functionality of our website and provide better service to you. When you visit our site, a cookie is sent to your computer to help us recognize your device and perform various functions. By continuing to use our website, you agree to our use of cookies and confirm that you have read and understood our Cookies Policy and Privacy Notice.</p>" +
+    "<p>Please keep in mind that if you choose to limit cookies by adjusting your browser settings, it may negatively impact your user experience and the functionality of our website.</p>" +
+    "<h3>What are the functions and uses of cookies?</h3>" +
+    "<p>There are different types of cookies that we use on our website, each serving a specific purpose. Some cookies are necessary for basic website functionality, such as storing your shopping cart selections while you shop and navigate our website. Other cookies help us improve the quality of our website and services by collecting information on how you use our website. This information helps us provide better service, such as offering access to additional services or restoring your shopping bag if you return for a subsequent browsing session.</p>" +
+    "<p>Third-party cookies may also be used to provide services on our website and share information with our partners to offer a customized user experience, including interest-based advertising. This means that our partners may use cookies to provide you with advertisements for our products and services that may be of interest to you, both on our website and other websites. These customized browsing experiences may be linked to third-party services that recognize you have visited our site.</p>" +
+    "<p>We carefully select our third-party partners and ensure that any information shared is only used to provide the service or function, such as social media &ldquo;like&rdquo; and &ldquo;share&rdquo; buttons. We may also use cookies to provide feedback to our partners or advertising agencies about your visit to our site, so they can present you with relevant advertisements.</p>" +
+    "<p>Overall, we use cookies to optimize your user experience and provide better service on our website. You can control cookies by adjusting your browser settings, but this may negatively impact your user experience and the functionality of our website. By continuing to use our website, you agree to our use of cookies and understand our Cookies Policy and Privacy Notice.</p>" +
+    "<h3>Control your cookie settings according to your preferences</h3>" +
+    "<p>If you want to manage the third-party cookies served on our site, you can visit the relevant websites listed, such as Google Analytics, Adobe Analytics, and Sizmek. To manage all cookies on our site, including those served by us, you can change your browser settings. However, disabling, blocking, or deleting cookies in your browser settings may impact your ability to fully use our website.</p>" +
+    '<p>For more information on how to manage cookies, you can visit <a href="http://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">www.allaboutcookies.org</a>.</p>' +
+    '<p>Please note that while we collect information using cookies, not all information collected will identify you. For more information on what information we collect and how we use any personal information you give us, please see our <a href="#privacy">Privacy Policy</a>.</p>',
+
+  terms:
+    "<h2>Terms and Conditions of Use</h2>" +
+    '<p class="pg-legal-see">See also <a href="#privacy">Privacy Policy</a> and <a href="#cookies">Cookie Policy</a>.</p>' +
+    "<ol>" +
+      "<li>All jewellery is sold as-is and cannot be returned or exchanged.</li>" +
+      "<li>The customer is responsible for ensuring that they have selected the correct size and style of jewellery before placing an order.</li>" +
+      "<li>We reserve the right to cancel or refuse any order at our discretion.</li>" +
+      "<li>All orders must be paid for in full before the jewellery will be shipped.</li>" +
+      "<li>The company is not accountable for any loss, damage or harm caused either during the shipping of products or as a result of the use of their products.</li>" +
+      "<li>We make every effort to accurately describe our products, but please note that colours and sizes may vary slightly.</li>" +
+      "<li>All intellectual property rights in our jewellery, including trademarks and copyrights, are owned by us.</li>" +
+      "<li>We reserve the right to change our prices and product offerings at any time without notice.</li>" +
+      "<li>These terms and conditions are governed by the laws of the state in which our brand is headquartered.</li>" +
+    "</ol>"
+};
+
+function show(tab) {
+  document.querySelectorAll(".pg-tab").forEach(function (b) {
+    b.classList.toggle("is-on", b.getAttribute("data-tab") === tab);
+  });
+  document.getElementById("legal-body").innerHTML = copy[tab] || copy.privacy;
+  history.replaceState(null, "", "#" + tab);
+  document.getElementById("legal-body").querySelectorAll("a[href^='#']").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      show(a.getAttribute("href").slice(1));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+}
+
+document.querySelectorAll(".pg-tab").forEach(function (b) {
+  b.addEventListener("click", function () { show(b.getAttribute("data-tab")); });
+});
+
+var initial = (location.hash || "#privacy").replace("#", "");
+show(copy[initial] ? initial : "privacy");
+</script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an Appointment — Gem Experience</title>
+<meta name="description" content="Book a private viewing with Gem Experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Private viewing</span>
+    <h1 class="pg-title">Book an appointment</h1>
+    <p class="pg-lede">Most of our conversations begin long before a piece is chosen. Tell us when and where you would like to meet.</p>
+  </header>
+
+  <main class="pg-main">
+    <div class="appt">
+      <nav class="appt-steps" aria-label="Booking steps">
+        <button class="appt-step is-on" type="button" data-goto="1" disabled>
+          <span class="appt-step-n">1</span>
+          <span class="appt-step-l">Details</span>
+        </button>
+        <button class="appt-step" type="button" data-goto="2" disabled>
+          <span class="appt-step-n">2</span>
+          <span class="appt-step-l">Date</span>
+        </button>
+        <button class="appt-step" type="button" data-goto="3" disabled>
+          <span class="appt-step-n">3</span>
+          <span class="appt-step-l">Time</span>
+        </button>
+      </nav>
+
+      <p class="pg-toast" id="toast" hidden></p>
+
+      <!-- Step 1: details -->
+      <section class="appt-pane is-on" data-step="1" aria-labelledby="appt-s1">
+        <div class="appt-pane-head">
+          <h2 class="pg-section-title" id="appt-s1">Your details</h2>
+          <p class="pg-note">We use these only to confirm your viewing.</p>
+        </div>
+        <form class="pg-form appt-form" id="details-form" novalidate>
+          <div class="pg-row-2">
+            <label>Full name<input name="name" required autocomplete="name"></label>
+            <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          </div>
+          <div class="pg-row-2">
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+            <label>Location
+              <select name="location" required>
+                <option value="">Select</option>
+                <option>Mumbai</option>
+                <option>Dubai</option>
+                <option>Private viewing — video</option>
+              </select>
+            </label>
+          </div>
+          <label>What would you like to discuss?
+            <textarea name="notes" rows="4" placeholder="A particular stone, a commission, or a private viewing of High Jewellery…"></textarea>
+          </label>
+          <div class="appt-actions">
+            <button class="pg-btn" type="submit">Continue</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Step 2: date -->
+      <section class="appt-pane" data-step="2" hidden aria-labelledby="appt-s2">
+        <div class="appt-pane-head">
+          <h2 class="pg-section-title" id="appt-s2">Select a date</h2>
+          <p class="pg-note">Appointments are available Tuesday to Saturday.</p>
+        </div>
+        <div class="appt-cal" id="calendar" aria-live="polite"></div>
+        <div class="appt-actions">
+          <button class="pg-btn pg-btn--ghost" type="button" data-back="1">Back</button>
+          <button class="pg-btn" type="button" id="date-next" disabled>Continue</button>
+        </div>
+      </section>
+
+      <!-- Step 3: slot -->
+      <section class="appt-pane" data-step="3" hidden aria-labelledby="appt-s3">
+        <div class="appt-pane-head">
+          <h2 class="pg-section-title" id="appt-s3">Choose a time</h2>
+          <p class="pg-note" id="slot-lede">Pick a slot that suits you.</p>
+        </div>
+        <div class="appt-slots" id="slots" role="listbox" aria-label="Available times"></div>
+        <div class="appt-summary" id="summary" hidden></div>
+        <div class="appt-actions">
+          <button class="pg-btn pg-btn--ghost" type="button" data-back="2">Back</button>
+          <button class="pg-btn" type="button" id="confirm-btn" disabled>Confirm appointment</button>
+        </div>
+      </section>
+
+      <!-- Done -->
+      <section class="appt-pane appt-done" data-step="done" hidden>
+        <span class="pg-kicker">Confirmed</span>
+        <h2 class="pg-title">We have your request</h2>
+        <p class="pg-lede" id="done-copy">An advisor will confirm by email within one working day.</p>
+        <div class="appt-actions">
+          <a class="pg-btn pg-btn--ghost" href="../">Home</a>
+          <a class="pg-btn" href="../high-jewellery/">Explore High Jewellery</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+/* ------------------------------------------------------------------ slots
+   Dummy availability for now. Later the admin panel will own this list
+   (and can vary it by location / weekday). Keep the shape stable. */
+var SLOT_CATALOG = {
+  default: ["10:00", "11:30", "13:00", "15:00", "16:30", "18:00"],
+  Mumbai:  ["11:00", "12:30", "14:00", "16:00", "17:30", "19:00"],
+  Dubai:   ["10:00", "11:30", "13:00", "15:30", "17:00", "18:30"],
+  "Private viewing — video": ["09:00", "11:00", "13:00", "15:00", "17:00", "20:00"]
+};
+
+var WEEKDAY_CLOSED = { 0: true, 1: true }; /* Sunday & Monday closed */
+var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYS = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+
+var state = {
+  step: 1,
+  name: "",
+  email: "",
+  phone: "",
+  location: "",
+  notes: "",
+  date: null,   /* Date object at local midnight */
+  time: "",
+  calMonth: null
+};
+
+var toast = document.getElementById("toast");
+
+function today() {
+  var d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function ymd(d) {
+  return d.getFullYear() + "-" +
+    String(d.getMonth() + 1).padStart(2, "0") + "-" +
+    String(d.getDate()).padStart(2, "0");
+}
+
+function prettyDate(d) {
+  return DAYS[d.getDay()] + " " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear();
+}
+
+function isBookable(d) {
+  if (d < today()) return false;
+  if (WEEKDAY_CLOSED[d.getDay()]) return false;
+  /* Soft lead: allow from tomorrow if after 18:00 today, otherwise today ok after noon cutoff */
+  return true;
+}
+
+function slotsFor(location) {
+  return SLOT_CATALOG[location] || SLOT_CATALOG.default;
+}
+
+/* ---------------------------------------------------------------- wizard */
+
+function go(step) {
+  state.step = step;
+  document.querySelectorAll(".appt-pane").forEach(function (p) {
+    var match = p.getAttribute("data-step") === String(step);
+    p.hidden = !match;
+    p.classList.toggle("is-on", match);
+  });
+  document.querySelectorAll(".appt-step").forEach(function (b) {
+    var n = Number(b.getAttribute("data-goto"));
+    b.classList.toggle("is-on", n === step);
+    b.classList.toggle("is-done", n < step);
+    b.disabled = n > step;
+  });
+  toast.hidden = true;
+  if (step === 2) renderCalendar();
+  if (step === 3) renderSlots();
+  window.scrollTo({ top: document.querySelector(".appt").offsetTop - 24, behavior: "smooth" });
+}
+
+document.querySelectorAll("[data-back]").forEach(function (b) {
+  b.addEventListener("click", function () { go(Number(b.getAttribute("data-back"))); });
+});
+
+document.querySelectorAll(".appt-step").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var n = Number(b.getAttribute("data-goto"));
+    if (n < state.step) go(n);
+  });
+});
+
+document.getElementById("details-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var f = e.target;
+  if (!f.reportValidity()) return;
+  state.name = f.name.value.trim();
+  state.email = f.email.value.trim();
+  state.phone = f.phone.value.trim();
+  state.location = f.location.value;
+  state.notes = f.notes.value.trim();
+  if (!state.calMonth) {
+    state.calMonth = today();
+    state.calMonth = new Date(state.calMonth.getFullYear(), state.calMonth.getMonth(), 1);
+  }
+  go(2);
+});
+
+document.getElementById("date-next").addEventListener("click", function () {
+  if (!state.date) return;
+  state.time = "";
+  go(3);
+});
+
+/* --------------------------------------------------------------- calendar */
+
+function renderCalendar() {
+  var root = document.getElementById("calendar");
+  var month = state.calMonth;
+  var y = month.getFullYear();
+  var m = month.getMonth();
+  var first = new Date(y, m, 1);
+  var startPad = first.getDay();
+  var daysInMonth = new Date(y, m + 1, 0).getDate();
+  var prevDisabled = y === today().getFullYear() && m <= today().getMonth();
+
+  var html =
+    '<div class="appt-cal-head">' +
+      '<button type="button" class="appt-cal-nav" data-cal="-1" aria-label="Previous month"' +
+        (prevDisabled ? " disabled" : "") + ">" +
+        '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 3 5 8l5 5"/></svg>' +
+      "</button>" +
+      "<span>" + MONTHS[m] + " " + y + "</span>" +
+      '<button type="button" class="appt-cal-nav" data-cal="1" aria-label="Next month">' +
+        '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 3l5 5-5 5"/></svg>' +
+      "</button>" +
+    "</div>" +
+    '<div class="appt-cal-grid" role="grid" aria-label="' + MONTHS[m] + " " + y + '">';
+
+  DAYS.forEach(function (d) {
+    html += '<span class="appt-cal-dow">' + d + "</span>";
+  });
+
+  for (var i = 0; i < startPad; i++) html += '<span class="appt-cal-empty"></span>';
+
+  for (var day = 1; day <= daysInMonth; day++) {
+    var d = new Date(y, m, day);
+    var ok = isBookable(d);
+    var selected = state.date && ymd(state.date) === ymd(d);
+    html +=
+      '<button type="button" class="appt-cal-day' +
+        (ok ? "" : " is-off") +
+        (selected ? " is-on" : "") +
+        '" data-day="' + day + '"' +
+        (ok ? "" : " disabled") +
+        ' aria-label="' + prettyDate(d) + '"' +
+        (selected ? ' aria-pressed="true"' : ' aria-pressed="false"') +
+      ">" + day + "</button>";
+  }
+
+  html += "</div>";
+  root.innerHTML = html;
+
+  root.querySelectorAll("[data-cal]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var delta = Number(b.getAttribute("data-cal"));
+      state.calMonth = new Date(y, m + delta, 1);
+      renderCalendar();
+    });
+  });
+
+  root.querySelectorAll(".appt-cal-day:not(.is-off)").forEach(function (b) {
+    b.addEventListener("click", function () {
+      state.date = new Date(y, m, Number(b.getAttribute("data-day")));
+      document.getElementById("date-next").disabled = false;
+      renderCalendar();
+    });
+  });
+
+  document.getElementById("date-next").disabled = !state.date;
+}
+
+/* ------------------------------------------------------------------ slots */
+
+function renderSlots() {
+  var list = slotsFor(state.location);
+  var root = document.getElementById("slots");
+  document.getElementById("slot-lede").textContent =
+    prettyDate(state.date) + " · " + state.location;
+
+  root.innerHTML = list.map(function (t) {
+    var on = state.time === t;
+    return (
+      '<button type="button" class="appt-slot' + (on ? " is-on" : "") +
+        '" role="option" aria-selected="' + on + '" data-time="' + t + '">' +
+        t +
+      "</button>"
+    );
+  }).join("");
+
+  root.querySelectorAll(".appt-slot").forEach(function (b) {
+    b.addEventListener("click", function () {
+      state.time = b.getAttribute("data-time");
+      renderSlots();
+      updateSummary();
+    });
+  });
+
+  updateSummary();
+}
+
+function updateSummary() {
+  var el = document.getElementById("summary");
+  var btn = document.getElementById("confirm-btn");
+  btn.disabled = !state.time;
+  if (!state.time) { el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML =
+    "<strong>" + state.name + "</strong>" +
+    "<span>" + prettyDate(state.date) + " · " + state.time + "</span>" +
+    "<span>" + state.location + "</span>" +
+    "<span>" + state.email + (state.phone ? " · " + state.phone : "") + "</span>";
+}
+
+document.getElementById("confirm-btn").addEventListener("click", async function () {
+  var btn = this;
+  btn.disabled = true;
+  try {
+    await Gem.submitForm("appointment", {
+      name: state.name,
+      email: state.email,
+      phone: state.phone,
+      location: state.location,
+      date: ymd(state.date),
+      time: state.time,
+      notes: state.notes
+    });
+    document.getElementById("done-copy").textContent =
+      "We have " + prettyDate(state.date) + " at " + state.time +
+      " (" + state.location + "). An advisor will confirm by email within one working day.";
+    document.querySelectorAll(".appt-step").forEach(function (b) { b.disabled = true; b.classList.remove("is-on"); b.classList.add("is-done"); });
+    go("done");
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Could not send. Please try again.", false);
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

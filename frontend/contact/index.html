@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Gem Experience</title>
+<meta name="description" content="Contact Gem Experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+
+  <header class="pg-hero">
+    <span class="pg-kicker">Client services</span>
+    <h1 class="pg-title">Contact us</h1>
+    <p class="pg-lede">Ask about a stone, a commission, or a viewing in private. We reply personally.</p>
+  </header>
+
+  <main class="pg-main">
+    <div class="enq">
+      <form class="pg-form enq-form" id="contact-form">
+        <p class="pg-toast" id="toast" hidden></p>
+
+        <div class="pg-row-2">
+          <label>Full name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+
+        <label>Subject
+          <select name="subject" required>
+            <option value="">Select</option>
+            <option>General enquiry</option>
+            <option>High Jewellery</option>
+            <option>Commission</option>
+            <option>Aftercare</option>
+            <option>Press</option>
+          </select>
+        </label>
+
+        <label>Message
+          <textarea name="message" rows="5" required placeholder="Tell us what you need…"></textarea>
+        </label>
+
+        <div class="enq-actions">
+          <button class="pg-btn" type="submit">Send message</button>
+        </div>
+      </form>
+
+      <aside class="enq-aside" aria-label="Other ways to reach us">
+        <p class="enq-aside-kicker">Or write directly</p>
+        <ul class="enq-lines">
+          <li>
+            <span>India</span>
+            <a href="https://wa.me/917300043093" target="_blank" rel="noopener noreferrer">+91 73000 43093</a>
+          </li>
+          <li>
+            <span>United Arab Emirates</span>
+            <a href="https://wa.me/971588651095" target="_blank" rel="noopener noreferrer">+971 58 865 1095</a>
+          </li>
+          <li>
+            <span>Tanzania</span>
+            <a href="tel:+25576760099">+255 767 600 99</a>
+          </li>
+          <li>
+            <span>Email</span>
+            <a href="mailto:contact@gem-experience.com">contact@gem-experience.com</a>
+          </li>
+        </ul>
+        <nav class="enq-links">
+          <a class="pg-link" href="../appointment/">Book an appointment</a>
+          <a class="pg-link" href="../offices/">Our offices</a>
+        </nav>
+      </aside>
+    </div>
+  </main>
+
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+document.getElementById("contact-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var btn = f.querySelector("[type=submit]");
+  var toast = document.getElementById("toast");
+  btn.disabled = true;
+  try {
+    await Gem.submitForm("contact", {
+      name: f.name.value.trim(),
+      email: f.email.value.trim(),
+      subject: f.subject.value,
+      message: f.message.value.trim()
+    });
+    GemShell.toast(toast, "Message sent. We will reply shortly.", true);
+    f.reset();
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Could not send. Please try again.", false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

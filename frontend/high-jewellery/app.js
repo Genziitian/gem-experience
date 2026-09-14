@@ -745,12 +745,37 @@
     // CTA + the one availability line beneath it
     var ctas = el("div", "ctas");
     var c1b = el("button", "cta cta--primary", { type: "button", id: "pdp-cta" });
-    c1b.textContent = "Enquire now";
-    c1b.addEventListener("click", function () { openEnquiry(p); });
+    c1b.textContent = "Request quotation";
+    c1b.addEventListener("click", function () {
+      location.href = "../quotation/?ref=" + encodeURIComponent(p.ref || p.id) +
+        "&name=" + encodeURIComponent(p.name);
+    });
     var c2b = el("button", "cta cta--ghost", { type: "button" });
     c2b.textContent = "Book a private viewing";
-    c2b.addEventListener("click", function () { openEnquiry(p); });
+    c2b.addEventListener("click", function () {
+      location.href = "../appointment/";
+    });
     ctas.appendChild(c1b); ctas.appendChild(c2b);
+
+    var addSel = el("button", "cta cta--ghost", { type: "button" });
+    addSel.textContent = "Add to selection";
+    addSel.style.marginTop = "10px";
+    addSel.addEventListener("click", function () {
+      if (!window.Gem) {
+        openEnquiry(p);
+        return;
+      }
+      Gem.cart.add({
+        id: p.id,
+        slug: p.id,
+        name: p.name,
+        materials: p.materials,
+        image: cardImg(p),
+        priceOnEnquiry: true
+      });
+      addSel.textContent = "Added to selection";
+    });
+    ctas.appendChild(addSel);
     panel.appendChild(ctas);
 
     // three accordions, collapsed by default, one open at a time

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout — Gem Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Concierge checkout</span>
+    <h1 class="pg-title">Checkout</h1>
+    <p class="pg-lede">We open a private enquiry from your selection. Payment for Fine Jewellery will follow once pricing is confirmed.</p>
+  </header>
+  <main class="pg-main">
+    <div class="pg-grid">
+      <form class="pg-form" id="checkout-form">
+        <p class="pg-toast" id="toast" hidden></p>
+        <div class="pg-row-2">
+          <label>Full name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <div class="pg-row-2">
+          <label>Phone<input name="phone" type="tel"></label>
+          <label>Country<input name="country" value="India"></label>
+        </div>
+        <label>City / region<input name="city"></label>
+        <label>Notes for our advisors
+          <textarea name="notes" placeholder="Sizing, preferred metal, viewing location…"></textarea>
+        </label>
+        <label class="pg-check">
+          <input type="checkbox" name="agree" required>
+          <span>I understand High Jewellery is quoted privately and this checkout creates an enquiry, not an instant payment.</span>
+        </label>
+        <div class="pg-actions">
+          <button class="pg-btn" type="submit">Place enquiry order</button>
+          <a class="pg-btn pg-btn--ghost" href="../cart/">Back to cart</a>
+        </div>
+      </form>
+      <aside class="pg-panel pg-summary" id="summary"></aside>
+    </div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+(async function () {
+  var session = await Gem.auth.getSession();
+  if (session && session.user) {
+    var form = document.getElementById("checkout-form");
+    form.email.value = session.user.email || "";
+    var profile = await Gem.auth.getProfile();
+    if (profile && profile.full_name) form.name.value = profile.full_name;
+  }
+})();
+
+function paintSummary() {
+  var items = Gem.cart.read();
+  var el = document.getElementById("summary");
+  if (!items.length) {
+    el.innerHTML = "<h2>Selection</h2><p class=\"pg-note\">Your cart is empty.</p><div class=\"pg-actions\"><a class=\"pg-btn\" href=\"../high-jewellery/\">Continue shopping</a></div>";
+    return;
+  }
+  el.innerHTML =
+    "<h2>Selection</h2>" +
+    "<ul class=\"pg-aside-list\">" +
+    items.map(function (it) {
+      return "<li><strong>" + it.name + "</strong><span>" + (it.qty || 1) + " · " + (it.materials || "On enquiry") + "</span></li>";
+    }).join("") +
+    "</ul>";
+}
+paintSummary();
+
+document.getElementById("checkout-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var items = Gem.cart.read();
+  var toast = document.getElementById("toast");
+  if (!items.length) {
+    GemShell.toast(toast, "Your cart is empty.", false);
+    return;
+  }
+  var f = e.target;
+  var btn = f.querySelector("[type=submit]");
+  btn.disabled = true;
+  try {
+    var order = await Gem.createEnquiryOrder(items, f.email.value.trim(), [
+      "Name: " + f.name.value.trim(),
+      "Phone: " + f.phone.value.trim(),
+      "Location: " + f.city.value.trim() + ", " + f.country.value.trim(),
+      f.notes.value.trim()
+    ].filter(Boolean).join("\n"));
+
+    await Gem.submitForm("quotation", {
+      name: f.name.value.trim(),
+      email: f.email.value.trim(),
+      phone: f.phone.value.trim(),
+      source: "checkout",
+      order_number: order.order_number,
+      pieces: items.map(function (i) { return i.name; }),
+      notes: f.notes.value.trim()
+    });
+
+    Gem.cart.clear();
+    GemShell.toast(toast, "Enquiry " + order.order_number + " created. We will be in touch.", true);
+    f.reset();
+    paintSummary();
+    setTimeout(function () { location.href = "../account/"; }, 1600);
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Checkout failed.", false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

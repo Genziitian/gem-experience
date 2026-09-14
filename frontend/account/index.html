@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Account — Gem Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Client</span>
+    <h1 class="pg-title">My account</h1>
+    <p class="pg-lede" id="welcome">Your enquiries and selections.</p>
+  </header>
+  <main class="pg-main">
+    <div class="pg-grid">
+      <section>
+        <h2 class="pg-section-title">Recent enquiries</h2>
+        <div id="orders" class="pg-cart-list" style="margin-top:20px"></div>
+      </section>
+      <aside class="pg-panel">
+        <h2>Profile</h2>
+        <p class="pg-note" id="profile-line">Loading…</p>
+        <div class="pg-actions" style="margin-top:24px;flex-direction:column">
+          <a class="pg-btn pg-btn--ghost" href="../cart/">View cart</a>
+          <a class="pg-btn pg-btn--ghost" href="../quotation/">Request quotation</a>
+          <button class="pg-btn" type="button" id="signout">Sign out</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+(async function () {
+  var session = await Gem.auth.getSession();
+  if (!session) {
+    location.replace("../login/");
+    return;
+  }
+  var profile = await Gem.auth.getProfile();
+  document.getElementById("welcome").textContent =
+    (profile && profile.full_name ? "Welcome, " + profile.full_name + "." : "Signed in as " + session.user.email);
+  document.getElementById("profile-line").textContent =
+    (profile && profile.email ? profile.email : session.user.email) +
+    " · " + ((profile && profile.role) || "customer");
+
+  var sb = Gem.getClient();
+  var { data, error } = await sb.from("orders")
+    .select("order_number, status, created_at, notes")
+    .eq("user_id", session.user.id)
+    .order("created_at", { ascending: false })
+    .limit(20);
+
+  var host = document.getElementById("orders");
+  if (error) {
+    host.innerHTML = '<p class="pg-note">' + error.message + "</p>";
+  } else if (!data || !data.length) {
+    host.innerHTML = '<p class="pg-note">No enquiries yet. <a href="../high-jewellery/">Browse the collection</a>.</p>';
+  } else {
+    host.innerHTML = data.map(function (o) {
+      return (
+        '<article class="pg-cart-item" style="grid-template-columns:1fr">' +
+          "<div><h3>" + o.order_number + "</h3>" +
+          "<p>" + o.status + " · " + new Date(o.created_at).toLocaleString() + "</p>" +
+          (o.notes ? "<p>" + String(o.notes).split("\n")[0] + "</p>" : "") +
+          "</div></article>"
+      );
+    }).join("");
+  }
+})();
+
+document.getElementById("signout").addEventListener("click", async function () {
+  await Gem.auth.signOut();
+  location.href = "../login/";
+});
+</script>
+</body>
+</html>

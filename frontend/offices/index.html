@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Offices — Gem Experience</title>
+<meta name="description" content="Visit Gem Experience ateliers and stores in Tanzania, Dubai and India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+
+  <header class="pg-hero">
+    <span class="pg-kicker">The House</span>
+    <h1 class="pg-title">Our Offices</h1>
+    <p class="pg-lede">Ateliers in Tanzania, Dubai and India, and a constellation of stores across the parks and lodges of the north.</p>
+  </header>
+
+  <main class="pg-main">
+    <div class="off-filters pg-tabs" aria-label="Filter locations">
+      <button class="pg-tab is-on" type="button" data-filter="all">All</button>
+      <button class="pg-tab" type="button" data-filter="atelier">Ateliers</button>
+      <button class="pg-tab" type="button" data-filter="store">Tanzania stores</button>
+    </div>
+
+    <section id="ateliers" class="off-block" data-kind="atelier">
+      <div class="off-head">
+        <div>
+          <h2 class="pg-section-title">Ateliers</h2>
+          <p class="pg-lede">Houses where stones are shown in private, and where a conversation can begin.</p>
+        </div>
+        <span class="off-count">Three houses</span>
+      </div>
+      <div class="off-grid" id="atelier-grid"></div>
+    </section>
+
+    <section id="stores" class="off-block off-section" data-kind="store">
+      <div class="off-head">
+        <div>
+          <h2 class="pg-section-title">Our Stores</h2>
+          <p class="pg-lede">Find us on the road to the parks — at airstrips, lodges and visitor centres.</p>
+        </div>
+        <span class="off-count">Ten locations</span>
+      </div>
+      <div class="off-grid off-grid--stores" id="store-grid"></div>
+    </section>
+  </main>
+
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+var IMG = "../img/offices/";
+
+var ateliers = [
+  {
+    name: "Blue Plaza Museum",
+    region: "Tanzania",
+    address: "India Street Blue Plaza, 3rd Floor, Tanzania",
+    phone: "+255 767 600 99",
+    tel: "+25576760099",
+    image: IMG + "blue-plaza.jpg",
+    map: "Blue Plaza Museum India Street Arusha Tanzania"
+  },
+  {
+    name: "Gem Experience, Dubai",
+    region: "United Arab Emirates",
+    address: "25H, 25th floor, Jumeirah Lake Towers, Dubai, United Arab Emirates",
+    phone: "+971 58 865 1095",
+    tel: "+971588651095",
+    image: IMG + "dubai.jpg",
+    map: "Gem Experience 25H Jumeirah Lake Towers Dubai"
+  },
+  {
+    name: "Gem Experience, India",
+    region: "India",
+    address: "Ground floor, Plot No. 93, Opposite Sanghi Farm, Tonk Road, Kailash Puri, Jaipur, Rajasthan",
+    phone: "+91 73000 43093",
+    tel: "+917300043093",
+    image: IMG + "india.jpg",
+    map: "Gem Experience Plot 93 Tonk Road Kailash Puri Jaipur"
+  }
+];
+
+var stores = [
+  { name: "Manyara Airport", address: "Manyara Airstrip, Nr Karatu, C/o Tanzanite Experience, India Street, Arusha, Arusha 2706, Tanzania", image: IMG + "manyara-airport.jpg", map: "Manyara Airport Karatu Tanzania" },
+  { name: "Arusha Coffee Lodge", address: "Coffee Lodge, India Street Blue Plaza TZ, Arusha 2706, Tanzania", image: IMG + "arusha-coffee.jpg", map: "Arusha Coffee Lodge Tanzania" },
+  { name: "Manyara Kibaoni", address: "Manyara Kibaoni TZ, 2706, Tanzania", image: IMG + "manyara-kibaoni.jpg", map: "Manyara Kibaoni Tanzania" },
+  { name: "Kilimanjaro Airport", address: "Kilimanjaro Airport Rd, Tanzania", image: IMG + "kilimanjaro.jpg", map: "Kilimanjaro International Airport" },
+  { name: "Zanzibar Serena", address: "Zanzibar Serena Hotel, Shangani St, Zanzibar 2706, Tanzania", image: IMG + "zanzibar.jpg", map: "Zanzibar Serena Hotel Shangani" },
+  { name: "Serengeti Visitors Centre", address: "Serengeti Visitors Centre, Seronera, Serengeti 2706, Tanzania", image: IMG + "serengeti-visitors.jpg", map: "Serengeti Visitors Centre Seronera" },
+  { name: "Four Points Arusha", address: "Fire Road, Clocktower Roundabout, Plot 2, Arusha 23100, Tanzania", image: IMG + "four-points.jpg", map: "Four Points by Sheraton Arusha" },
+  { name: "Ngorongoro Serena", address: "Ngorongoro Crater Conservancy, Arusha 2706, Tanzania", image: IMG + "ngorongoro.jpg", map: "Ngorongoro Serena Safari Lodge" },
+  { name: "Sasakwa Lodge", address: "Singita Grumeti, Serengeti National Park, 31623, Tanzania", image: IMG + "sasakwa.jpg", map: "Sasakwa Lodge Singita Grumeti" },
+  { name: "Serengeti Serena", address: "Serengeti National Park, Mara Region, Tanzania", image: IMG + "serengeti-serena.jpg", map: "Serengeti Serena Safari Lodge" }
+];
+
+function mapsUrl(q) {
+  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+}
+
+var ARROW =
+  '<svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">' +
+    '<path d="M1 8 7.6 1.4"></path><path d="M3 1.2h5v5"></path>' +
+  "</svg>";
+
+function card(loc) {
+  var phone = loc.phone
+    ? '<a class="off-phone" href="tel:' + loc.tel + '">' + loc.phone + "</a>"
+    : "";
+  return (
+    '<article class="off-card">' +
+      '<div class="off-shot">' +
+        '<img src="' + loc.image + '" alt="' + loc.name + '" loading="lazy" decoding="async">' +
+        '<span class="off-region">' + (loc.region || "Tanzania") + "</span>" +
+      "</div>" +
+      '<div class="off-body">' +
+        "<h3>" + loc.name + "</h3>" +
+        '<p class="off-addr">' + loc.address + "</p>" +
+        '<div class="off-foot">' +
+          phone +
+          '<a class="off-dir" href="' + mapsUrl(loc.map) + '" target="_blank" rel="noopener noreferrer"' +
+            ' aria-label="Directions to ' + loc.name + '">' +
+            "<span>Direction</span>" + ARROW +
+          "</a>" +
+        "</div>" +
+      "</div>" +
+    "</article>"
+  );
+}
+
+document.getElementById("atelier-grid").innerHTML = ateliers.map(card).join("");
+document.getElementById("store-grid").innerHTML = stores.map(card).join("");
+
+function filter(kind) {
+  document.querySelectorAll(".off-filters .pg-tab").forEach(function (b) {
+    b.classList.toggle("is-on", b.getAttribute("data-filter") === kind);
+  });
+  document.querySelectorAll(".off-block").forEach(function (sec) {
+    sec.hidden = !(kind === "all" || sec.getAttribute("data-kind") === kind);
+  });
+}
+
+document.querySelectorAll(".off-filters .pg-tab").forEach(function (b) {
+  b.addEventListener("click", function () { filter(b.getAttribute("data-filter")); });
+});
+</script>
+</body>
+</html>

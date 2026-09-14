@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Gem Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <main class="pg-404">
+    <span class="pg-kicker">404</span>
+    <h1 class="pg-title">This page was not found</h1>
+    <p class="pg-lede">The link may be old, or the piece may have moved. Return home, or continue into High Jewellery.</p>
+    <div class="pg-actions" style="justify-content:center">
+      <a class="pg-btn" href="/">Home</a>
+      <a class="pg-btn pg-btn--ghost" href="/high-jewellery/">High Jewellery</a>
+      <a class="pg-btn pg-btn--ghost" href="/contact/">Contact</a>
+    </div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/config.js"></script>
+<script src="/js/gem.js"></script>
+<script src="/js/shell.js"></script>
+<script>GemShell.mount({ prefix: "/" });</script>
+</body>
+</html>

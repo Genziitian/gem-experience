@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart — Gem Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Selection</span>
+    <h1 class="pg-title">Your cart</h1>
+    <p class="pg-lede">Pieces here are held as a private selection. High Jewellery continues by quotation or viewing.</p>
+  </header>
+  <main class="pg-main">
+    <div class="pg-grid" id="cart-root"></div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+function render() {
+  var items = Gem.cart.read();
+  var root = document.getElementById("cart-root");
+  if (!items.length) {
+    root.innerHTML =
+      '<div class="pg-cart-empty" style="grid-column:1/-1">' +
+        "<p>Your selection is empty.</p>" +
+        '<a class="pg-btn" href="../high-jewellery/">Explore High Jewellery</a>' +
+      "</div>";
+    return;
+  }
+
+  var list = items.map(function (it) {
+    return (
+      '<article class="pg-cart-item" data-id="' + it.id + '">' +
+        (it.image ? '<img src="' + it.image + '" alt="">' : '<div style="width:88px;height:88px;background:#f9f8f3"></div>') +
+        "<div>" +
+          "<h3>" + it.name + "</h3>" +
+          "<p>" + (it.materials || "Price on enquiry") + "</p>" +
+          '<div class="pg-qty">' +
+            '<button type="button" data-act="dec" aria-label="Decrease">−</button>' +
+            "<span>" + (it.qty || 1) + "</span>" +
+            '<button type="button" data-act="inc" aria-label="Increase">+</button>' +
+          "</div>" +
+        "</div>" +
+        '<button type="button" class="pg-btn pg-btn--ghost" data-act="rm" style="min-height:36px;padding:0 14px;font-size:10px">Remove</button>' +
+      "</article>"
+    );
+  }).join("");
+
+  root.innerHTML =
+    '<div><div class="pg-cart-list">' + list + "</div></div>" +
+    '<aside class="pg-panel pg-summary">' +
+      "<h2>Summary</h2>" +
+      "<p class=\"pg-note\">Most High Jewellery pieces are quoted privately — checkout opens an enquiry with our advisors.</p>" +
+      "<dl><div class=\"pg-total\"><span>Pieces</span><span>" + items.length + "</span></div></dl>" +
+      '<div class="pg-actions" style="margin-top:24px;flex-direction:column">' +
+        '<a class="pg-btn" href="../checkout/">Proceed to checkout</a>' +
+        '<a class="pg-btn pg-btn--ghost" href="../quotation/">Request quotation instead</a>' +
+      "</div>" +
+    "</aside>";
+
+  root.querySelectorAll(".pg-cart-item").forEach(function (row) {
+    var id = row.getAttribute("data-id");
+    row.addEventListener("click", function (e) {
+      var act = e.target.getAttribute("data-act");
+      if (!act) return;
+      var item = Gem.cart.read().find(function (x) { return x.id === id; });
+      if (!item) return;
+      if (act === "inc") Gem.cart.updateQty(id, (item.qty || 1) + 1);
+      if (act === "dec") Gem.cart.updateQty(id, Math.max(1, (item.qty || 1) - 1));
+      if (act === "rm") Gem.cart.remove(id);
+      render();
+    });
+  });
+}
+
+render();
+window.addEventListener("gem:cart", render);
+</script>
+</body>
+</html>

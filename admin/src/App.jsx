@@ -8,6 +8,7 @@ import Catalog from "./pages/Catalog.jsx";
 import Users from "./pages/Users.jsx";
 import Orders from "./pages/Orders.jsx";
 import Forms from "./pages/Forms.jsx";
+import Quotations from "./pages/Quotations.jsx";
 import Traffic from "./pages/Traffic.jsx";
 import Seo from "./pages/Seo.jsx";
 import Security from "./pages/Security.jsx";
@@ -63,6 +64,7 @@ export default function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/users" element={<Users />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/quotations" element={<Quotations />} />
         <Route path="/forms" element={<Forms />} />
         <Route path="/traffic" element={<Traffic />} />
         <Route path="/seo" element={<Seo />} />

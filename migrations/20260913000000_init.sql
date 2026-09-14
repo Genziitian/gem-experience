@@ -451,7 +451,12 @@ create policy "Users read own order items" on public.order_items
 
 -- Public form + analytics inserts (anon)
 create policy "Anyone can submit forms" on public.form_submissions
-  for insert with check (true);
+  for insert
+  to anon, authenticated
+  with check (
+    status = 'new'
+    and form_type in ('appointment', 'contact', 'quotation', 'newsletter')
+  );
 create policy "Anyone can create analytics session" on public.analytics_sessions
   for insert with check (true);
 create policy "Anyone can update own analytics session" on public.analytics_sessions

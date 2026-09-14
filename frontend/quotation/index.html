@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Quotation — Gem Experience</title>
+<meta name="description" content="Request a quotation for a Gem Experience piece.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Tinos:wght@400;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+
+  <header class="pg-hero">
+    <span class="pg-kicker">Enquiry</span>
+    <h1 class="pg-title">Request a quotation</h1>
+    <p class="pg-lede">High Jewellery is quoted privately. Share the piece and how we may reach you — we reply within two working days.</p>
+  </header>
+
+  <main class="pg-main">
+    <div class="enq">
+      <div class="enq-chip" id="piece-chip" hidden>
+        <span class="enq-chip-kicker">Selected piece</span>
+        <strong id="chip-name"></strong>
+        <span id="chip-ref"></span>
+      </div>
+
+      <form class="pg-form enq-form" id="quote-form">
+        <p class="pg-toast" id="toast" hidden></p>
+
+        <div class="pg-row-2">
+          <label>Full name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+
+        <div class="pg-row-2">
+          <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+          <label>Product reference
+            <input name="ref" id="ref" placeholder="e.g. HJ-1042">
+          </label>
+        </div>
+
+        <label>Piece / collection
+          <input name="piece" id="piece" placeholder="Name of the design or collection">
+        </label>
+
+        <label>Requirements
+          <textarea name="requirements" rows="5" required placeholder="Metal preference, size, occasion, timeline…"></textarea>
+        </label>
+
+        <label>
+          <span>Budget range <span class="enq-opt">(optional)</span></span>
+          <select name="budget">
+            <option value="">Prefer not to say</option>
+            <option>Under ₹5L</option>
+            <option>₹5L – ₹15L</option>
+            <option>₹15L – ₹50L</option>
+            <option>Above ₹50L</option>
+            <option>USD / AED — advise privately</option>
+          </select>
+        </label>
+
+        <div class="enq-actions">
+          <button class="pg-btn" type="submit">Submit request</button>
+          <a class="pg-link" href="../high-jewellery/">Browse High Jewellery</a>
+        </div>
+      </form>
+
+      <aside class="enq-aside" aria-label="How quotations work">
+        <ol class="enq-steps">
+          <li><strong>01</strong><span>You send the piece and requirements.</span></li>
+          <li><strong>02</strong><span>We confirm availability and lead time.</span></li>
+          <li><strong>03</strong><span>A private quote follows by email.</span></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+var ref = GemShell.qs("ref") || GemShell.qs("product") || "";
+var name = GemShell.qs("name") || "";
+if (ref) document.getElementById("ref").value = ref;
+if (name) document.getElementById("piece").value = name;
+if (ref || name) {
+  var chip = document.getElementById("piece-chip");
+  chip.hidden = false;
+  document.getElementById("chip-name").textContent = name || "High Jewellery";
+  document.getElementById("chip-ref").textContent = ref ? "Ref. " + ref : "";
+}
+
+document.getElementById("quote-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var btn = f.querySelector("[type=submit]");
+  var toast = document.getElementById("toast");
+  btn.disabled = true;
+  try {
+    await Gem.submitForm("quotation", {
+      name: f.name.value.trim(),
+      email: f.email.value.trim(),
+      phone: f.phone.value.trim(),
+      ref: f.ref.value.trim(),
+      piece: f.piece.value.trim(),
+      requirements: f.requirements.value.trim(),
+      budget: f.budget.value
+    });
+    GemShell.toast(toast, "Quotation received. An advisor will be in touch.", true);
+    f.reset();
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Could not send. Please try again.", false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

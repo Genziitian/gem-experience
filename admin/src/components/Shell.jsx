@@ -6,6 +6,7 @@ const links = [
   ["/catalog", "Catalog"],
   ["/users", "Users"],
   ["/orders", "Orders"],
+  ["/quotations", "Quotations"],
   ["/forms", "Forms"],
   ["/traffic", "Traffic"],
   ["/seo", "SEO"],

@@ -25,6 +25,21 @@ cd frontend && python3 -m http.server 8000
 
 → http://localhost:8000 · http://localhost:8000/high-jewellery/
 
+Also live under `frontend/`:
+
+| Path | Page |
+| --- | --- |
+| `/appointment/` | Book an appointment |
+| `/quotation/` | Request quotation |
+| `/contact/` | Contact us |
+| `/cart/` · `/checkout/` | Selection + concierge checkout |
+| `/login/` · `/account/` | Auth + my account |
+| `/legal/` | Privacy / Terms / Cookies |
+| `/offices/` | Ateliers and Tanzania stores |
+| `/404.html` | Branded error page |
+
+Forms and checkout enquiries write to Supabase (`form_submissions`, `orders`). Admin → **Quotations** shows active quotes.
+
 **Admin**:
 
 ```bash

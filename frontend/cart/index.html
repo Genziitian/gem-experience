@@ -35,7 +35,7 @@ function render() {
   var root = document.getElementById("cart-root");
   if (!items.length) {
     root.innerHTML =
-      '<div class="pg-cart-empty" style="grid-column:1/-1">' +
+      '<div class="pg-cart-empty">' +
         "<p>Your selection is empty.</p>" +
         '<a class="pg-btn" href="../high-jewellery/">Explore High Jewellery</a>' +
       "</div>";
@@ -45,7 +45,7 @@ function render() {
   var list = items.map(function (it) {
     return (
       '<article class="pg-cart-item" data-id="' + it.id + '">' +
-        (it.image ? '<img src="' + it.image + '" alt="">' : '<div style="width:88px;height:88px;background:#f9f8f3"></div>') +
+        (it.image ? '<img src="' + it.image + '" alt="">' : '<div class="pg-cart-item-ph"></div>') +
         "<div>" +
           "<h3>" + it.name + "</h3>" +
           "<p>" + (it.materials || "Price on enquiry") + "</p>" +
@@ -55,7 +55,7 @@ function render() {
             '<button type="button" data-act="inc" aria-label="Increase">+</button>' +
           "</div>" +
         "</div>" +
-        '<button type="button" class="pg-btn pg-btn--ghost" data-act="rm" style="min-height:36px;padding:0 14px;font-size:10px">Remove</button>' +
+        '<button type="button" class="pg-btn pg-btn--ghost pg-btn--sm" data-act="rm">Remove</button>' +
       "</article>"
     );
   }).join("");
@@ -66,7 +66,7 @@ function render() {
       "<h2>Summary</h2>" +
       "<p class=\"pg-note\">Most High Jewellery pieces are quoted privately — checkout opens an enquiry with our advisors.</p>" +
       "<dl><div class=\"pg-total\"><span>Pieces</span><span>" + items.length + "</span></div></dl>" +
-      '<div class="pg-actions" style="margin-top:24px;flex-direction:column">' +
+      '<div class="pg-actions pg-actions--col">' +
         '<a class="pg-btn" href="../checkout/">Proceed to checkout</a>' +
         '<a class="pg-btn pg-btn--ghost" href="../quotation/">Request quotation instead</a>' +
       "</div>" +

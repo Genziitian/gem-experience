@@ -477,7 +477,10 @@ button {
 }
 .pg-btn--ghost:hover { background: var(--ink); color: #fff; opacity: 1; }
 
+.pg-btn--sm { min-height: 36px; padding: 0 14px; font-size: 10px; }
+
 .pg-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; align-items: center; }
+.pg-actions--col { flex-direction: column; margin-top: 24px; }
 
 .pg-toast {
   margin: 0;
@@ -727,12 +730,22 @@ button {
 .pg-qty span { min-width: 1.5ch; text-align: center; font-weight: 300; }
 
 .pg-cart-empty {
+  grid-column: 1 / -1;
   display: grid;
   justify-items: center;
   padding: clamp(48px, 9vh, 96px) 0;
   text-align: center;
 }
 .pg-cart-empty p { margin: 0 0 26px; font-weight: 300; color: var(--muted); }
+
+/* Placeholder swatch standing in for a missing cart-item image, same
+   footprint as .pg-cart-item img so the row doesn't reflow once art lands. */
+.pg-cart-item-ph { width: 96px; height: 96px; background: var(--tile); }
+
+/* Order rows on the account page have no image column. */
+.pg-cart-item--solo { grid-template-columns: 1fr; }
+
+.pg-orders-list { margin-top: 20px; }
 
 .pg-summary { position: sticky; top: 96px; }
 

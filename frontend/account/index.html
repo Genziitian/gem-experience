@@ -21,12 +21,12 @@
     <div class="pg-grid">
       <section>
         <h2 class="pg-section-title">Recent enquiries</h2>
-        <div id="orders" class="pg-cart-list" style="margin-top:20px"></div>
+        <div id="orders" class="pg-cart-list pg-orders-list"></div>
       </section>
       <aside class="pg-panel">
         <h2>Profile</h2>
         <p class="pg-note" id="profile-line">Loading…</p>
-        <div class="pg-actions" style="margin-top:24px;flex-direction:column">
+        <div class="pg-actions pg-actions--col">
           <a class="pg-btn pg-btn--ghost" href="../cart/">View cart</a>
           <a class="pg-btn pg-btn--ghost" href="../quotation/">Request quotation</a>
           <button class="pg-btn" type="button" id="signout">Sign out</button>
@@ -72,7 +72,7 @@ GemShell.mount();
   } else {
     host.innerHTML = data.map(function (o) {
       return (
-        '<article class="pg-cart-item" style="grid-template-columns:1fr">' +
+        '<article class="pg-cart-item pg-cart-item--solo">' +
           "<div><h3>" + o.order_number + "</h3>" +
           "<p>" + o.status + " · " + new Date(o.created_at).toLocaleString() + "</p>" +
           (o.notes ? "<p>" + String(o.notes).split("\n")[0] + "</p>" : "") +

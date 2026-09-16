@@ -86,6 +86,62 @@
     return Number(n).toFixed(2).replace(/\.00$/, "") + " g";
   }
 
+  function stoneList(p) {
+    return String(p.stone || "").split(/\s*&\s*/).filter(Boolean);
+  }
+
+  function inr(n) {
+    return "₹" + Number(n).toLocaleString("en-IN");
+  }
+
+  function formatPrice(p) {
+    return p.priceINR ? inr(p.priceINR) : "Price on request";
+  }
+
+  /* Every Fine Jewellery frame degrades gracefully: it shows the stone-tone
+     orb (same language as the catalog cards) until a real photo lands at
+     the given path, then swaps over automatically — no code change needed
+     when photography is ready. */
+  function mediaFrame(src, alt, tone, cls) {
+    var frame = el("div", "fj-frame" + (cls ? " " + cls : ""));
+    frame.style.setProperty("--tone", tone || "#9a958e");
+    frame.appendChild(el("div", "fj-frame-orb"));
+    var img = el("img", "fj-frame-img", { src: src, alt: alt || "", loading: "lazy", decoding: "async" });
+    img.addEventListener("error", function () { img.remove(); });
+    img.addEventListener("load", function () { frame.classList.add("has-img"); });
+    frame.appendChild(img);
+    return frame;
+  }
+
+  function addToCart(p, btn) {
+    try {
+      var raw = JSON.parse(localStorage.getItem("gem_cart_v1") || "[]");
+      var found = raw.find(function (x) { return x.id === p.id; });
+      if (found) found.qty = (found.qty || 1) + 1;
+      else raw.push({
+        id: p.id, slug: p.id, name: p.name,
+        materials: p.stone + " · " + p.metal,
+        image: "", priceOnEnquiry: !p.priceINR, priceCents: p.priceINR ? p.priceINR * 100 : 0, qty: 1
+      });
+      localStorage.setItem("gem_cart_v1", JSON.stringify(raw));
+      if (btn) {
+        var was = btn.textContent;
+        btn.textContent = "Added to cart";
+        setTimeout(function () { btn.textContent = was; }, 1600);
+      }
+    } catch (e) {}
+  }
+
+  /* One shared editorial sequence, reused on every Fine Jewellery product
+     page. Drop the four photographs in img/model/ using these exact names
+     and they will appear automatically — no further code change needed. */
+  var MODEL_STORY = [
+    { img: "img/model/model-1.jpg", h: "Made to be worn", p: "Every Fine Jewellery piece is fitted and finished by hand in our workshop, then tried on a real hand, wrist or ear before it ships — not just photographed on a mannequin." },
+    { img: "img/model/model-2.jpg", h: "Everyday, not occasion-only", p: "Fine Jewellery is built for daily wear: secure clasps, snag-free settings, and metals chosen to hold their colour through years of ordinary use." },
+    { img: "img/model/model-3.jpg", h: "Stones you can trace", p: "Every coloured stone in the collection is sourced and graded before it is set, so the carat weight and shape on this page match the stone actually in the piece." },
+    { img: "img/model/model-4.jpg", h: "Finished in-house", p: "Polishing, stone-setting and quality control all happen under one roof, so a piece that leaves our workshop has been checked by the same hands that made it." }
+  ];
+
   /* ---------------------------------------------------------------- nav */
 
   var nav = document.getElementById("fj-nav");
@@ -356,67 +412,155 @@
       return renderHome();
     }
     var col = data.collections.find(function (c) { return c.name === p.collection; });
+    var root = el("article", "fj-pdp-page");
 
-    var root = el("article", "fj-pdp");
+    // breadcrumb
+    var crumbs = el("nav", "fj-crumbs", { "aria-label": "Breadcrumb" });
+    crumbs.appendChild(el("a", null, { href: "../", text: "Home" }));
+    crumbs.appendChild(el("span", null, { text: "/" }));
+    crumbs.appendChild(el("a", null, { href: "#/", text: "Fine Jewellery" }));
+    crumbs.appendChild(el("span", null, { text: "/" }));
+    if (col) {
+      crumbs.appendChild(el("a", null, { href: "#/" + col.id, text: col.name }));
+      crumbs.appendChild(el("span", null, { text: "/" }));
+    }
+    crumbs.appendChild(el("span", "fj-crumbs-here", { "aria-current": "page", text: p.name }));
+    root.appendChild(crumbs);
+
+    var pdp = el("section", "fj-pdp");
     var media = el("div", "fj-pdp-media");
     media.appendChild(plate(p.tone, p.sku));
-    root.appendChild(media);
+    pdp.appendChild(media);
 
     var copy = el("div", "fj-pdp-copy");
-    copy.appendChild(el("a", "fj-back", {
-      href: "#/" + (col && col.id),
-      text: "← " + (p.collection || "Fine Jewellery")
-    }));
     copy.appendChild(el("p", "fj-kicker", { text: p.sku }));
     copy.appendChild(el("h1", "fj-title", { text: p.name }));
+
+    var priceRow = el("div", "fj-pdp-price");
+    priceRow.appendChild(el("span", "fj-pdp-price-val", { text: formatPrice(p) }));
+    if (!p.priceINR) priceRow.appendChild(el("span", "fj-pdp-price-note", { text: "Final price confirmed on enquiry" }));
+    copy.appendChild(priceRow);
+
     copy.appendChild(el("p", "fj-pdp-story", { text: p.story }));
 
-    var specs = el("ul", "fj-specs");
+    // stone strip — every stone in the piece, plus diamond, metal and weight
+    var strip = el("div", "fj-stone-strip");
+    stoneList(p).forEach(function (s) {
+      strip.appendChild(el("span", "fj-stone-pill", { text: s }));
+    });
     [
-      ["Category", p.type],
-      ["Collection", p.collection],
-      ["Metal", p.metal],
-      ["Stone", p.stone],
-      ["Shape", p.shape],
-      ["Stone weight", ct(p.stoneCt)],
-      ["Diamond weight", ct(p.diamondCt)],
-      ["Net weight", gm(p.netG)],
-      ["Gross weight", gm(p.grossG)]
+      [ct(p.stoneCt), "stone"],
+      [ct(p.diamondCt), "diamond"],
+      [p.metal, "metal"]
     ].forEach(function (row) {
-      if (!row[1]) return;
+      if (row[0]) strip.appendChild(el("span", "fj-stone-pill fj-stone-pill--" + row[1], { text: row[0] }));
+    });
+    copy.appendChild(strip);
+
+    var actions = el("div", "fj-pdp-actions");
+    var addBtn = el("button", "fj-btn", { type: "button", text: "Add to cart" });
+    addBtn.addEventListener("click", function () { addToCart(p, addBtn); });
+    var enquireBtn = el("a", "fj-btn fj-btn--ghost", {
+      href: "../quotation/?ref=" + encodeURIComponent(p.sku) + "&name=" + encodeURIComponent(p.name),
+      text: "Enquire now"
+    });
+    actions.appendChild(addBtn);
+    actions.appendChild(enquireBtn);
+    copy.appendChild(actions);
+
+    // details, care & shipping — plain disclosure elements, no extra JS state
+    var specRows = [
+      ["Category", p.type], ["Collection", p.collection], ["Metal", p.metal],
+      ["Stone", p.stone], ["Shape", p.shape],
+      ["Stone weight", ct(p.stoneCt)], ["Diamond weight", ct(p.diamondCt)],
+      ["Net weight", gm(p.netG)], ["Gross weight", gm(p.grossG)], ["Reference", p.sku]
+    ].filter(function (r) { return r[1]; });
+
+    var accWrap = el("div", "fj-acc");
+    var d1 = el("details", "fj-acc-item", { open: "" });
+    d1.appendChild(el("summary", null, { text: "Description & details" }));
+    var d1body = el("div", "fj-acc-body");
+    var specs = el("ul", "fj-specs");
+    specRows.forEach(function (row) {
       var li = el("li");
       li.appendChild(el("strong", null, { text: row[0] }));
       li.appendChild(el("span", null, { text: String(row[1]) }));
       specs.appendChild(li);
     });
-    copy.appendChild(specs);
+    d1body.appendChild(specs);
+    d1.appendChild(d1body);
+    accWrap.appendChild(d1);
 
-    var actions = el("div", "fj-pdp-actions");
-    var q = el("a", "fj-btn", {
-      href: "../quotation/?ref=" + encodeURIComponent(p.sku) +
-        "&name=" + encodeURIComponent(p.name),
-      text: "Request a quotation"
+    var d2 = el("details", "fj-acc-item");
+    d2.appendChild(el("summary", null, { text: "Care and services" }));
+    var d2body = el("div", "fj-acc-body");
+    [
+      "Cleaned and checked by our workshop at any time, without charge.",
+      "Store separately in the fitted pouch, away from direct light and heat.",
+      "Resizing (on rings) and restringing handled in-house; allow two weeks.",
+      "Every piece carries a lifetime guarantee against manufacturing defect."
+    ].forEach(function (b) { d2body.appendChild(el("p", "fj-acc-copy", { text: b })); });
+    d2.appendChild(d2body);
+    accWrap.appendChild(d2);
+
+    var d3 = el("details", "fj-acc-item");
+    d3.appendChild(el("summary", null, { text: "Shipping and returns" }));
+    var d3body = el("div", "fj-acc-body");
+    [
+      "Insured delivery worldwide, with signature required on arrival.",
+      "In-stock pieces ship within 5–7 working days.",
+      "Returns accepted within 15 days on unworn, unaltered pieces in original packaging.",
+      "Resized or engraved pieces are final sale."
+    ].forEach(function (b) { d3body.appendChild(el("p", "fj-acc-copy", { text: b })); });
+    d3.appendChild(d3body);
+    accWrap.appendChild(d3);
+
+    copy.appendChild(accWrap);
+    pdp.appendChild(copy);
+    root.appendChild(pdp);
+
+    // closer look — detail crops of this specific piece, added per SKU later
+    var closer = el("section", "fj-closer");
+    closer.appendChild(el("h2", "fj-section-h", { text: "A closer look" }));
+    var closerGrid = el("div", "fj-closer-grid");
+    ["detail-1", "detail-2", "detail-3"].forEach(function (n) {
+      closerGrid.appendChild(mediaFrame(
+        "img/products/" + p.id + "/" + n + ".jpg",
+        p.name + " — detail",
+        p.tone,
+        "fj-closer-tile"
+      ));
     });
-    var bag = el("button", "fj-btn fj-btn--ghost", { type: "button", text: "Add to selection" });
-    bag.addEventListener("click", function () {
-      try {
-        var raw = JSON.parse(localStorage.getItem("gem_cart_v1") || "[]");
-        var found = raw.find(function (x) { return x.id === p.id; });
-        if (found) found.qty = (found.qty || 1) + 1;
-        else raw.push({
-          id: p.id, slug: p.id, name: p.name,
-          materials: p.stone + " · " + p.metal,
-          image: "", priceOnEnquiry: true, priceCents: 0, qty: 1
-        });
-        localStorage.setItem("gem_cart_v1", JSON.stringify(raw));
-        bag.textContent = "Added";
-        setTimeout(function () { bag.textContent = "Add to selection"; }, 1600);
-      } catch (e) {}
+    closer.appendChild(closerGrid);
+    root.appendChild(closer);
+
+    // cross-sell — same collection first, then the rest
+    var rel = data.products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
+      .concat(data.products.filter(function (q) { return q.id !== p.id && q.collection !== p.collection; }))
+      .slice(0, 3);
+    var relWrap = el("section", "fj-related");
+    var relHead = el("div", "fj-related-head");
+    relHead.appendChild(el("span", "fj-section-h", { text: "You may also like" }));
+    relHead.appendChild(el("a", "fj-related-all", { href: "#/shop", text: "View all" }));
+    relWrap.appendChild(relHead);
+    var relGrid = el("div", "fj-grid");
+    rel.forEach(function (q) { relGrid.appendChild(card(q)); });
+    relWrap.appendChild(relGrid);
+    root.appendChild(relWrap);
+
+    // shared editorial sequence — same on every Fine Jewellery product page
+    var story = el("section", "fj-model");
+    MODEL_STORY.forEach(function (b, i) {
+      var blk = el("div", "fj-model-block" + (i % 2 ? " fj-model-block--right" : ""));
+      blk.appendChild(mediaFrame(b.img, b.h, p.tone, "fj-model-frame"));
+      var txt = el("div", "fj-model-text");
+      txt.appendChild(el("h3", null, { text: b.h }));
+      txt.appendChild(el("p", null, { text: b.p }));
+      blk.appendChild(txt);
+      story.appendChild(blk);
     });
-    actions.appendChild(q);
-    actions.appendChild(bag);
-    copy.appendChild(actions);
-    root.appendChild(copy);
+    root.appendChild(story);
+
     return root;
   }
 

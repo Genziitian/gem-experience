@@ -8,6 +8,8 @@
 # Admin / env
 admin/node_modules/
 admin/dist/
+# built at deploy time by vercel.json's buildCommand
+frontend/admin/
 admin/.env
 .env
 .env.local

@@ -16,7 +16,7 @@ export function configStatus() {
     return {
       ok: false,
       reason:
-        "Vite only loads admin/.env (not .env.example). Create admin/.env with VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY, then restart npm run dev.",
+        "VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are missing. These are read at build time: locally put them in admin/.env (Vite does not read .env.example) and restart npm run dev; on Vercel add them to the project's environment variables and redeploy.",
     };
   }
   if (u.includes("YOUR_PROJECT") || k === "YOUR_ANON_KEY") {

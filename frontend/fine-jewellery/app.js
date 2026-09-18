@@ -134,15 +134,21 @@
     } catch (e) {}
   }
 
-  /* One shared editorial sequence, reused on every Fine Jewellery product
-     page. Drop the four photographs in img/model/ using these exact names
-     and they will appear automatically — no further code change needed. */
+  /* One shared editorial sequence, reused on every Fine Jewellery product page.
+     The photography comes from the piece's own collection (collection.models),
+     so a Safar piece shows the Safar shoot and a Bloom piece the Bloom one.
+     Collections still awaiting a shoot fall back to img/model/, which shows the
+     stone-tone orb until those files are dropped in. */
   var MODEL_STORY = [
     { img: "img/model/model-1.jpg", h: "Made to be worn", p: "Every Fine Jewellery piece is fitted and finished by hand in our workshop, then tried on a real hand, wrist or ear before it ships — not just photographed on a mannequin." },
     { img: "img/model/model-2.jpg", h: "Everyday, not occasion-only", p: "Fine Jewellery is built for daily wear: secure clasps, snag-free settings, and metals chosen to hold their colour through years of ordinary use." },
     { img: "img/model/model-3.jpg", h: "Stones you can trace", p: "Every coloured stone in the collection is sourced and graded before it is set, so the carat weight and shape on this page match the stone actually in the piece." },
     { img: "img/model/model-4.jpg", h: "Finished in-house", p: "Polishing, stone-setting and quality control all happen under one roof, so a piece that leaves our workshop has been checked by the same hands that made it." }
   ];
+
+  function modelShot(col, i) {
+    return (col && col.models && col.models[i]) || MODEL_STORY[i].img;
+  }
 
   /* ---------------------------------------------------------------- nav */
 
@@ -592,7 +598,7 @@
     var story = el("section", "fj-model");
     MODEL_STORY.forEach(function (b, i) {
       var blk = el("div", "fj-model-block" + (i % 2 ? " fj-model-block--right" : ""));
-      blk.appendChild(mediaFrame(b.img, b.h, p.tone, "fj-model-frame"));
+      blk.appendChild(mediaFrame(modelShot(col, i), b.h, p.tone, "fj-model-frame"));
       var txt = el("div", "fj-model-text");
       txt.appendChild(el("h3", null, { text: b.h }));
       txt.appendChild(el("p", null, { text: b.p }));

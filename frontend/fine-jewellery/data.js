@@ -10,7 +10,13 @@ window.FJ_DATA = {
       "story": "Just as a flower is cultivated for its beauty, the effort it takes to get to that stage often goes unnoticed. From sowing the seed, to becoming a sapling and eventually blooming into a flower.\n\nDrawing a parallel to life: the day we achieve our goal, we take a moment to look back and appreciate the challenges, effort and patience it took to get there. Hence, Bloom.\n\nThe different gemstones represent that every person has a different way of blooming. Mint garnet for quiet strength, growth and harmony. Aquamarine for clarity, courage and calmness. Tanzanite for new beginnings, the rarity of life's special moments, and wisdom. Pink spinel for healing, rebirth and love.\n\nStones used: mint garnet, aquamarine, tanzanite and pink spinel. Set in white gold.",
       "tone": "#6a9e7a",
       "banner": "img/bloom-banner.webp",
-      "meta": "Mint garnet · Aquamarine · Tanzanite · Pink spinel · White gold"
+      "meta": "Mint garnet · Aquamarine · Tanzanite · Pink spinel · White gold",
+      "models": [
+        "img/products/gd26-68-1.webp",
+        "img/products/gd26-61-1.webp",
+        "img/products/gd26-69-2.webp",
+        "img/products/gd26-63-2.webp"
+      ]
     },
     {
       "id": "safar",
@@ -20,7 +26,13 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "banner": "img/safar-banner.webp",
       "designer": "Shantanu Garg",
-      "meta": "Designed with Shantanu Garg"
+      "meta": "Designed with Shantanu Garg",
+      "models": [
+        "img/products/gd26-196-c-3.webp",
+        "img/products/gd26-224-1.webp",
+        "img/products/gd25-294-2.webp",
+        "img/products/gd26-148-3.webp"
+      ]
     },
     {
       "id": "tide",

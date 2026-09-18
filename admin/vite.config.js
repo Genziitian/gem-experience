@@ -8,5 +8,15 @@ export default defineConfig({
   plugins: [react()],
   base: "/admin/",
   build: { outDir: "../frontend/admin", emptyOutDir: true },
-  server: { port: 5173, host: true },
+  server: {
+    port: 5173,
+    host: true,
+    /* In production the admin and the storefront share an origin, so the
+       catalog import fetches the data.js files directly. In dev they do not —
+       proxy them to `npm run dev:frontend` so the import works the same way. */
+    proxy: {
+      "/fine-jewellery": "http://localhost:8000",
+      "/high-jewellery": "http://localhost:8000",
+    },
+  },
 });

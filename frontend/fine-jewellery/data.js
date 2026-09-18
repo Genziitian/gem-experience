@@ -21,6 +21,33 @@ window.FJ_DATA = {
       "banner": "img/safar-banner.webp",
       "designer": "Shantanu Garg",
       "meta": "Designed with Shantanu Garg"
+    },
+    {
+      "id": "tide",
+      "name": "Tide",
+      "lede": "The rhythm of the ocean — graceful, constant, and ever in motion.",
+      "story": "The Tide collection echoes the natural rhythm of the ocean, graceful, continuous, and ever in motion. Each design is developed through flowing contours and measured curves, creating a visual rhythm that guides light smoothly across the surface of the jewellery.\n\nWith each tide repeatedly touching the shore and slowly gliding back, it represents persistence and adaptability, a force shaped by time and repetition. In this collection, the wave becomes a language of balance, where movement is held within structure. Through precise craftsmanship and refined detailing, the Tide collection captures motion in a form that is enduring and composed.",
+      "tone": "#3a7ea8",
+      "banner": "img/tide-banner.webp",
+      "meta": "Flowing contours · rhythm of the wave"
+    },
+    {
+      "id": "swirl",
+      "name": "Swirl",
+      "lede": "Fluid, playful, and intuitively balanced motion.",
+      "story": "The swirl collection is inspired by the playful yet delicate turning of form in motion. Each piece is shaped through soft rotations and layered curves, recreating a sense of flow that feels natural. The design focuses on smooth transitions and balanced proportions, allowing the form to move seamlessly.\n\nThe swirl evolves, guiding the eye and the light in a continuous path. Interpreted through fine craftsmanship the collection expresses movement with subtlety in jewellery that feels timeless.",
+      "tone": "#7a5ac4",
+      "banner": "img/swirl-banner.webp",
+      "meta": "Soft rotations · layered curves"
+    },
+    {
+      "id": "dew",
+      "name": "Dew",
+      "lede": "A single droplet held in perfect suspension.",
+      "story": "The Dew collection draws inspiration from the purest moment in nature, when a single droplet forms, suspended in perfect balance. Each design is shaped around a softened and quiet elegance of falling drops in the morning dew.\n\nWith precise proportions and finish each gemstone is cut into the soft drop shape enhancing its luminosity, and unique structure. Dew with its freshness, signifies renewal and the beginning of a moment.",
+      "tone": "#8fc9c0",
+      "banner": "img/dew-banner.webp",
+      "meta": "Drop-cut gemstones · quiet elegance"
     }
   ],
   "types": [
@@ -47,7 +74,13 @@ window.FJ_DATA = {
       "netG": 11.768,
       "grossG": 12.21,
       "story": "Crafted in 14k White gold, set with 0.27 carats of intense blue tanzanite paired with 1.94 carats of brilliant cut diamonds",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-148.webp",
+        "img/products/gd26-148-1.webp",
+        "img/products/gd26-148-2.webp",
+        "img/products/gd26-148-3.webp"
+      ]
     },
     {
       "id": "gd25-1103",
@@ -65,7 +98,12 @@ window.FJ_DATA = {
       "netG": 11.748,
       "grossG": 12.21,
       "story": "Crafted in 14k White gold, set with 0.24 carats of vivid pink spinel paired with 2.07 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-1103.webp",
+        "img/products/gd25-1103-1.webp",
+        "img/products/gd25-1103-2.webp"
+      ]
     },
     {
       "id": "gd26-196-c",
@@ -83,7 +121,13 @@ window.FJ_DATA = {
       "netG": 6.582,
       "grossG": 6.88,
       "story": "Crafted in 14k Rose gold, set with 0.41 carats of vivid pink spinel paired with 1.08 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-196-c.webp",
+        "img/products/gd26-196-c-1.webp",
+        "img/products/gd26-196-c-2.webp",
+        "img/products/gd26-196-c-3.webp"
+      ]
     },
     {
       "id": "gd26-197-c",
@@ -101,7 +145,12 @@ window.FJ_DATA = {
       "netG": 12.957,
       "grossG": 13.5,
       "story": "Crafted in 14k Rose gold, set with 1.36 carats of hexagon cut pink spinel paired with 1.35 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-197-c.webp",
+        "img/products/gd26-197-c-1.webp",
+        "img/products/gd26-197-c-2.webp"
+      ]
     },
     {
       "id": "gd26-224",
@@ -119,7 +168,11 @@ window.FJ_DATA = {
       "netG": 25.884,
       "grossG": 26.42,
       "story": "Crafted in 14k Rose gold, set with 0.5 carats of pink spinel paired with 2.18 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-224.webp",
+        "img/products/gd26-224-1.webp"
+      ]
     },
     {
       "id": "gd26-275-a",
@@ -137,7 +190,10 @@ window.FJ_DATA = {
       "netG": 33.67,
       "grossG": 39.75,
       "story": "Crafted in 14k Rose gold, set with 20.1 carats of custom bead cut pink spinel paired with 10.3 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-275-a.webp"
+      ]
     },
     {
       "id": "gd25-294",
@@ -155,7 +211,12 @@ window.FJ_DATA = {
       "netG": 15.95,
       "grossG": 16.63,
       "story": "Crafted in 18k Rose and white gold, set with 0.72 carats of pink spinel paired with 2.68 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-294.webp",
+        "img/products/gd25-294-1.webp",
+        "img/products/gd25-294-2.webp"
+      ]
     },
     {
       "id": "gd25-842",
@@ -173,7 +234,12 @@ window.FJ_DATA = {
       "netG": 10.482,
       "grossG": 11.76,
       "story": "Crafted in 18k White gold, set with 4.77 carats of Pear shaped Rose Rhodolite paired with 1.62 carats of brilliant cut diamonds",
-      "tone": "#9a3a6a"
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd25-842.webp",
+        "img/products/gd25-842-1.webp",
+        "img/products/gd25-842-2.webp"
+      ]
     },
     {
       "id": "gd26-140",
@@ -191,7 +257,12 @@ window.FJ_DATA = {
       "netG": 6.464,
       "grossG": 7.56,
       "story": "Crafted in 18k White gold, set with 4.33 carats of Oval Morganite paired with 1.15 carats of brilliant cut diamonds",
-      "tone": "#e8b4b8"
+      "tone": "#e8b4b8",
+      "images": [
+        "img/products/gd26-140.webp",
+        "img/products/gd26-140-1.webp",
+        "img/products/gd26-140-2.webp"
+      ]
     },
     {
       "id": "gd26-146",
@@ -209,7 +280,12 @@ window.FJ_DATA = {
       "netG": 12.166,
       "grossG": 12.61,
       "story": "Crafted in 14k White gold, set with 1.52 carats of vivid Pink spinel paired with 0.7 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-146.webp",
+        "img/products/gd26-146-1.webp",
+        "img/products/gd26-146-2.webp"
+      ]
     },
     {
       "id": "gd26-147",
@@ -227,7 +303,12 @@ window.FJ_DATA = {
       "netG": 11.762,
       "grossG": 12.07,
       "story": "Crafted in 14k White gold, set with 1.21 carats of vivid round tanzanite paired with 1.33 carats of brilliant cut diamonds",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-147.webp",
+        "img/products/gd26-147-1.webp",
+        "img/products/gd26-147-2.webp"
+      ]
     },
     {
       "id": "gd26-197-b",
@@ -245,7 +326,12 @@ window.FJ_DATA = {
       "netG": 10.148,
       "grossG": 11.07,
       "story": "Crafted in 14k White gold, set with 2.93 carats of custom cut hexagon pink spinel paired with 1.68 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-197-b.webp",
+        "img/products/gd26-197-b-1.webp",
+        "img/products/gd26-197-b-2.webp"
+      ]
     },
     {
       "id": "gd26-198-c",
@@ -263,7 +349,10 @@ window.FJ_DATA = {
       "netG": 12.264,
       "grossG": 19.08,
       "story": "Crafted in 14k White gold, set with 3.28 carats of custom cut triangle tourmaline set in 29.87 carats of carved rose quartz paired with 0.93 carats of brilliant cut diamonds",
-      "tone": "#2a7a5a"
+      "tone": "#2a7a5a",
+      "images": [
+        "img/products/gd26-198-c.webp"
+      ]
     },
     {
       "id": "gd26-203",
@@ -281,7 +370,10 @@ window.FJ_DATA = {
       "netG": 11.341,
       "grossG": 14.99,
       "story": "Crafted in 18k White gold, set with 2.31 carats of pear shape pink spinel set in 15.22 carats of carved rose quartz paired with 0.71 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-203.webp"
+      ]
     },
     {
       "id": "gd26-218",
@@ -299,7 +391,12 @@ window.FJ_DATA = {
       "netG": 8.444,
       "grossG": 8.8,
       "story": "Crafted in 14k Rose gold, set with 0.56 carats of vivid round pink spinel paired with 1.22 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-218.webp",
+        "img/products/gd26-218-1.webp",
+        "img/products/gd26-218-2.webp"
+      ]
     },
     {
       "id": "gd26-275-b",
@@ -317,7 +414,10 @@ window.FJ_DATA = {
       "netG": 6.044,
       "grossG": 7.1,
       "story": "Crafted in 14k White gold, set with 3.54 carats of custom bead cut pink spinel paired with 1.73 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-275-b.webp"
+      ]
     },
     {
       "id": "gd26-141",
@@ -335,7 +435,12 @@ window.FJ_DATA = {
       "netG": 2.552,
       "grossG": 3.05,
       "story": "Crafted in 14k White gold, set with 2.04 carats of oval Morganite paired with 0.45 carats of brilliant cut diamonds",
-      "tone": "#e8b4b8"
+      "tone": "#e8b4b8",
+      "images": [
+        "img/products/gd26-141.webp",
+        "img/products/gd26-141-1.webp",
+        "img/products/gd26-141-2.webp"
+      ]
     },
     {
       "id": "gd26-197",
@@ -353,7 +458,13 @@ window.FJ_DATA = {
       "netG": 5.349,
       "grossG": 5.84,
       "story": "Crafted in 14k White gold, set with 1.66 carats of custom cut hexagon pink spinel paired with 5.35 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-197.webp",
+        "img/products/gd26-197-1.webp",
+        "img/products/gd26-197-2.webp",
+        "img/products/gd26-197-3.webp"
+      ]
     },
     {
       "id": "gd26-275-c",
@@ -371,7 +482,10 @@ window.FJ_DATA = {
       "netG": 2.44,
       "grossG": 3.07,
       "story": "Crafted in 14k White gold, set with 1.78 carats of custom bead cut pink spinel paired with 2.44 carats of brilliant cut diamonds",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-275-c.webp"
+      ]
     },
     {
       "id": "gd25-1081",
@@ -389,7 +503,10 @@ window.FJ_DATA = {
       "netG": 1.76,
       "grossG": 2.16,
       "story": "Mint garnet speaks of quiet strength, the kind of growth no one applauds until it's finished. This pendant sets a 1.55 carat pear-cut stone, cool and green as new leaves, among 0.45 carats of brilliant-cut diamonds in 14k white gold — small enough to wear every day, deliberate enough to mean something.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-1081.webp"
+      ]
     },
     {
       "id": "gd25-1069",
@@ -425,7 +542,11 @@ window.FJ_DATA = {
       "netG": 5.524,
       "grossG": 6.61,
       "story": "At 4.31 carats a pair, this is Bloom's most confident statement in mint garnet — vivid pear-cut stones bordered in 1.12 carats of brilliant-cut diamonds and set in 14k white gold. Worn together, they catch the light with the same quiet insistence the stone is named for.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-1067.webp",
+        "img/products/gd25-1067-1.webp"
+      ]
     },
     {
       "id": "gd25-994",
@@ -443,7 +564,12 @@ window.FJ_DATA = {
       "netG": 16.826,
       "grossG": 18.39,
       "story": "Aquamarine is Bloom's stone for clarity and calm, and this bracelet wears it at scale: 5.39 carats of pear-cut aquamarine, sea-glass blue, set with 2.43 carats of brilliant-cut diamonds in 14k white gold. It sits on the wrist like a held breath — cool, considered, unhurried.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-994.webp",
+        "img/products/gd25-994-1.webp",
+        "img/products/gd25-994-2.webp"
+      ]
     },
     {
       "id": "gd25-1026",
@@ -461,7 +587,12 @@ window.FJ_DATA = {
       "netG": 4.558,
       "grossG": 5.2,
       "story": "A ring in aquamarine's own colour of composure: 2.14 carats of pear-cut stone paired with 1.07 carats of diamonds, in 14k white gold. Bloom reads the stone as courage worn quietly — the kind that doesn't need to announce itself.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1026.webp",
+        "img/products/gd25-1026-1.webp",
+        "img/products/gd25-1026-2.webp"
+      ]
     },
     {
       "id": "gd25-1086",
@@ -479,7 +610,11 @@ window.FJ_DATA = {
       "netG": 5.402,
       "grossG": 6.32,
       "story": "Aquamarine at its most luminous: 3.51 carats of pear-cut stone per pair, bordered in 1.08 carats of brilliant-cut diamonds and set in 14k white gold. The blue deepens toward the tip of each pear, so the earrings shift in tone as they move.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1086.webp",
+        "img/products/gd25-1086-1.webp"
+      ]
     },
     {
       "id": "gd25-1087",
@@ -497,7 +632,10 @@ window.FJ_DATA = {
       "netG": 2.484,
       "grossG": 2.94,
       "story": "The lightest piece in the aquamarine line — 1.69 carats of pear-cut stone with 0.59 carats of diamonds in 14k white gold — sized to be worn without a second thought, which is exactly the point of a stone that stands for calm.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1087.webp"
+      ]
     },
     {
       "id": "gd25-875",
@@ -533,7 +671,10 @@ window.FJ_DATA = {
       "netG": 17.584,
       "grossG": 18.23,
       "story": "The Petal line takes pink spinel — Bloom's stone for healing and rebirth — and sets it in rounded, closed forms rather than open claws. This bracelet mixes round and pear-cut spinel totalling 1.56 carats with 1.67 carats of brilliant-cut diamonds, in 14k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-964.webp"
+      ]
     },
     {
       "id": "gd25-1096",
@@ -551,7 +692,11 @@ window.FJ_DATA = {
       "netG": 5.26,
       "grossG": 5.54,
       "story": "A softer register of Petal: round pink spinel, 0.74 carats a pair, set with 0.66 carats of diamonds in rose gold. The warmth of the metal and the warmth of the stone were clearly meant to sit together.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-1096.webp",
+        "img/products/gd25-1096-1.webp"
+      ]
     },
     {
       "id": "gd25-1095",
@@ -569,7 +714,12 @@ window.FJ_DATA = {
       "netG": 4.05,
       "grossG": 4.31,
       "story": "Small enough to stack, considered enough to wear alone: 0.55 carats of round pink spinel with 0.75 carats of diamonds, set in rose gold as part of the Petal line.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-1095.webp",
+        "img/products/gd25-1095-1.webp",
+        "img/products/gd25-1095-2.webp"
+      ]
     },
     {
       "id": "gd25-1097",
@@ -605,7 +755,10 @@ window.FJ_DATA = {
       "netG": 9.25,
       "grossG": 10.41,
       "story": "A long chain that carries two stones at once: 0.94 carats of pink spinel for rebirth alongside 3.83 carats of spessartite for warmth, joined by 1.03 carats of brilliant-cut diamonds in 18k white gold. Worn open, it moves the way a garland does.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-790.webp"
+      ]
     },
     {
       "id": "gd26-68",
@@ -623,7 +776,11 @@ window.FJ_DATA = {
       "netG": 38.868,
       "grossG": 42.76,
       "story": "The Garland necklace is Bloom's largest gesture: 13.27 carats of pear-cut mint garnet strung with 6.19 carats of brilliant-cut diamonds in 14k white gold, each stone hung like a leaf on a vine. It is built for the room, not the mirror.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-68.webp",
+        "img/products/gd26-68-1.webp"
+      ]
     },
     {
       "id": "gd26-176",
@@ -641,7 +798,10 @@ window.FJ_DATA = {
       "netG": 36.278,
       "grossG": 40.91,
       "story": "Spessartite burns a warmer orange than any other garnet, and this Garland necklace uses that heat generously — 17.28 carats of pear-cut stone with 5.88 carats of diamonds in 14k white gold, strung to catch candlelight rather than daylight.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-176.webp"
+      ]
     },
     {
       "id": "gd26-513",
@@ -659,7 +819,10 @@ window.FJ_DATA = {
       "netG": 17.742,
       "grossG": 29.82,
       "story": "A floral motif built from two very different textures: 6.89 carats of faceted spessartite set against 51.34 carats of carved, cabochon chalcedony, finished with 2.16 carats of round brilliant-cut diamonds in 18k white gold. Chalcedony is Bloom's stone for quiet renewal — matte where the spessartite is fire.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-513.webp"
+      ]
     },
     {
       "id": "gd26-219",
@@ -713,7 +876,12 @@ window.FJ_DATA = {
       "netG": 8.468,
       "grossG": 9.58,
       "story": "Heart in Bloom sets a cabochon heart of rubellite — Bloom's stone for passion — across two fingers at once: 3.44 carats of stone, 2.121 carats of brilliant-cut diamonds, in 14k white gold. It is a ring built to be noticed, and to move as the hand moves.",
-      "tone": "#b8325a"
+      "tone": "#b8325a",
+      "images": [
+        "img/products/gd25-1046.webp",
+        "img/products/gd25-1046-1.webp",
+        "img/products/gd25-1046-2.webp"
+      ]
     },
     {
       "id": "gd25-124",
@@ -731,7 +899,10 @@ window.FJ_DATA = {
       "netG": 7.506,
       "grossG": 8.224,
       "story": "A cabochon oval pink spinel, polished rather than faceted so its colour reads as pure saturation: 2.92 carats, set with 0.67 carats of diamonds in 18k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-124.webp"
+      ]
     },
     {
       "id": "gd25-1036",
@@ -749,7 +920,10 @@ window.FJ_DATA = {
       "netG": 8.02,
       "grossG": 8.97,
       "story": "The Feather ring pairs 1.81 carats of pear-cut pink spinel with 1.58 carats of morganite — one stone for rebirth, the other for tenderness — set with 1.36 carats of diamonds across white and rose gold, so the two metals echo the two stones.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-1036.webp"
+      ]
     },
     {
       "id": "gd26-62",
@@ -767,7 +941,11 @@ window.FJ_DATA = {
       "netG": 4.888,
       "grossG": 5.94,
       "story": "The Rosette line clusters drop-cut stones into a single dense bloom: 4.21 carats of pink spinel drops set with 1.05 carats of diamonds in 14k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-62.webp",
+        "img/products/gd26-62-1.webp"
+      ]
     },
     {
       "id": "gd26-71",
@@ -785,7 +963,10 @@ window.FJ_DATA = {
       "netG": 4.344,
       "grossG": 4.83,
       "story": "A smaller Garland piece for the hand: 1.59 carats of pear-cut mint garnet, 0.84 carats of diamonds, 14k white gold — the same vine motif as the necklace, scaled down to a single stone.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-71.webp"
+      ]
     },
     {
       "id": "gd26-139",
@@ -803,7 +984,12 @@ window.FJ_DATA = {
       "netG": 8.586,
       "grossG": 9.8,
       "story": "A heart-cut tanzanite of 4.02 carats spans two fingers in this Heart in Bloom ring, set with 2.05 carats of brilliant-cut diamonds in 14k white gold — tanzanite's violet-blue standing in for new beginnings, worn boldly rather than quietly.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-139.webp",
+        "img/products/gd26-139-1.webp",
+        "img/products/gd26-139-2.webp"
+      ]
     },
     {
       "id": "gd26-167",
@@ -821,7 +1007,12 @@ window.FJ_DATA = {
       "netG": 5.252,
       "grossG": 6.22,
       "story": "Warm drop-cut spessartite gathered into a Rosette cluster — 3.9 carats of it, set with 0.94 carats of diamonds in 14k white gold.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-167.webp",
+        "img/products/gd26-167-1.webp",
+        "img/products/gd26-167-2.webp"
+      ]
     },
     {
       "id": "gd26-200",
@@ -839,7 +1030,12 @@ window.FJ_DATA = {
       "netG": 8.182,
       "grossG": 9.22,
       "story": "A statement ring that puts two of Bloom's founding stones side by side: 2.46 carats of pink spinel for rebirth and 1.35 carats of aquamarine for clarity, set with 1.38 carats of diamonds in 14k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-200.webp",
+        "img/products/gd26-200-1.webp",
+        "img/products/gd26-200-2.webp"
+      ]
     },
     {
       "id": "gd26-201",
@@ -857,7 +1053,12 @@ window.FJ_DATA = {
       "netG": 5.562,
       "grossG": 6.14,
       "story": "Spessartite's warmth and pink spinel's rose sit together in this statement ring — 1.5 carats and 0.53 carats respectively, pear-cut, set with 0.86 carats of diamonds in 14k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-201.webp",
+        "img/products/gd26-201-1.webp",
+        "img/products/gd26-201-2.webp"
+      ]
     },
     {
       "id": "gd26-766",
@@ -875,7 +1076,10 @@ window.FJ_DATA = {
       "netG": 6.49,
       "grossG": 7.1,
       "story": "A cooler pairing for the same statement silhouette: 1.51 carats of pear-cut aquamarine beside 0.57 carats of pink spinel, set with 0.96 carats of diamonds in 18k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-766.webp"
+      ]
     },
     {
       "id": "gd26-563",
@@ -911,7 +1115,10 @@ window.FJ_DATA = {
       "netG": 7.402,
       "grossG": 8.96,
       "story": "The Fern ring holds two shades of tanzanite at once — lavender and deep blue, 7.23 carats combined — with a comparatively restrained 0.56 carats of diamonds in 14k white gold, so the stone itself carries the piece.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-205.webp"
+      ]
     },
     {
       "id": "gd26-206",
@@ -929,7 +1136,10 @@ window.FJ_DATA = {
       "netG": 7.324,
       "grossG": 9.19,
       "story": "A second Fern ring in warmer tones: 7.71 carats of spessartite beside 1.04 carats of pink spinel, again with a light 0.58 carats of diamonds in 14k white gold, letting colour do most of the work.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-206.webp"
+      ]
     },
     {
       "id": "gd26-257",
@@ -947,7 +1157,12 @@ window.FJ_DATA = {
       "netG": 4.594,
       "grossG": 5.14,
       "story": "A single pear-cut spessartite of 1.9 carats, set with 0.83 carats of diamonds in 14k white gold — the Garland motif reduced to its simplest form.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-257.webp",
+        "img/products/gd26-257-1.webp",
+        "img/products/gd26-257-2.webp"
+      ]
     },
     {
       "id": "gd26-566",
@@ -965,7 +1180,10 @@ window.FJ_DATA = {
       "netG": 4.216,
       "grossG": 6.78,
       "story": "Carved rock crystal wraps 10.74 carats around a 1.63 carat heart-cut tanzanite in this dual finger ring, finished with 0.45 carats of diamonds in 18k white gold. Crystal stands for clarity in Bloom's language — here it is literal, framing the tanzanite like glass around a flame.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-566.webp"
+      ]
     },
     {
       "id": "gd26-581",
@@ -983,7 +1201,10 @@ window.FJ_DATA = {
       "netG": 6.407,
       "grossG": 8.74,
       "story": "Malaya garnet burns a warmer orange-red than most garnets, and this Petal ring gives it room to do so: 9.76 carats of pear-cut stone set with 1.905 carats of diamonds in 18k white gold.",
-      "tone": "#c47858"
+      "tone": "#c47858",
+      "images": [
+        "img/products/gd26-581.webp"
+      ]
     },
     {
       "id": "gd26-583",
@@ -1001,7 +1222,10 @@ window.FJ_DATA = {
       "netG": 6.15,
       "grossG": 6.82,
       "story": "Spessartite given the statement treatment: 2.34 carats of pear-cut stone, 1.01 carats of diamonds, 18k white gold.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-583.webp"
+      ]
     },
     {
       "id": "gd25-1047",
@@ -1019,7 +1243,12 @@ window.FJ_DATA = {
       "netG": 4.716,
       "grossG": 5.56,
       "story": "A single cabochon heart of rubellite, 2.22 carats, set with 2 carats of brilliant-cut diamonds in rose gold — the single-finger companion to the dual-finger Heart in Bloom ring, quieter but no less deliberate.",
-      "tone": "#b8325a"
+      "tone": "#b8325a",
+      "images": [
+        "img/products/gd25-1047.webp",
+        "img/products/gd25-1047-1.webp",
+        "img/products/gd25-1047-2.webp"
+      ]
     },
     {
       "id": "gd26-587",
@@ -1037,7 +1266,10 @@ window.FJ_DATA = {
       "netG": 9.678,
       "grossG": 10.87,
       "story": "A fancy-cut tanzanite of 4.09 carats, part of the Flora line, set with 1.87 carats of diamonds in 18k white gold — the stone left in an unconventional shape that favours colour over symmetry.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-587.webp"
+      ]
     },
     {
       "id": "gd25-816",
@@ -1055,7 +1287,13 @@ window.FJ_DATA = {
       "netG": 30.134,
       "grossG": 32.23,
       "story": "A cabochon hoop that puts nearly equal weight in stone and diamond: 5.33 carats of oval pink spinel against 5.15 carats of brilliant-cut diamonds, set in 18k white gold — one of the more architectural pieces in Bloom.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-816.webp",
+        "img/products/gd25-816-1.webp",
+        "img/products/gd25-816-2.webp",
+        "img/products/gd25-816-3.webp"
+      ]
     },
     {
       "id": "gd25-435",
@@ -1109,7 +1347,12 @@ window.FJ_DATA = {
       "netG": 18.086,
       "grossG": 19.17,
       "story": "The same Garland line in mint garnet — 3.3 carats of pear-cut stone with 2.12 carats of diamonds in 14k white gold — cooler and quieter than its spessartite counterpart.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-69.webp",
+        "img/products/gd26-69-1.webp",
+        "img/products/gd26-69-2.webp"
+      ]
     },
     {
       "id": "gd26-63",
@@ -1127,7 +1370,12 @@ window.FJ_DATA = {
       "netG": 17.774,
       "grossG": 21.78,
       "story": "The Rosette line's largest bracelet: 17.61 carats of drop-cut pink spinel clustered with 2.42 carats of diamonds in 14k white gold, dense enough to read as a cuff rather than a chain.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-63.webp",
+        "img/products/gd26-63-1.webp",
+        "img/products/gd26-63-2.webp"
+      ]
     },
     {
       "id": "gd26-aq-br",
@@ -1163,7 +1411,10 @@ window.FJ_DATA = {
       "netG": 4.126,
       "grossG": 4.75,
       "story": "Pink spinel across two golds at once: 2.15 carats of pear-cut stone with 0.97 carats of diamonds, set in a mix of white and rose gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-762.webp"
+      ]
     },
     {
       "id": "gd25-288",
@@ -1181,7 +1432,11 @@ window.FJ_DATA = {
       "netG": 12.4,
       "grossG": 14.27,
       "story": "The Bud earring keeps pink spinel in cabochon form — 7.8 carats of oval stone per pair, edged in 1.55 carats of brilliant-cut diamonds and set in 18k white gold — closed and rounded, the way a flower looks before it opens.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-288.webp",
+        "img/products/gd25-288-1.webp"
+      ]
     },
     {
       "id": "gd25-915-a",
@@ -1199,7 +1454,10 @@ window.FJ_DATA = {
       "netG": 15.926,
       "grossG": 19.64,
       "story": "Ball-cut pink spinel drops give these studs unusual movement: 17.75 carats of stone with 0.82 carats of diamonds, set in 14k yellow gold — the warmest metal in the collection paired with Bloom's stone for love.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-915-a.webp"
+      ]
     },
     {
       "id": "gd26-60",
@@ -1217,7 +1475,13 @@ window.FJ_DATA = {
       "netG": 15.246,
       "grossG": 17.85,
       "story": "A dense Rosette cluster for the ear: 9.8 carats of drop-cut pink spinel with 3.22 carats of diamonds in 14k white gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-60.webp",
+        "img/products/gd26-60-1.webp",
+        "img/products/gd26-60-2.webp",
+        "img/products/gd26-60-3.webp"
+      ]
     },
     {
       "id": "gd26-70",
@@ -1235,7 +1499,10 @@ window.FJ_DATA = {
       "netG": 11.868,
       "grossG": 13,
       "story": "Garland's earring: 4.56 carats of pear-cut mint garnet per pair, set with 1.1 carats of diamonds in 14k white gold.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-70.webp"
+      ]
     },
     {
       "id": "gd26-166",
@@ -1253,7 +1520,13 @@ window.FJ_DATA = {
       "netG": 15.392,
       "grossG": 21.2,
       "story": "At 25.65 carats a pair, this is the single largest stone weight anywhere in Bloom — drop-cut spessartite in full, fiery scale, set with 3.39 carats of diamonds in 14k white gold.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-166.webp",
+        "img/products/gd26-166-1.webp",
+        "img/products/gd26-166-2.webp",
+        "img/products/gd26-166-3.webp"
+      ]
     },
     {
       "id": "gd26-177",
@@ -1271,7 +1544,10 @@ window.FJ_DATA = {
       "netG": 10.704,
       "grossG": 12.26,
       "story": "A quieter spessartite pairing: 6.63 carats of pear-cut stone with 1.15 carats of diamonds in 14k white gold, in the Garland line's vine setting.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-177.webp"
+      ]
     },
     {
       "id": "gd26-210",
@@ -1289,7 +1565,10 @@ window.FJ_DATA = {
       "netG": 15.342,
       "grossG": 18.82,
       "story": "A Rosette stud in mixed metal: 14.42 carats of drop-cut pink spinel with 2.97 carats of diamonds, set across white and rose gold.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-210.webp"
+      ]
     },
     {
       "id": "gd26-228-b",
@@ -1307,7 +1586,10 @@ window.FJ_DATA = {
       "netG": 14.406,
       "grossG": 17.04,
       "story": "Fancy-cut tanzanite at full scale: 10.32 carats a pair, set with 2.85 carats of diamonds in 14k white gold — the boldest piece in the Flora line.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-228-b.webp"
+      ]
     },
     {
       "id": "gd26-785",
@@ -1325,7 +1607,482 @@ window.FJ_DATA = {
       "netG": 7.164,
       "grossG": 8.2,
       "story": "A Garland earring that mixes stones: 3.71 carats of spessartite beside 0.5 carats of pink spinel, set with 0.97 carats of diamonds in 18k white gold — warmth and rose meeting in the same setting.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-785.webp"
+      ]
+    },
+    {
+      "id": "gd26-198-a",
+      "sku": "GD26-198 A",
+      "name": "Aquamarine and diamond swirl necklace",
+      "collection": "Swirl",
+      "type": "Necklaces",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Round",
+      "stonePcs": 8,
+      "stoneCt": 2.29,
+      "diamondCt": 2.17,
+      "netG": 30.788,
+      "grossG": 31.68,
+      "story": "Crafted in 14k White Gold, set with 2.29 carats of round cut aquamarine paired with 2.17 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9"
+    },
+    {
+      "id": "gd26-786",
+      "sku": "GD26-786",
+      "name": "Mint garnet and diamond swirl necklace",
+      "collection": "Swirl",
+      "type": "Necklaces",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 9,
+      "stoneCt": 2.55,
+      "diamondCt": 4.75,
+      "netG": 34.9,
+      "grossG": 36.36,
+      "story": "Crafted in 18k White Gold, set with 2.55 carats of round cut mint garnet paired with 4.75 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd26-242",
+      "sku": "GD26-242",
+      "name": "Mint garnet and diamond swirl necklace",
+      "collection": "Swirl",
+      "type": "Necklaces",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 18,
+      "stoneCt": 6.51,
+      "diamondCt": 12.7,
+      "netG": 61.028,
+      "grossG": 64.87,
+      "story": "Crafted in 14k White Gold, set with 6.51 carats of round cut mint garnet paired with 12.7 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd26-242-a",
+      "sku": "GD26-242 A",
+      "name": "Mint garnet and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 2,
+      "stoneCt": 1.4,
+      "diamondCt": 1.68,
+      "netG": 7.204,
+      "grossG": 7.82,
+      "story": "Crafted in 14k White Gold, set with 1.4 carats of round cut mint garnet paired with 1.68 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd25-974",
+      "sku": "GD25-974",
+      "name": "Pink spinel and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Round",
+      "stonePcs": 6,
+      "stoneCt": 2.63,
+      "diamondCt": 1.455,
+      "netG": 7.753,
+      "grossG": 8.57,
+      "story": "Crafted in 14k White Gold, set with 2.63 carats of round cut pink spinel paired with 1.455 carats of brilliant cut diamonds.",
       "tone": "#c45a7a"
+    },
+    {
+      "id": "gd25-1055",
+      "sku": "GD25-1055",
+      "name": "Mint garnet and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 8,
+      "stoneCt": 3.12,
+      "diamondCt": 0.62,
+      "netG": 5.252,
+      "grossG": 6,
+      "story": "Crafted in 14k White Gold, set with 3.12 carats of round cut mint garnet paired with 0.62 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd25-1074",
+      "sku": "GD25-1074",
+      "name": "Aquamarine and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Round",
+      "stonePcs": 8,
+      "stoneCt": 2.28,
+      "diamondCt": 0.62,
+      "netG": 4.84,
+      "grossG": 5.42,
+      "story": "Crafted in 14k White Gold, set with 2.28 carats of round cut aquamarine paired with 0.62 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9"
+    },
+    {
+      "id": "gd26-198-b",
+      "sku": "GD26-198 B",
+      "name": "Aquamarine and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Round",
+      "stonePcs": 2,
+      "stoneCt": 0.75,
+      "diamondCt": 1.34,
+      "netG": 6.132,
+      "grossG": 6.55,
+      "story": "Crafted in 14k White Gold, set with 0.75 carats of round cut aquamarine paired with 1.34 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9"
+    },
+    {
+      "id": "gd26-782",
+      "sku": "GD26-782",
+      "name": "Mint garnet and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 1.11,
+      "diamondCt": 1.35,
+      "netG": 6.988,
+      "grossG": 7.48,
+      "story": "Crafted in 18k White Gold, set with 1.11 carats of pear-cut mint garnet paired with 1.35 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd26-150",
+      "sku": "GD26-150",
+      "name": "Spessartite and diamond swirl earring",
+      "collection": "Swirl",
+      "type": "Earrings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 2,
+      "stoneCt": 5.11,
+      "diamondCt": 0.25,
+      "netG": 2.448,
+      "grossG": 3.52,
+      "story": "Crafted in 14k White Gold, set with 5.11 carats of drop-cut spessartite paired with 0.25 carats of brilliant cut diamonds.",
+      "tone": "#d4783a"
+    },
+    {
+      "id": "gd25-991",
+      "sku": "GD25-991",
+      "name": "Pink spinel and diamond swirl ring",
+      "collection": "Swirl",
+      "type": "Rings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Round",
+      "stonePcs": 4,
+      "stoneCt": 1.21,
+      "diamondCt": 0.74,
+      "netG": 4.06,
+      "grossG": 4.45,
+      "story": "Crafted in 14k White Gold, set with 1.21 carats of round cut pink spinel paired with 0.74 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a"
+    },
+    {
+      "id": "gd25-1025",
+      "sku": "GD25-1025",
+      "name": "Aquamarine and diamond swirl ring",
+      "collection": "Swirl",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Round",
+      "stonePcs": 4,
+      "stoneCt": 0.95,
+      "diamondCt": 0.79,
+      "netG": 4.622,
+      "grossG": 4.97,
+      "story": "Crafted in 18k White Gold, set with 0.95 carats of round cut aquamarine paired with 0.79 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9"
+    },
+    {
+      "id": "gd25-1057",
+      "sku": "GD25-1057",
+      "name": "Mint garnet and diamond swirl ring",
+      "collection": "Swirl",
+      "type": "Rings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 4,
+      "stoneCt": 1.24,
+      "diamondCt": 0.71,
+      "netG": 4.11,
+      "grossG": 4.5,
+      "story": "Crafted in 14k White Gold, set with 1.24 carats of round cut mint garnet paired with 0.71 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd26-783",
+      "sku": "GD26-783",
+      "name": "Mint garnet and diamond swirl ring",
+      "collection": "Swirl",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 5,
+      "stoneCt": 1.39,
+      "diamondCt": 0.95,
+      "netG": 8.162,
+      "grossG": 8.63,
+      "story": "Crafted in 18k White Gold, set with 1.39 carats of round cut mint garnet paired with 0.95 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd25-894",
+      "sku": "GD25-894",
+      "name": "Aquamarine and diamond swirl bracelet",
+      "collection": "Swirl",
+      "type": "Bracelets",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Round",
+      "stonePcs": 7,
+      "stoneCt": 1.82,
+      "diamondCt": 1.5,
+      "netG": 12.426,
+      "grossG": 13.09,
+      "story": "Crafted in 14k White Gold, set with 1.82 carats of round cut aquamarine paired with 1.5 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9"
+    },
+    {
+      "id": "gd25-966",
+      "sku": "GD25-966",
+      "name": "Pink spinel and diamond swirl bracelet",
+      "collection": "Swirl",
+      "type": "Bracelets",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Round",
+      "stonePcs": 5,
+      "stoneCt": 3.4,
+      "diamondCt": 1.84,
+      "netG": 23.732,
+      "grossG": 24.78,
+      "story": "Crafted in 14k White Gold, set with 3.4 carats of round cut pink spinel paired with 1.84 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a"
+    },
+    {
+      "id": "gd25-992",
+      "sku": "GD25-992",
+      "name": "Pink spinel and diamond swirl bracelet",
+      "collection": "Swirl",
+      "type": "Bracelets",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Round",
+      "stonePcs": 7,
+      "stoneCt": 2.22,
+      "diamondCt": 1.6,
+      "netG": 13.516,
+      "grossG": 14.28,
+      "story": "Crafted in 14k White Gold, set with 2.22 carats of round cut pink spinel paired with 1.6 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a"
+    },
+    {
+      "id": "gd25-1083",
+      "sku": "GD25-1083",
+      "name": "Mint garnet and diamond swirl bracelet",
+      "collection": "Swirl",
+      "type": "Bracelets",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Round",
+      "stonePcs": 5,
+      "stoneCt": 1.84,
+      "diamondCt": 1.72,
+      "netG": 14.158,
+      "grossG": 14.87,
+      "story": "Crafted in 14k White Gold, set with 1.84 carats of round cut mint garnet paired with 1.72 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd26-827",
+      "sku": "GD26-827",
+      "name": "Mint garnet and diamond swirl pendant",
+      "collection": "Swirl",
+      "type": "Pendants",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 0.79,
+      "diamondCt": 0.88,
+      "netG": 6.616,
+      "grossG": 6.95,
+      "story": "Crafted in 18k White Gold, set with 0.79 carats of pear-cut mint garnet paired with 0.88 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd26-149",
+      "sku": "GD26-149",
+      "name": "Spessartite and diamond swirl pendant",
+      "collection": "Swirl",
+      "type": "Pendants",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 2.92,
+      "diamondCt": 0.14,
+      "netG": 0.628,
+      "grossG": 1.24,
+      "story": "Crafted in 14k White Gold, set with 2.92 carats of drop-cut spessartite paired with 0.14 carats of brilliant cut diamonds.",
+      "tone": "#d4783a"
+    },
+    {
+      "id": "gd25-431",
+      "sku": "GD25-431",
+      "name": "Rubellite and diamond swirl pendant",
+      "collection": "Swirl",
+      "type": "Pendants",
+      "metal": "18k Rose Gold",
+      "metalCode": "G-18kt-R",
+      "stone": "Rubellite",
+      "shape": "Pears Cabs",
+      "stonePcs": 1,
+      "stoneCt": 3.66,
+      "diamondCt": 0.27,
+      "netG": 2.154,
+      "grossG": 2.94,
+      "story": "Crafted in 18k Rose Gold, set with 3.66 carats of cabochon pear-cut rubellite paired with 0.27 carats of brilliant cut diamonds.",
+      "tone": "#b8325a"
+    },
+    {
+      "id": "gd26-61",
+      "sku": "GD26-61",
+      "name": "Pink spinel and diamond dew pendant",
+      "collection": "Dew",
+      "type": "Pendants",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 18,
+      "stoneCt": 5.41,
+      "diamondCt": 1.9,
+      "netG": 9.108,
+      "grossG": 10.57,
+      "story": "Crafted in 14k White Gold, set with 5.41 carats of drop-cut pink spinel paired with 1.9 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-61.webp",
+        "img/products/gd26-61-1.webp"
+      ]
+    },
+    {
+      "id": "gd26-81",
+      "sku": "GD26-81",
+      "name": "Pink spinel and diamond dew ring",
+      "collection": "Dew",
+      "type": "Rings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Mix",
+      "stonePcs": 11,
+      "stoneCt": 4.45,
+      "diamondCt": 0.42,
+      "netG": 3.676,
+      "grossG": 4.65,
+      "story": "Crafted in 14k White Gold, set with 4.45 carats of mixed ball, pear and drop-cut pink spinel paired with 0.42 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a"
+    },
+    {
+      "id": "gd26-80",
+      "sku": "GD26-80",
+      "name": "Pink spinel and diamond dew bracelet",
+      "collection": "Dew",
+      "type": "Bracelets",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Mix",
+      "stonePcs": 22,
+      "stoneCt": 9.5,
+      "diamondCt": 2.24,
+      "netG": 15.212,
+      "grossG": 17.56,
+      "story": "Crafted in 14k White Gold, set with 9.5 carats of mixed ball, pear and drop-cut pink spinel paired with 2.24 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a"
+    },
+    {
+      "id": "g-625",
+      "sku": "G 625",
+      "name": "Mint garnet, pink spinel and diamond dew ring",
+      "collection": "Dew",
+      "type": "Rings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet & Pink Spinel",
+      "shape": "Mix",
+      "stonePcs": 14,
+      "stoneCt": 5.77,
+      "diamondCt": 0.46,
+      "netG": 7.767,
+      "grossG": 9.013,
+      "story": "Crafted in 14k White Gold, set with 3.99 carats of pear-cut mint garnet alongside 1.78 carats of oval cut pink spinel, paired with 0.46 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a"
+    },
+    {
+      "id": "gd23-146",
+      "sku": "GD23-146",
+      "name": "Mint garnet, pink spinel and diamond dew ring",
+      "collection": "Dew",
+      "type": "Rings",
+      "metal": "14k White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet & Pink Spinel",
+      "shape": "Marquise & Round",
+      "stonePcs": 15,
+      "stoneCt": 4.05,
+      "diamondCt": 1.221,
+      "netG": 8.93,
+      "grossG": 9.984,
+      "story": "Crafted in 14k White Gold, set with 3.5 carats of marquise cut mint garnet alongside 0.55 carats of round cut pink spinel, paired with 1.221 carats of round and baguette cut diamonds.",
+      "tone": "#6a9e7a"
     }
   ]
 };

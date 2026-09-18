@@ -11,3 +11,14 @@ admin/dist/
 admin/.env
 .env
 .env.local
+
+# Photography masters and supplier paperwork (~1.2GB): 3000px originals, PDFs,
+# spreadsheets and video. The web-sized WebP derivatives under
+# frontend/fine-jewellery/img/ are what ships; these stay local.
+/Fine jewellery/**/*.jpg
+/Fine jewellery/**/*.jpeg
+/Fine jewellery/**/*.png
+/Fine jewellery/**/*.mp4
+/Fine jewellery/**/*.pdf
+/Fine jewellery/**/*.xlsx
+/Fine jewellery/**/*.docx

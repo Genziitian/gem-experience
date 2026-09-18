@@ -121,7 +121,9 @@
       else raw.push({
         id: p.id, slug: p.id, name: p.name,
         materials: p.stone + " · " + p.metal,
-        image: "", priceOnEnquiry: !p.priceINR, priceCents: p.priceINR ? p.priceINR * 100 : 0, qty: 1
+        /* the cart renders from /cart/, so store a path relative to that page */
+        image: mainImage(p) ? "../fine-jewellery/" + mainImage(p) : "",
+        priceOnEnquiry: !p.priceINR, priceCents: p.priceINR ? p.priceINR * 100 : 0, qty: 1
       });
       localStorage.setItem("gem_cart_v1", JSON.stringify(raw));
       if (btn) {
@@ -171,17 +173,32 @@
 
   /* ------------------------------------------------------------- render */
 
-  function plate(tone, sku) {
+  /* The tone orb stays the fallback: pieces still awaiting photography keep
+     the catalog's existing look, and a broken file drops back to it rather
+     than leaving a hole in the grid. */
+  function plate(tone, sku, src, alt) {
     var wrap = el("div", "fj-plate");
     wrap.style.setProperty("--tone", tone || "#9a958e");
     wrap.appendChild(el("div", "fj-plate-orb"));
+    if (src) {
+      var img = el("img", "fj-plate-img", {
+        src: src, alt: alt || "", loading: "lazy", decoding: "async"
+      });
+      img.addEventListener("error", function () { img.remove(); wrap.classList.remove("has-img"); });
+      img.addEventListener("load", function () { wrap.classList.add("has-img"); });
+      wrap.appendChild(img);
+    }
     if (sku) wrap.appendChild(el("span", "fj-plate-sku", { text: sku }));
     return wrap;
   }
 
+  function mainImage(p) {
+    return p.images && p.images.length ? p.images[0] : "";
+  }
+
   function card(p) {
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
-    a.appendChild(plate(p.tone, p.sku));
+    a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name));
     var body = el("div", "fj-card-body");
     body.appendChild(el("span", "fj-card-type", { text: p.collection + " · " + p.type }));
     body.appendChild(el("h3", null, { text: p.name }));
@@ -429,7 +446,26 @@
 
     var pdp = el("section", "fj-pdp");
     var media = el("div", "fj-pdp-media");
-    media.appendChild(plate(p.tone, p.sku));
+    var shots = p.images || [];
+    var hero = plate(p.tone, p.sku, shots[0], p.name);
+    media.appendChild(hero);
+    if (shots.length > 1) {
+      var thumbs = el("div", "fj-pdp-thumbs");
+      shots.forEach(function (src, i) {
+        var t = el("button", "fj-pdp-thumb" + (i === 0 ? " is-active" : ""), {
+          type: "button", "aria-label": "View image " + (i + 1) + " of " + shots.length
+        });
+        t.appendChild(el("img", null, { src: src, alt: "", loading: "lazy", decoding: "async" }));
+        t.addEventListener("click", function () {
+          var full = hero.querySelector(".fj-plate-img");
+          if (full) full.src = src;
+          thumbs.querySelectorAll(".fj-pdp-thumb").forEach(function (o) { o.classList.remove("is-active"); });
+          t.classList.add("is-active");
+        });
+        thumbs.appendChild(t);
+      });
+      media.appendChild(thumbs);
+    }
     pdp.appendChild(media);
 
     var copy = el("div", "fj-pdp-copy");
@@ -519,20 +555,24 @@
     pdp.appendChild(copy);
     root.appendChild(pdp);
 
-    // closer look — detail crops of this specific piece, added per SKU later
+    /* Closer look — detail crops of this specific piece, dropped in per SKU at
+       img/products/<id>/detail-N.jpg. The section stays out of the DOM until at
+       least one crop actually loads, so a piece without them shows nothing
+       rather than a row of empty placeholders. */
     var closer = el("section", "fj-closer");
     closer.appendChild(el("h2", "fj-section-h", { text: "A closer look" }));
     var closerGrid = el("div", "fj-closer-grid");
+    var closerShown = false;
     ["detail-1", "detail-2", "detail-3"].forEach(function (n) {
-      closerGrid.appendChild(mediaFrame(
-        "img/products/" + p.id + "/" + n + ".jpg",
-        p.name + " — detail",
-        p.tone,
-        "fj-closer-tile"
-      ));
+      var src = "img/products/" + p.id + "/" + n + ".jpg";
+      var probe = new Image();
+      probe.addEventListener("load", function () {
+        closerGrid.appendChild(mediaFrame(src, p.name + " — detail", p.tone, "fj-closer-tile"));
+        if (!closerShown) { closerShown = true; root.insertBefore(closer, relWrap); }
+      });
+      probe.src = src;
     });
     closer.appendChild(closerGrid);
-    root.appendChild(closer);
 
     // cross-sell — same collection first, then the rest
     var rel = data.products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })

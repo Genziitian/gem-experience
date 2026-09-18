@@ -638,11 +638,22 @@ button {
               var(--tone, #9a958e);
   box-shadow: inset 0 -12px 28px rgba(0,0,0,0.18);
 }
+.fj-plate-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.fj-plate.has-img .fj-plate-img { opacity: 1; }
+.fj-plate.has-img .fj-plate-orb { display: none; }
+
 .fj-plate-sku {
   position: absolute; left: 12px; top: 12px;
   padding: 6px 9px;
   background: rgba(255,252,247,0.92);
   font-weight: 400; font-size: 11px; letter-spacing: 0.04em;
+  z-index: 1;
 }
 
 .fj-card-body { display: grid; gap: 6px; }
@@ -691,6 +702,22 @@ button {
 }
 
 .fj-pdp-media .fj-plate { aspect-ratio: 1; min-height: 320px; }
+
+.fj-pdp-thumbs {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 12px;
+}
+.fj-pdp-thumb {
+  width: 72px; aspect-ratio: 1;
+  padding: 0; border: 1px solid transparent;
+  background: var(--ground);
+  cursor: pointer; overflow: hidden;
+  transition: border-color 0.25s ease, opacity 0.25s ease;
+  opacity: 0.75;
+}
+.fj-pdp-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fj-pdp-thumb:hover { opacity: 1; }
+.fj-pdp-thumb.is-active { border-color: var(--ink); opacity: 1; }
 
 .fj-pdp-copy .fj-title {
   margin-top: 10px;

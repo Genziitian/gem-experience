@@ -215,7 +215,7 @@
     hero.appendChild(el("p", "fj-kicker", { text: "Collections" }));
     hero.appendChild(el("h1", "fj-title", { text: "Fine Jewellery" }));
     hero.appendChild(el("p", "fj-lede", {
-      text: "Two houses within Fine Jewellery. Bloom for flora, Safar for the journey. Choose a collection, then a piece."
+      text: "Several houses within Fine Jewellery, each built around an idea of its own. Choose a collection, then a piece."
     }));
     root.appendChild(hero);
 
@@ -224,15 +224,15 @@
       var a = el("a", "fj-cat", { href: "#/" + c.id });
       a.style.setProperty("--cat-tone", c.tone);
 
+      /* The tone gradient sits underneath always, so a collection whose banner
+         is missing or fails to load shows its colour rather than a broken
+         image. Drop the file in at c.banner and it covers the placeholder. */
       var media = el("div", "fj-cat-media");
+      media.appendChild(el("div", "fj-cat-placeholder"));
       if (c.banner) {
-        media.appendChild(el("img", null, {
-          src: c.banner,
-          alt: c.name,
-          loading: "lazy"
-        }));
-      } else {
-        media.appendChild(el("div", "fj-cat-placeholder"));
+        var bnr = el("img", null, { src: c.banner, alt: c.name, loading: "lazy" });
+        bnr.addEventListener("error", function () { bnr.remove(); });
+        media.appendChild(bnr);
       }
       a.appendChild(media);
 
@@ -248,7 +248,7 @@
 
     var shop = el("div", "fj-shopall");
     shop.appendChild(el("p", null, {
-      text: data.products.length + " pieces across Bloom and Safar."
+      text: data.products.length + " pieces across " + data.collections.length + " collections."
     }));
     shop.appendChild(el("a", "fj-link", { href: "#/shop", text: "Shop all pieces" }));
     root.appendChild(shop);

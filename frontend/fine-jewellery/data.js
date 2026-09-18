@@ -36,7 +36,7 @@ window.FJ_DATA = {
       "name": "Swirl",
       "lede": "Fluid, playful, and intuitively balanced motion.",
       "story": "The swirl collection is inspired by the playful yet delicate turning of form in motion. Each piece is shaped through soft rotations and layered curves, recreating a sense of flow that feels natural. The design focuses on smooth transitions and balanced proportions, allowing the form to move seamlessly.\n\nThe swirl evolves, guiding the eye and the light in a continuous path. Interpreted through fine craftsmanship the collection expresses movement with subtlety in jewellery that feels timeless.",
-      "tone": "#7a5ac4",
+      "tone": "#7d6fa8",
       "banner": "img/swirl-banner.webp",
       "meta": "Soft rotations · layered curves"
     },

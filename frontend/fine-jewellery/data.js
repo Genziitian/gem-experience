@@ -51,15 +51,6 @@ window.FJ_DATA = {
       "tone": "#7d6fa8",
       "banner": "img/swirl-banner.webp",
       "meta": "Soft rotations · layered curves"
-    },
-    {
-      "id": "dew",
-      "name": "Dew",
-      "lede": "A single droplet held in perfect suspension.",
-      "story": "The Dew collection draws inspiration from the purest moment in nature, when a single droplet forms, suspended in perfect balance. Each design is shaped around a softened and quiet elegance of falling drops in the morning dew.\n\nWith precise proportions and finish each gemstone is cut into the soft drop shape enhancing its luminosity, and unique structure. Dew with its freshness, signifies renewal and the beginning of a moment.",
-      "tone": "#8fc9c0",
-      "banner": "img/dew-banner.webp",
-      "meta": "Drop-cut gemstones · quiet elegance"
     }
   ],
   "types": [
@@ -1302,9 +1293,7 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-816.webp",
-        "img/products/gd25-816-1.webp",
-        "img/products/gd25-816-2.webp",
-        "img/products/gd25-816-3.webp"
+        "img/products/gd25-816-2.webp"
       ]
     },
     {
@@ -1490,9 +1479,7 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-60.webp",
-        "img/products/gd26-60-1.webp",
-        "img/products/gd26-60-2.webp",
-        "img/products/gd26-60-3.webp"
+        "img/products/gd26-60-2.webp"
       ]
     },
     {
@@ -1535,9 +1522,7 @@ window.FJ_DATA = {
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-166.webp",
-        "img/products/gd26-166-1.webp",
-        "img/products/gd26-166-2.webp",
-        "img/products/gd26-166-3.webp"
+        "img/products/gd26-166-2.webp"
       ]
     },
     {
@@ -2001,100 +1986,6 @@ window.FJ_DATA = {
       "grossG": 2.94,
       "story": "Crafted in 18k Rose Gold, set with 3.66 carats of cabochon pear-cut rubellite paired with 0.27 carats of brilliant cut diamonds.",
       "tone": "#b8325a"
-    },
-    {
-      "id": "gd26-61",
-      "sku": "GD26-61",
-      "name": "Pink spinel and diamond dew pendant",
-      "collection": "Dew",
-      "type": "Pendants",
-      "metal": "14k White Gold",
-      "metalCode": "G-14kt-W",
-      "stone": "Pink Spinel",
-      "shape": "Drops",
-      "stonePcs": 18,
-      "stoneCt": 5.41,
-      "diamondCt": 1.9,
-      "netG": 9.108,
-      "grossG": 10.57,
-      "story": "Crafted in 14k White Gold, set with 5.41 carats of drop-cut pink spinel paired with 1.9 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a",
-      "images": [
-        "img/products/gd26-61.webp",
-        "img/products/gd26-61-1.webp"
-      ]
-    },
-    {
-      "id": "gd26-81",
-      "sku": "GD26-81",
-      "name": "Pink spinel and diamond dew ring",
-      "collection": "Dew",
-      "type": "Rings",
-      "metal": "14k White Gold",
-      "metalCode": "G-14kt-W",
-      "stone": "Pink Spinel",
-      "shape": "Mix",
-      "stonePcs": 11,
-      "stoneCt": 4.45,
-      "diamondCt": 0.42,
-      "netG": 3.676,
-      "grossG": 4.65,
-      "story": "Crafted in 14k White Gold, set with 4.45 carats of mixed ball, pear and drop-cut pink spinel paired with 0.42 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
-    },
-    {
-      "id": "gd26-80",
-      "sku": "GD26-80",
-      "name": "Pink spinel and diamond dew bracelet",
-      "collection": "Dew",
-      "type": "Bracelets",
-      "metal": "14k White Gold",
-      "metalCode": "G-14kt-W",
-      "stone": "Pink Spinel",
-      "shape": "Mix",
-      "stonePcs": 22,
-      "stoneCt": 9.5,
-      "diamondCt": 2.24,
-      "netG": 15.212,
-      "grossG": 17.56,
-      "story": "Crafted in 14k White Gold, set with 9.5 carats of mixed ball, pear and drop-cut pink spinel paired with 2.24 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
-    },
-    {
-      "id": "g-625",
-      "sku": "G 625",
-      "name": "Mint garnet, pink spinel and diamond dew ring",
-      "collection": "Dew",
-      "type": "Rings",
-      "metal": "14k White Gold",
-      "metalCode": "G-14kt-W",
-      "stone": "Mint Garnet & Pink Spinel",
-      "shape": "Mix",
-      "stonePcs": 14,
-      "stoneCt": 5.77,
-      "diamondCt": 0.46,
-      "netG": 7.767,
-      "grossG": 9.013,
-      "story": "Crafted in 14k White Gold, set with 3.99 carats of pear-cut mint garnet alongside 1.78 carats of oval cut pink spinel, paired with 0.46 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
-    },
-    {
-      "id": "gd23-146",
-      "sku": "GD23-146",
-      "name": "Mint garnet, pink spinel and diamond dew ring",
-      "collection": "Dew",
-      "type": "Rings",
-      "metal": "14k White Gold",
-      "metalCode": "G-14kt-W",
-      "stone": "Mint Garnet & Pink Spinel",
-      "shape": "Marquise & Round",
-      "stonePcs": 15,
-      "stoneCt": 4.05,
-      "diamondCt": 1.221,
-      "netG": 8.93,
-      "grossG": 9.984,
-      "story": "Crafted in 14k White Gold, set with 3.5 carats of marquise cut mint garnet alongside 0.55 carats of round cut pink spinel, paired with 1.221 carats of round and baguette cut diamonds.",
-      "tone": "#6a9e7a"
     }
   ]
 };

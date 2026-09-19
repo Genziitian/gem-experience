@@ -154,11 +154,12 @@ button {
   min-width: 0;
 }
 /* Fixed ratio so a collection still awaiting its banner keeps the same card
-   shape as one that has it, instead of collapsing to a sliver. */
+   shape as one that has it, instead of collapsing to a sliver. Square, to
+   match the product tiles below. */
 .fj-cat-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 854 / 1284;
+  aspect-ratio: 1;
   overflow: hidden;
   background: var(--cat-tone, var(--ground));
   line-height: 0;

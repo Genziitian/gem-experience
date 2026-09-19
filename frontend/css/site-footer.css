@@ -23,12 +23,19 @@
   .site-ftr, .ftr.site-ftr { --ftr-gutter: 64px; }
 }
 
+.site-ftr *,
+.ftr.site-ftr * { box-sizing: border-box; }
+
 .site-ftr .ftr-inner,
 .ftr.site-ftr .ftr-inner {
   padding: 80px var(--ftr-gutter);
   max-width: 1400px;
   margin: 0 auto;
+  min-width: 0;
 }
+
+.site-ftr img,
+.ftr.site-ftr img { max-width: 100%; }
 
 .site-ftr .sr-only {
   position: absolute;
@@ -110,11 +117,18 @@
 }
 .site-ftr .signup-note:not(:empty) { margin-top: 12px; }
 
+/* The banner used to be a fixed 400/480px tall whatever the viewport. On a
+   desktop the box came out around 1272x480, so the 3:2 photograph lost a
+   third of its height and the crystal ran out of the frame top and bottom.
+   A ratio instead of a height keeps the crop shallow at every width; the
+   max-height stops it growing without limit on a very wide screen. */
 .site-ftr .banner {
   position: relative;
   isolation: isolate;
   display: block;
-  height: 400px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 620px;
   margin-top: 48px;
   border-radius: 8px;
   overflow: hidden;
@@ -122,9 +136,11 @@
   text-decoration: none;
 }
 .site-ftr .banner-img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: 0;
   transition: transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
@@ -179,8 +195,11 @@
   transition: opacity 0.3s ease;
 }
 .site-ftr .rule-link:hover::after { opacity: 0.5; }
-@media (min-width: 900px) {
-  .site-ftr .banner { height: 480px; }
+@media (min-width: 700px) {
+  .site-ftr .banner { aspect-ratio: 3 / 2; }
+}
+@media (min-width: 1100px) {
+  .site-ftr .banner { aspect-ratio: 16 / 9; }
 }
 
 .site-ftr .advisor {

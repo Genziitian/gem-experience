@@ -330,32 +330,24 @@ button {
 
 /* ------------------------------------------------------ collections */
 
+/* The section lost its heading, so the old padding-top plus the cards'
+   margin-top left a bare band of cream between the hero and the first row
+   of photographs. The cards now start straight under the hero. */
 .collections {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
   background: var(--cream);
-}
-
-/* The design sets this block 359.64px wide, which breaks the lede in two. */
-
-@media (min-width: 700px) {
 }
 
 .cards {
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  margin-top: 48px;
 }
 
 @media (min-width: 900px) {
-  .collections { padding-top: 120px; }
-  .cards {
-    flex-direction: row;
-    margin-top: 64px;
-  }
+  .cards { flex-direction: row; }
   .card { flex: 1 1 0; min-width: 0; }
 }
 

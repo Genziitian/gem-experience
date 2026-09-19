@@ -855,7 +855,7 @@
     var sticky = el("div", "pdp-sticky");
     var sMenu = el("button", "pdp-sticky-icon", { type: "button", "aria-label": "Open menu" });
     sMenu.appendChild(svg(22, { stroke: "currentColor", sw: 1 }, ["M4 7h16M4 12h16M4 17h16"]));
-    sMenu.addEventListener("click", openDrawer);
+    sMenu.addEventListener("click", openSiteNav);
     var sBag = el("button", "pdp-sticky-icon", { type: "button", "aria-label": "Shopping bag" });
     sBag.appendChild(svg(20, { stroke: "currentColor", sw: 1 },
       ["M5 8h14l-1.2 12H6.2L5 8Z", "M9 8V6a3 3 0 0 1 6 0v2"]));
@@ -931,6 +931,12 @@
     x.focus();
   }
 
+  /* The hamburger opens the shared site menu; the filter drawer below is a
+     separate thing, reached from the Filter button. */
+  function openSiteNav() {
+    if (window.GemNav && window.GemNav.mounted) window.GemNav.mounted.open();
+  }
+
   function openDrawer() { state.drawerOpen = true; state.sortOpen = false; render(); }
   function closeDrawer() { state.drawerOpen = false; render(); }
   function clearAll() { state.active = {}; render(); }
@@ -992,7 +998,7 @@
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("menu-btn").addEventListener("click", openDrawer);
+    document.getElementById("menu-btn").addEventListener("click", openSiteNav);
     onRoute();
   });
 })();

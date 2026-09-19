@@ -338,7 +338,6 @@ button {
   background: var(--cream);
 }
 
-
 /* The design sets this block 359.64px wide, which breaks the lede in two. */
 
 @media (min-width: 700px) {
@@ -696,7 +695,6 @@ button {
   }
 }
 
-
 /* region + socials */
 
 .region {
@@ -827,153 +825,9 @@ button {
 
 @media (min-width: 900px) {
   .legal { margin-top: 56px; }
-  .signature-line { max-width: 42ch; }
-}
+  .signature-line { max-width: 42ch; }}
 
-/* ------------------------------------------------------------- menu */
-
-.nav {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-}
-
-.nav-scrim {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.nav-panel {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: min(420px, 88vw);
-  display: flex;
-  flex-direction: column;
-  padding: 24px 20px 40px;
-  background: #fff;
-  overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.nav.is-open .nav-scrim { opacity: 1; }
-.nav.is-open .nav-panel { transform: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-scrim, .nav-panel { transition: none; }
-}
-
-.nav-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 24px;
-}
-
-.nav-brand {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 5.6px;
-  text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  margin-top: 48px;
-}
-
-.nav-links a {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--serif);
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 1px;
-  transition: opacity 0.3s ease;
-}
-
-.nav-links a:hover { opacity: 0.55; }
-
-.nav-flyout { border-bottom: 1px solid var(--rule); }
-
-/* The label is a real link — it used to be a button that only ever toggled
-   the flyout open, so "Fine Jewellery" could never actually be reached from
-   the menu. The disclosure chevron is now its own small control beside it. */
-.nav-flyout-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.nav-flyout-link {
-  flex: 1;
-  padding: 16px 0;
-  font-family: var(--serif);
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 1px;
-  transition: opacity 0.3s ease;
-}
-.nav-flyout-link:hover { opacity: 0.55; }
-.nav-flyout-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-right: -12px;
-  color: inherit;
-}
-.nav-flyout-toggle span {
-  display: block;
-  width: 8px; height: 8px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-  opacity: 0.55;
-}
-.nav-flyout.is-open .nav-flyout-toggle span { transform: rotate(-135deg); }
-.nav-flyout-links {
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 0 18px;
-}
-.nav-flyout.is-open .nav-flyout-links { display: flex; }
-.nav-flyout-links a {
-  padding: 0;
-  border: 0;
-  font-family: var(--sans);
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 22px;
-  letter-spacing: 0.4px;
-  color: var(--muted);
-}
-.nav-flyout-links a:hover { color: var(--ink); opacity: 1; }
-
-.nav-sub {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 40px;
-}
-
-.nav-sub a {
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.7px;
-  color: var(--muted);
-}
-
-.nav-sub a:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {}
 
 /* ---------------------------------------------------------- video */
 

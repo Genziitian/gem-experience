@@ -8,7 +8,7 @@
   function headerHtml(prefix, cartN) {
     return (
       '<header class="pg-hdr">' +
-        '<button class="pg-icon pg-hdr-menu" type="button" id="pg-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="pg-nav">' +
+        '<button class="pg-icon pg-hdr-menu" type="button" id="pg-menu-btn" aria-label="Open menu" aria-expanded="false" aria-haspopup="dialog">' +
           '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">' +
             '<path d="M4 8h16M4 16h16"></path>' +
           "</svg>" +
@@ -36,44 +36,7 @@
         "</div>" +
       "</header>" +
 
-      '<div class="pg-nav" id="pg-nav" hidden>' +
-        '<div class="pg-nav-scrim" data-nav-close></div>' +
-        '<nav class="pg-nav-panel" aria-label="Main">' +
-          '<div class="pg-nav-head">' +
-            '<span class="pg-nav-brand">Gem Experience</span>' +
-            '<button class="pg-icon" type="button" id="pg-nav-close" aria-label="Close menu">' +
-              '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">' +
-                '<path d="M5 5l14 14M19 5 5 19"></path>' +
-              "</svg>" +
-            "</button>" +
-          "</div>" +
-          '<div class="pg-nav-links">' +
-            '<a href="' + prefix + 'high-jewellery/">High Jewellery</a>' +
-            '<div class="pg-nav-fly is-open">' +
-              '<div class="pg-nav-fly-head">' +
-                '<a class="pg-nav-fly-link" href="' + prefix + 'fine-jewellery/">Fine Jewellery</a>' +
-                '<button class="pg-nav-fly-toggle" type="button" aria-expanded="true" aria-controls="pg-fly-fine" aria-label="Show Fine Jewellery collections">' +
-                  '<span aria-hidden="true"></span>' +
-                "</button>" +
-              "</div>" +
-              '<div class="pg-nav-fly-links" id="pg-fly-fine">' +
-                '<a href="' + prefix + 'fine-jewellery/#/shop">Shop all</a>' +
-                '<a href="' + prefix + 'fine-jewellery/#/bloom">Bloom</a>' +
-                '<a href="' + prefix + 'fine-jewellery/#/safar">Safar</a>' +
-              "</div>" +
-            "</div>" +
-            '<a href="' + prefix + 'offices/">Find Our Store</a>' +
-            '<a href="' + prefix + 'appointment/">Book an Appointment</a>' +
-            '<a href="' + prefix + 'quotation/">Request a Quotation</a>' +
-          "</div>" +
-          '<div class="pg-nav-sub">' +
-            '<a href="' + prefix + 'cart/">Cart</a>' +
-            '<a href="' + prefix + 'account/">My account</a>' +
-            '<a href="' + prefix + 'contact/">Contact us</a>' +
-            '<a href="' + prefix + 'legal/">Legal</a>' +
-          "</div>" +
-        "</nav>" +
-      "</div>"
+      ""
     );
   }
 
@@ -103,37 +66,19 @@
     );
   }
 
-  function wireNav() {
-    var panel = document.getElementById("pg-nav");
+  /* The drawer is js/site-nav.js, shared with the home page and Fine Jewellery,
+     so every page opens the same menu. Mounted once, then re-pointed whenever
+     the header is re-rendered for a cart change. */
+  function wireNav(prefix) {
     var open = document.getElementById("pg-menu-btn");
-    if (!panel || !open) return;
-
-    function setOpen(on) {
-      panel.hidden = !on;
-      open.setAttribute("aria-expanded", String(on));
-      document.body.classList.toggle("is-locked", on);
-      if (on) requestAnimationFrame(function () { panel.classList.add("is-open"); });
-      else panel.classList.remove("is-open");
+    if (!open) return;
+    if (w.GemNav && !w.GemNav.mounted) {
+      var host = document.createElement("div");
+      document.body.appendChild(host);
+      w.GemNav.mount(host, { prefix: prefix });
     }
-
-    open.addEventListener("click", function () { setOpen(true); });
-    document.getElementById("pg-nav-close").addEventListener("click", function () { setOpen(false); });
-    panel.querySelectorAll("[data-nav-close]").forEach(function (n) {
-      n.addEventListener("click", function () { setOpen(false); });
-    });
-    panel.querySelectorAll(".pg-nav-fly-links a, .pg-nav-fly-link, .pg-nav-sub a, .pg-nav-links > a").forEach(function (a) {
-      a.addEventListener("click", function () { setOpen(false); });
-    });
-    var fly = panel.querySelector(".pg-nav-fly-toggle");
-    if (fly) {
-      fly.addEventListener("click", function () {
-        var g = fly.closest(".pg-nav-fly");
-        g.classList.toggle("is-open");
-        fly.setAttribute("aria-expanded", String(g.classList.contains("is-open")));
-      });
-    }
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !panel.hidden) setOpen(false);
+    open.addEventListener("click", function () {
+      if (w.GemNav && w.GemNav.mounted) w.GemNav.mounted.open();
     });
   }
 
@@ -145,7 +90,7 @@
 
     if (top) {
       top.innerHTML = headerHtml(prefix, (w.Gem && w.Gem.cart.count()) || 0);
-      wireNav();
+      wireNav(prefix);
     }
     if (foot) {
       if (w.GemFooter) w.GemFooter.mount(foot, { prefix: prefix });
@@ -155,7 +100,7 @@
     w.addEventListener("gem:cart", function () {
       if (!top) return;
       top.innerHTML = headerHtml(prefix, w.Gem.cart.count());
-      wireNav();
+      wireNav(prefix);
     });
   }
 

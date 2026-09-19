@@ -152,30 +152,15 @@
 
   /* ---------------------------------------------------------------- nav */
 
-  var nav = document.getElementById("fj-nav");
+  /* The drawer is js/site-nav.js, shared with the rest of the site; this only
+     points the header button at it. It is mounted by an inline script that runs
+     after this file, so the lookup happens on click. */
   var menuBtn = document.getElementById("menu-btn");
-
-  function setNav(open) {
-    nav.hidden = !open;
-    menuBtn.setAttribute("aria-expanded", String(open));
-    document.body.style.overflow = open ? "hidden" : "";
-    if (open) requestAnimationFrame(function () { nav.classList.add("is-open"); });
-    else nav.classList.remove("is-open");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", function () {
+      if (window.GemNav && window.GemNav.mounted) window.GemNav.mounted.open();
+    });
   }
-
-  menuBtn.addEventListener("click", function () { setNav(true); });
-  document.getElementById("nav-close").addEventListener("click", function () { setNav(false); });
-  nav.querySelectorAll("[data-close]").forEach(function (n) {
-    n.addEventListener("click", function () { setNav(false); });
-  });
-  document.querySelector(".fj-nav-toggle").addEventListener("click", function () {
-    var group = this.closest(".fj-nav-group");
-    group.classList.toggle("is-open");
-    this.setAttribute("aria-expanded", group.classList.contains("is-open"));
-  });
-  nav.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function () { setNav(false); });
-  });
 
   /* ------------------------------------------------------------- render */
 

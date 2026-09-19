@@ -1,0 +1,155 @@
+/* Shared side menu. Self-contained: it carries its own type and colour so it
+   looks the same on the home page and inside Fine Jewellery, which have
+   separate stylesheets. */
+
+.site-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  font-family: Jost, -apple-system, "Segoe UI", sans-serif;
+}
+
+.site-nav-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 18, 15, 0.42);
+  opacity: 0;
+  transition: opacity 0.34s ease;
+}
+.site-nav.is-open .site-nav-scrim { opacity: 1; }
+
+.site-nav-panel {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(88vw, 420px);
+  display: flex;
+  flex-direction: column;
+  background: #fffdf8;
+  color: #17140f;
+  transform: translateX(-100%);
+  transition: transform 0.34s cubic-bezier(0.2, 0.6, 0.2, 1);
+  overflow: hidden;
+}
+.site-nav.is-open .site-nav-panel { transform: none; }
+
+.site-nav-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 22px;
+  flex: none;
+}
+.site-nav-brand {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.site-nav-close {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+}
+
+.site-nav-body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-nav-sheet {
+  padding: 4px 22px 40px;
+}
+
+.site-nav-list { display: flex; flex-direction: column; }
+
+/* Top-level sections: the larger serif, each on its own hairline. */
+.site-nav-list--major .site-nav-link {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: 21px;
+  letter-spacing: 0.01em;
+  padding: 17px 0;
+  border-bottom: 1px solid #e8e2d6;
+}
+
+/* Everything under the fold: small, quiet, no rules. */
+.site-nav-list--minor {
+  margin-top: 26px;
+  gap: 2px;
+}
+.site-nav-list--minor .site-nav-link {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6b6259;
+  padding: 9px 0;
+}
+
+.site-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+.site-nav-link:hover { opacity: 0.55; }
+
+/* Sections whose pages do not exist yet: present in the structure, but not
+   pretending to be a link. */
+.site-nav-link.is-pending {
+  color: #a79f93;
+  cursor: default;
+}
+.site-nav-link.is-pending:hover { opacity: 1; }
+
+.site-nav-chev { display: flex; color: #8d8578; }
+
+.site-nav-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 18px;
+  background: none;
+  border: 0;
+  color: #6b6259;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.site-nav-heading {
+  margin: 22px 0 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: #a79f93;
+}
+
+/* Sub-sheets: same list treatment as the root, one step in. */
+.site-nav-sheet:not(.is-root) .site-nav-link {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: 19px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e8e2d6;
+}
+.site-nav-sheet:not(.is-root) .site-nav-heading + .site-nav-link { border-top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav-panel, .site-nav-scrim { transition: none; }
+}

@@ -9,11 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap">
 <link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="../css/site-nav.css">
 </head>
 <body>
 <div class="fj">
   <header class="fj-hdr">
-    <button class="fj-icon" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="fj-nav">
+    <button class="fj-icon" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-haspopup="dialog">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
     </button>
     <a class="fj-brand" href="../">Gem Experience</a>
@@ -27,53 +28,19 @@
     </div>
   </header>
 
-  <div class="fj-nav" id="fj-nav" hidden>
-    <div class="fj-nav-scrim" data-close></div>
-    <nav class="fj-nav-panel" aria-label="Main">
-      <div class="fj-nav-head">
-        <span class="fj-nav-brand">Gem Experience</span>
-        <button class="fj-icon" type="button" id="nav-close" aria-label="Close menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 5l14 14M19 5 5 19"/></svg>
-        </button>
-      </div>
-      <div class="fj-nav-group is-open">
-        <div class="fj-nav-toggle-head">
-          <a class="fj-nav-toggle-link" href="#/">Fine Jewellery</a>
-          <button class="fj-nav-toggle" type="button" aria-expanded="true" aria-controls="fj-fly-fine" aria-label="Show Fine Jewellery collections">
-            <span aria-hidden="true"></span>
-          </button>
-        </div>
-        <div class="fj-nav-fly" id="fj-fly-fine">
-          <a href="#/shop">Shop all</a>
-          <a href="#/bloom">Bloom</a>
-          <a href="#/safar">Safar</a>
-          <a href="#/tide">Tide</a>
-          <a href="#/swirl">Swirl</a>
-        </div>
-      </div>
-      <div class="fj-nav-links">
-        <a href="../high-jewellery/">High Jewellery</a>
-        <a href="../offices/">Find our store</a>
-        <a href="../appointment/">Book an appointment</a>
-        <a href="../quotation/">Request a quotation</a>
-      </div>
-      <div class="fj-nav-sub">
-        <a href="../account/">My account</a>
-        <a href="../contact/">Contact us</a>
-        <a href="../legal/">Legal</a>
-      </div>
-    </nav>
-  </div>
+  <div id="site-nav"></div>
 
   <main id="view"></main>
 
   <div id="site-footer"></div>
 </div>
 <script src="../js/site-footer.js"></script>
+<script src="../js/site-nav.js"></script>
 <script src="data.js?v=5"></script>
 <script src="app.js?v=5"></script>
 <script>
   GemFooter.mount("#site-footer", { prefix: "../" });
+  GemNav.mount("#site-nav", { prefix: "../" });
 </script>
 <script src="../js/analytics.js" defer></script>
 </body>

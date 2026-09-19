@@ -74,97 +74,6 @@ button {
 }
 .fj-icon:hover { opacity: 0.55; }
 
-/* ----------------------------------------------------------------- drawer */
-
-.fj-nav { position: fixed; inset: 0; z-index: 60; }
-.fj-nav-scrim {
-  position: absolute; inset: 0; background: rgba(22, 20, 18, 0.38);
-  opacity: 0; transition: opacity 0.35s ease;
-}
-.fj-nav-panel {
-  position: absolute; inset: 0 auto 0 0;
-  width: min(400px, 88vw);
-  display: flex; flex-direction: column;
-  padding: 24px 20px 40px;
-  background: var(--paper);
-  overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.fj-nav.is-open .fj-nav-scrim { opacity: 1; }
-.fj-nav.is-open .fj-nav-panel { transform: none; }
-
-.fj-nav-head {
-  display: flex; justify-content: space-between; align-items: center; height: 24px;
-}
-.fj-nav-brand {
-  font-weight: 500; font-size: 14px; letter-spacing: 5.6px; text-transform: uppercase;
-}
-
-.fj-nav-group { margin-top: 40px; border-bottom: 1px solid var(--rule); }
-
-/* The label is a real link — it used to be a button that only ever toggled
-   the flyout open, so "Fine Jewellery" could never actually be reached from
-   the menu. The disclosure chevron is now its own small control beside it. */
-.fj-nav-toggle-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.fj-nav-toggle-link {
-  flex: 1;
-  padding: 16px 0;
-  font-family: var(--serif);
-  font-size: 22px; letter-spacing: 1px;
-  transition: opacity 0.3s ease;
-}
-.fj-nav-toggle-link:hover { opacity: 0.55; }
-.fj-nav-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-right: -12px;
-  color: inherit;
-}
-.fj-nav-toggle span {
-  display: block;
-  width: 8px; height: 8px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-  opacity: 0.6;
-}
-.fj-nav-group.is-open .fj-nav-toggle span { transform: rotate(-135deg); }
-
-.fj-nav-fly {
-  display: none;
-  flex-direction: column;
-  gap: 14px;
-  padding: 0 0 22px 2px;
-}
-.fj-nav-group.is-open .fj-nav-fly { display: flex; }
-.fj-nav-fly a {
-  font-weight: 300; font-size: 15px; letter-spacing: 0.4px; color: var(--muted);
-}
-.fj-nav-fly a:hover { color: var(--ink); }
-
-.fj-nav-links { display: flex; flex-direction: column; margin-top: 8px; }
-.fj-nav-links a {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--serif); font-size: 20px; letter-spacing: 1px;
-}
-.fj-nav-sub {
-  display: flex; flex-direction: column; gap: 14px; margin-top: 36px;
-}
-.fj-nav-sub a {
-  font-weight: 300; font-size: 14px; color: var(--muted);
-}
-
 /* ----------------------------------------------------------------- shared */
 
 #view { flex: 1; }
@@ -940,6 +849,5 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .fj-card:hover .fj-plate { transform: none; }
-  .fj-nav-scrim, .fj-nav-panel { transition: none; }
   .fj-explore-arrow { animation: none; }
 }

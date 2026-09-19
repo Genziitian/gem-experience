@@ -3,7 +3,7 @@
    picker and the film
    lightbox. No dependencies. */
 
-(function () {
+(function (w) {
   'use strict';
 
   var body = document.body;
@@ -15,52 +15,24 @@
 
   /* ---------------------------------------------------------- menu */
 
-  var nav = document.getElementById('nav-panel');
+  /* The drawer itself lives in js/site-nav.js so every page shows the same one;
+     this only points the header and action-bar buttons at it. */
   var menuBtn = document.getElementById('menu-btn');
-  var navClose = document.getElementById('nav-close');
-
-  function navOpen() { return nav && !nav.hidden; }
-
-  function openNav() {
-    nav.hidden = false;
-    // let the browser paint the hidden state before transitioning in
-    requestAnimationFrame(function () { nav.classList.add('is-open'); });
-    menuBtn.setAttribute('aria-expanded', 'true');
-    lock();
-    navClose.focus();
-  }
-
-  function closeNav() {
-    nav.classList.remove('is-open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    window.setTimeout(function () {
-      nav.hidden = true;
-      unlock();
-    }, 380);
-    menuBtn.focus();
-  }
-
   var barMenu = document.getElementById('bar-menu');
 
-  if (menuBtn && nav) {
-    menuBtn.addEventListener('click', openNav);
-    if (barMenu) barMenu.addEventListener('click', openNav);
-    navClose.addEventListener('click', closeNav);
-    nav.addEventListener('click', function (e) {
-      if (e.target.hasAttribute('data-close-nav')) closeNav();
-      if (e.target.closest('.nav-flyout-links a, .nav-flyout-link, .nav-sub a') ||
-          (e.target.matches('.nav-links > a'))) closeNav();
-    });
-
-    var flyBtn = nav.querySelector('.nav-flyout-toggle');
-    if (flyBtn) {
-      flyBtn.addEventListener('click', function () {
-        var g = flyBtn.closest('.nav-flyout');
-        g.classList.toggle('is-open');
-        flyBtn.setAttribute('aria-expanded', String(g.classList.contains('is-open')));
-      });
-    }
+  /* Looked up on each call: the drawer is mounted by an inline script that runs
+     after this file. */
+  function navOpen() {
+    var n = w.GemNav && w.GemNav.mounted;
+    return !!(n && n.el && !n.el.hidden);
   }
+
+  [menuBtn, barMenu].forEach(function (btn) {
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (w.GemNav && w.GemNav.mounted) w.GemNav.mounted.open();
+    });
+  });
 
   /* ------------------------------------------------------ newsletter */
 
@@ -144,8 +116,8 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
+    // the drawer closes itself on Escape
     if (lightboxOpen()) closeLightbox();
-    else if (navOpen()) closeNav();
   });
 
   /* --------------------------------------------------------- region */
@@ -184,4 +156,4 @@
       regionBtn.focus();
     });
   }
-})();
+})(window);

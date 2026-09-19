@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/site-nav.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 <section class="hero">
 
   <header class="hdr" id="hdr">
-    <button class="icon-btn hdr-menu" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+    <button class="icon-btn hdr-menu" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-haspopup="dialog">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
         <path d="M4 8h16M4 16h16"></path>
       </svg>
@@ -136,46 +137,7 @@
 </nav>
 
 <!-- ============================================================ menu -->
-<div class="nav" id="nav-panel" hidden>
-  <div class="nav-scrim" data-close-nav></div>
-  <nav class="nav-panel" aria-label="Main">
-    <div class="nav-head">
-      <span class="nav-brand">Gem Experience</span>
-      <button class="icon-btn" id="nav-close" type="button" aria-label="Close menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-          <path d="M5 5l14 14M19 5 5 19"></path>
-        </svg>
-      </button>
-    </div>
-    <div class="nav-links">
-      <a href="high-jewellery/">High Jewellery</a>
-      <div class="nav-flyout is-open">
-        <div class="nav-flyout-head">
-          <a class="nav-flyout-link" href="fine-jewellery/">Fine Jewellery</a>
-          <button class="nav-flyout-toggle" type="button" aria-expanded="true" aria-controls="nav-fly-fine" aria-label="Show Fine Jewellery collections">
-            <span aria-hidden="true"></span>
-          </button>
-        </div>
-        <div class="nav-flyout-links" id="nav-fly-fine">
-          <a href="fine-jewellery/#/shop">Shop all</a>
-          <a href="fine-jewellery/#/bloom">Bloom</a>
-          <a href="fine-jewellery/#/safar">Safar</a>
-          <a href="fine-jewellery/#/tide">Tide</a>
-          <a href="fine-jewellery/#/swirl">Swirl</a>
-        </div>
-      </div>
-      <a href="offices/">Find our store</a>
-      <a href="appointment/">Book an appointment</a>
-      <a href="quotation/">Request a quotation</a>
-      <a href="#film-title">Tanzania Universe</a>
-    </div>
-    <div class="nav-sub">
-      <a href="account/">My account</a>
-      <a href="contact/">Contact us</a>
-      <a href="legal/">Legal</a>
-    </div>
-  </nav>
-</div>
+<div id="site-nav"></div>
 
 <!-- =========================================================== video -->
 <div class="lightbox" id="lightbox" hidden>
@@ -191,8 +153,12 @@
 </div>
 
 <script src="js/site-footer.js"></script>
+<script src="js/site-nav.js"></script>
 <script src="app.js"></script>
-<script>GemFooter.mount("#site-footer", { prefix: "" });</script>
+<script>
+  GemFooter.mount("#site-footer", { prefix: "" });
+  GemNav.mount("#site-nav", { prefix: "" });
+</script>
 <script src="js/analytics.js" defer></script>
 </body>
 </html>

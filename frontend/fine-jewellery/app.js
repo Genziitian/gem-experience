@@ -268,7 +268,9 @@
 
     var root = el("div", "fj-shop");
 
-    var banner = el("header", "fj-shop-banner");
+    /* Shop all gets the collection photograph; a single collection keeps the
+       gradient, since its own banner already runs above the grid. */
+    var banner = el("header", "fj-shop-banner" + (col ? "" : " fj-shop-banner--photo"));
     banner.appendChild(el("p", "fj-kicker", { text: "Fine Jewellery" }));
     banner.appendChild(el("h1", "fj-title", {
       text: type ? type : (col ? col.name : "Shop all")
@@ -276,7 +278,8 @@
     banner.appendChild(el("p", "fj-lede", {
       text: col
         ? col.lede
-        : "Every Fine Jewellery piece from Bloom and Safar. Filter by collection or category."
+        : "Every Fine Jewellery piece, across " + data.collections.length +
+          " collections. Filter by collection or category."
     }));
     root.appendChild(banner);
 

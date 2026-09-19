@@ -328,7 +328,13 @@ button {
   content: "";
   position: absolute; inset: 0; z-index: -2;
   background:
-    linear-gradient(115deg, #2a2420 0%, #5c4a3a 42%, #8a6b52 72%, #c4a882 100%);
+    linear-gradient(115deg, #2a2420 0%, #5c4a3a 42%, #8a6b52 72%, #c4a882 100%)
+    center / cover;
+}
+/* The photograph sits over the gradient, which stays as the fallback if it
+   has not loaded yet. */
+.fj-shop-banner--photo::before {
+  background: url("img/shop-banner.webp") center / cover no-repeat, #2a2420;
 }
 .fj-shop-banner::after {
   content: "";

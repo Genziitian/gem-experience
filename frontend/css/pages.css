@@ -9,9 +9,9 @@
   --rule: #e3ddd0;
   --cream: #f5f1e8;
   --tile: #f5f1e8;
-  /* Cormorant Garamond has real lower-case letterforms, which is what lets
+  /* EB Garamond has real lower-case letterforms, which is what lets
      headlines run in mixed case instead of a permanent shout of capitals. */
-  --serif: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
+  --serif: "EB Garamond", Garamond, Georgia, serif;
   --sans: Jost, -apple-system, "Segoe UI", sans-serif;
   --gutter: 20px;
 }

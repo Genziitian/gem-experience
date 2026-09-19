@@ -7,76 +7,101 @@
     prefix = prefix || "";
     return (
       '<footer class="ftr site-ftr">' +
-        '<div class="ftr-inner">' +
 
-          '<section class="signup" aria-labelledby="signup-title">' +
-            '<h2 class="display display--sm display--left" id="signup-title">Join the Gem Experience Universe</h2>' +
-            '<p class="lede lede--left">New pieces before they are shown, and the occasional letter from the workshop.</p>' +
-            '<form class="signup-form" id="signup-form" novalidate>' +
-              '<label class="sr-only" for="signup-email">Email address</label>' +
-              '<div class="signup-field">' +
-                '<input class="signup-input" id="signup-email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required>' +
-                '<button class="signup-submit" type="submit" aria-label="Subscribe">' +
-                  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">' +
-                    '<path d="M3 12h18M15 6l6 6-6 6"></path>' +
-                  "</svg>" +
-                "</button>" +
-              "</div>" +
-              '<p class="signup-note" id="signup-note" role="status" aria-live="polite"></p>' +
-            "</form>" +
-          "</section>" +
+        /* ---- pale band: the signup, with the photograph beside it ---- */
+        '<div class="ftr-band ftr-band--pale">' +
+          '<div class="ftr-inner ftr-top">' +
 
-          '<a class="banner" href="' + prefix + 'high-jewellery/">' +
-            '<img class="banner-img" src="' + prefix + 'img/banner-high-jewellery.webp" alt="A rough gemstone crystal lit warm against the dark." loading="lazy" decoding="async">' +
-            '<span class="banner-overlay" aria-hidden="true"></span>' +
-            '<span class="banner-copy">' +
-              '<span class="banner-tagline">Cut from the rough</span>' +
-              '<span class="rule-link rule-link--light">Discover High Jewellery</span>' +
-            "</span>" +
-          "</a>" +
-
-          '<section class="advisor" aria-labelledby="advisor-title">' +
-            '<p class="advisor-kicker" id="advisor-title">Client services</p>' +
-            '<p class="advisor-line">Every piece is one of one. Ask us about a stone, a commission, or a viewing in private.</p>' +
-            '<div class="advisor-links">' +
-              '<a class="box-link" href="' + prefix + 'appointment/">Book a private viewing</a>' +
-              '<a class="box-link" href="' + prefix + 'contact/">Speak to an advisor</a>' +
-            "</div>" +
-          "</section>" +
-
-          '<div class="ftr-groups">' +
-            '<section class="ftr-group">' +
-              '<h2 class="ftr-group-title">The maison</h2>' +
-              '<div class="ftr-group-links">' +
-                '<a href="' + prefix + '">Our story</a>' +
-                '<a href="' + prefix + 'offices/">Where the stones come from</a>' +
-                '<a href="' + prefix + 'high-jewellery/">Inside the workshop</a>' +
-                '<a href="' + prefix + 'legal/#privacy">Responsible sourcing</a>' +
-              "</div>" +
+            '<section class="signup" aria-labelledby="signup-title">' +
+              '<h2 class="signup-title" id="signup-title">Join the Gem Experience Universe</h2>' +
+              '<p class="signup-lede">New pieces before they are shown, and the occasional letter from the workshop.</p>' +
+              '<form class="signup-form" id="signup-form" novalidate>' +
+                '<label class="sr-only" for="signup-email">Email address</label>' +
+                '<div class="signup-field">' +
+                  '<input class="signup-input" id="signup-email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required>' +
+                  '<button class="signup-submit" type="submit" aria-label="Subscribe">' +
+                    '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">' +
+                      '<path d="M3 12h18M15 6l6 6-6 6"></path>' +
+                    "</svg>" +
+                  "</button>" +
+                "</div>" +
+                '<p class="signup-note" id="signup-note" role="status" aria-live="polite"></p>' +
+              "</form>" +
             "</section>" +
-            '<section class="ftr-group">' +
-              '<h2 class="ftr-group-title">Client care</h2>' +
-              '<div class="ftr-group-links">' +
-                '<a href="' + prefix + 'appointment/">Book a private viewing</a>' +
-                '<a href="' + prefix + 'quotation/">Commission a piece</a>' +
-                '<a href="' + prefix + 'contact/">Care and repairs</a>' +
-                '<a href="' + prefix + 'contact/">Contact us</a>' +
+
+            '<a class="tile" href="' + prefix + 'high-jewellery/">' +
+              '<img class="tile-img" src="' + prefix + 'img/banner-high-jewellery.webp" alt="A rough gemstone crystal lit warm against the dark." loading="lazy" decoding="async">' +
+              '<span class="tile-overlay" aria-hidden="true"></span>' +
+              '<span class="tile-copy">' +
+                '<span class="tile-tagline">Cut from the rough</span>' +
+                '<span class="rule-link rule-link--light">Discover High Jewellery</span>' +
+              "</span>" +
+            "</a>" +
+
+          "</div>" +
+        "</div>" +
+
+        /* ---- pale band: client services ---- */
+        '<div class="ftr-band ftr-band--pale ftr-band--ruled">' +
+          '<div class="ftr-inner">' +
+            '<section class="advisor" aria-labelledby="advisor-title">' +
+              '<p class="advisor-kicker" id="advisor-title">Client services</p>' +
+              '<p class="advisor-line">Every piece is one of one. Ask us about a stone, a commission, or a viewing in private.</p>' +
+              '<div class="advisor-links">' +
+                '<a class="box-link" href="' + prefix + 'appointment/">Book a private viewing</a>' +
+                '<a class="box-link" href="' + prefix + 'contact/">Speak to an advisor</a>' +
               "</div>" +
             "</section>" +
           "</div>" +
+        "</div>" +
 
-          '<div class="region">' +
-            '<button class="region-btn" id="region-btn" type="button" aria-expanded="false" aria-controls="region-list">' +
-              'Change Country/Region <span class="region-current" id="region-current">India</span>' +
-            "</button>" +
-            '<ul class="region-list" id="region-list" hidden>' +
-              '<li><button type="button" data-region="India">India</button></li>' +
-              '<li><button type="button" data-region="United Arab Emirates">United Arab Emirates</button></li>' +
-              '<li><button type="button" data-region="United Kingdom">United Kingdom</button></li>' +
-              '<li><button type="button" data-region="United States">United States</button></li>' +
-              '<li><button type="button" data-region="Singapore">Singapore</button></li>' +
-              '<li><button type="button" data-region="Tanzania">Tanzania</button></li>' +
-            "</ul>" +
+        /* ---- dark band: signature, the four columns, and the bottom rule ---- */
+        '<div class="ftr-band ftr-band--dark">' +
+          '<div class="ftr-inner">' +
+
+            '<div class="signature">' +
+              '<p class="signature-mark">Gem Experience</p>' +
+              '<p class="signature-line">Singular pieces, each cut<br>from a stone we followed out of the ground.</p>' +
+            "</div>" +
+
+            '<div class="ftr-cols">' +
+              '<section class="ftr-group">' +
+                '<h2 class="ftr-group-title">The maison</h2>' +
+                '<div class="ftr-group-links">' +
+                  '<a href="' + prefix + '">Our story</a>' +
+                  '<a href="' + prefix + 'offices/">Where the stones come from</a>' +
+                  '<a href="' + prefix + 'high-jewellery/">Inside the workshop</a>' +
+                  '<a href="' + prefix + 'legal/#privacy">Responsible sourcing</a>' +
+                "</div>" +
+              "</section>" +
+              '<section class="ftr-group">' +
+                '<h2 class="ftr-group-title">Client care</h2>' +
+                '<div class="ftr-group-links">' +
+                  '<a href="' + prefix + 'appointment/">Book a private viewing</a>' +
+                  '<a href="' + prefix + 'quotation/">Commission a piece</a>' +
+                  '<a href="' + prefix + 'contact/">Care and repairs</a>' +
+                  '<a href="' + prefix + 'contact/">Contact us</a>' +
+                "</div>" +
+              "</section>" +
+              '<section class="ftr-group">' +
+                '<h2 class="ftr-group-title">Privacy &amp; terms</h2>' +
+                '<div class="ftr-group-links">' +
+                  '<a href="' + prefix + 'legal/#privacy">Privacy policy</a>' +
+                  '<a href="' + prefix + 'legal/#terms">Terms &amp; conditions</a>' +
+                  '<a href="' + prefix + 'legal/#cookies">Cookies</a>' +
+                "</div>" +
+              "</section>" +
+              '<section class="ftr-group ftr-group--about">' +
+                '<h2 class="ftr-group-title">About us</h2>' +
+                '<p class="ftr-about">' +
+                  "Gem Experience follows tanzanite and coloured stones out of the ground in " +
+                  "northern Tanzania, cuts them in its own workshop and finishes every piece by " +
+                  "hand. No two are alike. " +
+                  '<a href="' + prefix + 'offices/">Learn more.</a>' +
+                "</p>" +
+              "</section>" +
+            "</div>" +
+
             '<div class="social">' +
               '<a href="https://instagram.com" aria-label="Instagram" rel="noopener noreferrer" target="_blank">' +
                 '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 5.19a4.65 4.65 0 1 0 0 9.3 4.65 4.65 0 0 0 0-9.3Zm0 7.67a3.02 3.02 0 1 1 0-6.04 3.02 3.02 0 0 1 0 6.04Zm5.92-7.85a1.09 1.09 0 1 1-2.17 0 1.09 1.09 0 0 1 2.17 0Z"></path></svg>' +
@@ -94,23 +119,27 @@
                 '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"></path></svg>' +
               "</a>" +
             "</div>" +
-          "</div>" +
 
-          '<div class="signature">' +
-            '<p class="signature-mark">Gem Experience</p>' +
-            '<p class="signature-line signature-line--script">Singular pieces, each cut from a stone we followed out of the ground.</p>' +
-          "</div>" +
+            '<div class="ftr-bottom">' +
+              '<div class="region">' +
+                '<button class="region-btn" id="region-btn" type="button" aria-expanded="false" aria-controls="region-list">' +
+                  'Change Country/Region <span class="region-current" id="region-current">India</span>' +
+                "</button>" +
+                '<ul class="region-list" id="region-list" hidden>' +
+                  '<li><button type="button" data-region="India">India</button></li>' +
+                  '<li><button type="button" data-region="United Arab Emirates">United Arab Emirates</button></li>' +
+                  '<li><button type="button" data-region="United Kingdom">United Kingdom</button></li>' +
+                  '<li><button type="button" data-region="United States">United States</button></li>' +
+                  '<li><button type="button" data-region="Singapore">Singapore</button></li>' +
+                  '<li><button type="button" data-region="Tanzania">Tanzania</button></li>' +
+                "</ul>" +
+              "</div>" +
+              '<span class="legal-copy">&copy; 2026 Gem Experience</span>' +
+            "</div>" +
 
-          '<div class="legal">' +
-            '<span class="legal-copy">&copy; 2026 Gem Experience</span>' +
-            '<nav class="legal-links" aria-label="Legal">' +
-              '<a href="' + prefix + 'legal/#privacy">Privacy</a>' +
-              '<a href="' + prefix + 'legal/#terms">Terms</a>' +
-              '<a href="' + prefix + 'legal/#cookies">Cookies</a>' +
-            "</nav>" +
           "</div>" +
-
         "</div>" +
+
       "</footer>"
     );
   }

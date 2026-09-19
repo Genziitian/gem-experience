@@ -13,10 +13,10 @@
   --cta-alt: #f4f0e6;
   --cta-alt-hover: #ebe5d7;
   --swatch-rule: #ddd6c8;
-  /* Matches the home page, so one serif runs across the whole site. Cormorant
+  /* Matches the home page, so one serif runs across the whole site. EB Garamond
      Garamond has real lower-case letterforms, which is what lets headlines
      run in mixed case instead of a permanent shout of tracked capitals. */
-  --serif: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
+  --serif: "EB Garamond", Garamond, Georgia, serif;
   --gutter: clamp(20px, 4vw, 48px);
 }
 
@@ -885,145 +885,10 @@ button {
 
 /* ---------------------------------------------------------------- footer */
 
-.ftr {
-  margin-top: auto;
-  background: var(--tile);
-  border-top: 1px solid var(--rule);
-  padding: 64px var(--gutter) 32px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* masthead + signup */
-
-.ftr-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 36px 64px;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--rule);
-}
-.ftr-intro { display: flex; flex-direction: column; gap: 16px; max-width: 380px; }
-.ftr-brand { font-weight: 500; font-size: 13px; letter-spacing: 5.6px; text-transform: uppercase; }
-.ftr-tagline { margin: 0; font-weight: 300; font-size: 14px; line-height: 24px; color: var(--muted); }
-
-.ftr-signup { display: flex; flex-direction: column; gap: 14px; width: min(340px, 100%); }
-.ftr-signup-label { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--muted); }
-.ftr-field { display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--swatch-rule); }
-.ftr-field:focus-within { border-bottom-color: var(--ink-soft); }
-.ftr-input {
-  flex: 1 1 auto;
-  min-width: 0;
-  border: 0;
-  background: transparent;
-  padding: 10px 0;
-  font: inherit;
-  font-weight: 300;
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-.ftr-input::placeholder { color: var(--muted); }
-.ftr-input:focus { outline: none; }
-.ftr-submit { flex: 0 0 auto; display: flex; padding: 8px 0 8px 8px; color: var(--ink-soft); }
-.ftr-submit:hover { color: var(--muted); }
-
-/* link columns */
-
-/* client services — the same band the home page footer carries, so the
-   invitation to talk to someone reads the same wherever you land */
-
-.ftr-advisor {
-  padding: 40px 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-}
-
-.ftr-advisor-kicker {
-  margin: 0;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.ftr-advisor-line {
-  margin: 18px 0 0;
-  max-width: 34ch;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
-  color: var(--ink);
-}
-
-.ftr-advisor-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin-top: 28px;
-}
-
-.ftr-advisor-link {
-  padding-bottom: 4px;
-  border-bottom: 1px solid currentColor;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: opacity 200ms ease;
-}
-
-.ftr-advisor-link:hover { opacity: 0.6; }
-
-@media (min-width: 901px) {
-  .ftr-advisor {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-    column-gap: 64px;
-    padding: 56px 0;
-  }
-  .ftr-advisor-kicker { grid-column: 1; }
-  .ftr-advisor-line { grid-column: 1; max-width: 40ch; font-size: 26px; line-height: 38px; }
-  .ftr-advisor-links {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    margin-top: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-}
-
-.ftr-cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
-  gap: 36px 40px;
-  padding: 48px 0;
-}
-.ftr-col { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
-.ftr-col-title { font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--muted); }
-.ftr-col a { font-weight: 300; font-size: 14px; line-height: 20px; }
-
-/* legal bar */
-
-.ftr-base {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px 32px;
-  padding-top: 28px;
-  border-top: 1px solid var(--rule);
-}
-.ftr-legal { font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted); }
-.ftr-social { display: flex; gap: 18px; margin-right: auto; }
-.ftr-social a { display: flex; color: var(--ink-soft); }
-.ftr-social a:hover { color: var(--muted); }
-.ftr-legal-links { display: flex; flex-wrap: wrap; gap: 24px; }
-.ftr-legal-links a { font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted); }
-.ftr-legal-links a:hover { color: var(--ink); }
+/* This page mounts the shared footer (GemFooter), so its styles come from
+   css/site-footer.css. The block that used to sit here styled a footer this
+   page stopped rendering, and its .ftr / .ftr-top / .ftr-cols rules landed
+   on the shared markup instead. */
 
 /* --------------------------------------------------------------- narrow */
 
@@ -1094,12 +959,6 @@ button {
   .specs { padding: 40px 20px; gap: 32px 20px; }
   .concierge-cta { align-self: stretch; text-align: center; }
 
-  .ftr { padding: 44px 20px 28px; }
-  .ftr-top { padding-bottom: 36px; gap: 30px; }
-  .ftr-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 20px; padding: 36px 0; }
-  .ftr-signup { width: 100%; }
-  .ftr-base { gap: 16px 24px; }
-  .ftr-social { margin-right: 0; }
 }
 
 /* Smallest phones: the brand lettering was squeezing the icon buttons until the

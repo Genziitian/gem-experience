@@ -71,7 +71,7 @@
 
 /* Top-level sections: the larger serif, each on its own hairline. */
 .site-nav-list--major .site-nav-link {
-  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-family: "EB Garamond", Garamond, Georgia, serif;
   font-size: 21px;
   letter-spacing: 0.01em;
   padding: 17px 0;
@@ -143,7 +143,7 @@
 
 /* Sub-sheets: same list treatment as the root, one step in. */
 .site-nav-sheet:not(.is-root) .site-nav-link {
-  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-family: "EB Garamond", Garamond, Georgia, serif;
   font-size: 19px;
   padding: 14px 0;
   border-bottom: 1px solid #e8e2d6;

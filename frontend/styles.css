@@ -158,14 +158,18 @@ button {
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 
+/* Set in the sans at label size rather than as a serif headline: over a
+   photograph a small, widely tracked line reads as a caption on the image
+   instead of competing with it. */
 .card-title {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(19px, 1.8vw, 23px);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 3.4px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 /* Label over a full-width hairline. */
@@ -404,6 +408,22 @@ button {
 
 .card:hover .card-img { transform: scale(1.03); }
 
+/* Scoped to the home page's three collection cards — the High Jewellery grid
+   shares this stylesheet and uses .card for its product tiles, which must not
+   pick up the scrim or the white type.
+   The label sits on whatever the photograph happens to put behind it, which
+   differs per card and per crop. A scrim across the lower edge keeps white
+   type legible without having to pick a colour per image. */
+.collections .card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  z-index: 0;
+}
+
 .card-copy {
   position: absolute;
   left: var(--gutter);
@@ -414,7 +434,8 @@ button {
   align-items: flex-start;
 }
 
-.card-copy .box-link { margin-top: 8px; }
+.card-copy .box-link { margin-top: 10px; }
+.collections .card-copy .box-link { color: #fff; }
 
 /* -------------------------------------------------------- film band */
 

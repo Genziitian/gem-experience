@@ -30,7 +30,7 @@
       children: [
         { label: "Introduction", href: "world-of-preciousness/" },
         { label: "Tanzanite", href: "world-of-preciousness/tanzanite/" },
-        { label: "Spinel" },
+        { label: "Spinel", href: "world-of-preciousness/spinel/" },
         { label: "Tsavorite" },
         { label: "Rhodolite" },
         { label: "Malaya Garnet" }

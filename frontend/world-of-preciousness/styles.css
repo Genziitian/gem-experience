@@ -475,3 +475,183 @@
 .wop-link:hover { opacity: 0.6; }
 
 .wop-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ---------------------------------------------------------- the numeral
+
+   One fact on a page deserves to be the size of a picture. Spinel's is the
+   352 carats sitting in the British Crown Jewels under the wrong name. */
+
+.wop-figure {
+  display: grid;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  .wop-figure { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+}
+.wop-numeral {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(96px, 16vw, 230px);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  color: var(--cream);
+}
+.wop-numeral-unit {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.5);
+}
+.wop-figure-copy .wop-body { max-width: 52ch; }
+
+/* ------------------------------------------------------- the properties */
+
+.wop-props {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 48px) 20px;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 860px) { .wop-props { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.wop-prop { text-align: center; }
+.wop-prop-value {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.wop-prop-label {
+  margin: 10px 0 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wop-band--night .wop-prop-label { color: rgba(245, 241, 232, 0.5); }
+
+/* ------------------------------------------------------ the specimen tray
+
+   The reference put its notes on pins dropped over a photograph of loose
+   stones. This keeps the idea — pick a stone, read its note — but lays the
+   stones out as a tray of its own drawing, so the arrangement is ours and
+   the note has somewhere settled to appear instead of a drawer sliding over
+   the page. Percentages, so the scatter survives any width. */
+
+.wop-tray-wrap {
+  display: grid;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .wop-tray-wrap { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+}
+
+.wop-tray {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  background:
+    radial-gradient(ellipse at 32% 26%, rgba(255, 255, 255, 0.9), transparent 55%),
+    linear-gradient(160deg, #efe9e2, #ded5cc 60%, #cdc2b8);
+}
+.wop-band--night .wop-tray {
+  background:
+    radial-gradient(ellipse at 32% 26%, rgba(245, 241, 232, 0.14), transparent 55%),
+    linear-gradient(160deg, #241f1a, #1a1613);
+}
+
+/* Each stone is placed by its own --x/--y, set on the button in the markup. */
+.wop-tray-stone {
+  position: absolute;
+  isolation: isolate;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s, 15%);
+  transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.3, 1), filter 0.35s ease;
+  filter: drop-shadow(0 8px 18px rgba(10, 8, 6, 0.32));
+}
+.wop-tray-stone svg { width: 100%; height: auto; display: block; }
+.wop-tray-stone:hover { transform: translate(-50%, -50%) rotate(var(--r, 0deg)) scale(1.09); }
+.wop-tray-stone[aria-selected="true"] {
+  transform: translate(-50%, -50%) rotate(var(--r, 0deg)) scale(1.16);
+  filter: drop-shadow(0 12px 26px rgba(10, 8, 6, 0.45));
+}
+/* A glow behind the stone rather than a ring around it: the cuts are not all
+   the same proportion, and a circle drawn round a baguette reads as an error.
+   Sits behind via a negative z-index on a positioned parent. */
+.wop-tray-stone::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.34), transparent 68%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.wop-tray-stone[aria-selected="true"]::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .wop-tray-stone,
+  .wop-tray-stone:hover,
+  .wop-tray-stone[aria-selected="true"] { transition: none; }
+}
+
+.wop-tray-note { min-width: 0; }
+.wop-tray-note[hidden] { display: none; }
+.wop-tray-index {
+  margin: 0 0 16px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wop-band--night .wop-tray-index { color: rgba(245, 241, 232, 0.5); }
+.wop-tray-text {
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.55;
+}
+.wop-tray-hint {
+  margin: 26px 0 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wop-band--night .wop-tray-hint { color: rgba(245, 241, 232, 0.4); }
+
+/* -------------------------------------------------------- the octahedron */
+
+.wop-habit {
+  display: grid;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+  text-align: center;
+  justify-items: center;
+}
+.wop-habit-art { width: min(300px, 62%); height: auto; }

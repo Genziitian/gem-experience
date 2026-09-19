@@ -24,6 +24,18 @@
         { label: "Swirl", href: "fine-jewellery/#/swirl" }
       ]
     },
+    {
+      label: "World of Preciousness",
+      href: "world-of-preciousness/",
+      children: [
+        { label: "Introduction", href: "world-of-preciousness/" },
+        { label: "Tanzanite", href: "world-of-preciousness/tanzanite/" },
+        { label: "Spinel" },
+        { label: "Tsavorite" },
+        { label: "Rhodolite" },
+        { label: "Malaya Garnet" }
+      ]
+    },
     { label: "Gemstones & Mining" },
     { label: "Engagement & Bridal" },
     { label: "Gifts" },

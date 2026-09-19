@@ -209,6 +209,10 @@ button {
   padding: clamp(20px, 2.5vw, 36px) var(--gutter) clamp(72px, 9vw, 112px);
 }
 
+/* The gemstone chapters open on a full-bleed film, so they drop main's own
+   padding and let each section set its own. */
+.pg-main--flush { padding: 0; }
+
 /* A single reading column for policy-style pages. */
 .pg-main--narrow > * { max-width: 760px; margin-left: auto; margin-right: auto; }
 

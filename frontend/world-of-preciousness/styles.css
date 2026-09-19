@@ -1,0 +1,477 @@
+/* World of Preciousness — the gemstone chapters.
+
+   Darker and quieter than the rest of the site: the stones carry the colour,
+   so the page around them stays close to black and the type stays small.
+   Sections alternate between a full-bleed film, a single line of serif, and
+   a collage that offsets a photograph over a field of the stone's own colour.
+
+   Typography is the site's: Jost for the sans, EB Garamond for the serif,
+   with the serif italic doing the work a script face would. */
+
+.wop {
+  --ink: #17140f;
+  --muted: #6b6259;
+  --rule: #e3ddd0;
+  --cream: #f5f1e8;
+  --night: #14110e;
+  --night-soft: #1e1a16;
+  --night-text: rgba(245, 241, 232, 0.66);
+  --serif: "EB Garamond", Garamond, Georgia, serif;
+  --sans: Jost, -apple-system, "Segoe UI", sans-serif;
+  background: #fff;
+}
+
+/* ------------------------------------------------------------- shared type */
+
+.wop-kicker {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wop-h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+.wop-h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.2;
+}
+.wop-em { font-style: italic; font-weight: 400; }
+.wop-body {
+  margin: 18px 0 0;
+  max-width: 46ch;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--muted);
+}
+.wop-section { padding: clamp(72px, 11vw, 150px) var(--gutter); }
+
+/* --------------------------------------------------------------- the film */
+
+.wop-hero {
+  position: relative;
+  isolation: isolate;
+  height: 100svh;
+  min-height: 520px;
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 var(--gutter) clamp(56px, 9vh, 104px);
+  overflow: hidden;
+  background: var(--night);
+}
+.wop-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wop-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.72) 0%, rgba(10, 8, 6, 0.18) 45%, rgba(10, 8, 6, 0.34) 100%);
+}
+.wop-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  color: #fff;
+}
+.wop-hero-title {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(36px, 6vw, 82px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.wop-hero-line {
+  margin: 0;
+  max-width: 54ch;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(14px, 1.3vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+.wop-scroll {
+  margin-top: 8px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: rgba(255, 255, 255, 0.8);
+  animation: wop-bob 2.6s ease-in-out infinite;
+}
+@keyframes wop-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wop-scroll { animation: none; }
+}
+
+/* ------------------------------------------ the opening line of the chapter */
+
+.wop-statement { text-align: center; }
+.wop-statement .wop-kicker { margin-bottom: 26px; }
+.wop-statement-line {
+  margin: 0 auto;
+  max-width: 24ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(26px, 3.6vw, 46px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.wop-statement-body {
+  margin: 30px auto 0;
+  max-width: 62ch;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 30px;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------------- the collages
+
+   A field of the stone's colour, a narrow strip set off its edge, a
+   photograph floated over the field, and a cut stone lifted clear of the
+   whole arrangement — the same four pieces every time, mirrored on
+   alternate rows. Percentages throughout, so the composition holds its
+   proportions at any width. */
+
+.wop-pair {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .wop-pair {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 6vw, 110px);
+  }
+  .wop-pair--flip .wop-pair-copy { order: 2; }
+  .wop-pair--flip .wop-collage { order: 1; }
+}
+.wop-pair-copy { min-width: 0; }
+.wop-pair-copy .wop-kicker { margin-bottom: 18px; }
+
+.wop-collage {
+  position: relative;
+  /* <figure> carries a 40px side margin by default, which on a phone pushed
+     the whole composition past the right edge of the page. */
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  min-width: 0;
+}
+.wop-collage-field,
+.wop-collage-strip {
+  position: absolute;
+  display: block;
+  background: var(--field, linear-gradient(150deg, #1f3a2c, #2f7a52 45%, #0e1f17));
+}
+.wop-collage-field { left: 0; top: 4%; width: 76%; height: 92%; }
+.wop-collage-strip {
+  right: 0;
+  top: 22%;
+  width: 19%;
+  height: 56%;
+  background: var(--field-strip, var(--field));
+  opacity: 0.78;
+}
+.wop-collage-photo {
+  position: absolute;
+  left: 21%;
+  top: 30%;
+  width: 52%;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 20px 50px rgba(10, 8, 6, 0.3);
+}
+.wop-collage-gem {
+  position: absolute;
+  left: -4%;
+  top: -5%;
+  width: 21%;
+  height: auto;
+  filter: drop-shadow(0 12px 26px rgba(10, 8, 6, 0.35));
+}
+/* Mirrored, so two collages in a row never read as the same picture twice. */
+.wop-collage--mirror .wop-collage-field { left: auto; right: 0; }
+.wop-collage--mirror .wop-collage-strip { right: auto; left: 0; }
+.wop-collage--mirror .wop-collage-photo { left: auto; right: 21%; }
+.wop-collage--mirror .wop-collage-gem { left: auto; right: -4%; }
+
+/* ------------------------------------------------------------- the six C's */
+
+.wop-band--night {
+  background: var(--night);
+  color: var(--night-text);
+}
+.wop-band--night .wop-h2,
+.wop-band--night .wop-h3 { color: var(--cream); }
+.wop-band--night .wop-kicker { color: rgba(245, 241, 232, 0.5); }
+.wop-band--night .wop-body { color: var(--night-text); }
+
+.wop-head {
+  max-width: 1340px;
+  margin: 0 auto clamp(40px, 5vw, 64px);
+  text-align: center;
+}
+.wop-head .wop-kicker { margin-bottom: 18px; }
+.wop-head .wop-body { margin-left: auto; margin-right: auto; text-align: center; }
+
+.wop-cs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 1340px;
+  margin: 0 auto;
+  background: rgba(245, 241, 232, 0.14);
+  border: 1px solid rgba(245, 241, 232, 0.14);
+}
+@media (min-width: 720px) { .wop-cs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .wop-cs { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+.wop-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(26px, 3vw, 40px) 16px;
+  background: var(--night);
+  text-align: center;
+  transition: background 0.4s ease;
+}
+.wop-c:hover { background: var(--night-soft); }
+.wop-c-gem { width: 44px; height: auto; }
+.wop-c-name {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.2;
+  color: var(--cream);
+}
+.wop-c-note {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 20px;
+  color: rgba(245, 241, 232, 0.55);
+}
+
+/* ------------------------------------------------------------------- tabs */
+
+.wop-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 44px);
+  max-width: 1340px;
+  margin: 0 auto clamp(36px, 4vw, 56px);
+  padding-bottom: 2px;
+}
+.wop-tab {
+  position: relative;
+  padding: 0 0 12px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.5);
+  transition: color 0.3s ease;
+}
+.wop-tab::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.wop-tab:hover { color: rgba(245, 241, 232, 0.8); }
+.wop-tab[aria-selected="true"] { color: var(--cream); }
+.wop-tab[aria-selected="true"]::after { opacity: 1; }
+
+.wop-panel {
+  display: grid;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .wop-panel { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+}
+.wop-panel[hidden] { display: none; }
+.wop-panel-film {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--night-soft);
+}
+.wop-panel-copy { min-width: 0; }
+
+/* -------------------------------------------------------------- the stones */
+
+.wop-stones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) { .wop-stones { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
+.wop-stone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(26px, 3vw, 40px) 14px;
+  text-align: center;
+  border: 1px solid var(--rule);
+  transition: border-color 0.35s ease, transform 0.35s ease;
+}
+.wop-stone:hover { border-color: var(--ink); transform: translateY(-3px); }
+.wop-stone.is-pending { opacity: 0.55; cursor: default; }
+.wop-stone.is-pending:hover { border-color: var(--rule); transform: none; }
+.wop-stone-gem { width: 54px; height: auto; }
+.wop-stone-name {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.2;
+}
+.wop-stone-note {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------- the trichroic facet rail
+
+   Four cuts of the one stone. Choosing a cut swaps the panel beside it
+   rather than opening a drawer over the page, which keeps the stone and
+   its story in view together. */
+
+.wop-facets {
+  display: grid;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .wop-facets { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+}
+.wop-facet-rail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 26px);
+}
+.wop-facet-btn {
+  display: grid;
+  place-items: center;
+  width: clamp(72px, 9vw, 110px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(245, 241, 232, 0.16);
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+.wop-facet-btn:hover { border-color: rgba(245, 241, 232, 0.4); }
+.wop-facet-btn[aria-selected="true"] {
+  border-color: var(--cream);
+  background: rgba(245, 241, 232, 0.05);
+}
+.wop-facet-btn svg { width: 62%; height: auto; }
+
+.wop-facet-panel { min-width: 0; }
+.wop-facet-panel[hidden] { display: none; }
+.wop-facet-cut {
+  margin: 0 0 20px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.5);
+}
+.wop-facet-text {
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 2.1vw, 27px);
+  line-height: 1.5;
+  color: var(--cream);
+}
+
+/* ------------------------------------------------------------- next / back */
+
+.wop-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--rule);
+}
+.wop-band--night .wop-next { border-top-color: rgba(245, 241, 232, 0.16); }
+.wop-link {
+  display: inline-block;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+.wop-link:hover { opacity: 0.6; }
+
+.wop-defs { position: absolute; width: 0; height: 0; overflow: hidden; }

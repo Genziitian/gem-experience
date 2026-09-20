@@ -18,181 +18,176 @@
 
   <main class="pg-main pg-main--flush" id="main">
 
-    <!-- ======================================================== the film -->
-    <header class="wop-hero">
-      <video class="wop-hero-media" autoplay muted loop playsinline preload="metadata"
-             poster="../high-jewellery/img/the-crown-macro.webp"
-             aria-label="A tanzanite crystal turning in the light.">
-        <source src="https://www.gem-experience.com/static/media/storyTanzanite.eea47e9dc902740c2929.mp4" type="video/mp4">
-      </video>
-      <div class="wop-hero-copy">
-        <h1 class="wop-hero-title">Discover the <span class="wop-em">World of Preciousness</span></h1>
-        <p class="wop-hero-line">Millions of years of the earth's history, and a few thousand hours of someone's hands.</p>
-        <a class="wop-scroll" href="#reading" aria-label="Read on">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
-            <path d="m5 9 7 7 7-7"></path>
-          </svg>
-        </a>
-      </div>
-    </header>
+    <!-- Two full-screen films. The second lifts over the first as you scroll. -->
+    <section class="wop-stage wop-stage--screens" data-stage aria-label="World of Preciousness">
+      <div class="wop-stage-pin">
 
-    <!-- ==================================================== the statement -->
-    <section class="wop-section wop-statement" id="reading">
-      <p class="wop-kicker">An introduction</p>
-      <p class="wop-statement-line">A stone is read in <span class="wop-em">six</span> ways, and felt in one.</p>
-      <p class="wop-statement-body">The allure of a precious stone lies in its colour, tone, saturation, inclusions, character and clarity. Alongside colour, cut, clarity and carat weight sit a stone's symbolism and its personality — the six Cs. Expert opinion will take you a long way. It will not measure what you feel when you see the stone.</p>
-    </section>
+        <article class="wop-chapter wop-screen is-on" data-chapter>
+          <video class="wop-screen-media" autoplay muted loop playsinline preload="metadata"
+                 poster="../high-jewellery/img/the-crown-macro.webp"
+                 aria-label="A tanzanite crystal turning in the light.">
+            <source src="https://www.gem-experience.com/static/media/storyTanzanite.eea47e9dc902740c2929.mp4" type="video/mp4">
+          </video>
+          <div class="wop-screen-copy">
+            <h1 class="wop-screen-title">World of Preciousness</h1>
+            <p class="wop-screen-sub">Discover</p>
+            <a class="wop-scroll" href="#reading" aria-label="Read on">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+                <path d="m5 9 7 7 7-7"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
 
-    <!-- ======================================================= the science -->
-    <section class="wop-section" style="padding-top:0">
-      <div class="wop-pair">
-        <div class="wop-pair-copy">
-          <p class="wop-kicker">01 — Cut proportions and light</p>
-          <h2 class="wop-h2">What the <span class="wop-em">cut</span> does to the light</h2>
-          <p class="wop-body">A cut is a shape and a set of dimensions — the depth, the angles, the symmetry of every facet. It decides what the stone does with light.</p>
-          <p class="wop-body">White light enters the stone. Some rays reflect outward; others are absorbed, and what is absorbed is what gives the gem its body colour. The rest is returned to the eye.</p>
-        </div>
-        <figure class="wop-collage" style="--field:linear-gradient(155deg,#2b3f8f,#4f6ddb 42%,#101733)">
-          <span class="wop-collage-field" aria-hidden="true"></span>
-          <span class="wop-collage-strip" aria-hidden="true"></span>
-          <img class="wop-collage-photo" src="../high-jewellery/img/the-crown-macro.webp" alt="Marquise-cut tanzanites and pavé diamonds set as a leaf." loading="lazy" decoding="async">
-          <span class="wop-collage-gem" data-gem="emerald tanzanite"></span>
-        </figure>
-      </div>
-    </section>
+        <article class="wop-chapter wop-screen wop-screen--intro" data-chapter>
+          <video class="wop-screen-media" autoplay muted loop playsinline preload="metadata"
+                 poster="../high-jewellery/img/the-crown-macro.webp"
+                 aria-label="A coloured stone being cut and read for light.">
+            <source src="https://www.gem-experience.com/static/media/cuttingPolish.bde5b0596717d85778f0.mp4" type="video/mp4">
+          </video>
+          <div class="wop-screen-copy wop-screen-copy--panel" id="reading">
+            <p class="wop-screen-kicker">An introduction</p>
+            <p class="wop-screen-prose">A stone is read in <span class="wop-em">six</span> ways, and felt in one.</p>
+            <p class="wop-screen-prose wop-screen-prose--body">The allure of a precious stone lies in its colour, tone, saturation, inclusions, character and clarity. Alongside colour, cut, clarity and carat weight sit a stone's symbolism and its personality.</p>
+            <a class="wop-scroll" href="#science" aria-label="Read on">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+                <path d="m5 9 7 7 7-7"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
 
-    <section class="wop-section" style="padding-top:0">
-      <div class="wop-pair wop-pair--flip">
-        <div class="wop-pair-copy">
-          <p class="wop-kicker">02 — Three dimensions of colour</p>
-          <h2 class="wop-h2">Hue, tone, <span class="wop-em">saturation</span></h2>
-          <p class="wop-body">Colour has three parts. With a transparent stone it helps to picture them as a globe: hue around the equator, tone from pole to pole, saturation out from the core.</p>
-          <p class="wop-body">The most desirable colour sits at the equator — a medium tone, held at high saturation.</p>
-        </div>
-        <figure class="wop-collage wop-collage--mirror" style="--field:linear-gradient(200deg,#7a1f46,#c8376f 45%,#2a0a18)">
-          <span class="wop-collage-field" aria-hidden="true"></span>
-          <span class="wop-collage-strip" aria-hidden="true"></span>
-          <img class="wop-collage-photo" src="../high-jewellery/img/alt-kilimanjaro.webp" alt="A model wearing a floral bracelet and collar of pastel stones." loading="lazy" decoding="async">
-          <span class="wop-collage-gem" data-gem="cushion spinel"></span>
-        </figure>
       </div>
     </section>
 
-    <section class="wop-section" style="padding-top:0">
-      <div class="wop-pair">
-        <div class="wop-pair-copy">
-          <p class="wop-kicker">03 — Pleochroism</p>
-          <h2 class="wop-h2">One stone, <span class="wop-em">three</span> colours</h2>
-          <p class="wop-body">A doubly refractive gem shows different colours from different angles. Tanzanite is the example everyone reaches for.</p>
-          <p class="wop-body">A lapidary with the skill can orient the cut to quiet the effect — so the stone shows its full colour face up, with little or no secondary hue.</p>
+    <!-- Editorial collages: original World of Preciousness science copy. -->
+    <section class="wop-story" id="science">
+
+      <article class="wop-story-block">
+        <div class="wop-pair">
+          <div class="wop-pair-copy">
+            <span class="wop-float-gem" data-gem="emerald tanzanite"></span>
+            <h2 class="wop-h2">Cut proportions and <span class="wop-em">light</span></h2>
+            <p class="wop-lead">The cut proportion of a precious stone refers to its shape and dimensions, including the depth, angles, and symmetry of its facets. The way a precious stone is cut can greatly affect its overall appearance, as it impacts the way light interacts with the stone.</p>
+            <p class="wop-lead">When white light enters a coloured precious stone, some of its rays are reflected outward while others are absorbed into the gem, creating its body colour. The transmitted rays are then returned to the viewer's eyes.</p>
+          </div>
+          <figure class="wop-collage" style="--field:#1c2a6e">
+            <span class="wop-collage-field"></span>
+            <span class="wop-collage-strip"></span>
+            <img class="wop-collage-photo" src="../high-jewellery/img/alt-oldoinyo.webp" alt="A tanzanite and diamond collar, the cut set so the stone returns the light." loading="lazy" decoding="async">
+          </figure>
         </div>
-        <figure class="wop-collage" style="--field:linear-gradient(160deg,#1c5c3f,#2f9e68 44%,#08241a)">
-          <span class="wop-collage-field" aria-hidden="true"></span>
-          <span class="wop-collage-strip" aria-hidden="true"></span>
-          <img class="wop-collage-photo" src="../high-jewellery/img/alt-merelani.webp" alt="A model wearing a fringed collar set with green garnets." loading="lazy" decoding="async">
-          <span class="wop-collage-gem" data-gem="trillion tsavorite"></span>
-        </figure>
+      </article>
+
+      <article class="wop-story-block">
+        <div class="wop-pair wop-pair--flip">
+          <div class="wop-pair-copy">
+            <span class="wop-float-gem" data-gem="oval rhodolite"></span>
+            <h2 class="wop-h2">Three dimensions of <span class="wop-em">colour</span></h2>
+            <p class="wop-lead">Colour consists of three aspects: hue, tone, and saturation. When dealing with transparent precious stones, it is useful to think of colour in a 3D system. The most desirable precious stone colour would be located at the equator of the globe, with a medium tone and high saturation.</p>
+          </div>
+          <figure class="wop-collage wop-collage--mirror" style="--field:#7a1f42">
+            <span class="wop-collage-field"></span>
+            <span class="wop-collage-strip"></span>
+            <img class="wop-collage-photo" src="../high-jewellery/img/alt-kilimanjaro.webp" alt="A floral collar and bracelet of pastel stones, colour held in hue, tone and saturation." loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </article>
+
+      <article class="wop-story-block">
+        <div class="wop-pair">
+          <div class="wop-pair-copy">
+            <span class="wop-float-gem" data-gem="trillion tsavorite"></span>
+            <h2 class="wop-h2"><span class="wop-em">Pleochroism</span></h2>
+            <p class="wop-lead">Pleochroism is a gemological term used to describe a doubly refractive gem that exhibits different colours when viewed from different angles. Tanzanites are examples of such gems. A lapidary with excellent skills can cut the gem in a way that reduces the pleochroism effect in the final cut and polished gem. The goal is to create a gem that displays the full colour when viewed face up, with minimal or no secondary hues.</p>
+          </div>
+          <figure class="wop-collage" style="--field:#145232">
+            <span class="wop-collage-field"></span>
+            <span class="wop-collage-strip"></span>
+            <img class="wop-collage-photo" src="../high-jewellery/img/alt-merelani.webp" alt="A fringed collar of green garnets, the cut oriented to the face-up colour." loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </article>
+
+      <article class="wop-story-block">
+        <div class="wop-pair wop-pair--flip">
+          <div class="wop-pair-copy">
+            <span class="wop-float-gem" data-gem="pear tanzanite"></span>
+            <h2 class="wop-h2">Origins of the <span class="wop-em">Blue Jewel</span></h2>
+            <p class="wop-lead">The exclusive source of this captivating gemstone is confined to a tiny area nestled at the base of Mount Kilimanjaro. Tanzania, a nation steeped in lore, is home to an age-old Maasai legend where a thunderbolt descended from the heavens, hitting the earth and transmuting all the rocks into a glistening blue hue, the birth of Tanzanite.</p>
+            <a class="wop-text-link" href="tanzanite/">Discover Tanzanite</a>
+          </div>
+          <figure class="wop-collage wop-collage--mirror" style="--field:#1c2a6e">
+            <span class="wop-collage-field"></span>
+            <span class="wop-collage-strip"></span>
+            <img class="wop-collage-photo" src="../img/tanzania.webp" alt="The hillside at the foot of Kilimanjaro, the only source of tanzanite." loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- The six C's, one slide at a time. -->
+    <section class="wop-cs-slider" data-slider tabindex="0" aria-label="The six C's">
+      <h2 class="wop-cs-slider-title">The six <span class="wop-em">C's</span></h2>
+      <div class="wop-cs-slider-body">
+        <button class="wop-cs-slider-nav" type="button" data-prev aria-label="Previous C">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+        </button>
+        <div class="wop-cs-slider-view">
+          <div class="wop-cs-slider-track">
+            <article class="wop-cs-slide is-on" data-slide>
+              <span class="wop-cs-slide-gem" data-gem="cushion tanzanite"></span>
+              <p class="wop-cs-slide-num">01</p>
+              <h3 class="wop-cs-slide-name">Character</h3>
+              <p class="wop-cs-slide-note">What the stone carries of where it came from.</p>
+            </article>
+            <article class="wop-cs-slide" data-slide>
+              <span class="wop-cs-slide-gem" data-gem="oval spinel"></span>
+              <p class="wop-cs-slide-num">02</p>
+              <h3 class="wop-cs-slide-name">Colour</h3>
+              <p class="wop-cs-slide-note">Hue, tone and saturation, read together.</p>
+            </article>
+            <article class="wop-cs-slide" data-slide>
+              <span class="wop-cs-slide-gem" data-gem="emerald diamond"></span>
+              <p class="wop-cs-slide-num">03</p>
+              <h3 class="wop-cs-slide-name">Clarity</h3>
+              <p class="wop-cs-slide-note">The inclusions, and what they tell you.</p>
+            </article>
+            <article class="wop-cs-slide" data-slide>
+              <span class="wop-cs-slide-gem" data-gem="marquise tsavorite"></span>
+              <p class="wop-cs-slide-num">04</p>
+              <h3 class="wop-cs-slide-name">Cut</h3>
+              <p class="wop-cs-slide-note">Depth, angle and symmetry, the light's path.</p>
+            </article>
+            <article class="wop-cs-slide" data-slide>
+              <span class="wop-cs-slide-gem" data-gem="pear rhodolite"></span>
+              <p class="wop-cs-slide-num">05</p>
+              <h3 class="wop-cs-slide-name">Carat</h3>
+              <p class="wop-cs-slide-note">Weight, which is not the same as size.</p>
+            </article>
+            <article class="wop-cs-slide" data-slide>
+              <span class="wop-cs-slide-gem" data-gem="trillion malaya"></span>
+              <p class="wop-cs-slide-num">06</p>
+              <h3 class="wop-cs-slide-name">Certification</h3>
+              <p class="wop-cs-slide-note">The report, and any treatment disclosed.</p>
+            </article>
+          </div>
+        </div>
+        <button class="wop-cs-slider-nav" type="button" data-next aria-label="Next C">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="wop-cs-slider-dots" role="tablist" aria-label="Choose a C">
+        <button type="button" role="tab" data-go="0" class="is-on">01 Character</button>
+        <button type="button" role="tab" data-go="1">02 Colour</button>
+        <button type="button" role="tab" data-go="2">03 Clarity</button>
+        <button type="button" role="tab" data-go="3">04 Cut</button>
+        <button type="button" role="tab" data-go="4">05 Carat</button>
+        <button type="button" role="tab" data-go="5">06 Certification</button>
       </div>
     </section>
 
-    <!-- ======================================================= the six C's -->
-    <section class="wop-section wop-band--night">
-      <div class="wop-head">
-        <p class="wop-kicker">The measure of a stone</p>
-        <h2 class="wop-h2">The six <span class="wop-em">C's</span></h2>
-      </div>
-      <div class="wop-cs">
-        <article class="wop-c">
-          <span class="wop-c-gem" data-gem="cushion tanzanite"></span>
-          <h3 class="wop-c-name">Character</h3>
-          <p class="wop-c-note">What the stone carries of where it came from.</p>
-        </article>
-        <article class="wop-c">
-          <span class="wop-c-gem" data-gem="oval spinel"></span>
-          <h3 class="wop-c-name">Colour</h3>
-          <p class="wop-c-note">Hue, tone and saturation, read together.</p>
-        </article>
-        <article class="wop-c">
-          <span class="wop-c-gem" data-gem="emerald diamond"></span>
-          <h3 class="wop-c-name">Clarity</h3>
-          <p class="wop-c-note">The inclusions, and what they tell you.</p>
-        </article>
-        <article class="wop-c">
-          <span class="wop-c-gem" data-gem="marquise tsavorite"></span>
-          <h3 class="wop-c-name">Cut</h3>
-          <p class="wop-c-note">Depth, angle and symmetry — the light's path.</p>
-        </article>
-        <article class="wop-c">
-          <span class="wop-c-gem" data-gem="pear rhodolite"></span>
-          <h3 class="wop-c-name">Carat</h3>
-          <p class="wop-c-note">Weight, which is not the same as size.</p>
-        </article>
-        <article class="wop-c">
-          <span class="wop-c-gem" data-gem="trillion malaya"></span>
-          <h3 class="wop-c-name">Certification</h3>
-          <p class="wop-c-note">The report, and any treatment disclosed.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================== tanzanite knowledge -->
-    <section class="wop-section wop-band--night" style="padding-top:0" data-switcher>
-      <div class="wop-head">
-        <p class="wop-kicker">Tanzanite knowledge</p>
-        <h2 class="wop-h2">From the <span class="wop-em">ground</span> to the grading bench</h2>
-      </div>
-
-      <div class="wop-tabs" role="tablist" aria-label="Tanzanite knowledge">
-        <button class="wop-tab" type="button" role="tab" data-target="story" aria-selected="true">Gem story</button>
-        <button class="wop-tab" type="button" role="tab" data-target="mining" aria-selected="false">Mining process</button>
-        <button class="wop-tab" type="button" role="tab" data-target="cutting" aria-selected="false">Cutting &amp; polishing</button>
-        <button class="wop-tab" type="button" role="tab" data-target="grading" aria-selected="false">Grading</button>
-      </div>
-
-      <div class="wop-panel" data-panel="story" role="tabpanel">
-        <video class="wop-panel-film" controls muted playsinline preload="none"
-               poster="../img/tanzania.webp">
-          <source src="https://www.gem-experience.com/static/media/storyTanzanite.eea47e9dc902740c2929.mp4" type="video/mp4">
-        </video>
-        <div class="wop-panel-copy">
-          <h3 class="wop-h3">Origins of the <span class="wop-em">Blue Jewel</span></h3>
-          <p class="wop-body">The only source of this stone is a few square kilometres at the foot of Kilimanjaro. Tanzania tells it as the Maasai do: a thunderbolt came down, struck the earth, and turned the rock a glistening blue. That was the birth of tanzanite.</p>
-        </div>
-      </div>
-
-      <div class="wop-panel" data-panel="mining" role="tabpanel" hidden>
-        <video class="wop-panel-film" controls muted playsinline preload="none"
-               poster="../high-jewellery/img/alt-rift.webp">
-          <source src="https://www.gem-experience.com/static/media/miningProcess.9036e032797e38067956.mp4" type="video/mp4">
-        </video>
-        <div class="wop-panel-copy">
-          <h3 class="wop-h3">The <span class="wop-em">Merelani</span> hills</h3>
-          <p class="wop-body">Shafts follow the seam down by hand. Every stone that leaves the block is logged where it was found, which is how a piece can still name its own ground years later.</p>
-        </div>
-      </div>
-
-      <div class="wop-panel" data-panel="cutting" role="tabpanel" hidden>
-        <video class="wop-panel-film" controls muted playsinline preload="none"
-               poster="../high-jewellery/img/the-crown-macro.webp">
-          <source src="https://www.gem-experience.com/static/media/cuttingPolish.bde5b0596717d85778f0.mp4" type="video/mp4">
-        </video>
-        <div class="wop-panel-copy">
-          <h3 class="wop-h3">Cutting &amp; <span class="wop-em">polishing</span></h3>
-          <p class="wop-body">The rough is read before anything is taken off it. Orientation decides the colour you will see face up — which is why the cut is set by the stone rather than by the yield.</p>
-        </div>
-      </div>
-
-      <div class="wop-panel" data-panel="grading" role="tabpanel" hidden>
-        <video class="wop-panel-film" controls muted playsinline preload="none"
-               poster="../high-jewellery/img/alt-merelani.webp">
-          <source src="https://www.gem-experience.com/static/media/grading.28c33ae42c89248ae4fd.mp4" type="video/mp4">
-        </video>
-        <div class="wop-panel-copy">
-          <h3 class="wop-h3">Grading</h3>
-          <p class="wop-body">Colour, clarity, cut and carat, recorded against the same scale every time, so two stones from two years apart can still be compared honestly.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- ======================================================= the stones -->
     <section class="wop-section">

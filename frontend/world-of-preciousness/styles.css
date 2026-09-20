@@ -27,35 +27,35 @@
   margin: 0;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 16px;
-  letter-spacing: 3.2px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .wop-h2 {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 .wop-h3 {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.2;
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.15;
 }
 .wop-em { font-style: italic; font-weight: 400; }
 .wop-body {
   margin: 18px 0 0;
-  max-width: 46ch;
+  max-width: 38ch;
   font-family: var(--sans);
   font-weight: 300;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 1.7;
   color: var(--muted);
 }
 .wop-section { padding: clamp(72px, 11vw, 150px) var(--gutter); }
@@ -101,12 +101,12 @@
 }
 .wop-hero-title {
   margin: 0;
-  max-width: 18ch;
+  max-width: 16ch;
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(36px, 6vw, 82px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-size: clamp(40px, 6.4vw, 86px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
 }
 .wop-hero-line {
   margin: 0;
@@ -186,37 +186,33 @@
 
 .wop-collage {
   position: relative;
-  /* <figure> carries a 40px side margin by default, which on a phone pushed
-     the whole composition past the right edge of the page. */
   margin: 0;
   width: 100%;
-  aspect-ratio: 5 / 6;
+  aspect-ratio: 4 / 5;
   min-width: 0;
 }
 .wop-collage-field,
 .wop-collage-strip {
   position: absolute;
   display: block;
-  background: var(--field, linear-gradient(150deg, #1f3a2c, #2f7a52 45%, #0e1f17));
+  background: var(--field, #1c2a6e);
 }
-.wop-collage-field { left: 0; top: 4%; width: 76%; height: 92%; }
+.wop-collage-field { left: 0; top: 8%; width: 78%; height: 84%; }
 .wop-collage-strip {
   right: 0;
-  top: 22%;
-  width: 19%;
-  height: 56%;
-  background: var(--field-strip, var(--field));
-  opacity: 0.78;
+  top: 24%;
+  width: 16%;
+  height: 52%;
+  filter: brightness(1.18);
 }
 .wop-collage-photo {
   position: absolute;
-  left: 21%;
-  top: 30%;
-  width: 52%;
-  aspect-ratio: 1;
-  height: auto;
+  left: 10%;
+  top: 16%;
+  width: 62%;
+  height: 68%;
   object-fit: cover;
-  box-shadow: 0 20px 50px rgba(10, 8, 6, 0.3);
+  box-shadow: 0 22px 50px rgba(10, 8, 6, 0.28);
 }
 .wop-collage-gem {
   position: absolute;
@@ -226,10 +222,9 @@
   height: auto;
   filter: drop-shadow(0 12px 26px rgba(10, 8, 6, 0.35));
 }
-/* Mirrored, so two collages in a row never read as the same picture twice. */
 .wop-collage--mirror .wop-collage-field { left: auto; right: 0; }
 .wop-collage--mirror .wop-collage-strip { right: auto; left: 0; }
-.wop-collage--mirror .wop-collage-photo { left: auto; right: 21%; }
+.wop-collage--mirror .wop-collage-photo { left: auto; right: 10%; }
 .wop-collage--mirror .wop-collage-gem { left: auto; right: -4%; }
 
 /* ------------------------------------------------------------- the six C's */
@@ -655,3 +650,671 @@
   justify-items: center;
 }
 .wop-habit-art { width: min(300px, 62%); height: auto; }
+
+/* ======================================================= the scroll stage
+
+   The three chapters of gemstone science used to be three sections stacked
+   down the page, which meant the reader met all of them at once and none of
+   them properly. They are now one tall stage with a pinned panel: scrolling
+   advances chapter by chapter, each arriving and leaving on its own.
+
+   The stage is as tall as it has chapters, so the scroll distance and the
+   chapter count stay in step without a magic number. Without JavaScript, or
+   with reduced motion asked for, the chapters fall back to a plain stack. */
+
+.wop-stage { position: relative; }
+.wop-stage-pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #fff;
+}
+.wop-stage--night .wop-stage-pin {
+  background: var(--night);
+  color: var(--night-text);
+}
+.wop-stage--night .wop-h2 { color: var(--cream); }
+.wop-stage--night .wop-kicker { color: rgba(245, 241, 232, 0.5); }
+.wop-stage--night .wop-body { color: var(--night-text); }
+
+/* Live stages: each chapter is a full screen. Scroll writes translateY,
+   so the current scene lifts out and the next rises in. */
+.wop-stage.is-live .wop-chapter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--gutter);
+  background: #fff;
+  will-change: transform;
+  box-shadow: 0 -28px 60px rgba(10, 8, 6, 0.08);
+}
+.wop-stage--night.is-live .wop-chapter { background: var(--night); }
+
+.wop-chapter-inner {
+  display: grid;
+  gap: clamp(28px, 4vw, 80px);
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+@media (min-width: 950px) {
+  .wop-chapter-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); }
+  .wop-chapter--flip .wop-chapter-copy { order: 2; }
+  .wop-chapter--flip .wop-plate,
+  .wop-chapter--flip .wop-arch { order: 1; }
+  .wop-chapter-inner--cut { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr); }
+}
+.wop-chapter-copy { min-width: 0; }
+.wop-chapter-copy .wop-kicker { margin-bottom: 16px; }
+
+/* the progress rail */
+.wop-rail {
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 2;
+}
+.wop-rail-tick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 2.4px;
+  color: var(--muted);
+  opacity: 0.45;
+  transition: opacity 0.4s ease;
+}
+.wop-rail-tick::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s ease;
+}
+.wop-rail-tick.is-on { opacity: 1; }
+.wop-rail-tick.is-on::after { width: 44px; }
+.wop-rail--light .wop-rail-tick { color: rgba(245, 241, 232, 0.55); }
+@media (max-width: 700px) { .wop-rail { display: none; } }
+
+/* No script, or reduced motion: the stage becomes an ordinary stack. */
+.wop-stage:not(.is-live) { height: auto !important; }
+.wop-stage:not(.is-live) .wop-stage-pin {
+  position: static;
+  height: auto;
+  display: block;
+  padding: clamp(56px, 8vw, 96px) var(--gutter);
+}
+.wop-stage:not(.is-live) .wop-chapter {
+  position: static;
+  padding-block: clamp(32px, 5vw, 56px);
+  transform: none !important;
+}
+.wop-stage:not(.is-live) .wop-rail { display: none; }
+
+/* ============================================================== the arch
+
+   The flat rectangles read as blocks of colour with a photograph dropped on
+   top. This sets the picture in an arch instead, over a soft bloom of the
+   stone's colour with no hard edge of its own, and offsets a hairline frame
+   from it. The drawn stone hangs off the corner as a counterweight. */
+
+.wop-arch {
+  position: relative;
+  width: min(100%, 460px);
+  margin: 0 auto;
+  min-width: 0;
+}
+.wop-arch::before {
+  content: "";
+  position: absolute;
+  inset: -14% -24%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 46%, var(--bloom, rgba(79, 109, 219, 0.55)), transparent 68%);
+  filter: blur(6px);
+  z-index: 0;
+}
+.wop-arch-frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 3 / 4;
+  border-radius: 50% 50% 4px 4px / 37% 37% 4px 4px;
+  overflow: hidden;
+  background: var(--bloom, #4f6ddb);
+  box-shadow: 0 30px 70px rgba(10, 8, 6, 0.28);
+}
+.wop-arch-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 1.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.wop-arch:hover .wop-arch-frame img { transform: scale(1.06); }
+/* The rule is offset outside the picture, so it frames rather than crops. */
+.wop-arch-rule {
+  position: absolute;
+  inset: -16px;
+  z-index: 1;
+  border: 1px solid var(--rule-tint, rgba(23, 20, 15, 0.22));
+  border-radius: 50% 50% 8px 8px / 36% 36% 8px 8px;
+  pointer-events: none;
+}
+.wop-band--night .wop-arch-rule { --rule-tint: rgba(245, 241, 232, 0.24); }
+.wop-arch-gem {
+  position: absolute;
+  z-index: 2;
+  right: -7%;
+  bottom: 6%;
+  width: 23%;
+  height: auto;
+  filter: drop-shadow(0 14px 30px rgba(10, 8, 6, 0.42));
+}
+.wop-arch--left .wop-arch-gem { right: auto; left: -7%; }
+
+/* ============================================================== the reel
+
+   The knowledge films were a row of tabs over a single frame, which read as
+   a control panel. They are now a contents list — numeral, title, and the
+   line that belongs to it opening under the chosen one — beside the film in
+   a wide frame. */
+
+.wop-reel {
+  display: grid;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .wop-reel { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); }
+}
+
+.wop-reel-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.wop-reel-item {
+  display: block;
+  width: 100%;
+  padding: 18px 0;
+  border-top: 1px solid rgba(245, 241, 232, 0.16);
+  text-align: left;
+}
+.wop-reel-item:last-child { border-bottom: 1px solid rgba(245, 241, 232, 0.16); }
+.wop-reel-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.wop-reel-num {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  color: rgba(245, 241, 232, 0.45);
+  transition: color 0.35s ease;
+}
+.wop-reel-name {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(21px, 2.2vw, 28px);
+  line-height: 1.2;
+  color: rgba(245, 241, 232, 0.6);
+  transition: color 0.35s ease;
+}
+.wop-reel-item:hover .wop-reel-name { color: rgba(245, 241, 232, 0.9); }
+.wop-reel-item[aria-selected="true"] .wop-reel-name { color: var(--cream); }
+.wop-reel-item[aria-selected="true"] .wop-reel-num { color: var(--cream); }
+
+/* The note opens under its own title rather than in a panel elsewhere. */
+.wop-reel-note {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.wop-reel-item[aria-selected="true"] .wop-reel-note { grid-template-rows: 1fr; }
+.wop-reel-note > span {
+  overflow: hidden;
+  display: block;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--night-text);
+}
+.wop-reel-item[aria-selected="true"] .wop-reel-note > span { padding-top: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .wop-reel-note { transition: none; }
+}
+
+.wop-reel-stage {
+  position: relative;
+  min-width: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--night-soft);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+.wop-reel-film {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--night-soft);
+}
+.wop-reel-film[hidden] { display: none; }
+
+/* Tanzanite's story runs the reel layout with prose in place of the list. */
+.wop-reel-copy { min-width: 0; }
+
+/* ============================================================== the plate
+
+   A tall photograph set in a quiet field of the stone's colour, with the
+   drawn gem as a caption rather than a floating sticker. The picture is
+   letterboxed inside the field so it is never cropped into a rough block. */
+
+.wop-plate {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+}
+.wop-plate-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: min(72vh, 680px);
+  overflow: hidden;
+  background: var(--plate, #1c2a6e);
+}
+.wop-plate-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(10, 8, 6, 0.28) 100%);
+  pointer-events: none;
+}
+.wop-plate-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  transform: scale(1.01);
+  transition: transform 1.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.wop-chapter.is-on .wop-plate-media img { transform: scale(1.045); }
+.wop-plate-gem {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  width: 52px;
+  filter: drop-shadow(0 10px 22px rgba(10, 8, 6, 0.45));
+}
+.wop-plate--left .wop-plate-gem { right: auto; left: 18px; }
+@media (prefers-reduced-motion: reduce) {
+  .wop-plate-media img,
+  .wop-chapter.is-on .wop-plate-media img { transform: none; transition: none; }
+}
+
+/* ============================================================== the film
+
+   A cinematic plate instead of a native player: the picture fills the
+   frame, a play mark sits over it, and the browser chrome stays hidden
+   until the film is already running. */
+
+.wop-film {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  background: #0a0806;
+  overflow: hidden;
+}
+.wop-film-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #0a0806;
+}
+.wop-film-play {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 8, 6, 0.18);
+  cursor: pointer;
+  transition: background 0.4s ease, opacity 0.4s ease;
+}
+.wop-film-play span,
+.wop-film-play svg {
+  width: 64px;
+  height: 64px;
+  padding: 22px 20px 22px 26px;
+  border: 1px solid rgba(245, 241, 232, 0.85);
+  border-radius: 50%;
+  color: #f5f1e8;
+  box-sizing: border-box;
+}
+.wop-film:hover .wop-film-play { background: rgba(10, 8, 6, 0.08); }
+.wop-film.is-playing .wop-film-play {
+  opacity: 0;
+  background: transparent;
+}
+.wop-film.is-playing:hover .wop-film-play,
+.wop-film.is-playing:focus-within .wop-film-play {
+  opacity: 1;
+}
+.wop-film-caption {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  z-index: 2;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.72);
+  pointer-events: none;
+}
+.wop-film.is-playing .wop-film-caption { opacity: 0; }
+
+/* =============================================================== the cut
+
+   One large drawn stone per scroll scene, so the four accounts of tanzanite
+   arrive one at a time rather than as a row of buttons. */
+
+.wop-cut {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
+.wop-cut-gem {
+  display: block;
+  width: min(220px, 58%);
+  filter: drop-shadow(0 18px 40px rgba(10, 8, 6, 0.55));
+  transform: scale(0.92);
+  opacity: 0.7;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1),
+              opacity 0.8s ease;
+}
+.wop-chapter.is-on .wop-cut-gem {
+  transform: none;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wop-cut-gem,
+  .wop-chapter.is-on .wop-cut-gem { transition: none; transform: none; opacity: 1; }
+}
+
+/* ============================================================== reel heroes
+
+   Two full-screen films stacked on the same pin. The current one lifts out
+   and the next rises in, the same motion as the chapter stages. */
+
+.wop-stage--screens .wop-stage-pin { background: #0a0806; }
+.wop-stage--screens.is-live .wop-chapter {
+  padding: 0;
+  background: #0a0806;
+  display: block;
+  max-width: none;
+  box-shadow: 0 -40px 80px rgba(10, 8, 6, 0.35);
+}
+.wop-screen { color: #fff; }
+.wop-screen-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wop-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.55) 0%, rgba(10, 8, 6, 0.18) 48%, rgba(10, 8, 6, 0.28) 100%);
+  pointer-events: none;
+}
+.wop-screen-copy {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+.wop-screen-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.wop-screen-sub {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 36px);
+  letter-spacing: -0.01em;
+}
+.wop-screen-prose {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: rgba(255, 255, 255, 0.94);
+}
+.wop-screen--intro::after {
+  background: linear-gradient(to top, rgba(10, 8, 6, 0.78) 0%, rgba(10, 8, 6, 0.52) 50%, rgba(10, 8, 6, 0.58) 100%);
+}
+.wop-screen-copy--panel {
+  gap: 22px;
+  max-width: 40rem;
+  padding: 0 28px;
+}
+.wop-screen-kicker {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.wop-screen-copy--panel .wop-screen-prose {
+  max-width: 22ch;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.2;
+}
+.wop-screen-prose--body {
+  max-width: 38ch !important;
+  font-size: clamp(16px, 1.5vw, 20px) !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+.wop-screen .wop-scroll { margin-top: 12px; }
+
+/* =========================================================== story collages
+
+   White editorial pages after the films: a serif title, a floating cut stone,
+   and a collage of a gem field, a strip, and a photograph. */
+
+.wop-story { background: #fff; }
+.wop-story-block {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+}
+.wop-story-block + .wop-story-block { padding-top: 0; }
+.wop-story .wop-pair { position: relative; max-width: 1280px; }
+@media (min-width: 950px) {
+  .wop-story .wop-pair {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: center;
+  }
+}
+.wop-lead {
+  margin: 22px 0 0;
+  max-width: 38ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(17px, 1.55vw, 21px);
+  line-height: 1.55;
+  color: var(--ink);
+}
+.wop-text-link {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+}
+.wop-float-gem {
+  display: block;
+  width: 72px;
+  margin: 0 0 28px auto;
+  filter: drop-shadow(0 14px 28px rgba(10, 8, 6, 0.28));
+}
+.wop-pair--flip .wop-float-gem { margin-left: 0; margin-right: auto; }
+@media (max-width: 949px) {
+  .wop-story .wop-pair { display: flex; flex-direction: column; }
+  .wop-float-gem { margin: 0 0 20px auto; width: 64px; }
+  .wop-collage { margin-top: 36px; }
+}
+
+/* ============================================================ six C slider
+
+   One C at a time: arrows, a sliding track, and a labelled rail so the
+   six measures read as a slider rather than as markers on a picture. */
+
+.wop-cs-slider {
+  background: #0a0806;
+  color: var(--cream);
+  padding: clamp(64px, 8vw, 110px) var(--gutter) clamp(72px, 9vw, 120px);
+  text-align: center;
+}
+.wop-cs-slider-title {
+  margin: 0 auto 48px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+.wop-cs-slider-body {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wop-cs-slider-nav {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(245, 241, 232, 0.35);
+  border-radius: 50%;
+  color: var(--cream);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.wop-cs-slider-nav:hover {
+  background: rgba(245, 241, 232, 0.1);
+  border-color: var(--cream);
+}
+.wop-cs-slider-view {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.wop-cs-slider-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.22, 0.7, 0.3, 1);
+  will-change: transform;
+}
+.wop-cs-slide {
+  flex: 0 0 100%;
+  padding: 8px 12px 4px;
+  text-align: center;
+}
+.wop-cs-slide-gem {
+  display: block;
+  width: min(220px, 58%);
+  margin: 0 auto 28px;
+  filter: drop-shadow(0 18px 40px rgba(10, 8, 6, 0.55));
+}
+.wop-cs-slide-num {
+  margin: 0 0 8px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: rgba(245, 241, 232, 0.45);
+}
+.wop-cs-slide-name {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(28px, 3.4vw, 40px);
+}
+.wop-cs-slide-note {
+  margin: 0 auto;
+  max-width: 34ch;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(245, 241, 232, 0.62);
+}
+.wop-cs-slider-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  max-width: 820px;
+  margin: 36px auto 0;
+}
+.wop-cs-slider-dots button {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.38);
+  padding-bottom: 8px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.wop-cs-slider-dots button.is-on {
+  color: var(--cream);
+  border-bottom-color: var(--cream);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wop-cs-slider-track { transition: none; }
+}

@@ -94,8 +94,8 @@
     });
   }
 
-  /* One switcher for both the knowledge tabs and the facet rail: buttons
-     carrying data-target, panels carrying the matching id. */
+  /* One switcher for trays and any leftover tab rails: buttons carrying
+     data-target, panels carrying the matching id. */
   function wireSwitcher(scope) {
     var btns = Array.prototype.slice.call(scope.querySelectorAll("[data-target]"));
     if (!btns.length) return;
@@ -116,9 +116,165 @@
     show(btns[0].dataset.target);
   }
 
+  function wireFilm(figure) {
+    var video = figure.querySelector("video");
+    var play = figure.querySelector(".wop-film-play");
+    if (!video || !play) return;
+
+    function sync() {
+      figure.classList.toggle("is-playing", !video.paused);
+      play.setAttribute("aria-label", video.paused ? "Play film" : "Pause film");
+    }
+
+    play.addEventListener("click", function () {
+      if (video.paused) video.play().catch(function () {});
+      else video.pause();
+    });
+    video.addEventListener("play", sync);
+    video.addEventListener("pause", sync);
+    video.addEventListener("ended", function () {
+      video.currentTime = 0;
+      sync();
+    });
+    sync();
+  }
+
+  function pauseFilms(root) {
+    (root || d).querySelectorAll(".wop-film-media, .wop-screen-media").forEach(function (v) {
+      if (!v.paused) v.pause();
+    });
+  }
+
+  /* The pinned chapter stage. Height is one viewport per chapter plus one
+     so the last scene can be read before the pin lets go. Scroll progress
+     drives each chapter's translate: the current screen lifts out, the next
+     rises in. Reduced motion keeps the ordinary stacked fallback. */
+  function wireStage(stage) {
+    var chapters = Array.prototype.slice.call(stage.querySelectorAll("[data-chapter]"));
+    var ticks = Array.prototype.slice.call(stage.querySelectorAll("[data-tick]"));
+    if (chapters.length < 2) return;
+
+    var reduced = w.matchMedia && w.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    stage.classList.add("is-live");
+    stage.style.height = (chapters.length + 1) * 100 + "svh";
+
+    var current = -1;
+    var HOLD = 0.28;
+
+    function ease(t) {
+      return t * t * (3 - 2 * t);
+    }
+
+    function setY(el, y) {
+      el.style.transform = "translate3d(0," + y + "%,0)";
+    }
+
+    var queued = false;
+    function measure() {
+      queued = false;
+      var box = stage.getBoundingClientRect();
+      var travel = stage.offsetHeight - w.innerHeight;
+      var p = travel <= 0 ? 0 : Math.min(Math.max(-box.top / travel, 0), 0.9999);
+      var n = chapters.length;
+      var raw = p * n;
+      var i = Math.min(Math.floor(raw), n - 1);
+      var t = raw - i;
+      var wipe = i >= n - 1 ? 0 : (t <= HOLD ? 0 : Math.min(1, (t - HOLD) / (1 - HOLD)));
+      var e = ease(wipe);
+      var active = e >= 0.5 && i < n - 1 ? i + 1 : i;
+
+      chapters.forEach(function (c, idx) {
+        var y = 100;
+        if (idx < i) y = -100;
+        else if (idx === i) y = -e * 100;
+        else if (idx === i + 1) y = (1 - e) * 100;
+        setY(c, y);
+        c.classList.toggle("is-on", idx === active);
+        c.classList.toggle("is-past", idx < active);
+        c.style.zIndex = String(idx === i ? 3 : idx === i + 1 ? 2 : 1);
+        c.style.pointerEvents = idx === active ? "auto" : "none";
+        c.style.visibility = (idx === i || idx === i + 1) ? "visible" : "hidden";
+        c.setAttribute("aria-hidden", idx === active ? "false" : "true");
+        if (idx === i || idx === i + 1) {
+          c.querySelectorAll(".wop-screen-media").forEach(function (v) {
+            if (v.paused) v.play().catch(function () {});
+          });
+        } else {
+          pauseFilms(c);
+        }
+      });
+
+      if (active !== current) {
+        current = active;
+        ticks.forEach(function (tick, n) { tick.classList.toggle("is-on", n === active); });
+      }
+    }
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      w.requestAnimationFrame(measure);
+    }
+
+    w.addEventListener("scroll", onScroll, { passive: true });
+    w.addEventListener("resize", onScroll);
+    measure();
+  }
+
+  function wireSlider(root) {
+    var slides = Array.prototype.slice.call(root.querySelectorAll("[data-slide]"));
+    var dots = Array.prototype.slice.call(root.querySelectorAll("[data-go]"));
+    var track = root.querySelector(".wop-cs-slider-track");
+    var view = root.querySelector(".wop-cs-slider-view");
+    var prev = root.querySelector("[data-prev]");
+    var next = root.querySelector("[data-next]");
+    if (!slides.length || !track) return;
+
+    var i = 0;
+    var n = slides.length;
+
+    function go(to) {
+      i = (to + n) % n;
+      var w = (view && view.clientWidth) || track.parentNode.clientWidth;
+      track.style.transform = "translate3d(" + (-i * w) + "px,0,0)";
+      slides.forEach(function (s, k) { s.classList.toggle("is-on", k === i); });
+      dots.forEach(function (d, k) {
+        d.classList.toggle("is-on", k === i);
+        d.setAttribute("aria-selected", String(k === i));
+      });
+    }
+
+    if (prev) prev.addEventListener("click", function () { go(i - 1); });
+    if (next) next.addEventListener("click", function () { go(i + 1); });
+    dots.forEach(function (d) {
+      d.addEventListener("click", function () { go(Number(d.dataset.go)); });
+    });
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(i - 1);
+      if (e.key === "ArrowRight") go(i + 1);
+    });
+
+    if (view) {
+      var startX = 0;
+      view.addEventListener("pointerdown", function (e) { startX = e.clientX; });
+      view.addEventListener("pointerup", function (e) {
+        var dx = e.clientX - startX;
+        if (dx > 50) go(i - 1);
+        else if (dx < -50) go(i + 1);
+      });
+    }
+
+    go(0);
+    w.addEventListener("resize", function () { go(i); });
+  }
+
   function init() {
     paintGems(d);
     d.querySelectorAll("[data-switcher]").forEach(wireSwitcher);
+    d.querySelectorAll("[data-stage]").forEach(wireStage);
+    d.querySelectorAll("[data-film]").forEach(wireFilm);
+    d.querySelectorAll("[data-slider]").forEach(wireSlider);
   }
 
   if (d.readyState === "loading") d.addEventListener("DOMContentLoaded", init);

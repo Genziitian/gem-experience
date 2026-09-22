@@ -495,9 +495,11 @@ button {
    `cover` rather than `contain`: a square plate is already square and is not
    touched, while a portrait model frame loses a sixth from top and bottom
    instead of being matted into bands of empty ground. The jewellery in these
-   frames sits at the neck and the ear, below the middle of a full-length
-   portrait, so the crop is pulled down to hold both. Trimming to the exact
-   centre kept the face and cut the necklace off at the bottom edge. */
+   frames is worn at the ear, the throat and the wrist, and the shots run from
+   a tight crop on a collarbone to a full-length figure, so no single crop
+   position suits them all — one value framed one shot and cut the necklace
+   off the next. Each photograph carries its own, measured from where the
+   stones actually are; the fallback only applies to a frame without one. */
 .gal-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
@@ -508,7 +510,7 @@ button {
 .gal-slide img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 65%;
+  object-position: center var(--focal, 60%);
 }
 
 .gal-dots { display: flex; justify-content: center; gap: 9px; padding: 22px 0 6px; }

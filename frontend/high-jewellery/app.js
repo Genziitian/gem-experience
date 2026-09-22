@@ -23,6 +23,15 @@
      follows the client's list; banner slots fall after 4 and 12. */
   var products = (window.HJ_DATA && window.HJ_DATA.products) || [];
 
+  /* Where the jewellery sits in each frame, as a percentage down the image,
+     measured per photograph rather than guessed once for all of them. The
+     phone crops every frame to a square, and a single fixed value cut the
+     necklace off one shot while framing the next correctly — the pieces are
+     worn at the ear, the throat and the wrist, and the shots range from a
+     tight crop on a collarbone to a full-length figure. Only portrait frames
+     have an entry; a square plate is not cropped and needs none. */
+  var FOCAL = (window.HJ_DATA && window.HJ_DATA.focal) || {};
+
   var groupDefs = [
     { key: "type", label: "Category", opts: ["Gemstones", "Rings", "Necklaces", "Earrings", "Bracelets", "Tiaras"] },
     { key: "collection", label: "Collection", opts: ["Tanzania Universe", "Origin", "Nocturne", "Heritage"] },
@@ -569,10 +578,16 @@
     var track = el("div", "gal-track");
     shots.forEach(function (src, i) {
       var slide = el("div", "gal-slide");
-      slide.appendChild(el("img", null, {
+      var img = el("img", null, {
         src: src, alt: p.name + " \u2014 view " + (i + 1),
         loading: i === 0 ? "eager" : "lazy", decoding: "async"
-      }));
+      });
+      /* Handed to CSS as a custom property rather than set as object-position
+         directly: the square crop only applies on a phone, and an inline
+         object-position would follow the image onto the desktop mosaic where
+         each frame keeps its own proportions. */
+      if (FOCAL[src] != null) img.style.setProperty("--focal", FOCAL[src] + "%");
+      slide.appendChild(img);
       track.appendChild(slide);
     });
     gal.appendChild(track);

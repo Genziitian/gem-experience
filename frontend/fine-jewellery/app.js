@@ -86,6 +86,51 @@
     return Number(n).toFixed(2).replace(/\.00$/, "") + " g";
   }
 
+  /* The headline is the piece's own name with the diamond clause taken out.
+     Almost every name runs "<stone> and diamond <motif> <type>", and the
+     diamonds are already stated as a carat weight in the pill strip directly
+     below, so the phrase costs a line of headline and says nothing new.
+     "Mint garnet and diamond bloom pendant" becomes "Mint garnet bloom
+     pendant" and keeps the motif that tells it apart from the other Bloom
+     pendants. A name that does not mention diamond is left exactly as it is. */
+  function headline(p) {
+    var n = (p.name || "").trim();
+    if (!n) return p.name;
+    return n
+      /* "A, B and diamond C" would leave "A, B C" dangling, so the list is
+         re-joined: "Tourmaline, rose quartz and diamond motif earring"
+         becomes "Tourmaline and rose quartz motif earring". */
+      .replace(/,\s*([^,]+?)\s+and\s+diamonds?\b/i, " and $1")
+      .replace(/\s+and\s+diamonds?\b/i, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
+  /* A collection intro runs two paragraphs and stops. What follows them is
+     the gemstone symbolism and the "Stones used:" line, which read as a spec
+     sheet in the middle of an essay and repeat what each product page already
+     says in its own words. Those paragraphs, and the meta line under them,
+     move to the product page's Description & details. */
+  var INTRO_PARAS = 2;
+
+  function storyParas(col) {
+    return (col && col.story ? col.story.split("\n\n") : [])
+      .map(function (t) { return t.trim(); })
+      .filter(Boolean);
+  }
+
+  function introParas(col) { return storyParas(col).slice(0, INTRO_PARAS); }
+
+  /* The tail of the collection story plus its meta line, shown on every
+     product in that collection. Safar's meta repeats the designer byline, so
+     it is skipped there exactly as it was in the intro. */
+  function collectionNotes(col) {
+    if (!col) return [];
+    var out = storyParas(col).slice(INTRO_PARAS);
+    if (col.meta && col.meta !== "Designed with " + (col.designer || "")) out.push(col.meta);
+    return out;
+  }
+
   function stoneList(p) {
     return String(p.stone || "").split(/\s*&\s*/).filter(Boolean);
   }
@@ -345,17 +390,13 @@
       }
       panel.appendChild(el("p", "fj-lede", { text: col.lede }));
 
-      if (col.story) {
+      var intro = introParas(col);
+      if (intro.length) {
         var storyWrap = el("div", "fj-hero-scroll");
-        col.story.split("\n\n").forEach(function (para) {
+        intro.forEach(function (para) {
           storyWrap.appendChild(el("p", "fj-story", { text: para }));
         });
         panel.appendChild(storyWrap);
-      }
-      // Safar's meta line is word-for-word the designer byline above it —
-      // skip it rather than say "Designed with Shantanu Garg" twice.
-      if (col.meta && col.meta !== "Designed with " + (col.designer || "")) {
-        panel.appendChild(el("p", "fj-col-meta", { text: col.meta }));
       }
 
       var explore = el("button", "fj-explore", {
@@ -435,7 +476,7 @@
       crumbs.appendChild(el("a", null, { href: "#/" + col.id, text: col.name }));
       crumbs.appendChild(el("span", null, { text: "/" }));
     }
-    crumbs.appendChild(el("span", "fj-crumbs-here", { "aria-current": "page", text: p.name }));
+    crumbs.appendChild(el("span", "fj-crumbs-here", { "aria-current": "page", text: headline(p) }));
     root.appendChild(crumbs);
 
     var pdp = el("section", "fj-pdp");
@@ -464,7 +505,7 @@
 
     var copy = el("div", "fj-pdp-copy");
     copy.appendChild(el("p", "fj-kicker", { text: p.sku }));
-    copy.appendChild(el("h1", "fj-title", { text: p.name }));
+    copy.appendChild(el("h1", "fj-title", { text: headline(p) }));
 
     var priceRow = el("div", "fj-pdp-price");
     priceRow.appendChild(el("span", "fj-pdp-price-val", { text: formatPrice(p) }));
@@ -518,6 +559,12 @@
       specs.appendChild(li);
     });
     d1body.appendChild(specs);
+    /* The tail of the collection story, moved off the intro. It sits under the
+       spec rows so the piece's own facts come first and the collection's
+       symbolism reads as context rather than as the lead. */
+    collectionNotes(col).forEach(function (para) {
+      d1body.appendChild(el("p", "fj-acc-note", { text: para }));
+    });
     d1.appendChild(d1body);
     accWrap.appendChild(d1);
 

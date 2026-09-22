@@ -717,6 +717,16 @@ button {
   font-weight: 300; font-size: 14px; line-height: 22px; color: var(--ink-soft);
 }
 
+/* The collection's symbolism, moved here off the collection intro. It follows
+   the spec rows, so it is set off by a rule and given a little air rather than
+   running straight on from the last measurement. */
+.fj-acc-note {
+  margin: 16px 0 0;
+  font-weight: 300; font-size: 14px; line-height: 23px; color: var(--ink-soft);
+}
+.fj-acc-note:first-of-type { margin-top: 20px; }
+.fj-acc-note:last-child { margin-bottom: 4px; }
+
 .fj-specs {
   margin: 0; padding: 0; list-style: none;
   display: grid; gap: 0;

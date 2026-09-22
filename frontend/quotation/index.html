@@ -44,24 +44,42 @@
           </label>
         </div>
 
-        <label>Piece / collection
-          <input name="piece" id="piece" placeholder="Name of the design or collection">
-        </label>
+        <div class="pg-row-2">
+          <label>Piece / collection
+            <select name="piece" id="piece">
+              <option value="">Select a collection</option>
+              <optgroup label="High Jewellery">
+                <option>Tanzania Universe</option>
+                <option>Origin</option>
+                <option>Nocturne</option>
+                <option>Heritage</option>
+              </optgroup>
+              <optgroup label="Fine Jewellery">
+                <option>Bloom</option>
+                <option>Safar</option>
+                <option>Tide</option>
+                <option>Swirl</option>
+              </optgroup>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </label>
+          <label>Category
+            <select name="category" id="category">
+              <option value="">Select a category</option>
+              <option>Necklaces</option>
+              <option>Rings</option>
+              <option>Earrings</option>
+              <option>Bracelets</option>
+              <option>Pendants</option>
+              <option>Tiaras</option>
+              <option>Gemstones</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </label>
+        </div>
 
         <label>Requirements
           <textarea name="requirements" rows="5" required placeholder="Metal preference, size, occasion, timeline…"></textarea>
-        </label>
-
-        <label>
-          <span>Budget range <span class="enq-opt">(optional)</span></span>
-          <select name="budget">
-            <option value="">Prefer not to say</option>
-            <option>Under ₹5L</option>
-            <option>₹5L – ₹15L</option>
-            <option>₹15L – ₹50L</option>
-            <option>Above ₹50L</option>
-            <option>USD / AED — advise privately</option>
-          </select>
         </label>
 
         <div class="enq-actions">
@@ -94,7 +112,19 @@ GemShell.mount();
 var ref = GemShell.qs("ref") || GemShell.qs("product") || "";
 var name = GemShell.qs("name") || "";
 if (ref) document.getElementById("ref").value = ref;
-if (name) document.getElementById("piece").value = name;
+/* The piece field is a dropdown now. A product page sends the piece's own
+   name, which is not one of the collection options, so match on the
+   collection it belongs to and otherwise leave the select unset rather than
+   silently assigning the wrong one. */
+if (name) {
+  var sel = document.getElementById("piece");
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value && name.toLowerCase().indexOf(sel.options[i].value.toLowerCase()) !== -1) {
+      sel.value = sel.options[i].value;
+      break;
+    }
+  }
+}
 if (ref || name) {
   var chip = document.getElementById("piece-chip");
   chip.hidden = false;
@@ -116,7 +146,7 @@ document.getElementById("quote-form").addEventListener("submit", async function 
       ref: f.ref.value.trim(),
       piece: f.piece.value.trim(),
       requirements: f.requirements.value.trim(),
-      budget: f.budget.value
+      category: f.category.value
     });
     GemShell.toast(toast, "Quotation received. An advisor will be in touch.", true);
     f.reset();

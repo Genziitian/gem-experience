@@ -783,7 +783,6 @@
         cell.appendChild(k); cell.appendChild(v);
         specs.appendChild(cell);
       });
-    root.appendChild(specs);
 
     /* Alternating sequence: a half-width frame with its paragraph beside it,
        stepping left, right, left down the page. Every frame is this piece on
@@ -806,6 +805,15 @@
       });
       root.appendChild(story);
     }
+
+    /* The story runs before the spec strip, not after it. A column of icons
+       reading Gemstone / Category / Collection / Jewellery is the most
+       commercial thing on the page, and sitting it between the piece and its
+       story broke the narrative in half on a phone, where it stacks to most
+       of a screen. The piece is shown, then told, and the facts close it.
+       This sits outside the story branch: a piece with no model frames has no
+       story rows, and it still needs its specs. */
+    root.appendChild(specs);
 
     // cross-sell — same collection first, then the rest
     var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })

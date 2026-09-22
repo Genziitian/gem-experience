@@ -486,19 +486,30 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 .gal-track::-webkit-scrollbar { display: none; }
-/* The gallery mixes square plates with portrait model frames. A square box
-   in a tile-coloured ground matted every portrait in wide cream bands, which
-   read as a cutout stuck on the page. The ground is now the page itself, so
-   whatever the frame does not fill is invisible, and the box leans portrait
-   to leave less of it. `contain` still crops nothing. */
+/* On a phone every frame is a square, whatever the photograph's own shape.
+   The gallery mixes square plates with portrait model frames, and letting
+   each keep its proportions made the carousel change height under the thumb
+   as it was swiped — the piece jumped, and the page jumped with it. One
+   shape holds still.
+
+   `cover` rather than `contain`: a square plate is already square and is not
+   touched, while a portrait model frame loses a sixth from top and bottom
+   instead of being matted into bands of empty ground. The jewellery in these
+   frames sits at the neck and the ear, below the middle of a full-length
+   portrait, so the crop is pulled down to hold both. Trimming to the exact
+   centre kept the face and cut the necklace off at the bottom edge. */
 .gal-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   min-width: 0;
   overflow: hidden;
 }
-.gal-slide img { width: 100%; height: 100%; object-fit: contain; }
+.gal-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
 
 .gal-dots { display: flex; justify-content: center; gap: 9px; padding: 22px 0 6px; }
 .gal-dot {
@@ -531,7 +542,10 @@ button {
   /* An even tail would otherwise leave the last frame orphaned beside white,
      so an odd remainder closes the set at full width too. */
   .gal-slide:last-child:nth-child(even) { grid-column: 1 / -1; }
-  .gal-slide img { height: auto; }
+  /* Desktop keeps each photograph's own proportions in the mosaic, so the
+     square crop the phone applies is undone here rather than left to depend
+     on the box happening to match the image. */
+  .gal-slide img { height: auto; object-fit: fill; object-position: center; }
   .gal-dots {
     position: sticky;
     bottom: 40px;
@@ -961,9 +975,15 @@ button {
   .pdp-panel { padding: 30px 20px 44px; }
   .modal-card { padding: 32px 22px 26px; }
   .pdp-sticky { display: flex; }
-  .story { gap: 52px; padding: 52px 20px; }
-  .story-block { grid-template-columns: 1fr; gap: 24px; }
+  /* The editorial rows run edge to edge on a phone. Inset by the page gutter
+     they read as four cards in a product listing; full width they read as a
+     spread, which is the difference between a catalogue and a story. Only the
+     photograph breaks out — the copy keeps the gutter so the measure holds. */
+  .story { gap: 56px; padding: 56px 0 8px; }
+  .story-block { grid-template-columns: 1fr; gap: 20px; }
   .story-block--right .story-shot { order: 0; }
+  .story-text { padding: 0 20px; }
+  .story-p { max-width: none; }
   .faq { padding: 0 20px 48px; }
   .concierge { padding: 40px 20px; }
   .specs { padding: 40px 20px; gap: 32px 20px; }

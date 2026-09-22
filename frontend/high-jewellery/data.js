@@ -54,7 +54,23 @@ window.HJ_DATA = {
         "cut": "brilliant",
         "cutLabel": "Brilliant cut",
         "attenuation": 0.5
-      }
+      },
+      "gallery": [
+        "img/pieces/weaver/p1.webp",
+        "img/pieces/weaver/p2.webp",
+        "img/pieces/weaver/p3.webp",
+        "img/pieces/weaver/p4.webp"
+      ],
+      "models": [
+        "img/pieces/weaver/m1.webp",
+        "img/pieces/weaver/m2.webp",
+        "img/pieces/weaver/m3.webp",
+        "img/pieces/weaver/m4.webp",
+        "img/pieces/weaver/m5.webp",
+        "img/pieces/weaver/m6.webp",
+        "img/pieces/weaver/m7.webp",
+        "img/pieces/weaver/m8.webp"
+      ]
     },
     {
       "id": "the-crown",
@@ -83,7 +99,13 @@ window.HJ_DATA = {
         "cut": "marquise",
         "cutLabel": "Marquise brilliant",
         "attenuation": 0.45
-      }
+      },
+      "gallery": [
+        "img/pieces/the-crown/p1.webp",
+        "img/pieces/the-crown/p2.webp",
+        "img/pieces/the-crown/p3.webp"
+      ],
+      "models": []
     },
     {
       "id": "shamsa",
@@ -96,7 +118,22 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k Yellow Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/shamsa/p1.webp",
+        "img/pieces/shamsa/p2.webp",
+        "img/pieces/shamsa/p3.webp",
+        "img/pieces/shamsa/p4.webp",
+        "img/pieces/shamsa/p5.webp"
+      ],
+      "models": [
+        "img/pieces/shamsa/m1.webp",
+        "img/pieces/shamsa/m2.webp",
+        "img/pieces/shamsa/m3.webp",
+        "img/pieces/shamsa/m4.webp",
+        "img/pieces/shamsa/m5.webp",
+        "img/pieces/shamsa/m6.webp"
+      ]
     },
     {
       "id": "jardin-bleu",
@@ -117,7 +154,20 @@ window.HJ_DATA = {
         "cut": "pear",
         "cutLabel": "Pear cut",
         "attenuation": 0.55
-      }
+      },
+      "gallery": [
+        "img/pieces/jardin-bleu/p1.webp",
+        "img/pieces/jardin-bleu/p2.webp",
+        "img/pieces/jardin-bleu/p3.webp",
+        "img/pieces/jardin-bleu/p4.webp",
+        "img/pieces/jardin-bleu/p5.webp"
+      ],
+      "models": [
+        "img/pieces/jardin-bleu/m1.webp",
+        "img/pieces/jardin-bleu/m2.webp",
+        "img/pieces/jardin-bleu/m3.webp",
+        "img/pieces/jardin-bleu/m4.webp"
+      ]
     },
     {
       "id": "hive",
@@ -130,7 +180,14 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/hive/p1.webp",
+        "img/pieces/hive/p2.webp",
+        "img/pieces/hive/p3.webp",
+        "img/pieces/hive/p4.webp"
+      ],
+      "models": []
     },
     {
       "id": "georgie",
@@ -143,7 +200,12 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k Rose Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/georgie/p1.webp",
+        "img/pieces/georgie/p2.webp"
+      ],
+      "models": []
     },
     {
       "id": "usambara",
@@ -156,7 +218,25 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/usambara/p1.webp",
+        "img/pieces/usambara/p2.webp",
+        "img/pieces/usambara/p3.webp",
+        "img/pieces/usambara/p4.webp",
+        "img/pieces/usambara/p5.webp",
+        "img/pieces/usambara/p6.webp",
+        "img/pieces/usambara/p7.webp"
+      ],
+      "models": [
+        "img/pieces/usambara/m1.webp",
+        "img/pieces/usambara/m2.webp",
+        "img/pieces/usambara/m3.webp",
+        "img/pieces/usambara/m4.webp",
+        "img/pieces/usambara/m5.webp",
+        "img/pieces/usambara/m6.webp",
+        "img/pieces/usambara/m7.webp"
+      ]
     },
     {
       "id": "ember",
@@ -177,7 +257,19 @@ window.HJ_DATA = {
         "cut": "emerald",
         "cutLabel": "Emerald cut",
         "attenuation": 0.6
-      }
+      },
+      "gallery": [
+        "img/pieces/ember/p1.webp",
+        "img/pieces/ember/p2.webp",
+        "img/pieces/ember/p3.webp",
+        "img/pieces/ember/p4.webp",
+        "img/pieces/ember/p5.webp"
+      ],
+      "models": [
+        "img/pieces/ember/m1.webp",
+        "img/pieces/ember/m2.webp",
+        "img/pieces/ember/m3.webp"
+      ]
     },
     {
       "id": "dew-fall",
@@ -190,7 +282,12 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/dew-fall/p1.webp",
+        "img/pieces/dew-fall/p2.webp"
+      ],
+      "models": []
     },
     {
       "id": "celestine",
@@ -203,7 +300,28 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/celestine/p1.webp",
+        "img/pieces/celestine/p2.webp",
+        "img/pieces/celestine/p3.webp",
+        "img/pieces/celestine/p4.webp",
+        "img/pieces/celestine/p5.webp",
+        "img/pieces/celestine/p6.webp",
+        "img/pieces/celestine/p7.webp",
+        "img/pieces/celestine/p8.webp"
+      ],
+      "models": [
+        "img/pieces/celestine/m1.webp",
+        "img/pieces/celestine/m2.webp",
+        "img/pieces/celestine/m3.webp",
+        "img/pieces/celestine/m4.webp",
+        "img/pieces/celestine/m5.webp",
+        "img/pieces/celestine/m6.webp",
+        "img/pieces/celestine/m7.webp",
+        "img/pieces/celestine/m8.webp",
+        "img/pieces/celestine/m9.webp"
+      ]
     },
     {
       "id": "merelani",
@@ -216,7 +334,16 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/merelani/p1.webp",
+        "img/pieces/merelani/p2.webp",
+        "img/pieces/merelani/p3.webp",
+        "img/pieces/merelani/p4.webp"
+      ],
+      "models": [
+        "img/pieces/merelani/m1.webp"
+      ]
     },
     {
       "id": "helix",
@@ -229,7 +356,12 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/helix/p1.webp",
+        "img/pieces/helix/p2.webp"
+      ],
+      "models": []
     },
     {
       "id": "rihla",
@@ -242,7 +374,21 @@ window.HJ_DATA = {
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
-      "story": ""
+      "story": "",
+      "gallery": [
+        "img/pieces/rihla/p1.webp",
+        "img/pieces/rihla/p2.webp",
+        "img/pieces/rihla/p3.webp",
+        "img/pieces/rihla/p4.webp",
+        "img/pieces/rihla/p5.webp"
+      ],
+      "models": [
+        "img/pieces/rihla/m1.webp",
+        "img/pieces/rihla/m2.webp",
+        "img/pieces/rihla/m3.webp",
+        "img/pieces/rihla/m4.webp",
+        "img/pieces/rihla/m5.webp"
+      ]
     },
     {
       "id": "serengeti",
@@ -263,7 +409,12 @@ window.HJ_DATA = {
         "cut": "oval",
         "cutLabel": "Oval cut",
         "attenuation": 0.48
-      }
+      },
+      "gallery": [
+        "img/pieces/serengeti/p1.webp",
+        "img/pieces/serengeti/p2.webp"
+      ],
+      "models": []
     },
     {
       "id": "kilimanjaro",
@@ -276,7 +427,11 @@ window.HJ_DATA = {
       "origin": "Merelani, Tanzania",
       "metal": "18k White Gold",
       "ref": "HJ-1108",
-      "story": "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin."
+      "story": "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin.",
+      "gallery": [
+        "img/pieces/kilimanjaro/p1.webp"
+      ],
+      "models": []
     },
     {
       "id": "rift",
@@ -289,7 +444,23 @@ window.HJ_DATA = {
       "origin": "Merelani, Tanzania",
       "metal": "Platinum 950",
       "ref": "HJ-1073",
-      "story": "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light."
+      "story": "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light.",
+      "gallery": [
+        "img/pieces/rift/p1.webp",
+        "img/pieces/rift/p2.webp",
+        "img/pieces/rift/p3.webp",
+        "img/pieces/rift/p4.webp",
+        "img/pieces/rift/p5.webp",
+        "img/pieces/rift/p6.webp"
+      ],
+      "models": [
+        "img/pieces/rift/m1.webp",
+        "img/pieces/rift/m2.webp",
+        "img/pieces/rift/m3.webp",
+        "img/pieces/rift/m4.webp",
+        "img/pieces/rift/m5.webp",
+        "img/pieces/rift/m6.webp"
+      ]
     },
     {
       "id": "mahenge",
@@ -310,7 +481,21 @@ window.HJ_DATA = {
         "cut": "cushion",
         "cutLabel": "Cushion cut",
         "attenuation": 0.52
-      }
+      },
+      "gallery": [
+        "img/pieces/mahenge/p1.webp",
+        "img/pieces/mahenge/p2.webp",
+        "img/pieces/mahenge/p3.webp",
+        "img/pieces/mahenge/p4.webp",
+        "img/pieces/mahenge/p5.webp"
+      ],
+      "models": [
+        "img/pieces/mahenge/m1.webp",
+        "img/pieces/mahenge/m2.webp",
+        "img/pieces/mahenge/m3.webp",
+        "img/pieces/mahenge/m4.webp",
+        "img/pieces/mahenge/m5.webp"
+      ]
     },
     {
       "id": "oldoinyo",
@@ -323,7 +508,14 @@ window.HJ_DATA = {
       "origin": "Various",
       "metal": "Platinum 950",
       "ref": "HJ-0921",
-      "story": "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own."
+      "story": "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own.",
+      "gallery": [
+        "img/pieces/oldoinyo/p1.webp",
+        "img/pieces/oldoinyo/p2.webp",
+        "img/pieces/oldoinyo/p3.webp",
+        "img/pieces/oldoinyo/p4.webp"
+      ],
+      "models": []
     }
   ]
 };

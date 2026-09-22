@@ -513,14 +513,24 @@ button {
    markup either way, so there is no duplicate DOM. */
 @media (min-width: 901px) {
   .gal { position: relative; }
-  /* One frame at a time, stacked — the page scroll moves through them while the
-     info column stays pinned. Height is capped against the viewport so a wide
-     column cannot make the frames tower. */
-  .gal-track { display: flex; flex-direction: column; gap: 2px; overflow: visible; }
-  /* Stacked frames are not a carousel, so they need no shared height: each one
-     takes the column's full width at its own proportions. Nothing is matted
-     and nothing is cropped. */
-  .gal-slide { flex: 0 0 auto; aspect-ratio: auto; max-height: none; }
+  /* A mosaic, not a stack: the opening frame runs the full column width and
+     everything after it pairs off two across. Pieces now carry their whole
+     shoot — as many as eight stills — and a single column of those towered
+     past the pinned info column by several screens. Paired, the same set
+     reads as one spread and the two columns finish together. */
+  .gal-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    overflow: visible;
+  }
+  .gal-slide { aspect-ratio: auto; max-height: none; }
+  /* The lead still opens wide; a piece photographed only once keeps the
+     full-width frame rather than sitting in a half-empty row. */
+  .gal-slide:first-child { grid-column: 1 / -1; }
+  /* An even tail would otherwise leave the last frame orphaned beside white,
+     so an odd remainder closes the set at full width too. */
+  .gal-slide:last-child:nth-child(even) { grid-column: 1 / -1; }
   .gal-slide img { height: auto; }
   .gal-dots {
     position: sticky;

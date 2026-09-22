@@ -24,3 +24,14 @@ admin/.env
 /Fine jewellery/**/*.pdf
 /Fine jewellery/**/*.xlsx
 /Fine jewellery/**/*.docx
+
+# Same again for the High Jewellery shoot (~2.0GB): 1440px stills and 5464x8192
+# model frames, plus the write-up documents. The 9MB of WebP derivatives under
+# frontend/high-jewellery/img/pieces/ are what ships; these stay local.
+/High Jewellery  3/**/*.jpg
+/High Jewellery  3/**/*.jpeg
+/High Jewellery  3/**/*.png
+/High Jewellery  3/**/*.mp4
+/High Jewellery  3/**/*.pdf
+/High Jewellery  3/**/*.xlsx
+/High Jewellery  3/**/*.docx

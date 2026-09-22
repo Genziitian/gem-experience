@@ -41,27 +41,6 @@
      the two-up mobile grid and the four-up desktop grid, so the rhythm holds
      at either breakpoint. */
   var BANNER_AFTER = [4, 12];
-  var FILLERS = [
-    "alt-serengeti", "alt-collar", "alt-earrings", "alt-kilimanjaro", "alt-rift",
-    "alt-mahenge", "alt-ring", "alt-merelani", "alt-oldoinyo"
-  ];
-
-  var STORY = [
-    { img: "story-half", h: "Chosen at the source",
-      p: "Our cutters travel to the Merelani hills and buy rough at the pit, not "
-       + "through a broker. Nothing enters the workshop unless one of us has held it." },
-    { img: "story-model1", h: "Cut in our own workshop",
-      p: "Each stone is cut for colour rather than weight, which means losing "
-       + "carats to keep the blue even from every angle. It is the slower way." },
-    { img: "story-model2", h: "Finished by hand",
-      p: "Settings are raised, pierced and polished at the bench by the same hand "
-       + "from start to finish, then worn for a day before it is allowed to leave." },
-    { img: "story-model3", h: "Made to be worn",
-      p: "Weight is balanced on the body before anything is set, so a collar sits "
-       + "flat and a drop hangs straight. A piece that has to be adjusted has not "
-       + "been finished." }
-  ];
-
   var STAT_ICONS = {
     Stone: "M6 3h12l3 6-9 12L3 9l3-6ZM3 9h18M9 3 6 9l6 12M15 3l3 6-6 12",
     Origin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0ZM12 12a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z",
@@ -85,7 +64,6 @@
     sortOpen: false,
     drawerOpen: false,
     active: {},
-    finish: 0,
     storyOpen: false,
     acc: null,
     faq: null,
@@ -119,55 +97,88 @@
 
   function cardImg(p) { return IMG + p.id + ".webp"; }
 
-  /* The design never filled the six PDP slots, so build a deterministic set:
-     the product's own artwork first, then filler frames offset by its index. */
+  /* Every piece now has its own shoot in img/pieces/<id>: p*.webp are the
+     stills on white, m*.webp the model frames. The gallery takes the stills,
+     all of them — the count varies by piece, and the carousel is built from
+     the list rather than a fixed six. Anything not yet photographed falls
+     back to the old artwork plus filler frames. */
   function galleryFor(p) {
-    if (p.id === "weaver") {
-      return [
-        IMG + "weaver.webp",
-        IMG + "weaver-detail.webp",
-        IMG + "weaver-half.webp",
-        IMG + "weaver-model.webp"
-      ];
-    }
-    if (p.id === "the-crown" || p.isGemstone) {
-      return [
-        IMG + "the-crown.webp",
-        IMG + "the-crown-detail.webp",
-        IMG + "the-crown-macro.webp"
-      ];
-    }
-    var base = indexOf(p);
-    var out = [cardImg(p)];
-    var alt = IMG + "alt-" + p.id + ".webp";
-    var owned = ["serengeti", "kilimanjaro", "rift", "mahenge", "merelani", "oldoinyo"];
-    if (owned.indexOf(p.id) !== -1) out.push(alt);
-    for (var i = 0; out.length < 4; i++) {
-      var f = IMG + FILLERS[(base * 3 + i) % FILLERS.length] + ".webp";
-      if (out.indexOf(f) === -1) out.push(f);
-    }
-    return out.slice(0, 4);
+    /* Only ever this piece's own frames. There used to be a shared pool of
+       filler artwork topping every gallery up to four, which put another
+       piece's necklace on the page under this piece's name — Celestine led
+       with its own earrings and then showed a blue marquise collar that has
+       nothing to do with it. A piece with one photograph shows one. */
+    if (p.gallery && p.gallery.length) return p.gallery.slice();
+    return [cardImg(p)];
+  }
+
+  /* The four editorial rows below the spec strip. They show this piece on the
+     model and nothing else, so a piece without model frames gets no rows at
+     all rather than someone else's photograph. */
+  function modelsFor(p) {
+    return (p.models || []).slice(0, 4);
+  }
+
+  /* Copy for the editorial rows, written from the piece's own fields so no two
+     pages carry the same four paragraphs. Only as many rows are built as the
+     piece has model frames, and each row is captioned for its position in the
+     sequence: the piece, the stone, the making, the wearing. */
+  function real(v) { return v && v !== "—" ? v : null; }
+
+  /* "A earring" read as a typo on every earring page. */
+  function article(w) { return /^[aeiou]/i.test(w) ? "An" : "A"; }
+
+  function storyBlocksFor(p) {
+    var shots = modelsFor(p);
+    if (!shots.length) return [];
+
+    /* Materials often name three stones and then the metal. Taking the first
+       turned Celestine's "Diamond, Sapphire and Aquamarine" into a caption
+       about diamond alone, so the whole list is used — minus the metal, which
+       has its own row below, and minus the comma that stripping it leaves. */
+    var stone = (real(p.gemstone) || real(p.materials) || "")
+      .replace(/\s*(,|and)\s*(18k\s+\w+\s+Gold|Platinum(\s+\d+)?|Rose Gold|White Gold|Yellow Gold)\s*$/i, "")
+      .replace(/[,\s]+$/, "")
+      .trim()
+      /* stripping the metal off "Rubellite, Diamond and 18k Yellow Gold"
+         leaves a two-item list still punctuated as three. Only a list whose
+         "and" went with the metal needs this; "Tanzanite, Aquamarine and
+         Diamond" keeps its own. */
+      .replace(/^([^,]+),\s*([^,]+)$/, function (m, a, b) {
+        return / and /i.test(m) ? m : a + " and " + b;
+      });
+    var manyStones = /,| and /.test(stone);
+    var carat = real(p.carat);
+    var origin = real(p.origin);
+    var metal = real(p.metal);
+    var kind = (p.type || "piece").replace(/s$/, "").toLowerCase();
+
+    var blocks = [
+      { h: p.name,
+        p: real(p.story) ||
+           (article(kind) + " " + kind + " in " + (p.materials || "our house materials") +
+            ", made in one run at the bench and finished as a single piece.") },
+      { h: manyStones ? "The stones" : "The stone",
+        p: stone + (carat ? ", " + carat : "") +
+           (origin ? ", brought out of " + origin : ", chosen at the source") +
+           ". Cut for colour before weight, so the tone holds from every angle." },
+      { h: "At the bench",
+        p: (metal ? metal + " raised, pierced and polished by one hand" :
+                    "Raised, pierced and polished by one hand") +
+           " from start to finish — then worn for a day before it is allowed to leave." },
+      { h: "Worn",
+        p: "Weight is balanced on the body before anything is set, so the " + kind +
+           " sits where it should and stays there through an evening." }
+    ];
+
+    return shots.map(function (src, i) {
+      return { img: src, h: blocks[i].h, p: blocks[i].p };
+    });
   }
 
   function storyFor(p) {
     if (state.storyOpen || p.story.length <= 150) return p.story;
     return p.story.slice(0, 150).replace(/[ ,.]+$/, "") + "…";
-  }
-
-  function finishesFor(p) {
-    if (!p.metal) return [];
-    /* second swatch always differs from the piece's own metal, so the pair
-       never renders as two identical circles */
-    var alt = /Yellow/.test(p.metal) ? "18k White Gold" : "18k Yellow Gold";
-    return [p.metal, alt].map(function (m, i) {
-      return {
-        label: m,
-        hex: /Yellow/.test(m) ? "#c9a227" : /Rose/.test(m) ? "#d8a08c" : "#c6c9cd",
-        ring: i === state.finish
-          ? "0 0 0 2px #fff inset, 0 0 0 1px #201e1d"
-          : "0 0 0 1px #e5e7eb"
-      };
-    });
   }
 
   function current() {
@@ -658,21 +669,18 @@
       });
       panel.appendChild(badges);
     } else {
-      // metal
-      var metalBlock = el("div", "opt-block opt-block--metal");
-      var metalLabel = el("span", "opt-label"); metalLabel.textContent = "Metal: " + p.metal;
-      var fRow = el("div", "finishes");
-      finishesFor(p).forEach(function (fi, i) {
-        var sw = el("button", "finish", {
-          type: "button", "aria-label": fi.label, "aria-pressed": String(i === state.finish)
-        });
-        sw.style.background = fi.hex;
-        sw.style.boxShadow = fi.ring;
-        sw.addEventListener("click", function () { state.finish = i; render(); });
-        fRow.appendChild(sw);
-      });
-      metalBlock.appendChild(metalLabel); metalBlock.appendChild(fRow);
-      if (p.metal) panel.appendChild(metalBlock);
+      /* Metal is stated, not chosen. These are single commissions and none of
+         them is offered in a second finish, so the pair of swatches that used
+         to sit here was invented: the second circle advertised a yellow gold
+         version that does not exist, and clicking it changed nothing on the
+         page. The fact stays, the control goes. */
+      if (p.metal) {
+        var metalBlock = el("div", "opt-block opt-block--metal");
+        var metalLabel = el("span", "opt-label");
+        metalLabel.textContent = "Metal: " + p.metal;
+        metalBlock.appendChild(metalLabel);
+        panel.appendChild(metalBlock);
+      }
 
       // No size selector: every High Jewellery piece is a single commission,
       // so there is nothing to choose between. The guide stays for sizing.
@@ -777,6 +785,28 @@
       });
     root.appendChild(specs);
 
+    /* Alternating sequence: a half-width frame with its paragraph beside it,
+       stepping left, right, left down the page. Every frame is this piece on
+       the model — nothing generic, nothing borrowed from another shoot. */
+    var storyBlocks = storyBlocksFor(p);
+    if (storyBlocks.length) {
+      var story = el("section", "story");
+      storyBlocks.forEach(function (b, i) {
+        var blk = el("div", "story-block" + (i % 2 ? " story-block--right" : ""));
+        var f = el("div", "story-shot");
+        f.appendChild(el("img", null, {
+          src: b.img, alt: p.name + " worn", loading: "lazy", decoding: "async"
+        }));
+        var txt = el("div", "story-text");
+        var h = el("h3", "story-h"); h.textContent = b.h;
+        var t = el("p", "story-p"); t.textContent = b.p;
+        txt.appendChild(h); txt.appendChild(t);
+        blk.appendChild(f); blk.appendChild(txt);
+        story.appendChild(blk);
+      });
+      root.appendChild(story);
+    }
+
     // cross-sell — same collection first, then the rest
     var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
       .concat(products.filter(function (q) { return q.id !== p.id && q.collection !== p.collection; }))
@@ -791,21 +821,6 @@
     relWrap.appendChild(relHead); relWrap.appendChild(relGrid);
     root.appendChild(relWrap);
 
-    /* Alternating sequence: a half-width frame with its paragraph beneath,
-       stepping left, right, left down the page. Replaces the video band. */
-    var story = el("section", "story");
-    STORY.forEach(function (b, i) {
-      var blk = el("div", "story-block" + (i % 2 ? " story-block--right" : ""));
-      var f = el("div", "story-shot");
-      f.appendChild(el("img", null, { src: IMG + b.img + ".webp", alt: "", loading: "lazy", decoding: "async" }));
-      var txt = el("div", "story-text");
-      var h = el("h3", "story-h"); h.textContent = b.h;
-      var t = el("p", "story-p"); t.textContent = b.p;
-      txt.appendChild(h); txt.appendChild(t);
-      blk.appendChild(f); blk.appendChild(txt);
-      story.appendChild(blk);
-    });
-    root.appendChild(story);
 
     // FAQ
     var faqWrap = el("section", "faq");
@@ -975,7 +990,7 @@
     var was = state.view + ":" + state.pid;
     readHash();
     if (was !== state.view + ":" + state.pid) {
-      state.finish = 0; state.storyOpen = false; state.drawerOpen = false;
+      state.storyOpen = false; state.drawerOpen = false;
       state.acc = null; state.faq = null;
       if (window.GemVisualiser) window.GemVisualiser.close();
       window.scrollTo(0, 0);

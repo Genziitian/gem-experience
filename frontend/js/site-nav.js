@@ -7,6 +7,11 @@
  * Sections without an href are placeholders for pages that do not exist yet.
  * They render in the list but do not navigate, which keeps the structure
  * visible without shipping links that 404.
+ *
+ * The two arrays below are the fallback, not the source of truth: staff edit
+ * the menu in the admin and it arrives through GemContent. The drawer draws
+ * from these immediately so it is usable on first paint and stays usable if
+ * the database cannot be reached, then redraws if an edited tree comes back.
  */
 (function (w, d) {
   "use strict";
@@ -85,12 +90,8 @@
     return '<a class="site-nav-link" href="' + prefix + item.href + '">' + esc(item.label) + "</a>";
   }
 
-  function build(prefix) {
-    var root = d.createElement("div");
-    root.className = "site-nav";
-    root.hidden = true;
-
-    var panels = SECTIONS.map(function (s, i) {
+  function markup(prefix, sections, secondary) {
+    var panels = sections.map(function (s, i) {
       if (!s.children) return "";
       return (
         '<div class="site-nav-sheet" data-sheet="' + i + '" hidden>' +
@@ -103,8 +104,7 @@
       );
     }).join("");
 
-    root.innerHTML =
-      '<div class="site-nav-scrim" data-close></div>' +
+    return '<div class="site-nav-scrim" data-close></div>' +
       '<nav class="site-nav-panel" aria-label="Main">' +
         '<div class="site-nav-head">' +
           '<span class="site-nav-brand">Gem Experience</span>' +
@@ -113,7 +113,7 @@
         '<div class="site-nav-body">' +
           '<div class="site-nav-sheet is-root" data-sheet="root">' +
             '<div class="site-nav-list site-nav-list--major">' +
-              SECTIONS.map(function (s, i) {
+              sections.map(function (s, i) {
                 if (s.children) {
                   return '<button class="site-nav-link site-nav-link--parent" type="button" data-open="' + i + '">' +
                     esc(s.label) + '<span class="site-nav-chev">' + CHEVRON + "</span></button>";
@@ -122,12 +122,19 @@
               }).join("") +
             "</div>" +
             '<div class="site-nav-list site-nav-list--minor">' +
-              SECONDARY.map(function (s) { return row(s, prefix); }).join("") +
+              secondary.map(function (s) { return row(s, prefix); }).join("") +
             "</div>" +
           "</div>" +
           panels +
         "</div>" +
       "</nav>";
+  }
+
+  function build(prefix, sections, secondary) {
+    var root = d.createElement("div");
+    root.className = "site-nav";
+    root.hidden = true;
+    root.innerHTML = markup(prefix, sections, secondary);
     return root;
   }
 
@@ -137,14 +144,19 @@
       var host = typeof target === "string" ? d.querySelector(target) : target;
       if (!host) return null;
 
-      var root = build(opts.prefix || "");
+      var prefix = opts.prefix || "";
+      var root = build(prefix, SECTIONS, SECONDARY);
       host.appendChild(root);
 
       var body = d.body;
-      var sheets = root.querySelectorAll(".site-nav-sheet");
 
+      /* Queried on each call rather than captured once: an edited menu
+         replaces the panel's markup, which would leave a NodeList taken at
+         mount time pointing at elements no longer in the document. */
       function show(name) {
-        sheets.forEach(function (s) { s.hidden = s.getAttribute("data-sheet") !== String(name); });
+        root.querySelectorAll(".site-nav-sheet").forEach(function (s) {
+          s.hidden = s.getAttribute("data-sheet") !== String(name);
+        });
       }
 
       function open() {
@@ -175,6 +187,43 @@
       });
 
       var instance = { open: open, close: close, el: root };
+
+      /* Redraw when an edited menu arrives. Click handling is delegated to
+         `root`, so replacing the markup inside it keeps every listener; only
+         the sheet lookup had to stop being cached, which it has.
+
+         A redraw while the drawer is open would throw the reader back to the
+         root panel mid-navigation, so it waits for the drawer to close. */
+      var pending = null;
+      function redraw(tree) {
+        if (!tree) return;
+        var sections = tree.primary && tree.primary.length ? tree.primary : SECTIONS;
+        var secondary = tree.secondary && tree.secondary.length ? tree.secondary : SECONDARY;
+        root.innerHTML = markup(prefix, sections, secondary);
+        show("root");
+      }
+
+      if (w.GemContent) {
+        w.GemContent.get(function (data) {
+          if (!data || !data.nav) return;
+          if (root.hidden) redraw(data.nav);
+          else pending = data.nav;
+        });
+      }
+
+      var closeInner = close;
+      close = function () {
+        closeInner();
+        if (pending) {
+          var t = pending;
+          pending = null;
+          /* after the slide-out finishes, so the list does not change under a
+             drawer still animating away */
+          w.setTimeout(function () { redraw(t); }, 360);
+        }
+      };
+      instance.close = close;
+
       api.mounted = instance;
       return instance;
     },

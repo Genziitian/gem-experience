@@ -42,7 +42,7 @@ const FINE_KEYS = new Set([
 ]);
 const HIGH_KEYS = new Set([
   "id", "name", "materials", "type", "collection", "occasion", "carat", "origin",
-  "metal", "ref", "story", "visualiser", "isGemstone",
+  "metal", "ref", "story", "visualiser", "isGemstone", "gallery", "models",
 ]);
 
 function extrasOf(product, known) {
@@ -72,7 +72,7 @@ export async function importFromSite(onProgress = () => {}) {
     throw new Error("Categories are missing. Run migrations/ in the Supabase SQL editor first.");
   }
 
-  const counts = { collections: 0, products: 0, images: 0 };
+  const counts = { collections: 0, products: 0, images: 0, focal: 0 };
 
   // ---- collections
   onProgress("Collections…");
@@ -157,6 +157,8 @@ export async function importFromSite(onProgress = () => {}) {
       is_gemstone: !!p.isGemstone,
       has_visualiser: !!p.visualiser,
       visualiser: p.visualiser || {},
+      gallery: p.gallery || [],
+      models: p.models || [],
       status: "published",
       price_on_enquiry: true,
       featured_sort: i,
@@ -168,6 +170,19 @@ export async function importFromSite(onProgress = () => {}) {
     const { error } = await supabase.from("products").upsert(batch, { onConflict: "slug" });
     if (error) throw error;
     counts.products += batch.length;
+  }
+
+  /* The focal map is keyed by image path and sits at the top level of the High
+     Jewellery file, not on any product, so it needs its own home. Without this
+     an import followed by an export rebuilt data.js with the map missing and
+     every mobile gallery crop fell back to one fixed position. */
+  onProgress("Focal points\u2026");
+  if (high.focal && Object.keys(high.focal).length) {
+    const { error } = await supabase
+      .from("site_settings")
+      .upsert({ key: "focal", value: high.focal }, { onConflict: "key" });
+    if (error) throw error;
+    counts.focal = Object.keys(high.focal).length;
   }
 
   // ---- images (fine jewellery only; the storefront is the source of the paths)
@@ -262,6 +277,14 @@ function highProduct(p) {
     story: p.story || "",
   };
   if (p.visualiser && Object.keys(p.visualiser).length) out.visualiser = p.visualiser;
+  /* The gallery is the piece's own stills and the models its editorial frames.
+     Both are always written, empty list included: eight pieces have no model
+     photography yet and carry `models: []` in the file today, and dropping the
+     key on export would make the round trip rewrite a file it was supposed to
+     reproduce. The storefront reads both with a fallback, so an absent key and
+     an empty one behave the same — this is about the file, not the page. */
+  out.gallery = Array.isArray(p.gallery) ? p.gallery : [];
+  out.models = Array.isArray(p.models) ? p.models : [];
   Object.assign(out, p.extras || {});
   if (p.is_gemstone) out.isGemstone = true;
   return out;
@@ -270,6 +293,11 @@ function highProduct(p) {
 export async function buildExport() {
   const { data: cats, error: catErr } = await supabase.from("categories").select("id, slug");
   if (catErr) throw catErr;
+
+  const { data: focalRow, error: focalErr } = await supabase
+    .from("site_settings").select("value").eq("key", "focal").maybeSingle();
+  if (focalErr) throw focalErr;
+  const focal = focalRow?.value || {};
   const bySlug = Object.fromEntries((cats || []).map((c) => [c.slug, c.id]));
 
   const { data: cols, error: colErr } = await supabase
@@ -315,6 +343,11 @@ export async function buildExport() {
     types: ["Gemstones", "Rings", "Necklaces", "Earrings", "Bracelets", "Tiaras"],
     occasions: ["Bridal", "Gala", "Collector", "Gifting"],
     products: highProds.map(highProduct),
+    /* Written even when empty: the storefront reads it with a fallback, and a
+       missing key and an empty one behave the same there, but an empty object
+       makes it obvious in the file that the map exists and has nothing in it
+       rather than looking like the export forgot about it. */
+    focal,
   };
 
   return {

@@ -53,7 +53,7 @@
 
       <aside class="enq-aside" aria-label="Other ways to reach us">
         <p class="enq-aside-kicker">Or write directly</p>
-        <ul class="enq-lines">
+        <ul class="enq-lines" id="contact-lines">
           <li>
             <span>India</span>
             <a href="https://wa.me/917300043093" target="_blank" rel="noopener noreferrer">+91 73000 43093</a>
@@ -81,10 +81,46 @@
 <script src="../js/config.js"></script>
 <script src="../js/gem.js"></script>
 <script src="../js/site-footer.js"></script>
+<script src="../js/site-content.js"></script>
 <script src="../js/site-nav.js"></script>
 <script src="../js/shell.js"></script>
 <script>
 GemShell.mount();
+
+/* The list in the markup above is the fallback and is what renders first.
+   Staff edit these in the admin, so replace it only when edited values come
+   back — a failed request leaves the page exactly as it shipped. */
+if (window.GemContent) {
+  window.GemContent.get(function (data) {
+    var c = data && data.contact;
+    if (!c || !Array.isArray(c.lines) || !c.lines.length) return;
+    var ul = document.getElementById("contact-lines");
+    if (!ul) return;
+
+    function esc(v) {
+      return String(v == null ? "" : v)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    var rows = c.lines.map(function (l) {
+      /* An external link opens in a new tab; a tel: or mailto: must not, and
+         rel=noopener is only meaningful on the former. */
+      var href = l.href || "";
+      var external = /^https?:/i.test(href);
+      var link = href
+        ? '<a href="' + esc(href) + '"' +
+          (external ? ' target="_blank" rel="noopener noreferrer"' : "") + ">" + esc(l.value) + "</a>"
+        : "<span>" + esc(l.value) + "</span>";
+      return "<li><span>" + esc(l.region) + "</span>" + link + "</li>";
+    });
+
+    if (c.email) {
+      rows.push("<li><span>Email</span><a href=\"mailto:" + esc(c.email) + "\">" + esc(c.email) + "</a></li>");
+    }
+    ul.innerHTML = rows.join("");
+  });
+}
 document.getElementById("contact-form").addEventListener("submit", async function (e) {
   e.preventDefault();
   var f = e.target;

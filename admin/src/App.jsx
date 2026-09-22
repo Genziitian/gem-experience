@@ -13,6 +13,11 @@ import Traffic from "./pages/Traffic.jsx";
 import Seo from "./pages/Seo.jsx";
 import Security from "./pages/Security.jsx";
 import Setup from "./pages/Setup.jsx";
+import Navigation from "./pages/Navigation.jsx";
+import Offices from "./pages/Offices.jsx";
+import Contact from "./pages/Contact.jsx";
+import Media from "./pages/Media.jsx";
+import Audit from "./pages/Audit.jsx";
 
 export default function App() {
   const [session, setSession] = useState(undefined);
@@ -68,7 +73,12 @@ export default function App() {
         <Route path="/forms" element={<Forms />} />
         <Route path="/traffic" element={<Traffic />} />
         <Route path="/seo" element={<Seo />} />
+        <Route path="/navigation" element={<Navigation />} />
+        <Route path="/offices" element={<Offices />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/media" element={<Media />} />
         <Route path="/security" element={<Security />} />
+        <Route path="/audit" element={<Audit />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Shell>

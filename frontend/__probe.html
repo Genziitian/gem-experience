@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8">
+<style>html,body{margin:0}iframe{display:block;width:1440px;height:900px;border:0}</style>
+<body><iframe id="f"></iframe>
+<script>
+var q=new URLSearchParams(location.search);var f=document.getElementById("f");
+f.src=q.get("u")||"/";
+f.onload=function(){setTimeout(function(){f.contentWindow.scrollTo(0,parseInt(q.get("y")||"0",10));},2600);};
+</script>

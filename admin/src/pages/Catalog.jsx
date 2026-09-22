@@ -3,6 +3,8 @@ import { supabase } from "../lib/supabase.js";
 import { Panel, Empty, Skeleton, Pill, Search, Icon, Toast } from "../components/ui.jsx";
 import { useToast } from "../lib/useToast.js";
 import { importFromSite, buildExport, downloadFile } from "../lib/catalogSync.js";
+import GalleryEditor from "../components/GalleryEditor.jsx";
+import { readSetting, writeSetting } from "../lib/content.js";
 
 const empty = {
   slug: "",
@@ -38,6 +40,10 @@ export default function Catalog() {
 
   const [form, setForm] = useState(empty);
   const [editing, setEditing] = useState(null);
+  /* The photographs of the piece being edited, and the crop map. Focal is one
+     catalogue-wide settings row keyed by image path rather than a column on
+     the product, because that is the shape the storefront reads. */
+  const [media, setMedia] = useState({ gallery: [], models: [], focal: {} });
   const [q, setQ] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState("");
@@ -70,6 +76,14 @@ export default function Catalog() {
   }
 
   useEffect(() => { load(); }, []);
+
+  /* Read once and keep: every product's crop points live in the same row, so
+     re-reading it per product would fetch the whole map each time. */
+  useEffect(() => {
+    readSetting("focal", {})
+      .then((f) => setMedia((m) => ({ ...m, focal: f || {} })))
+      .catch(() => {});
+  }, []);
 
   const counts = useMemo(() => {
     const byCat = {}, byCol = {};
@@ -111,11 +125,14 @@ export default function Catalog() {
   function startEdit(row) {
     setEditing(row.id);
     setForm({ ...empty, ...row });
+    /* focal stays as loaded — it is the whole catalogue's map, not this row's */
+    setMedia((m) => ({ ...m, gallery: row.gallery || [], models: row.models || [] }));
   }
 
   function startCreate() {
     setEditing("new");
     setForm({ ...empty, category_id: cat?.id, collection_id: col?.unassigned ? null : col?.id });
+    setMedia((m) => ({ ...m, gallery: [], models: [] }));
   }
 
   function numOrNull(v) {
@@ -149,6 +166,8 @@ export default function Catalog() {
       is_gemstone: !!form.is_gemstone,
       category_id: form.category_id ?? cat?.id ?? null,
       collection_id: form.collection_id ?? null,
+      gallery: media.gallery,
+      models: media.models,
     };
 
     let err;
@@ -165,6 +184,18 @@ export default function Catalog() {
       entity_id: payload.slug,
       meta: { name: payload.name },
     });
+    /* The crop map is shared by the whole catalogue, so it is written whole
+       and only when this piece actually contributed a value — otherwise every
+       save would rewrite the row for nothing. */
+    const touched = media.gallery.some((src) => media.focal[src] != null);
+    if (touched) {
+      try {
+        await writeSetting("focal", media.focal);
+      } catch (fe) {
+        show(`Product saved, but the crop points did not: ${fe.message}`, false);
+      }
+    }
+
     show(editing === "new" ? "Product created." : "Product saved.");
     setEditing(null);
     load();
@@ -305,6 +336,13 @@ export default function Catalog() {
             <label className="check"><input type="checkbox" checked={!!form.has_visualiser} onChange={(e) => setForm({ ...form, has_visualiser: e.target.checked })} /> 360° visualiser</label>
             <label className="check"><input type="checkbox" checked={!!form.is_gemstone} onChange={(e) => setForm({ ...form, is_gemstone: e.target.checked })} /> Gemstone</label>
             <label className="full">Story<textarea rows={4} value={form.story || ""} onChange={(e) => setForm({ ...form, story: e.target.value })} /></label>
+
+            <GalleryEditor
+              gallery={media.gallery} models={media.models} focal={media.focal}
+              onChange={(next) => setMedia((m) => ({ ...m, ...next }))}
+              storefront="/high-jewellery/"
+            />
+
             <div className="form-actions full">
               <button type="submit" className="btn">Save</button>
               <button type="button" className="btn btn--ghost" onClick={() => setEditing(null)}>Cancel</button>

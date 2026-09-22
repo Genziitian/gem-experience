@@ -57,6 +57,7 @@
 <script src="../js/config.js"></script>
 <script src="../js/gem.js"></script>
 <script src="../js/site-footer.js"></script>
+<script src="../js/site-content.js"></script>
 <script src="../js/site-nav.js"></script>
 <script src="../js/shell.js"></script>
 <script>
@@ -141,8 +142,41 @@ function card(loc) {
   );
 }
 
-document.getElementById("atelier-grid").innerHTML = ateliers.map(card).join("");
-document.getElementById("store-grid").innerHTML = stores.map(card).join("");
+/* The two arrays above are the fallback. Staff maintain these cards in the
+   admin, so draw what the page ships with first — the grid is never empty and
+   never waits on a request — then redraw if edited rows come back. */
+function paint(atelierRows, storeRows) {
+  document.getElementById("atelier-grid").innerHTML = atelierRows.map(card).join("");
+  document.getElementById("store-grid").innerHTML = storeRows.map(card).join("");
+}
+
+paint(ateliers, stores);
+
+if (window.GemContent) {
+  window.GemContent.get(function (data) {
+    if (!data || !data.offices || !data.offices.length) return;
+    /* The admin's column names differ from the shape `card` reads: map rather
+       than rename the renderer, so the fallback arrays above stay valid. */
+    var rows = data.offices.map(function (o) {
+      return {
+        kind: o.kind,
+        name: o.name,
+        region: o.region,
+        address: o.address,
+        phone: o.phone,
+        tel: o.tel,
+        image: o.image,
+        map: o.map_query
+      };
+    });
+    var a = rows.filter(function (o) { return o.kind !== "store"; });
+    var st = rows.filter(function (o) { return o.kind === "store"; });
+    /* A kind with no rows keeps its built-in list rather than emptying the
+       section — an admin that has only been half filled in should not delete
+       half the page. */
+    paint(a.length ? a : ateliers, st.length ? st : stores);
+  });
+}
 
 function filter(kind) {
   document.querySelectorAll(".off-filters .pg-tab").forEach(function (b) {

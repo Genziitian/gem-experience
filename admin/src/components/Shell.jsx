@@ -18,9 +18,16 @@ const LINKS = [
     ["/forms", "Forms", "forms", "forms"],
     ["/traffic", "Traffic", "traffic"],
   ] },
+  { section: "Content", items: [
+    ["/navigation", "Menu", "menu"],
+    ["/offices", "Offices", "globe"],
+    ["/contact", "Contact", "inbox"],
+    ["/media", "Media", "download"],
+  ] },
   { section: "Site", items: [
     ["/seo", "SEO", "seo"],
     ["/security", "Security", "security"],
+    ["/audit", "Audit log", "check"],
   ] },
 ];
 

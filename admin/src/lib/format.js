@@ -42,3 +42,11 @@ export function hostnameOf(url) {
     return url;
   }
 }
+
+export function bytes(n) {
+  if (n == null) return "—";
+  if (n < 1024) return `${n} B`;
+  const kb = n / 1024;
+  if (kb < 1024) return `${Math.round(kb)} KB`;
+  return `${(kb / 1024).toFixed(1)} MB`;
+}

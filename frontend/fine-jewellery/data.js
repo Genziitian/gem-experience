@@ -83,7 +83,8 @@ window.FJ_DATA = {
         "img/products/gd26-148-1.webp",
         "img/products/gd26-148-2.webp",
         "img/products/gd26-148-3.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-148-3.webp"
     },
     {
       "id": "gd25-1103",
@@ -106,7 +107,8 @@ window.FJ_DATA = {
         "img/products/gd25-1103.webp",
         "img/products/gd25-1103-1.webp",
         "img/products/gd25-1103-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1103-1.webp"
     },
     {
       "id": "gd26-196-c",
@@ -130,7 +132,8 @@ window.FJ_DATA = {
         "img/products/gd26-196-c-1.webp",
         "img/products/gd26-196-c-2.webp",
         "img/products/gd26-196-c-3.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-196-c-3.webp"
     },
     {
       "id": "gd26-197-c",
@@ -153,7 +156,8 @@ window.FJ_DATA = {
         "img/products/gd26-197-c.webp",
         "img/products/gd26-197-c-1.webp",
         "img/products/gd26-197-c-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-197-c-1.webp"
     },
     {
       "id": "gd26-224",
@@ -175,7 +179,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-224.webp",
         "img/products/gd26-224-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-224-1.webp"
     },
     {
       "id": "gd26-275-a",
@@ -219,7 +224,8 @@ window.FJ_DATA = {
         "img/products/gd25-294.webp",
         "img/products/gd25-294-1.webp",
         "img/products/gd25-294-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-294-2.webp"
     },
     {
       "id": "gd25-842",
@@ -242,7 +248,8 @@ window.FJ_DATA = {
         "img/products/gd25-842.webp",
         "img/products/gd25-842-1.webp",
         "img/products/gd25-842-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-842-2.webp"
     },
     {
       "id": "gd26-140",
@@ -265,7 +272,8 @@ window.FJ_DATA = {
         "img/products/gd26-140.webp",
         "img/products/gd26-140-1.webp",
         "img/products/gd26-140-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-140-2.webp"
     },
     {
       "id": "gd26-146",
@@ -288,7 +296,8 @@ window.FJ_DATA = {
         "img/products/gd26-146.webp",
         "img/products/gd26-146-1.webp",
         "img/products/gd26-146-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-146-2.webp"
     },
     {
       "id": "gd26-147",
@@ -311,7 +320,8 @@ window.FJ_DATA = {
         "img/products/gd26-147.webp",
         "img/products/gd26-147-1.webp",
         "img/products/gd26-147-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-147-2.webp"
     },
     {
       "id": "gd26-197-b",
@@ -334,7 +344,8 @@ window.FJ_DATA = {
         "img/products/gd26-197-b.webp",
         "img/products/gd26-197-b-1.webp",
         "img/products/gd26-197-b-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-197-b-2.webp"
     },
     {
       "id": "gd26-198-c",
@@ -399,7 +410,8 @@ window.FJ_DATA = {
         "img/products/gd26-218.webp",
         "img/products/gd26-218-1.webp",
         "img/products/gd26-218-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-218-2.webp"
     },
     {
       "id": "gd26-275-b",
@@ -443,7 +455,8 @@ window.FJ_DATA = {
         "img/products/gd26-141.webp",
         "img/products/gd26-141-1.webp",
         "img/products/gd26-141-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-141-2.webp"
     },
     {
       "id": "gd26-197",
@@ -467,7 +480,8 @@ window.FJ_DATA = {
         "img/products/gd26-197-1.webp",
         "img/products/gd26-197-2.webp",
         "img/products/gd26-197-3.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-197-3.webp"
     },
     {
       "id": "gd26-275-c",
@@ -549,7 +563,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd25-1067.webp",
         "img/products/gd25-1067-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1067-1.webp"
     },
     {
       "id": "gd25-994",
@@ -572,7 +587,8 @@ window.FJ_DATA = {
         "img/products/gd25-994.webp",
         "img/products/gd25-994-1.webp",
         "img/products/gd25-994-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-994-1.webp"
     },
     {
       "id": "gd25-1026",
@@ -595,7 +611,8 @@ window.FJ_DATA = {
         "img/products/gd25-1026.webp",
         "img/products/gd25-1026-1.webp",
         "img/products/gd25-1026-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1026-1.webp"
     },
     {
       "id": "gd25-1086",
@@ -617,7 +634,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd25-1086.webp",
         "img/products/gd25-1086-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1086-1.webp"
     },
     {
       "id": "gd25-1087",
@@ -699,7 +717,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd25-1096.webp",
         "img/products/gd25-1096-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1096-1.webp"
     },
     {
       "id": "gd25-1095",
@@ -722,7 +741,8 @@ window.FJ_DATA = {
         "img/products/gd25-1095.webp",
         "img/products/gd25-1095-1.webp",
         "img/products/gd25-1095-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1095-1.webp"
     },
     {
       "id": "gd25-1097",
@@ -783,7 +803,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-68.webp",
         "img/products/gd26-68-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-68-1.webp"
     },
     {
       "id": "gd26-176",
@@ -884,7 +905,8 @@ window.FJ_DATA = {
         "img/products/gd25-1046.webp",
         "img/products/gd25-1046-1.webp",
         "img/products/gd25-1046-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1046-1.webp"
     },
     {
       "id": "gd25-124",
@@ -948,7 +970,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-62.webp",
         "img/products/gd26-62-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-62-1.webp"
     },
     {
       "id": "gd26-71",
@@ -992,7 +1015,8 @@ window.FJ_DATA = {
         "img/products/gd26-139.webp",
         "img/products/gd26-139-1.webp",
         "img/products/gd26-139-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-139-1.webp"
     },
     {
       "id": "gd26-167",
@@ -1015,7 +1039,8 @@ window.FJ_DATA = {
         "img/products/gd26-167.webp",
         "img/products/gd26-167-1.webp",
         "img/products/gd26-167-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-167-1.webp"
     },
     {
       "id": "gd26-200",
@@ -1038,7 +1063,8 @@ window.FJ_DATA = {
         "img/products/gd26-200.webp",
         "img/products/gd26-200-1.webp",
         "img/products/gd26-200-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-200-1.webp"
     },
     {
       "id": "gd26-201",
@@ -1061,7 +1087,8 @@ window.FJ_DATA = {
         "img/products/gd26-201.webp",
         "img/products/gd26-201-1.webp",
         "img/products/gd26-201-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-201-1.webp"
     },
     {
       "id": "gd26-766",
@@ -1165,7 +1192,8 @@ window.FJ_DATA = {
         "img/products/gd26-257.webp",
         "img/products/gd26-257-1.webp",
         "img/products/gd26-257-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-257-1.webp"
     },
     {
       "id": "gd26-566",
@@ -1251,7 +1279,8 @@ window.FJ_DATA = {
         "img/products/gd25-1047.webp",
         "img/products/gd25-1047-1.webp",
         "img/products/gd25-1047-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-1047-1.webp"
     },
     {
       "id": "gd26-587",
@@ -1294,7 +1323,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd25-816.webp",
         "img/products/gd25-816-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-816-2.webp"
     },
     {
       "id": "gd25-435",
@@ -1353,7 +1383,8 @@ window.FJ_DATA = {
         "img/products/gd26-69.webp",
         "img/products/gd26-69-1.webp",
         "img/products/gd26-69-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-69-2.webp"
     },
     {
       "id": "gd26-63",
@@ -1376,7 +1407,8 @@ window.FJ_DATA = {
         "img/products/gd26-63.webp",
         "img/products/gd26-63-1.webp",
         "img/products/gd26-63-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-63-2.webp"
     },
     {
       "id": "gd26-aq-br",
@@ -1437,7 +1469,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd25-288.webp",
         "img/products/gd25-288-1.webp"
-      ]
+      ],
+      "hover": "img/products/gd25-288-1.webp"
     },
     {
       "id": "gd25-915-a",
@@ -1480,7 +1513,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-60.webp",
         "img/products/gd26-60-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-60-2.webp"
     },
     {
       "id": "gd26-70",
@@ -1523,7 +1557,8 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-166.webp",
         "img/products/gd26-166-2.webp"
-      ]
+      ],
+      "hover": "img/products/gd26-166-2.webp"
     },
     {
       "id": "gd26-177",

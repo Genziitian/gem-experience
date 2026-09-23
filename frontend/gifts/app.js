@@ -77,6 +77,17 @@
     var wrap = el("div", "fj-plate");
     wrap.style.setProperty("--tone", p.tone || "#9a958e");
     wrap.appendChild(el("div", "fj-plate-orb"));
+    /* Same reveal as the collection grid: the model frame underneath, the
+       packshot fading off it. */
+    if (p.hover) {
+      var hv = el("img", "fj-plate-hover", {
+        src: "../fine-jewellery/" + p.hover, alt: "",
+        loading: "lazy", decoding: "async", "aria-hidden": "true"
+      });
+      hv.addEventListener("error", function () { hv.remove(); wrap.classList.remove("has-hover"); });
+      hv.addEventListener("load", function () { wrap.classList.add("has-hover"); });
+      wrap.appendChild(hv);
+    }
     var src = p.images && p.images.length ? p.images[0] : "";
     if (src) {
       var img = el("img", "fj-plate-img", {

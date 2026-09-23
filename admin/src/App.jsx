@@ -20,6 +20,7 @@ import Media from "./pages/Media.jsx";
 import Audit from "./pages/Audit.jsx";
 import Activity from "./pages/Activity.jsx";
 import People from "./pages/People.jsx";
+import Gifts from "./pages/Gifts.jsx";
 
 export default function App() {
   const [session, setSession] = useState(undefined);
@@ -82,6 +83,7 @@ export default function App() {
         <Route path="/users" element={<Navigate to="/people" replace />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/quotations" element={<Quotations />} />
+        <Route path="/gifts" element={<Gifts />} />
         <Route path="/forms" element={<Forms />} />
         <Route path="/traffic" element={<Traffic />} />
         <Route path="/seo" element={<Seo />} />

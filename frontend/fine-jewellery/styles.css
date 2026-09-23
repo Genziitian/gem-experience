@@ -602,6 +602,41 @@ button {
 .fj-plate.has-img .fj-plate-img { opacity: 1; }
 .fj-plate.has-img .fj-plate-orb { display: none; }
 
+/* ---------------------------------------------------- the second frame
+ *
+ * Most pieces carry a shot of somebody wearing them. Hovering fades the
+ * packshot off to reveal it, rather than fading the model shot in over the
+ * top: the piece stays visible the whole way through the transition instead
+ * of dissolving into the background halfway.
+ *
+ * It sits below the packshot in the stack and is only painted when it has
+ * actually loaded, so a slow or missing file leaves the plate exactly as it
+ * was rather than flashing an empty box under the cursor. */
+.fj-plate-hover {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.fj-plate.has-hover .fj-plate-hover { opacity: 1; }
+
+/* Only where there is a pointer that can hover. On a touch screen the state
+   sticks after a tap, which would leave a card showing the wrong picture with
+   no way to clear it. */
+@media (hover: hover) and (pointer: fine) {
+  .fj-card:hover .fj-plate.has-hover.has-img .fj-plate-img { opacity: 0; }
+  /* the lift is already on .fj-card:hover; slowing the scale to match the
+     cross-fade keeps the two reading as one movement */
+  .fj-card:hover .fj-plate.has-hover { transform: scale(1.015); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fj-plate-img,
+  .fj-plate-hover,
+  .fj-plate { transition-duration: 0.01ms; }
+}
+
 .fj-plate-sku {
   position: absolute; left: 12px; top: 12px;
   padding: 6px 9px;

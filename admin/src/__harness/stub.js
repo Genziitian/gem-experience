@@ -20,6 +20,20 @@ const DB = {
       { region: "United Arab Emirates", value: "+971 58 865 1095", href: "https://wa.me/971588651095" },
     ] } },
   ],
+  form_submissions: [
+    { id: "f1", form_type: "quotation", status: "new", created_at: new Date(Date.now()-36e5).toISOString(),
+      payload: { name: "Sriram K", email: "sriram@example.com", phone: "+91 99999 00000", source: "checkout",
+        order_number: "GE-9F2KQ1", pieces: ["Weaver", "Celestine"], notes: "Size 54 if it can be done.",
+        gift: { to: "Amira", from: "Sriram", occasion: "Birthday",
+                message: "For the year you carried everyone else.", letter: true } } },
+    { id: "f2", form_type: "quotation", status: "in_progress", created_at: new Date(Date.now()-864e5).toISOString(),
+      payload: { name: "Devika R", email: "devika@example.com", phone: null, source: "checkout",
+        order_number: "GE-7Q1ABZ", pieces: ["Samaah"],
+        gift: { to: "Ma", from: "Devika", occasion: "Anniversary", message: "", letter: false } } },
+    { id: "f3", form_type: "quotation", status: "new", created_at: new Date(Date.now()-72e5).toISOString(),
+      payload: { name: "No gift here", email: "x@example.com", pieces: ["Rihla"] } },
+  ],
+  form_activity: [],
   media: [
     { id: "m1", path: "offices/dubai-abc.jpg", url: "https://placehold.co/400", alt: "", width: 1600, height: 1600, bytes: 240000, mime: "image/jpeg", folder: "offices", created_at: new Date().toISOString() },
   ],
@@ -63,6 +77,13 @@ function builder(table) {
     in(col, vals) { filters.push((r) => vals.includes(r[col])); return api; },
     ilike(col, pat) { const s = pat.replace(/%/g, "").toLowerCase(); filters.push((r) => String(r[col] || "").toLowerCase().includes(s)); return api; },
     neq(col, val) { filters.push((r) => r[col] !== val); return api; },
+    /* mirrors .not("payload->gift", "is", null) */
+    not(col, op, val) {
+      if (col === "payload->gift" && op === "is" && val === null) {
+        filters.push((r) => r.payload && r.payload.gift != null);
+      }
+      return api;
+    },
     maybeSingle() { const d = rows().filter((r) => filters.every((f) => f(r))); return Promise.resolve({ data: d[0] || null, error: null }); },
     single() { const d = rows().filter((r) => filters.every((f) => f(r))); return Promise.resolve({ data: d[0] || null, error: null }); },
     insert(row) {

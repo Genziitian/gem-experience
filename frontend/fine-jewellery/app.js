@@ -212,10 +212,22 @@
   /* The tone orb stays the fallback: pieces still awaiting photography keep
      the catalog's existing look, and a broken file drops back to it rather
      than leaving a hole in the grid. */
-  function plate(tone, sku, src, alt) {
+  function plate(tone, sku, src, alt, hover) {
     var wrap = el("div", "fj-plate");
     wrap.style.setProperty("--tone", tone || "#9a958e");
     wrap.appendChild(el("div", "fj-plate-orb"));
+    /* The second frame sits under the first and is revealed by fading the
+       first out, so the piece never disappears mid-transition the way it does
+       when one image fades in over nothing. Lazy, because most of these are
+       never hovered — a grid of 98 would otherwise double its own weight. */
+    if (hover) {
+      var hv = el("img", "fj-plate-hover", {
+        src: hover, alt: "", loading: "lazy", decoding: "async", "aria-hidden": "true"
+      });
+      hv.addEventListener("error", function () { hv.remove(); wrap.classList.remove("has-hover"); });
+      hv.addEventListener("load", function () { wrap.classList.add("has-hover"); });
+      wrap.appendChild(hv);
+    }
     if (src) {
       var img = el("img", "fj-plate-img", {
         src: src, alt: alt || "", loading: "lazy", decoding: "async"
@@ -234,7 +246,7 @@
 
   function card(p) {
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
-    a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name));
+    a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name, p.hover || ""));
     var body = el("div", "fj-card-body");
     body.appendChild(el("span", "fj-card-type", { text: p.collection + " · " + p.type }));
     body.appendChild(el("h3", null, { text: p.name }));

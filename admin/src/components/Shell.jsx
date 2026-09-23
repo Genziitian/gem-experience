@@ -13,6 +13,7 @@ const LINKS = [
     ["/catalog", "Catalog", "catalog"],
     ["/orders", "Orders", "orders"],
     ["/quotations", "Quotations", "quotations", "quotes"],
+    ["/gifts", "Gift requests", "gifts", "gifts"],
   ] },
   { section: "People", items: [
     ["/people", "People & roles", "users"],
@@ -49,12 +50,15 @@ function useBadges() {
   useEffect(() => {
     let cancelled = false;
     async function load() {
-      const [forms, quotes] = await Promise.all([
+      const [forms, quotes, gifts] = await Promise.all([
         supabase.from("form_submissions").select("id", { count: "exact", head: true }).eq("status", "new"),
         supabase.from("form_submissions").select("id", { count: "exact", head: true }).eq("form_type", "quotation").in("status", ["new", "in_progress"]),
+        /* a gift request has a card waiting to be written, so it is worth a
+           count of its own rather than being folded into quotations */
+        supabase.from("form_submissions").select("id", { count: "exact", head: true }).not("payload->gift", "is", null).in("status", ["new", "in_progress"]),
       ]);
       if (cancelled) return;
-      setBadges({ forms: forms.count || 0, quotes: quotes.count || 0 });
+      setBadges({ forms: forms.count || 0, quotes: quotes.count || 0, gifts: gifts.count || 0 });
     }
     load();
     const t = setInterval(load, 30000);

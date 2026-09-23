@@ -3,6 +3,12 @@
 (function () {
   "use strict";
 
+  /* This page builds its own header rather than going through GemShell, so the
+     bag drawer is started here. Without it "Add to selection" changes a number
+     in the corner and nothing else. */
+  if (window.GemMiniCart) window.GemMiniCart.init({ prefix: "../" });
+
+
   var data = window.FJ_DATA || { collections: [], products: [], types: [] };
   var view = document.getElementById("view");
 
@@ -159,6 +165,25 @@
   }
 
   function addToCart(p, btn) {
+    /* Go through Gem.cart when it is there. Writing localStorage directly —
+       which is all this did — left every other part of the site unaware: no
+       cart event, so the header count never moved and the bag drawer never
+       opened. The direct write stays as the fallback for a page that somehow
+       loads without the library. */
+    if (window.Gem && window.Gem.cart) {
+      window.Gem.cart.add({
+        id: p.id, slug: p.id, name: p.name,
+        materials: p.stone + " \u00b7 " + p.metal,
+        image: mainImage(p) ? "../fine-jewellery/" + mainImage(p) : "",
+        priceOnEnquiry: !p.priceINR,
+        priceCents: p.priceINR ? p.priceINR * 100 : 0
+      });
+      if (btn) {
+        btn.textContent = "Added to cart";
+        setTimeout(function () { btn.textContent = "Add to cart"; }, 1800);
+      }
+      return;
+    }
     try {
       var raw = JSON.parse(localStorage.getItem("gem_cart_v1") || "[]");
       var found = raw.find(function (x) { return x.id === p.id; });

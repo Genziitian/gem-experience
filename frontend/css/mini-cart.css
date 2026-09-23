@@ -1,0 +1,117 @@
+/* The bag drawer and its badge.
+ *
+ * Its own file rather than a block in pages.css: High Jewellery and Fine
+ * Jewellery each carry their own stylesheet and never load that one, so the
+ * drawer opened on those pages completely unstyled — full width, in the
+ * document flow, under the footer. It is loaded wherever mini-cart.js is.
+ *
+ * Variables are referenced with fallbacks for the same reason: the three
+ * stylesheets do not define an identical set of tokens.
+ */
+
+/* Adding a piece changed a number in the top right corner and nothing else,
+   which on a wide screen is no feedback at all. The drawer says what went in. */
+
+.mc { position: fixed; inset: 0; z-index: 90; }
+.mc[hidden] { display: none; }
+.mc-scrim {
+  position: absolute; inset: 0;
+  background: rgba(20, 18, 16, 0.38);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.mc.is-open .mc-scrim { opacity: 1; }
+
+.mc-panel {
+  position: absolute; inset: 0 0 0 auto;
+  width: min(92vw, 420px);
+  display: flex; flex-direction: column;
+  background: var(--paper, #fff);
+  transform: translateX(100%);
+  transition: transform 0.34s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: -24px 0 60px -40px rgba(0, 0, 0, 0.6);
+}
+.mc.is-open .mc-panel { transform: none; }
+
+.mc-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 20px var(--gutter);
+  border-bottom: 1px solid var(--rule, #e6e2dc);
+}
+.mc-title { margin: 0; font-family: var(--serif); font-size: 18px; font-weight: 500; }
+.mc-close { background: none; border: 0; padding: 4px; cursor: pointer; color: inherit; }
+
+.mc-body { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.mc-empty { display: grid; gap: 16px; justify-items: start; padding: 28px var(--gutter); }
+
+.mc-list { display: grid; }
+.mc-item {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--rule, #e6e2dc);
+}
+.mc-item img, .mc-item-ph {
+  width: 64px; height: 64px; object-fit: cover;
+  background: var(--ground, #f3f1ee);
+}
+.mc-item-body h3 { margin: 0; font-family: var(--serif); font-size: 15px; font-weight: 500; }
+.mc-item-body p { margin: 3px 0 0; font-size: 12px; color: var(--muted); }
+.mc-item-qty { font-variant-numeric: tabular-nums; }
+
+/* The gift message lives on another page and is otherwise invisible until
+   checkout. This is the row that makes it findable. */
+.mc-gift {
+  display: grid; gap: 2px;
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--rule, #e6e2dc);
+  background: var(--ground, #f7f5f2);
+}
+.mc-gift > span:first-child { font-size: 13px; font-weight: 500; }
+.mc-gift-sub { font-size: 12px; color: var(--muted); }
+.mc-gift:hover > span:first-child { text-decoration: underline; }
+
+.mc-foot { display: grid; gap: 10px; padding: 20px var(--gutter); border-top: 1px solid var(--rule, #e6e2dc); }
+.mc-count { display: flex; justify-content: space-between; font-size: 13px; }
+.mc-note { margin: 0; font-size: 12px; line-height: 18px; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-panel, .mc-scrim { transition: none; }
+}
+
+
+/* The badge is drawn by mini-cart.js into whatever element carries .pg-cart,
+   so the three headers that build themselves do not each need their own. */
+.pg-cart { position: relative; }
+.pg-cart-n {
+  position: absolute; top: -4px; right: -6px;
+  min-width: 17px; height: 17px; padding: 0 4px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  background: var(--ink, #201e1d); color: #fff;
+  font-size: 10px; font-weight: 500; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The drawer's own buttons.
+   `.pg-btn` lives in pages.css, which the two catalogue pages do not load — so
+   on exactly the pages where somebody adds a piece, the two calls to action
+   rendered as bare links. Scoped under .mc so this cannot reach anything else. */
+.mc .pg-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 13px 20px;
+  border: 1px solid var(--ink, #201e1d);
+  background: var(--ink, #201e1d);
+  color: #fff;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  text-align: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.mc .pg-btn:hover { background: #000; border-color: #000; }
+.mc .pg-btn--ghost {
+  background: transparent;
+  color: var(--ink, #201e1d);
+}
+.mc .pg-btn--ghost:hover { background: var(--ground, #f3f1ee); color: var(--ink, #201e1d); }

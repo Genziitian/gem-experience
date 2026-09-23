@@ -227,7 +227,12 @@ button {
 
 .fj-shop-banner {
   position: relative;
-  min-height: clamp(220px, 36vh, 360px);
+  /* Taller, and sized by the photograph's own proportions rather than by a
+     fixed band. `cover` on a short strip of a 3:2 image threw most of the
+     picture away and framed whatever happened to be in the middle — on Shop
+     all that was the bridge of somebody's nose. */
+  min-height: clamp(280px, 46vh, 460px);
+  aspect-ratio: 16 / 7;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: clamp(28px, 4vw, 48px) var(--gutter);
   color: #fff;
@@ -244,7 +249,14 @@ button {
 /* The photograph sits over the gradient, which stays as the fallback if it
    has not loaded yet. */
 .fj-shop-banner--photo::before {
-  background: url("img/shop-banner.webp") center / cover no-repeat, #2a2420;
+  /* pulled up so the crop keeps the face and the piece rather than trimming
+     to the exact centre of the frame */
+  background: url("img/shop-banner.webp") 50% 32% / cover no-repeat, #2a2420;
+}
+@media (max-width: 760px) {
+  /* A 16:7 band at phone width is a letterbox slit. Squarer, and the title
+     still has room to sit under the subject rather than on top of it. */
+  .fj-shop-banner { aspect-ratio: 4 / 3; min-height: 0; }
 }
 .fj-shop-banner::after {
   content: "";

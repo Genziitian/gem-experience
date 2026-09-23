@@ -102,6 +102,10 @@
       top.innerHTML = headerHtml(prefix, w.Gem.cart.count());
       wireNav(prefix);
     });
+
+    /* The drawer needs the same prefix the header does. It is optional: a page
+       that does not load mini-cart.js keeps the plain link to /cart/. */
+    if (w.GemMiniCart) w.GemMiniCart.init({ prefix: prefix });
   }
 
   function qs(name) {

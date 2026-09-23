@@ -1287,7 +1287,9 @@ button {
   isolation: isolate;
   display: grid;
   align-items: end;
-  min-height: clamp(260px, 44vh, 440px);
+  /* bigger: this is the first thing on the page and it was reading as a strip
+     above the content rather than as the opening image */
+  min-height: clamp(320px, 56vh, 560px);
   overflow: hidden;
   background: var(--tile);
 }
@@ -1350,7 +1352,7 @@ button {
 .pg-split-copy .pg-lede { margin-left: 0; margin-right: 0; }
 
 @media (max-width: 860px) {
-  .pg-banner { min-height: clamp(200px, 34vh, 300px); }
+  .pg-banner { min-height: clamp(260px, 42vh, 380px); }
   /* The copy takes up much more of a phone-width frame, so it sits over the
      busy middle of the photograph rather than the quiet bottom of it. The
      scrim has to carry more of the contrast here than it does on a desktop. */
@@ -1382,3 +1384,62 @@ button {
 }
 .co-done .pg-lede { margin: 0; }
 .co-done .pg-actions { margin-top: 14px; }
+
+/* The gift note, surfaced in the cart. Written on the Gifts page and kept
+   locally, so without this it was invisible between writing it and checking
+   out — the one place somebody would look for it is the bag. */
+.pg-gift-hint { margin: 14px 0 0; }
+.pg-gift-set {
+  margin: 14px 0 0;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--rule, #e6e2dc);
+}
+.pg-gift-set p { margin: 0 0 4px; font-size: 13px; line-height: 20px; }
+.pg-gift-set p:last-child { margin-bottom: 0; }
+.pg-gift-set-k {
+  display: block; margin-bottom: 8px;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+.pg-gift-set-x { color: var(--muted); font-size: 12px !important; }
+
+/* ---------------------------------------------------------- checkout summary */
+/* A list of names is a receipt. This is still the point where somebody is
+   deciding, so the pieces keep their photographs. */
+
+.co-items { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 14px; }
+.co-item { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; align-items: start; }
+.co-item img, .co-item-ph {
+  width: 56px; height: 56px; object-fit: cover; background: var(--ground, #f3f1ee);
+}
+.co-item-body { display: grid; gap: 2px; min-width: 0; }
+.co-item-body strong { font-family: var(--serif); font-size: 14px; font-weight: 500; }
+.co-item-body span { font-size: 12px; color: var(--muted); }
+.co-item-qty { font-variant-numeric: tabular-nums; }
+
+.co-sum-row {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--rule, #e6e2dc);
+  font-size: 13px;
+}
+
+.co-gift {
+  margin-top: 16px; padding: 14px;
+  background: #fff; border: 1px solid var(--rule, #e6e2dc);
+}
+.co-gift p { margin: 0 0 4px; font-size: 13px; line-height: 20px; }
+.co-gift-k {
+  display: block; margin-bottom: 8px;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+}
+.co-gift a, .co-gift-add { font-size: 12px; text-decoration: underline; }
+.co-gift-add { display: inline-block; margin-top: 16px; }
+.co-assure {
+  margin: 16px 0 0; font-size: 12px; line-height: 19px; color: var(--muted); font-style: italic;
+}
+
+/* The dialling code and the number read as one field, because they are one. */
+.co-phone { display: grid; grid-template-columns: minmax(96px, 34%) minmax(0, 1fr); gap: 8px; }
+.co-phone select, .co-phone input { min-width: 0; }

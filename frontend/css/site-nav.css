@@ -21,7 +21,9 @@
 .site-nav-panel {
   position: absolute;
   inset: 0 auto 0 0;
-  width: min(88vw, 420px);
+  /* narrower: the drawer is a list of eight words and was taking 420px to say
+     them, which on a laptop covered a third of the page behind it */
+  width: min(86vw, 340px);
   display: flex;
   flex-direction: column;
   background: #fffdf8;

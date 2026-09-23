@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
 <link rel="stylesheet" href="../css/pages.css">
 <link rel="stylesheet" href="../css/site-nav.css">
+<link rel="stylesheet" href="../css/mini-cart.css">
 </head>
 <body class="pg">
 <div class="pg-wrap">
@@ -27,10 +28,17 @@
           <label>Email<input name="email" type="email" required autocomplete="email"></label>
         </div>
         <div class="pg-row-2">
-          <label>Phone<input name="phone" type="tel"></label>
-          <label>Country<input name="country" value="India"></label>
+          <label>Phone
+            <span class="co-phone">
+              <select name="dial" id="dial" aria-label="Country code"></select>
+              <input name="phone" type="tel" inputmode="tel" placeholder="Number">
+            </span>
+          </label>
+          <label>Country
+            <select name="country" id="country"></select>
+          </label>
         </div>
-        <label>City / region<input name="city"></label>
+        <label>City / region<input name="city" placeholder="Where the piece should reach you"></label>
         <label>Notes for our advisors
           <textarea name="notes" placeholder="Sizing, preferred metal, viewing location…"></textarea>
         </label>
@@ -72,9 +80,30 @@
 <script src="../js/site-footer.js"></script>
 <script src="../js/site-content.js"></script>
 <script src="../js/site-nav.js"></script>
+<script src="../js/mini-cart.js"></script>
+<script src="../js/countries.js"></script>
 <script src="../js/shell.js"></script>
 <script>
 GemShell.mount();
+
+/* Both selects come from one list, so a country and its dialling code cannot
+   drift apart, and choosing a country moves the code with it — which is what
+   somebody expects and almost never gets. */
+var countrySel = document.getElementById("country");
+var dialSel = document.getElementById("dial");
+if (window.GemCountries) {
+  GemCountries.fillCountry(countrySel, "IN");
+  GemCountries.fillDial(dialSel, "IN");
+  countrySel.addEventListener("change", function () {
+    var c = GemCountries.byCode[countrySel.value];
+    if (c) dialSel.value = c.dial;
+  });
+}
+
+function countryName() {
+  var c = window.GemCountries && GemCountries.byCode[countrySel.value];
+  return c ? c.name : countrySel.value;
+}
 
 (async function () {
   var session = await Gem.auth.getSession();
@@ -93,13 +122,46 @@ function paintSummary() {
     el.innerHTML = "<h2>Selection</h2><p class=\"pg-note\">Your cart is empty.</p><div class=\"pg-actions\"><a class=\"pg-btn\" href=\"../high-jewellery/\">Continue shopping</a></div>";
     return;
   }
+  function esc(v) {
+    return String(v == null ? "" : v)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  var gift = null;
+  try {
+    var raw = JSON.parse(localStorage.getItem("gem_gift_note_v1") || "null");
+    if (raw && (raw.to || raw.message)) gift = raw;
+  } catch (e) { gift = null; }
+
   el.innerHTML =
     "<h2>Selection</h2>" +
-    "<ul class=\"pg-aside-list\">" +
+    /* the pieces with their photographs: a list of names is a receipt, and
+       this is still the part of the journey where somebody is choosing */
+    '<ul class="co-items">' +
     items.map(function (it) {
-      return "<li><strong>" + it.name + "</strong><span>" + (it.qty || 1) + " · " + (it.materials || "On enquiry") + "</span></li>";
+      return '<li class="co-item">' +
+        (it.image ? '<img src="' + esc(it.image) + '" alt="" loading="lazy">' : '<span class="co-item-ph"></span>') +
+        "<span class=\"co-item-body\"><strong>" + esc(it.name) + "</strong>" +
+        "<span>" + esc(it.materials || "On enquiry") + "</span>" +
+        "<span class=\"co-item-qty\">Qty " + (it.qty || 1) + "</span></span>" +
+      "</li>";
     }).join("") +
-    "</ul>";
+    "</ul>" +
+    '<div class="co-sum-row"><span>Pieces</span><span>' +
+      items.reduce(function (n, i) { return n + (i.qty || 1); }, 0) + "</span></div>" +
+    '<div class="co-sum-row"><span>Valuation</span><span>On enquiry</span></div>' +
+    '<div class="co-sum-row"><span>Making time</span><span>8 \u2013 12 weeks</span></div>' +
+    /* The gift card, if one was written. Reaching the last screen unsure
+       whether the message came with you is the whole reason to show it. */
+    (gift
+      ? '<div class="co-gift"><span class="co-gift-k">Gift card</span>' +
+          (gift.to ? "<p><strong>For " + esc(gift.to) + "</strong></p>" : "") +
+          (gift.message ? "<p><em>" + esc(gift.message) + "</em></p>" : "") +
+          (gift.from ? "<p>\u2014 " + esc(gift.from) + "</p>" : "") +
+          '<a href="../gifts/#personalise">Edit</a>' +
+        "</div>"
+      : '<a class="co-gift-add" href="../gifts/#personalise">Add a gift message &rsaquo;</a>') +
+    '<p class="co-assure">Insured, hand-delivered, and accompanied by its certificate.</p>';
 }
 paintSummary();
 
@@ -118,7 +180,7 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
     var order = await Gem.createEnquiryOrder(items, f.email.value.trim(), [
       "Name: " + f.name.value.trim(),
       "Phone: " + f.phone.value.trim(),
-      "Location: " + f.city.value.trim() + ", " + f.country.value.trim(),
+      "Location: " + f.city.value.trim() + ", " + countryName(),
       f.notes.value.trim()
     ].filter(Boolean).join("\n"));
 
@@ -132,7 +194,8 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
     await Gem.submitForm("quotation", {
       name: f.name.value.trim(),
       email: f.email.value.trim(),
-      phone: f.phone.value.trim(),
+      phone: (f.dial.value + " " + f.phone.value.trim()).trim(),
+      country: countryName(),
       source: "checkout",
       order_number: order.order_number,
       pieces: items.map(function (i) { return i.name; }),

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
 <link rel="stylesheet" href="styles.css?v=5">
 <link rel="stylesheet" href="../css/site-nav.css">
+<link rel="stylesheet" href="../css/mini-cart.css">
 </head>
 <body>
 <div class="fj">
@@ -22,7 +23,7 @@
       <a class="fj-icon" href="../login/" aria-label="Account">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="0.9" aria-hidden="true"><circle cx="10" cy="6.67" r="3.33"/><path d="M4.17 17.5c0-3.22 2.61-5.83 5.83-5.83s5.83 2.61 5.83 5.83"/></svg>
       </a>
-      <a class="fj-icon" href="../cart/" aria-label="Cart">
+      <a class="fj-icon pg-cart" href="../cart/" aria-label="Cart">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       </a>
     </div>
@@ -34,8 +35,12 @@
 
   <div id="site-footer"></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
 <script src="../js/site-footer.js"></script>
 <script src="../js/site-content.js"></script>
+<script src="../js/mini-cart.js"></script>
 <script src="../js/site-nav.js"></script>
 <script src="data.js?v=5"></script>
 <script src="app.js?v=5"></script>

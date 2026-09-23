@@ -13,6 +13,12 @@
 (function () {
   "use strict";
 
+  /* This page builds its own header rather than going through GemShell, so the
+     bag drawer is started here. Without it "Add to selection" changes a number
+     in the corner and nothing else. */
+  if (window.GemMiniCart) window.GemMiniCart.init({ prefix: "../" });
+
+
   var IMG = "img/";
 
   var PRODUCT_PAGE_ENABLED = true;

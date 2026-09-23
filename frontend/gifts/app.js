@@ -36,23 +36,21 @@
                ["Pendants", "Earrings", "Bracelets", "Necklaces"].indexOf(p.type) !== -1;
       },
     },
-    him: {
-      label: "Gifts for him",
+    her: {
+      label: "Gifts for her",
       /* Nothing in the catalogue records who a piece is for. What it does
-         record is shape: the plainer, more structural pieces — bracelets and
-         pendants without a floral motif, in the cooler stones — are the ones
-         that read as unisex. */
+         record is the design: the house's decorative motifs — bloom, petal,
+         flora, rosette, garland, dew, swirl — are the pieces this set is
+         built from, and they carry the collections' own vocabulary rather
+         than a guess about the person receiving them. */
       test: function (p) {
         var name = (p.name || "").toLowerCase();
-        var floral = /bloom|petal|flora|rosette|garland|blossom|dew|swirl/.test(name);
-        var coolStone = /tanzanite|aquamarine|spinel|tourmaline|garnet/i.test(p.stone || "");
-        return !floral && coolStone &&
-               ["Bracelets", "Pendants", "Necklaces"].indexOf(p.type) !== -1;
+        return /bloom|petal|flora|rosette|garland|blossom|dew|swirl/.test(name);
       },
     },
   };
 
-  var ORDER = ["all", "popular", "him"];
+  var ORDER = ["all", "popular", "her"];
 
   // ------------------------------------------------------------- helpers
 

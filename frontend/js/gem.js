@@ -26,9 +26,17 @@
     }
   }
 
+  /* Why the cart changed, set by whichever function is about to write it. A
+     removal and an addition both fire the same event, and only one of them
+     should open a drawer over what somebody is reading. */
+  var lastReason = null, lastAdded = null;
+
   function writeCart(items) {
     localStorage.setItem(CART_KEY, JSON.stringify(items));
-    w.dispatchEvent(new CustomEvent("gem:cart", { detail: items }));
+    w.dispatchEvent(new CustomEvent("gem:cart", {
+      detail: { items: items, reason: lastReason, added: lastAdded }
+    }));
+    lastReason = null; lastAdded = null;
     return items;
   }
 
@@ -50,6 +58,8 @@
       priceCents: item.priceCents || 0,
       qty: item.qty || 1
     });
+    lastReason = "add";
+    lastAdded = item.id;
     return writeCart(items);
   }
 

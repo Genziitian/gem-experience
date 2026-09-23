@@ -27,7 +27,27 @@ const DB = {
     { id: 1, actor_id: "u1", action: "update", entity_type: "nav_items", entity_id: "n2", meta: { after: { label: "Fine Jewellery" } }, created_at: new Date().toISOString() },
     { id: 2, actor_id: "u1", action: "insert", entity_type: "offices", entity_id: "o3", meta: { after: { name: "Zanzibar Serena" } }, created_at: new Date(Date.now() - 6e5).toISOString() },
   ],
-  profiles: [{ id: "u1", full_name: "Ops", email: "ops@example.com" }],
+  profiles: [
+    { id: "u1", full_name: "Asha Mehta", email: "asha@gem-experience.com", phone: "+91 98 0000 0001", role: "super_admin", status: "active", created_at: "2026-01-04T09:00:00Z" },
+    { id: "u2", full_name: "Ravi Nair", email: "ravi@gem-experience.com", phone: null, role: "ops", status: "active", created_at: "2026-02-11T09:00:00Z" },
+    { id: "u3", full_name: "Lina Farah", email: "lina@gem-experience.com", phone: null, role: "catalog", status: "active", created_at: "2026-03-02T09:00:00Z" },
+    { id: "u4", full_name: "Sam Okoye", email: "sam@gem-experience.com", phone: null, role: "catalog", status: "blocked", created_at: "2026-04-21T09:00:00Z" },
+    { id: "u5", full_name: "Priya Shah", email: "priya@example.com", phone: null, role: "customer", status: "active", created_at: "2026-05-30T09:00:00Z" },
+    { id: "u6", full_name: null, email: "guest@example.com", phone: null, role: "customer", status: "active", created_at: "2026-06-15T09:00:00Z" },
+  ],
+  activity_log: [
+    { id: 1, actor_id: "u1", created_at: new Date(Date.now() - 3e5).toISOString(), action: "login" },
+    { id: 2, actor_id: "u2", created_at: new Date(Date.now() - 9e5).toISOString(), action: "login" },
+    { id: 3, actor_id: "u3", created_at: new Date(Date.now() - 4e6).toISOString(), action: "login" },
+  ],
+  activity_feed: [
+    { id: "activity:9", created_at: new Date(Date.now() - 6e4).toISOString(), actor_id: "u1", actor_email: "asha@gem-experience.com", actor_role: "super_admin", action: "login", area: null, detail: {}, source: "session" },
+    { id: "audit:8", created_at: new Date(Date.now() - 12e4).toISOString(), actor_id: "u1", actor_email: "asha@gem-experience.com", actor_role: "super_admin", action: "role_change", area: "profiles", detail: { email: "sam@gem-experience.com", before: { role: "ops", status: "active" }, after: { role: "catalog", status: "active" } }, source: "change" },
+    { id: "activity:7", created_at: new Date(Date.now() - 3e5).toISOString(), actor_id: "u2", actor_email: "ravi@gem-experience.com", actor_role: "ops", action: "view", area: "/catalog", detail: {}, source: "session" },
+    { id: "audit:6", created_at: new Date(Date.now() - 9e5).toISOString(), actor_id: "u3", actor_email: "lina@gem-experience.com", actor_role: "catalog", action: "update", area: "nav_items", detail: { after: { label: "Fine Jewellery" } }, source: "change" },
+    { id: "audit:5", created_at: new Date(Date.now() - 18e5).toISOString(), actor_id: "u3", actor_email: "lina@gem-experience.com", actor_role: "catalog", action: "delete", area: "offices", detail: { before: { name: "Old Stockist" } }, source: "change" },
+    { id: "activity:4", created_at: new Date(Date.now() - 36e5).toISOString(), actor_id: "u2", actor_email: "ravi@gem-experience.com", actor_role: "ops", action: "logout", area: null, detail: {}, source: "session" },
+  ],
 };
 
 let seq = 100;
@@ -88,7 +108,7 @@ export const supabase = {
     getPublicUrl: (p) => ({ data: { publicUrl: "https://placehold.co/400?t=" + encodeURIComponent(p) } }),
     remove: () => Promise.resolve({ error: null }),
   }) },
-  auth: { getSession: () => Promise.resolve({ data: { session: null } }), onAuthStateChange: () => ({ data: { subscription: { unsubscribe() {} } } }) },
+  auth: { getUser: () => Promise.resolve({ data: { user: { id: new URLSearchParams(location.search).get("as") || "u1", email: "asha@gem-experience.com" } } }), getSession: () => Promise.resolve({ data: { session: null } }), onAuthStateChange: () => ({ data: { subscription: { unsubscribe() {} } } }) },
 };
 export function configStatus() { return { ok: true, reason: "" }; }
 export function isConfigured() { return true; }

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { supabase } from "../lib/supabase.js";
 import { useTheme } from "../lib/useTheme.js";
 import { Icon } from "./ui.jsx";
+import { recordView } from "../lib/activity.js";
 
 const LINKS = [
   { section: "Overview", items: [
@@ -13,8 +14,11 @@ const LINKS = [
     ["/orders", "Orders", "orders"],
     ["/quotations", "Quotations", "quotations", "quotes"],
   ] },
+  { section: "People", items: [
+    ["/people", "People & roles", "users"],
+    ["/activity", "Activity", "traffic"],
+  ] },
   { section: "Engagement", items: [
-    ["/users", "Users", "users"],
     ["/forms", "Forms", "forms", "forms"],
     ["/traffic", "Traffic", "traffic"],
   ] },
@@ -64,6 +68,10 @@ export default function Shell({ profile, email, children }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const badges = useBadges();
+
+  /* Which screen was opened, recorded once per screen rather than per render.
+     recordView throttles; this only has to fire on a real path change. */
+  useEffect(() => { recordView(location.pathname); }, [location.pathname]);
 
   useEffect(() => {
     setOpen(false);

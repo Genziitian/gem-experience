@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { isConfigured, supabase } from "./lib/supabase.js";
+import { record } from "./lib/activity.js";
 import Shell from "./components/Shell.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Catalog from "./pages/Catalog.jsx";
-import Users from "./pages/Users.jsx";
 import Orders from "./pages/Orders.jsx";
 import Forms from "./pages/Forms.jsx";
 import Quotations from "./pages/Quotations.jsx";
@@ -18,6 +18,8 @@ import Offices from "./pages/Offices.jsx";
 import Contact from "./pages/Contact.jsx";
 import Media from "./pages/Media.jsx";
 import Audit from "./pages/Audit.jsx";
+import Activity from "./pages/Activity.jsx";
+import People from "./pages/People.jsx";
 
 export default function App() {
   const [session, setSession] = useState(undefined);
@@ -29,7 +31,17 @@ export default function App() {
       return;
     }
     supabase.auth.getSession().then(({ data }) => setSession(data.session ?? null));
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setSession(s));
+    /* SIGNED_IN also fires on a tab regaining focus and on a token refresh, so
+       recording every one of them would log a dozen sign-ins for a single
+       session. Only a genuine change of user counts. */
+    let lastUser = null;
+    const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
+      setSession(s);
+      const id = s?.user?.id ?? null;
+      if (event === "SIGNED_IN" && id && id !== lastUser) record("login");
+      if (event === "SIGNED_OUT" && lastUser) record("logout");
+      lastUser = id;
+    });
     return () => sub.subscription.unsubscribe();
   }, []);
 
@@ -67,7 +79,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/users" element={<Navigate to="/people" replace />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/quotations" element={<Quotations />} />
         <Route path="/forms" element={<Forms />} />
@@ -79,6 +91,8 @@ export default function App() {
         <Route path="/media" element={<Media />} />
         <Route path="/security" element={<Security />} />
         <Route path="/audit" element={<Audit />} />
+        <Route path="/activity" element={<Activity />} />
+        <Route path="/people" element={<People />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Shell>

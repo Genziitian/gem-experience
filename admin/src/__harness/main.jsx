@@ -12,6 +12,8 @@ import Contact from "../pages/Contact.jsx";
 import Media from "../pages/Media.jsx";
 import Audit from "../pages/Audit.jsx";
 import GalleryEditor from "../components/GalleryEditor.jsx";
+import Activity from "../pages/Activity.jsx";
+import People from "../pages/People.jsx";
 import { useState } from "react";
 
 function Gallery() {
@@ -29,7 +31,7 @@ function Gallery() {
 }
 
 const which = new URLSearchParams(location.search).get("page") || "navigation";
-const Pages = { navigation: Navigation, offices: Offices, contact: Contact, media: Media, audit: Audit, gallery: Gallery };
+const Pages = { navigation: Navigation, offices: Offices, contact: Contact, media: Media, audit: Audit, gallery: Gallery, activity: Activity, people: People };
 const Page = Pages[which] || Navigation;
 
 createRoot(document.getElementById("root")).render(

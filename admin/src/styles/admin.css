@@ -1033,3 +1033,73 @@ input::placeholder, textarea::placeholder { color: var(--faint); }
 .gal-focal { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-2); }
 .gal-focal span { flex-shrink: 0; min-width: 62px; }
 .gal-focal input[type="range"] { flex: 1; min-width: 0; }
+
+/* ------------------------------------------------------------ people & activity */
+
+.role-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.role-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: left;
+}
+.role-card:hover { border-color: var(--border-strong); }
+/* the selected card is the active filter, so it needs to read as pressed
+   rather than merely hovered */
+.role-card.is-on { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary) inset; }
+.role-count {
+  min-width: 46px; height: 42px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r-sm);
+  background: var(--primary-soft); color: var(--primary);
+  font-size: 17px; font-weight: 700;
+}
+.role-count--ok   { background: var(--success-soft); color: var(--success); }
+.role-count--warn { background: var(--warning-soft); color: var(--warning); }
+.role-count--bad  { background: var(--danger-soft, var(--surface-3)); color: var(--danger); }
+.role-count--plain{ background: var(--surface-3); color: var(--text-2); }
+.role-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.role-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.role-sub { font-size: 11.5px; color: var(--muted); line-height: 16px; }
+
+.role-legend { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.role-legend li { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--text-2); }
+.role-legend code { margin-left: auto; font-size: 11px; color: var(--muted); background: var(--surface-3); padding: 2px 6px; border-radius: 4px; }
+
+.you {
+  margin-left: 6px; padding: 1px 6px; border-radius: 999px;
+  background: var(--primary-soft); color: var(--primary);
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+}
+tr.is-off { opacity: 0.55; }
+
+/* -- activity feed */
+
+.feed { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.feed-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 2px;
+  border-bottom: 1px solid var(--border);
+}
+.feed-row:last-child { border-bottom: 0; }
+.feed-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); flex-shrink: 0; }
+.feed-dot--ok { background: var(--success); }
+.feed-dot--warn { background: var(--warning); }
+.feed-dot--bad { background: var(--danger); }
+.feed-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.feed-line { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+.feed-line strong { font-weight: 600; }
+.feed-action { color: var(--muted); }
+.feed-subject { color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
+.feed-meta { font-size: 11px; color: var(--faint); }
+.feed-detail { flex-basis: 100%; }

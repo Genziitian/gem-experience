@@ -64,3 +64,68 @@ no database. See `src/__harness/README.md`.
 `Export` writes them back for committing. The round trip is lossless,
 including the per-image crop points, which live in `site_settings.focal`
 because they are keyed by image path rather than belonging to any one product.
+
+## Activity and roles
+
+`migrations/20260923000000_activity_log.sql` adds the activity feed, extends
+the change-log triggers, and closes a privilege escalation. Run it after the
+site-content migrations.
+
+### The escalation it closes
+
+The original policy was:
+
+    create policy "Staff update profiles" on public.profiles
+      for update using (public.is_staff() or id = auth.uid());
+
+An UPDATE policy with no `with check` reuses its `using` expression for the
+check, and that clause permitted `id = auth.uid()`. Any signed-in storefront
+customer could therefore update their own profile row — including `role` — and
+make themselves a super admin in one request. The admin's dropdowns were never
+the protection; there was none.
+
+`guard_profile_privileges()` now decides who may move `role` and `status`:
+
+| Viewer      | Change a role | Block an account            |
+| ----------- | ------------- | --------------------------- |
+| Super admin | anyone but themselves | anyone but themselves |
+| Manager     | no            | storefront users only       |
+| Admin       | no            | no                          |
+| User        | no            | no                          |
+
+Nobody changes their own role or status, super admin included, and the last
+active super admin cannot be demoted or blocked — otherwise the panel can be
+locked out of its own role management with no way back in.
+
+### Roles
+
+Four tiers, hierarchical. The stored values predate this screen and every
+security policy is written against them, so they stay; the labels are in
+`ROLES` in `src/lib/activity.js`.
+
+| Label       | Stored value  |
+| ----------- | ------------- |
+| Super admin | `super_admin` |
+| Manager     | `ops`         |
+| Admin       | `catalog`     |
+| User        | `customer`    |
+
+If you would rather the stored values matched the labels, that is an enum
+rename plus a rewrite of every policy naming `ops` or `catalog` — worth doing
+deliberately, not as a side effect of this screen.
+
+### What gets recorded
+
+- **Sessions** — sign in, sign out, screens opened. Written by the app, since
+  no row changes when somebody navigates. Page views are throttled to one per
+  screen per minute so a screen left open does not bury the feed.
+- **Changes** — creates, edits, deletes, role and status changes on products,
+  collections, nav, offices, settings and profiles. Written by database
+  triggers, so an edit made through the Supabase dashboard is recorded too.
+
+`activity_feed` is a view that unions the two, so the screen makes one query
+with one ordering rather than interleaving two paginated lists in the browser.
+
+Staff read the feed; anyone signed in may append their own rows, which is what
+lets a sign-in be recorded by the person signing in. The actor cannot be
+forged and nothing can be edited or deleted afterwards.

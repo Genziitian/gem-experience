@@ -737,6 +737,14 @@
     });
     ctas.appendChild(c1b); ctas.appendChild(c2b);
 
+    /* Pieces with a story page of their own link to it from here, which is
+       where somebody reading about the piece would look for more. */
+    if (p.storyUrl) {
+      var story = el("a", "pdp-story-link", { href: p.storyUrl });
+      story.textContent = p.storyLabel || "Read the story";
+      panel.appendChild(story);
+    }
+
     var addSel = el("button", "cta cta--ghost", { type: "button" });
     addSel.textContent = "Add to selection";
     addSel.style.marginTop = "10px";

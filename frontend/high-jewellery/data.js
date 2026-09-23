@@ -321,7 +321,9 @@ window.HJ_DATA = {
         "img/pieces/celestine/m7.webp",
         "img/pieces/celestine/m8.webp",
         "img/pieces/celestine/m9.webp"
-      ]
+      ],
+      "storyUrl": "celestine/",
+      "storyLabel": "Read the story of Celestine"
     },
     {
       "id": "merelani",

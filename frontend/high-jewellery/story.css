@@ -1,0 +1,205 @@
+/* The High Jewellery story page.
+ *
+ * A long editorial read rather than a product page: bands of photography at
+ * full width, separated by copy that has room around it. Everything is sized
+ * by the viewport so the rhythm survives from a phone to a wide display.
+ *
+ * Its own stylesheet because it belongs to neither the catalogue's SPA styles
+ * nor the standard page chrome — it loads pages.css for the header, footer and
+ * buttons, and this for the article itself.
+ */
+
+.st-body { background: #fff; }
+
+:root {
+  --st-gutter: clamp(20px, 6vw, 88px);
+  --st-band: clamp(64px, 11vh, 140px);
+}
+
+/* -------------------------------------------------------------- opening */
+
+.st-open {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: clamp(56px, 11vh, 132px) var(--st-gutter) clamp(48px, 9vh, 104px);
+  text-align: center;
+}
+.st-kicker {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted, #8a8279);
+}
+.st-title {
+  margin: 0;
+  font-family: var(--serif, Georgia, serif);
+  font-weight: 400;
+  /* the one piece of type on the page allowed to be large */
+  font-size: clamp(40px, 7vw, 82px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.st-lede {
+  margin: 0;
+  max-width: 62ch;
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.7;
+  color: var(--ink-soft, #56504a);
+}
+
+/* ---------------------------------------------------------------- bands */
+
+.st-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* butted together, no gap: the two frames read as one spread */
+  gap: 0;
+}
+.st-pair figure { margin: 0; aspect-ratio: 1; overflow: hidden; background: var(--ground, #f3f1ee); }
+.st-pair--tall figure { aspect-ratio: 4 / 5; }
+.st-pair img { width: 100%; height: 100%; object-fit: cover; }
+
+.st-full { display: block; }
+.st-full img {
+  width: 100%;
+  /* capped: a 2:3 portrait at full width is three screens tall */
+  height: clamp(340px, 82vh, 860px);
+  object-fit: cover;
+  object-position: 50% 32%;
+  display: block;
+}
+
+/* ---------------------------------------------------------------- quote */
+
+.st-quote {
+  margin: 0;
+  padding: clamp(64px, 12vh, 150px) var(--st-gutter);
+  display: grid;
+  justify-items: center;
+  gap: 26px;
+  text-align: center;
+}
+.st-quote p {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--serif, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(24px, 3.4vw, 46px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.st-quote cite {
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted, #8a8279);
+}
+
+/* ---------------------------------------------------------------- craft */
+/* Two frames and a column of copy. The copy sits in the third column on a
+   wide screen and under both frames on a narrow one. */
+
+.st-craft {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 900px) {
+  .st-craft { grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
+}
+.st-craft figure { margin: 0; aspect-ratio: 3 / 4; overflow: hidden; background: var(--ground, #f3f1ee); }
+.st-craft img { width: 100%; height: 100%; object-fit: cover; }
+.st-craft-copy {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: clamp(40px, 7vh, 80px) var(--st-gutter);
+}
+
+/* ---------------------------------------------------------------- split */
+
+.st-split { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .st-split { grid-template-columns: 1fr 1fr; align-items: center; }
+}
+.st-split-copy { display: grid; gap: 16px; padding: clamp(48px, 9vh, 110px) var(--st-gutter); }
+.st-split figure { margin: 0; aspect-ratio: 1; overflow: hidden; background: var(--ground, #f3f1ee); }
+.st-split img { width: 100%; height: 100%; object-fit: cover; }
+
+/* shared copy type across the article's sections */
+.st-craft-copy h2, .st-split-copy h2, .st-suite h2, .st-say h2, .st-more h2 {
+  margin: 0;
+  font-family: var(--serif, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.2;
+}
+.st-craft-copy p, .st-split-copy p, .st-say p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-soft, #56504a);
+}
+
+/* ---------------------------------------------------------------- suite */
+
+.st-suite { padding: var(--st-band) var(--st-gutter); display: grid; gap: 10px; justify-items: center; text-align: center; }
+.st-suite-note { margin: 0 0 22px; font-size: 14px; color: var(--muted, #8a8279); }
+.st-suite-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 32px);
+}
+.st-suite-grid figure { margin: 0; display: grid; gap: 12px; }
+.st-suite-grid img { width: 100%; aspect-ratio: 1; object-fit: contain; background: var(--ground, #f3f1ee); }
+.st-suite-grid figcaption {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink, #201e1d);
+}
+
+/* ------------------------------------------------------------------ say */
+
+.st-say {
+  display: grid; justify-items: center; gap: 20px; text-align: center;
+  padding: var(--st-band) var(--st-gutter);
+  background: var(--ground, #f7f5f2);
+}
+.st-say p { max-width: 58ch; }
+.st-say-acts { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+/* ----------------------------------------------------------------- more */
+
+.st-more { padding: var(--st-band) var(--st-gutter); display: grid; gap: 28px; justify-items: center; text-align: center; }
+.st-more-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+}
+@media (min-width: 760px) { .st-more-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.st-more-grid a { display: grid; gap: 12px; }
+.st-more-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--ground, #f3f1ee); }
+.st-more-grid span {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  border-bottom: 1px solid currentColor; justify-self: center; padding-bottom: 3px;
+}
+
+/* -------------------------------------------------------------- crumbs */
+
+.st-crumbs {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  padding: 0 var(--st-gutter) var(--st-band);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted, #8a8279);
+}
+.st-crumbs a:hover { color: var(--ink, #201e1d); }
+
+@media (max-width: 700px) {
+  /* Stacked rather than paired: two 1:1 frames side by side on a phone are
+     two thumbnails, which is not what a full-bleed spread is for. */
+  .st-pair { grid-template-columns: 1fr; }
+  .st-suite-grid { grid-template-columns: 1fr; gap: 28px; }
+}

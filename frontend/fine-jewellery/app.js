@@ -210,7 +210,7 @@
      Collections still awaiting a shoot fall back to img/model/, which shows the
      stone-tone orb until those files are dropped in. */
   var MODEL_STORY = [
-    { img: "img/model/model-1.jpg", h: "Made to be worn", p: "Every Fine Jewellery piece is fitted and finished by hand in our workshop, then tried on a real hand, wrist or ear before it ships — not just photographed on a mannequin." },
+    { img: "img/model/model-1.jpg", h: "Made to be worn", p: "Every Fine Jewellery piece is fitted and finished by hand in our workshop, then tried on a real hand, wrist or ear before it ships, not just photographed on a mannequin." },
     { img: "img/model/model-2.jpg", h: "Everyday, not occasion-only", p: "Fine Jewellery is built for daily wear: secure clasps, snag-free settings, and metals chosen to hold their colour through years of ordinary use." },
     { img: "img/model/model-3.jpg", h: "Stones you can trace", p: "Every coloured stone in the collection is sourced and graded before it is set, so the carat weight and shape on this page match the stone actually in the piece." },
     { img: "img/model/model-4.jpg", h: "Finished in-house", p: "Polishing, stone-setting and quality control all happen under one roof, so a piece that leaves our workshop has been checked by the same hands that made it." }

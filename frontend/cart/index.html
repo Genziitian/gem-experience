@@ -72,7 +72,7 @@ function render() {
   function giftBlock() {
     var g = giftNote();
     if (!g) {
-      return '<p class="pg-note pg-gift-hint">Sending this as a gift? A card is written by hand and set inside the box \u2014 no charge.</p>';
+      return '<p class="pg-note pg-gift-hint">Sending this as a gift? A card is written by hand and set inside the box, at no charge.</p>';
     }
     return (
       '<div class="pg-gift-set">' +
@@ -107,7 +107,7 @@ function render() {
     '<div><div class="pg-cart-list">' + list + "</div></div>" +
     '<aside class="pg-panel pg-summary">' +
       "<h2>Summary</h2>" +
-      "<p class=\"pg-note\">Most High Jewellery pieces are quoted privately — checkout opens an enquiry with our advisors.</p>" +
+      "<p class=\"pg-note\">Most High Jewellery pieces are quoted privately. Checkout opens an enquiry with our advisors.</p>" +
       "<dl><div class=\"pg-total\"><span>Pieces</span><span>" + items.length + "</span></div></dl>" +
       giftBlock() +
       '<div class="pg-actions pg-actions--col">' +

@@ -519,7 +519,7 @@ window.FJ_DATA = {
       "diamondCt": 0.45,
       "netG": 1.76,
       "grossG": 2.16,
-      "story": "Mint garnet speaks of quiet strength, the kind of growth no one applauds until it's finished. This pendant sets a 1.55 carat pear-cut stone, cool and green as new leaves, among 0.45 carats of brilliant-cut diamonds in white gold — small enough to wear every day, deliberate enough to mean something.",
+      "story": "Mint garnet speaks of quiet strength, the kind of growth no one applauds until it's finished. This pendant sets a 1.55 carat pear-cut stone, cool and green as new leaves, among 0.45 carats of brilliant-cut diamonds in white gold: small enough to wear every day, deliberate enough to mean something.",
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd25-1081.webp"
@@ -558,7 +558,7 @@ window.FJ_DATA = {
       "diamondCt": 1.12,
       "netG": 5.524,
       "grossG": 6.61,
-      "story": "At 4.31 carats a pair, this is Bloom's most confident statement in mint garnet — vivid pear-cut stones bordered in 1.12 carats of brilliant-cut diamonds and set in white gold. Worn together, they catch the light with the same quiet insistence the stone is named for.",
+      "story": "At 4.31 carats a pair, this is Bloom's most confident statement in mint garnet: vivid pear-cut stones bordered in 1.12 carats of brilliant-cut diamonds and set in white gold. Worn together, they catch the light with the same quiet insistence the stone is named for.",
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd25-1067.webp",
@@ -581,7 +581,7 @@ window.FJ_DATA = {
       "diamondCt": 2.43,
       "netG": 16.826,
       "grossG": 18.39,
-      "story": "Aquamarine is Bloom's stone for clarity and calm, and this bracelet wears it at scale: 5.39 carats of pear-cut aquamarine, sea-glass blue, set with 2.43 carats of brilliant-cut diamonds in white gold. It sits on the wrist like a held breath — cool, considered, unhurried.",
+      "story": "Aquamarine is Bloom's stone for clarity and calm, and this bracelet wears it at scale: 5.39 carats of pear-cut aquamarine, sea-glass blue, set with 2.43 carats of brilliant-cut diamonds in white gold. It sits on the wrist like a held breath: cool, considered, unhurried.",
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd25-994.webp",
@@ -605,7 +605,7 @@ window.FJ_DATA = {
       "diamondCt": 1.07,
       "netG": 4.558,
       "grossG": 5.2,
-      "story": "A ring in aquamarine's own colour of composure: 2.14 carats of pear-cut stone paired with 1.07 carats of diamonds, in white gold. Bloom reads the stone as courage worn quietly — the kind that doesn't need to announce itself.",
+      "story": "A ring in aquamarine's own colour of composure: 2.14 carats of pear-cut stone paired with 1.07 carats of diamonds, in white gold. Bloom reads the stone as courage worn quietly: the kind that doesn't need to announce itself.",
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd25-1026.webp",
@@ -652,7 +652,7 @@ window.FJ_DATA = {
       "diamondCt": 0.59,
       "netG": 2.484,
       "grossG": 2.94,
-      "story": "The lightest piece in the aquamarine line — 1.69 carats of pear-cut stone with 0.59 carats of diamonds in white gold — sized to be worn without a second thought, which is exactly the point of a stone that stands for calm.",
+      "story": "The lightest piece in the aquamarine line: 1.69 carats of pear-cut stone with 0.59 carats of diamonds in white gold: sized to be worn without a second thought, which is exactly the point of a stone that stands for calm.",
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd25-1087.webp"
@@ -673,7 +673,7 @@ window.FJ_DATA = {
       "diamondCt": 2.38,
       "netG": 20.514,
       "grossG": 22.69,
-      "story": "Tanzanite is mined in one place on earth and is rarer, gram for gram, than diamond — which is why Bloom reads it as a stone for new beginnings. This bracelet carries 8.5 carats of pear-cut tanzanite in a deep violet-blue, set with 2.38 carats of diamonds in white gold.",
+      "story": "Tanzanite is mined in one place on earth and is rarer, gram for gram, than diamond, which is why Bloom reads it as a stone for new beginnings. This bracelet carries 8.5 carats of pear-cut tanzanite in a deep violet-blue, set with 2.38 carats of diamonds in white gold.",
       "tone": "#3a5f9a"
     },
     {
@@ -691,7 +691,7 @@ window.FJ_DATA = {
       "diamondCt": 1.67,
       "netG": 17.584,
       "grossG": 18.23,
-      "story": "The Petal line takes pink spinel — Bloom's stone for healing and rebirth — and sets it in rounded, closed forms rather than open claws. This bracelet mixes round and pear-cut spinel totalling 1.56 carats with 1.67 carats of brilliant-cut diamonds, in white gold.",
+      "story": "The Petal line takes pink spinel: Bloom's stone for healing and rebirth: and sets it in rounded, closed forms rather than open claws. This bracelet mixes round and pear-cut spinel totalling 1.56 carats with 1.67 carats of brilliant-cut diamonds, in white gold.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-964.webp"
@@ -759,7 +759,7 @@ window.FJ_DATA = {
       "diamondCt": 0.46,
       "netG": 2.84,
       "grossG": 3.06,
-      "story": "The Petal pendant keeps things simple — 0.64 carats of round pink spinel, 0.46 carats of diamonds, rose gold — for a piece meant to be worn constantly rather than saved for occasion.",
+      "story": "The Petal pendant keeps things simple: 0.64 carats of round pink spinel, 0.46 carats of diamonds, rose gold, for a piece meant to be worn constantly rather than saved for occasion.",
       "tone": "#c45a7a"
     },
     {
@@ -821,7 +821,7 @@ window.FJ_DATA = {
       "diamondCt": 5.88,
       "netG": 36.278,
       "grossG": 40.91,
-      "story": "Spessartite burns a warmer orange than any other garnet, and this Garland necklace uses that heat generously — 17.28 carats of pear-cut stone with 5.88 carats of diamonds in white gold, strung to catch candlelight rather than daylight.",
+      "story": "Spessartite burns a warmer orange than any other garnet, and this Garland necklace uses that heat generously: 17.28 carats of pear-cut stone with 5.88 carats of diamonds in white gold, strung to catch candlelight rather than daylight.",
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-176.webp"
@@ -842,7 +842,7 @@ window.FJ_DATA = {
       "diamondCt": 2.16,
       "netG": 17.742,
       "grossG": 29.82,
-      "story": "A floral motif built from two very different textures: 6.89 carats of faceted spessartite set against 51.34 carats of carved, cabochon chalcedony, finished with 2.16 carats of round brilliant-cut diamonds in 18k white gold. Chalcedony is Bloom's stone for quiet renewal — matte where the spessartite is fire.",
+      "story": "A floral motif built from two very different textures: 6.89 carats of faceted spessartite set against 51.34 carats of carved, cabochon chalcedony, finished with 2.16 carats of round brilliant-cut diamonds in 18k white gold. Chalcedony is Bloom's stone for quiet renewal: matte where the spessartite is fire.",
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-513.webp"
@@ -881,7 +881,7 @@ window.FJ_DATA = {
       "diamondCt": 1.85,
       "netG": 17.977,
       "grossG": 20.14,
-      "story": "A square-cushion cut brings a more architectural pink spinel to the Petal line — 8.96 carats of it, paired with 1.85 carats of diamonds in 18k white gold, for a necklace with more presence than its siblings.",
+      "story": "A square-cushion cut brings a more architectural pink spinel to the Petal line: 8.96 carats of it, paired with 1.85 carats of diamonds in 18k white gold, for a necklace with more presence than its siblings.",
       "tone": "#c45a7a"
     },
     {
@@ -899,7 +899,7 @@ window.FJ_DATA = {
       "diamondCt": 2.121,
       "netG": 8.468,
       "grossG": 9.58,
-      "story": "Heart in Bloom sets a cabochon heart of rubellite — Bloom's stone for passion — across two fingers at once: 3.44 carats of stone, 2.121 carats of brilliant-cut diamonds, in white gold. It is a ring built to be noticed, and to move as the hand moves.",
+      "story": "Heart in Bloom sets a cabochon heart of rubellite: Bloom's stone for passion: across two fingers at once: 3.44 carats of stone, 2.121 carats of brilliant-cut diamonds, in white gold. It is a ring built to be noticed, and to move as the hand moves.",
       "tone": "#b8325a",
       "images": [
         "img/products/gd25-1046.webp",
@@ -944,7 +944,7 @@ window.FJ_DATA = {
       "diamondCt": 1.36,
       "netG": 8.02,
       "grossG": 8.97,
-      "story": "The Feather ring pairs 1.81 carats of pear-cut pink spinel with 1.58 carats of morganite — one stone for rebirth, the other for tenderness — set with 1.36 carats of diamonds across white and rose gold, so the two metals echo the two stones.",
+      "story": "The Feather ring pairs 1.81 carats of pear-cut pink spinel with 1.58 carats of morganite: one stone for rebirth, the other for tenderness: set with 1.36 carats of diamonds across white and rose gold, so the two metals echo the two stones.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-1036.webp"
@@ -988,7 +988,7 @@ window.FJ_DATA = {
       "diamondCt": 0.84,
       "netG": 4.344,
       "grossG": 4.83,
-      "story": "A smaller Garland piece for the hand: 1.59 carats of pear-cut mint garnet, 0.84 carats of diamonds, white gold — the same vine motif as the necklace, scaled down to a single stone.",
+      "story": "A smaller Garland piece for the hand: 1.59 carats of pear-cut mint garnet, 0.84 carats of diamonds, white gold: the same vine motif as the necklace, scaled down to a single stone.",
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-71.webp"
@@ -1009,7 +1009,7 @@ window.FJ_DATA = {
       "diamondCt": 2.05,
       "netG": 8.586,
       "grossG": 9.8,
-      "story": "A heart-cut tanzanite of 4.02 carats spans two fingers in this Heart in Bloom ring, set with 2.05 carats of brilliant-cut diamonds in white gold — tanzanite's violet-blue standing in for new beginnings, worn boldly rather than quietly.",
+      "story": "A heart-cut tanzanite of 4.02 carats spans two fingers in this Heart in Bloom ring, set with 2.05 carats of brilliant-cut diamonds in white gold: tanzanite's violet-blue standing in for new beginnings, worn boldly rather than quietly.",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-139.webp",
@@ -1033,7 +1033,7 @@ window.FJ_DATA = {
       "diamondCt": 0.94,
       "netG": 5.252,
       "grossG": 6.22,
-      "story": "Warm drop-cut spessartite gathered into a Rosette cluster — 3.9 carats of it, set with 0.94 carats of diamonds in white gold.",
+      "story": "Warm drop-cut spessartite gathered into a Rosette cluster: 3.9 carats of it, set with 0.94 carats of diamonds in white gold.",
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-167.webp",
@@ -1081,7 +1081,7 @@ window.FJ_DATA = {
       "diamondCt": 0.86,
       "netG": 5.562,
       "grossG": 6.14,
-      "story": "Spessartite's warmth and pink spinel's rose sit together in this statement ring — 1.5 carats and 0.53 carats respectively, pear-cut, set with 0.86 carats of diamonds in white gold.",
+      "story": "Spessartite's warmth and pink spinel's rose sit together in this statement ring: 1.5 carats and 0.53 carats respectively, pear-cut, set with 0.86 carats of diamonds in white gold.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-201.webp",
@@ -1126,7 +1126,7 @@ window.FJ_DATA = {
       "diamondCt": 1.01,
       "netG": 6.01,
       "grossG": 6.58,
-      "story": "Mint garnet alone, given the full statement treatment: 1.84 carats of pear-cut stone set with 1.01 carats of diamonds in 18k white gold — bolder in scale than the earlier Garland ring, though the meaning stays the same.",
+      "story": "Mint garnet alone, given the full statement treatment: 1.84 carats of pear-cut stone set with 1.01 carats of diamonds in 18k white gold: bolder in scale than the earlier Garland ring, though the meaning stays the same.",
       "tone": "#6a9e7a"
     },
     {
@@ -1144,7 +1144,7 @@ window.FJ_DATA = {
       "diamondCt": 0.56,
       "netG": 7.402,
       "grossG": 8.96,
-      "story": "The Fern ring holds two shades of tanzanite at once — lavender and deep blue, 7.23 carats combined — with a comparatively restrained 0.56 carats of diamonds in white gold, so the stone itself carries the piece.",
+      "story": "The Fern ring holds two shades of tanzanite at once: lavender and deep blue, 7.23 carats combined, with a comparatively restrained 0.56 carats of diamonds in white gold, so the stone itself carries the piece.",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-205.webp"
@@ -1186,7 +1186,7 @@ window.FJ_DATA = {
       "diamondCt": 0.83,
       "netG": 4.594,
       "grossG": 5.14,
-      "story": "A single pear-cut spessartite of 1.9 carats, set with 0.83 carats of diamonds in white gold — the Garland motif reduced to its simplest form.",
+      "story": "A single pear-cut spessartite of 1.9 carats, set with 0.83 carats of diamonds in white gold: the Garland motif reduced to its simplest form.",
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-257.webp",
@@ -1210,7 +1210,7 @@ window.FJ_DATA = {
       "diamondCt": 0.45,
       "netG": 4.216,
       "grossG": 6.78,
-      "story": "Carved rock crystal wraps 10.74 carats around a 1.63 carat heart-cut tanzanite in this dual finger ring, finished with 0.45 carats of diamonds in 18k white gold. Crystal stands for clarity in Bloom's language — here it is literal, framing the tanzanite like glass around a flame.",
+      "story": "Carved rock crystal wraps 10.74 carats around a 1.63 carat heart-cut tanzanite in this dual finger ring, finished with 0.45 carats of diamonds in 18k white gold. Crystal stands for clarity in Bloom's language: here it is literal, framing the tanzanite like glass around a flame.",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-566.webp"
@@ -1273,7 +1273,7 @@ window.FJ_DATA = {
       "diamondCt": 2,
       "netG": 4.716,
       "grossG": 5.56,
-      "story": "A single cabochon heart of rubellite, 2.22 carats, set with 2 carats of brilliant-cut diamonds in rose gold — the single-finger companion to the dual-finger Heart in Bloom ring, quieter but no less deliberate.",
+      "story": "A single cabochon heart of rubellite, 2.22 carats, set with 2 carats of brilliant-cut diamonds in rose gold: the single-finger companion to the dual-finger Heart in Bloom ring, quieter but no less deliberate.",
       "tone": "#b8325a",
       "images": [
         "img/products/gd25-1047.webp",
@@ -1297,7 +1297,7 @@ window.FJ_DATA = {
       "diamondCt": 1.87,
       "netG": 9.678,
       "grossG": 10.87,
-      "story": "A fancy-cut tanzanite of 4.09 carats, part of the Flora line, set with 1.87 carats of diamonds in 18k white gold — the stone left in an unconventional shape that favours colour over symmetry.",
+      "story": "A fancy-cut tanzanite of 4.09 carats, part of the Flora line, set with 1.87 carats of diamonds in 18k white gold: the stone left in an unconventional shape that favours colour over symmetry.",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-587.webp"
@@ -1318,7 +1318,7 @@ window.FJ_DATA = {
       "diamondCt": 5.15,
       "netG": 30.134,
       "grossG": 32.23,
-      "story": "A cabochon hoop that puts nearly equal weight in stone and diamond: 5.33 carats of oval pink spinel against 5.15 carats of brilliant-cut diamonds, set in 18k white gold — one of the more architectural pieces in Bloom.",
+      "story": "A cabochon hoop that puts nearly equal weight in stone and diamond: 5.33 carats of oval pink spinel against 5.15 carats of brilliant-cut diamonds, set in 18k white gold: one of the more architectural pieces in Bloom.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-816.webp",
@@ -1341,7 +1341,7 @@ window.FJ_DATA = {
       "diamondCt": 6.9,
       "netG": 21.16,
       "grossG": 23.7,
-      "story": "The largest rubellite in the Heart in Bloom line: cabochon hearts of 5.8 carats a pair, framed in 6.9 carats of brilliant-cut diamonds and set in rose gold — passion, at full scale, for the ears.",
+      "story": "The largest rubellite in the Heart in Bloom line: cabochon hearts of 5.8 carats a pair, framed in 6.9 carats of brilliant-cut diamonds and set in rose gold: passion, at full scale, for the ears.",
       "tone": "#b8325a"
     },
     {
@@ -1377,7 +1377,7 @@ window.FJ_DATA = {
       "diamondCt": 2.12,
       "netG": 18.086,
       "grossG": 19.17,
-      "story": "The same Garland line in mint garnet — 3.3 carats of pear-cut stone with 2.12 carats of diamonds in white gold — cooler and quieter than its spessartite counterpart.",
+      "story": "The same Garland line in mint garnet: 3.3 carats of pear-cut stone with 2.12 carats of diamonds in white gold: cooler and quieter than its spessartite counterpart.",
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-69.webp",
@@ -1464,7 +1464,7 @@ window.FJ_DATA = {
       "diamondCt": 1.55,
       "netG": 12.4,
       "grossG": 14.27,
-      "story": "The Bud earring keeps pink spinel in cabochon form — 7.8 carats of oval stone per pair, edged in 1.55 carats of brilliant-cut diamonds and set in 18k white gold — closed and rounded, the way a flower looks before it opens.",
+      "story": "The Bud earring keeps pink spinel in cabochon form: 7.8 carats of oval stone per pair, edged in 1.55 carats of brilliant-cut diamonds and set in 18k white gold: closed and rounded, the way a flower looks before it opens.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-288.webp",
@@ -1487,7 +1487,7 @@ window.FJ_DATA = {
       "diamondCt": 0.82,
       "netG": 15.926,
       "grossG": 19.64,
-      "story": "Ball-cut pink spinel drops give these studs unusual movement: 17.75 carats of stone with 0.82 carats of diamonds, set in yellow gold — the warmest metal in the collection paired with Bloom's stone for love.",
+      "story": "Ball-cut pink spinel drops give these studs unusual movement: 17.75 carats of stone with 0.82 carats of diamonds, set in yellow gold: the warmest metal in the collection paired with Bloom's stone for love.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-915-a.webp"
@@ -1552,7 +1552,7 @@ window.FJ_DATA = {
       "diamondCt": 3.39,
       "netG": 15.392,
       "grossG": 21.2,
-      "story": "At 25.65 carats a pair, this is the single largest stone weight anywhere in Bloom — drop-cut spessartite in full, fiery scale, set with 3.39 carats of diamonds in white gold.",
+      "story": "At 25.65 carats a pair, this is the single largest stone weight anywhere in Bloom: drop-cut spessartite in full, fiery scale, set with 3.39 carats of diamonds in white gold.",
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-166.webp",
@@ -1617,7 +1617,7 @@ window.FJ_DATA = {
       "diamondCt": 2.85,
       "netG": 14.406,
       "grossG": 17.04,
-      "story": "Fancy-cut tanzanite at full scale: 10.32 carats a pair, set with 2.85 carats of diamonds in white gold — the boldest piece in the Flora line.",
+      "story": "Fancy-cut tanzanite at full scale: 10.32 carats a pair, set with 2.85 carats of diamonds in white gold: the boldest piece in the Flora line.",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-228-b.webp"
@@ -1638,7 +1638,7 @@ window.FJ_DATA = {
       "diamondCt": 0.97,
       "netG": 7.164,
       "grossG": 8.2,
-      "story": "A Garland earring that mixes stones: 3.71 carats of spessartite beside 0.5 carats of pink spinel, set with 0.97 carats of diamonds in 18k white gold — warmth and rose meeting in the same setting.",
+      "story": "A Garland earring that mixes stones: 3.71 carats of spessartite beside 0.5 carats of pink spinel, set with 0.97 carats of diamonds in 18k white gold: warmth and rose meeting in the same setting.",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-785.webp"

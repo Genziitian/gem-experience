@@ -180,7 +180,7 @@
       { h: "At the bench",
         p: (metal ? metal + " raised, pierced and polished by one hand" :
                     "Raised, pierced and polished by one hand") +
-           " from start to finish — then worn for a day before it is allowed to leave." },
+           " from start to finish, then worn for a day before it is allowed to leave." },
       { h: "Worn",
         p: "Weight is balanced on the body before anything is set, so the " + kind +
            " sits where it should and stays there through an evening." }
@@ -467,8 +467,8 @@
 
   function waHref(num, p) {
     var msg = p
-      ? "Hello Gem Experience \u2014 I would like to enquire about " + p.name + " (" + p.materials + ")."
-      : "Hello Gem Experience \u2014 I would like to speak to an adviser.";
+      ? "Hello Gem Experience. I would like to enquire about " + p.name + " (" + p.materials + ")."
+      : "Hello Gem Experience. I would like to speak to an adviser.";
     return "https://wa.me/" + num.wa + "?text=" + encodeURIComponent(msg);
   }
 
@@ -895,7 +895,7 @@
     var band = el("section", "concierge");
     var bK = el("span", "concierge-kicker"); bK.textContent = "Client care";
     var bT = el("p", "concierge-copy");
-    bT.textContent = "An adviser can answer anything about this piece \u2014 the stone, the setting, "
+    bT.textContent = "An adviser can answer anything about this piece: the stone, the setting, "
       + "or how it wears.";
     var bA = el("button", "concierge-cta", { type: "button" }); bA.textContent = "Contact us";
     bA.addEventListener("click", function () { openEnquiry(p); });
@@ -998,10 +998,10 @@
     root.innerHTML = "";
     if (state.view === "product") {
       renderProduct(root);
-      document.title = current().name + " — High Jewellery | Gem Experience";
+      document.title = current().name + " \u00b7 High Jewellery | Gem Experience";
     } else {
       renderGrid(root);
-      document.title = "High Jewellery — Gem Experience";
+      document.title = "High Jewellery \u00b7 Gem Experience";
     }
     renderDrawer();
   }

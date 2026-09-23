@@ -322,7 +322,7 @@ window.HJ_DATA = {
         "img/pieces/celestine/m8.webp",
         "img/pieces/celestine/m9.webp"
       ],
-      "storyUrl": "celestine/",
+      "storyUrl": "/high-jewellery/celestine/",
       "storyLabel": "Read the story of Celestine"
     },
     {

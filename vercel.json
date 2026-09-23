@@ -13,5 +13,17 @@
       "destination": "/admin/index.html"
     }
   ],
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/celestine",
+      "destination": "/high-jewellery/celestine/",
+      "permanent": false
+    },
+    {
+      "source": "/celestine/",
+      "destination": "/high-jewellery/celestine/",
+      "permanent": false
+    }
+  ]
 }

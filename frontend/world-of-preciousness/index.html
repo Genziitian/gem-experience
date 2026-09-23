@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Resolution root for this directory. Served without a trailing slash
+     (/world-of-preciousness rather than /world-of-preciousness/), a relative URL climbs one level too high —
+     which 404s an asset or, worse, silently loads a different file with the
+     same name. This page builds image paths in JavaScript too, so fixing the
+     markup alone would not have been enough. -->
+<base href="/world-of-preciousness/">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>World of Preciousness — Gem Experience</title>
 <meta name="description" content="Colour, cut, clarity and character. How a coloured stone is read, and the gemstones of the East African belt — tanzanite, spinel, tsavorite, rhodolite and Malaya garnet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
-<link rel="stylesheet" href="../css/pages.css">
-<link rel="stylesheet" href="../css/site-nav.css">
-<link rel="stylesheet" href="../css/mini-cart.css">
-<link rel="stylesheet" href="../css/gift-note.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/site-nav.css">
+<link rel="stylesheet" href="/css/mini-cart.css">
+<link rel="stylesheet" href="/css/gift-note.css">
+<link rel="stylesheet" href="/world-of-preciousness/styles.css">
 </head>
 <body class="pg wop">
 <div class="pg-wrap">
@@ -76,7 +83,7 @@
           <figure class="wop-collage" style="--field:#1c2a6e">
             <span class="wop-collage-field"></span>
             <span class="wop-collage-strip"></span>
-            <img class="wop-collage-photo" src="../high-jewellery/img/alt-oldoinyo.webp" alt="A tanzanite and diamond collar, the cut set so the stone returns the light." loading="lazy" decoding="async">
+            <img class="wop-collage-photo" src="/high-jewellery/img/alt-oldoinyo.webp" alt="A tanzanite and diamond collar, the cut set so the stone returns the light." loading="lazy" decoding="async">
           </figure>
         </div>
       </article>
@@ -91,7 +98,7 @@
           <figure class="wop-collage wop-collage--mirror" style="--field:#7a1f42">
             <span class="wop-collage-field"></span>
             <span class="wop-collage-strip"></span>
-            <img class="wop-collage-photo" src="../high-jewellery/img/alt-kilimanjaro.webp" alt="A floral collar and bracelet of pastel stones, colour held in hue, tone and saturation." loading="lazy" decoding="async">
+            <img class="wop-collage-photo" src="/high-jewellery/img/alt-kilimanjaro.webp" alt="A floral collar and bracelet of pastel stones, colour held in hue, tone and saturation." loading="lazy" decoding="async">
           </figure>
         </div>
       </article>
@@ -106,7 +113,7 @@
           <figure class="wop-collage" style="--field:#145232">
             <span class="wop-collage-field"></span>
             <span class="wop-collage-strip"></span>
-            <img class="wop-collage-photo" src="../high-jewellery/img/alt-merelani.webp" alt="A fringed collar of green garnets, the cut oriented to the face-up colour." loading="lazy" decoding="async">
+            <img class="wop-collage-photo" src="/high-jewellery/img/alt-merelani.webp" alt="A fringed collar of green garnets, the cut oriented to the face-up colour." loading="lazy" decoding="async">
           </figure>
         </div>
       </article>
@@ -122,7 +129,7 @@
           <figure class="wop-collage wop-collage--mirror" style="--field:#1c2a6e">
             <span class="wop-collage-field"></span>
             <span class="wop-collage-strip"></span>
-            <img class="wop-collage-photo" src="../img/tanzania.webp" alt="The hillside at the foot of Kilimanjaro, the only source of tanzanite." loading="lazy" decoding="async">
+            <img class="wop-collage-photo" src="/img/tanzania.webp" alt="The hillside at the foot of Kilimanjaro, the only source of tanzanite." loading="lazy" decoding="async">
           </figure>
         </div>
       </article>
@@ -237,13 +244,13 @@
   <div id="pg-footer"></div>
 </div>
 
-<script src="../js/site-footer.js"></script>
-<script src="../js/site-content.js"></script>
-<script src="../js/site-nav.js"></script>
-<script src="../js/mini-cart.js"></script>
-<script src="../js/gift-note.js"></script>
-<script src="../js/shell.js"></script>
-<script src="app.js"></script>
+<script src="/js/site-footer.js"></script>
+<script src="/js/site-content.js"></script>
+<script src="/js/site-nav.js"></script>
+<script src="/js/mini-cart.js"></script>
+<script src="/js/gift-note.js"></script>
+<script src="/js/shell.js"></script>
+<script src="/world-of-preciousness/app.js"></script>
 <script>
   GemShell.mount({ prefix: "../" });
 </script>

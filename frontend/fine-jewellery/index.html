@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Resolution root for this directory. Served without a trailing slash
+     (/fine-jewellery rather than /fine-jewellery/), a relative URL climbs one level too high —
+     which 404s an asset or, worse, silently loads a different file with the
+     same name. This page builds image paths in JavaScript too, so fixing the
+     markup alone would not have been enough. -->
+<base href="/fine-jewellery/">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fine Jewellery | Gem Experience</title>
 <meta name="description" content="Bloom, Safar, Tide and Swirl Fine Jewellery collections from Gem Experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
-<link rel="stylesheet" href="styles.css?v=5">
-<link rel="stylesheet" href="../css/site-nav.css">
-<link rel="stylesheet" href="../css/mini-cart.css">
-<link rel="stylesheet" href="../css/gift-note.css">
+<link rel="stylesheet" href="/fine-jewellery/styles.css?v=5">
+<link rel="stylesheet" href="/css/site-nav.css">
+<link rel="stylesheet" href="/css/mini-cart.css">
+<link rel="stylesheet" href="/css/gift-note.css">
 </head>
 <body>
 <div class="fj">
@@ -37,19 +44,19 @@
   <div id="site-footer"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../js/config.js"></script>
-<script src="../js/gem.js"></script>
-<script src="../js/site-footer.js"></script>
-<script src="../js/site-content.js"></script>
-<script src="../js/mini-cart.js"></script>
-<script src="../js/gift-note.js"></script>
-<script src="../js/site-nav.js"></script>
-<script src="data.js?v=5"></script>
-<script src="app.js?v=5"></script>
+<script src="/js/config.js"></script>
+<script src="/js/gem.js"></script>
+<script src="/js/site-footer.js"></script>
+<script src="/js/site-content.js"></script>
+<script src="/js/mini-cart.js"></script>
+<script src="/js/gift-note.js"></script>
+<script src="/js/site-nav.js"></script>
+<script src="/fine-jewellery/data.js?v=5"></script>
+<script src="/fine-jewellery/app.js?v=5"></script>
 <script>
   GemFooter.mount("#site-footer", { prefix: "../" });
   GemNav.mount("#site-nav", { prefix: "../" });
 </script>
-<script src="../js/analytics.js" defer></script>
+<script src="/js/analytics.js" defer></script>
 </body>
 </html>

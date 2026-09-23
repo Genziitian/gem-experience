@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Resolution root for this directory. Served without a trailing slash
+     (/world-of-preciousness/spinel rather than /world-of-preciousness/spinel/), a relative URL climbs one level too high —
+     which 404s an asset or, worse, silently loads a different file with the
+     same name. This page builds image paths in JavaScript too, so fixing the
+     markup alone would not have been enough. -->
+<base href="/world-of-preciousness/spinel/">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pink Spinel — World of Preciousness — Gem Experience</title>
 <meta name="description" content="The stone that spent six centuries in the Crown Jewels under the wrong name. Mahenge spinel from the East African belt — its colour, its hardness and its legends.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
-<link rel="stylesheet" href="../../css/pages.css">
-<link rel="stylesheet" href="../../css/site-nav.css">
-<link rel="stylesheet" href="../../css/mini-cart.css">
-<link rel="stylesheet" href="../../css/gift-note.css">
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/site-nav.css">
+<link rel="stylesheet" href="/css/mini-cart.css">
+<link rel="stylesheet" href="/css/gift-note.css">
+<link rel="stylesheet" href="/world-of-preciousness/styles.css">
 </head>
 <body class="pg wop">
 <div class="pg-wrap">
@@ -192,7 +199,7 @@
         </div>
         <figure class="wop-arch wop-arch--left" style="--bloom:rgba(216,63,121,0.6)">
           <div class="wop-arch-frame">
-            <img src="../../high-jewellery/img/mahenge.webp" alt="A fringed diamond collar centred on a heart-cut pink spinel." loading="lazy" decoding="async">
+            <img src="/high-jewellery/img/mahenge.webp" alt="A fringed diamond collar centred on a heart-cut pink spinel." loading="lazy" decoding="async">
           </div>
           <span class="wop-arch-rule" aria-hidden="true"></span>
           <span class="wop-arch-gem" data-gem="heart spinel"></span>
@@ -210,13 +217,13 @@
   <div id="pg-footer"></div>
 </div>
 
-<script src="../../js/site-footer.js"></script>
-<script src="../../js/site-content.js"></script>
-<script src="../../js/site-nav.js"></script>
-<script src="../../js/mini-cart.js"></script>
-<script src="../../js/gift-note.js"></script>
-<script src="../../js/shell.js"></script>
-<script src="../app.js"></script>
+<script src="/js/site-footer.js"></script>
+<script src="/js/site-content.js"></script>
+<script src="/js/site-nav.js"></script>
+<script src="/js/mini-cart.js"></script>
+<script src="/js/gift-note.js"></script>
+<script src="/js/shell.js"></script>
+<script src="/world-of-preciousness/app.js"></script>
 <script>
   GemShell.mount({ prefix: "../../" });
 </script>

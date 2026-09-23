@@ -434,6 +434,7 @@
       }));
     }
 
+    /* rail first, then the grid: the filter reads across the top */
     var layout = el("div", "fj-layout");
     var rail = el("nav", "fj-rail", { "aria-label": "Categories" });
     rail.appendChild(el("a", type ? "" : "is-on", { href: "#/" + col.id, text: "All" }));

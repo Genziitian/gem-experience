@@ -43,7 +43,7 @@
     },
     { label: "Gemstones & Mining" },
     { label: "Engagement & Bridal" },
-    { label: "Gifts" },
+    { label: "Gifts", href: "gifts/" },
     {
       label: "The House",
       children: [

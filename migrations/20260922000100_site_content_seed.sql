@@ -12,7 +12,7 @@ from (values
   ('primary', 'World of Preciousness', 'world-of-preciousness/', 2),
   ('primary', 'Gemstones & Mining', null, 3),
   ('primary', 'Engagement & Bridal', null, 4),
-  ('primary', 'Gifts', null, 5),
+  ('primary', 'Gifts', 'gifts/', 5),
   ('primary', 'The House', null, 6),
   ('secondary', 'Find our store', 'offices/', 0),
   ('secondary', 'Book an appointment', 'appointment/', 1),

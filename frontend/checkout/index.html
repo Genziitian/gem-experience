@@ -122,6 +122,13 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
       f.notes.value.trim()
     ].filter(Boolean).join("\n"));
 
+    /* The gift message written on the Gifts page. The toast there promises it
+       travels with the enquiry, so it has to actually arrive — an adviser
+       cannot write a card they were never sent. */
+    var gift = null;
+    try { gift = JSON.parse(localStorage.getItem("gem_gift_note_v1") || "null"); } catch (e) { gift = null; }
+    if (gift && !gift.to && !gift.message) gift = null;
+
     await Gem.submitForm("quotation", {
       name: f.name.value.trim(),
       email: f.email.value.trim(),
@@ -129,7 +136,8 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
       source: "checkout",
       order_number: order.order_number,
       pieces: items.map(function (i) { return i.name; }),
-      notes: f.notes.value.trim()
+      notes: f.notes.value.trim(),
+      gift: gift
     });
 
     Gem.cart.clear();

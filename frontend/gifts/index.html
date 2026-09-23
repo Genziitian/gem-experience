@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gifts — Gem Experience</title>
+<meta name="description" content="Pieces chosen to be given, with a card and a message written in your own words.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/site-nav.css">
+<link rel="stylesheet" href="../fine-jewellery/styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+
+  <header class="pg-banner">
+    <img class="pg-banner-img" src="../img/gifts.webp" alt="" fetchpriority="high" decoding="async"
+         style="--banner-pos: 50% 42%">
+    <div class="pg-banner-copy">
+      <span class="pg-kicker">Gifting</span>
+      <h1 class="pg-title">Gifts</h1>
+      <p class="pg-lede">Pieces chosen to be given — with a card, and a line written in your own words.</p>
+    </div>
+  </header>
+
+  <main class="pg-main gift-main">
+    <!-- Two ways in, and the house's own collections. -->
+    <nav class="gift-tiles" aria-label="Gift categories">
+      <a class="gift-tile" href="#most-popular" data-set="popular">
+        <span class="gift-tile-shot"><img src="../img/fine-jewellery.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="gift-tile-name">Most popular</span>
+      </a>
+      <a class="gift-tile" href="#gifts-for-him" data-set="him">
+        <span class="gift-tile-shot"><img src="../img/high-jewellery.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="gift-tile-name">Gifts for him</span>
+      </a>
+      <a class="gift-tile" href="../fine-jewellery/">
+        <span class="gift-tile-shot"><img src="../img/gifts.webp" alt="" loading="lazy" decoding="async"></span>
+        <span class="gift-tile-name">Fine Jewellery</span>
+      </a>
+    </nav>
+
+    <section class="fj-pieces" id="gift-pieces">
+      <header class="fj-pieces-head">
+        <h2 class="fj-pieces-title">Gifts</h2>
+        <p class="fj-col-count" id="gift-count"></p>
+      </header>
+
+      <div class="fj-layout">
+        <nav class="fj-rail" id="gift-rail" aria-label="Gift categories"></nav>
+        <div class="fj-grid" id="gift-grid"></div>
+      </div>
+    </section>
+
+    <!-- Personalisation. Kept on this page rather than at checkout because it
+         changes what you choose: a piece you are giving is picked differently
+         from one you are keeping. What is entered here travels with the
+         enquiry. -->
+    <section class="gift-note" id="personalise">
+      <div class="gift-note-copy">
+        <span class="pg-kicker">Personalisation</span>
+        <h2 class="pg-section-title">A card, in your words</h2>
+        <p class="pg-lede">
+          Every gift leaves the workshop boxed and ribboned. Tell us who it is
+          for and what it should say, and the card is written by hand and set
+          inside the box.
+        </p>
+        <p class="gift-note-fine">There is no charge for this, and it can be changed any time before the piece ships.</p>
+      </div>
+
+      <form class="pg-form gift-form" id="gift-form">
+        <p class="pg-toast" id="gift-toast" hidden></p>
+
+        <div class="pg-row-2">
+          <label>Who is it for
+            <input name="to" id="gift-to" maxlength="40" placeholder="Their name" autocomplete="off">
+          </label>
+          <label>From
+            <input name="from" id="gift-from" maxlength="40" placeholder="Your name" autocomplete="name">
+          </label>
+        </div>
+
+        <label>Occasion
+          <select name="occasion" id="gift-occasion">
+            <option value="">Not saying</option>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+            <option>Wedding</option>
+            <option>Engagement</option>
+            <option>Congratulations</option>
+            <option>Thank you</option>
+            <option>Just because</option>
+          </select>
+        </label>
+
+        <label>Message on the card
+          <textarea name="message" id="gift-message" rows="3" maxlength="140"
+                    placeholder="A line or two. It is written by hand, so keep it short."></textarea>
+          <small><span id="gift-left">140</span> characters left · three lines fit comfortably</small>
+        </label>
+
+        <label class="pg-check">
+          <input type="checkbox" name="letter" id="gift-letter">
+          <span>Include a letter from the workshop describing the stone and where it was cut.</span>
+        </label>
+
+        <div class="pg-actions">
+          <button class="pg-btn" type="submit">Save this message</button>
+          <button class="pg-btn pg-btn--ghost" type="button" id="gift-clear">Clear</button>
+        </div>
+      </form>
+
+      <!-- What the card will look like, updating as it is typed. -->
+      <aside class="gift-card" aria-label="Preview of your card">
+        <div class="gift-card-inner">
+          <span class="gift-card-mark">Gem Experience</span>
+          <p class="gift-card-to" id="pv-to">To whom it may concern</p>
+          <p class="gift-card-msg" id="pv-msg">Your message will appear here.</p>
+          <p class="gift-card-from" id="pv-from"></p>
+        </div>
+        <p class="gift-card-cap">Card, actual size approximate</p>
+      </aside>
+    </section>
+  </main>
+
+  <div id="pg-footer"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/site-content.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-nav.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../fine-jewellery/data.js"></script>
+<script src="app.js"></script>
+<script src="../js/analytics.js" defer></script>
+</body>
+</html>

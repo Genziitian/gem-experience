@@ -133,7 +133,9 @@ window.HJ_DATA = {
         "img/pieces/shamsa/m4.webp",
         "img/pieces/shamsa/m5.webp",
         "img/pieces/shamsa/m6.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/shamsa/",
+      "storyLabel": "Read the story of Shamsa"
     },
     {
       "id": "jardin-bleu",
@@ -167,7 +169,9 @@ window.HJ_DATA = {
         "img/pieces/jardin-bleu/m2.webp",
         "img/pieces/jardin-bleu/m3.webp",
         "img/pieces/jardin-bleu/m4.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/jardin-bleu/",
+      "storyLabel": "Read the story of Jardin Bleu"
     },
     {
       "id": "hive",
@@ -236,7 +240,9 @@ window.HJ_DATA = {
         "img/pieces/usambara/m5.webp",
         "img/pieces/usambara/m6.webp",
         "img/pieces/usambara/m7.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/usambara/",
+      "storyLabel": "Read the story of Flamenco"
     },
     {
       "id": "ember",
@@ -269,7 +275,9 @@ window.HJ_DATA = {
         "img/pieces/ember/m1.webp",
         "img/pieces/ember/m2.webp",
         "img/pieces/ember/m3.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/ember/",
+      "storyLabel": "Read the story of Ember"
     },
     {
       "id": "dew-fall",
@@ -390,7 +398,9 @@ window.HJ_DATA = {
         "img/pieces/rihla/m3.webp",
         "img/pieces/rihla/m4.webp",
         "img/pieces/rihla/m5.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/rihla/",
+      "storyLabel": "Read the story of Rihla"
     },
     {
       "id": "serengeti",
@@ -497,7 +507,9 @@ window.HJ_DATA = {
         "img/pieces/mahenge/m3.webp",
         "img/pieces/mahenge/m4.webp",
         "img/pieces/mahenge/m5.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/mahenge/",
+      "storyLabel": "Read the story of Samaah"
     },
     {
       "id": "oldoinyo",

@@ -1268,3 +1268,117 @@ button {
 @media (max-width: 619px) {
   .off-shot { aspect-ratio: 4 / 3; }
 }
+
+/* ------------------------------------------------------------- page banners */
+/* Two shapes, because the photography comes in two shapes.
+ *
+ *   .pg-banner — a landscape frame running the width of the page with the
+ *   title over it. Used where a wide photograph exists already.
+ *
+ *   .pg-split — a portrait frame beside the title. Every model frame in the
+ *   catalogue is 2:3, and forcing one of those into a wide band crops it to a
+ *   strip across somebody's throat. Beside the copy it keeps its proportions.
+ *
+ * Both carry the same markup contract as the old .pg-hero — kicker, title,
+ * lede — so nothing downstream had to change. */
+
+.pg-banner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: end;
+  min-height: clamp(260px, 44vh, 440px);
+  overflow: hidden;
+  background: var(--tile);
+}
+.pg-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* per photograph, for the same reason the gallery crops per photograph:
+     one position framed one image and cut the subject out of the next */
+  object-position: var(--banner-pos, 50% 45%);
+}
+/* The scrim is what makes white type legible over a photograph whose
+   brightness nobody controls. It is weighted to the bottom, where the copy is. */
+.pg-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.05) 45%, rgba(0, 0, 0, 0.62) 100%);
+}
+.pg-banner-copy {
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--gutter) clamp(28px, 5vh, 52px);
+  color: #fff;
+  max-width: 60ch;
+}
+.pg-banner-copy .pg-kicker { color: rgba(255, 255, 255, 0.82); }
+.pg-banner-copy .pg-title { color: #fff; }
+.pg-banner-copy .pg-lede { color: rgba(255, 255, 255, 0.88); margin-left: 0; margin-right: 0; }
+
+/* -- split */
+
+.pg-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  padding: clamp(32px, 5vh, 64px) var(--gutter);
+}
+/* the copy leads on the left, the photograph answers on the right */
+.pg-split--reverse .pg-split-media { order: 2; }
+.pg-split-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--tile);
+  aspect-ratio: 4 / 5;
+  /* capped, or on a wide screen the frame runs past the fold and the two or
+     three lines of copy beside it float in the middle of nothing */
+  max-height: min(62vh, 560px);
+}
+.pg-split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--banner-pos, 50% 40%);
+}
+.pg-split-copy { max-width: 46ch; }
+.pg-split-copy .pg-lede { margin-left: 0; margin-right: 0; }
+
+@media (max-width: 860px) {
+  .pg-banner { min-height: clamp(200px, 34vh, 300px); }
+  /* The copy takes up much more of a phone-width frame, so it sits over the
+     busy middle of the photograph rather than the quiet bottom of it. The
+     scrim has to carry more of the contrast here than it does on a desktop. */
+  .pg-banner::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.30) 35%, rgba(0, 0, 0, 0.72) 100%);
+  }
+
+  /* Stacked, and the frame gets shorter: a 4:5 portrait at full phone width is
+     most of a screen before the page has said anything. */
+  .pg-split { grid-template-columns: 1fr; gap: 22px; padding-top: 0; }
+  .pg-split--reverse .pg-split-media { order: 0; }
+  .pg-split-media {
+    aspect-ratio: 16 / 11;
+    margin: 0 calc(var(--gutter) * -1);
+  }
+  .pg-split-copy { max-width: none; }
+}
+
+/* The checkout confirmation, shown in place of the form. Spans both columns so
+   it reads as the whole page having moved on rather than as one panel of a
+   layout that still has a form in it. */
+.co-done {
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  padding: clamp(28px, 5vh, 56px) 0;
+  max-width: 54ch;
+}
+.co-done .pg-lede { margin: 0; }
+.co-done .pg-actions { margin-top: 14px; }

@@ -44,6 +44,24 @@
         </div>
       </form>
       <aside class="pg-panel pg-summary" id="summary"></aside>
+
+      <!-- Shown in place of the form once the enquiry is created. A guest used
+           to be redirected to /account/, which is behind the sign-in wall, so
+           the last thing somebody saw after sending an enquiry was a login
+           screen with no word of whether it had gone through. -->
+      <section class="co-done" id="checkout-done" hidden>
+        <span class="pg-kicker">Enquiry received</span>
+        <h2 class="pg-section-title">Thank you</h2>
+        <p class="pg-lede" id="done-ref"></p>
+        <p class="pg-lede">
+          An adviser will be in touch within two working days. Nothing has been
+          charged — High Jewellery is quoted on the piece itself.
+        </p>
+        <div class="pg-actions">
+          <a class="pg-btn" href="../high-jewellery/">Continue looking</a>
+          <a class="pg-btn pg-btn--ghost" id="done-account" href="../account/" hidden>View in your account</a>
+        </div>
+      </section>
     </div>
   </main>
   <div id="pg-footer"></div>
@@ -115,10 +133,28 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
     });
 
     Gem.cart.clear();
-    GemShell.toast(toast, "Enquiry " + order.order_number + " created. We will be in touch.", true);
     f.reset();
     paintSummary();
-    setTimeout(function () { location.href = "../account/"; }, 1600);
+
+    /* Confirm on the page rather than redirecting. The account page requires a
+       session, so sending a guest there ended the flow at a sign-in form. */
+    var ref = order && order.order_number ? order.order_number : "";
+    document.getElementById("done-ref").textContent = ref
+      ? "Your reference is " + ref + "."
+      : "Your enquiry has been logged.";
+
+    /* Offer the account link only to somebody who can actually open it. */
+    Gem.auth.getSession().then(function (session) {
+      if (session) document.getElementById("done-account").hidden = false;
+    }).catch(function () {});
+
+    f.hidden = true;
+    /* The summary is hidden too. Clearing the cart leaves it reading "Your cart
+       is empty — continue shopping", which is a strange thing to show somebody
+       one line above confirmation that their enquiry went through. */
+    document.getElementById("summary").hidden = true;
+    document.getElementById("checkout-done").hidden = false;
+    document.getElementById("checkout-done").scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (err) {
     GemShell.toast(toast, err.message || "Checkout failed.", false);
   } finally {

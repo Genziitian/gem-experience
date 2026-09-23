@@ -1287,9 +1287,14 @@ button {
   isolation: isolate;
   display: grid;
   align-items: end;
-  /* bigger: this is the first thing on the page and it was reading as a strip
-     above the content rather than as the opening image */
-  min-height: clamp(320px, 56vh, 560px);
+  /* Sized by proportion so the crop is predictable, and gentle enough that a
+     3:2 photograph keeps two thirds of its height. Only landscape sources go
+     in here — a portrait one would show under a third of itself, so those use
+     .pg-split instead. */
+  /* 16:9 keeps 84% of a 3:2 source against 75% at 2:1. Closer to the
+     photograph's own shape means less of it thrown away. */
+  min-height: clamp(320px, 52vh, 560px);
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--tile);
 }
@@ -1352,7 +1357,9 @@ button {
 .pg-split-copy .pg-lede { margin-left: 0; margin-right: 0; }
 
 @media (max-width: 860px) {
-  .pg-banner { min-height: clamp(260px, 42vh, 380px); }
+  /* squarer on a phone: a 2:1 band at 390px wide is a letterbox slit, and the
+     copy needs somewhere to sit that is not on top of the subject */
+  .pg-banner { min-height: 0; aspect-ratio: 5 / 4; }
   /* The copy takes up much more of a phone-width frame, so it sits over the
      busy middle of the photograph rather than the quiet bottom of it. The
      scrim has to carry more of the contrast here than it does on a desktop. */
@@ -1364,8 +1371,11 @@ button {
      most of a screen before the page has said anything. */
   .pg-split { grid-template-columns: 1fr; gap: 22px; padding-top: 0; }
   .pg-split--reverse .pg-split-media { order: 0; }
+  /* Still portrait, because the photograph is. A 16:11 band here was showing
+     46% of a 2:3 frame — worse than the wide banner it replaced. At 4:5 it
+     keeps 83%, the same as the desktop layout. */
   .pg-split-media {
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 4 / 5;
     margin: 0 calc(var(--gutter) * -1);
   }
   .pg-split-copy { max-width: none; }

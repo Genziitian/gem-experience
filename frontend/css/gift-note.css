@@ -1,0 +1,111 @@
+/* The gift card form, in both its homes: inline on the Gifts page and as a
+   dialog everywhere else. Self-contained — it appears on pages whose own
+   stylesheets define different tokens, so every variable has a fallback and
+   nothing here leans on pages.css. */
+
+.gn-form { display: grid; gap: 16px; align-content: start; }
+.gn-row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .gn-row2 { grid-template-columns: 1fr; } }
+
+.gn-field { display: grid; gap: 8px; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink, #201e1d); }
+.gn-field input, .gn-field select, .gn-field textarea {
+  width: 100%; padding: 10px 0;
+  border: 0; border-bottom: 1px solid var(--rule, #d9d4cc);
+  background: transparent; color: inherit;
+  font: inherit; font-size: 15px; font-weight: 400;
+  letter-spacing: 0; text-transform: none;
+  border-radius: 0;
+}
+.gn-field textarea { resize: vertical; min-height: 78px; }
+.gn-field input:focus, .gn-field select:focus, .gn-field textarea:focus {
+  outline: none; border-bottom-color: var(--ink, #201e1d);
+}
+/* the counter sits inside a label, which is uppercase and letter-spaced —
+   without this it shouts */
+.gn-field small {
+  font-size: 11.5px; font-weight: 400; letter-spacing: 0;
+  text-transform: none; color: var(--muted, #8a8279);
+}
+
+.gn-check { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px;
+  align-items: start; font-size: 13px; line-height: 20px; color: var(--ink-soft, #56504a); }
+.gn-check input { margin-top: 3px; }
+
+.gn-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.gn-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 13px 22px; border: 1px solid var(--ink, #201e1d);
+  background: var(--ink, #201e1d); color: #fff;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  cursor: pointer;
+}
+.gn-btn--ghost { background: transparent; color: var(--ink, #201e1d); }
+.gn-btn--ghost:hover { background: var(--ground, #f3f1ee); }
+
+.gn-toast { margin: 0; padding: 10px 12px; font-size: 13px; }
+.gn-toast.is-ok { background: #edf5ee; color: #24603a; }
+.gn-toast.is-bad { background: #fbeceb; color: #8a2b22; }
+
+/* -- the card preview */
+
+.gn-card { display: grid; gap: 10px; align-self: start; }
+.gn-card-inner {
+  display: grid; gap: 14px; align-content: start;
+  /* a card is wider than it is tall, and seeing that shape is most of what
+     tells somebody how much message will fit */
+  aspect-ratio: 7 / 5;
+  padding: clamp(18px, 2.4vw, 28px);
+  background: #fff; border: 1px solid var(--rule, #e6e2dc);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 18px 40px -28px rgba(0,0,0,0.5);
+}
+.gn-card-mark { font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; color: #8a8279; }
+.gn-card-to, .gn-card-from { margin: 0; font-family: var(--serif, Georgia, serif); font-size: 15px; color: #201e1d; }
+.gn-card-from { align-self: end; }
+.gn-card-msg {
+  margin: 0; font-family: var(--serif, Georgia, serif); font-style: italic;
+  font-size: clamp(15px, 1.5vw, 18px); line-height: 1.5; color: #201e1d;
+  align-self: start; overflow-wrap: anywhere;
+}
+.gn-card-cap { margin: 0; font-size: 11px; color: var(--muted, #8a8279); text-align: center; }
+
+/* -- the dialog */
+
+.gn-modal { position: fixed; inset: 0; z-index: 95; }
+.gn-modal[hidden] { display: none; }
+.gn-scrim {
+  position: absolute; inset: 0; background: rgba(20,18,16,0.46);
+  opacity: 0; transition: opacity 0.26s ease;
+}
+.gn-modal.is-open .gn-scrim { opacity: 1; }
+
+.gn-dialog {
+  position: relative;
+  width: min(900px, calc(100vw - 32px));
+  max-height: min(88vh, 860px);
+  margin: max(16px, 6vh) auto 0;
+  overflow-y: auto;
+  background: var(--paper, #fff);
+  padding: clamp(22px, 3vw, 36px);
+  transform: translateY(14px);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1), opacity 0.22s ease;
+}
+.gn-modal.is-open .gn-dialog { transform: none; opacity: 1; }
+
+.gn-dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.gn-dialog-head h2 { margin: 4px 0 0; font-family: var(--serif, Georgia, serif); font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; }
+.gn-kicker { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted, #8a8279); }
+.gn-close { background: none; border: 0; padding: 4px; cursor: pointer; color: inherit; }
+.gn-dialog-note {
+  margin: 14px 0 22px; max-width: 62ch;
+  font-size: 13.5px; line-height: 21px; color: var(--ink-soft, #56504a);
+}
+.gn-dialog-body { display: grid; gap: clamp(22px, 3vw, 40px); }
+@media (min-width: 820px) {
+  .gn-dialog-body { grid-template-columns: 1.15fr 0.85fr; align-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gn-scrim, .gn-dialog { transition: none; }
+}

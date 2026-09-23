@@ -231,8 +231,14 @@ button {
      fixed band. `cover` on a short strip of a 3:2 image threw most of the
      picture away and framed whatever happened to be in the middle — on Shop
      all that was the bridge of somebody's nose. */
-  min-height: clamp(280px, 46vh, 460px);
-  aspect-ratio: 16 / 7;
+  /* 2:1 rather than 16:7 — a 3:2 source keeps two thirds of its height here
+     instead of a little over half, which is the difference between a portrait
+     and a band across somebody's eyes. */
+  /* 16:9 rather than 2:1: a 3:2 source keeps 84% of its height instead of
+     75%, which is the difference between the model's hands being in the
+     picture and being cut off below it. */
+  min-height: clamp(300px, 50vh, 540px);
+  aspect-ratio: 16 / 9;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: clamp(28px, 4vw, 48px) var(--gutter);
   color: #fff;
@@ -251,12 +257,12 @@ button {
 .fj-shop-banner--photo::before {
   /* pulled up so the crop keeps the face and the piece rather than trimming
      to the exact centre of the frame */
-  background: url("img/shop-banner.webp") 50% 32% / cover no-repeat, #2a2420;
+  background: url("img/shop-banner.webp") 50% 50% / cover no-repeat, #2a2420;
 }
 @media (max-width: 760px) {
   /* A 16:7 band at phone width is a letterbox slit. Squarer, and the title
      still has room to sit under the subject rather than on top of it. */
-  .fj-shop-banner { aspect-ratio: 4 / 3; min-height: 0; }
+  .fj-shop-banner { aspect-ratio: 5 / 4; min-height: 0; }
 }
 .fj-shop-banner::after {
   content: "";

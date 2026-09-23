@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../css/pages.css">
 <link rel="stylesheet" href="../css/site-nav.css">
 <link rel="stylesheet" href="../css/mini-cart.css">
+<link rel="stylesheet" href="../css/gift-note.css">
 <link rel="stylesheet" href="../fine-jewellery/styles.css">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,10 +19,15 @@
 <div class="pg-wrap">
   <div id="pg-header"></div>
 
-  <header class="pg-banner">
-    <img class="pg-banner-img" src="../img/gifts.webp" alt="" fetchpriority="high" decoding="async"
-         style="--banner-pos: 50% 42%">
-    <div class="pg-banner-copy">
+  <!-- gifts.webp is 852x1278. A wide band shows 29% of a portrait that shape,
+       which is how the banner came to be a crop of somebody's shoulder. Beside
+       the copy it keeps its proportions and is shown whole. -->
+  <header class="pg-split pg-split--reverse">
+    <div class="pg-split-media">
+      <img src="../img/gifts.webp" alt="A client wearing stacked rings and bangles."
+           fetchpriority="high" decoding="async" style="--banner-pos: 50% 38%">
+    </div>
+    <div class="pg-split-copy">
       <span class="pg-kicker">Gifting</span>
       <h1 class="pg-title">Gifts</h1>
       <p class="pg-lede">Pieces chosen to be given — with a card, and a line written in your own words.</p>
@@ -73,58 +79,9 @@
         <p class="gift-note-fine">There is no charge for this, and it can be changed any time before the piece ships.</p>
       </div>
 
-      <form class="pg-form gift-form" id="gift-form">
-        <p class="pg-toast" id="gift-toast" hidden></p>
-
-        <div class="pg-row-2">
-          <label>Who is it for
-            <input name="to" id="gift-to" maxlength="40" placeholder="Their name" autocomplete="off">
-          </label>
-          <label>From
-            <input name="from" id="gift-from" maxlength="40" placeholder="Your name" autocomplete="name">
-          </label>
-        </div>
-
-        <label>Occasion
-          <select name="occasion" id="gift-occasion">
-            <option value="">Not saying</option>
-            <option>Birthday</option>
-            <option>Anniversary</option>
-            <option>Wedding</option>
-            <option>Engagement</option>
-            <option>Congratulations</option>
-            <option>Thank you</option>
-            <option>Just because</option>
-          </select>
-        </label>
-
-        <label>Message on the card
-          <textarea name="message" id="gift-message" rows="3" maxlength="140"
-                    placeholder="A line or two. It is written by hand, so keep it short."></textarea>
-          <small><span id="gift-left">140</span> characters left · three lines fit comfortably</small>
-        </label>
-
-        <label class="pg-check">
-          <input type="checkbox" name="letter" id="gift-letter">
-          <span>Include a letter from the workshop describing the stone and where it was cut.</span>
-        </label>
-
-        <div class="pg-actions">
-          <button class="pg-btn" type="submit">Save this message</button>
-          <button class="pg-btn pg-btn--ghost" type="button" id="gift-clear">Clear</button>
-        </div>
-      </form>
-
-      <!-- What the card will look like, updating as it is typed. -->
-      <aside class="gift-card" aria-label="Preview of your card">
-        <div class="gift-card-inner">
-          <span class="gift-card-mark">Gem Experience</span>
-          <p class="gift-card-to" id="pv-to">To whom it may concern</p>
-          <p class="gift-card-msg" id="pv-msg">Your message will appear here.</p>
-          <p class="gift-card-from" id="pv-from"></p>
-        </div>
-        <p class="gift-card-cap">Card, actual size approximate</p>
-      </aside>
+      <!-- Filled by GemGiftNote so the inline copy and the dialog opened from
+           the bag, the cart and the checkout are literally the same form. -->
+      <div class="gift-note-host" id="gift-note-host"></div>
     </section>
   </main>
 
@@ -138,6 +95,7 @@
 <script src="../js/site-footer.js"></script>
 <script src="../js/site-nav.js"></script>
 <script src="../js/mini-cart.js"></script>
+<script src="../js/gift-note.js"></script>
 <script src="../js/shell.js"></script>
 <script src="../fine-jewellery/data.js"></script>
 <script src="app.js"></script>

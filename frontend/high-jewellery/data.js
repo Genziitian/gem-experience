@@ -71,8 +71,8 @@ window.HJ_DATA = {
         "img/pieces/weaver/m7.webp",
         "img/pieces/weaver/m8.webp"
       ],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/weaver/",
+      "storyLabel": "Read the story of Weaver"
     },
     {
       "id": "the-crown",
@@ -216,8 +216,8 @@ window.HJ_DATA = {
         "img/pieces/georgie/p2.webp"
       ],
       "models": [],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/georgie/",
+      "storyLabel": "Read the story of Georgie"
     },
     {
       "id": "usambara",
@@ -304,8 +304,8 @@ window.HJ_DATA = {
         "img/pieces/dew-fall/p2.webp"
       ],
       "models": [],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/dew-fall/",
+      "storyLabel": "Read the story of Dew Fall"
     },
     {
       "id": "celestine",
@@ -364,8 +364,8 @@ window.HJ_DATA = {
       "models": [
         "img/pieces/merelani/m1.webp"
       ],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/merelani/",
+      "storyLabel": "Read the story of Spinel Balls necklace"
     },
     {
       "id": "helix",
@@ -384,8 +384,8 @@ window.HJ_DATA = {
         "img/pieces/helix/p2.webp"
       ],
       "models": [],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/helix/",
+      "storyLabel": "Read the story of Helix"
     },
     {
       "id": "rihla",
@@ -441,8 +441,8 @@ window.HJ_DATA = {
         "img/pieces/serengeti/p2.webp"
       ],
       "models": [],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/serengeti/",
+      "storyLabel": "Read the story of Wimbi"
     },
     {
       "id": "kilimanjaro",
@@ -460,8 +460,8 @@ window.HJ_DATA = {
         "img/pieces/kilimanjaro/p1.webp"
       ],
       "models": [],
-      "storyUrl": "/high-jewellery/stories/",
-      "storyLabel": "High Jewellery stories"
+      "storyUrl": "/high-jewellery/kilimanjaro/",
+      "storyLabel": "Read the story of Ocean Wave"
     },
     {
       "id": "rift",

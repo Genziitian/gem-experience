@@ -272,23 +272,31 @@ window.HJ_STORIES = {
     },
   },
 
+  /* CORRECTED. This entry first described the stones as tanzanite from
+     Merelani, taken from the `materials` field, which reads "9.1ct Tanzanite
+     Pair and Diamond". The photographs show green stones and the piece is
+     named Tsavorite, so the field is wrong and the page was repeating it. The
+     copy now follows the photographs. No origin is claimed, because none is
+     recorded anywhere that can be trusted. */
   rift: {
     kicker: "High Jewellery",
-    lede: "A matched pair from one crystal, split at the mine and cut together so the " +
-          "two drops read as one colour under any light.",
-    quote: "Split at the mine, and cut together.",
+    lede: "A suite in tsavorite: emerald-cut green garnet, graduated along a collar of " +
+          "diamond fringe and repeated in the drop of the earrings.",
+    quote: "Green that holds its colour under any light.",
     craft: {
-      h: "One crystal, two drops",
-      p: ["Matching a pair this closely is a question of where the rough is divided " +
-          "rather than how the stones are polished. Split at the mine and cut as one " +
-          "commission, the two hold the same tone from every angle.",
-          "Set in platinum 950, which stays neutral against the blue rather than " +
-          "warming it."],
+      h: "Matched across the set",
+      p: ["Tsavorite is difficult to match at size. The stones here were selected as " +
+          "one group so the necklace and the earrings carry a single tone rather than " +
+          "drifting apart across the suite.",
+          "Each is set with a diamond fringe beneath it, which lengthens the line of " +
+          "the collar and lets the green sit forward against white metal."],
     },
     stones: {
-      h: "Nine carats, matched",
-      p: ["9.14 carats as a pair of tanzanite, with diamond.",
-          "From Merelani, Tanzania, the only place on earth the stone is found."],
+      h: "Emerald-cut green garnet",
+      p: ["Tsavorite, cut square and step-faceted so the colour reads deep rather than " +
+          "bright, with brilliant-cut diamond throughout.",
+          "The earrings take two larger stones in the same cut, hung so they move " +
+          "against the light as the head turns."],
     },
   },
 
@@ -309,6 +317,186 @@ window.HJ_STORIES = {
       p: ["28.40 carats in total, in platinum.",
           "The stones are gathered rather than from a single source, matched for " +
           "colour and cut across the whole frame."],
+    },
+  },
+
+  /* ------------------------------------------------------------------ DRAFTS
+   *
+   * The seven below have no copy in any of the documents. These are written
+   * from the photographs and from the fields already recorded against each
+   * piece, as placeholders to be replaced with the house's own writing.
+   *
+   * They deliberately contain no carat weights, no workshop hours and no
+   * provenance that is not already recorded, because those are claims about
+   * real jewellery and inventing them to fill a template would put false
+   * figures in front of clients. Where the template wants a number, the copy
+   * describes the piece instead.
+   *
+   * Three of them also disagree with the catalogue, and the copy follows the
+   * photograph rather than the field. Each is marked.
+   */
+
+  weaver: {
+    kicker: "High Jewellery",
+    draft: true,
+    lede: "Interlocking loops of pavé diamond, each one closing around a single round " +
+          "tanzanite. The line reads as one continuous ribbon rather than a row of " +
+          "separate settings.",
+    quote: "One line, drawn without lifting the pen.",
+    craft: {
+      h: "Woven, not linked",
+      p: ["The loops pass through one another rather than meeting at a joint, so the " +
+          "collar moves as a single piece and lies flat against the body.",
+          "Every curve is pavé-set along its whole length, including the sections that " +
+          "face inward and are only seen as the piece turns."],
+    },
+    stones: {
+      h: "Tanzanite, round",
+      p: ["Round tanzanite in a saturated violet-blue, set at the close of each loop " +
+          "so the colour falls at regular intervals around the collar.",
+          "Diamond carries everything between them, which keeps the blue reading as " +
+          "punctuation rather than as a row of stones."],
+    },
+    suite: { note: "Weaver is made as a necklace and a pair of earrings.",
+             labels: ["Earrings", "Earrings", "Necklace"] },
+  },
+
+  merelani: {
+    kicker: "High Jewellery",
+    draft: true,
+    /* Catalogue says Earrings; the photographs show a necklace and earrings. */
+    lede: "Rubellite gathered in clusters, scattered across a collar and repeated in a " +
+          "fan of stones at the ear.",
+    quote: "Colour massed rather than placed.",
+    craft: {
+      h: "Clustered",
+      p: ["The stones are grouped instead of spaced, so the eye reads a field of " +
+          "colour before it picks out any individual stone.",
+          "White gold and diamond hold them from beneath, largely hidden, which is " +
+          "what lets the pink sit almost unbroken across the front of the collar."],
+    },
+    stones: {
+      h: "Rubellite and diamond",
+      p: ["Rubellite in rounds and pears, in a pink that runs warm rather than cool.",
+          "The earrings take the same stones into a fan, wider at the base than at the " +
+          "lobe, so they sit forward rather than hanging straight."],
+    },
+  },
+
+  georgie: {
+    kicker: "High Jewellery",
+    draft: true,
+    lede: "Pearl and tanzanite along a single strand, closing in a pear-cut drop. The " +
+          "warmest piece in the collection, and the quietest.",
+    quote: "Rose gold, which takes the blue somewhere softer.",
+    craft: {
+      h: "Strung, not set",
+      p: ["Pearls run the length of the strand and the tanzanite interrupts them at " +
+          "intervals, marquise and pear cuts laid along the line rather than across it.",
+          "Rose gold throughout. Against white metal the tanzanite reads cold; against " +
+          "rose it turns towards violet."],
+    },
+    stones: {
+      h: "Pearl and tanzanite",
+      p: ["Pearl for the body of the necklace, tanzanite for its punctuation, and a " +
+          "single pear-cut stone at the centre where the strand comes to rest.",
+          "Diamond frames the drop, which is the only part of the piece that hangs " +
+          "rather than sits."],
+    },
+  },
+
+  "dew-fall": {
+    kicker: "High Jewellery",
+    draft: true,
+    /* The lede and the closing line are the Dew copy from Draft 2_.docx, which
+       describes the collection rather than this piece. The rest is drafted. */
+    lede: "The Dew collection draws inspiration from the purest moment in nature, when " +
+          "a single droplet forms, suspended in perfect balance.",
+    quote: "Dew signifies renewal, and the beginning of a moment.",
+    craft: {
+      h: "Suspended",
+      p: ["Each design is shaped around the softened, quiet elegance of falling drops " +
+          "in the morning dew.",
+          "The line of diamond is deliberately thin so that nothing competes with the " +
+          "drop itself, which hangs free at the lowest point of the necklace."],
+    },
+    stones: {
+      h: "Aquamarine",
+      p: ["A pear-cut aquamarine in a pale, watery blue, framed in brilliant-cut " +
+          "diamond and set to swing slightly as the wearer moves.",
+          "With precise proportions and finish, the stone is cut into the soft drop " +
+          "shape that enhances its luminosity and its structure."],
+    },
+  },
+
+  helix: {
+    kicker: "High Jewellery",
+    draft: true,
+    lede: "An open collar that does not close. It is worn as a torque, the two ends " +
+          "passing one another at the front rather than meeting.",
+    quote: "It is held by its own shape, and by nothing else.",
+    craft: {
+      h: "Sprung, not clasped",
+      p: ["There is no clasp. The collar is formed so that it holds itself at the " +
+          "throat, which means the metal has to be worked to a tolerance that survives " +
+          "being opened and closed by hand.",
+          "Diamond runs the full length of the band, including the underside, so the " +
+          "piece is finished at every angle it can be seen from."],
+    },
+    stones: {
+      h: "Two ends, two cuts",
+      p: ["A pear-cut tanzanite at one end and a step-cut at the other, so the two " +
+          "terminals answer each other without matching.",
+          "Set in white gold, which keeps the violet-blue cold and unwarmed."],
+    },
+  },
+
+  serengeti: {
+    kicker: "High Jewellery",
+    draft: true,
+    /* Catalogue says a platinum tanzanite ring; the photographs show a rose
+       gold necklace set with pink stones. The copy follows the photographs. */
+    lede: "A wave drawn once around the neck. The band rises and falls in even peaks, " +
+          "with colour set only where the line turns.",
+    quote: "One line, repeated until it becomes a rhythm.",
+    craft: {
+      h: "The same curve, over and over",
+      p: ["The difficulty in a piece like this is not the stones but the repetition: " +
+          "every peak has to match every other one, or the eye finds the one that does " +
+          "not.",
+          "Rose gold for the wave itself, with diamond following the curve only where " +
+          "it turns back on itself."],
+    },
+    stones: {
+      h: "Set at the turns",
+      p: ["Stones in a deep pink are placed at intervals along the wave, with a larger " +
+          "step-cut stone at the centre front.",
+          "The rest of the line is left plain, so the metal carries the shape and the " +
+          "colour marks the beat."],
+    },
+  },
+
+  kilimanjaro: {
+    kicker: "High Jewellery",
+    draft: true,
+    /* Catalogue says tanzanite; the photographs show green stones. The copy
+       describes the colour without naming a stone that cannot be confirmed. */
+    lede: "A wave in white gold, carrying green through its length. The form is the " +
+          "same rhythm as the sea it is named for, drawn flat around the collarbone.",
+    quote: "The shape of water, held still.",
+    craft: {
+      h: "Drawn flat",
+      p: ["The wave is worked so that it sits against the body rather than standing " +
+          "away from it, which is what allows a piece of this width to be worn without " +
+          "weight.",
+          "Diamond follows the inside of every curve, so the line is lit from within " +
+          "the shape rather than outlined around it."],
+    },
+    stones: {
+      h: "Green, through the curve",
+      p: ["Green stones in pear and cushion cuts are set into the hollows of the wave, " +
+          "where the metal turns and the light collects.",
+          "White gold throughout, which leaves the green to do all of the colour."],
     },
   },
 };

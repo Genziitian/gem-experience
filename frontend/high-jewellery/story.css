@@ -197,9 +197,35 @@
 }
 .st-crumbs a:hover { color: var(--ink, #201e1d); }
 
+/* ------------------------------------------------------------- on a phone */
+/*
+ * Desktop is unchanged. What went wrong on a narrow screen was the rhythm: a
+ * paired band stacked into two full-width photographs one above the other, and
+ * the craft section put its copy after its images, which left that copy sitting
+ * directly against the copy of the section below it. So the page read as two
+ * pictures, then two blocks of text, then two more pictures.
+ *
+ * The fix is to keep text and photography alternating the whole way down:
+ * a pair stays a pair, and the craft copy moves above its images.
+ */
 @media (max-width: 700px) {
-  /* Stacked rather than paired: two 1:1 frames side by side on a phone are
-     two thumbnails, which is not what a full-bleed spread is for. */
-  .st-pair { grid-template-columns: 1fr; }
-  .st-suite-grid { grid-template-columns: 1fr; gap: 28px; }
+  /* Still side by side. Stacked, the two frames became two separate bands and
+     broke the alternation; paired, they are one band, which is what the
+     reference does too. */
+  .st-pair { grid-template-columns: 1fr 1fr; }
+  .st-pair figure { aspect-ratio: 3 / 4; }
+  .st-pair--tall figure { aspect-ratio: 3 / 4; }
+
+  /* Copy first, then its two frames side by side. In source order the images
+     come first, which on a phone put this copy immediately under the quote and
+     immediately above the next section's copy. */
+  .st-craft { grid-template-columns: 1fr 1fr; }
+  .st-craft-copy { grid-column: 1 / -1; order: -1; padding-bottom: 28px; }
+  .st-craft figure { aspect-ratio: 3 / 4; }
+
+  /* The suite keeps its caption under each frame, so the labels break up the
+     run rather than three photographs meeting each other. */
+  .st-suite-grid { grid-template-columns: 1fr; gap: 30px; }
+
+  .st-more-grid { gap: 10px 8px; }
 }

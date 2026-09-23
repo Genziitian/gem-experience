@@ -146,17 +146,6 @@
       items.length + (items.length === 1 ? " piece" : " pieces");
   }
 
-  /* The tiles pick a set rather than navigating away, so the page does not
-     reload to show a filtered version of what is already on screen. */
-  Array.prototype.forEach.call(d.querySelectorAll("[data-set]"), function (t) {
-    t.addEventListener("click", function (e) {
-      e.preventDefault();
-      current = t.getAttribute("data-set");
-      paint();
-      d.getElementById("gift-pieces").scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
   paint();
 
   // ------------------------------------------------- personalisation

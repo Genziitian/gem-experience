@@ -5,39 +5,14 @@
 
 .gift-main { padding-top: 0; }
 
-/* ------------------------------------------------------------------ tiles */
-
-.gift-tiles {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  padding: clamp(28px, 5vh, 56px) var(--gutter) 0;
-}
-@media (min-width: 760px) {
-  .gift-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-}
-
-.gift-tiles { max-width: 1040px; margin: 0 auto; }
-.gift-tile { display: grid; gap: 12px; text-align: center; }
-.gift-tile-shot {
-  display: block;
-  /* smaller and wider: these are three signposts, and at a full square third
-     of the page each they were taking the whole first screen */
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: var(--ground, #f3f1ee);
-}
-.gift-tile-shot img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.55s cubic-bezier(0.2, 0, 0.1, 1);
-}
-.gift-tile:hover .gift-tile-shot img { transform: scale(1.03); }
-.gift-tile-name {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
+/* The banner file is already 16:9, so the band matches it exactly and there is
+   nothing left to crop. Every other page's banner holds a 3:2 source and keeps
+   84%; this one keeps all of it. */
+.pg-banner--gifts { aspect-ratio: 16 / 9; }
+@media (max-width: 760px) {
+  /* On a phone the copy needs more room under the subject than 16:9 leaves,
+     and the bangle sits right of centre so a squarer crop keeps it. */
+  .pg-banner--gifts { aspect-ratio: 4 / 3; }
 }
 
 /* ---------------------------------------------------------- personalisation */

@@ -70,7 +70,9 @@ window.HJ_DATA = {
         "img/pieces/weaver/m6.webp",
         "img/pieces/weaver/m7.webp",
         "img/pieces/weaver/m8.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "the-crown",
@@ -105,7 +107,9 @@ window.HJ_DATA = {
         "img/pieces/the-crown/p2.webp",
         "img/pieces/the-crown/p3.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/the-crown/",
+      "storyLabel": "Read the story of The Crown"
     },
     {
       "id": "shamsa",
@@ -191,7 +195,9 @@ window.HJ_DATA = {
         "img/pieces/hive/p3.webp",
         "img/pieces/hive/p4.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/hive/",
+      "storyLabel": "Read the story of Hive"
     },
     {
       "id": "georgie",
@@ -209,7 +215,9 @@ window.HJ_DATA = {
         "img/pieces/georgie/p1.webp",
         "img/pieces/georgie/p2.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "usambara",
@@ -295,7 +303,9 @@ window.HJ_DATA = {
         "img/pieces/dew-fall/p1.webp",
         "img/pieces/dew-fall/p2.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "celestine",
@@ -353,7 +363,9 @@ window.HJ_DATA = {
       ],
       "models": [
         "img/pieces/merelani/m1.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "helix",
@@ -371,7 +383,9 @@ window.HJ_DATA = {
         "img/pieces/helix/p1.webp",
         "img/pieces/helix/p2.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "rihla",
@@ -426,7 +440,9 @@ window.HJ_DATA = {
         "img/pieces/serengeti/p1.webp",
         "img/pieces/serengeti/p2.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "kilimanjaro",
@@ -443,7 +459,9 @@ window.HJ_DATA = {
       "gallery": [
         "img/pieces/kilimanjaro/p1.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/stories/",
+      "storyLabel": "High Jewellery stories"
     },
     {
       "id": "rift",
@@ -472,7 +490,9 @@ window.HJ_DATA = {
         "img/pieces/rift/m4.webp",
         "img/pieces/rift/m5.webp",
         "img/pieces/rift/m6.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/rift/",
+      "storyLabel": "Read the story of Tsavorite necklace"
     },
     {
       "id": "mahenge",
@@ -529,7 +549,9 @@ window.HJ_DATA = {
         "img/pieces/oldoinyo/p3.webp",
         "img/pieces/oldoinyo/p4.webp"
       ],
-      "models": []
+      "models": [],
+      "storyUrl": "/high-jewellery/oldoinyo/",
+      "storyLabel": "Read the story of Mediterranea"
     }
   ],
   "focal": {

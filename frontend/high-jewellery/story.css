@@ -229,3 +229,34 @@
 
   .st-more-grid { gap: 10px 8px; }
 }
+
+/* ------------------------------------------------------------ the index */
+/* One card per story. It is where a piece with no story of its own sends a
+   reader, so it has to stand on its own rather than read as a fallback. */
+
+.sx-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 40px);
+  padding: 0 var(--st-gutter) var(--st-band);
+}
+@media (min-width: 900px) { .sx-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.sx-card { display: grid; gap: 14px; align-content: start; }
+.sx-card img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  background: var(--ground, #f3f1ee);
+  transition: opacity 0.4s ease;
+}
+.sx-card:hover img { opacity: 0.88; }
+.sx-name {
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.2;
+}
+.sx-line {
+  font-size: 13px; line-height: 1.6; color: var(--ink-soft, #56504a);
+  /* the quote is a full sentence and only wants to be a taste of it here */
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}

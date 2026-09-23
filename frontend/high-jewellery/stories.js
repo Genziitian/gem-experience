@@ -215,4 +215,100 @@ window.HJ_STORIES = {
          "diamonds cascade outward like a dancer's swirling skirt, so the piece reads " +
          "differently with every turn of the body.",
   },
+
+  /* Hive's copy is in HIGH J FINAL WRITE UP.docx in full. It has four stills
+     and no model frames, so the generator drops the bands it cannot fill. */
+  hive: {
+    kicker: "High Jewellery",
+    lede: "Hive is a sculptural tribute to nature's most precise design language, " +
+          "where geometry and life exist in perfect balance.",
+    quote: "Precise, organic, and alive.",
+    craft: {
+      h: "Fourteen hundred hours at the workbench",
+      p: ["From the centre unfolds a network of interlocking hexagonal forms, creating " +
+          "a composition that feels both structured and fluid, echoing the rhythm of a " +
+          "living hive.",
+          "The symmetry of the honeycomb is softened through a contemporary ceramic " +
+          "finish, diffusing light as though it passes through golden wax. Every curve " +
+          "and contour was earned through 1,400 hours at the workbench."],
+    },
+    stones: {
+      h: "The queen cell",
+      p: ["At its core rests a striking 17.92 carat hexagonal tanzanite, a deep, velvet " +
+          "indigo centrepiece inspired by the queen cell, commanding attention with " +
+          "quiet strength.",
+          "Outlined with brilliant natural diamonds, the piece glows with a warm, " +
+          "honeyed brilliance: an interplay of architecture and light."],
+    },
+    say: "Hive is for the woman who appreciates the balance of power and grace. It is " +
+         "a reminder that there is a profound, golden beauty in structure.",
+  },
+
+  /* The four below have no entry in the write-up documents. Their pages are
+     built from the copy and the specifications already recorded against them in
+     data.js, and nothing else: the stones, the origin, the metal and the
+     sentence the catalogue already tells. Where there is no adviser's version
+     written, the page simply has no "In the room" band rather than an invented
+     one. */
+  "the-crown": {
+    kicker: "Gemstone",
+    lede: "An extraordinary natural Tanzanite crystal formation of museum calibre, " +
+          "unearthed from the premier Merelani deposits of Tanzania.",
+    quote: "Dramatic trichroic fire, in its purest crystalline state.",
+    craft: {
+      h: "Cut for dispersion",
+      p: ["Celebrated for its intense royal blue saturation with rich violet flashes " +
+          "and exceptional optical clarity, The Crown exhibits dramatic trichroic fire.",
+          "Precision lapidary faceting is designed to maximise brilliance and colour " +
+          "dispersion in its purest crystalline state. Marquise brilliant cut, eye " +
+          "clean to VVS, natural and unheated."],
+    },
+    stones: {
+      h: "Eighteen and a half carats",
+      p: ["18.45 carats in total of natural Tanzanite, royal velvet blue to deep " +
+          "violet, graded AAA+.",
+          "From the Merelani Hills of Tanzania, and accompanied by a gemological " +
+          "laboratory report and a certificate of origin naming the deposit."],
+    },
+  },
+
+  rift: {
+    kicker: "High Jewellery",
+    lede: "A matched pair from one crystal, split at the mine and cut together so the " +
+          "two drops read as one colour under any light.",
+    quote: "Split at the mine, and cut together.",
+    craft: {
+      h: "One crystal, two drops",
+      p: ["Matching a pair this closely is a question of where the rough is divided " +
+          "rather than how the stones are polished. Split at the mine and cut as one " +
+          "commission, the two hold the same tone from every angle.",
+          "Set in platinum 950, which stays neutral against the blue rather than " +
+          "warming it."],
+    },
+    stones: {
+      h: "Nine carats, matched",
+      p: ["9.14 carats as a pair of tanzanite, with diamond.",
+          "From Merelani, Tanzania, the only place on earth the stone is found."],
+    },
+  },
+
+  oldoinyo: {
+    kicker: "High Jewellery",
+    lede: "Built as a tiara, worn as a necklace: the frame separates into three, each " +
+          "part finished to be seen on its own.",
+    quote: "Each part finished to be seen on its own.",
+    craft: {
+      h: "One piece, three ways",
+      p: ["The frame separates into three. Nothing is hidden at the joins, because " +
+          "each section has to hold up as a finished piece in its own right.",
+          "Platinum 950 throughout, which is what allows a tiara frame to be light " +
+          "enough to wear as a collar."],
+    },
+    stones: {
+      h: "Twenty-eight carats of diamond",
+      p: ["28.40 carats in total, in platinum.",
+          "The stones are gathered rather than from a single source, matched for " +
+          "colour and cut across the whole frame."],
+    },
+  },
 };

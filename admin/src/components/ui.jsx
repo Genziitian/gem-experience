@@ -29,6 +29,13 @@ const PATHS = {
   arrowUp: "M12 19V5 M5 12l7-7 7 7",
   arrowDown: "M12 5v14 M19 12l-7 7-7-7",
   signout: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4 M16 17l5-5-5-5 M21 12H9",
+  help: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3 M12 17h.01",
+  blog: "M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z M9 7h7 M9 11h5",
+  eye: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+  eyeOff: "M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94 M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19 M14.12 14.12a3 3 0 1 1-4.24-4.24 M1 1l22 22",
+  external: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14 21 3",
+  image: "M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z M8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z M21 15l-5-5L5 21",
+  arrowLeft: "M19 12H5 M12 19l-7-7 7-7",
 };
 
 export function Icon({ name, ...rest }) {
@@ -81,7 +88,7 @@ export function Skeleton({ rows = 4 }) {
 const PILL_TONE = {
   published: "success", active: "success", paid: "success", resolved: "success",
   confirmed: "success", completed: "success", allow: "success",
-  draft: "warning", new: "warning", pending: "warning", in_progress: "warning",
+  draft: "warning", scheduled: "info", new: "warning", pending: "warning", in_progress: "warning",
   enquiry: "warning", bot: "warning",
   blocked: "danger", failed: "danger", cancelled: "danger", archived: "danger",
   block: "danger", suspended: "danger",

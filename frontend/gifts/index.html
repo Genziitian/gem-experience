@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/css/gift-note.css">
 <link rel="stylesheet" href="/fine-jewellery/styles.css">
 <link rel="stylesheet" href="/gifts/styles.css">
+<link rel="stylesheet" href="/css/faqs.css">
 </head>
 <body class="pg">
 <div class="pg-wrap">
@@ -73,6 +74,9 @@
            the bag, the cart and the checkout are literally the same form. -->
       <div class="gift-note-host" id="gift-note-host"></div>
     </section>
+
+    <!-- The gift questions, edited in the admin under FAQs. -->
+    <div id="gift-faqs"></div>
   </main>
 
   <div id="pg-footer"></div>
@@ -89,6 +93,9 @@
 <script src="/js/shell.js"></script>
 <script src="/fine-jewellery/data.js"></script>
 <script src="/gifts/app.js"></script>
+<script src="/js/markdown.js"></script>
+<script src="/js/faqs.js"></script>
+<script>GemFaqs.mount("#gift-faqs", { category: "gifts", prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,129 @@
+/* Questions and answers: the /faqs/ page and the section embedded on Fine
+   Jewellery and Gifts. Loaded next to pages.css or fine-jewellery/styles.css,
+   which both define the same tokens; the fallbacks are for anywhere else. */
+
+.faq-list { border-top: 1px solid var(--rule, #e3ddd0); }
+
+.faq-item { border-bottom: 1px solid var(--rule, #e3ddd0); }
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif, "EB Garamond", Georgia, serif);
+  font-weight: 500;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.35;
+  color: var(--ink, #17140f);
+  transition: color 0.2s ease;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q:hover { color: var(--muted, #6b6259); }
+.faq-chev { flex: 0 0 auto; transition: transform 0.22s ease; }
+.faq-item[open] .faq-chev { transform: rotate(180deg); }
+
+.faq-a {
+  padding: 0 0 24px;
+  max-width: 68ch;
+  font-family: var(--sans, Jost, sans-serif);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--ink-soft, #2b2620);
+}
+.faq-a p { margin: 0 0 12px; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-a ul, .faq-a ol { margin: 0 0 12px; padding-left: 20px; }
+.faq-a a {
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.2s ease;
+}
+.faq-a a:hover { opacity: 0.65; }
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-chev, .faq-q { transition: none; }
+}
+
+/* ------------------------------------------------------------ embedded */
+
+.faq-embed {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 96px) var(--gutter, 20px);
+}
+
+.faq-embed-head { margin-bottom: 28px; text-align: center; }
+
+.faq-kicker {
+  display: block;
+  margin: 0 0 16px;
+  font-family: var(--sans, Jost, sans-serif);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  color: var(--ink-soft, #2b2620);
+  opacity: 0.72;
+}
+
+.faq-embed-title {
+  margin: 0;
+  font-family: var(--serif, "EB Garamond", Georgia, serif);
+  font-weight: 500;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.faq-embed-lede {
+  margin: 14px auto 0;
+  max-width: 52ch;
+  font-family: var(--sans, Jost, sans-serif);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--muted, #6b6259);
+}
+
+.faq-all {
+  display: table;
+  margin: 32px auto 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--sans, Jost, sans-serif);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--ink, #17140f);
+}
+
+/* ------------------------------------------------------------ /faqs/ page */
+
+.faq-page { max-width: 880px; margin: 0 auto; }
+
+.faq-cats { margin-bottom: 8px; }
+
+.faq-group { padding-top: 40px; scroll-margin-top: 96px; }
+.faq-group:first-of-type { padding-top: 8px; }
+
+.faq-group-head { margin-bottom: 18px; }
+.faq-group-lede {
+  margin: 10px 0 0;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--muted, #6b6259);
+}
+
+.faq-help {
+  margin-top: clamp(56px, 7vw, 88px);
+  padding: clamp(28px, 3vw, 40px);
+  background: var(--cream, #f5f1e8);
+  text-align: center;
+}
+.faq-help .pg-actions { justify-content: center; margin-top: 20px; }

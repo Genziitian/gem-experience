@@ -6,7 +6,7 @@ stand-in for the Supabase client.
     npm run harness
     open http://localhost:5173/admin/src/__harness/harness.html?page=navigation
 
-`?page=` takes `navigation`, `offices`, `contact`, `media` or `audit`.
+`?page=` takes `navigation`, `offices`, `contact`, `media`, `audit`, `faqs` or `blog`.
 
 The swap is a resolver plugin in `vite.config.js` scoped to `--mode harness`,
 so nothing here reaches the production bundle — `src/main.jsx` never imports

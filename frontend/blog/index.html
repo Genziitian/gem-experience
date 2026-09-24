@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journal — Gem Experience</title>
+<meta name="description" content="Stories from Gem Experience: coloured stones from the East African belt, how they are cut, and the jewellery made from them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/site-nav.css">
+<link rel="stylesheet" href="../css/mini-cart.css">
+<link rel="stylesheet" href="../css/gift-note.css">
+<link rel="stylesheet" href="../css/blog.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Gem Experience</span>
+    <h1 class="pg-title">Journal</h1>
+    <p class="pg-lede">Stones, the places they come from, and the hands that set them.</p>
+  </header>
+  <main class="pg-main">
+    <div class="blog">
+      <div class="pg-tabs pg-tabs--center" id="blog-tags" role="tablist" aria-label="Topics" hidden></div>
+      <div id="blog-list" aria-live="polite">
+        <div class="blog-grid" aria-hidden="true">
+          <div class="blog-card is-loading"><div class="blog-card-media"></div></div>
+          <div class="blog-card is-loading"><div class="blog-card-media"></div></div>
+          <div class="blog-card is-loading"><div class="blog-card-media"></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-content.js"></script>
+<script src="../js/site-nav.js"></script>
+<script src="../js/mini-cart.js"></script>
+<script src="../js/gift-note.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/markdown.js"></script>
+<script src="../js/blog.js"></script>
+<script>
+GemShell.mount();
+
+(function () {
+  var esc = GemMarkdown.esc;
+  var host = document.getElementById("blog-list");
+  var tagBar = document.getElementById("blog-tags");
+  var posts = [];
+
+  function tagNow() { return new URLSearchParams(location.search).get("tag") || ""; }
+
+  function card(p, lead) {
+    var meta = [GemBlog.formatDate(p.published_at), GemBlog.readingTime(p.body) + " min read"]
+      .filter(Boolean).join(" · ");
+    return '<a class="blog-card' + (lead ? " blog-card--lead" : "") + '" href="' + GemBlog.postUrl(p.slug) + '">' +
+      '<div class="blog-card-media">' +
+        (p.cover_image
+          ? '<img src="' + esc(p.cover_image) + '" alt="' + esc(p.cover_alt || "") + '" loading="' + (lead ? "eager" : "lazy") + '" decoding="async">'
+          : "") +
+      "</div>" +
+      '<div class="blog-card-body">' +
+        (p.tags && p.tags[0] ? '<span class="blog-card-tag">' + esc(p.tags[0]) + "</span>" : "") +
+        "<h2>" + esc(p.title) + "</h2>" +
+        "<p>" + esc(GemBlog.summary(p, lead ? 260 : 160)) + "</p>" +
+        '<span class="blog-card-meta">' + esc(meta) + "</span>" +
+      "</div>" +
+    "</a>";
+  }
+
+  function draw() {
+    var tag = tagNow();
+    var tags = [];
+    posts.forEach(function (p) {
+      (p.tags || []).forEach(function (t) { if (tags.indexOf(t) === -1) tags.push(t); });
+    });
+
+    tagBar.hidden = tags.length < 2;
+    tagBar.innerHTML = [""].concat(tags).map(function (t) {
+      return '<button class="pg-tab' + (t === tag ? " is-on" : "") + '" type="button" data-tag="' + esc(t) + '">' +
+        esc(t || "All") + "</button>";
+    }).join("");
+
+    var shown = tag ? posts.filter(function (p) { return (p.tags || []).indexOf(tag) !== -1; }) : posts;
+
+    if (!shown.length) {
+      host.innerHTML =
+        '<div class="blog-empty">' +
+          '<h2 class="pg-section-title">' + (tag ? "Nothing under this topic yet" : "The journal opens soon") + "</h2>" +
+          '<p class="pg-note">' + (tag
+            ? 'Try <a class="pg-link" href="./">every story</a>.'
+            : 'In the meantime, read <a class="pg-link" href="../high-jewellery/stories/">the stories behind the High Jewellery</a>.') +
+          "</p>" +
+        "</div>";
+      return;
+    }
+
+    /* The newest post leads across the full width; the rest sit in the grid. */
+    host.innerHTML = card(shown[0], true) +
+      (shown.length > 1 ? '<div class="blog-grid">' + shown.slice(1).map(function (p) { return card(p); }).join("") + "</div>" : "");
+  }
+
+  tagBar.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-tag]");
+    if (!b) return;
+    var t = b.getAttribute("data-tag");
+    history.replaceState(null, "", t ? "?tag=" + encodeURIComponent(t) : location.pathname);
+    draw();
+  });
+
+  GemBlog.list().then(function (rows) {
+    posts = rows || [];
+    draw();
+  });
+})();
+</script>
+<script src="../js/analytics.js" defer></script>
+</body>
+</html>

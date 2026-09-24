@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- The one template behind every article. It is served at /blog/<slug>/
+     (a rewrite in vercel.json) as well as here, so every path on this page is
+     absolute: a relative one would resolve against whichever slug is in the
+     address bar. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journal — Gem Experience</title>
+<meta name="description" content="A story from the Gem Experience journal.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Gem Experience">
+<meta property="og:title" content="Journal — Gem Experience">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/site-nav.css">
+<link rel="stylesheet" href="/css/mini-cart.css">
+<link rel="stylesheet" href="/css/gift-note.css">
+<link rel="stylesheet" href="/css/blog.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <main class="pg-main">
+    <article class="post" id="post" aria-busy="true">
+      <div class="post-loading" aria-hidden="true">
+        <div class="post-loading-line is-short"></div>
+        <div class="post-loading-line"></div>
+        <div class="post-loading-line"></div>
+      </div>
+    </article>
+    <section class="post-more" id="post-more" hidden aria-labelledby="post-more-title">
+      <h2 class="pg-section-title" id="post-more-title">More from the journal</h2>
+      <div class="blog-grid" id="post-more-grid"></div>
+    </section>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/config.js"></script>
+<script src="/js/gem.js"></script>
+<script src="/js/site-footer.js"></script>
+<script src="/js/site-content.js"></script>
+<script src="/js/site-nav.js"></script>
+<script src="/js/mini-cart.js"></script>
+<script src="/js/gift-note.js"></script>
+<script src="/js/shell.js"></script>
+<script src="/js/markdown.js"></script>
+<script src="/js/blog.js"></script>
+<script>
+GemShell.mount({ prefix: "/" });
+
+(function () {
+  var esc = GemMarkdown.esc;
+  var root = document.getElementById("post");
+  var slug = GemBlog.slugFromLocation();
+
+  function setMeta(sel, attr, value) {
+    var el = document.querySelector(sel);
+    if (el) el.setAttribute(attr, value || "");
+  }
+
+  function absolute(url) {
+    try { return new URL(url, location.origin).href; } catch (e) { return url; }
+  }
+
+  /* `offline` is a read that failed, as opposed to a slug with no post: the
+     first is worth a retry and must not be marked noindex. */
+  function notFound(offline) {
+    root.removeAttribute("aria-busy");
+    if (offline) {
+      root.innerHTML =
+        '<header class="post-head">' +
+          '<span class="pg-kicker">Journal</span>' +
+          '<h1 class="pg-title">This story could not be loaded</h1>' +
+          '<p class="pg-lede">Please check your connection and try again.</p>' +
+          '<div class="pg-actions post-actions"><button class="pg-btn" type="button" onclick="location.reload()">Try again</button></div>' +
+        "</header>";
+      return;
+    }
+    document.title = "Story not found — Gem Experience";
+    var robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex";
+    document.head.appendChild(robots);
+    root.innerHTML =
+      '<header class="post-head">' +
+        '<span class="pg-kicker">Journal</span>' +
+        '<h1 class="pg-title">This story was not found</h1>' +
+        '<p class="pg-lede">It may have been moved or taken down.</p>' +
+        '<div class="pg-actions post-actions"><a class="pg-btn" href="/blog/">Back to the journal</a></div>' +
+      "</header>";
+  }
+
+  /* BlogPosting and a breadcrumb, which is what search and answer engines
+     read an article's author, date and place in the site from. */
+  function structuredData(p, url) {
+    var ld = [{
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: p.title,
+      description: p.seo_description || GemBlog.summary(p, 160),
+      image: p.cover_image ? [absolute(p.cover_image)] : undefined,
+      datePublished: p.published_at || p.created_at,
+      dateModified: p.updated_at || p.published_at || p.created_at,
+      author: { "@type": p.author ? "Person" : "Organization", name: p.author || "Gem Experience" },
+      publisher: { "@type": "Organization", name: "Gem Experience" },
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      keywords: (p.tags || []).join(", ") || undefined,
+      wordCount: GemMarkdown.toText(p.body).split(/\s+/).length
+    }, {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: location.origin + "/" },
+        { "@type": "ListItem", position: 2, name: "Journal", item: location.origin + "/blog/" },
+        { "@type": "ListItem", position: 3, name: p.title, item: url }
+      ]
+    }];
+    var s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
+  }
+
+  function draw(p) {
+    var url = location.origin + "/blog/" + encodeURIComponent(p.slug) + "/";
+    var desc = p.seo_description || GemBlog.summary(p, 160);
+
+    document.title = (p.seo_title || p.title) + " — Gem Experience";
+    setMeta('meta[name="description"]', "content", desc);
+    setMeta('meta[property="og:title"]', "content", p.seo_title || p.title);
+    setMeta('meta[property="og:description"]', "content", desc);
+    setMeta('meta[property="og:image"]', "content", p.cover_image ? absolute(p.cover_image) : "");
+    var canon = document.createElement("link");
+    canon.rel = "canonical";
+    canon.href = url;
+    document.head.appendChild(canon);
+    structuredData(p, url);
+
+    /* Only the h2s make the contents list; sub-headings would crowd it. */
+    var heads = GemMarkdown.headings(p.body).filter(function (h) { return h.level === 2; });
+    var meta = [
+      p.author ? "By " + esc(p.author) : "",
+      p.published_at ? '<time datetime="' + esc(p.published_at) + '">' + esc(GemBlog.formatDate(p.published_at)) + "</time>" : "",
+      GemBlog.readingTime(p.body) + " min read"
+    ].filter(Boolean).join('<span aria-hidden="true"> · </span>');
+
+    root.removeAttribute("aria-busy");
+    root.innerHTML =
+      '<nav class="post-crumbs" aria-label="Breadcrumb"><a href="/blog/">Journal</a>' +
+        (p.tags && p.tags[0] ? ' <span aria-hidden="true">/</span> <a href="/blog/?tag=' + encodeURIComponent(p.tags[0]) + '">' + esc(p.tags[0]) + "</a>" : "") +
+      "</nav>" +
+      '<header class="post-head">' +
+        '<h1 class="pg-title">' + esc(p.title) + "</h1>" +
+        (p.excerpt ? '<p class="pg-lede">' + esc(p.excerpt) + "</p>" : "") +
+        '<p class="post-meta">' + meta + "</p>" +
+      "</header>" +
+      (p.cover_image
+        ? '<figure class="post-cover"><img src="' + esc(p.cover_image) + '" alt="' + esc(p.cover_alt || "") + '" fetchpriority="high" decoding="async"></figure>'
+        : "") +
+      /* A contents list once a post is long enough to need one: it lets a
+         reader, and an answer engine, go straight to the part they came for. */
+      (heads.length >= 3
+        ? '<nav class="post-toc" aria-label="In this story"><span class="post-toc-title">In this story</span><ol>' +
+            heads.map(function (h) {
+              return '<li><a href="#' + esc(h.id) + '">' + esc(h.text) + "</a></li>";
+            }).join("") + "</ol></nav>"
+        : "") +
+      '<div class="post-body">' + GemMarkdown.render(p.body) + "</div>" +
+      (p.tags && p.tags.length
+        ? '<ul class="post-tags" aria-label="Topics">' + p.tags.map(function (t) {
+            return '<li><a href="/blog/?tag=' + encodeURIComponent(t) + '">' + esc(t) + "</a></li>";
+          }).join("") + "</ul>"
+        : "") +
+      '<aside class="post-cta">' +
+        '<p class="pg-note">Would you like to see a stone like this in person?</p>' +
+        '<div class="pg-actions"><a class="pg-btn" href="/appointment/">Book an appointment</a>' +
+        '<a class="pg-btn pg-btn--ghost" href="/contact/">Speak to an adviser</a></div>' +
+      "</aside>";
+  }
+
+  function more(current) {
+    GemBlog.list(4).then(function (rows) {
+      var others = (rows || []).filter(function (r) { return r.slug !== current; }).slice(0, 3);
+      if (!others.length) return;
+      document.getElementById("post-more-grid").innerHTML = others.map(function (r) {
+        return '<a class="blog-card" href="' + GemBlog.postUrl(r.slug) + '">' +
+          '<div class="blog-card-media">' + (r.cover_image
+            ? '<img src="' + esc(r.cover_image) + '" alt="' + esc(r.cover_alt || "") + '" loading="lazy" decoding="async">' : "") +
+          "</div>" +
+          '<div class="blog-card-body"><h2>' + esc(r.title) + "</h2>" +
+          '<span class="blog-card-meta">' + esc(GemBlog.formatDate(r.published_at)) + "</span></div></a>";
+      }).join("");
+      document.getElementById("post-more").hidden = false;
+    });
+  }
+
+  if (!slug) { location.replace("/blog/"); return; }
+
+  GemBlog.one(slug).then(function (p) {
+    if (!p) return notFound(p === null);
+    draw(p);
+    more(p.slug);
+  });
+})();
+</script>
+<script src="/js/analytics.js" defer></script>
+</body>
+</html>

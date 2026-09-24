@@ -232,3 +232,162 @@ export async function readAudit({ entity = "", limit = 100 } = {}) {
   if (error) throw error;
   return data || [];
 }
+
+/* ------------------------------------------------------------------- faqs
+ *
+ * Categories are keyed by slug, not a uuid: the slug is the anchor on /faqs/
+ * and what a collection page asks for when it embeds its own questions, so it
+ * is the thing that has to stay stable. Renaming a slug cascades to its
+ * questions in the database.
+ */
+
+export async function readFaqCategories() {
+  const { data, error } = await supabase
+    .from("faq_categories").select("*").order("sort_order", { ascending: true });
+  if (error) throw error;
+  return data || [];
+}
+
+export async function saveFaqCategory(c, previousSlug) {
+  const row = {
+    slug: slugify(c.slug || c.label),
+    label: (c.label || "").trim(),
+    intro: (c.intro || "").trim() || null,
+    sort_order: Number(c.sort_order) || 0,
+    published: c.published !== false,
+  };
+  if (!row.label) throw new Error("A category needs a name.");
+  if (!row.slug) throw new Error("A category needs a slug.");
+
+  if (previousSlug) {
+    const { error } = await supabase.from("faq_categories").update(row).eq("slug", previousSlug);
+    if (error) throw error;
+    return row.slug;
+  }
+  const { error } = await supabase.from("faq_categories").insert(row);
+  if (error) throw error;
+  return row.slug;
+}
+
+export async function deleteFaqCategory(slug) {
+  /* its questions go with it, by the foreign key's cascade */
+  const { error } = await supabase.from("faq_categories").delete().eq("slug", slug);
+  if (error) throw error;
+}
+
+export async function reorderFaqCategories(items) {
+  if (!items.length) return;
+  const rows = items.map((it, i) => ({ slug: it.slug, label: it.label, sort_order: i }));
+  const { error } = await supabase.from("faq_categories").upsert(rows, { onConflict: "slug" });
+  if (error) throw error;
+}
+
+export async function readFaqs() {
+  const { data, error } = await supabase
+    .from("faqs").select("*").order("category").order("sort_order", { ascending: true });
+  if (error) throw error;
+  return data || [];
+}
+
+export async function saveFaq(f) {
+  const row = {
+    category: f.category,
+    question: (f.question || "").trim(),
+    answer: (f.answer || "").trim(),
+    sort_order: Number(f.sort_order) || 0,
+    published: f.published !== false,
+  };
+  if (!row.category) throw new Error("Choose a category.");
+  if (!row.question) throw new Error("A question is needed.");
+  if (!row.answer) throw new Error("An answer is needed.");
+
+  if (f.id) {
+    const { error } = await supabase.from("faqs").update(row).eq("id", f.id);
+    if (error) throw error;
+    return f.id;
+  }
+  const { data, error } = await supabase.from("faqs").insert(row).select("id").single();
+  if (error) throw error;
+  return data.id;
+}
+
+export async function deleteFaq(id) {
+  const { error } = await supabase.from("faqs").delete().eq("id", id);
+  if (error) throw error;
+}
+
+/* The upsert carries the not-null columns as well as the order: an upsert is
+   an insert first, and Postgres checks the row it would insert before it
+   finds the conflict and turns it into an update. */
+export async function reorderFaqs(items) {
+  if (!items.length) return;
+  const rows = items.map((it, i) => ({
+    id: it.id, category: it.category, question: it.question, answer: it.answer, sort_order: i,
+  }));
+  const { error } = await supabase.from("faqs").upsert(rows, { onConflict: "id" });
+  if (error) throw error;
+}
+
+/* ------------------------------------------------------------------- blog */
+
+export function slugify(s) {
+  return String(s || "")
+    .toLowerCase()
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
+export async function readPosts() {
+  const { data, error } = await supabase
+    .from("blog_posts").select("*").order("updated_at", { ascending: false });
+  if (error) throw error;
+  return data || [];
+}
+
+export async function savePost(p) {
+  const tags = Array.isArray(p.tags)
+    ? p.tags
+    : String(p.tags || "").split(",");
+  const row = {
+    slug: slugify(p.slug || p.title),
+    title: (p.title || "").trim(),
+    excerpt: (p.excerpt || "").trim() || null,
+    body: p.body || "",
+    cover_image: (p.cover_image || "").trim() || null,
+    cover_alt: (p.cover_alt || "").trim() || null,
+    author: (p.author || "").trim() || null,
+    tags: [...new Set(tags.map((t) => t.trim()).filter(Boolean))],
+    seo_title: (p.seo_title || "").trim() || null,
+    seo_description: (p.seo_description || "").trim() || null,
+    published: !!p.published,
+    /* Publishing without a date means "now". A date that is set is kept, so
+       re-saving an old post does not move it to the top of the journal. */
+    published_at: p.published_at
+      ? new Date(p.published_at).toISOString()
+      : p.published ? new Date().toISOString() : null,
+  };
+  if (!row.title) throw new Error("A post needs a title.");
+  if (!row.slug) throw new Error("A post needs a slug.");
+  if (row.slug === "post") throw new Error("“post” is reserved by the article page. Choose another slug.");
+
+  if (p.id) {
+    const { error } = await supabase.from("blog_posts").update(row).eq("id", p.id);
+    if (error) throw friendly(error);
+    return p.id;
+  }
+  const { data, error } = await supabase.from("blog_posts").insert(row).select("id").single();
+  if (error) throw friendly(error);
+  return data.id;
+}
+
+function friendly(error) {
+  if (error && error.code === "23505") return new Error("Another post already uses this slug.");
+  return error;
+}
+
+export async function deletePost(id) {
+  const { error } = await supabase.from("blog_posts").delete().eq("id", id);
+  if (error) throw error;
+}

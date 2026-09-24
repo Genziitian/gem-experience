@@ -15,6 +15,8 @@ import GalleryEditor from "../components/GalleryEditor.jsx";
 import Activity from "../pages/Activity.jsx";
 import People from "../pages/People.jsx";
 import GiftReq from "../pages/Gifts.jsx";
+import Faqs from "../pages/Faqs.jsx";
+import Blog from "../pages/Blog.jsx";
 import { useState } from "react";
 
 function Gallery() {
@@ -32,7 +34,7 @@ function Gallery() {
 }
 
 const which = new URLSearchParams(location.search).get("page") || "navigation";
-const Pages = { navigation: Navigation, offices: Offices, contact: Contact, media: Media, audit: Audit, gallery: Gallery, activity: Activity, people: People, giftreq: GiftReq };
+const Pages = { navigation: Navigation, offices: Offices, contact: Contact, media: Media, audit: Audit, gallery: Gallery, activity: Activity, people: People, giftreq: GiftReq, faqs: Faqs, blog: Blog };
 const Page = Pages[which] || Navigation;
 
 createRoot(document.getElementById("root")).render(

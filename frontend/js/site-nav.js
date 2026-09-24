@@ -67,6 +67,8 @@
     { label: "Request a quotation", href: "quotation/" },
     { label: "My account", href: "account/" },
     { label: "Contact us", href: "contact/" },
+    { label: "FAQs", href: "faqs/" },
+    { label: "Journal", href: "blog/" },
     { label: "Legal", href: "legal/" }
   ];
 

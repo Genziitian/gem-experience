@@ -11,6 +11,14 @@
     {
       "source": "/admin/:path*",
       "destination": "/admin/index.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/post/index.html"
+    },
+    {
+      "source": "/blog/:slug/",
+      "destination": "/blog/post/index.html"
     }
   ],
   "trailingSlash": true,

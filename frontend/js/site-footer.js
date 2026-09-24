@@ -72,6 +72,7 @@
                   '<a href="' + prefix + 'offices/">Where the stones come from</a>' +
                   '<a href="' + prefix + 'high-jewellery/">Inside the workshop</a>' +
                   '<a href="' + prefix + 'legal/#privacy">Responsible sourcing</a>' +
+                  '<a href="' + prefix + 'blog/">Journal</a>' +
                 "</div>" +
               "</section>" +
               '<section class="ftr-group">' +
@@ -81,6 +82,7 @@
                   '<a href="' + prefix + 'quotation/">Commission a piece</a>' +
                   '<a href="' + prefix + 'contact/">Care and repairs</a>' +
                   '<a href="' + prefix + 'contact/">Contact us</a>' +
+                  '<a href="' + prefix + 'faqs/">FAQs</a>' +
                 "</div>" +
               "</section>" +
               '<section class="ftr-group">' +

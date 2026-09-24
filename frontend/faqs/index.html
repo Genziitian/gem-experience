@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQs — Gem Experience</title>
+<meta name="description" content="Answers on Fine Jewellery pricing, stones, delivery, returns and care, and on gifting with a handwritten card, from Gem Experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/site-nav.css">
+<link rel="stylesheet" href="../css/mini-cart.css">
+<link rel="stylesheet" href="../css/gift-note.css">
+<link rel="stylesheet" href="../css/faqs.css">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Client care</span>
+    <h1 class="pg-title">Frequently asked questions</h1>
+    <p class="pg-lede">What people most often ask us before, and after, a piece is theirs.</p>
+  </header>
+  <main class="pg-main">
+    <div class="faq-page">
+      <div class="pg-tabs pg-tabs--center faq-cats" id="faq-cats" role="tablist" aria-label="Categories"></div>
+      <div id="faq-groups"></div>
+
+      <aside class="faq-help">
+        <h2 class="pg-section-title">Still have a question?</h2>
+        <p class="pg-note">An adviser can answer anything about a piece, a stone or an order.</p>
+        <div class="pg-actions">
+          <a class="pg-btn" href="../contact/">Contact us</a>
+          <a class="pg-btn pg-btn--ghost" href="../appointment/">Book an appointment</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-content.js"></script>
+<script src="../js/site-nav.js"></script>
+<script src="../js/mini-cart.js"></script>
+<script src="../js/gift-note.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/markdown.js"></script>
+<script src="../js/faqs.js"></script>
+<script>
+GemShell.mount();
+
+(function () {
+  var tabs = document.getElementById("faq-cats");
+  var groups = document.getElementById("faq-groups");
+  var esc = GemMarkdown.esc;
+  var cats = [];
+
+  /* "all" shows every category one after another; a category's slug shows
+     that one alone. The hash carries it, so /faqs/#gifts is a shareable link
+     to the gift questions and the embedded sections can deep-link here. */
+  function current() {
+    var h = (location.hash || "").replace("#", "");
+    return cats.some(function (c) { return c.slug === h; }) ? h : "all";
+  }
+
+  function draw() {
+    var on = current();
+    var shown = on === "all" ? cats : cats.filter(function (c) { return c.slug === on; });
+
+    tabs.hidden = cats.length < 2;
+    tabs.innerHTML = [{ slug: "all", label: "All" }].concat(cats).map(function (c) {
+      return '<button class="pg-tab' + (c.slug === on ? " is-on" : "") + '" type="button" role="tab"' +
+        ' aria-selected="' + (c.slug === on) + '" data-cat="' + esc(c.slug) + '">' + esc(c.label) + "</button>";
+    }).join("");
+
+    groups.innerHTML = shown.map(function (c) {
+      return '<section class="faq-group" id="' + esc(c.slug) + '" aria-labelledby="faq-h-' + esc(c.slug) + '">' +
+        '<div class="faq-group-head">' +
+          '<h2 class="pg-section-title" id="faq-h-' + esc(c.slug) + '">' + esc(c.label) + "</h2>" +
+          (c.intro ? '<p class="faq-group-lede">' + esc(c.intro) + "</p>" : "") +
+        "</div>" +
+        GemFaqs.listHtml(c.items) +
+      "</section>";
+    }).join("");
+
+    GemFaqs.jsonLd(shown.reduce(function (all, c) { return all.concat(c.items); }, []), "faq-ld");
+  }
+
+  tabs.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-cat]");
+    if (!b) return;
+    var slug = b.getAttribute("data-cat");
+    /* replaceState rather than setting the hash, which would jump the page
+       to the section and away from the tabs the visitor just used */
+    history.replaceState(null, "", slug === "all" ? location.pathname : "#" + slug);
+    draw();
+  });
+
+  window.addEventListener("hashchange", draw);
+
+  GemFaqs.get(function (data) {
+    cats = data;
+    draw();
+  });
+})();
+</script>
+<script src="../js/analytics.js" defer></script>
+</body>
+</html>

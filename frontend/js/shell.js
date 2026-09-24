@@ -17,7 +17,7 @@
         '<p class="pg-hdr-brand"><a href="' + prefix + '">Gem Experience</a></p>' +
 
         '<div class="pg-hdr-icons">' +
-          '<a class="pg-icon" href="' + prefix + 'high-jewellery/" aria-label="Search">' +
+          '<a class="pg-icon" href="' + prefix + 'search/" aria-label="Search">' +
             '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="0.833" aria-hidden="true">' +
               '<circle cx="9.16" cy="9.16" r="5.83"></circle><path d="M13.33 13.33 16.67 16.67"></path>' +
             "</svg>" +
@@ -47,11 +47,13 @@
           '<div><span class="pg-ftr-title">Client care</span>' +
             '<a href="' + prefix + 'appointment/">Book an appointment</a>' +
             '<a href="' + prefix + 'quotation/">Request a quotation</a>' +
-            '<a href="' + prefix + 'contact/">Contact us</a></div>' +
+            '<a href="' + prefix + 'contact/">Contact us</a>' +
+            '<a href="' + prefix + 'faqs/">FAQs</a></div>' +
           '<div><span class="pg-ftr-title">Maison</span>' +
             '<a href="' + prefix + 'high-jewellery/">High Jewellery</a>' +
             '<a href="' + prefix + 'fine-jewellery/">Fine Jewellery</a>' +
             '<a href="' + prefix + 'offices/">Our Offices</a>' +
+            '<a href="' + prefix + 'blog/">Journal</a>' +
             '<a href="' + prefix + 'account/">My account</a></div>' +
           '<div><span class="pg-ftr-title">Gem Experience</span>' +
             '<p class="pg-ftr-copy">Singular pieces, each cut from a stone we followed out of the ground.</p></div>' +

@@ -34,6 +34,23 @@ const DB = {
       payload: { name: "No gift here", email: "x@example.com", pieces: ["Rihla"] } },
   ],
   form_activity: [],
+  faq_categories: [
+    { slug: "fine-jewellery", label: "Fine Jewellery", intro: "Pricing, stones, delivery and care.", sort_order: 0, published: true },
+    { slug: "gifts", label: "Gifts", intro: "The handwritten card and the box.", sort_order: 1, published: true },
+  ],
+  faqs: [
+    { id: "q1", category: "fine-jewellery", question: "How are Fine Jewellery pieces priced?", answer: "Every piece is priced on the stone it is set with, so prices are given on request.", sort_order: 0, published: true },
+    { id: "q2", category: "fine-jewellery", question: "How long does delivery take?", answer: "In-stock pieces ship within 5–7 working days. [Book a viewing](/appointment/).", sort_order: 1, published: true },
+    { id: "q3", category: "fine-jewellery", question: "Can a ring be resized?", answer: "Yes. Please allow **two weeks**.", sort_order: 2, published: false },
+    { id: "q4", category: "gifts", question: "Can I include a personal message?", answer: "Yes. It is written by hand on a card and set inside the box.", sort_order: 0, published: true },
+  ],
+  blog_posts: [
+    { id: "b1", slug: "reading-a-tanzanite", title: "Reading a tanzanite", excerpt: "Three colours in one stone, and how a cutter chooses between them.",
+      body: "## Three colours\n\nA tanzanite shows **blue**, violet and a warm burgundy.\n\n## The cut\n\n> The cutter decides which colour faces up.\n\n## At the bench\n\n- Orientation\n- Depth", cover_image: "", cover_alt: "", author: "Gem Experience", tags: ["Tanzanite", "Craft"],
+      seo_title: null, seo_description: null, published: true, published_at: "2026-09-20T09:00:00Z", created_at: "2026-09-18T09:00:00Z", updated_at: "2026-09-20T09:00:00Z" },
+    { id: "b2", slug: "draft-on-spinel", title: "A draft on spinel", excerpt: null, body: "Work in progress.", cover_image: "", cover_alt: "", author: null, tags: [],
+      seo_title: null, seo_description: null, published: false, published_at: null, created_at: "2026-09-22T09:00:00Z", updated_at: "2026-09-23T09:00:00Z" },
+  ],
   media: [
     { id: "m1", path: "offices/dubai-abc.jpg", url: "https://placehold.co/400", alt: "", width: 1600, height: 1600, bytes: 240000, mime: "image/jpeg", folder: "offices", created_at: new Date().toISOString() },
   ],

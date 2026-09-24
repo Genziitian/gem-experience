@@ -21,6 +21,8 @@ import Audit from "./pages/Audit.jsx";
 import Activity from "./pages/Activity.jsx";
 import People from "./pages/People.jsx";
 import Gifts from "./pages/Gifts.jsx";
+import Faqs from "./pages/Faqs.jsx";
+import Blog from "./pages/Blog.jsx";
 
 export default function App() {
   const [session, setSession] = useState(undefined);
@@ -90,6 +92,8 @@ export default function App() {
         <Route path="/navigation" element={<Navigation />} />
         <Route path="/offices" element={<Offices />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/media" element={<Media />} />
         <Route path="/security" element={<Security />} />
         <Route path="/audit" element={<Audit />} />

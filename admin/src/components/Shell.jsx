@@ -27,6 +27,8 @@ const LINKS = [
     ["/navigation", "Menu", "menu"],
     ["/offices", "Offices", "globe"],
     ["/contact", "Contact", "inbox"],
+    ["/faqs", "FAQs", "help"],
+    ["/blog", "Blog", "blog"],
     ["/media", "Media", "download"],
   ] },
   { section: "Site", items: [

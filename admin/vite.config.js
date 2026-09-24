@@ -32,6 +32,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 5173,
     host: true,
+    /* The Blog and FAQ editors import the storefront's Markdown renderer from
+       ../frontend/js, which is outside this package; the dev server refuses
+       files outside its root unless they are allowed here. */
+    fs: { allow: [".."] },
     /* In production the admin and the storefront share an origin, so the
        catalog import fetches the data.js files directly. In dev they do not —
        proxy them to `npm run dev:frontend` so the import works the same way. */

@@ -137,5 +137,7 @@
     });
   }
 
-  w.GemContent = { get: content, load: load, treeify: treeify, CACHE_KEY: CACHE_KEY };
+  /* `rest` is the same guarded read, for pages with content of their own to
+     fetch (FAQs, the journal, search). It resolves to null on any failure. */
+  w.GemContent = { get: content, load: load, treeify: treeify, rest: get, CACHE_KEY: CACHE_KEY };
 })(window);

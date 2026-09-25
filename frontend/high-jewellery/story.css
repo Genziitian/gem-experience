@@ -260,3 +260,28 @@
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* A copy band with no photograph beside it. Used where a piece has too few
+   frames to pair every section: the words still run, centred and given room,
+   rather than the section being dropped and its carat weights with it. */
+.st-text {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: var(--st-band) var(--st-gutter);
+}
+.st-text h2 {
+  margin: 0;
+  font-family: var(--serif, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.2;
+}
+.st-text p {
+  margin: 0;
+  max-width: 54ch;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-soft, #56504a);
+}

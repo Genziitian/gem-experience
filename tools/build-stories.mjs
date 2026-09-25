@@ -95,6 +95,17 @@ function build(id) {
   </section>`);
   }
 
+  /* A copy band with no photograph left to pair with it. Dropping the section
+     outright lost the carat weights on every piece with only two frames, which
+     is the opposite of the right trade: the words are the point, the picture
+     beside them is the luxury. */
+  function textBand(block) {
+    return `  <section class="st-text">
+    <h2>${esc(block.h)}</h2>
+    ${block.p.map((x) => `<p>${esc(x)}</p>`).join("\n    ")}
+  </section>`;
+  }
+
   // the making: two frames and the hours
   const craftImgs = [...d.model(1), ...d.still(1)].filter(Boolean);
   if (story.craft && craftImgs.length === 2) {
@@ -106,6 +117,8 @@ function build(id) {
       ${story.craft.p.map((x) => `<p>${esc(x)}</p>`).join("\n      ")}
     </div>
   </section>`);
+  } else if (story.craft) {
+    bands.push(textBand(story.craft));
   }
 
   // the stones: copy beside a still
@@ -118,6 +131,8 @@ function build(id) {
     </div>
     ${figure(stoneImg, `${name}, showing the stones.`)}
   </section>`);
+  } else if (story.stones) {
+    bands.push(textBand(story.stones));
   }
 
   // the suite, only where there are three stills to spare for it

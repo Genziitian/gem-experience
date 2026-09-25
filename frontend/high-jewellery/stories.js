@@ -322,7 +322,11 @@ window.HJ_STORIES = {
 
   /* ------------------------------------------------------------------ DRAFTS
    *
-   * The seven below have no copy in any of the documents. These are written
+   * Two remain without copy: Spinel Balls necklace and Ocean Wave, which the
+   * house has said are still being written. The other five in this block have
+   * since been replaced with their real descriptions and are no longer drafts.
+   *
+   * The two below have no copy in any of the documents. These are written
    * from the photographs and from the fields already recorded against each
    * piece, as placeholders to be replaced with the house's own writing.
    *
@@ -337,25 +341,24 @@ window.HJ_STORIES = {
    */
 
   weaver: {
-    kicker: "High Jewellery",
-    draft: true,
-    lede: "Interlocking loops of pavé diamond, each one closing around a single round " +
-          "tanzanite. The line reads as one continuous ribbon rather than a row of " +
-          "separate settings.",
-    quote: "One line, drawn without lifting the pen.",
+    kicker: "Dancing Weaver",
+    lede: "The intricate overlapping pattern in the piece is inspired by the meticulous " +
+          "weaves in a bird's nest. An ode to nature's creative brilliance, reflecting " +
+          "the fine details of the world around us.",
+    quote: "Each link symbolises delicate balance and flow in the design.",
     craft: {
-      h: "Woven, not linked",
-      p: ["The loops pass through one another rather than meeting at a joint, so the " +
-          "collar moves as a single piece and lies flat against the body.",
-          "Every curve is pavé-set along its whole length, including the sections that " +
-          "face inward and are only seen as the piece turns."],
+      h: "Woven, as a nest is woven",
+      p: ["This takes a deep dive into the collection, Dancing Weaver. The overlapping " +
+          "links pass through one another rather than meeting at a joint, so the collar " +
+          "moves as one piece.",
+          "Every curve is set along its whole length, including the sections that face " +
+          "inward and are only seen as the piece turns."],
     },
     stones: {
-      h: "Tanzanite, round",
-      p: ["Round tanzanite in a saturated violet-blue, set at the close of each loop " +
-          "so the colour falls at regular intervals around the collar.",
-          "Diamond carries everything between them, which keeps the blue reading as " +
-          "punctuation rather than as a row of stones."],
+      h: "Twenty-eight carats of tanzanite",
+      p: ["28.25 carats of round-shaped tanzanite, with brilliant-cut diamonds.",
+          "The stones fall at the close of each link, so the blue reads as punctuation " +
+          "along the weave rather than as a row of settings."],
     },
     suite: { note: "Weaver is made as a necklace and a pair of earrings.",
              labels: ["Earrings", "Earrings", "Necklace"] },
@@ -385,94 +388,92 @@ window.HJ_STORIES = {
 
   georgie: {
     kicker: "High Jewellery",
-    draft: true,
-    lede: "Pearl and tanzanite along a single strand, closing in a pear-cut drop. The " +
-          "warmest piece in the collection, and the quietest.",
-    quote: "Rose gold, which takes the blue somewhere softer.",
+    lede: "The Georgie Necklace is a tribute to Grace Kelly's portrayal of Georgie " +
+          "Elgin in The Country Girl, a role marked by emotional depth and grace. " +
+          "Inspired by Georgie's resilience, this necklace embodies her elegance.",
+    quote: "Her inner light, and her unwavering dignity.",
     craft: {
-      h: "Strung, not set",
-      p: ["Pearls run the length of the strand and the tanzanite interrupts them at " +
-          "intervals, marquise and pear cuts laid along the line rather than across it.",
-          "Rose gold throughout. Against white metal the tanzanite reads cold; against " +
-          "rose it turns towards violet."],
+      h: "Warmth, in rose gold",
+      p: ["Crafted in rose gold, the necklace reflects Georgie's warmth, while the 19 " +
+          "natural pearls represent her inner light and unwavering dignity.",
+          "The pearls run the length of the strand and the tanzanite interrupts them at " +
+          "intervals, laid along the line rather than across it."],
     },
     stones: {
-      h: "Pearl and tanzanite",
-      p: ["Pearl for the body of the necklace, tanzanite for its punctuation, and a " +
-          "single pear-cut stone at the centre where the strand comes to rest.",
-          "Diamond frames the drop, which is the only part of the piece that hangs " +
-          "rather than sits."],
+      h: "Pearl and marquise tanzanite",
+      p: ["19 natural pearls, with 12.35 carats of marquise-shaped tanzanite " +
+          "introducing a vibrant touch and symbolising the emotional complexity of " +
+          "Georgie's character.",
+          "The marquise cut enhances the gemstone's brilliance, much like Grace Kelly's " +
+          "luminous performance."],
     },
   },
 
   "dew-fall": {
-    kicker: "High Jewellery",
-    draft: true,
-    /* The lede and the closing line are the Dew copy from Draft 2_.docx, which
-       describes the collection rather than this piece. The rest is drafted. */
-    lede: "The Dew collection draws inspiration from the purest moment in nature, when " +
-          "a single droplet forms, suspended in perfect balance.",
-    quote: "Dew signifies renewal, and the beginning of a moment.",
+    kicker: "Mediterranea",
+    lede: "The world awakens to the delicate touch of dewdrops, capturing the essence " +
+          "of a new day. The Dewfall Necklace, part of the illustrious Mediterranea " +
+          "Collection, weaves a tale of serenity and hope.",
+    quote: "Like a single dewdrop poised on the petal of a flower.",
     craft: {
-      h: "Suspended",
-      p: ["Each design is shaped around the softened, quiet elegance of falling drops " +
-          "in the morning dew.",
-          "The line of diamond is deliberately thin so that nothing competes with the " +
-          "drop itself, which hangs free at the lowest point of the necklace."],
+      h: "A tribute to fleeting moments",
+      p: ["The Dewfall Necklace is a tribute to these fleeting moments of nature's " +
+          "purity and peace.",
+          "The line of diamond is kept deliberately fine so that nothing competes with " +
+          "the drop itself, which hangs free at the lowest point of the necklace."],
     },
     stones: {
-      h: "Aquamarine",
-      p: ["A pear-cut aquamarine in a pale, watery blue, framed in brilliant-cut " +
-          "diamond and set to swing slightly as the wearer moves.",
-          "With precise proportions and finish, the stone is cut into the soft drop " +
-          "shape that enhances its luminosity and its structure."],
+      h: "Ten carats of aquamarine",
+      p: ["Central to this masterpiece is a luminous 10.37 carat drop-shaped " +
+          "aquamarine, reflecting the colours of the early morning sea. The gem " +
+          "captures the softness and clarity of the early morning hours.",
+          "Circling it are 17 carats of round, flawless diamonds, which shimmer like " +
+          "countless dewdrops glistening under the first rays of sunlight."],
     },
   },
 
   helix: {
     kicker: "High Jewellery",
-    draft: true,
-    lede: "An open collar that does not close. It is worn as a torque, the two ends " +
-          "passing one another at the front rather than meeting.",
-    quote: "It is held by its own shape, and by nothing else.",
+    lede: "The Helix Necklace draws inspiration from the intricate dance that is the " +
+          "very foundation of life, translated seamlessly into a piece that embodies " +
+          "nature's serenity and the geometric splendour of the circle.",
+    quote: "A spiral reminiscent of life's helix.",
     craft: {
-      h: "Sprung, not clasped",
-      p: ["There is no clasp. The collar is formed so that it holds itself at the " +
-          "throat, which means the metal has to be worked to a tolerance that survives " +
-          "being opened and closed by hand.",
-          "Diamond runs the full length of the band, including the underside, so the " +
-          "piece is finished at every angle it can be seen from."],
+      h: "Set in a spiral",
+      p: ["Encircling this beacon of tranquillity are 12 carats of round, flawless " +
+          "diamonds, set meticulously in a spiral reminiscent of life's helix.",
+          "As light catches each diamond, they shimmer like stars peeking through the " +
+          "forest's thick blanket."],
     },
     stones: {
-      h: "Two ends, two cuts",
-      p: ["A pear-cut tanzanite at one end and a step-cut at the other, so the two " +
-          "terminals answer each other without matching.",
-          "Set in white gold, which keeps the violet-blue cold and unwarmed."],
+      h: "Nine carats of tanzanite",
+      p: ["Suspended gracefully is a mesmerising 9.16 carat pear-shaped tanzanite, a " +
+          "gem that reflects the deep twilight hues of the forest at dusk.",
+          "As the sky deepens into shades of purples and blues."],
     },
   },
 
   serengeti: {
-    kicker: "High Jewellery",
-    draft: true,
-    /* Catalogue says a platinum tanzanite ring; the photographs show a rose
-       gold necklace set with pink stones. The copy follows the photographs. */
-    lede: "A wave drawn once around the neck. The band rises and falls in even peaks, " +
-          "with colour set only where the line turns.",
-    quote: "One line, repeated until it becomes a rhythm.",
+    kicker: "Where the Sea Rises in Elegance",
+    lede: "Inspired by the powerful high tides of the Tanzanian sea, Wimbi, meaning " +
+          "wave in Swahili, captures the untamed rhythm of nature in motion. Its " +
+          "sculptural design mirrors the fluid crest of waves rising and falling with " +
+          "grace.",
+    quote: "The moment just before a wave breaks.",
     craft: {
-      h: "The same curve, over and over",
-      p: ["The difficulty in a piece like this is not the stones but the repetition: " +
-          "every peak has to match every other one, or the eye finds the one that does " +
-          "not.",
-          "Rose gold for the wave itself, with diamond following the curve only where " +
-          "it turns back on itself."],
+      h: "Rhythm, rarity and refined beauty",
+      p: ["It is a tribute to the elegance of nature in motion, where every curve tells " +
+          "a story of rhythm, rarity and refined beauty.",
+          "The difficulty in a piece like this is the repetition: every crest has to " +
+          "match every other one, or the eye finds the one that does not."],
     },
     stones: {
-      h: "Set at the turns",
-      p: ["Stones in a deep pink are placed at intervals along the wave, with a larger " +
-          "step-cut stone at the centre front.",
-          "The rest of the line is left plain, so the metal carries the shape and the " +
-          "colour marks the beat."],
+      h: "Twenty-one carats of rhodolite",
+      p: ["21.86 carats of octagon-shaped rose-coloured rhodolite, carefully set to " +
+          "evoke the moment just before a wave breaks: bold, breathtaking, and full of " +
+          "life.",
+          "The rhodolite's unique hue reflects both strength and softness, like the sea " +
+          "itself at sunset."],
     },
   },
 

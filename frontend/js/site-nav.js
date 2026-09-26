@@ -43,22 +43,11 @@
     },
     { label: "Gemstones & Mining" },
     { label: "Engagement & Bridal" },
-    { label: "Gifts", href: "gifts/" },
-    {
-      label: "The House",
-      children: [
-        { heading: "About" },
-        { label: "Our History" },
-        { label: "Timeline" },
-        { label: "Craftsmanship" },
-        { label: "Sustainability" },
-        { label: "Maasai Women Project" },
-        { label: "Our Museum" },
-        { heading: "Services" },
-        { label: "Upgrade Your Jewellery" },
-        { label: "Preserve Your Jewellery" }
-      ]
-    }
+    { label: "Gifts", href: "gifts/" }
+    /* The House is hidden from the menu for now (unpublished in the database
+       too). Its entries: About — Our History, Timeline, Craftsmanship,
+       Sustainability, Maasai Women Project, Our Museum; Services — Upgrade
+       Your Jewellery, Preserve Your Jewellery. */
   ];
 
   var SECONDARY = [

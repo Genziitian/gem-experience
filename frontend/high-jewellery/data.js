@@ -363,9 +363,7 @@ window.HJ_DATA = {
       ],
       "models": [
         "img/pieces/merelani/m1.webp"
-      ],
-      "storyUrl": "/high-jewellery/merelani/",
-      "storyLabel": "Read the story of Spinel Balls necklace"
+      ]
     },
     {
       "id": "helix",
@@ -459,9 +457,7 @@ window.HJ_DATA = {
       "gallery": [
         "img/pieces/kilimanjaro/p1.webp"
       ],
-      "models": [],
-      "storyUrl": "/high-jewellery/kilimanjaro/",
-      "storyLabel": "Read the story of Ocean Wave"
+      "models": []
     },
     {
       "id": "rift",

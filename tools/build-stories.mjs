@@ -42,15 +42,31 @@ const byId = Object.fromEntries(data.products.map((p) => [p.id, p]));
 
 /* Hands out photographs in the order the page wants them and never twice, so a
    piece with fewer frames simply loses its optional bands instead of repeating
-   a picture two screens apart. */
+   a picture two screens apart.
+
+   draw() is all or nothing: it takes the frames only when the whole band can be
+   filled. Taking them first and discarding them when the band came up one short
+   is how the opening photograph went missing from every piece shot without a
+   model. The frame was spent on a section that was then never written, and the
+   page opened on its second picture with its first nowhere on the site.
+
+   A kind that has run out falls back to the other, so a piece photographed only
+   on the stand still gets its pairs rather than a column of single frames. */
 function dealer(piece) {
   const models = (piece.models || []).slice();
   const stills = (piece.gallery || []).slice();
   return {
-    model: (n = 1) => models.splice(0, n),
-    still: (n = 1) => stills.splice(0, n),
+    draw(kinds) {
+      if (models.length + stills.length < kinds.length) return null;
+      return kinds.map((k) => {
+        const first = k === "model" ? models : stills;
+        const other = k === "model" ? stills : models;
+        return (first.length ? first : other).shift();
+      });
+    },
     modelsLeft: () => models.length,
     stillsLeft: () => stills.length,
+    still: (n = 1) => stills.splice(0, n),
   };
 }
 
@@ -75,8 +91,8 @@ function build(id) {
   </header>`);
 
   // the piece itself beside the piece worn
-  const pairA = [...d.still(1), ...d.model(1)];
-  if (pairA.length === 2) {
+  const pairA = d.draw(["still", "model"]);
+  if (pairA) {
     bands.push(`  <section class="st-pair">
     ${figure(pairA[0], `${name}, the piece itself.`)}
     ${figure(pairA[1], `${name} worn.`)}
@@ -88,7 +104,7 @@ function build(id) {
     <cite>Gem Experience, on ${esc(name)}</cite>
   </blockquote>`);
 
-  const full = d.model(1)[0] || d.still(1)[0];
+  const full = (d.draw(["model"]) || [])[0];
   if (full) {
     bands.push(`  <section class="st-full">
     <img src="/high-jewellery/${full}" alt="${esc(name)} worn." loading="lazy" decoding="async">
@@ -107,8 +123,8 @@ function build(id) {
   }
 
   // the making: two frames and the hours
-  const craftImgs = [...d.model(1), ...d.still(1)].filter(Boolean);
-  if (story.craft && craftImgs.length === 2) {
+  const craftImgs = d.draw(["model", "still"]);
+  if (story.craft && craftImgs) {
     bands.push(`  <section class="st-craft">
     ${figure(craftImgs[0], `${name} worn.`, "st-craft-a")}
     ${figure(craftImgs[1], `${name}, in detail.`, "st-craft-b")}
@@ -122,7 +138,7 @@ function build(id) {
   }
 
   // the stones: copy beside a still
-  const stoneImg = d.still(1)[0] || d.model(1)[0];
+  const stoneImg = (d.draw(["still"]) || [])[0];
   if (story.stones && stoneImg) {
     bands.push(`  <section class="st-split">
     <div class="st-split-copy">
@@ -152,8 +168,8 @@ function build(id) {
   }
 
   // worn, at the scale the pieces are actually seen
-  const pairB = d.model(2);
-  if (pairB.length === 2) {
+  const pairB = d.draw(["model", "model"]);
+  if (pairB) {
     bands.push(`  <section class="st-pair st-pair--tall">
     ${figure(pairB[0], `${name} worn.`)}
     ${figure(pairB[1], `${name} worn.`)}
@@ -173,7 +189,9 @@ function build(id) {
 
   /* Four other pieces that also have a story page, so nothing links to a page
      that was never built. */
-  const others = Object.keys(STORIES).filter((k) => k !== id && byId[k]).slice(0, 4);
+  const others = Object.keys(STORIES)
+    .filter((k) => k !== id && byId[k] && !STORIES[k].draft)
+    .slice(0, 4);
   bands.push(`  <section class="st-more">
     <h2>Explore High Jewellery</h2>
     <div class="st-more-grid">
@@ -311,8 +329,14 @@ ${cards}
 `;
 }
 
+/* A draft is not published. Two pieces are still waiting on their copy, and a
+   page of placeholder prose under the house's name is worse than saying it is
+   coming. The grid says so instead, and the page is not written at all. */
+const publish = Object.keys(STORIES).filter((id) => byId[id] && !STORIES[id].draft);
+const drafts = Object.keys(STORIES).filter((id) => byId[id] && STORIES[id].draft);
+
 let made = 0;
-for (const id of Object.keys(STORIES)) {
+for (const id of publish) {
   const html = build(id);
   if (!html) { console.log(`skipped ${id}: no piece or no story`); continue; }
   const dir = path.join(HJ, id);
@@ -324,13 +348,35 @@ for (const id of Object.keys(STORIES)) {
               `${(html.match(/<section|<header class="st-open"|<blockquote/g) || []).length} bands`);
   made++;
 }
-const built = Object.keys(STORIES).filter((id) => byId[id]);
+const built = publish;
 fs.mkdirSync(path.join(HJ, "stories"), { recursive: true });
 fs.writeFileSync(path.join(HJ, "stories/index.html"), buildIndex(built));
+
+/* Remove a page that was published before its entry became a draft, so the
+   directory never holds a story the site no longer links to. */
+for (const id of drafts) {
+  const stale = path.join(HJ, id, "index.html");
+  if (fs.existsSync(stale)) { fs.rmSync(path.join(HJ, id), { recursive: true }); console.log(`removed stale page for ${id} (draft)`); }
+}
+
+/* The catalogue is written from here rather than by hand, so the link on a
+   card and the page that exists cannot fall out of step. */
+const dataPath = path.join(HJ, "data.js");
+const raw = fs.readFileSync(dataPath, "utf8");
+const head = raw.slice(0, raw.indexOf("{"));
+const cat = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1));
+for (const p of cat.products) {
+  if (publish.includes(p.id)) {
+    p.storyUrl = `/high-jewellery/${p.id}/`;
+    p.storyLabel = `Read the story of ${p.name}`;
+  } else {
+    delete p.storyUrl;
+    delete p.storyLabel;
+  }
+}
+fs.writeFileSync(dataPath, head + JSON.stringify(cat, null, 2) + ";\n");
 console.log(`\n${made} story pages written, plus the index at /high-jewellery/stories/`);
 
 /* Every piece points somewhere: its own story where there is one, the index
    where there is not, so no product page is left without the link. */
-const without = data.products.filter((p) => !STORIES[p.id]).map((p) => p.id);
-console.log(`${built.length} pieces with their own story; ${without.length} pointing at the index:`);
-console.log("   " + without.join(", "));
+console.log(`${built.length} pieces link to a story; ${drafts.length} show "Story coming soon": ${drafts.join(", ")}`);

@@ -1198,3 +1198,24 @@ button {
   color: var(--ink);
 }
 .pdp-story-link:hover { opacity: 0.66; }
+
+/* A story that has not been written yet. Same shape as the link beside it so
+   the grid keeps its rhythm, but plainly not clickable: no border, no hover,
+   and the cursor never changes. */
+.card-book--soon {
+  display: inline-block;
+  border-color: transparent;
+  color: var(--ink-faint, #a29c94);
+  cursor: default;
+}
+.card-book--soon:hover {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-faint, #a29c94);
+}
+.pdp-story-link--soon {
+  border-bottom-color: transparent;
+  color: var(--ink-faint, #a29c94);
+  cursor: default;
+}
+.pdp-story-link--soon:hover { opacity: 1; }

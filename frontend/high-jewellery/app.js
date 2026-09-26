@@ -312,14 +312,26 @@
   }
 
   /* Sits outside the card so it stays valid markup when the card is a link.
-     No destination is wired up yet — point this at the booking flow. */
-  function bookButton(p) {
-    var b = el("button", "card-book", {
-      type: "button", "aria-label": "Book an appointment for " + p.name
+     Every piece leads to its story now rather than straight to the booking
+     form: the grid is a place to read, and the enquiry lives on the piece's
+     own page and at the end of its story.
+
+     A piece whose story is not written yet says so, and is not a link. Two are
+     outstanding, and sending somebody to a page of placeholder prose would be
+     worse than telling them to come back. */
+  function storyButton(p) {
+    if (!p.storyUrl) {
+      var soon = el("span", "card-book card-book--soon", {
+        "aria-label": "The story of " + p.name + " is coming soon"
+      });
+      soon.textContent = "Story Coming Soon";
+      return soon;
+    }
+    var a = el("a", "card-book", {
+      href: p.storyUrl, "aria-label": "Read the story of " + p.name
     });
-    b.textContent = "Book an Appointment";
-    b.addEventListener("click", function () { openEnquiry(p); });
-    return b;
+    a.textContent = "Read the Story";
+    return a;
   }
 
   function renderGrid(root) {
@@ -414,7 +426,7 @@
     list.forEach(function (p, i) {
       var cell = el("div", "cell");
       cell.appendChild(productCard(p));
-      cell.appendChild(bookButton(p));
+      cell.appendChild(storyButton(p));
       grid.appendChild(cell);
       var slot = BANNER_AFTER.indexOf(i + 1);
       if (slot !== -1) {
@@ -743,6 +755,12 @@
       var story = el("a", "pdp-story-link", { href: p.storyUrl });
       story.textContent = p.storyLabel || "Read the story";
       panel.appendChild(story);
+    } else {
+      /* Say it plainly rather than leaving a gap where the other pieces have
+         a link. */
+      var soonLink = el("span", "pdp-story-link pdp-story-link--soon");
+      soonLink.textContent = "Story coming soon";
+      panel.appendChild(soonLink);
     }
 
     var addSel = el("button", "cta cta--ghost", { type: "button" });

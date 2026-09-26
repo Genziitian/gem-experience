@@ -72,7 +72,7 @@ window.HJ_DATA = {
         "img/pieces/weaver/m8.webp"
       ],
       "storyUrl": "/high-jewellery/weaver/",
-      "storyLabel": "Read the story of Weaver"
+      "storyLabel": "Explore Weaver"
     },
     {
       "id": "the-crown",
@@ -109,7 +109,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/the-crown/",
-      "storyLabel": "Read the story of The Crown"
+      "storyLabel": "Explore The Crown"
     },
     {
       "id": "shamsa",
@@ -139,7 +139,7 @@ window.HJ_DATA = {
         "img/pieces/shamsa/m6.webp"
       ],
       "storyUrl": "/high-jewellery/shamsa/",
-      "storyLabel": "Read the story of Shamsa"
+      "storyLabel": "Explore Shamsa"
     },
     {
       "id": "jardin-bleu",
@@ -175,7 +175,7 @@ window.HJ_DATA = {
         "img/pieces/jardin-bleu/m4.webp"
       ],
       "storyUrl": "/high-jewellery/jardin-bleu/",
-      "storyLabel": "Read the story of Jardin Bleu"
+      "storyLabel": "Explore Jardin Bleu"
     },
     {
       "id": "hive",
@@ -197,7 +197,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/hive/",
-      "storyLabel": "Read the story of Hive"
+      "storyLabel": "Explore Hive"
     },
     {
       "id": "georgie",
@@ -217,7 +217,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/georgie/",
-      "storyLabel": "Read the story of Georgie"
+      "storyLabel": "Explore Georgie"
     },
     {
       "id": "usambara",
@@ -250,7 +250,7 @@ window.HJ_DATA = {
         "img/pieces/usambara/m7.webp"
       ],
       "storyUrl": "/high-jewellery/usambara/",
-      "storyLabel": "Read the story of Flamenco"
+      "storyLabel": "Explore Flamenco"
     },
     {
       "id": "ember",
@@ -285,7 +285,7 @@ window.HJ_DATA = {
         "img/pieces/ember/m3.webp"
       ],
       "storyUrl": "/high-jewellery/ember/",
-      "storyLabel": "Read the story of Ember"
+      "storyLabel": "Explore Ember"
     },
     {
       "id": "dew-fall",
@@ -305,7 +305,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/dew-fall/",
-      "storyLabel": "Read the story of Dew Fall"
+      "storyLabel": "Explore Dew Fall"
     },
     {
       "id": "celestine",
@@ -341,7 +341,7 @@ window.HJ_DATA = {
         "img/pieces/celestine/m9.webp"
       ],
       "storyUrl": "/high-jewellery/celestine/",
-      "storyLabel": "Read the story of Celestine"
+      "storyLabel": "Explore Celestine"
     },
     {
       "id": "merelani",
@@ -383,7 +383,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/helix/",
-      "storyLabel": "Read the story of Helix"
+      "storyLabel": "Explore Helix"
     },
     {
       "id": "rihla",
@@ -412,7 +412,7 @@ window.HJ_DATA = {
         "img/pieces/rihla/m5.webp"
       ],
       "storyUrl": "/high-jewellery/rihla/",
-      "storyLabel": "Read the story of Rihla"
+      "storyLabel": "Explore Rihla"
     },
     {
       "id": "serengeti",
@@ -440,7 +440,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/serengeti/",
-      "storyLabel": "Read the story of Wimbi"
+      "storyLabel": "Explore Wimbi"
     },
     {
       "id": "kilimanjaro",
@@ -488,7 +488,7 @@ window.HJ_DATA = {
         "img/pieces/rift/m6.webp"
       ],
       "storyUrl": "/high-jewellery/rift/",
-      "storyLabel": "Read the story of Tsavorite necklace"
+      "storyLabel": "Explore Tsavorite"
     },
     {
       "id": "mahenge",
@@ -525,7 +525,7 @@ window.HJ_DATA = {
         "img/pieces/mahenge/m5.webp"
       ],
       "storyUrl": "/high-jewellery/mahenge/",
-      "storyLabel": "Read the story of Samaah"
+      "storyLabel": "Explore Samaah"
     },
     {
       "id": "oldoinyo",
@@ -547,7 +547,7 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/oldoinyo/",
-      "storyLabel": "Read the story of Mediterranea"
+      "storyLabel": "Explore Mediterranea"
     }
   ],
   "focal": {

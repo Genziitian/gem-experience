@@ -327,10 +327,13 @@
       soon.textContent = "Story Coming Soon";
       return soon;
     }
-    var a = el("a", "card-book", {
-      href: p.storyUrl, "aria-label": "Read the story of " + p.name
-    });
-    a.textContent = "Read the Story";
+    /* The label names the piece: "Explore Weaver" rather than a row of
+       identical "Read the Story" buttons that say nothing about what is under
+       them. The wording is written into the catalogue by the story generator
+       so the card and the product page always say the same thing, and the
+       fallback covers a card rendered before a rebuild. */
+    var a = el("a", "card-book", { href: p.storyUrl });
+    a.textContent = p.storyLabel || "Explore " + p.name;
     return a;
   }
 
@@ -753,7 +756,7 @@
        where somebody reading about the piece would look for more. */
     if (p.storyUrl) {
       var story = el("a", "pdp-story-link", { href: p.storyUrl });
-      story.textContent = p.storyLabel || "Read the story";
+      story.textContent = p.storyLabel || "Explore " + p.name;
       panel.appendChild(story);
     } else {
       /* Say it plainly rather than leaving a gap where the other pieces have

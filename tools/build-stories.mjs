@@ -359,6 +359,15 @@ for (const id of drafts) {
   if (fs.existsSync(stale)) { fs.rmSync(path.join(HJ, id), { recursive: true }); console.log(`removed stale page for ${id} (draft)`); }
 }
 
+/* The name as it goes on a button. A piece is known by its name, not by the
+   noun after it, so the generic word is dropped: "Tsavorite necklace" is a
+   necklace everywhere else on the page already. Names that are genuinely two
+   words, like Jardin Bleu or Dew Fall, are left whole, because half of a name
+   is not a shorter name, it is the wrong one. */
+function shortName(name) {
+  return name.replace(/\s+(necklace|bracelet|earrings|ring|suite|set)$/i, "");
+}
+
 /* The catalogue is written from here rather than by hand, so the link on a
    card and the page that exists cannot fall out of step. */
 const dataPath = path.join(HJ, "data.js");
@@ -368,7 +377,7 @@ const cat = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1));
 for (const p of cat.products) {
   if (publish.includes(p.id)) {
     p.storyUrl = `/high-jewellery/${p.id}/`;
-    p.storyLabel = `Read the story of ${p.name}`;
+    p.storyLabel = `Explore ${shortName(p.name)}`;
   } else {
     delete p.storyUrl;
     delete p.storyLabel;

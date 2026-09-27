@@ -36,9 +36,9 @@
         { label: "Introduction", href: "world-of-preciousness/" },
         { label: "Tanzanite", href: "world-of-preciousness/tanzanite/" },
         { label: "Spinel", href: "world-of-preciousness/spinel/" },
-        { label: "Tsavorite" },
-        { label: "Rhodolite" },
-        { label: "Malaya Garnet" }
+        { label: "Tsavorite", href: "world-of-preciousness/tsavorite/" },
+        { label: "Rhodolite", href: "world-of-preciousness/rhodolite/" },
+        { label: "Malaya Garnet", href: "world-of-preciousness/malaya-garnet/" }
       ]
     }
     /* Hidden from the menu for now (unpublished in the database too):

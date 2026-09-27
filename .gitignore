@@ -35,3 +35,7 @@ admin/.env
 /High Jewellery  3/**/*.pdf
 /High Jewellery  3/**/*.xlsx
 /High Jewellery  3/**/*.docx
+
+# Master of the home film (142MB, 4K HEVC). The web encodes under
+# frontend/video/ are what ships.
+/journey short video.mp4

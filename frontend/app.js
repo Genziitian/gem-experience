@@ -58,8 +58,27 @@
 
   /* -------------------------------------------------------- film */
 
-  var FILM_SRC = 'video/tanzania-universe.mp4';
+  /* The film is fetched only when the play button is pressed: nothing is
+     requested while the page loads. Phones, data-saver and slow
+     connections get the 720p cut (~9MB); everyone else 1080p (~19MB). Both
+     are fast-start MP4s, so playback begins before the download ends.
+     To move to Cloudinary later, point these at the Cloudinary URLs
+     (with f_auto,q_auto) — nothing else changes. */
+  var FILM = {
+    hd: 'video/journey-1080.mp4',
+    sd: 'video/journey-720.mp4',
+    poster: 'video/journey-poster.webp'
+  };
   var STILL_SRC = 'img/tanzania.webp';
+
+  function filmSrc() {
+    var c = navigator.connection || {};
+    var slow = c.saveData || /(^|-)(2g|3g)$/.test(c.effectiveType || '');
+    // the lightbox is min(1100px, 92vw) wide; 720p covers it below 1280 device px
+    var frame = Math.min(1100, window.innerWidth * 0.92) * (window.devicePixelRatio || 1);
+    var small = frame <= 1280;
+    return slow || small ? FILM.sd : FILM.hd;
+  }
 
   var lightbox = document.getElementById('lightbox');
   var stage = document.getElementById('lightbox-stage');
@@ -75,7 +94,7 @@
     img.alt = 'Maasai elders gathered at dusk in northern Tanzania.';
     var cap = document.createElement('p');
     cap.className = 'lightbox-fallback';
-    cap.textContent = 'The film is coming soon';
+    cap.textContent = 'The film could not be loaded';
     stage.appendChild(img);
     stage.appendChild(cap);
   }
@@ -86,11 +105,14 @@
 
     stage.innerHTML = '';
     var video = document.createElement('video');
-    video.src = FILM_SRC;
+    video.poster = FILM.poster;
+    video.preload = 'auto';
+    video.src = filmSrc();
     video.controls = true;
     video.autoplay = true;
     video.playsInline = true;
-    // No film has been supplied yet — fall back to the still.
+    video.setAttribute('controlsList', 'nodownload');
+    // If the file cannot be loaded, fall back to the still.
     video.addEventListener('error', showStill);
     stage.appendChild(video);
 

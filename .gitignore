@@ -39,3 +39,7 @@ admin/.env
 # Master of the home film (142MB, 4K HEVC). The web encodes under
 # frontend/video/ are what ships.
 /journey short video.mp4
+
+# Photography masters for the home hero and the World of Preciousness banner.
+/assets/DSC01068.jpg
+/assets/GE11663.jpg

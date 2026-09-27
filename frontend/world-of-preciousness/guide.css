@@ -771,3 +771,66 @@
   background: linear-gradient(to bottom, transparent, rgba(8, 6, 8, 0.72));
   pointer-events: none;
 }
+
+/* ============================================ the World of Preciousness home */
+
+.gd--home {
+  --gd-accent: #2c3fc0;
+  --gd-glow: rgba(40, 20, 0, 0.6);
+  /* the lioness sits just above the middle of the portrait frame */
+  --gd-hero-pos: 50% 52%;
+  --gd-hero-pos-m: 46% 50%;
+}
+.gd-hero-title--long {
+  max-width: 11ch;
+  text-align: center;
+  font-size: clamp(52px, 7.4vw, 118px);
+  line-height: 1.02;
+}
+.gd-hero-title--long em { font-style: italic; }
+
+/* a portrait photograph beside the intro, rather than a 16:10 still */
+.gd-photo--tall { aspect-ratio: 4 / 5; max-height: 720px; }
+
+.gd-text-link {
+  align-self: flex-start;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--gd-ink);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gd-ink);
+  transition: opacity 0.3s ease;
+}
+.gd-text-link:hover { opacity: 0.6; }
+
+/* Six cells: two across on a phone, three on a wide screen, each ruled off
+   from its neighbours by the same hairline as the three-column rows. */
+.gd-cols--six { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gd-cols--six .gd-col { padding: clamp(36px, 5vw, 80px) clamp(14px, 3vw, 56px); }
+.gd-cols--six .gd-col + .gd-col { border-top: 0; border-left: 0; }
+.gd-cols--six .gd-col:nth-child(2n) { border-left: 1px solid var(--gd-rule); }
+.gd-cols--six .gd-col:nth-child(n + 3) { border-top: 1px solid var(--gd-rule); }
+@media (min-width: 820px) {
+  .gd-cols--six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gd-cols--six .gd-col:nth-child(n) { border-left: 1px solid var(--gd-rule); border-top: 0; }
+  .gd-cols--six .gd-col:nth-child(3n + 1) { border-left: 0; }
+  .gd-cols--six .gd-col:nth-child(n + 4) { border-top: 1px solid var(--gd-rule); }
+}
+.gd-cols--six .gd-kicker { margin-bottom: 6px; }
+.gd-cols--six .gd-col-gem { width: 64px; margin-bottom: 26px; }
+.gd-cols--six .gd-col-name { font-size: clamp(24px, 2.4vw, 34px); margin-bottom: 12px; }
+
+/* Five stones: photographs of the rough, cropped to fill the tile, five
+   across on a wide screen; on a phone two across with the last one running
+   the full width. */
+.gd-pieces--stones .gd-piece-media { aspect-ratio: 4 / 5; background: var(--gd-black); }
+.gd-pieces--stones .gd-piece-media img { object-fit: cover; }
+@media (max-width: 999px) {
+  .gd-pieces--stones .gd-piece:last-child { grid-column: 1 / -1; border-left: 0; }
+  .gd-pieces--stones .gd-piece:last-child .gd-piece-media { aspect-ratio: 16 / 10; }
+}
+@media (min-width: 1000px) {
+  .gd-pieces--stones { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}

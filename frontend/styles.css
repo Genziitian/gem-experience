@@ -328,6 +328,24 @@ button {
   .hero-img { object-position: 50% 46%; }
 }
 
+/* The hero is a portrait photograph. Cropped to a wide screen it loses the
+   face and the necklace together, so on a landscape screen the whole
+   portrait stands at full height in the centre on the photograph's own
+   pale studio grey, its side edges faded into that ground. */
+@media (min-width: 700px) and (min-aspect-ratio: 1/1) {
+  .hero-media { background: #e4e3e3; }
+  .hero-img {
+    align-self: center;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: 50% 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+  }
+}
+
 /* ------------------------------------------------------ collections */
 
 /* The section lost its heading, so the old padding-top plus the cards'

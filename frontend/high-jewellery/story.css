@@ -285,3 +285,18 @@
   line-height: 1.75;
   color: var(--ink-soft, #56504a);
 }
+
+/* Stills (the piece alone on its ground) are shown whole rather than
+   cropped to the frame; the frame takes the still's own background colour,
+   set per figure by the story generator. */
+figure.st-still { background: var(--still, #f1f1f1); }
+figure.st-still img { object-fit: contain; }
+.st-full.st-still { background: var(--still, #f1f1f1); }
+.st-full.st-still img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: clamp(340px, 82vh, 860px);
+  margin: 0 auto;
+  object-fit: contain;
+}

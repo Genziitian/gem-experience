@@ -14,6 +14,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -70,8 +71,31 @@ function dealer(piece) {
   };
 }
 
+/* A still (p*.webp, the piece alone on its ground) is shown whole: a square
+   packshot in a 3:4 frame lost a quarter of its width to `cover`, which cut
+   Weaver's collar off at both sides. It is set with `contain` on its own
+   background colour, measured from the photograph's corner, so the margin
+   the frame adds is the same grey (or black) the piece was shot on. Model
+   frames keep `cover`: they are portraits, and a portrait frame is theirs. */
+const stillGround = new Map();
+function groundOf(src) {
+  if (stillGround.has(src)) return stillGround.get(src);
+  let hex = "#f1f1f1";
+  try {
+    const raw = execFileSync("ffmpeg", ["-v", "error", "-i", path.join(HJ, src),
+      "-vf", "crop=40:40:4:4,scale=1:1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]);
+    hex = "#" + [...raw.subarray(0, 3)].map((v) => v.toString(16).padStart(2, "0")).join("");
+  } catch (e) { /* ffmpeg missing: the house grey is right for most stills */ }
+  stillGround.set(src, hex);
+  return hex;
+}
 function figure(src, alt, cls = "") {
-  return `<figure${cls ? ` class="${cls}"` : ""}><img src="/high-jewellery/${src}" ` +
+  const still = /\/p\d+\.webp$/.test(src);
+  // a still drawn into a model's slot is not being worn
+  if (still) alt = alt.replace(/ worn\.$/, ", in detail.");
+  const classes = [cls, still ? "st-still" : ""].filter(Boolean).join(" ");
+  return `<figure${classes ? ` class="${classes}"` : ""}` +
+    `${still ? ` style="--still:${groundOf(src)}"` : ""}><img src="/high-jewellery/${src}" ` +
     `alt="${esc(alt)}" loading="lazy" decoding="async"></figure>`;
 }
 
@@ -106,8 +130,12 @@ function build(id) {
 
   const full = (d.draw(["model"]) || [])[0];
   if (full) {
-    bands.push(`  <section class="st-full">
-    <img src="/high-jewellery/${full}" alt="${esc(name)} worn." loading="lazy" decoding="async">
+    /* A piece photographed only on its ground (The Crown) fills this band
+       with a still; it is shown whole on the still's own colour rather than
+       cropped to a portrait's height. */
+    const fullStill = /\/p\d+\.webp$/.test(full);
+    bands.push(`  <section class="st-full${fullStill ? " st-still" : ""}"${fullStill ? ` style="--still:${groundOf(full)}"` : ""}>
+    <img src="/high-jewellery/${full}" alt="${esc(name)}${fullStill ? ", the piece itself." : " worn."}" loading="lazy" decoding="async">
   </section>`);
   }
 

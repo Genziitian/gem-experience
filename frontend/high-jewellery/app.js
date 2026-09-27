@@ -285,10 +285,11 @@
   function productCard(p, opts) {
     opts = opts || {};
     var cls = opts.related ? "card card--related" : "card";
-    /* When detail pages are off the card is a plain div, so there is nothing to
-       click, focus, middle-click or open in a new tab — inert, not just blocked. */
-    var a = PRODUCT_PAGE_ENABLED
-      ? el("a", cls, { href: "#/product/" + p.id })
+    /* The photograph opens the piece's story, the same place as the button
+       under it — not the product view. A piece whose story is not written
+       yet is a plain div: nothing to click, focus or open in a new tab. */
+    var a = p.storyUrl
+      ? el("a", cls, { href: p.storyUrl })
       : el("div", cls + " card--inert");
     var fr = frame(cardImg(p), p.name);
     if (p.visualiser) {

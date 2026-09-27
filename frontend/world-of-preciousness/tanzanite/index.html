@@ -5,13 +5,12 @@
 <!-- Resolution root for this directory. Served without a trailing slash
      (/world-of-preciousness/tanzanite rather than /world-of-preciousness/tanzanite/), a relative URL climbs one level too high —
      which 404s an asset or, worse, silently loads a different file with the
-     same name. This page builds image paths in JavaScript too, so fixing the
-     markup alone would not have been enough. -->
+     same name. -->
 <base href="/world-of-preciousness/tanzanite/">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tanzanite — World of Preciousness — Gem Experience</title>
-<meta name="description" content="A trichroic stone from a few square kilometres at the foot of Kilimanjaro, a thousand times scarcer than diamond. The story, the cuts and the colour of tanzanite.">
+<meta name="description" content="A trichroic stone from one hill at the foot of Kilimanjaro, a thousand times scarcer than diamond. The legend, the colours and the rarity of tanzanite.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
@@ -20,125 +19,196 @@
 <link rel="stylesheet" href="/css/mini-cart.css">
 <link rel="stylesheet" href="/css/gift-note.css">
 <link rel="stylesheet" href="/world-of-preciousness/styles.css">
+<link rel="stylesheet" href="tanzanite.css">
 </head>
-<body class="pg wop">
+<body class="pg wop tz">
 <div class="pg-wrap">
   <div id="pg-header"></div>
 
   <main class="pg-main pg-main--flush" id="main">
 
-    <!-- ======================================================== the film -->
-    <header class="wop-hero">
-      <video class="wop-hero-media" autoplay muted loop playsinline preload="metadata"
-             poster="../../high-jewellery/img/the-crown-macro.webp"
-             aria-label="Tanzanite turning in the light.">
-        <source src="https://res.cloudinary.com/dm0w7rtkt/video/upload/v1739442936/Tanzanite_Final_GEM_Final_vmkvno.mp4" type="video/mp4">
-      </video>
-      <div class="wop-hero-copy">
-        <p class="wop-kicker" style="color:rgba(255,255,255,0.62)">World of Preciousness</p>
-        <h1 class="wop-hero-title">Discover the magic of <span class="wop-em">Tanzanite</span></h1>
-        <p class="wop-hero-line">A lightning bolt struck the earth, and the rock came up blue.</p>
-        <a class="wop-scroll" href="#reading" aria-label="Read on">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
-            <path d="m5 9 7 7 7-7"></path>
-          </svg>
-        </a>
-      </div>
+    <!-- ========================================================= the stone -->
+    <header class="tz-hero" id="top">
+      <img class="tz-hero-media" src="img/held-blue.webp"
+           alt="A rough tanzanite held up to the light, glowing blue and violet."
+           width="1800" height="1198" fetchpriority="high" decoding="async">
+      <h1 class="tz-hero-title">Tanzanite</h1>
+      <a class="tz-hero-scroll" href="#what" aria-label="Read on">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg>
+      </a>
     </header>
 
-    <!-- ==================================================== the statement -->
-    <section class="wop-section wop-statement" id="reading">
-      <p class="wop-kicker">A gemstone like no other</p>
-      <p class="wop-statement-line">One hill on earth, and <span class="wop-em">nowhere</span> else.</p>
-      <p class="wop-statement-body">In a moment of awe, the Maasai of Tanzania beheld a wonder that changed the jewellery industry. A lightning bolt struck the earth and lit the rocks with a dazzling blue radiance — and tanzanite, rare and breathtaking, entered the world.</p>
-    </section>
-
-    <!-- ================================================ the four accounts -->
-    <section class="wop-stage wop-stage--night" data-stage aria-label="Four cuts of tanzanite">
-      <div class="wop-stage-pin">
-
-        <div class="wop-rail wop-rail--light" aria-hidden="true">
-          <span class="wop-rail-tick is-on" data-tick>01</span>
-          <span class="wop-rail-tick" data-tick>02</span>
-          <span class="wop-rail-tick" data-tick>03</span>
-          <span class="wop-rail-tick" data-tick>04</span>
-        </div>
-
-        <article class="wop-chapter is-on" data-chapter>
-          <div class="wop-chapter-inner wop-chapter-inner--cut">
-            <figure class="wop-cut">
-              <span class="wop-cut-gem" data-gem="emerald tanzanite"></span>
-            </figure>
-            <div class="wop-chapter-copy">
-              <p class="wop-kicker">Trichroic · 01</p>
-              <h2 class="wop-h2">Emerald <span class="wop-em">cut</span></h2>
-              <p class="wop-body">Tanzanite's allure lies in its trichroic properties: a range of hues from blue to violet-blue, and even hints of burgundy. One stone, four accounts, depending where you stand.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="wop-chapter" data-chapter>
-          <div class="wop-chapter-inner wop-chapter-inner--cut">
-            <figure class="wop-cut">
-              <span class="wop-cut-gem" data-gem="oval tanzanite"></span>
-            </figure>
-            <div class="wop-chapter-copy">
-              <p class="wop-kicker">Trichroic · 02</p>
-              <h2 class="wop-h2">Oval <span class="wop-em">cut</span></h2>
-              <p class="wop-body">Word spread like wildfire. A stone a thousand times scarcer than diamond, from one source only, which is why it is called a one-generation stone.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="wop-chapter" data-chapter>
-          <div class="wop-chapter-inner wop-chapter-inner--cut">
-            <figure class="wop-cut">
-              <span class="wop-cut-gem" data-gem="trillion tanzanite"></span>
-            </figure>
-            <div class="wop-chapter-copy">
-              <p class="wop-kicker">Trichroic · 03</p>
-              <h2 class="wop-h2">Trillion <span class="wop-em">cut</span></h2>
-              <p class="wop-body">Its genesis lies in the pan-African movement of tectonic plates. The Maasai recognised its exceptional nature, sensing a potent energy in the stone.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="wop-chapter" data-chapter>
-          <div class="wop-chapter-inner wop-chapter-inner--cut">
-            <figure class="wop-cut">
-              <span class="wop-cut-gem" data-gem="marquise tanzanite"></span>
-            </figure>
-            <div class="wop-chapter-copy">
-              <p class="wop-kicker">Trichroic · 04</p>
-              <h2 class="wop-h2">Marquise <span class="wop-em">cut</span></h2>
-              <p class="wop-body">For the Maasai it was more than a precious stone; it symbolised their link to the earth and the beauty it holds. In lithotherapy it is said to foster awareness and inner harmony.</p>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ========================================================= the hill -->
-    <section class="wop-section">
-      <div class="wop-pair">
-        <div class="wop-pair-copy">
-          <p class="wop-kicker">Merelani</p>
-          <h2 class="wop-h2">At the foot of <span class="wop-em">Kilimanjaro</span></h2>
-          <p class="wop-body">The only source of this stone is a few square kilometres of hillside in northern Tanzania. Shafts follow the seam down by hand.</p>
-          <p class="wop-body">Experts put the supply at a few more decades. Everything cut from it now is, in the end, finite.</p>
-        </div>
-        <figure class="wop-plate" style="--plate:#1c2a6e">
-          <div class="wop-plate-media">
-            <img src="/img/tanzania.webp" alt="Maasai elders gathered at dusk in northern Tanzania." loading="lazy" decoding="async">
-          </div>
-          <span class="wop-plate-gem" data-gem="pear tanzanite"></span>
+    <!-- ======================================================== what is it -->
+    <section class="tz-section" id="what">
+      <h2 class="tz-title" data-reveal>What is <em>Tanzanite?</em></h2>
+      <div class="tz-intro">
+        <p class="tz-prose" data-reveal>In a moment of awe, the Maasai of Tanzania beheld a wonder that transformed the realm of the jewellery industry. A lightning bolt struck the earth, illuminating the rocks with a dazzling blue radiance, creating the rare and breathtaking Tanzanite precious stone.</p>
+        <figure class="tz-film" data-tz-film data-reveal>
+          <video class="tz-film-media" muted playsinline preload="none" poster="img/rough-violet.webp">
+            <source src="https://res.cloudinary.com/dm0w7rtkt/video/upload/v1739442936/Tanzanite_Final_GEM_Final_vmkvno.mp4" type="video/mp4">
+          </video>
+          <button class="tz-film-btn" type="button">Watch the film</button>
         </figure>
       </div>
     </section>
 
+    <!-- ========================================================== its birth -->
+    <section class="tz-section tz-section--grid" aria-labelledby="born">
+      <h2 class="tz-title" id="born" data-reveal>How was <em>Tanzanite</em> Born?</h2>
+      <div class="tz-cols">
+        <article class="tz-col" data-reveal>
+          <svg class="tz-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M18 112 70 90l46 10 4 46-54 14-44-18Z"/>
+            <path d="M126 98 170 78l54 16-4 50-48 18-42-18Z"/>
+            <path d="M120 100l6-2M118 118l7 2M120 132l4-1M121 146l5 2"/>
+            <path d="M70 90 66 160M116 100 66 118M170 78l2 84M126 98l46 14"/>
+            <path d="M26 64h56m-8-6 8 6-8 6M214 64h-56m8-6-8 6 8 6"/>
+            <path d="M112 54l8-14 10 6-4 14-10 2ZM128 30l6-8 6 4-2 8Z"/>
+          </svg>
+          <h3 class="tz-col-name">The Earth <em>Moved</em></h3>
+          <p class="tz-col-text">The Tanzanite's genesis lies in the tumultuous pan-African movement of tectonic plates, birthing a unique and precious stone.</p>
+        </article>
+        <article class="tz-col" data-reveal>
+          <svg class="tz-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M132 10 96 82h26l-18 56 46-78h-28l22-50Z"/>
+            <path d="M60 170c8-20 26-30 44-30l20 6 22-10c20 0 36 16 40 34Z"/>
+            <path d="M104 140l6 14-10 16M146 136l-8 18 12 16M124 146v24"/>
+            <path d="M70 118l-14-8M182 118l14-8M74 96l-16-2M178 96l16-2"/>
+          </svg>
+          <h3 class="tz-col-name">A Bolt of <em>Lightning</em></h3>
+          <p class="tz-col-text">A lightning bolt struck the earth, illuminating the rocks with a dazzling blue radiance, creating the rare and breathtaking Tanzanite.</p>
+        </article>
+        <article class="tz-col" data-reveal>
+          <svg class="tz-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M10 150 78 70l20 14 22-34 20 12 22-10 68 98Z"/>
+            <path d="M98 84l22-34 20 12 22-10-8 18-14-6-12 14-12-12-10 14Z"/>
+            <path d="M60 150c10-8 20-8 30 0s20 8 30 0 20-8 30 0 20 8 30 0"/>
+            <circle cx="58" cy="136" r="4"/>
+            <path d="M58 132v-22"/>
+          </svg>
+          <h3 class="tz-col-name">One Hill on <em>Earth</em></h3>
+          <p class="tz-col-text">There is only one source of high-quality Tanzanite in the world: a few square kilometres at the foot of Kilimanjaro, in northern Tanzania.</p>
+        </article>
+      </div>
+    </section>
+
+    <figure class="tz-band" data-reveal>
+      <img src="img/rough-group.webp" alt="Rough stones on a white table, one glowing violet among the darker crystals." loading="lazy" decoding="async" width="2400" height="1597">
+      <figcaption>Rough, as it comes from the hill</figcaption>
+    </figure>
+
+    <!-- ===================================================== its colours -->
+    <section class="tz-inside" aria-labelledby="inside" data-tz-tones>
+      <div class="tz-inside-media">
+        <h2 class="tz-inside-title" id="inside">What is Inside a <em>Tanzanite?</em></h2>
+        <img class="tz-inside-img is-on" data-tone-img="blue" src="img/rough-blue.webp" alt="A rough tanzanite on black, turned so it shows deep blue." loading="lazy" decoding="async">
+        <img class="tz-inside-img" data-tone-img="violet" src="img/rough-violet.webp" alt="A rough tanzanite turned to show violet and blue together." loading="lazy" decoding="async">
+        <img class="tz-inside-img" data-tone-img="burgundy" src="img/rough-burgundy.webp" alt="A rough tanzanite turned to show its burgundy colour." loading="lazy" decoding="async">
+        <div class="tz-def">
+          <p class="tz-def-word">Trichroic</p>
+          <p class="tz-def-kind">[adjective]</p>
+          <p class="tz-def-text">Showing three different colours when seen from three different directions.</p>
+        </div>
+      </div>
+      <div class="tz-inside-copy">
+        <div class="tz-tones" role="group" aria-label="Choose a colour">
+          <button class="tz-tone" type="button" data-tone="blue" aria-pressed="true"><span style="--c:#2c3fc0"></span>Blue</button>
+          <button class="tz-tone" type="button" data-tone="violet" aria-pressed="false"><span style="--c:#6a2fc2"></span>Violet-blue</button>
+          <button class="tz-tone" type="button" data-tone="burgundy" aria-pressed="false"><span style="--c:#8e1f4c"></span>Burgundy</button>
+        </div>
+        <p class="tz-prose" data-reveal>Tanzanite's spellbinding allure lies in its trichroic properties, displaying a range of captivating hues from blue to violet-blue, and even hints of burgundy.</p>
+        <p class="tz-hint">Turn the stone — choose a colour</p>
+      </div>
+    </section>
+
+    <!-- ========================================================= its rarity -->
+    <section class="tz-section tz-section--grid" aria-labelledby="rare">
+      <h2 class="tz-title" id="rare" data-reveal>A <em>One-Generation</em> Stone</h2>
+      <div class="tz-cols tz-cols--rare">
+        <figure class="tz-col tz-col--photo" data-reveal>
+          <img src="img/held-violet.webp" alt="A violet rough tanzanite held between finger and thumb against the light." loading="lazy" decoding="async">
+        </figure>
+        <div class="tz-col tz-col--figure" data-reveal>
+          <p class="tz-numeral">1,000<span>×</span></p>
+          <p class="tz-numeral-unit">Scarcer than diamonds</p>
+          <p class="tz-col-text">Words of the precious Tanzanite spread like wildfire, captivating people worldwide with its rarity. As there is only one source of high-quality Tanzanite, experts estimate that its supply may run out within a few decades, earning it the name of a “one-generation stone”.</p>
+        </div>
+        <figure class="tz-col tz-col--photo" data-reveal>
+          <img src="img/held-ember.webp" alt="A rough stone held to the light, glowing deep red." loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================================================== the Maasai -->
+    <section class="tz-section tz-maasai" aria-labelledby="maasai">
+      <div class="tz-maasai-inner">
+        <figure class="tz-maasai-photo" data-reveal>
+          <img src="/img/tanzania.webp" alt="Maasai elders gathered at dusk in northern Tanzania." loading="lazy" decoding="async">
+        </figure>
+        <div class="tz-maasai-copy">
+          <h2 class="tz-title tz-title--left" id="maasai" data-reveal>The Maasai &amp; <em>Tanzanite</em></h2>
+          <p class="tz-prose" data-reveal>The Maasai recognized its exceptional nature, sensing a potent energy emanating from the stone, resonating deeply within their souls.</p>
+          <ol class="tz-list">
+            <li data-reveal>
+              <span class="tz-list-num">01</span>
+              <p>For the Maasai, Tanzanite represented more than just a precious stone; it symbolised their link to the earth and the hidden beauty it holds.</p>
+            </li>
+            <li data-reveal>
+              <span class="tz-list-num">02</span>
+              <p>As a cherished heirloom and December birthstone, it holds deep significance to the Maasai, who give it to women during childbirth.</p>
+            </li>
+            <li data-reveal>
+              <span class="tz-list-num">03</span>
+              <p>In lithotherapy, it is believed to foster spiritual awareness, alleviate stress and anxiety, and promote inner harmony and self-expression. It connects the heart and the third eye chakras and can assist in truthful communication, making it a valuable stone for empaths and counsellors.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= in the jewellery -->
+    <section class="tz-section tz-section--grid" aria-labelledby="icons">
+      <h2 class="tz-title" id="icons" data-reveal>A Symbol of <em>Elegance</em></h2>
+      <p class="tz-prose tz-prose--centre" data-reveal>The jewellery world was enraptured by the Tanzanite's allure, and designers crafted exquisite pieces that highlighted its mesmerizing colour-changing characteristics.</p>
+      <div class="tz-cols tz-cols--two">
+        <article class="tz-col" data-reveal>
+          <span class="tz-col-gem" data-gem="heart tanzanite"></span>
+          <p class="tz-kicker">On screen</p>
+          <h3 class="tz-col-name">The Heart of the <em>Ocean</em></h3>
+          <p class="tz-col-text">The legendary necklace worn by Kate Winslet in <em>Titanic</em>.</p>
+        </article>
+        <article class="tz-col" data-reveal>
+          <span class="tz-col-gem" data-gem="oval tanzanite"></span>
+          <p class="tz-kicker">At court</p>
+          <h3 class="tz-col-name">A Royal <em>Tiara</em></h3>
+          <p class="tz-col-text">The Tanzanite tiara gifted to Queen Elizabeth II.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================================================== did you know -->
+    <section class="tz-know" aria-labelledby="know">
+      <h2 class="tz-title" id="know" data-reveal>Did <em>You Know?</em></h2>
+      <div class="tz-know-grid">
+        <ul class="tz-facts">
+          <li data-reveal>Tanzanite is the birthstone for the month of December</li>
+          <li data-reveal>It is mined in one place only, at the foot of Kilimanjaro</li>
+          <li data-reveal>The Maasai say a bolt of lightning turned the rocks blue</li>
+        </ul>
+        <figure class="tz-know-stone" data-reveal>
+          <img src="img/rough-ember.webp" alt="A rough crystal on black, reflected in the surface beneath it." loading="lazy" decoding="async">
+        </figure>
+        <ul class="tz-facts tz-facts--right">
+          <li data-reveal>Tanzanite is 1,000 times scarcer than diamonds</li>
+          <li data-reveal>Experts believe its supply may run out within a few decades</li>
+          <li data-reveal>One stone shows blue, violet-blue and burgundy</li>
+        </ul>
+      </div>
+      <a class="tz-cta" href="#story">Watch the origins film</a>
+    </section>
+
     <!-- ======================================================== the story -->
-    <section class="wop-section wop-band--night">
+    <section class="wop-section wop-band--night" id="story">
       <div class="wop-reel">
         <div class="wop-reel-copy">
           <p class="wop-kicker">Gem story</p>
@@ -146,7 +216,7 @@
           <p class="wop-body">Tanzania, a nation steeped in lore, tells it as the Maasai do: a thunderbolt came down from the heavens, struck the earth, and transmuted the rock into a glistening blue. That was the birth of tanzanite.</p>
         </div>
         <figure class="wop-film" data-film>
-          <video class="wop-film-media" muted playsinline preload="metadata" poster="../../img/tanzania.webp">
+          <video class="wop-film-media" muted playsinline preload="metadata" poster="/img/tanzania.webp">
             <source src="https://www.gem-experience.com/static/media/storyTanzanite.eea47e9dc902740c2929.mp4" type="video/mp4">
           </video>
           <button class="wop-film-play" type="button" aria-label="Play film">
@@ -164,6 +234,8 @@
 
   </main>
 
+  <a class="tz-top" href="#top" data-tz-top>Back to top</a>
+
   <div id="pg-footer"></div>
 </div>
 
@@ -174,6 +246,7 @@
 <script src="/js/gift-note.js"></script>
 <script src="/js/shell.js"></script>
 <script src="/world-of-preciousness/app.js"></script>
+<script src="tanzanite.js"></script>
 <script>
   GemShell.mount({ prefix: "../../" });
 </script>

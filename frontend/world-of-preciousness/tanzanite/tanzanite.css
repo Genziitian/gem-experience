@@ -1,0 +1,564 @@
+/* Tanzanite — World of Preciousness.
+
+   An editorial page in the manner of a gem house's stone guide: white
+   ground, a large centred serif title per section with the stone's name set
+   in italic, and hairline-ruled columns that hold a drawing, a name and a
+   line of text. The photographs from our own shoot carry all of the colour;
+   everything around them stays black on white. */
+
+.tz {
+  --tz-ink: #17140f;
+  --tz-muted: #5f574e;
+  --tz-rule: #e4e0d8;
+  --tz-black: #0b0a0c;
+  --tz-blue: #2c3fc0;
+}
+
+/* ------------------------------------------------------------ shared type */
+
+.tz-section {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+  background: #fff;
+}
+.tz-title {
+  margin: 0 auto clamp(40px, 6vw, 88px);
+  max-width: 22ch;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--tz-ink);
+}
+.tz-title em,
+.tz-col-name em,
+.tz-inside-title em { font-style: italic; }
+.tz-title--left { margin-left: 0; text-align: left; }
+
+.tz-prose {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(21px, 2.1vw, 29px);
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--tz-ink);
+}
+.tz-prose--centre {
+  max-width: 40ch;
+  margin: calc(clamp(40px, 6vw, 88px) * -0.5) auto clamp(40px, 5vw, 72px);
+  text-align: center;
+}
+.tz-kicker {
+  margin: 0 0 12px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tz-muted);
+}
+
+/* ---------------------------------------------------------------- the hero */
+
+.tz-hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(100svh - 72px);
+  min-height: 460px;
+  max-height: 980px;
+  overflow: hidden;
+  background: #f4f4f6;
+}
+.tz-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 50%;
+  animation: tz-settle 2.4s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+@keyframes tz-settle {
+  from { transform: scale(1.06); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.tz-hero-title {
+  position: relative;
+  margin: 0;
+  /* sits over the stone, which is right of centre in the photograph */
+  transform: translateX(8%);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(60px, 8.6vw, 136px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 0 56px rgba(28, 22, 110, 0.6), 0 2px 18px rgba(20, 16, 60, 0.4);
+  animation: tz-rise 1.6s 0.4s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+@keyframes tz-rise {
+  from { transform: translate(8%, 24px); opacity: 0; }
+  to { transform: translateX(8%); opacity: 1; }
+}
+.tz-hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  margin-left: -17px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--tz-ink);
+  animation: wop-bob 2.6s ease-in-out infinite;
+}
+@media (max-width: 699px) {
+  .tz-hero { height: 72svh; }
+  .tz-hero-media { object-position: 62% 50%; }
+  .tz-hero-title { transform: none; animation-name: tz-rise-m; }
+}
+@keyframes tz-rise-m {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* ---------------------------------------------------- what is tanzanite */
+
+.tz-intro {
+  display: grid;
+  gap: clamp(36px, 5vw, 96px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  .tz-intro { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); padding-left: clamp(0px, 5vw, 110px); }
+}
+
+.tz-film {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--tz-black);
+}
+.tz-film-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.tz-film:hover .tz-film-media { transform: scale(1.03); }
+.tz-film.is-playing:hover .tz-film-media { transform: none; }
+.tz-film-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 46px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(11, 10, 12, 0.42);
+  backdrop-filter: blur(2px);
+  white-space: nowrap;
+  transition: background 0.35s ease, color 0.35s ease, opacity 0.35s ease;
+}
+.tz-film-btn:hover { background: #fff; color: var(--tz-ink); }
+.tz-film.is-playing .tz-film-btn { opacity: 0; pointer-events: none; }
+
+/* --------------------------------------------------- the ruled columns */
+
+.tz-section--grid { padding-left: 0; padding-right: 0; }
+.tz-section--grid .tz-title,
+.tz-section--grid .tz-prose--centre { padding: 0 var(--gutter); }
+
+.tz-cols {
+  display: grid;
+  border-top: 1px solid var(--tz-rule);
+  border-bottom: 1px solid var(--tz-rule);
+}
+@media (min-width: 820px) {
+  .tz-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tz-cols--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.tz-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: clamp(48px, 6vw, 96px) clamp(24px, 4vw, 72px);
+  text-align: center;
+  min-width: 0;
+}
+.tz-col + .tz-col { border-top: 1px solid var(--tz-rule); }
+@media (min-width: 820px) {
+  .tz-col + .tz-col { border-top: 0; border-left: 1px solid var(--tz-rule); }
+}
+.tz-draw {
+  width: min(240px, 70%);
+  height: auto;
+  margin-bottom: clamp(28px, 4vw, 52px);
+  fill: none;
+  stroke: var(--tz-ink);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.tz-col-name {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--tz-ink);
+}
+.tz-col-text {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.5;
+  color: var(--tz-ink);
+}
+.tz-col-gem {
+  display: block;
+  width: 76px;
+  margin-bottom: 32px;
+  filter: drop-shadow(0 12px 24px rgba(20, 26, 83, 0.28));
+}
+.tz-col-gem svg { display: block; width: 100%; height: auto; }
+
+/* rarity: photograph | numeral | photograph */
+@media (min-width: 820px) {
+  .tz-cols--rare { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr); }
+}
+.tz-col--photo { padding: 0; overflow: hidden; background: #f6f6f6; }
+.tz-col--photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  max-height: 640px;
+  object-fit: cover;
+  object-position: 62% 50%;
+  transition: transform 1.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.tz-col--photo:hover img { transform: scale(1.04); }
+.tz-col--figure { justify-content: center; }
+.tz-numeral {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(88px, 10vw, 150px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--tz-blue);
+}
+.tz-numeral span { font-style: italic; font-size: 0.6em; margin-left: 0.04em; }
+.tz-numeral-unit {
+  margin: 18px 0 28px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tz-muted);
+}
+
+/* ------------------------------------------------------- the wide band */
+
+.tz-band {
+  position: relative;
+  margin: 0;
+  background: #f2f2f2;
+}
+.tz-band img {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 62vw, 820px);
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+.tz-band figcaption {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 22px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tz-ink);
+}
+
+/* ---------------------------------------------------- what is inside
+
+   The reference's inclusion panel, turned to tanzanite's own subject: a
+   dark photograph with the title in a black plate over it and a dictionary
+   entry at its foot; beside it, three colours to choose from, each one
+   swapping the photograph for the stone turned that way. */
+
+.tz-inside {
+  display: grid;
+  background: #fff;
+}
+@media (min-width: 950px) {
+  .tz-inside { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+}
+.tz-inside-media {
+  position: relative;
+  min-height: clamp(560px, 62vw, 900px);
+  overflow: hidden;
+  background: var(--tz-black);
+  color: #fff;
+}
+.tz-inside-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.9s ease, transform 1.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.tz-inside-img.is-on { opacity: 1; transform: none; }
+.tz-inside-title {
+  position: absolute;
+  z-index: 2;
+  top: clamp(24px, 4vw, 60px);
+  right: clamp(16px, 2vw, 32px);
+  left: clamp(16px, 30%, 480px);
+  margin: 0;
+  padding: clamp(18px, 2.2vw, 30px) clamp(20px, 3vw, 44px);
+  background: #000;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 50px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+@media (max-width: 699px) { .tz-inside-title { left: 16px; } }
+.tz-def {
+  position: absolute;
+  z-index: 2;
+  left: clamp(20px, 10%, 200px);
+  bottom: clamp(28px, 5vw, 72px);
+  max-width: 30ch;
+  font-family: var(--serif);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.6);
+}
+.tz-def p { margin: 0; }
+.tz-def-word { font-size: clamp(34px, 3.6vw, 52px); line-height: 1.1; }
+.tz-def-kind { font-style: italic; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.3; }
+.tz-def-text { margin-top: 6px !important; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.4; color: rgba(255, 255, 255, 0.92); }
+
+.tz-inside-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(32px, 4vw, 56px);
+  padding: clamp(56px, 6vw, 96px) var(--gutter);
+}
+@media (min-width: 950px) { .tz-inside-copy { padding: 0 clamp(32px, 4vw, 72px); } }
+.tz-tones { display: flex; flex-wrap: wrap; gap: 10px 26px; }
+.tz-tone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tz-muted);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.tz-tone span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4px transparent;
+  transition: box-shadow 0.3s ease;
+}
+.tz-tone:hover { color: var(--tz-ink); }
+.tz-tone[aria-pressed="true"] { color: var(--tz-ink); border-bottom-color: var(--tz-ink); }
+.tz-tone[aria-pressed="true"] span { box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--c); }
+.tz-hint {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tz-muted);
+}
+
+/* ------------------------------------------------------------ the Maasai */
+
+.tz-maasai { background: #faf9f6; }
+.tz-maasai-inner {
+  display: grid;
+  gap: clamp(40px, 6vw, 110px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .tz-maasai-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.tz-maasai-photo { margin: 0; overflow: hidden; }
+.tz-maasai-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 780px;
+  object-fit: cover;
+}
+.tz-maasai-copy .tz-title { margin-bottom: 28px; }
+.tz-list { margin: 44px 0 0; padding: 0; list-style: none; }
+.tz-list li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  padding: 22px 0;
+  border-top: 1px solid var(--tz-rule);
+}
+.tz-list li:last-child { border-bottom: 1px solid var(--tz-rule); }
+.tz-list-num {
+  padding-top: 6px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--tz-muted);
+}
+.tz-list p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: var(--tz-ink);
+}
+
+/* --------------------------------------------------------- did you know */
+
+.tz-know {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+  /* the same night as the film band that follows, so the two read as one */
+  background: var(--night);
+  color: #f5f3ef;
+  text-align: center;
+}
+.tz-know .tz-title { color: #f5f3ef; margin-bottom: clamp(32px, 4vw, 56px); }
+.tz-know-grid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+@media (min-width: 1000px) {
+  .tz-know-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); }
+}
+.tz-facts {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 56px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.tz-facts--right { text-align: right; }
+.tz-facts li {
+  max-width: 20ch;
+  font-family: var(--serif);
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.tz-facts--right li { margin-left: auto; }
+@media (max-width: 999px) {
+  .tz-facts, .tz-facts--right { text-align: center; }
+  .tz-facts li { margin: 0 auto; }
+  .tz-know-stone { order: -1; }
+}
+.tz-know-stone { margin: 0; }
+.tz-know-stone img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 55%;
+  /* the photograph is shot on black; the mask melts its edge into the band */
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent);
+  mask-image: radial-gradient(closest-side, #000 72%, transparent);
+}
+.tz-cta {
+  display: inline-block;
+  margin-top: clamp(28px, 4vw, 48px);
+  padding: 20px 46px;
+  border: 1px solid rgba(245, 243, 239, 0.9);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.tz-cta:hover { background: #f5f3ef; color: var(--tz-black); }
+
+/* ---------------------------------------------------------- back to top */
+
+.tz-top {
+  position: fixed;
+  right: var(--gutter);
+  bottom: 24px;
+  z-index: 30;
+  padding: 18px 26px;
+  border: 1px solid var(--tz-rule);
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tz-ink);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.3s ease;
+}
+.tz-top.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.tz-top:hover { border-color: var(--tz-ink); }
+@media (max-width: 699px) { .tz-top { padding: 14px 18px; bottom: 16px; } }
+
+/* --------------------------------------------------------------- reveal */
+
+.tz.is-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1s ease, transform 1.1s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.tz.is-ready [data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tz-hero-media, .tz-hero-title { animation: none; }
+  .tz-hero-scroll { animation: none; }
+  .tz.is-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .tz-inside-img { transition: none; transform: none; }
+}

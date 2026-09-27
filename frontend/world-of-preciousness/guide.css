@@ -27,6 +27,22 @@
   /* the stone is right of centre in the photograph */
   --gd-hero-shift: 8%;
 }
+.gd--tsavorite {
+  --gd-accent: #1c8f47;
+  --gd-glow: rgba(6, 60, 26, 0.6);
+  --gd-hero-pos: 50% 50%;
+}
+.gd--rhodolite {
+  --gd-accent: #a3285e;
+  --gd-glow: rgba(70, 10, 40, 0.6);
+  --gd-hero-pos: 50% 50%;
+}
+.gd--malaya {
+  --gd-accent: #c2612a;
+  --gd-glow: rgba(70, 30, 8, 0.6);
+  --gd-hero-pos: 50% 42%;
+  --gd-hero-pos-m: 46% 42%;
+}
 .gd--spinel {
   --gd-accent: #d0306e;
   --gd-glow: rgba(90, 10, 40, 0.55);
@@ -516,7 +532,6 @@
 @media (max-width: 999px) {
   .gd-facts, .gd-facts--right { text-align: center; }
   .gd-facts li { margin: 0 auto; }
-  .gd-know-stone { order: -1; }
 }
 .gd-know-stone { margin: 0; }
 .gd-know-stone img {
@@ -670,3 +685,89 @@
    dictionary entry and given the room to run. */
 .gd-def-text--lead { max-width: 24ch; font-size: clamp(22px, 2.2vw, 32px) !important; line-height: 1.3 !important; }
 .gd-inside--static .gd-def { max-width: none; right: clamp(20px, 10%, 200px); }
+
+/* ============================================ additions for the garnet pages */
+
+/* A still in place of the film, for the stones that have none. */
+.gd-photo { margin: 0; min-width: 0; aspect-ratio: 16 / 10; overflow: hidden; background: var(--gd-black); }
+.gd-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.gd-photo:hover img { transform: scale(1.04); }
+
+/* The numeral column can carry a word — a place — in place of a number. */
+.gd-numeral--word { font-style: italic; font-size: clamp(72px, 8vw, 120px); letter-spacing: -0.03em; }
+
+/* ------------------------------------------ did you know, on a phone
+
+   The reference keeps the stone still at the foot of the screen and lets
+   the facts travel up past it. The stone is moved after both lists and
+   made sticky to the bottom of the viewport; it carries the band's own
+   ground, with a short fade above it, so the facts pass behind rather than
+   through it. When the grid runs out, the stone settles into place above
+   the button. Desktop keeps its three columns. */
+
+.gd-know { --gd-know-bg: var(--night); }
+.gd-know--light { --gd-know-bg: #fff; }
+
+@media (max-width: 999px) {
+  .gd-know-grid { display: flex; flex-direction: column; gap: 0; }
+  .gd-facts { gap: clamp(56px, 12vh, 96px); padding-bottom: clamp(56px, 12vh, 96px); }
+  .gd-facts--right { order: 1; }
+  .gd-know-stone {
+    order: 2;
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 8px var(--gutter) 84px;
+    background: var(--gd-know-bg);
+    pointer-events: none;
+  }
+  .gd-know-stone::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 56px;
+    background: linear-gradient(to bottom, transparent, var(--gd-know-bg));
+  }
+  .gd-know-stone img {
+    width: min(64vw, 300px);
+    max-height: 36svh;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+  /* the stone's reveal would lift it out of its pinned place */
+  .gd.is-ready .gd-know-stone[data-reveal] { transform: none; }
+}
+
+/* A dark hero full of stones competes with the title; a soft pool of shade
+   behind it keeps the name legible without dimming the picture's edges. */
+.gd-hero--dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 46% 34% at 50% 50%, rgba(8, 6, 8, 0.42), transparent 72%);
+  pointer-events: none;
+}
+.gd-hero--dark .gd-hero-title,
+.gd-hero--dark .gd-hero-scroll { z-index: 1; }
+
+/* Photographs shot on white sit on the lore band's cream without a box. */
+.gd-lore-photo img { mix-blend-mode: multiply; }
+
+/* The definition sits on the photograph; a shade rising from the foot of
+   the panel keeps it legible over a bright or busy frame. */
+.gd-inside-media::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, transparent, rgba(8, 6, 8, 0.72));
+  pointer-events: none;
+}

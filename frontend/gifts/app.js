@@ -11,6 +11,12 @@
   GemShell.mount();
 
   var data = w.FJ_DATA || { products: [], collections: [] };
+  /* A gift has to be seen to be chosen: pieces still waiting for their
+     photograph stay out of the sets, as they do on the Fine Jewellery page. */
+  data = {
+    products: (data.products || []).filter(function (p) { return p.images && p.images.length; }),
+    collections: data.collections || []
+  };
 
   /* ------------------------------------------------------------ the sets
    *

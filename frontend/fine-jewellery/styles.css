@@ -183,6 +183,7 @@ button {
 .fj-cat-copy {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 8px;
   padding: 0 2px;
 }
@@ -200,9 +201,13 @@ button {
   font-size: 14px;
   line-height: 1.5;
 }
+/* Pinned to the foot of the card, so the "Enter" links in one row line up
+   however many lines the description above them runs to. */
 .fj-cat-cta {
   display: inline-block;
-  margin-top: 6px;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 6px;
   font-weight: 400; font-size: 14px; letter-spacing: 0.02em;
   color: var(--ink);
 }

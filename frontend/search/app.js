@@ -39,7 +39,7 @@
   var PAGES = [
     { t: "High Jewellery", u: "/high-jewellery/", s: "Singular pieces, each cut from a stone we followed out of the ground.", k: "collection necklaces earrings rings tiaras bracelets" },
     { t: "High Jewellery stories", u: "/high-jewellery/stories/", s: "How each High Jewellery piece came to be, in the house's own words.", k: "story making craftsmanship" },
-    { t: "Fine Jewellery", u: "/fine-jewellery/", s: "Bloom, Safar, Tide and Swirl: coloured stones for every day.", k: "bloom safar tide swirl everyday" },
+    { t: "Fine Jewellery", u: "/fine-jewellery/", s: "Bloom and Safar: coloured stones for every day.", k: "bloom safar everyday" },
     { t: "Gifts", u: "/gifts/", s: "Pieces chosen to be given, with a card written by hand.", k: "gift present card message personalise wrapping" },
     { t: "World of Preciousness", u: "/world-of-preciousness/", s: "Colour, cut, clarity and character. How a coloured stone is read.", k: "gemstones education tsavorite rhodolite garnet 4cs" },
     { t: "Tanzanite", u: "/world-of-preciousness/tanzanite/", s: "A trichroic stone from a few square kilometres at the foot of Kilimanjaro.", k: "merelani trichroic blue violet gemstone" },
@@ -120,7 +120,9 @@
       }
     });
 
-    fj.collections.forEach(function (c) {
+    var fjLive = {};
+    fj.products.forEach(function (p) { if (p.images && p.images.length) fjLive[p.collection] = true; });
+    fj.collections.filter(function (c) { return fjLive[c.name]; }).forEach(function (c) {
       out.push(doc("fj", c.name, "/fine-jewellery/#/" + encodeURIComponent(c.id), {
         kicker: "Fine Jewellery · Collection",
         img: c.banner ? "/fine-jewellery/" + c.banner : "",
@@ -130,7 +132,9 @@
       }));
     });
 
-    fj.products.forEach(function (p) {
+    /* Pieces without a photograph are not on the Fine Jewellery page, so they
+       are not offered here either. */
+    fj.products.filter(function (p) { return p.images && p.images.length; }).forEach(function (p) {
       out.push(doc("fj", p.name, "/fine-jewellery/#/p/" + encodeURIComponent(p.id), {
         kicker: "Fine Jewellery · " + p.collection,
         img: p.images && p.images[0] ? "/fine-jewellery/" + p.images[0] : "",

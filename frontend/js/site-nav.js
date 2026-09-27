@@ -24,9 +24,7 @@
       children: [
         { label: "Shop all", href: "fine-jewellery/#/shop" },
         { label: "Bloom", href: "fine-jewellery/#/bloom" },
-        { label: "Safar", href: "fine-jewellery/#/safar" },
-        { label: "Tide", href: "fine-jewellery/#/tide" },
-        { label: "Swirl", href: "fine-jewellery/#/swirl" }
+        { label: "Safar", href: "fine-jewellery/#/safar" }
       ]
     },
     {
@@ -53,6 +51,10 @@
      not been done on the live database yet. Remove a name to bring it back. */
   var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts", "The House"];
 
+  /* Entries inside a section kept off the menu the same way: collections
+     with nothing photographed to show yet. */
+  var HIDDEN_CHILDREN = { "Fine Jewellery": ["Tide", "Swirl"] };
+
   /* The database menu is the source of truth, but rows seeded before a page
      existed carry no href and render as unclickable text. Where the database
      row has no link and this file has one for the same section and label,
@@ -70,8 +72,12 @@
         var out = {};
         for (var k in sec) out[k] = sec[k];
         if (!out.href && ref.href) out.href = ref.href;
-        if (sec.children && ref.children) {
-          out.children = sec.children.map(function (kid) {
+        var drop = HIDDEN_CHILDREN[sec.label];
+        if (drop && out.children) {
+          out.children = out.children.filter(function (kid) { return drop.indexOf(kid.label) === -1; });
+        }
+        if (out.children && ref.children) {
+          out.children = out.children.map(function (kid) {
             if (kid.href || kid.heading) return kid;
             var match = ref.children.filter(function (r) { return r.label === kid.label; })[0];
             if (!match || !match.href) return kid;

@@ -19,7 +19,7 @@
     {
       slug: "fine-jewellery",
       label: "Fine Jewellery",
-      intro: "Pricing, stones, delivery and care for the Bloom, Safar, Tide and Swirl collections.",
+      intro: "Pricing, stones, delivery and care for the Bloom and Safar collections.",
       items: [
         { q: "How are Fine Jewellery pieces priced?",
           a: "Every piece is priced on the stone it is set with, so prices are given on request. Add a piece to your cart and place an enquiry, and an adviser will confirm the price before any payment is taken." },

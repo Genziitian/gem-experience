@@ -10,6 +10,25 @@
 
 
   var data = window.FJ_DATA || { collections: [], products: [], types: [] };
+
+  /* Only what can be shown well goes on the page. A product without a
+     photograph is left out rather than drawn as a coloured ball, and a
+     collection with no photographed piece (Tide and Swirl, for now) is left
+     out rather than shown as a blank tile. Nothing is removed from the
+     catalogue: add images to a product and it appears on its own, and its
+     collection with it. */
+  (function () {
+    var shown = (data.products || []).filter(function (p) {
+      return p.images && p.images.length;
+    });
+    var live = {};
+    shown.forEach(function (p) { live[p.collection] = true; });
+    data = {
+      collections: (data.collections || []).filter(function (c) { return live[c.name]; }),
+      products: shown,
+      types: data.types || []
+    };
+  })();
   var view = document.getElementById("view");
 
   function el(tag, cls, attrs) {

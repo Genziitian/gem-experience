@@ -1,0 +1,672 @@
+/* World of Preciousness — the stone guides (tanzanite, spinel, …).
+
+   An editorial page in the manner of a gem house's stone guide: white
+   ground, a large centred serif title per section with the stone's name set
+   in italic, and hairline-ruled columns that hold a drawing, a name and a
+   line of text. The photographs from our own shoot carry all of the colour;
+   everything around them stays black on white.
+
+   Each stone page sets its own accent, hero crop and title offset on the
+   body modifier (gd--tanzanite, gd--spinel) rather than in its own sheet. */
+
+.gd {
+  --gd-ink: #17140f;
+  --gd-muted: #5f574e;
+  --gd-rule: #e4e0d8;
+  --gd-black: #0b0a0c;
+  --gd-accent: #2c3fc0;
+  --gd-glow: rgba(28, 22, 110, 0.6);
+  --gd-hero-pos: 50% 50%;
+  --gd-hero-pos-m: 50% 50%;
+  --gd-hero-shift: 0%;
+}
+.gd--tanzanite {
+  --gd-accent: #2c3fc0;
+  --gd-hero-pos: 58% 50%;
+  --gd-hero-pos-m: 62% 50%;
+  /* the stone is right of centre in the photograph */
+  --gd-hero-shift: 8%;
+}
+.gd--spinel {
+  --gd-accent: #d0306e;
+  --gd-glow: rgba(90, 10, 40, 0.55);
+  --gd-hero-pos: 50% 58%;
+  --gd-hero-pos-m: 52% 60%;
+}
+
+/* ------------------------------------------------------------ shared type */
+
+.gd-section {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+  background: #fff;
+}
+.gd-title {
+  margin: 0 auto clamp(40px, 6vw, 88px);
+  max-width: 22ch;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--gd-ink);
+}
+.gd-title em,
+.gd-col-name em,
+.gd-inside-title em { font-style: italic; }
+.gd-title--left { margin-left: 0; text-align: left; }
+
+.gd-prose {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(21px, 2.1vw, 29px);
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--gd-ink);
+}
+.gd-prose--centre {
+  max-width: 40ch;
+  margin: calc(clamp(40px, 6vw, 88px) * -0.5) auto clamp(40px, 5vw, 72px);
+  text-align: center;
+}
+.gd-kicker {
+  margin: 0 0 12px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gd-muted);
+}
+
+/* ---------------------------------------------------------------- the hero */
+
+.gd-hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(100svh - 72px);
+  min-height: 460px;
+  max-height: 980px;
+  overflow: hidden;
+  background: #f4f4f6;
+}
+.gd-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--gd-hero-pos);
+  animation: gd-settle 2.4s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+@keyframes gd-settle {
+  from { transform: scale(1.06); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.gd-hero-title {
+  position: relative;
+  margin: 0;
+  transform: translateX(var(--gd-hero-shift));
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(60px, 8.6vw, 136px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 0 56px var(--gd-glow), 0 2px 18px rgba(20, 16, 40, 0.4);
+  animation: gd-rise 1.6s 0.4s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+@keyframes gd-rise {
+  from { transform: translate(var(--gd-hero-shift), 24px); opacity: 0; }
+  to { transform: translateX(var(--gd-hero-shift)); opacity: 1; }
+}
+.gd-hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  margin-left: -17px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--gd-ink);
+  animation: wop-bob 2.6s ease-in-out infinite;
+}
+@media (max-width: 699px) {
+  .gd-hero { height: 72svh; }
+  .gd-hero-media { object-position: var(--gd-hero-pos-m); }
+  .gd-hero-title { transform: none; animation-name: gd-rise-m; }
+}
+@keyframes gd-rise-m {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* -------------------------------------------------------- what is it */
+
+.gd-intro {
+  display: grid;
+  gap: clamp(36px, 5vw, 96px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  .gd-intro { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); padding-left: clamp(0px, 5vw, 110px); }
+}
+
+.gd-film {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--gd-black);
+}
+.gd-film-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.gd-film:hover .gd-film-media { transform: scale(1.03); }
+.gd-film.is-playing:hover .gd-film-media { transform: none; }
+.gd-film-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 46px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(11, 10, 12, 0.42);
+  backdrop-filter: blur(2px);
+  white-space: nowrap;
+  transition: background 0.35s ease, color 0.35s ease, opacity 0.35s ease;
+}
+.gd-film-btn:hover { background: #fff; color: var(--gd-ink); }
+.gd-film.is-playing .gd-film-btn { opacity: 0; pointer-events: none; }
+
+/* --------------------------------------------------- the ruled columns */
+
+.gd-section--grid { padding-left: 0; padding-right: 0; }
+.gd-section--grid .gd-title,
+.gd-section--grid .gd-prose--centre { padding: 0 var(--gutter); }
+
+.gd-cols {
+  display: grid;
+  border-top: 1px solid var(--gd-rule);
+  border-bottom: 1px solid var(--gd-rule);
+}
+@media (min-width: 820px) {
+  .gd-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gd-cols--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.gd-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: clamp(48px, 6vw, 96px) clamp(24px, 4vw, 72px);
+  text-align: center;
+  min-width: 0;
+}
+.gd-col + .gd-col { border-top: 1px solid var(--gd-rule); }
+@media (min-width: 820px) {
+  .gd-col + .gd-col { border-top: 0; border-left: 1px solid var(--gd-rule); }
+}
+.gd-draw {
+  width: min(240px, 70%);
+  height: auto;
+  margin-bottom: clamp(28px, 4vw, 52px);
+  fill: none;
+  stroke: var(--gd-ink);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.gd-col-name {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--gd-ink);
+}
+.gd-col-text {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.5;
+  color: var(--gd-ink);
+}
+.gd-col-gem {
+  display: block;
+  width: 76px;
+  margin-bottom: 32px;
+  filter: drop-shadow(0 12px 24px rgba(20, 26, 83, 0.28));
+}
+.gd-col-gem svg { display: block; width: 100%; height: auto; }
+
+/* rarity: photograph | numeral | photograph */
+@media (min-width: 820px) {
+  .gd-cols--rare { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr); }
+}
+.gd-col--photo { padding: 0; overflow: hidden; background: #f6f6f6; }
+.gd-col--photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  max-height: 640px;
+  object-fit: cover;
+  object-position: 62% 50%;
+  transition: transform 1.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.gd-col--photo:hover img { transform: scale(1.04); }
+.gd-col--figure { justify-content: center; }
+.gd-numeral {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(88px, 10vw, 150px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--gd-accent);
+}
+.gd-numeral span { font-style: italic; font-size: 0.6em; margin-left: 0.04em; }
+.gd-numeral-unit {
+  margin: 18px 0 28px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gd-muted);
+}
+
+/* ------------------------------------------------------- the wide band */
+
+.gd-band {
+  position: relative;
+  margin: 0;
+  background: #f2f2f2;
+}
+.gd-band img {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 62vw, 820px);
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+.gd-band figcaption {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 22px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gd-ink);
+}
+
+/* ---------------------------------------------------- what is inside
+
+   The reference's inclusion panel, turned to tanzanite's own subject: a
+   dark photograph with the title in a black plate over it and a dictionary
+   entry at its foot; beside it, three colours to choose from, each one
+   swapping the photograph for the stone turned that way. */
+
+.gd-inside {
+  display: grid;
+  background: #fff;
+}
+@media (min-width: 950px) {
+  .gd-inside { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+}
+.gd-inside-media {
+  position: relative;
+  min-height: clamp(560px, 62vw, 900px);
+  overflow: hidden;
+  background: var(--gd-black);
+  color: #fff;
+}
+.gd-inside-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.9s ease, transform 1.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.gd-inside-img.is-on { opacity: 1; transform: none; }
+.gd-inside-title {
+  position: absolute;
+  z-index: 2;
+  top: clamp(24px, 4vw, 60px);
+  right: clamp(16px, 2vw, 32px);
+  left: clamp(16px, 30%, 480px);
+  margin: 0;
+  padding: clamp(18px, 2.2vw, 30px) clamp(20px, 3vw, 44px);
+  background: #000;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 50px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+@media (max-width: 699px) { .gd-inside-title { left: 16px; } }
+.gd-def {
+  position: absolute;
+  z-index: 2;
+  left: clamp(20px, 10%, 200px);
+  bottom: clamp(28px, 5vw, 72px);
+  max-width: 30ch;
+  font-family: var(--serif);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.6);
+}
+.gd-def p { margin: 0; }
+.gd-def-word { font-size: clamp(34px, 3.6vw, 52px); line-height: 1.1; }
+.gd-def-kind { font-style: italic; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.3; }
+.gd-def-text { margin-top: 6px !important; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.4; color: rgba(255, 255, 255, 0.92); }
+
+.gd-inside-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(32px, 4vw, 56px);
+  padding: clamp(56px, 6vw, 96px) var(--gutter);
+}
+@media (min-width: 950px) { .gd-inside-copy { padding: 0 clamp(32px, 4vw, 72px); } }
+.gd-tones { display: flex; flex-wrap: wrap; gap: 10px 26px; }
+.gd-tone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gd-muted);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.gd-tone span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4px transparent;
+  transition: box-shadow 0.3s ease;
+}
+.gd-tone:hover { color: var(--gd-ink); }
+.gd-tone[aria-pressed="true"] { color: var(--gd-ink); border-bottom-color: var(--gd-ink); }
+.gd-tone[aria-pressed="true"] span { box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--c); }
+.gd-hint {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gd-muted);
+}
+
+/* ------------------------------------------------------------ the Maasai */
+
+.gd-lore { background: #faf9f6; }
+.gd-lore-inner {
+  display: grid;
+  gap: clamp(40px, 6vw, 110px);
+  align-items: center;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+@media (min-width: 950px) {
+  .gd-lore-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.gd-lore-photo { margin: 0; overflow: hidden; }
+.gd-lore-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 780px;
+  object-fit: cover;
+}
+.gd-lore-copy .gd-title { margin-bottom: 28px; }
+.gd-list { margin: 44px 0 0; padding: 0; list-style: none; }
+.gd-list li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  padding: 22px 0;
+  border-top: 1px solid var(--gd-rule);
+}
+.gd-list li:last-child { border-bottom: 1px solid var(--gd-rule); }
+.gd-list-num {
+  padding-top: 6px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gd-muted);
+}
+.gd-list p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: var(--gd-ink);
+}
+
+/* --------------------------------------------------------- did you know */
+
+.gd-know {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+  /* the same night as the film band that follows, so the two read as one */
+  background: var(--night);
+  color: #f5f3ef;
+  text-align: center;
+}
+.gd-know .gd-title { color: #f5f3ef; margin-bottom: clamp(32px, 4vw, 56px); }
+.gd-know-grid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+@media (min-width: 1000px) {
+  .gd-know-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); }
+}
+.gd-facts {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 56px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.gd-facts--right { text-align: right; }
+.gd-facts li {
+  max-width: 20ch;
+  font-family: var(--serif);
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.gd-facts--right li { margin-left: auto; }
+@media (max-width: 999px) {
+  .gd-facts, .gd-facts--right { text-align: center; }
+  .gd-facts li { margin: 0 auto; }
+  .gd-know-stone { order: -1; }
+}
+.gd-know-stone { margin: 0; }
+.gd-know-stone img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 55%;
+  /* the photograph is shot on black; the mask melts its edge into the band */
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent);
+  mask-image: radial-gradient(closest-side, #000 72%, transparent);
+}
+.gd-cta {
+  display: inline-block;
+  margin-top: clamp(28px, 4vw, 48px);
+  padding: 20px 46px;
+  border: 1px solid rgba(245, 243, 239, 0.9);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.gd-cta:hover { background: #f5f3ef; color: var(--gd-black); }
+
+/* ---------------------------------------------------------- back to top */
+
+.gd-top {
+  position: fixed;
+  right: var(--gutter);
+  bottom: 24px;
+  z-index: 30;
+  padding: 18px 26px;
+  border: 1px solid var(--gd-rule);
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gd-ink);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.3s ease;
+}
+.gd-top.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.gd-top:hover { border-color: var(--gd-ink); }
+@media (max-width: 699px) { .gd-top { padding: 14px 18px; bottom: 16px; } }
+
+/* --------------------------------------------------------------- reveal */
+
+.gd.is-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1s ease, transform 1.1s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.gd.is-ready [data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gd-hero-media, .gd-hero-title { animation: none; }
+  .gd-hero-scroll { animation: none; }
+  .gd.is-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .gd-inside-img { transition: none; transform: none; }
+}
+
+/* ============================================ additions for the spinel page */
+
+/* A hero shot on black rather than white: the scroll mark turns light. */
+.gd-hero--dark { background: #151214; }
+.gd-hero--dark .gd-hero-scroll { color: rgba(255, 255, 255, 0.8); }
+
+/* More than one paragraph beside the film. */
+.gd-intro-copy { display: flex; flex-direction: column; gap: 1.1em; min-width: 0; }
+
+/* Periodic-table tiles inside the line drawings. */
+.gd-draw .gd-el-num { font-family: var(--serif); font-size: 13px; fill: var(--gd-ink); stroke: none; }
+.gd-draw .gd-el-sym { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 44px; fill: var(--gd-ink); stroke: none; }
+.gd-draw .gd-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; fill: var(--gd-muted); stroke: none; }
+.gd-draw .gd-fill { stroke: none; }
+.gd-col-name sub { font-size: 0.6em; line-height: 0; }
+
+/* The inside panel without the colour chooser: a drawing over the text,
+   as the reference sets its globe over the line about origin. */
+.gd-inside--static .gd-inside-img { opacity: 1; transform: none; }
+.gd-inside--static .gd-inside-copy { align-items: flex-start; }
+.gd-inside--static .gd-draw { width: min(260px, 60%); margin: 0 0 clamp(8px, 2vw, 24px); align-self: center; }
+
+/* Jewellery in the stone: four pieces in a ruled row. */
+.gd-pieces {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--gd-rule);
+  border-bottom: 1px solid var(--gd-rule);
+}
+@media (min-width: 1000px) { .gd-pieces { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.gd-piece {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(24px, 3vw, 44px) clamp(14px, 2vw, 32px) clamp(36px, 4vw, 56px);
+  text-align: center;
+  border-left: 1px solid var(--gd-rule);
+  color: var(--gd-ink);
+}
+.gd-piece:nth-child(2n + 1) { border-left: 0; }
+@media (max-width: 999px) {
+  .gd-piece:nth-child(n + 3) { border-top: 1px solid var(--gd-rule); }
+}
+@media (min-width: 1000px) {
+  .gd-piece:nth-child(2n + 1) { border-left: 1px solid var(--gd-rule); }
+  .gd-piece:first-child { border-left: 0; }
+}
+.gd-piece-media { width: 100%; aspect-ratio: 1; overflow: hidden; margin-bottom: clamp(20px, 3vw, 36px); }
+.gd-piece-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.gd-piece:hover .gd-piece-media img { transform: scale(1.05); }
+.gd-piece-name {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.25;
+}
+.gd-piece-link {
+  margin-top: auto;
+  padding-bottom: 5px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.gd-piece:hover .gd-piece-link { border-bottom-color: var(--gd-ink); }
+
+/* Did you know, on white — the reference's own treatment. */
+.gd-know--light { background: #fff; color: var(--gd-ink); }
+.gd-know--light .gd-title { color: var(--gd-ink); }
+.gd-know--light .gd-cta { border-color: var(--gd-ink); }
+.gd-know--light .gd-cta:hover { background: var(--gd-ink); color: #fff; }
+.gd-know--light .gd-know-stone img {
+  -webkit-mask-image: radial-gradient(closest-side, #000 78%, transparent);
+  mask-image: radial-gradient(closest-side, #000 78%, transparent);
+}
+
+/* A single line of lead text over the inside panel, set larger than a
+   dictionary entry and given the room to run. */
+.gd-def-text--lead { max-width: 24ch; font-size: clamp(22px, 2.2vw, 32px) !important; line-height: 1.3 !important; }
+.gd-inside--static .gd-def { max-width: none; right: clamp(20px, 10%, 200px); }

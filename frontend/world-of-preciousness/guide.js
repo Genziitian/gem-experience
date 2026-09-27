@@ -21,7 +21,7 @@
      only once it is running. */
   function wireFilm(fig) {
     var video = fig.querySelector("video");
-    var btn = fig.querySelector(".tz-film-btn");
+    var btn = fig.querySelector(".gd-film-btn");
     if (!video || !btn) return;
     btn.addEventListener("click", function () {
       video.muted = false;
@@ -67,9 +67,9 @@
   }
 
   function init() {
-    d.querySelectorAll("[data-tz-tones]").forEach(wireTones);
-    d.querySelectorAll("[data-tz-film]").forEach(wireFilm);
-    d.querySelectorAll("[data-tz-top]").forEach(wireTop);
+    d.querySelectorAll("[data-gd-tones]").forEach(wireTones);
+    d.querySelectorAll("[data-gd-film]").forEach(wireFilm);
+    d.querySelectorAll("[data-gd-top]").forEach(wireTop);
     wireReveal();
   }
 

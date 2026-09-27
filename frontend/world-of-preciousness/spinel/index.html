@@ -5,8 +5,7 @@
 <!-- Resolution root for this directory. Served without a trailing slash
      (/world-of-preciousness/spinel rather than /world-of-preciousness/spinel/), a relative URL climbs one level too high —
      which 404s an asset or, worse, silently loads a different file with the
-     same name. This page builds image paths in JavaScript too, so fixing the
-     markup alone would not have been enough. -->
+     same name. -->
 <base href="/world-of-preciousness/spinel/">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,199 +19,260 @@
 <link rel="stylesheet" href="/css/mini-cart.css">
 <link rel="stylesheet" href="/css/gift-note.css">
 <link rel="stylesheet" href="/world-of-preciousness/styles.css">
+<link rel="stylesheet" href="/world-of-preciousness/guide.css">
 </head>
-<body class="pg wop">
+<body class="pg wop gd gd--spinel">
 <div class="pg-wrap">
   <div id="pg-header"></div>
 
   <main class="pg-main pg-main--flush" id="main">
 
-    <!-- ========================================================= the film -->
-    <header class="wop-hero">
-      <video class="wop-hero-media" autoplay muted loop playsinline preload="metadata"
-             poster="../../high-jewellery/img/mahenge.webp"
-             aria-label="The road into the Mahenge hills.">
-        <source src="https://res.cloudinary.com/dm0w7rtkt/video/upload/v1739441589/Mahenge_Final_GEM_fowwde.mp4" type="video/mp4">
-      </video>
-      <div class="wop-hero-copy">
-        <p class="wop-kicker" style="color:rgba(255,255,255,0.62)">World of Preciousness</p>
-        <h1 class="wop-hero-title">Discover the magic of <span class="wop-em">Pink Spinel</span></h1>
-        <p class="wop-hero-line">Mistaken for a ruby for six hundred years, and the better stone for it.</p>
-        <a class="wop-scroll" href="#reading" aria-label="Read on">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
-            <path d="m5 9 7 7 7-7"></path>
-          </svg>
-        </a>
-      </div>
+    <!-- ========================================================= the stone -->
+    <header class="gd-hero gd-hero--dark" id="top">
+      <img class="gd-hero-media" src="img/hero-rough.webp"
+           alt="A rough pink spinel crystal on black, with more crystals out of focus behind it."
+           width="2400" height="1597" fetchpriority="high" decoding="async">
+      <h1 class="gd-hero-title">Spinel</h1>
+      <a class="gd-hero-scroll" href="#what" aria-label="Read on">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg>
+      </a>
     </header>
 
-    <!-- ===================================================== the statement -->
-    <section class="wop-section wop-statement" id="reading">
-      <p class="wop-kicker">A gemstone like no other</p>
-      <p class="wop-statement-line">The stone that wore another's <span class="wop-em">name</span>.</p>
-      <p class="wop-statement-body">From the depths of the East African belt, spinels emerge — dazzling for their beauty and their durability. Royalty and nobility were captivated by them, and took them for rubies on the strength of the hue alone.</p>
-    </section>
-
-    <!-- ======================================================= the numeral -->
-    <section class="wop-section wop-band--night">
-      <div class="wop-figure">
-        <p class="wop-numeral">352<span class="wop-numeral-unit">Carats, British Crown Jewels</span></p>
-        <div class="wop-figure-copy">
-          <p class="wop-kicker">The famous mistake</p>
-          <h2 class="wop-h2">Catalogued as a <span class="wop-em">ruby</span></h2>
-          <p class="wop-body">The stone given by the King of Spain in the fourteenth century, and worn as a ruby ever since, is a spinel — all 352 carats of it.</p>
-          <p class="wop-body">Spinel's crystal structure was said to resemble a thorn on a rose, and for that it was carried as a guard against fire and evil spirits.</p>
+    <!-- ======================================================== what is it -->
+    <section class="gd-section" id="what">
+      <h2 class="gd-title" data-reveal>What is <em>Spinel?</em></h2>
+      <div class="gd-intro">
+        <div class="gd-intro-copy">
+          <p class="gd-prose" data-reveal>From the depths of the East Africa Belt, Spinels emerge, dazzling the world with their beauty and durability.</p>
+          <p class="gd-prose" data-reveal>Royalty and nobility were captivated by the exquisite precious stones, often mistaken for rubies due to their magnificent hue.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ==================================================== the properties -->
-    <section class="wop-section">
-      <div class="wop-props">
-        <div class="wop-prop">
-          <p class="wop-prop-value">8</p>
-          <p class="wop-prop-label">Mohs hardness</p>
-        </div>
-        <div class="wop-prop">
-          <p class="wop-prop-value">Single</p>
-          <p class="wop-prop-label">Refractive</p>
-        </div>
-        <div class="wop-prop">
-          <p class="wop-prop-value">None</p>
-          <p class="wop-prop-label">Treatment</p>
-        </div>
-        <div class="wop-prop">
-          <p class="wop-prop-value">August</p>
-          <p class="wop-prop-label">Birthstone</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================== the tray -->
-    <section class="wop-section wop-band--night" style="padding-top:0" data-switcher>
-      <div class="wop-head">
-        <p class="wop-kicker">The tray</p>
-        <h2 class="wop-h2">Seven stones, seven <span class="wop-em">notes</span></h2>
-      </div>
-
-      <div class="wop-tray-wrap">
-        <div class="wop-tray" role="tablist" aria-label="Spinels on the tray">
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp1" aria-selected="true"
-                  style="--x:22%;--y:24%;--s:17%;--r:-14deg" aria-label="Baguette spinel">
-            <span data-gem="baguette spinel"></span>
-          </button>
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp2" aria-selected="false"
-                  style="--x:52%;--y:17%;--s:15%;--r:9deg" aria-label="Radiant spinel">
-            <span data-gem="octagon spinel"></span>
-          </button>
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp3" aria-selected="false"
-                  style="--x:79%;--y:29%;--s:16%;--r:-6deg" aria-label="Cushion spinel">
-            <span data-gem="cushion spinel"></span>
-          </button>
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp4" aria-selected="false"
-                  style="--x:36%;--y:52%;--s:15%;--r:5deg" aria-label="Heart spinel">
-            <span data-gem="heart spinel"></span>
-          </button>
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp5" aria-selected="false"
-                  style="--x:66%;--y:57%;--s:14%;--r:-11deg" aria-label="Pear spinel">
-            <span data-gem="pear spinel"></span>
-          </button>
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp6" aria-selected="false"
-                  style="--x:25%;--y:79%;--s:14%;--r:12deg" aria-label="Round spinel">
-            <span data-gem="round spinel"></span>
-          </button>
-          <button class="wop-tray-stone" type="button" role="tab" data-target="sp7" aria-selected="false"
-                  style="--x:58%;--y:84%;--s:13%;--r:-4deg" aria-label="Trillion spinel">
-            <span data-gem="trillion spinel"></span>
-          </button>
-        </div>
-
-        <div>
-          <div class="wop-tray-note" data-panel="sp1" role="tabpanel">
-            <p class="wop-tray-index">01 — Baguette</p>
-            <p class="wop-tray-text">Pink spinels are scarce, and the good ones are startling: vivid pastel pink with a touch of fuchsia, held by a single refractivity and an exceptional transparency.</p>
-          </div>
-          <div class="wop-tray-note" data-panel="sp2" role="tabpanel" hidden>
-            <p class="wop-tray-index">02 — Radiant</p>
-            <p class="wop-tray-text">Nothing is done to them. No heat, no treatment — the colour on the tray is the colour that came out of the ground.</p>
-          </div>
-          <div class="wop-tray-note" data-panel="sp3" role="tabpanel" hidden>
-            <p class="wop-tray-index">03 — Cushion</p>
-            <p class="wop-tray-text">An 8 on the Mohs scale. Hard enough to be worn rather than kept, which is the point of it.</p>
-          </div>
-          <div class="wop-tray-note" data-panel="sp4" role="tabpanel" hidden>
-            <p class="wop-tray-index">04 — Heart</p>
-            <p class="wop-tray-text">Its crystal habit is an octahedron — two pyramids fused at the base. But it is the Mahenge spinels of Tanzania that have taken the imagination.</p>
-          </div>
-          <div class="wop-tray-note" data-panel="sp5" role="tabpanel" hidden>
-            <p class="wop-tray-index">05 — Pear</p>
-            <p class="wop-tray-text">The neon glow is chromium and iron. Limited supply and a growing recognition of what the stone actually is have carried prices upward.</p>
-          </div>
-          <div class="wop-tray-note" data-panel="sp6" role="tabpanel" hidden>
-            <p class="wop-tray-index">06 — Round</p>
-            <p class="wop-tray-text">August's birthstone. Red, pink, blue and black, and long held to stand for strength and protection.</p>
-          </div>
-          <div class="wop-tray-note" data-panel="sp7" role="tabpanel" hidden>
-            <p class="wop-tray-index">07 — Trillion</p>
-            <p class="wop-tray-text">The legends give it calm, and clear thinking under pressure. Whether or not you hold with that, the stone has outlasted everyone who believed it.</p>
-          </div>
-          <p class="wop-tray-hint">Choose a stone</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================== the octahedron -->
-    <section class="wop-section">
-      <div class="wop-habit">
-        <svg class="wop-habit-art" viewBox="0 0 200 200" role="img" aria-label="An octahedron — two square pyramids joined at the base.">
-          <defs>
-            <linearGradient id="oct-a" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#f7bcd3"/><stop offset="100%" stop-color="#d83f79"/>
-            </linearGradient>
-            <linearGradient id="oct-b" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#c8376f"/><stop offset="100%" stop-color="#6d1339"/>
-            </linearGradient>
-          </defs>
-          <path d="M100 14 32 100h68Z" fill="url(#oct-a)"/>
-          <path d="M100 14 168 100h-68Z" fill="url(#oct-b)"/>
-          <path d="M100 186 32 100h68Z" fill="url(#oct-b)" opacity="0.72"/>
-          <path d="M100 186 168 100h-68Z" fill="url(#oct-a)" opacity="0.6"/>
-          <path d="M100 14 32 100l68 86 68-86ZM32 100h136M100 14v172" fill="none"
-                stroke="rgba(255,255,255,0.8)" stroke-width="1.2" stroke-linejoin="round"/>
-        </svg>
-        <div>
-          <p class="wop-kicker">Crystal habit</p>
-          <h2 class="wop-h2">Two pyramids, <span class="wop-em">fused</span></h2>
-          <p class="wop-body" style="margin-left:auto;margin-right:auto">Spinel grows as an octahedron. It is the shape that told the old miners they had something other than a ruby, long before anyone could say why.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================== the hills -->
-    <section class="wop-section" style="padding-top:0">
-      <div class="wop-pair">
-        <div class="wop-pair-copy">
-          <p class="wop-kicker">Mahenge</p>
-          <h2 class="wop-h2">The hills behind the <span class="wop-em">road</span></h2>
-          <p class="wop-body">The Mahenge pocket in southern Tanzania gave up spinels of a pink nobody had a word for, and the market has been chasing them since.</p>
-          <p class="wop-body">Held for their beauty, and long credited with healing. Both claims have survived the centuries about equally well.</p>
-        </div>
-        <figure class="wop-arch wop-arch--left" style="--bloom:rgba(216,63,121,0.6)">
-          <div class="wop-arch-frame">
-            <img src="/high-jewellery/img/mahenge.webp" alt="A fringed diamond collar centred on a heart-cut pink spinel." loading="lazy" decoding="async">
-          </div>
-          <span class="wop-arch-rule" aria-hidden="true"></span>
-          <span class="wop-arch-gem" data-gem="heart spinel"></span>
+        <figure class="gd-film" data-gd-film data-reveal>
+          <video class="gd-film-media" muted playsinline preload="none" poster="img/inside-rough.webp">
+            <source src="https://res.cloudinary.com/dm0w7rtkt/video/upload/v1739441589/Mahenge_Final_GEM_fowwde.mp4" type="video/mp4">
+          </video>
+          <button class="gd-film-btn" type="button">Watch the film</button>
         </figure>
       </div>
+    </section>
 
-      <div class="wop-next">
-        <p class="wop-kicker">The other stones</p>
-        <a class="wop-link" href="../">Back to the World of Preciousness</a>
+    <!-- ===================================================== what makes it -->
+    <section class="gd-section gd-section--grid" aria-labelledby="formed">
+      <h2 class="gd-title" id="formed" data-reveal>What Makes a <em>Spinel?</em></h2>
+      <div class="gd-cols">
+        <article class="gd-col" data-reveal>
+          <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <rect x="28" y="20" width="70" height="70"/>
+            <text class="gd-el-num" x="35" y="36">12</text>
+            <text class="gd-el-sym" x="42" y="74">Mg</text>
+            <rect x="112" y="6" width="70" height="70"/>
+            <text class="gd-el-num" x="119" y="22">13</text>
+            <text class="gd-el-sym" x="128" y="60">Al</text>
+            <rect x="140" y="96" width="70" height="70"/>
+            <text class="gd-el-num" x="147" y="112">8</text>
+            <text class="gd-el-sym" x="160" y="150">O</text>
+            <path d="M92 104l18-10 18 12-8 22-22 4-10-14Z M110 94l-2 20 12 14M92 104l16 10 20-8"/>
+            <path d="M62 128l10-6 8 8-6 10-10-2Z"/>
+          </svg>
+          <h3 class="gd-col-name">Spinel (MgAl<sub>2</sub>O<sub>4</sub>)</h3>
+          <p class="gd-col-text">A mineral of magnesium, aluminium and oxygen.</p>
+        </article>
+        <article class="gd-col" data-reveal>
+          <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <rect x="46" y="54" width="70" height="70"/>
+            <text class="gd-el-num" x="53" y="70">24</text>
+            <text class="gd-el-sym" x="62" y="108">Cr</text>
+            <rect x="126" y="86" width="70" height="70"/>
+            <text class="gd-el-num" x="133" y="102">26</text>
+            <text class="gd-el-sym" x="143" y="140">Fe</text>
+            <path d="M120 20l16-6 12 12-4 16-16 4-10-12Z M136 14l-2 18 14 10M120 20l14 12"/>
+            <path d="M166 40l10-4 8 8-4 10-10 0Z M84 30l8-3 6 6-3 8-8-1Z"/>
+          </svg>
+          <h3 class="gd-col-name">Chromium &amp; Iron</h3>
+          <p class="gd-col-text">Their neon-like glow, a result of the presence of chromium and iron, sets them apart from other Spinels…</p>
+        </article>
+        <article class="gd-col" data-reveal>
+          <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M120 10 62 88l58 82 58-82Z"/>
+            <path d="M62 88l42 14 74-14M120 10l-16 92 16 68M120 10l58 78"/>
+            <path d="M62 88l58-12 58 12" stroke-dasharray="3 4"/>
+            <path d="M120 10v66" stroke-dasharray="3 4"/>
+          </svg>
+          <h3 class="gd-col-name">The <em>Octahedron</em></h3>
+          <p class="gd-col-text">…and its characteristic octahedron shape is reminiscent of two pyramids fused.</p>
+        </article>
       </div>
+    </section>
+
+    <figure class="gd-band" data-reveal>
+      <img src="img/scatter.webp" alt="Eight rough pink spinel crystals scattered on a white table." loading="lazy" decoding="async" width="2400" height="1597">
+      <figcaption>Rough pink spinel</figcaption>
+    </figure>
+
+    <!-- ====================================================== what's inside -->
+    <section class="gd-inside gd-inside--static" aria-labelledby="inside">
+      <div class="gd-inside-media">
+        <h2 class="gd-inside-title" id="inside">What is Inside a <em>Spinel?</em></h2>
+        <img class="gd-inside-img" src="img/inside-rough.webp" alt="Rough pink spinel crystals on black, lit so they glow from within." loading="lazy" decoding="async">
+        <div class="gd-def">
+          <p class="gd-def-text gd-def-text--lead">Pink Spinels are very scarce and have a breathtaking appearance.</p>
+        </div>
+      </div>
+      <div class="gd-inside-copy">
+        <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+          <path d="M120 16 70 90l50 74 50-74Z"/>
+          <path d="M70 90h100M120 16v148"/>
+          <path d="M20 60h58M20 60l6-4M20 60l6 4" />
+          <path d="M162 90h58M214 86l6 4-6 4"/>
+          <text class="gd-label" x="20" y="50">LIGHT</text>
+          <text class="gd-label" x="172" y="80">ONE PATH</text>
+        </svg>
+        <p class="gd-prose" data-reveal>Vibrant pastel pinks with a touch of fuchsia, which is due to their single refractivity and exceptional transparency.</p>
+      </div>
+    </section>
+
+    <!-- ==================================================== the qualities -->
+    <section class="gd-section gd-section--grid" aria-labelledby="qualities">
+      <h2 class="gd-title" id="qualities" data-reveal>The Qualities of <em>Spinel</em></h2>
+      <div class="gd-cols">
+        <article class="gd-col" data-reveal>
+          <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <circle cx="120.0" cy="18.0" r="5.2"/><circle cx="132.5" cy="19.1" r="5.2"/><circle cx="144.6" cy="22.3" r="5.2"/><circle cx="156.0" cy="27.6" r="5.2"/><circle cx="166.3" cy="34.8" r="5.2"/><circle cx="175.2" cy="43.7" r="5.2"/>
+            <circle cx="182.4" cy="54.0" r="5.2" class="gd-fill" style="fill:#b3122f"/><circle cx="187.7" cy="65.4" r="5.2" class="gd-fill" style="fill:#c81f45"/><circle cx="190.9" cy="77.5" r="5.2" class="gd-fill" style="fill:#d0306e"/><circle cx="192.0" cy="90.0" r="5.2" class="gd-fill" style="fill:#e0609a"/><circle cx="190.9" cy="102.5" r="5.2" class="gd-fill" style="fill:#3d52b8"/><circle cx="187.7" cy="114.6" r="5.2" class="gd-fill" style="fill:#27347a"/><circle cx="182.4" cy="126.0" r="5.2" class="gd-fill" style="fill:#1b1a1c"/>
+            <circle cx="175.2" cy="136.3" r="5.2"/><circle cx="166.3" cy="145.2" r="5.2"/><circle cx="156.0" cy="152.4" r="5.2"/><circle cx="144.6" cy="157.7" r="5.2"/><circle cx="132.5" cy="160.9" r="5.2"/><circle cx="120.0" cy="162.0" r="5.2"/><circle cx="107.5" cy="160.9" r="5.2"/><circle cx="95.4" cy="157.7" r="5.2"/><circle cx="84.0" cy="152.4" r="5.2"/><circle cx="73.7" cy="145.2" r="5.2"/><circle cx="64.8" cy="136.3" r="5.2"/><circle cx="57.6" cy="126.0" r="5.2"/><circle cx="52.3" cy="114.6" r="5.2"/><circle cx="49.1" cy="102.5" r="5.2"/><circle cx="48.0" cy="90.0" r="5.2"/><circle cx="49.1" cy="77.5" r="5.2"/><circle cx="52.3" cy="65.4" r="5.2"/><circle cx="57.6" cy="54.0" r="5.2"/><circle cx="64.8" cy="43.7" r="5.2"/><circle cx="73.7" cy="34.8" r="5.2"/><circle cx="84.0" cy="27.6" r="5.2"/><circle cx="95.4" cy="22.3" r="5.2"/><circle cx="107.5" cy="19.1" r="5.2"/>
+          </svg>
+          <h3 class="gd-col-name">Colour</h3>
+          <p class="gd-col-text">Spinels come in a variety of colors such as red, pink, blue, and black.</p>
+        </article>
+        <article class="gd-col" data-reveal>
+          <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M40 60l18-12 20 6 6 24-14 18-22-2-10-18Z M58 48l-2 26 14 20M40 60l16 14 28 4"/>
+            <path d="M100 84h40M134 80l6 4-6 4"/>
+            <path d="M168 58h36l14 14-32 42-32-42Z M168 58l-4 14h54M204 58l4 14M186 114l-10-42M186 114l10-42"/>
+            <text class="gd-label" x="44" y="150">NO HEAT</text>
+            <text class="gd-label" x="138" y="150">NO TREATMENT</text>
+          </svg>
+          <h3 class="gd-col-name">Natural</h3>
+          <p class="gd-col-text">Spinels require no artificial enhancements or treatments, allowing their natural beauty to shine through.</p>
+        </article>
+        <article class="gd-col" data-reveal>
+          <svg class="gd-draw" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M20 100h200"/>
+            <path d="M20 94v12M42 96v8M64 96v8M86 96v8M108 96v8M130 96v8M152 96v8M174 96v8M196 96v8M218 94v12"/>
+            <circle cx="174" cy="100" r="9" class="gd-fill" style="fill:#d0306e"/>
+            <circle cx="218" cy="100" r="5"/>
+            <text class="gd-label" x="16" y="128">1</text>
+            <text class="gd-label" x="170" y="128">8</text>
+            <text class="gd-label" x="210" y="128">10</text>
+            <text class="gd-label" x="150" y="76">SPINEL</text>
+            <text class="gd-label" x="232" y="56" text-anchor="end">DIAMOND</text>
+            <path d="M174 80v8M218 62v30" stroke-dasharray="2 3"/>
+          </svg>
+          <h3 class="gd-col-name">Toughness</h3>
+          <p class="gd-col-text">Measuring an 8 on the Mohs scale, it is an ideal choice for jewelry pieces that can withstand wear and tear.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================================================== the crown -->
+    <section class="gd-section gd-section--grid" aria-labelledby="crown">
+      <h2 class="gd-title" id="crown" data-reveal>Mistaken for a <em>Ruby</em></h2>
+      <div class="gd-cols gd-cols--rare">
+        <figure class="gd-col gd-col--photo" data-reveal>
+          <img src="img/rough-left.webp" alt="Rough pink spinel crystals on white, the nearest in sharp focus." loading="lazy" decoding="async">
+        </figure>
+        <div class="gd-col gd-col--figure" data-reveal>
+          <p class="gd-numeral">352</p>
+          <p class="gd-numeral-unit">Carats, British Crown Jewels</p>
+          <p class="gd-col-text">The Q8 ruby in the British Crown Jewels is a spinel that weighs a staggering 352 carats and was given as a gift by the King of Spain during the 14th century.</p>
+        </div>
+        <figure class="gd-col gd-col--photo" data-reveal>
+          <img src="img/rough-right.webp" alt="Five rough pink spinel crystals casting soft shadows on white." loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================================================== legend & lore -->
+    <section class="gd-section gd-lore" aria-labelledby="lore">
+      <div class="gd-lore-inner">
+        <figure class="gd-lore-photo" data-reveal>
+          <img src="img/lore-stone.webp" alt="A single rough pink spinel on black, reflected in the surface beneath it." loading="lazy" decoding="async">
+        </figure>
+        <div class="gd-lore-copy">
+          <h2 class="gd-title gd-title--left" id="lore" data-reveal>Legend &amp; <em>Lore</em></h2>
+          <p class="gd-prose" data-reveal>Spinels have been revered for their perceived healing properties and their beauty that continues to mesmerize people to this day.</p>
+          <ol class="gd-list">
+            <li data-reveal>
+              <span class="gd-list-num">01</span>
+              <p>Spinels have a crystal structure that resembles a thorn on a rose, and because of this, they were thought to protect from evil spirits and fire.</p>
+            </li>
+            <li data-reveal>
+              <span class="gd-list-num">02</span>
+              <p>As one of the birthstones for August, Spinels symbolize strength and protection. It is believed that this stone can assist individuals in recognizing their purpose in life and provide them with the necessary vitality to live a fulfilling life.</p>
+            </li>
+            <li data-reveal>
+              <span class="gd-list-num">03</span>
+              <p>Legends suggest that spinel can reduce stress and anxiety and inspire innovative thinking, allowing individuals to overcome obstacles and demonstrate resilience.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================ spinel in the house -->
+    <section class="gd-section gd-section--grid" aria-labelledby="pieces">
+      <h2 class="gd-title" id="pieces" data-reveal>Spinel in <em>High Jewellery</em></h2>
+      <div class="gd-pieces">
+        <a class="gd-piece" href="/high-jewellery/ember/" data-reveal>
+          <span class="gd-piece-media"><img src="/high-jewellery/img/pieces/ember/p1.webp" alt="Ember earrings: cascades of pink spinel discs and diamonds." loading="lazy" decoding="async"></span>
+          <p class="gd-kicker">Pink spinel discs</p>
+          <h3 class="gd-piece-name">Ember</h3>
+          <span class="gd-piece-link">Discover the piece</span>
+        </a>
+        <a class="gd-piece" href="/high-jewellery/mahenge/" data-reveal>
+          <span class="gd-piece-media"><img src="/high-jewellery/img/pieces/mahenge/p4.webp" alt="Samaah: a fringed diamond collar centred on a heart-cut pink spinel." loading="lazy" decoding="async"></span>
+          <p class="gd-kicker">Heart-cut spinel</p>
+          <h3 class="gd-piece-name">Samaah</h3>
+          <span class="gd-piece-link">Discover the piece</span>
+        </a>
+        <a class="gd-piece" href="/high-jewellery/shamsa/" data-reveal>
+          <span class="gd-piece-media"><img src="/high-jewellery/img/pieces/shamsa/p1.webp" alt="Shamsa: a pink spinel set in a sunburst of yellow gold and diamonds." loading="lazy" decoding="async"></span>
+          <p class="gd-kicker">Spinel cabochon</p>
+          <h3 class="gd-piece-name">Shamsa</h3>
+          <span class="gd-piece-link">Discover the piece</span>
+        </a>
+        <a class="gd-piece" href="/high-jewellery/celestine/" data-reveal>
+          <span class="gd-piece-media"><img src="/high-jewellery/img/pieces/celestine/p1.webp" alt="Celestine earrings: diamond flowers centred on aquamarine and pink spinel." loading="lazy" decoding="async"></span>
+          <p class="gd-kicker">Spinel &amp; aquamarine</p>
+          <h3 class="gd-piece-name">Celestine</h3>
+          <span class="gd-piece-link">Discover the piece</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================================================== did you know -->
+    <section class="gd-know gd-know--light" aria-labelledby="know">
+      <h2 class="gd-title" id="know" data-reveal>Did <em>You Know?</em></h2>
+      <div class="gd-know-grid">
+        <ul class="gd-facts">
+          <li data-reveal>The 352-carat “ruby” in the British Crown Jewels is a spinel</li>
+          <li data-reveal>Spinel is one of the birthstones for August</li>
+          <li data-reveal>Its crystal was said to resemble a thorn on a rose</li>
+        </ul>
+        <figure class="gd-know-stone" data-reveal>
+          <img src="img/know-stone.webp" alt="A rough pink spinel crystal on white." loading="lazy" decoding="async">
+        </figure>
+        <ul class="gd-facts gd-facts--right">
+          <li data-reveal>Spinel measures 8 on the Mohs scale</li>
+          <li data-reveal>Spinels need no treatment or enhancement</li>
+          <li data-reveal>Mahenge spinels of Tanzania glow neon from chromium and iron</li>
+        </ul>
+      </div>
+      <a class="gd-cta" href="../">Explore the World of Preciousness</a>
     </section>
 
   </main>
+
+  <a class="gd-top" href="#top" data-gd-top>Back to top</a>
 
   <div id="pg-footer"></div>
 </div>
@@ -224,6 +284,7 @@
 <script src="/js/gift-note.js"></script>
 <script src="/js/shell.js"></script>
 <script src="/world-of-preciousness/app.js"></script>
+<script src="/world-of-preciousness/guide.js"></script>
 <script>
   GemShell.mount({ prefix: "../../" });
 </script>

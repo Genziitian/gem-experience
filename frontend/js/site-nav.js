@@ -48,6 +48,43 @@
        Your Jewellery). */
   ];
 
+  /* Sections kept off the menu whatever the database says. The admin can
+     unpublish them too; this makes sure they stay hidden even when that has
+     not been done on the live database yet. Remove a name to bring it back. */
+  var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts", "The House"];
+
+  /* The database menu is the source of truth, but rows seeded before a page
+     existed carry no href and render as unclickable text. Where the database
+     row has no link and this file has one for the same section and label,
+     the link here fills the gap; a link set in the admin always wins. */
+  function reconcile(primary) {
+    var known = {};
+    SECTIONS.forEach(function (sec) {
+      known[sec.label] = sec;
+    });
+    return primary
+      .filter(function (sec) { return HIDDEN.indexOf(sec.label) === -1; })
+      .map(function (sec) {
+        var ref = known[sec.label];
+        if (!ref) return sec;
+        var out = {};
+        for (var k in sec) out[k] = sec[k];
+        if (!out.href && ref.href) out.href = ref.href;
+        if (sec.children && ref.children) {
+          out.children = sec.children.map(function (kid) {
+            if (kid.href || kid.heading) return kid;
+            var match = ref.children.filter(function (r) { return r.label === kid.label; })[0];
+            if (!match || !match.href) return kid;
+            var copy = {};
+            for (var m in kid) copy[m] = kid[m];
+            copy.href = match.href;
+            return copy;
+          });
+        }
+        return out;
+      });
+  }
+
   var SECONDARY = [
     { label: "Find our store", href: "offices/" },
     { label: "Book an appointment", href: "appointment/" },
@@ -186,7 +223,7 @@
       var pending = null;
       function redraw(tree) {
         if (!tree) return;
-        var sections = tree.primary && tree.primary.length ? tree.primary : SECTIONS;
+        var sections = tree.primary && tree.primary.length ? reconcile(tree.primary) : SECTIONS;
         var secondary = tree.secondary && tree.secondary.length ? tree.secondary : SECONDARY;
         root.innerHTML = markup(prefix, sections, secondary);
         show("root");

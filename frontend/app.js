@@ -1,7 +1,7 @@
 /* Gem Experience — Home
    Menu drawer, the mobile action bar, newsletter validation, the region
-   picker and the film
-   lightbox. No dependencies. */
+   picker and the film,
+   which plays in its own section. No dependencies. */
 
 (function (w) {
   'use strict';
@@ -10,7 +10,7 @@
 
   function lock() { body.classList.add('is-locked'); }
   function unlock() {
-    if (!navOpen() && !lightboxOpen()) body.classList.remove('is-locked');
+    if (!navOpen()) body.classList.remove('is-locked');
   }
 
   /* ---------------------------------------------------------- menu */
@@ -58,8 +58,9 @@
 
   /* -------------------------------------------------------- film */
 
-  /* The film is fetched only when the play button is pressed: nothing is
-     requested while the page loads. Phones, data-saver and slow
+  /* The film plays in place: pressing play swaps the section's still and
+     title for the film, full width, and the film is fetched only then —
+     nothing is requested while the page loads. Phones, data-saver and slow
      connections get the 720p cut (~9MB); everyone else 1080p (~19MB). Both
      are fast-start MP4s, so playback begins before the download ends.
      To move to Cloudinary later, point these at the Cloudinary URLs
@@ -69,42 +70,25 @@
     sd: 'video/journey-720.mp4',
     poster: 'video/journey-poster.webp'
   };
-  var STILL_SRC = 'img/tanzania.webp';
 
   function filmSrc() {
     var c = navigator.connection || {};
     var slow = c.saveData || /(^|-)(2g|3g)$/.test(c.effectiveType || '');
-    // the lightbox is min(1100px, 92vw) wide; 720p covers it below 1280 device px
-    var frame = Math.min(1100, window.innerWidth * 0.92) * (window.devicePixelRatio || 1);
-    var small = frame <= 1280;
+    // the film runs the full width of the page; 720p covers it up to 1280 device px
+    var small = window.innerWidth * (window.devicePixelRatio || 1) <= 1280;
     return slow || small ? FILM.sd : FILM.hd;
   }
 
-  var lightbox = document.getElementById('lightbox');
-  var stage = document.getElementById('lightbox-stage');
+  var film = document.querySelector('.film');
+  var screen = document.getElementById('film-screen');
   var playBtn = document.getElementById('play-btn');
-  var lightboxClose = document.getElementById('lightbox-close');
+  var filmClose = document.getElementById('film-close');
 
-  function lightboxOpen() { return lightbox && !lightbox.hidden; }
+  function filmPlaying() { return film && film.classList.contains('is-playing'); }
 
-  function showStill() {
-    stage.innerHTML = '';
-    var img = document.createElement('img');
-    img.src = STILL_SRC;
-    img.alt = 'Maasai elders gathered at dusk in northern Tanzania.';
-    var cap = document.createElement('p');
-    cap.className = 'lightbox-fallback';
-    cap.textContent = 'The film could not be loaded';
-    stage.appendChild(img);
-    stage.appendChild(cap);
-  }
-
-  function openLightbox() {
-    lightbox.hidden = false;
-    lock();
-
-    stage.innerHTML = '';
+  function playFilm() {
     var video = document.createElement('video');
+    video.className = 'film-video';
     video.poster = FILM.poster;
     video.preload = 'auto';
     video.src = filmSrc();
@@ -112,26 +96,30 @@
     video.autoplay = true;
     video.playsInline = true;
     video.setAttribute('controlsList', 'nodownload');
-    // If the file cannot be loaded, fall back to the still.
-    video.addEventListener('error', showStill);
-    stage.appendChild(video);
+    video.setAttribute('aria-label', 'The Tanzania Universe film');
+    // If the file cannot be loaded, go back to the still rather than a black box.
+    video.addEventListener('error', stopFilm);
+    video.addEventListener('ended', stopFilm);
+    screen.insertBefore(video, filmClose);
 
-    lightboxClose.focus();
+    screen.hidden = false;
+    film.classList.add('is-playing');
+    // keep the whole frame in view once the section has changed height
+    film.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    filmClose.focus({ preventScroll: true });
   }
 
-  function closeLightbox() {
-    lightbox.hidden = true;
-    stage.innerHTML = '';
-    unlock();
-    if (playBtn) playBtn.focus();
+  function stopFilm() {
+    var video = screen.querySelector('video');
+    if (video) { video.pause(); video.remove(); }
+    screen.hidden = true;
+    film.classList.remove('is-playing');
+    if (playBtn) playBtn.focus({ preventScroll: true });
   }
 
-  if (playBtn && lightbox) {
-    playBtn.addEventListener('click', openLightbox);
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', function (e) {
-      if (e.target.hasAttribute('data-close-lightbox')) closeLightbox();
-    });
+  if (film && screen && playBtn) {
+    playBtn.addEventListener('click', playFilm);
+    filmClose.addEventListener('click', stopFilm);
   }
 
   /* ------------------------------------------------------- keyboard */
@@ -139,7 +127,7 @@
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     // the drawer closes itself on Escape
-    if (lightboxOpen()) closeLightbox();
+    if (filmPlaying()) stopFilm();
   });
 
   /* --------------------------------------------------------- region */

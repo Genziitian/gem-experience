@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { isConfigured, supabase } from "./lib/supabase.js";
-import { record } from "./lib/activity.js";
+import { record, signOutRecorded } from "./lib/activity.js";
 import Shell from "./components/Shell.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
@@ -41,8 +41,14 @@ export default function App() {
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
       setSession(s);
       const id = s?.user?.id ?? null;
-      if (event === "SIGNED_IN" && id && id !== lastUser) record("login");
-      if (event === "SIGNED_OUT" && lastUser) record("logout");
+      if (event === "SIGNED_IN" && id && id !== lastUser) {
+        record("login", { area: "admin", detail: { provider: s.user.app_metadata?.provider || "email" } });
+        /* The storefront shares this session (same origin) and records fresh
+           sign-ins too; mark this one as recorded so it is not counted twice. */
+        try { localStorage.setItem("gem_signin_logged_v1", `${id}|${s.user.last_sign_in_at || ""}`); } catch { /* ignore */ }
+      }
+      /* Sign-outs are recorded by signOutRecorded(), before the session goes:
+         by the time SIGNED_OUT fires there is no user to write the row as. */
       lastUser = id;
     });
     return () => sub.subscription.unsubscribe();
@@ -72,7 +78,7 @@ export default function App() {
     return (
       <div className="boot">
         <p>This account is not staff. Set <code>role = super_admin</code> in Supabase → profiles.</p>
-        <button type="button" onClick={() => supabase.auth.signOut()}>Sign out</button>
+        <button type="button" onClick={signOutRecorded}>Sign out</button>
       </div>
     );
   }

@@ -181,7 +181,7 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
   try {
     var order = await Gem.createEnquiryOrder(items, f.email.value.trim(), [
       "Name: " + f.name.value.trim(),
-      "Phone: " + f.phone.value.trim(),
+      "Phone: " + (f.dial.value + " " + f.phone.value.trim()).trim(),
       "Location: " + f.city.value.trim() + ", " + countryName(),
       f.notes.value.trim()
     ].filter(Boolean).join("\n"));

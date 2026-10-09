@@ -88,6 +88,13 @@ export async function record(action, { area = null, detail = {} } = {}) {
   }
 }
 
+/* Sign out, recording it first. Afterwards there is no session, and the
+   activity policy only accepts rows from a signed-in actor about themselves. */
+export async function signOutRecorded() {
+  await record("logout", { area: "admin" });
+  await supabase.auth.signOut();
+}
+
 /* Page views are recorded, but not every render of one.
  *
  * React re-runs effects on far more than a real navigation, and a route the

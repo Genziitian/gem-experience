@@ -1453,3 +1453,344 @@ button {
 /* The dialling code and the number read as one field, because they are one. */
 .co-phone { display: grid; grid-template-columns: minmax(96px, 34%) minmax(0, 1fr); gap: 8px; }
 .co-phone select, .co-phone input { min-width: 0; }
+
+/* ================================================================ account
+   A sidebar of everything a client follows, and the section it points at.
+   The sidebar folds into a scrolling strip of tabs on a phone. */
+
+.acct {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+  /* main fills the page's height; rows stay at their own size within it */
+  align-content: start;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 56px) var(--gutter) clamp(72px, 9vw, 112px);
+}
+
+.acct-side {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  /* minmax(0, …) so the phone's scrolling tab strip scrolls inside the
+     column instead of widening it, and the page with it */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  min-width: 0;
+}
+
+.acct-id {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+.acct-id .pg-kicker { margin: 0 0 4px; font-size: 10px; letter-spacing: 3px; color: var(--muted); }
+
+.acct-avatar {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.acct-id-text { display: grid; min-width: 0; }
+.acct-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.acct-email {
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.acct-via {
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.acct-nav { display: grid; gap: 2px; }
+.acct-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-left: 2px solid transparent;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  color: var(--ink-soft);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.acct-nav a:hover { background: var(--cream); }
+.acct-nav a.is-on { border-left-color: var(--ink); background: var(--cream); color: var(--ink); font-weight: 500; }
+
+.acct-n {
+  min-width: 22px;
+  padding: 2px 7px;
+  border-radius: 11px;
+  background: rgba(23, 20, 15, 0.07);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.acct-n:empty { display: none; }
+.acct-nav a.is-on .acct-n { background: var(--ink); color: #fff; }
+
+.acct-signout {
+  justify-self: start;
+  padding: 0 16px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.acct-signout:hover { color: var(--ink); }
+
+/* ---------------------------------------------------------------- main */
+
+.acct-main { min-width: 0; display: grid; gap: 20px; align-content: start; }
+
+.acct-head { display: grid; gap: 10px; margin-bottom: 8px; }
+.acct-head .pg-note { font-size: 15px; max-width: 60ch; }
+.acct-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(32px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.acct-sub {
+  margin: 20px 0 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.acct-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.acct-tile {
+  display: grid;
+  gap: 6px;
+  padding: 20px 22px;
+  background: var(--cream);
+  transition: background 0.2s ease;
+}
+.acct-tile:hover { background: #ede7da; }
+.acct-tile-label { font-size: 10px; font-weight: 500; letter-spacing: 2.4px; text-transform: uppercase; color: var(--muted); }
+.acct-tile strong { font-family: var(--serif); font-weight: 500; font-size: 38px; line-height: 1; }
+.acct-tile .pg-note { font-size: 12px; line-height: 16px; }
+
+.acct-list { display: grid; gap: 14px; }
+.acct-list.is-past { opacity: 0.7; }
+
+.acct-card {
+  display: grid;
+  gap: 18px;
+  padding: clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+.acct-card--row { grid-template-columns: 72px minmax(0, 1fr); align-items: start; }
+.acct-card-body { display: grid; gap: 14px; min-width: 0; }
+
+.acct-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.acct-card-top > div { display: grid; gap: 4px; min-width: 0; }
+.acct-ref { font-family: var(--serif); font-weight: 500; font-size: 21px; line-height: 1.25; overflow-wrap: anywhere; }
+
+.acct-pill {
+  flex: none;
+  padding: 6px 11px;
+  border: 1px solid var(--rule);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  background: var(--cream);
+}
+.acct-pill--ok { color: #2d5e45; border-color: #c9dccf; background: #eef5f0; }
+.acct-pill--bad { color: #8a2a2a; border-color: #e6c9c9; background: #f8eeee; }
+
+/* The tracker: a rule per step, inked as far as the request has come. */
+.acct-steps {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.acct-steps li { display: grid; gap: 8px; }
+.acct-steps li::before { content: ""; height: 2px; background: var(--rule); }
+.acct-steps li.is-done::before,
+.acct-steps li.is-now::before { background: var(--ink); }
+.acct-steps span { font-size: 11px; line-height: 15px; letter-spacing: 0.3px; color: var(--muted); }
+.acct-steps li.is-now span { color: var(--ink); font-weight: 500; }
+
+.acct-items { display: grid; gap: 10px; margin: 0; padding: 14px 0 0; list-style: none; border-top: 1px solid var(--rule); }
+.acct-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; }
+.acct-item img, .acct-item-ph { width: 56px; height: 56px; object-fit: cover; background: var(--cream); display: block; }
+.acct-item > span { display: grid; gap: 2px; min-width: 0; }
+.acct-item strong { font-weight: 400; font-size: 15px; }
+.acct-item .pg-note { font-size: 12px; line-height: 17px; }
+.acct-qty { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.acct-meta { margin: 0; font-size: 13px; color: var(--muted); }
+.acct-quote {
+  margin: 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--ink-soft);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.acct-cal {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  height: 72px;
+  background: var(--cream);
+}
+.acct-cal span { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.acct-cal strong { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1; }
+
+.acct-feed { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.acct-feed li { border-bottom: 1px solid var(--rule); }
+.acct-feed a {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 4px;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+.acct-feed a:hover { background: var(--cream); }
+.acct-feed .pg-note { font-size: 12px; white-space: nowrap; }
+
+.acct-gifts { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.acct-gift { display: grid; gap: 10px; }
+.acct-gift .pg-note { font-size: 12px; }
+.acct-gift-card {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  align-content: center;
+  min-height: 200px;
+  padding: 32px 28px;
+  background: var(--cream);
+  text-align: center;
+}
+.acct-gift-card::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+.acct-gift-card .pg-kicker { margin: 0; font-size: 10px; }
+.acct-gift-to, .acct-gift-from { margin: 0; font-size: 13px; color: var(--muted); }
+.acct-gift-msg { margin: 0; font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; overflow-wrap: anywhere; }
+
+.acct-link {
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.acct-dl { display: grid; margin: 0; border-top: 1px solid var(--rule); }
+.acct-dl > div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.acct-dl dt { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.acct-dl dd { margin: 0; font-size: 15px; overflow-wrap: anywhere; }
+
+.acct-empty {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--cream);
+}
+.acct-empty-title { margin: 0; font-family: var(--serif); font-size: 22px; }
+.acct-empty .pg-btn { margin-top: 6px; }
+
+.acct-quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+
+.acct-loading { display: grid; gap: 14px; }
+.acct-loading span { height: 88px; background: var(--cream); animation: acct-pulse 1.4s ease-in-out infinite; }
+.acct-loading span:first-child { height: 44px; width: 50%; }
+@keyframes acct-pulse { 50% { opacity: 0.5; } }
+@media (prefers-reduced-motion: reduce) { .acct-loading span { animation: none; } }
+
+@media (max-width: 899px) {
+  .acct { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 24px; }
+  .acct-side { position: static; gap: 18px; }
+  .acct-id { padding-bottom: 18px; }
+  .acct-nav {
+    display: flex;
+    gap: 8px;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .acct-nav::-webkit-scrollbar { display: none; }
+  .acct-nav a { flex: none; padding: 9px 14px; border: 1px solid var(--rule); border-left-width: 1px; font-size: 13px; }
+  .acct-nav a.is-on { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .acct-nav a.is-on .acct-n { background: #fff; color: var(--ink); }
+  .acct-signout { display: none; }
+  .acct-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .acct-card-top { flex-direction: column; }
+  .acct-steps span { font-size: 10px; }
+  .acct-card--row { grid-template-columns: 56px minmax(0, 1fr); }
+  .acct-cal { height: 56px; }
+  .acct-cal strong { font-size: 24px; }
+  .acct-dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .acct-feed a { flex-direction: column; gap: 2px; }
+}

@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { supabase } from "../lib/supabase.js";
 import { useTheme } from "../lib/useTheme.js";
 import { Icon } from "./ui.jsx";
-import { recordView } from "../lib/activity.js";
+import { recordView, signOutRecorded } from "../lib/activity.js";
 
 const LINKS = [
   { section: "Overview", items: [
@@ -115,7 +115,7 @@ export default function Shell({ profile, email, children }) {
             <span className="side-email">{email}</span>
             <span className="side-role">{profile?.role?.replace(/_/g, " ") || "…"}</span>
           </div>
-          <button type="button" className="btn btn--ghost btn--sm" onClick={() => supabase.auth.signOut()}>
+          <button type="button" className="btn btn--ghost btn--sm" onClick={signOutRecorded}>
             <Icon name="signout" />
             Sign out
           </button>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Account — Gem Experience</title>
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
@@ -15,28 +16,37 @@
 <body class="pg">
 <div class="pg-wrap">
   <div id="pg-header"></div>
-  <header class="pg-hero">
-    <span class="pg-kicker">Client</span>
-    <h1 class="pg-title">My account</h1>
-    <p class="pg-lede" id="welcome">Your enquiries and selections.</p>
-  </header>
-  <main class="pg-main">
-    <div class="pg-grid">
-      <section>
-        <h2 class="pg-section-title">Recent enquiries</h2>
-        <div id="orders" class="pg-cart-list pg-orders-list"></div>
-      </section>
-      <aside class="pg-panel">
-        <h2>Profile</h2>
-        <p class="pg-note" id="profile-line">Loading…</p>
-        <div class="pg-actions pg-actions--col">
-          <a class="pg-btn pg-btn--ghost" href="../cart/">View cart</a>
-          <a class="pg-btn pg-btn--ghost" href="../quotation/">Request quotation</a>
-          <button class="pg-btn" type="button" id="signout">Sign out</button>
+
+  <main class="acct" id="acct" aria-busy="true">
+    <aside class="acct-side">
+      <div class="acct-id">
+        <span class="acct-avatar" id="acct-avatar" aria-hidden="true"></span>
+        <div class="acct-id-text">
+          <span class="pg-kicker">My account</span>
+          <strong class="acct-name" id="acct-name">&nbsp;</strong>
+          <span class="acct-email" id="acct-email"></span>
+          <span class="acct-via" id="acct-via"></span>
         </div>
-      </aside>
-    </div>
+      </div>
+
+      <nav class="acct-nav" aria-label="Account sections">
+        <a href="#overview" data-tab="overview">Overview</a>
+        <a href="#orders" data-tab="orders">Orders <span class="acct-n" data-n="orders"></span></a>
+        <a href="#quotations" data-tab="quotations">Quotations <span class="acct-n" data-n="quotations"></span></a>
+        <a href="#appointments" data-tab="appointments">Appointments <span class="acct-n" data-n="appointments"></span></a>
+        <a href="#messages" data-tab="messages">Messages <span class="acct-n" data-n="messages"></span></a>
+        <a href="#gifting" data-tab="gifting">Gifting <span class="acct-n" data-n="gifting"></span></a>
+        <a href="#profile" data-tab="profile">Profile</a>
+      </nav>
+
+      <button class="acct-signout" type="button" id="signout">Sign out</button>
+    </aside>
+
+    <section class="acct-main" id="acct-main" aria-live="polite">
+      <div class="acct-loading"><span></span><span></span><span></span></div>
+    </section>
   </main>
+
   <div id="pg-footer"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -51,48 +61,344 @@
 <script>
 GemShell.mount();
 
-(async function () {
-  var session = await Gem.auth.getSession();
-  if (!session) {
-    location.replace("../login/");
-    return;
+/* The account is one page with a section per thing a client follows: what
+   they ordered, what they asked to be quoted, when they are coming in, what
+   they wrote to us, and the cards they sent with a gift. Everything comes
+   from Gem.myAccount() in one call, and the sidebar switches sections by
+   hash so each one can be linked to and survives a reload. */
+
+var main = document.getElementById("acct-main");
+var state = { user: null, profile: null, orders: [], quotes: [], appts: [], messages: [], gifts: [] };
+
+function esc(v) {
+  return String(v == null ? "" : v)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function day(iso) {
+  return new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+}
+
+/* ------------------------------------------------------------ statuses */
+
+/* An order moves along four steps. The words are the client's, not the
+   database's: nobody waiting on a necklace thinks of it as "pending_payment". */
+var ORDER_STEPS = ["Enquiry received", "Price confirmed", "Paid", "Delivered"];
+var ORDER_AT = { enquiry: 0, pending_payment: 1, paid: 2, fulfilled: 3 };
+var ORDER_WORD = {
+  enquiry: "Enquiry received", pending_payment: "Awaiting payment", paid: "Paid",
+  fulfilled: "Delivered", cancelled: "Cancelled", failed: "Payment failed"
+};
+
+var FORM_STEPS = ["Received", "With an adviser", "Completed"];
+var FORM_AT = { "new": 0, in_progress: 1, closed: 2 };
+var FORM_WORD = { "new": "Received", in_progress: "With an adviser", closed: "Completed" };
+
+function pill(word, tone) {
+  return '<span class="acct-pill' + (tone ? " acct-pill--" + tone : "") + '">' + esc(word) + "</span>";
+}
+
+function steps(labels, at) {
+  return '<ol class="acct-steps">' +
+    labels.map(function (l, i) {
+      var cls = i < at ? "is-done" : i === at ? "is-now" : "";
+      return '<li class="' + cls + '"><span>' + esc(l) + "</span></li>";
+    }).join("") + "</ol>";
+}
+
+/* -------------------------------------------------------------- pieces */
+
+function empty(title, body, href, cta) {
+  return '<div class="acct-empty"><p class="acct-empty-title">' + esc(title) + "</p>" +
+    '<p class="pg-note">' + body + "</p>" +
+    (href ? '<a class="pg-btn pg-btn--ghost pg-btn--sm" href="' + href + '">' + esc(cta) + "</a>" : "") +
+    "</div>";
+}
+
+function head(title, lede) {
+  return '<header class="acct-head"><h1 class="acct-title">' + title + "</h1>" +
+    (lede ? '<p class="pg-note">' + lede + "</p>" : "") + "</header>";
+}
+
+function orderCard(o) {
+  var stopped = o.status === "cancelled" || o.status === "failed";
+  var items = (o.items || []).map(function (i) {
+    return '<li class="acct-item">' +
+      (i.image ? '<img src="' + esc(i.image) + '" alt="" loading="lazy">' : '<span class="acct-item-ph"></span>') +
+      "<span><strong>" + esc(i.name || "Piece") + "</strong>" +
+      (i.materials ? '<span class="pg-note">' + esc(i.materials) + "</span>" : "") + "</span>" +
+      '<span class="acct-qty">× ' + esc(i.qty || 1) + "</span></li>";
+  }).join("");
+  return '<article class="acct-card">' +
+    '<div class="acct-card-top"><div><span class="acct-ref">' + esc(o.order_number) + "</span>" +
+    '<span class="pg-note">Placed ' + day(o.created_at) + "</span></div>" +
+    pill(ORDER_WORD[o.status] || o.status, stopped ? "bad" : o.status === "fulfilled" ? "ok" : "") + "</div>" +
+    (stopped ? "" : steps(ORDER_STEPS, ORDER_AT[o.status] || 0)) +
+    (items ? '<ul class="acct-items">' + items + "</ul>" : "") +
+    "</article>";
+}
+
+function quoteCard(q) {
+  var p = q.payload || {};
+  var what = p.pieces && p.pieces.length ? p.pieces.join(", ") : p.piece || p.ref || p.category || "Quotation";
+  var lines = [];
+  if (p.order_number) lines.push("Order " + esc(p.order_number));
+  if (p.category) lines.push(esc(p.category));
+  if (p.ref) lines.push("Ref. " + esc(p.ref));
+  return '<article class="acct-card">' +
+    '<div class="acct-card-top"><div><span class="acct-ref">' + esc(what) + "</span>" +
+    '<span class="pg-note">' + (p.source === "checkout" ? "From checkout · " : "") + day(q.created_at) + "</span></div>" +
+    pill(FORM_WORD[q.status] || q.status, q.status === "closed" ? "ok" : "") + "</div>" +
+    steps(FORM_STEPS, FORM_AT[q.status] || 0) +
+    (lines.length ? '<p class="acct-meta">' + lines.join(" · ") + "</p>" : "") +
+    (p.requirements || p.notes ? '<p class="acct-quote">' + esc(p.requirements || p.notes) + "</p>" : "") +
+    "</article>";
+}
+
+function apptDate(a) {
+  var p = a.payload || {};
+  if (!p.date) return null;
+  var hm = /^(\d{1,2}):(\d{2})/.exec(p.time || "");
+  var t = new Date(p.date + "T00:00:00");
+  if (isNaN(t)) return null;
+  if (hm) t.setHours(+hm[1] + (/pm/i.test(p.time) && +hm[1] < 12 ? 12 : 0), +hm[2]);
+  else t.setHours(12);
+  return t;
+}
+
+var APPT_WORD = { "new": "Requested", in_progress: "Confirmed", closed: "Completed" };
+
+function apptCard(a) {
+  var p = a.payload || {};
+  var when = apptDate(a);
+  var cal = '<div class="acct-cal"><span>' + (when ? when.toLocaleDateString(undefined, { month: "short" }) : "Date") +
+    "</span><strong>" + (when ? when.getDate() : "—") + "</strong></div>";
+  return '<article class="acct-card acct-card--row">' + cal +
+    '<div class="acct-card-body"><div class="acct-card-top"><div>' +
+    '<span class="acct-ref">' + esc(p.location || "Private viewing") + "</span>" +
+    '<span class="pg-note">' + (when ? when.toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" }) : "") +
+    (p.time ? " · " + esc(p.time) : "") + "</span></div>" +
+    pill(APPT_WORD[a.status] || a.status, a.status === "in_progress" ? "ok" : "") + "</div>" +
+    (p.notes ? '<p class="acct-quote">' + esc(p.notes) + "</p>" : "") +
+    "</div></article>";
+}
+
+var MSG_WORD = { "new": "Received", in_progress: "Being answered", closed: "Answered" };
+
+function messageCard(m) {
+  var p = m.payload || {};
+  return '<article class="acct-card">' +
+    '<div class="acct-card-top"><div><span class="acct-ref">' + esc(p.subject || "Message") + "</span>" +
+    '<span class="pg-note">Sent ' + day(m.created_at) + "</span></div>" +
+    pill(MSG_WORD[m.status] || m.status, m.status === "closed" ? "ok" : "") + "</div>" +
+    (p.message ? '<p class="acct-quote">' + esc(p.message) + "</p>" : "") +
+    "</article>";
+}
+
+function giftCard(g, meta) {
+  return '<article class="acct-gift">' +
+    '<div class="acct-gift-card">' +
+    (g.occasion ? '<span class="pg-kicker">' + esc(g.occasion) + "</span>" : "") +
+    (g.to ? '<p class="acct-gift-to">For ' + esc(g.to) + "</p>" : "") +
+    (g.message ? '<p class="acct-gift-msg">' + esc(g.message) + "</p>" : "") +
+    (g.from ? '<p class="acct-gift-from">— ' + esc(g.from) + "</p>" : "") +
+    "</div>" +
+    '<p class="pg-note">' + meta + "</p></article>";
+}
+
+/* ------------------------------------------------------------ sections */
+
+var SECTIONS = {
+  overview: function () {
+    var first = Gem.displayName(state.user, state.profile).split(" ")[0];
+    var next = state.appts
+      .map(function (a) { return { a: a, at: apptDate(a) }; })
+      .filter(function (x) { return x.at && x.at > new Date() && x.a.status !== "closed"; })
+      .sort(function (x, y) { return x.at - y.at; })[0];
+    var open = state.orders.filter(function (o) { return ["enquiry", "pending_payment", "paid"].indexOf(o.status) >= 0; }).length +
+      state.quotes.filter(function (q) { return q.status !== "closed"; }).length;
+
+    var feed = []
+      .concat(state.orders.map(function (o) { return { at: o.created_at, tab: "orders", what: "Order " + o.order_number, word: ORDER_WORD[o.status] || o.status }; }))
+      .concat(state.quotes.map(function (q) { var p = q.payload || {}; return { at: q.created_at, tab: "quotations", what: "Quotation" + ((p.piece || (p.pieces || [])[0]) ? " · " + (p.piece || p.pieces[0]) : ""), word: FORM_WORD[q.status] }; }))
+      .concat(state.appts.map(function (a) { var p = a.payload || {}; return { at: a.created_at, tab: "appointments", what: "Appointment" + (p.location ? " · " + p.location : ""), word: APPT_WORD[a.status] }; }))
+      .concat(state.messages.map(function (m) { var p = m.payload || {}; return { at: m.created_at, tab: "messages", what: "Message" + (p.subject ? " · " + p.subject : ""), word: MSG_WORD[m.status] }; }))
+      .sort(function (x, y) { return new Date(y.at) - new Date(x.at); })
+      .slice(0, 6);
+
+    function tile(tab, label, n, hint) {
+      return '<a class="acct-tile" href="#' + tab + '"><span class="acct-tile-label">' + label + "</span><strong>" + n + "</strong>" +
+        '<span class="pg-note">' + (hint || "&nbsp;") + "</span></a>";
+    }
+
+    return head("Welcome, " + esc(first) + ".",
+        open ? "You have " + open + " request" + (open === 1 ? "" : "s") + " open with our advisers." : "Everything you have asked of us, in one place.") +
+      '<div class="acct-tiles">' +
+        tile("orders", "Orders", state.orders.length) +
+        tile("quotations", "Quotations", state.quotes.length) +
+        tile("appointments", "Appointments", state.appts.length,
+          next ? "Next: " + next.at.toLocaleDateString(undefined, { day: "numeric", month: "short" }) : "") +
+        tile("gifting", "Gift cards", state.gifts.length) +
+      "</div>" +
+      (next ? '<h2 class="acct-sub">Your next visit</h2>' + apptCard(next.a) : "") +
+      '<h2 class="acct-sub">Recent activity</h2>' +
+      (feed.length
+        ? '<ul class="acct-feed">' + feed.map(function (f) {
+            return '<li><a href="#' + f.tab + '"><span>' + esc(f.what) + "</span>" +
+              '<span class="pg-note">' + esc(f.word || "") + " · " + day(f.at) + "</span></a></li>";
+          }).join("") + "</ul>"
+        : empty("Nothing here yet", "When you place an enquiry, book a visit or write to us, it will appear here.", "../high-jewellery/", "Explore High Jewellery")) +
+      '<div class="acct-quick">' +
+        '<a class="pg-btn pg-btn--ghost pg-btn--sm" href="../appointment/">Book an appointment</a>' +
+        '<a class="pg-btn pg-btn--ghost pg-btn--sm" href="../quotation/">Request a quotation</a>' +
+        '<button class="pg-btn pg-btn--ghost pg-btn--sm" type="button" data-gift-open>Write a gift card</button>' +
+      "</div>";
+  },
+
+  orders: function () {
+    return head("Orders", "Each piece is priced by an adviser before any payment. Follow every step here.") +
+      (state.orders.length ? '<div class="acct-list">' + state.orders.map(orderCard).join("") + "</div>"
+        : empty("No orders yet", "Add a piece to your cart and place an enquiry — it will be tracked here.", "../fine-jewellery/", "Browse Fine Jewellery"));
+  },
+
+  quotations: function () {
+    return head("Quotations", "Pieces you asked us to price, and where each request stands.") +
+      (state.quotes.length ? '<div class="acct-list">' + state.quotes.map(quoteCard).join("") + "</div>"
+        : empty("No quotations yet", "Tell us about a piece and an adviser will price it for you.", "../quotation/", "Request a quotation"));
+  },
+
+  appointments: function () {
+    var now = new Date();
+    var up = state.appts.filter(function (a) { var t = apptDate(a); return !t || t >= now; });
+    var past = state.appts.filter(function (a) { var t = apptDate(a); return t && t < now; });
+    return head("Appointments", "Private viewings at our ateliers. An adviser confirms each one by email.") +
+      (state.appts.length
+        ? (up.length ? '<h2 class="acct-sub">Upcoming</h2><div class="acct-list">' + up.map(apptCard).join("") + "</div>" : "") +
+          (past.length ? '<h2 class="acct-sub">Past</h2><div class="acct-list is-past">' + past.map(apptCard).join("") + "</div>" : "")
+        : empty("No appointments yet", "See the pieces in person, with an adviser and no obligation.", "../appointment/", "Book an appointment"));
+  },
+
+  messages: function () {
+    var email = (state.user && state.user.email) || "";
+    return head("Messages", "What you have written to us. Replies come by email to <strong>" + esc(email) + "</strong>.") +
+      (state.messages.length ? '<div class="acct-list">' + state.messages.map(messageCard).join("") + "</div>"
+        : empty("No messages yet", "Questions about a piece, sizing or delivery — we usually reply within a working day.", "../contact/", "Contact us"));
+  },
+
+  gifting: function () {
+    var draft = null;
+    try { draft = JSON.parse(localStorage.getItem("gem_gift_note_v1") || "null"); } catch (e) { draft = null; }
+    var hasDraft = !!(draft && (draft.to || draft.message));
+    return head("Gifting", "Every gift leaves the workshop boxed and ribboned, with your card written by hand.") +
+      (hasDraft
+        ? '<h2 class="acct-sub">Card in progress</h2><div class="acct-gifts">' +
+          giftCard(draft, 'Travels with your next enquiry. <button type="button" class="acct-link" data-gift-open>Edit card</button>') + "</div>"
+        : "") +
+      (state.gifts.length
+        ? '<h2 class="acct-sub">Cards sent</h2><div class="acct-gifts">' + state.gifts.map(function (g) {
+            return giftCard(g.gift, "Sent with " + (g.order ? "order " + esc(g.order) : "an enquiry") + " · " + day(g.at));
+          }).join("") + "</div>"
+        : hasDraft ? "" : empty("No gift cards yet", "Choose a piece for someone and we will write your message on a card in the box.", "../gifts/", "Explore Gifts")) +
+      '<div class="acct-quick"><button class="pg-btn pg-btn--ghost pg-btn--sm" type="button" data-gift-open>' +
+      (hasDraft ? "Edit gift card" : "Write a gift card") + '</button><a class="pg-btn pg-btn--ghost pg-btn--sm" href="../gifts/">Gift ideas</a></div>';
+  },
+
+  profile: function () {
+    var u = state.user || {};
+    var via = (u.app_metadata || {}).provider === "google" ? "Google" : "Email and password";
+    return head("Profile", "") +
+      '<dl class="acct-dl">' +
+        "<div><dt>Name</dt><dd>" + esc(Gem.displayName(u, state.profile)) + "</dd></div>" +
+        "<div><dt>Email</dt><dd>" + esc(u.email || "") + "</dd></div>" +
+        "<div><dt>Signed in with</dt><dd>" + via + "</dd></div>" +
+        "<div><dt>Client since</dt><dd>" + (u.created_at ? day(u.created_at) : "—") + "</dd></div>" +
+      "</dl>" +
+      '<p class="pg-note">To change your details or close your account, <a href="../contact/">write to us</a>.</p>' +
+      '<div class="acct-quick"><button class="pg-btn pg-btn--sm" type="button" data-signout>Sign out</button></div>';
   }
-  var profile = await Gem.auth.getProfile();
-  document.getElementById("welcome").textContent =
-    (profile && profile.full_name ? "Welcome, " + profile.full_name + "." : "Signed in as " + session.user.email);
-  document.getElementById("profile-line").textContent =
-    (profile && profile.email ? profile.email : session.user.email) +
-    " · " + ((profile && profile.role) || "customer");
+};
 
-  var sb = Gem.getClient();
-  var { data, error } = await sb.from("orders")
-    .select("order_number, status, created_at, notes")
-    .eq("user_id", session.user.id)
-    .order("created_at", { ascending: false })
-    .limit(20);
+/* ---------------------------------------------------------------- shell */
 
-  var host = document.getElementById("orders");
-  if (error) {
-    host.innerHTML = '<p class="pg-note">' + error.message + "</p>";
-  } else if (!data || !data.length) {
-    host.innerHTML = '<p class="pg-note">No enquiries yet. <a href="../high-jewellery/">Browse the collection</a>.</p>';
-  } else {
-    host.innerHTML = data.map(function (o) {
-      return (
-        '<article class="pg-cart-item pg-cart-item--solo">' +
-          "<div><h3>" + o.order_number + "</h3>" +
-          "<p>" + o.status + " · " + new Date(o.created_at).toLocaleString() + "</p>" +
-          (o.notes ? "<p>" + String(o.notes).split("\n")[0] + "</p>" : "") +
-          "</div></article>"
-      );
-    }).join("");
-  }
-})();
+function tabFromHash() {
+  var t = (location.hash || "").replace("#", "");
+  return SECTIONS[t] ? t : "overview";
+}
 
-document.getElementById("signout").addEventListener("click", async function () {
+function render() {
+  var tab = tabFromHash();
+  document.querySelectorAll(".acct-nav a").forEach(function (a) {
+    var on = a.getAttribute("data-tab") === tab;
+    a.classList.toggle("is-on", on);
+    if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  main.innerHTML = SECTIONS[tab]();
+}
+
+function counts() {
+  var n = { orders: state.orders.length, quotations: state.quotes.length, appointments: state.appts.length,
+            messages: state.messages.length, gifting: state.gifts.length };
+  document.querySelectorAll("[data-n]").forEach(function (el) {
+    var v = n[el.getAttribute("data-n")];
+    el.textContent = v ? v : "";
+  });
+}
+
+function paintIdentity(name) {
+  document.getElementById("acct-avatar").textContent = Gem.initialOf(name);
+  document.getElementById("acct-name").textContent = name;
+}
+
+async function signOut() {
   await Gem.auth.signOut();
   location.href = "../login/";
+}
+
+var loaded = false;
+
+(async function () {
+  var session = await Gem.auth.getSession();
+  if (!session) { location.replace("../login/?next=" + encodeURIComponent("../account/" + location.hash)); return; }
+  state.user = session.user;
+
+  paintIdentity(Gem.displayName(session.user));
+  document.getElementById("acct-email").textContent = session.user.email || "";
+  document.getElementById("acct-via").textContent =
+    (session.user.app_metadata || {}).provider === "google" ? "Signed in with Google" : "Signed in with email";
+
+  try {
+    var results = await Promise.all([Gem.auth.getProfile().catch(function () { return null; }), Gem.myAccount()]);
+    state.profile = results[0];
+    var data = results[1] || {};
+    var subs = data.submissions || [];
+    state.orders = data.orders || [];
+    state.quotes = subs.filter(function (s) { return s.form_type === "quotation"; });
+    state.appts = subs.filter(function (s) { return s.form_type === "appointment"; });
+    state.messages = subs.filter(function (s) { return s.form_type === "contact"; });
+    state.gifts = subs
+      .filter(function (s) { var g = (s.payload || {}).gift; return g && (g.to || g.message); })
+      .map(function (s) { return { gift: s.payload.gift, order: s.payload.order_number, at: s.created_at }; });
+
+    if (state.profile && state.profile.full_name) paintIdentity(Gem.displayName(session.user, state.profile));
+    counts();
+    loaded = true;
+    render();
+  } catch (err) {
+    main.innerHTML = head("My account", "") +
+      empty("We could not load your history", esc(err.message || "Please try again in a moment."), "./", "Try again");
+  }
+  document.getElementById("acct").removeAttribute("aria-busy");
+})();
+
+window.addEventListener("hashchange", function () {
+  if (!loaded) return;
+  render();
+  if (window.matchMedia("(max-width: 899px)").matches) main.scrollIntoView({ behavior: "smooth", block: "start" });
 });
+window.addEventListener("gem:gift", function () { if (loaded && tabFromHash() === "gifting") render(); });
+document.getElementById("signout").addEventListener("click", signOut);
+main.addEventListener("click", function (e) { if (e.target.closest("[data-signout]")) signOut(); });
 </script>
 <script src="../js/analytics.js" defer></script>
 </body>

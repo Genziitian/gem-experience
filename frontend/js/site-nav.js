@@ -26,7 +26,15 @@
         { label: "Bloom", href: "fine-jewellery/#/bloom" },
         { label: "Safar", href: "fine-jewellery/#/safar" },
         { label: "Dazzle", href: "fine-jewellery/#/dazzle" },
-        { label: "Entwine", href: "fine-jewellery/#/entwine" }
+        { label: "Entwine", href: "fine-jewellery/#/entwine" },
+        { label: "Dome", href: "fine-jewellery/#/dome" },
+        { label: "Tide", href: "fine-jewellery/#/tide" },
+        { label: "Swirl", href: "fine-jewellery/#/swirl" },
+        { label: "Spectrum", href: "fine-jewellery/#/spectrum" },
+        { label: "Flare", href: "fine-jewellery/#/flare" },
+        { label: "Royal Starling", href: "fine-jewellery/#/royal-starling" },
+        { label: "Multi Colour", href: "fine-jewellery/#/multi-colour" },
+        { label: "Shamsa Fine", href: "fine-jewellery/#/shamsa-fine" }
       ]
     },
     {
@@ -54,8 +62,9 @@
   var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts", "The House"];
 
   /* Entries inside a section kept off the menu the same way: collections
-     with nothing photographed to show yet. */
-  var HIDDEN_CHILDREN = { "Fine Jewellery": ["Tide", "Swirl"] };
+     with nothing photographed to show yet. (Tide and Swirl were here until
+     their photography arrived.) */
+  var HIDDEN_CHILDREN = { "Fine Jewellery": [] };
 
   /* The database menu is the source of truth, but rows seeded before a page
      existed carry no href and render as unclickable text. Where the database

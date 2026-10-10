@@ -1,4 +1,4 @@
-/* Fine Jewellery catalog — Bloom, Safar, Dazzle & Entwine
+/* Fine Jewellery catalog — every collection with a spec sheet and photographs (tools/fj-import.py)
    Bloom copy rewritten as editorial description; Safar retains spec-style copy pending its own pass.
    Images pending; cards use stone tone. */
 window.FJ_DATA = {
@@ -35,24 +35,6 @@ window.FJ_DATA = {
       ]
     },
     {
-      "id": "tide",
-      "name": "Tide",
-      "lede": "The rhythm of the ocean — graceful, constant, and ever in motion.",
-      "story": "The Tide collection echoes the natural rhythm of the ocean, graceful, continuous, and ever in motion. Each design is developed through flowing contours and measured curves, creating a visual rhythm that guides light smoothly across the surface of the jewellery.\n\nWith each tide repeatedly touching the shore and slowly gliding back, it represents persistence and adaptability, a force shaped by time and repetition. In this collection, the wave becomes a language of balance, where movement is held within structure. Through precise craftsmanship and refined detailing, the Tide collection captures motion in a form that is enduring and composed.",
-      "tone": "#3a7ea8",
-      "banner": "img/tide-banner.webp",
-      "meta": "Flowing contours · rhythm of the wave"
-    },
-    {
-      "id": "swirl",
-      "name": "Swirl",
-      "lede": "Fluid, playful, and intuitively balanced motion.",
-      "story": "The swirl collection is inspired by the playful yet delicate turning of form in motion. Each piece is shaped through soft rotations and layered curves, recreating a sense of flow that feels natural. The design focuses on smooth transitions and balanced proportions, allowing the form to move seamlessly.\n\nThe swirl evolves, guiding the eye and the light in a continuous path. Interpreted through fine craftsmanship the collection expresses movement with subtlety in jewellery that feels timeless.",
-      "tone": "#7d6fa8",
-      "banner": "img/swirl-banner.webp",
-      "meta": "Soft rotations · layered curves"
-    },
-    {
       "id": "dazzle",
       "name": "Dazzle",
       "lede": "Tame the brilliance.",
@@ -80,6 +62,119 @@ window.FJ_DATA = {
         "img/products/gd25-426-2.webp",
         "img/products/gd25-728-3.webp"
       ]
+    },
+    {
+      "id": "dome",
+      "name": "Dome",
+      "lede": "Celestial forms, suspended in space.",
+      "story": "The Dome collection draws inspiration from celestial forms suspended in space: symbols of unity, balance and quiet strength.\n\nEach gemstone is sculpted into a perfect sphere through specialised precision cutting, allowing light to travel seamlessly across its surface while revealing the stone's natural depth and character.\n\nDefined by purity of form, Dome is an exploration of harmony, where geometry meets emotion in its most refined expression.",
+      "tone": "#c4703a",
+      "banner": "img/products/gd25-1028-2.webp",
+      "bannerY": "34%",
+      "meta": "Pink spinel · Spessartite · Tanzanite · Tsavorite · Rhodolite · White, rose and yellow gold",
+      "models": [
+        "img/products/gd25-1028-2.webp",
+        "img/products/gd25-1060-2.webp",
+        "img/products/gd25-1093-2.webp",
+        "img/products/gd26-59-2.webp"
+      ]
+    },
+    {
+      "id": "tide",
+      "name": "Tide",
+      "lede": "The rhythm of the ocean: graceful, constant and ever in motion.",
+      "story": "The Tide collection echoes the natural rhythm of the ocean, graceful, continuous, and ever in motion. Each design is developed through flowing contours and measured curves, creating a visual rhythm that guides light smoothly across the surface of the jewellery.\n\nWith each tide repeatedly touching the shore and slowly gliding back, it represents persistence and adaptability, a force shaped by time and repetition. In this collection, the wave becomes a language of balance, where movement is held within structure. Through precise craftsmanship and refined detailing, the Tide collection captures motion in a form that is enduring and composed.",
+      "tone": "#3a7ea8",
+      "banner": "img/products/gd25-836-3.webp",
+      "meta": "Flowing contours · rhythm of the wave",
+      "bannerY": "40%",
+      "models": [
+        "img/products/gd25-836-3.webp",
+        "img/products/gd26-73-3.webp"
+      ]
+    },
+    {
+      "id": "swirl",
+      "name": "Swirl",
+      "lede": "Fluid, playful, and intuitively balanced motion.",
+      "story": "The swirl collection is inspired by the playful yet delicate turning of form in motion. Each piece is shaped through soft rotations and layered curves, recreating a sense of flow that feels natural. The design focuses on smooth transitions and balanced proportions, allowing the form to move seamlessly.\n\nThe swirl evolves, guiding the eye and the light in a continuous path. Interpreted through fine craftsmanship the collection expresses movement with subtlety in jewellery that feels timeless.",
+      "tone": "#7d6fa8",
+      "banner": "img/products/gd26-242-a-2.webp",
+      "meta": "Soft rotations · layered curves",
+      "bannerY": "34%",
+      "models": [
+        "img/products/gd26-242-a-2.webp",
+        "img/products/gd25-894-3.webp"
+      ]
+    },
+    {
+      "id": "spectrum",
+      "name": "Spectrum",
+      "lede": "Set with aquamarine, rose rhodolite, mint garnet, tanzanite and tsavorite, with diamonds.",
+      "tone": "#5a8aa8",
+      "banner": "img/products/gd26-253-1.webp",
+      "bannerY": "46%",
+      "meta": "Aquamarine · Rose rhodolite · Mint garnet · Tanzanite · Tsavorite · White and rose gold",
+      "models": [
+        "img/products/gd26-253-1.webp",
+        "img/products/gd26-253-a-2.webp",
+        "img/products/gd26-254-a-2.webp"
+      ]
+    },
+    {
+      "id": "flare",
+      "name": "Flare",
+      "lede": "Set with tanzanite, aquamarine, pink spinel, tourmaline and spessartite, with diamonds.",
+      "tone": "#c46a3a",
+      "banner": "img/products/gd26-268-2.webp",
+      "bannerY": "36%",
+      "meta": "Tanzanite · Aquamarine · Pink spinel · Tourmaline · Spessartite · Rhodolite · White, rose, gold and gold-14kt gold",
+      "models": [
+        "img/products/gd25-434-2.webp",
+        "img/products/gd25-790-2.webp",
+        "img/products/gd25-791-2.webp",
+        "img/products/gd26-265-2.webp"
+      ]
+    },
+    {
+      "id": "royal-starling",
+      "name": "Royal Starling",
+      "lede": "Set with mint garnet, tsavorite, tanzanite and pink spinel, with diamonds.",
+      "tone": "#4f8a6a",
+      "banner": "img/products/gd26-188-3.webp",
+      "bannerY": "84%",
+      "meta": "Mint garnet · Tsavorite · Tanzanite · Pink spinel · White, rose and yellow gold",
+      "models": [
+        "img/products/gd26-66-3.webp",
+        "img/products/gd26-311-3.webp",
+        "img/products/gd26-188-3.webp",
+        "img/products/gd26-67-3.webp"
+      ]
+    },
+    {
+      "id": "multi-colour",
+      "name": "Multi Colour",
+      "lede": "Set with pink spinel, aquamarine, spessartite, mint garnet and tanzanite, with diamonds.",
+      "tone": "#b05a7a",
+      "banner": "img/products/g-624-1.webp",
+      "bannerY": "50%",
+      "meta": "Pink spinel · Aquamarine · Spessartite · Mint garnet · Tanzanite · Tsavorite · White and yellow gold",
+      "models": [
+        "img/products/g-624-1.webp",
+        "img/products/gd23-316-3.webp",
+        "img/products/gd26-190-3.webp",
+        "img/products/g-636-1.webp"
+      ]
+    },
+    {
+      "id": "shamsa-fine",
+      "name": "Shamsa Fine",
+      "lede": "Inspired by the sun: a study in incandescence and inner energy.",
+      "tone": "#c4703a",
+      "banner": "img/products/gd26-271.webp",
+      "bannerY": "50%",
+      "meta": "Tanzanite · Pink spinel · White and yellow gold",
+      "models": []
     }
   ],
   "types": [
@@ -570,7 +665,13 @@ window.FJ_DATA = {
       "netG": 4.506,
       "grossG": 5.22,
       "story": "A bolder measure of the same idea: 2.47 carats of pear-cut mint garnet held by 1.1 carats of diamonds in white gold. Mint garnet is Bloom's stone for harmony, and on the hand it reads as a steady, grounded kind of glamour.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-1069.webp",
+        "img/products/gd25-1069-1.webp",
+        "img/products/gd25-1069-2.webp"
+      ],
+      "hover": "img/products/gd25-1069-1.webp"
     },
     {
       "id": "gd25-1067",
@@ -703,7 +804,13 @@ window.FJ_DATA = {
       "netG": 20.514,
       "grossG": 22.69,
       "story": "Tanzanite is mined in one place on earth and is rarer, gram for gram, than diamond, which is why Bloom reads it as a stone for new beginnings. This bracelet carries 8.5 carats of pear-cut tanzanite in a deep violet-blue, set with 2.38 carats of diamonds in white gold.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd25-875.webp",
+        "img/products/gd25-875-1.webp",
+        "img/products/gd25-875-2.webp"
+      ],
+      "hover": "img/products/gd25-875-1.webp"
     },
     {
       "id": "gd25-964",
@@ -789,7 +896,12 @@ window.FJ_DATA = {
       "netG": 2.84,
       "grossG": 3.06,
       "story": "The Petal pendant keeps things simple: 0.64 carats of round pink spinel, 0.46 carats of diamonds, rose gold, for a piece meant to be worn constantly rather than saved for occasion.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-1097.webp",
+        "img/products/gd25-1097-1.webp"
+      ],
+      "hover": "img/products/gd25-1097-1.webp"
     },
     {
       "id": "gd26-790",
@@ -893,7 +1005,10 @@ window.FJ_DATA = {
       "netG": 6.686,
       "grossG": 8.07,
       "story": "A fancy-cut tanzanite of 4.87 carats, faceted to hold more blue than a standard cut allows, set with 2.05 carats of diamonds in white gold. Part of the Flora line, where the stone is left as close to its rough shape as a fine setting allows.",
-      "tone": "#3a5f9a"
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-219.webp"
+      ]
     },
     {
       "id": "gnk0923-27",
@@ -1156,7 +1271,13 @@ window.FJ_DATA = {
       "netG": 6.01,
       "grossG": 6.58,
       "story": "Mint garnet alone, given the full statement treatment: 1.84 carats of pear-cut stone set with 1.01 carats of diamonds in 18k white gold: bolder in scale than the earlier Garland ring, though the meaning stays the same.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-563.webp",
+        "img/products/gd26-563-1.webp",
+        "img/products/gd26-563-2.webp"
+      ],
+      "hover": "img/products/gd26-563-1.webp"
     },
     {
       "id": "gd26-205",
@@ -1371,7 +1492,12 @@ window.FJ_DATA = {
       "netG": 21.16,
       "grossG": 23.7,
       "story": "The largest rubellite in the Heart in Bloom line: cabochon hearts of 5.8 carats a pair, framed in 6.9 carats of brilliant-cut diamonds and set in rose gold: passion, at full scale, for the ears.",
-      "tone": "#b8325a"
+      "tone": "#b8325a",
+      "images": [
+        "img/products/gd25-435.webp",
+        "img/products/gd25-435-1.webp"
+      ],
+      "hover": "img/products/gd25-435-1.webp"
     },
     {
       "id": "gd26-256",
@@ -1389,7 +1515,10 @@ window.FJ_DATA = {
       "netG": 18.414,
       "grossG": 19.73,
       "story": "A Garland bracelet in spessartite: 4.5 carats of pear-cut stone linked with 2.08 carats of diamonds in white gold, the vine motif worn flat along the wrist.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-256.webp"
+      ]
     },
     {
       "id": "gd26-69",
@@ -1782,7 +1911,10 @@ window.FJ_DATA = {
       "netG": 30.788,
       "grossG": 31.68,
       "story": "Crafted in White Gold, set with 2.29 carats of round cut aquamarine paired with 2.17 carats of brilliant cut diamonds.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-198-a.webp"
+      ]
     },
     {
       "id": "gd26-786",
@@ -1800,7 +1932,10 @@ window.FJ_DATA = {
       "netG": 34.9,
       "grossG": 36.36,
       "story": "Crafted in 18k White Gold, set with 2.55 carats of round cut mint garnet paired with 4.75 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-786.webp"
+      ]
     },
     {
       "id": "gd26-242",
@@ -1818,7 +1953,10 @@ window.FJ_DATA = {
       "netG": 61.028,
       "grossG": 64.87,
       "story": "Crafted in White Gold, set with 6.51 carats of round cut mint garnet paired with 12.7 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-242.webp"
+      ]
     },
     {
       "id": "gd26-242-a",
@@ -1836,7 +1974,13 @@ window.FJ_DATA = {
       "netG": 7.204,
       "grossG": 7.82,
       "story": "Crafted in White Gold, set with 1.4 carats of round cut mint garnet paired with 1.68 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-242-a.webp",
+        "img/products/gd26-242-a-1.webp",
+        "img/products/gd26-242-a-2.webp"
+      ],
+      "hover": "img/products/gd26-242-a-2.webp"
     },
     {
       "id": "gd25-974",
@@ -1854,7 +1998,12 @@ window.FJ_DATA = {
       "netG": 7.753,
       "grossG": 8.57,
       "story": "Crafted in White Gold, set with 2.63 carats of round cut pink spinel paired with 1.455 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-974.webp",
+        "img/products/gd25-974-1.webp"
+      ],
+      "hover": "img/products/gd25-974-1.webp"
     },
     {
       "id": "gd25-1055",
@@ -1872,7 +2021,12 @@ window.FJ_DATA = {
       "netG": 5.252,
       "grossG": 6,
       "story": "Crafted in White Gold, set with 3.12 carats of round cut mint garnet paired with 0.62 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-1055.webp",
+        "img/products/gd25-1055-1.webp"
+      ],
+      "hover": "img/products/gd25-1055-1.webp"
     },
     {
       "id": "gd25-1074",
@@ -1890,7 +2044,12 @@ window.FJ_DATA = {
       "netG": 4.84,
       "grossG": 5.42,
       "story": "Crafted in White Gold, set with 2.28 carats of round cut aquamarine paired with 0.62 carats of brilliant cut diamonds.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1074.webp",
+        "img/products/gd25-1074-1.webp"
+      ],
+      "hover": "img/products/gd25-1074-1.webp"
     },
     {
       "id": "gd26-198-b",
@@ -1908,7 +2067,12 @@ window.FJ_DATA = {
       "netG": 6.132,
       "grossG": 6.55,
       "story": "Crafted in White Gold, set with 0.75 carats of round cut aquamarine paired with 1.34 carats of brilliant cut diamonds.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-198-b.webp",
+        "img/products/gd26-198-b-1.webp"
+      ],
+      "hover": "img/products/gd26-198-b-1.webp"
     },
     {
       "id": "gd26-782",
@@ -1926,7 +2090,10 @@ window.FJ_DATA = {
       "netG": 6.988,
       "grossG": 7.48,
       "story": "Crafted in 18k White Gold, set with 1.11 carats of pear-cut mint garnet paired with 1.35 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-782.webp"
+      ]
     },
     {
       "id": "gd26-150",
@@ -1962,7 +2129,13 @@ window.FJ_DATA = {
       "netG": 4.06,
       "grossG": 4.45,
       "story": "Crafted in White Gold, set with 1.21 carats of round cut pink spinel paired with 0.74 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-991.webp",
+        "img/products/gd25-991-1.webp",
+        "img/products/gd25-991-2.webp"
+      ],
+      "hover": "img/products/gd25-991-1.webp"
     },
     {
       "id": "gd25-1025",
@@ -1980,7 +2153,13 @@ window.FJ_DATA = {
       "netG": 4.622,
       "grossG": 4.97,
       "story": "Crafted in 18k White Gold, set with 0.95 carats of round cut aquamarine paired with 0.79 carats of brilliant cut diamonds.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1025.webp",
+        "img/products/gd25-1025-1.webp",
+        "img/products/gd25-1025-2.webp"
+      ],
+      "hover": "img/products/gd25-1025-1.webp"
     },
     {
       "id": "gd25-1057",
@@ -1998,7 +2177,13 @@ window.FJ_DATA = {
       "netG": 4.11,
       "grossG": 4.5,
       "story": "Crafted in White Gold, set with 1.24 carats of round cut mint garnet paired with 0.71 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-1057.webp",
+        "img/products/gd25-1057-1.webp",
+        "img/products/gd25-1057-2.webp"
+      ],
+      "hover": "img/products/gd25-1057-1.webp"
     },
     {
       "id": "gd26-783",
@@ -2016,7 +2201,13 @@ window.FJ_DATA = {
       "netG": 8.162,
       "grossG": 8.63,
       "story": "Crafted in 18k White Gold, set with 1.39 carats of round cut mint garnet paired with 0.95 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-783.webp",
+        "img/products/gd26-783-1.webp",
+        "img/products/gd26-783-2.webp"
+      ],
+      "hover": "img/products/gd26-783-1.webp"
     },
     {
       "id": "gd25-894",
@@ -2034,7 +2225,14 @@ window.FJ_DATA = {
       "netG": 12.426,
       "grossG": 13.09,
       "story": "Crafted in White Gold, set with 1.82 carats of round cut aquamarine paired with 1.5 carats of brilliant cut diamonds.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-894.webp",
+        "img/products/gd25-894-1.webp",
+        "img/products/gd25-894-2.webp",
+        "img/products/gd25-894-3.webp"
+      ],
+      "hover": "img/products/gd25-894-3.webp"
     },
     {
       "id": "gd25-966",
@@ -2052,7 +2250,13 @@ window.FJ_DATA = {
       "netG": 23.732,
       "grossG": 24.78,
       "story": "Crafted in White Gold, set with 3.4 carats of round cut pink spinel paired with 1.84 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-966.webp",
+        "img/products/gd25-966-1.webp",
+        "img/products/gd25-966-2.webp"
+      ],
+      "hover": "img/products/gd25-966-1.webp"
     },
     {
       "id": "gd25-992",
@@ -2070,7 +2274,12 @@ window.FJ_DATA = {
       "netG": 13.516,
       "grossG": 14.28,
       "story": "Crafted in White Gold, set with 2.22 carats of round cut pink spinel paired with 1.6 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-992.webp",
+        "img/products/gd25-992-1.webp"
+      ],
+      "hover": "img/products/gd25-992-1.webp"
     },
     {
       "id": "gd25-1083",
@@ -2088,7 +2297,13 @@ window.FJ_DATA = {
       "netG": 14.158,
       "grossG": 14.87,
       "story": "Crafted in White Gold, set with 1.84 carats of round cut mint garnet paired with 1.72 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-1083.webp",
+        "img/products/gd25-1083-1.webp",
+        "img/products/gd25-1083-2.webp"
+      ],
+      "hover": "img/products/gd25-1083-1.webp"
     },
     {
       "id": "gd26-827",
@@ -2106,7 +2321,10 @@ window.FJ_DATA = {
       "netG": 6.616,
       "grossG": 6.95,
       "story": "Crafted in 18k White Gold, set with 0.79 carats of pear-cut mint garnet paired with 0.88 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-827.webp"
+      ]
     },
     {
       "id": "gd26-149",
@@ -3265,6 +3483,3072 @@ window.FJ_DATA = {
         "img/products/gd26-584-2.webp"
       ],
       "hover": "img/products/gd26-584-1.webp"
+    },
+    {
+      "id": "gd25-697",
+      "sku": "GD25-697",
+      "name": "Aquamarine and diamond spectrum earrings",
+      "collection": "Spectrum",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 1.05,
+      "diamondCt": 0.29,
+      "netG": 3.142,
+      "grossG": 3.41,
+      "story": "Crafted in White Gold, set with 1.05 carats of pear-cut aquamarine paired with 0.29 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-697.webp",
+        "img/products/gd25-697-1.webp"
+      ],
+      "hover": "img/products/gd25-697-1.webp"
+    },
+    {
+      "id": "gd25-698",
+      "sku": "GD25-698",
+      "name": "Rose rhodolite and diamond spectrum earrings",
+      "collection": "Spectrum",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Rose Rhodolite",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 1.62,
+      "diamondCt": 0.29,
+      "netG": 3.068,
+      "grossG": 3.45,
+      "story": "Crafted in White Gold, set with 1.62 carats of pear-cut rose rhodolite paired with 0.29 carats of brilliant cut diamonds.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd25-698.webp",
+        "img/products/gd25-698-1.webp"
+      ],
+      "hover": "img/products/gd25-698-1.webp"
+    },
+    {
+      "id": "gd25-699",
+      "sku": "GD25-699",
+      "name": "Mint garnet and diamond spectrum earrings",
+      "collection": "Spectrum",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 1.12,
+      "diamondCt": 0.29,
+      "netG": 3.228,
+      "grossG": 3.51,
+      "story": "Crafted in White Gold, set with 1.12 carats of pear-cut mint garnet paired with 0.29 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-699.webp",
+        "img/products/gd25-699-1.webp"
+      ],
+      "hover": "img/products/gd25-699-1.webp"
+    },
+    {
+      "id": "gd25-954",
+      "sku": "GD25-954",
+      "name": "Tanzanite and diamond spectrum earrings",
+      "collection": "Spectrum",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Triangle",
+      "stonePcs": 2,
+      "stoneCt": 3.03,
+      "diamondCt": 1.01,
+      "netG": 8.352,
+      "grossG": 9.16,
+      "story": "Crafted in 18k White Gold, set with 3.03 carats of triangle-cut tanzanite paired with 1.01 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd25-954.webp",
+        "img/products/gd25-954-1.webp"
+      ],
+      "hover": "img/products/gd25-954-1.webp"
+    },
+    {
+      "id": "gd25-667",
+      "sku": "GD25-667",
+      "name": "Aquamarine and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 0.91,
+      "diamondCt": 0.63,
+      "netG": 8.222,
+      "grossG": 8.53,
+      "story": "Crafted in White Gold, set with 0.91 carats of pear-cut aquamarine paired with 0.63 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-667.webp",
+        "img/products/gd25-667-1.webp",
+        "img/products/gd25-667-2.webp"
+      ],
+      "hover": "img/products/gd25-667-1.webp"
+    },
+    {
+      "id": "gd25-727",
+      "sku": "GD25-727",
+      "name": "Aquamarine and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Oval",
+      "stonePcs": 2,
+      "stoneCt": 1.52,
+      "diamondCt": 0.69,
+      "netG": 2.608,
+      "grossG": 3.05,
+      "story": "Crafted in White Gold, set with 1.52 carats of oval aquamarine paired with 0.69 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-727.webp",
+        "img/products/gd25-727-1.webp",
+        "img/products/gd25-727-2.webp",
+        "img/products/gd25-727-3.webp",
+        "img/products/gd25-727-4.webp",
+        "img/products/gd25-727-5.webp"
+      ],
+      "hover": "img/products/gd25-727-1.webp"
+    },
+    {
+      "id": "gd25-665",
+      "sku": "GD25-665",
+      "name": "Rose rhodolite and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Rose Rhodolite",
+      "shape": "Round",
+      "stonePcs": 1,
+      "stoneCt": 1.59,
+      "diamondCt": 0.64,
+      "netG": 8.934,
+      "grossG": 9.38,
+      "story": "Crafted in White Gold, set with 1.59 carats of round cut rose rhodolite paired with 0.64 carats of brilliant cut diamonds.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd25-665.webp",
+        "img/products/gd25-665-1.webp",
+        "img/products/gd25-665-2.webp"
+      ],
+      "hover": "img/products/gd25-665-1.webp"
+    },
+    {
+      "id": "gd25-913",
+      "sku": "GD25-913",
+      "name": "Rose rhodolite and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White and Rose Gold",
+      "metalCode": "G-14kt-WR",
+      "stone": "Rose Rhodolite",
+      "shape": "Sq-Octagon",
+      "stonePcs": 1,
+      "stoneCt": 0.93,
+      "diamondCt": 0.62,
+      "netG": 2.23,
+      "grossG": 2.54,
+      "story": "Crafted in White and Rose Gold, set with 0.93 carats of square octagon-cut rose rhodolite paired with 0.62 carats of brilliant cut diamonds.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd25-913.webp",
+        "img/products/gd25-913-1.webp",
+        "img/products/gd25-913-2.webp"
+      ],
+      "hover": "img/products/gd25-913-1.webp"
+    },
+    {
+      "id": "gd25-720",
+      "sku": "GD25-720",
+      "name": "Rose rhodolite and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "Rose Gold",
+      "metalCode": "G-14kt-R",
+      "stone": "Rose Rhodolite",
+      "shape": "Octagon",
+      "stonePcs": 1,
+      "stoneCt": 1.95,
+      "diamondCt": 0,
+      "netG": 2.68,
+      "grossG": 3.07,
+      "story": "Crafted in Rose Gold, set with 1.95 carats of octagon-cut rose rhodolite.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd25-720.webp",
+        "img/products/gd25-720-1.webp",
+        "img/products/gd25-720-2.webp"
+      ],
+      "hover": "img/products/gd25-720-1.webp"
+    },
+    {
+      "id": "gd25-880",
+      "sku": "GD25-880",
+      "name": "Mint garnet and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 0.9,
+      "diamondCt": 0.37,
+      "netG": 2.326,
+      "grossG": 2.58,
+      "story": "Crafted in White Gold, set with 0.9 carats of pear-cut mint garnet paired with 0.37 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-880.webp",
+        "img/products/gd25-880-1.webp",
+        "img/products/gd25-880-2.webp"
+      ],
+      "hover": "img/products/gd25-880-1.webp"
+    },
+    {
+      "id": "gd25-909",
+      "sku": "GD25-909",
+      "name": "Mint garnet and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Sq-Cushion",
+      "stonePcs": 1,
+      "stoneCt": 0.58,
+      "diamondCt": 0.62,
+      "netG": 2.257,
+      "grossG": 2.497,
+      "story": "Crafted in White Gold, set with 0.58 carats of cushion-cut mint garnet paired with 0.62 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd25-909.webp",
+        "img/products/gd25-909-1.webp",
+        "img/products/gd25-909-2.webp",
+        "img/products/gd25-909-3.webp",
+        "img/products/gd25-909-4.webp",
+        "img/products/gd25-909-5.webp"
+      ],
+      "hover": "img/products/gd25-909-1.webp"
+    },
+    {
+      "id": "gd25-910",
+      "sku": "GD25-910",
+      "name": "Tsavorite and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tsavorite",
+      "shape": "Sq-Princess",
+      "stonePcs": 1,
+      "stoneCt": 0.8,
+      "diamondCt": 0.62,
+      "netG": 2.206,
+      "grossG": 2.49,
+      "story": "Crafted in White Gold, set with 0.8 carats of princess-cut tsavorite paired with 0.62 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd25-910.webp",
+        "img/products/gd25-910-1.webp",
+        "img/products/gd25-910-2.webp",
+        "img/products/gd25-910-3.webp",
+        "img/products/gd25-910-4.webp",
+        "img/products/gd25-910-5.webp"
+      ],
+      "hover": "img/products/gd25-910-1.webp"
+    },
+    {
+      "id": "gd25-911",
+      "sku": "GD25-911",
+      "name": "Aquamarine and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Princess",
+      "stonePcs": 1,
+      "stoneCt": 0.52,
+      "diamondCt": 0.61,
+      "netG": 2.321,
+      "grossG": 2.547,
+      "story": "Crafted in White Gold, set with 0.52 carats of princess-cut aquamarine paired with 0.61 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-911.webp",
+        "img/products/gd25-911-1.webp",
+        "img/products/gd25-911-2.webp",
+        "img/products/gd25-911-3.webp",
+        "img/products/gd25-911-4.webp",
+        "img/products/gd25-911-5.webp"
+      ],
+      "hover": "img/products/gd25-911-1.webp"
+    },
+    {
+      "id": "gd25-882",
+      "sku": "GD25-882",
+      "name": "Aquamarine and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 0.78,
+      "diamondCt": 0.37,
+      "netG": 2.39,
+      "grossG": 2.62,
+      "story": "Crafted in White Gold, set with 0.78 carats of pear-cut aquamarine paired with 0.37 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-882.webp",
+        "img/products/gd25-882-1.webp",
+        "img/products/gd25-882-2.webp"
+      ],
+      "hover": "img/products/gd25-882-1.webp"
+    },
+    {
+      "id": "gd25-652",
+      "sku": "GD25-652",
+      "name": "Tanzanite and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite",
+      "shape": "Sq-Cushion",
+      "stonePcs": 1,
+      "stoneCt": 1.94,
+      "diamondCt": 0.621,
+      "netG": 9.338,
+      "grossG": 9.85,
+      "story": "Crafted in White Gold, set with 1.94 carats of cushion-cut tanzanite paired with 0.621 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd25-652.webp",
+        "img/products/gd25-652-1.webp",
+        "img/products/gd25-652-2.webp",
+        "img/products/gd25-652-3.webp",
+        "img/products/gd25-652-4.webp",
+        "img/products/gd25-652-5.webp"
+      ],
+      "hover": "img/products/gd25-652-1.webp"
+    },
+    {
+      "id": "gd26-36",
+      "sku": "GD26-36",
+      "name": "Tanzanite and diamond spectrum ring",
+      "collection": "Spectrum",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite",
+      "shape": "Sq-Cushion",
+      "stonePcs": 1,
+      "stoneCt": 9.7,
+      "diamondCt": 0.6,
+      "netG": 7.04,
+      "grossG": 9.1,
+      "story": "Crafted in White Gold, set with 9.7 carats of cushion-cut tanzanite paired with 0.6 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-36.webp"
+      ]
+    },
+    {
+      "id": "gd26-253",
+      "sku": "GD26-253",
+      "name": "Aquamarine and diamond spectrum necklace",
+      "collection": "Spectrum",
+      "type": "Necklaces",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Octagon",
+      "stonePcs": 10,
+      "stoneCt": 14.62,
+      "diamondCt": 5,
+      "netG": 36.326,
+      "grossG": 40.25,
+      "story": "Crafted in White Gold, set with 14.62 carats of square octagon-cut aquamarine paired with 5 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-253.webp",
+        "img/products/gd26-253-1.webp"
+      ],
+      "hover": "img/products/gd26-253-1.webp"
+    },
+    {
+      "id": "gd26-253-a",
+      "sku": "GD26-253 A",
+      "name": "Aquamarine and diamond spectrum earrings",
+      "collection": "Spectrum",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Octagon",
+      "stonePcs": 2,
+      "stoneCt": 3.64,
+      "diamondCt": 1.2,
+      "netG": 8.002,
+      "grossG": 8.97,
+      "story": "Crafted in White Gold, set with 3.64 carats of square octagon-cut aquamarine paired with 1.2 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-253-a.webp",
+        "img/products/gd26-253-a-1.webp",
+        "img/products/gd26-253-a-2.webp"
+      ],
+      "hover": "img/products/gd26-253-a-2.webp"
+    },
+    {
+      "id": "gd26-254",
+      "sku": "GD26-254",
+      "name": "Rose rhodolite and diamond spectrum necklace",
+      "collection": "Spectrum",
+      "type": "Necklaces",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Rose Rhodolite",
+      "shape": "Sq-Princess",
+      "stonePcs": 8,
+      "stoneCt": 8.26,
+      "diamondCt": 3.25,
+      "netG": 23.138,
+      "grossG": 25.44,
+      "story": "Crafted in White Gold, set with 8.26 carats of princess-cut rose rhodolite paired with 3.25 carats of brilliant cut diamonds.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd26-254.webp"
+      ]
+    },
+    {
+      "id": "gd26-254-a",
+      "sku": "GD26-254 A",
+      "name": "Rose rhodolite and diamond spectrum earrings",
+      "collection": "Spectrum",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Rose Rhodolite",
+      "shape": "Sq-Princess",
+      "stonePcs": 2,
+      "stoneCt": 3.4,
+      "diamondCt": 1.042,
+      "netG": 6.252,
+      "grossG": 7.14,
+      "story": "Crafted in White Gold, set with 3.4 carats of princess-cut rose rhodolite paired with 1.042 carats of brilliant cut diamonds.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd26-254-a.webp",
+        "img/products/gd26-254-a-1.webp",
+        "img/products/gd26-254-a-2.webp"
+      ],
+      "hover": "img/products/gd26-254-a-2.webp"
+    },
+    {
+      "id": "gd26-66",
+      "sku": "GD26-66",
+      "name": "Mint garnet and diamond royal starling bangle",
+      "collection": "Royal Starling",
+      "type": "Bracelets",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Marquise",
+      "stonePcs": 18,
+      "stoneCt": 5.18,
+      "diamondCt": 1.36,
+      "netG": 12.822,
+      "grossG": 14.13,
+      "story": "Crafted in 18k White Gold, set with 5.18 carats of marquise-cut mint garnet paired with 1.36 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-66.webp",
+        "img/products/gd26-66-1.webp",
+        "img/products/gd26-66-2.webp",
+        "img/products/gd26-66-3.webp"
+      ],
+      "hover": "img/products/gd26-66-3.webp"
+    },
+    {
+      "id": "gd26-311",
+      "sku": "GD26-311",
+      "name": "Mint garnet and diamond royal starling bangle",
+      "collection": "Royal Starling",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Marquise",
+      "stonePcs": 32,
+      "stoneCt": 7.14,
+      "diamondCt": 4.17,
+      "netG": 28.248,
+      "grossG": 30.51,
+      "story": "Crafted in White Gold, set with 7.14 carats of marquise-cut mint garnet paired with 4.17 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-311.webp",
+        "img/products/gd26-311-1.webp",
+        "img/products/gd26-311-2.webp",
+        "img/products/gd26-311-3.webp"
+      ],
+      "hover": "img/products/gd26-311-3.webp"
+    },
+    {
+      "id": "gd26-188",
+      "sku": "GD26-188",
+      "name": "Tanzanite and diamond royal starling bangle",
+      "collection": "Royal Starling",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite",
+      "shape": "Marquise",
+      "stonePcs": 32,
+      "stoneCt": 6.73,
+      "diamondCt": 4.21,
+      "netG": 28.512,
+      "grossG": 30.7,
+      "story": "Crafted in White Gold, set with 6.73 carats of marquise-cut tanzanite paired with 4.21 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-188.webp",
+        "img/products/gd26-188-1.webp",
+        "img/products/gd26-188-2.webp",
+        "img/products/gd26-188-3.webp"
+      ],
+      "hover": "img/products/gd26-188-3.webp"
+    },
+    {
+      "id": "gd26-178",
+      "sku": "GD26-178",
+      "name": "Tsavorite and diamond royal starling bangle",
+      "collection": "Royal Starling",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tsavorite",
+      "shape": "Marquise",
+      "stonePcs": 19,
+      "stoneCt": 3.6,
+      "diamondCt": 3.18,
+      "netG": 24.634,
+      "grossG": 25.99,
+      "story": "Crafted in White Gold, set with 3.6 carats of marquise-cut tsavorite paired with 3.18 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd26-178.webp",
+        "img/products/gd26-178-1.webp"
+      ],
+      "hover": "img/products/gd26-178-1.webp"
+    },
+    {
+      "id": "gd26-67",
+      "sku": "GD26-67",
+      "name": "Mint garnet and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Marquise",
+      "stonePcs": 3,
+      "stoneCt": 0.51,
+      "diamondCt": 0.55,
+      "netG": 3.218,
+      "grossG": 3.43,
+      "story": "Crafted in 18k White Gold, set with 0.51 carats of marquise-cut mint garnet paired with 0.55 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-67.webp",
+        "img/products/gd26-67-1.webp",
+        "img/products/gd26-67-2.webp",
+        "img/products/gd26-67-3.webp"
+      ],
+      "hover": "img/products/gd26-67-3.webp"
+    },
+    {
+      "id": "g-622",
+      "sku": "G 622",
+      "name": "Tsavorite and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "White and Rose Gold",
+      "metalCode": "G-14kt-WR",
+      "stone": "Tsavorite",
+      "shape": "Marquise",
+      "stonePcs": 21,
+      "stoneCt": 4.73,
+      "diamondCt": 0.34,
+      "netG": 9.319,
+      "grossG": 10.33,
+      "story": "Crafted in White and Rose Gold, set with 4.73 carats of marquise-cut tsavorite paired with 0.34 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/g-622.webp",
+        "img/products/g-622-1.webp",
+        "img/products/g-622-2.webp"
+      ],
+      "hover": "img/products/g-622-1.webp"
+    },
+    {
+      "id": "gd26-191",
+      "sku": "GD26-191",
+      "name": "Pink spinel and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Marquise",
+      "stonePcs": 25,
+      "stoneCt": 3.55,
+      "diamondCt": 0.81,
+      "netG": 8.918,
+      "grossG": 9.79,
+      "story": "Crafted in White Gold, set with 3.55 carats of marquise-cut pink spinel paired with 0.81 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-191.webp",
+        "img/products/gd26-191-1.webp",
+        "img/products/gd26-191-2.webp"
+      ],
+      "hover": "img/products/gd26-191-1.webp"
+    },
+    {
+      "id": "gd26-825",
+      "sku": "GD26-825",
+      "name": "Pink spinel and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Marquise",
+      "stonePcs": 25,
+      "stoneCt": 2.91,
+      "diamondCt": 0.76,
+      "netG": 9.806,
+      "grossG": 10.54,
+      "story": "Crafted in 18k White and Rose Gold, set with 2.91 carats of marquise-cut pink spinel paired with 0.76 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-825.webp",
+        "img/products/gd26-825-1.webp",
+        "img/products/gd26-825-2.webp"
+      ],
+      "hover": "img/products/gd26-825-1.webp"
+    },
+    {
+      "id": "gd26-824",
+      "sku": "GD26-824",
+      "name": "Mint garnet and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Marquise",
+      "stonePcs": 25,
+      "stoneCt": 3.55,
+      "diamondCt": 0.76,
+      "netG": 9.238,
+      "grossG": 10.1,
+      "story": "Crafted in 18k White Gold, set with 3.55 carats of marquise-cut mint garnet paired with 0.76 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-824.webp",
+        "img/products/gd26-824-1.webp",
+        "img/products/gd26-824-2.webp"
+      ],
+      "hover": "img/products/gd26-824-1.webp"
+    },
+    {
+      "id": "gd26-813",
+      "sku": "GD26-813",
+      "name": "Mint garnet and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "18k Yellow and White Gold",
+      "metalCode": "G-18kt-YW",
+      "stone": "Mint Garnet",
+      "shape": "Marquise",
+      "stonePcs": 5,
+      "stoneCt": 1.4,
+      "diamondCt": 0.29,
+      "netG": 5.282,
+      "grossG": 5.62,
+      "story": "Crafted in 18k Yellow and White Gold, set with 1.4 carats of marquise-cut mint garnet paired with 0.29 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-813.webp",
+        "img/products/gd26-813-1.webp",
+        "img/products/gd26-813-2.webp"
+      ],
+      "hover": "img/products/gd26-813-1.webp"
+    },
+    {
+      "id": "gd26-312",
+      "sku": "GD26-312",
+      "name": "Mint garnet and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Mint Garnet",
+      "shape": "Marquise",
+      "stonePcs": 7,
+      "stoneCt": 1.04,
+      "diamondCt": 0.7,
+      "netG": 4.362,
+      "grossG": 4.71,
+      "story": "Crafted in White Gold, set with 1.04 carats of marquise-cut mint garnet paired with 0.7 carats of brilliant cut diamonds.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-312.webp",
+        "img/products/gd26-312-1.webp",
+        "img/products/gd26-312-2.webp",
+        "img/products/gd26-312-3.webp"
+      ],
+      "hover": "img/products/gd26-312-3.webp"
+    },
+    {
+      "id": "gd26-853",
+      "sku": "GD26-853",
+      "name": "Tanzanite and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Marquise",
+      "stonePcs": 7,
+      "stoneCt": 0.75,
+      "diamondCt": 0.745,
+      "netG": 5.411,
+      "grossG": 5.71,
+      "story": "Crafted in 18k White Gold, set with 0.75 carats of marquise-cut tanzanite paired with 0.745 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-853.webp",
+        "img/products/gd26-853-1.webp",
+        "img/products/gd26-853-2.webp"
+      ],
+      "hover": "img/products/gd26-853-1.webp"
+    },
+    {
+      "id": "gd26-868",
+      "sku": "GD26-868",
+      "name": "Pink spinel and diamond royal starling ring",
+      "collection": "Royal Starling",
+      "type": "Rings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Marquise",
+      "stonePcs": 7,
+      "stoneCt": 0.72,
+      "diamondCt": 0.73,
+      "netG": 5.44,
+      "grossG": 5.73,
+      "story": "Crafted in 18k White and Rose Gold, set with 0.72 carats of marquise-cut pink spinel paired with 0.73 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-868.webp"
+      ]
+    },
+    {
+      "id": "gd26-187",
+      "sku": "GD26-187",
+      "name": "Tanzanite and diamond royal starling earrings",
+      "collection": "Royal Starling",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite",
+      "shape": "Marquise",
+      "stonePcs": 32,
+      "stoneCt": 5.02,
+      "diamondCt": 3.43,
+      "netG": 17.81,
+      "grossG": 19.5,
+      "story": "Crafted in White Gold, set with 5.02 carats of marquise-cut tanzanite paired with 3.43 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-187.webp",
+        "img/products/gd26-187-1.webp"
+      ],
+      "hover": "img/products/gd26-187-1.webp"
+    },
+    {
+      "id": "gd26-169",
+      "sku": "GD26-169",
+      "name": "Tsavorite and diamond royal starling necklace",
+      "collection": "Royal Starling",
+      "type": "Necklaces",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tsavorite",
+      "shape": "Marquise",
+      "stonePcs": 66,
+      "stoneCt": 15.31,
+      "diamondCt": 9.83,
+      "netG": 76.492,
+      "grossG": 81.52,
+      "story": "Crafted in White Gold, set with 15.31 carats of marquise-cut tsavorite paired with 9.83 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd26-169.webp"
+      ]
+    },
+    {
+      "id": "gd26-170",
+      "sku": "GD26-170",
+      "name": "Tsavorite and diamond royal starling earrings",
+      "collection": "Royal Starling",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tsavorite",
+      "shape": "Marquise",
+      "stonePcs": 32,
+      "stoneCt": 4.37,
+      "diamondCt": 3.44,
+      "netG": 18.448,
+      "grossG": 20.01,
+      "story": "Crafted in White Gold, set with 4.37 carats of marquise-cut tsavorite paired with 3.44 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd26-170.webp",
+        "img/products/gd26-170-1.webp"
+      ],
+      "hover": "img/products/gd26-170-1.webp"
+    },
+    {
+      "id": "gd23-443",
+      "sku": "GD23-443",
+      "name": "Tsavorite and diamond royal starling necklace",
+      "collection": "Royal Starling",
+      "type": "Necklaces",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tsavorite",
+      "shape": "Marquise",
+      "stonePcs": 121,
+      "stoneCt": 29.53,
+      "diamondCt": 12.53,
+      "netG": 124.488,
+      "grossG": 132.9,
+      "story": "Crafted in 18k White Gold, set with 29.53 carats of marquise-cut tsavorite paired with 12.53 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd23-443.webp",
+        "img/products/gd23-443-1.webp"
+      ],
+      "hover": "img/products/gd23-443-1.webp"
+    },
+    {
+      "id": "gd23-443-a",
+      "sku": "GD23-443 A",
+      "name": "Tsavorite and diamond royal starling earrings",
+      "collection": "Royal Starling",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tsavorite",
+      "shape": "Marquise",
+      "stonePcs": 32,
+      "stoneCt": 4.91,
+      "diamondCt": 2.76,
+      "netG": 21.496,
+      "grossG": 23.03,
+      "story": "Crafted in 18k White Gold, set with 4.91 carats of marquise-cut tsavorite paired with 2.76 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd23-443-a.webp",
+        "img/products/gd23-443-a-1.webp"
+      ],
+      "hover": "img/products/gd23-443-a-1.webp"
+    },
+    {
+      "id": "gd26-184",
+      "sku": "GD26-184",
+      "name": "Pink spinel and diamond flare bracelet",
+      "collection": "Flare",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Sq-Princess",
+      "stonePcs": 20,
+      "stoneCt": 4.27,
+      "diamondCt": 7.38,
+      "netG": 22.86,
+      "grossG": 25.19,
+      "story": "Crafted in White Gold, set with 4.27 carats of princess-cut pink spinel paired with 7.38 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-184.webp",
+        "img/products/gd26-184-1.webp",
+        "img/products/gd26-184-2.webp",
+        "img/products/gd26-184-3.webp"
+      ],
+      "hover": "img/products/gd26-184-1.webp"
+    },
+    {
+      "id": "gd26-828",
+      "sku": "GD26-828",
+      "name": "Tourmaline and diamond flare bracelet",
+      "collection": "Flare",
+      "type": "Bracelets",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tourmaline",
+      "shape": "Triangle",
+      "stonePcs": 6,
+      "stoneCt": 1.83,
+      "diamondCt": 1.07,
+      "netG": 5.34,
+      "grossG": 5.92,
+      "story": "Crafted in 18k White Gold, set with 1.83 carats of triangle-cut tourmaline paired with 1.07 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-828.webp"
+      ]
+    },
+    {
+      "id": "gd24-581",
+      "sku": "GD24-581",
+      "name": "Tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Oval",
+      "stonePcs": 2,
+      "stoneCt": 5.98,
+      "diamondCt": 2.11,
+      "netG": 16.292,
+      "grossG": 17.91,
+      "story": "Crafted in 18k White Gold, set with 5.98 carats of oval tanzanite paired with 2.11 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd24-581.webp",
+        "img/products/gd24-581-1.webp"
+      ],
+      "hover": "img/products/gd24-581-1.webp"
+    },
+    {
+      "id": "gd25-434",
+      "sku": "GD25-434",
+      "name": "Aquamarine and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Octagon",
+      "stonePcs": 2,
+      "stoneCt": 8.63,
+      "diamondCt": 3.47,
+      "netG": 13.94,
+      "grossG": 16.36,
+      "story": "Crafted in 18k White Gold, set with 8.63 carats of octagon-cut aquamarine paired with 3.47 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-434.webp",
+        "img/products/gd25-434-1.webp",
+        "img/products/gd25-434-2.webp"
+      ],
+      "hover": "img/products/gd25-434-2.webp"
+    },
+    {
+      "id": "gd25-623",
+      "sku": "GD25-623",
+      "name": "Tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Heart",
+      "stonePcs": 2,
+      "stoneCt": 13.04,
+      "diamondCt": 4.33,
+      "netG": 17.576,
+      "grossG": 21.05,
+      "story": "Crafted in 18k White Gold, set with 13.04 carats of tanzanite paired with 4.33 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd25-623.webp",
+        "img/products/gd25-623-1.webp"
+      ],
+      "hover": "img/products/gd25-623-1.webp"
+    },
+    {
+      "id": "gd25-790",
+      "sku": "GD25-790",
+      "name": "Rhodolite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Rhodolite",
+      "shape": "Oval",
+      "stonePcs": 2,
+      "stoneCt": 5.53,
+      "diamondCt": 3.79,
+      "netG": 15.636,
+      "grossG": 17.5,
+      "story": "Crafted in 18k White Gold, set with 5.53 carats of oval rhodolite paired with 3.79 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd25-790.webp",
+        "img/products/gd25-790-1.webp",
+        "img/products/gd25-790-2.webp"
+      ],
+      "hover": "img/products/gd25-790-2.webp"
+    },
+    {
+      "id": "gd25-791",
+      "sku": "GD25-791",
+      "name": "Morganite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k Rose Gold",
+      "metalCode": "G-18kt-R",
+      "stone": "Morganite",
+      "shape": "Octagon",
+      "stonePcs": 2,
+      "stoneCt": 6.28,
+      "diamondCt": 1.03,
+      "netG": 13.258,
+      "grossG": 14.72,
+      "story": "Crafted in 18k Rose Gold, set with 6.28 carats of octagon-cut morganite paired with 1.03 carats of brilliant cut diamonds.",
+      "tone": "#e8b4b8",
+      "images": [
+        "img/products/gd25-791.webp",
+        "img/products/gd25-791-1.webp",
+        "img/products/gd25-791-2.webp"
+      ],
+      "hover": "img/products/gd25-791-2.webp"
+    },
+    {
+      "id": "gd26-265",
+      "sku": "GD26-265",
+      "name": "Lavender tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Lavender Tanzanite",
+      "shape": "Oval",
+      "stonePcs": 20,
+      "stoneCt": 9.29,
+      "diamondCt": 3.147,
+      "netG": 14.453,
+      "grossG": 16.94,
+      "story": "Crafted in White Gold, set with 9.29 carats of oval lavender tanzanite paired with 3.147 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-265.webp",
+        "img/products/gd26-265-1.webp",
+        "img/products/gd26-265-2.webp"
+      ],
+      "hover": "img/products/gd26-265-2.webp"
+    },
+    {
+      "id": "gd26-268",
+      "sku": "GD26-268",
+      "name": "Spessartite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Oval",
+      "stonePcs": 20,
+      "stoneCt": 11.34,
+      "diamondCt": 3.205,
+      "netG": 14.441,
+      "grossG": 17.35,
+      "story": "Crafted in White Gold, set with 11.34 carats of oval spessartite paired with 3.205 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-268.webp",
+        "img/products/gd26-268-1.webp",
+        "img/products/gd26-268-2.webp"
+      ],
+      "hover": "img/products/gd26-268-2.webp"
+    },
+    {
+      "id": "gd26-901",
+      "sku": "GD26-901",
+      "name": "Aquamarine and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Oval",
+      "stonePcs": 18,
+      "stoneCt": 7.05,
+      "diamondCt": 3.205,
+      "netG": 17.659,
+      "grossG": 19.71,
+      "story": "Crafted in 18k White Gold, set with 7.05 carats of oval aquamarine paired with 3.205 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-901.webp"
+      ]
+    },
+    {
+      "id": "gd26-801",
+      "sku": "GD26-801",
+      "name": "Tourmaline and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tourmaline",
+      "shape": "Triangle",
+      "stonePcs": 6,
+      "stoneCt": 3.29,
+      "diamondCt": 3.03,
+      "netG": 13.496,
+      "grossG": 14.76,
+      "story": "Crafted in 18k White Gold, set with 3.29 carats of triangle-cut tourmaline paired with 3.03 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-801.webp"
+      ]
+    },
+    {
+      "id": "gd26-864",
+      "sku": "GD26-864",
+      "name": "Pink spinel and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Sq-Princess",
+      "stonePcs": 8,
+      "stoneCt": 2.78,
+      "diamondCt": 3.04,
+      "netG": 13.346,
+      "grossG": 14.51,
+      "story": "Crafted in 18k White and Rose Gold, set with 2.78 carats of princess-cut pink spinel paired with 3.04 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-864.webp",
+        "img/products/gd26-864-1.webp"
+      ],
+      "hover": "img/products/gd26-864-1.webp"
+    },
+    {
+      "id": "gd26-832",
+      "sku": "GD26-832",
+      "name": "Aquamarine and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Princess",
+      "stonePcs": 8,
+      "stoneCt": 2.91,
+      "diamondCt": 2.96,
+      "netG": 13.796,
+      "grossG": 14.97,
+      "story": "Crafted in 18k White Gold, set with 2.91 carats of princess-cut aquamarine paired with 2.96 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-832.webp",
+        "img/products/gd26-832-1.webp"
+      ],
+      "hover": "img/products/gd26-832-1.webp"
+    },
+    {
+      "id": "gd26-863",
+      "sku": "GD26-863",
+      "name": "Pink tourmaline and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Tourmaline",
+      "shape": "Sq-Octagon",
+      "stonePcs": 2,
+      "stoneCt": 3.9,
+      "diamondCt": 2.62,
+      "netG": 11.526,
+      "grossG": 12.83,
+      "story": "Crafted in 18k White and Rose Gold, set with 3.9 carats of square octagon-cut pink tourmaline paired with 2.62 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-863.webp"
+      ]
+    },
+    {
+      "id": "gd24-188",
+      "sku": "GD24-188",
+      "name": "Tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 4.75,
+      "diamondCt": 4.29,
+      "netG": 24.402,
+      "grossG": 26.21,
+      "story": "Crafted in 18k White Gold, set with 4.75 carats of pear-cut tanzanite paired with 4.29 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd24-188.webp",
+        "img/products/gd24-188-1.webp"
+      ],
+      "hover": "img/products/gd24-188-1.webp"
+    },
+    {
+      "id": "gd24-799",
+      "sku": "GD24-799",
+      "name": "Tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Sq-Octagon",
+      "stonePcs": 2,
+      "stoneCt": 9.33,
+      "diamondCt": 1.36,
+      "netG": 20.252,
+      "grossG": 22.39,
+      "story": "Crafted in 18k White Gold, set with 9.33 carats of square octagon-cut tanzanite paired with 1.36 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd24-799.webp",
+        "img/products/gd24-799-1.webp"
+      ],
+      "hover": "img/products/gd24-799-1.webp"
+    },
+    {
+      "id": "gd24-346",
+      "sku": "GD24-346",
+      "name": "Tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Oval",
+      "stonePcs": 2,
+      "stoneCt": 7.16,
+      "diamondCt": 3.95,
+      "netG": 19.418,
+      "grossG": 21.64,
+      "story": "Crafted in 18k White Gold, set with 7.16 carats of oval tanzanite paired with 3.95 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd24-346.webp",
+        "img/products/gd24-346-1.webp"
+      ],
+      "hover": "img/products/gd24-346-1.webp"
+    },
+    {
+      "id": "gd26-562",
+      "sku": "GD26-562",
+      "name": "Rose rhodolite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k Gold",
+      "metalCode": "G-18kt",
+      "stone": "Rose Rhodolite",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 2.7,
+      "diamondCt": 3.8,
+      "netG": 16.63,
+      "grossG": 17.93,
+      "story": "Crafted in 18k Gold, set with 2.7 carats of pear-cut rose rhodolite paired with 3.8 carats of brilliant cut diamonds.",
+      "tone": "#9a3a6a",
+      "images": [
+        "img/products/gd26-562.webp",
+        "img/products/gd26-562-1.webp"
+      ],
+      "hover": "img/products/gd26-562-1.webp"
+    },
+    {
+      "id": "gd25-1088",
+      "sku": "GD25-1088",
+      "name": "Aquamarine and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 1.14,
+      "diamondCt": 3.58,
+      "netG": 15.236,
+      "grossG": 16.18,
+      "story": "Crafted in White Gold, set with 1.14 carats of pear-cut aquamarine paired with 3.58 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1088.webp",
+        "img/products/gd25-1088-1.webp"
+      ],
+      "hover": "img/products/gd25-1088-1.webp"
+    },
+    {
+      "id": "gd23-287",
+      "sku": "GD23-287",
+      "name": "Tanzanite and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Octagon",
+      "stonePcs": 2,
+      "stoneCt": 5.7,
+      "diamondCt": 4.36,
+      "netG": 17.888,
+      "grossG": 19.9,
+      "story": "Crafted in 18k White Gold, set with 5.7 carats of octagon-cut tanzanite paired with 4.36 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd23-287.webp",
+        "img/products/gd23-287-1.webp"
+      ],
+      "hover": "img/products/gd23-287-1.webp"
+    },
+    {
+      "id": "gd25-632",
+      "sku": "GD25-632",
+      "name": "Tanzanite and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-w",
+      "stone": "Tanzanite",
+      "shape": "Fancy",
+      "stonePcs": 2,
+      "stoneCt": 11.09,
+      "diamondCt": 3.04,
+      "netG": 13.224,
+      "grossG": 16.05,
+      "story": "Crafted in 18k White Gold, set with 11.09 carats of tanzanite paired with 3.04 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd25-632.webp",
+        "img/products/gd25-632-1.webp"
+      ],
+      "hover": "img/products/gd25-632-1.webp"
+    },
+    {
+      "id": "gd26-918",
+      "sku": "GD26-918",
+      "name": "Pink spinel and diamond flare earrings",
+      "collection": "Flare",
+      "type": "Earrings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Mix",
+      "stonePcs": 12,
+      "stoneCt": 6.06,
+      "diamondCt": 1.53,
+      "netG": 9.432,
+      "grossG": 10.95,
+      "story": "Crafted in 18k White and Rose Gold, set with 6.06 carats of pink spinel paired with 1.53 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-918.webp",
+        "img/products/gd26-918-1.webp"
+      ],
+      "hover": "img/products/gd26-918-1.webp"
+    },
+    {
+      "id": "gd26-795",
+      "sku": "GD26-795",
+      "name": "Aquamarine and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Oval",
+      "stonePcs": 5,
+      "stoneCt": 1.04,
+      "diamondCt": 0.628,
+      "netG": 3.446,
+      "grossG": 3.78,
+      "story": "Crafted in 18k White Gold, set with 1.04 carats of oval aquamarine paired with 0.628 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-795.webp",
+        "img/products/gd26-795-1.webp",
+        "img/products/gd26-795-2.webp"
+      ],
+      "hover": "img/products/gd26-795-1.webp"
+    },
+    {
+      "id": "gd26-791",
+      "sku": "GD26-791",
+      "name": "Spessartite and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Spessartite",
+      "shape": "Oval",
+      "stonePcs": 5,
+      "stoneCt": 1.48,
+      "diamondCt": 0.668,
+      "netG": 3.41,
+      "grossG": 3.84,
+      "story": "Crafted in 18k White Gold, set with 1.48 carats of oval spessartite paired with 0.668 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-791.webp",
+        "img/products/gd26-791-1.webp",
+        "img/products/gd26-791-2.webp"
+      ],
+      "hover": "img/products/gd26-791-1.webp"
+    },
+    {
+      "id": "gd26-829",
+      "sku": "GD26-829",
+      "name": "Tourmaline and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tourmaline",
+      "shape": "Triangle",
+      "stonePcs": 6,
+      "stoneCt": 1.76,
+      "diamondCt": 1.27,
+      "netG": 5.004,
+      "grossG": 5.61,
+      "story": "Crafted in 18k White Gold, set with 1.76 carats of triangle-cut tourmaline paired with 1.27 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-829.webp"
+      ]
+    },
+    {
+      "id": "gd26-831",
+      "sku": "GD26-831",
+      "name": "Aquamarine and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Princess",
+      "stonePcs": 4,
+      "stoneCt": 1.4,
+      "diamondCt": 1.25,
+      "netG": 4.84,
+      "grossG": 5.37,
+      "story": "Crafted in 18k White Gold, set with 1.4 carats of princess-cut aquamarine paired with 1.25 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-831.webp",
+        "img/products/gd26-831-1.webp",
+        "img/products/gd26-831-2.webp"
+      ],
+      "hover": "img/products/gd26-831-1.webp"
+    },
+    {
+      "id": "gd26-834",
+      "sku": "GD26-834",
+      "name": "Pink spinel and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Sq-Princess",
+      "stonePcs": 4,
+      "stoneCt": 1.28,
+      "diamondCt": 1.21,
+      "netG": 5.692,
+      "grossG": 6.19,
+      "story": "Crafted in 18k White and Rose Gold, set with 1.28 carats of princess-cut pink spinel paired with 1.21 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-834.webp"
+      ]
+    },
+    {
+      "id": "gd26-862",
+      "sku": "GD26-862",
+      "name": "Pink tourmaline and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Tourmaline",
+      "shape": "Sq-Octagon",
+      "stonePcs": 1,
+      "stoneCt": 2.01,
+      "diamondCt": 1.63,
+      "netG": 5.352,
+      "grossG": 6.08,
+      "story": "Crafted in 18k White Gold, set with 2.01 carats of square octagon-cut pink tourmaline paired with 1.63 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-862.webp",
+        "img/products/gd26-862-1.webp",
+        "img/products/gd26-862-2.webp"
+      ],
+      "hover": "img/products/gd26-862-1.webp"
+    },
+    {
+      "id": "gd26-207",
+      "sku": "GD26-207",
+      "name": "Tanzanite and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite",
+      "shape": "Sq-Princess",
+      "stonePcs": 4,
+      "stoneCt": 1.4,
+      "diamondCt": 1.47,
+      "netG": 5.306,
+      "grossG": 5.88,
+      "story": "Crafted in White Gold, set with 1.4 carats of princess-cut tanzanite paired with 1.47 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-207.webp",
+        "img/products/gd26-207-1.webp",
+        "img/products/gd26-207-2.webp"
+      ],
+      "hover": "img/products/gd26-207-1.webp"
+    },
+    {
+      "id": "gd26-183",
+      "sku": "GD26-183",
+      "name": "Tanzanite and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite",
+      "shape": "Sq-Princess",
+      "stonePcs": 4,
+      "stoneCt": 1.17,
+      "diamondCt": 1.6,
+      "netG": 5.274,
+      "grossG": 5.83,
+      "story": "Crafted in White Gold, set with 1.17 carats of princess-cut tanzanite paired with 1.6 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-183.webp",
+        "img/products/gd26-183-1.webp",
+        "img/products/gd26-183-2.webp"
+      ],
+      "hover": "img/products/gd26-183-1.webp"
+    },
+    {
+      "id": "gd26-550",
+      "sku": "GD26-550",
+      "name": "Rhodolite and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Rhodolite",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 1.48,
+      "diamondCt": 0.61,
+      "netG": 5.782,
+      "grossG": 6.2,
+      "story": "Crafted in 18k White Gold, set with 1.48 carats of pear-cut rhodolite paired with 0.61 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-550.webp",
+        "img/products/gd26-550-1.webp",
+        "img/products/gd26-550-2.webp"
+      ],
+      "hover": "img/products/gd26-550-1.webp"
+    },
+    {
+      "id": "gd25-1022",
+      "sku": "GD25-1022",
+      "name": "Tanzanite cut and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tanzanite Cut",
+      "shape": "Oval",
+      "stonePcs": 1,
+      "stoneCt": 1.19,
+      "diamondCt": 0.64,
+      "netG": 4.874,
+      "grossG": 5.24,
+      "story": "Crafted in White Gold, set with 1.19 carats of oval tanzanite cut paired with 0.64 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd25-1022.webp",
+        "img/products/gd25-1022-1.webp",
+        "img/products/gd25-1022-2.webp"
+      ],
+      "hover": "img/products/gd25-1022-1.webp"
+    },
+    {
+      "id": "gd25-1071",
+      "sku": "GD25-1071",
+      "name": "Aquamarine and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 1.07,
+      "diamondCt": 0.66,
+      "netG": 5.354,
+      "grossG": 5.7,
+      "story": "Crafted in White Gold, set with 1.07 carats of pear-cut aquamarine paired with 0.66 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-1071.webp",
+        "img/products/gd25-1071-1.webp",
+        "img/products/gd25-1071-2.webp"
+      ],
+      "hover": "img/products/gd25-1071-1.webp"
+    },
+    {
+      "id": "gd26-279-a",
+      "sku": "GD26-279 A",
+      "name": "Diamond and diamond flare ring",
+      "collection": "Flare",
+      "type": "Rings",
+      "metal": "Gold-14kt",
+      "metalCode": "Gold-14kt",
+      "stone": "Diamond",
+      "shape": "Round",
+      "stonePcs": null,
+      "stoneCt": null,
+      "diamondCt": 0.99,
+      "netG": 4.222,
+      "grossG": 4.42,
+      "story": "Crafted in Gold-14kt, set with round cut diamond paired with 0.99 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-279-a.webp",
+        "img/products/gd26-279-a-1.webp",
+        "img/products/gd26-279-a-2.webp"
+      ],
+      "hover": "img/products/gd26-279-a-1.webp"
+    },
+    {
+      "id": "gd26-266",
+      "sku": "GD26-266",
+      "name": "Lavender tanzanite and diamond flare pendant",
+      "collection": "Flare",
+      "type": "Pendants",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Lavender Tanzanite",
+      "shape": "Oval",
+      "stonePcs": 9,
+      "stoneCt": 3.07,
+      "diamondCt": 0.74,
+      "netG": 3.668,
+      "grossG": 4.43,
+      "story": "Crafted in White Gold, set with 3.07 carats of oval lavender tanzanite paired with 0.74 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-266.webp",
+        "img/products/gd26-266-1.webp"
+      ],
+      "hover": "img/products/gd26-266-1.webp"
+    },
+    {
+      "id": "gd26-269",
+      "sku": "GD26-269",
+      "name": "Spessartite and diamond flare pendant",
+      "collection": "Flare",
+      "type": "Pendants",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Oval",
+      "stonePcs": 9,
+      "stoneCt": 5.56,
+      "diamondCt": 0.759,
+      "netG": 3.616,
+      "grossG": 4.88,
+      "story": "Crafted in White Gold, set with 5.56 carats of oval spessartite paired with 0.759 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-269.webp",
+        "img/products/gd26-269-1.webp",
+        "img/products/gd26-269-2.webp"
+      ],
+      "hover": "img/products/gd26-269-2.webp"
+    },
+    {
+      "id": "gd26-800",
+      "sku": "GD26-800",
+      "name": "Tourmaline and diamond flare pendant",
+      "collection": "Flare",
+      "type": "Pendants",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tourmaline",
+      "shape": "Triangle",
+      "stonePcs": 6,
+      "stoneCt": 1.47,
+      "diamondCt": 1.54,
+      "netG": 4.728,
+      "grossG": 5.33,
+      "story": "Crafted in 18k White Gold, set with 1.47 carats of triangle-cut tourmaline paired with 1.54 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-800.webp"
+      ]
+    },
+    {
+      "id": "gd26-803",
+      "sku": "GD26-803",
+      "name": "Aquamarine and diamond flare pendant",
+      "collection": "Flare",
+      "type": "Pendants",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Princess",
+      "stonePcs": 4,
+      "stoneCt": 1.64,
+      "diamondCt": 1.48,
+      "netG": 4.766,
+      "grossG": 5.39,
+      "story": "Crafted in 18k White Gold, set with 1.64 carats of princess-cut aquamarine paired with 1.48 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-803.webp",
+        "img/products/gd26-803-1.webp"
+      ],
+      "hover": "img/products/gd26-803-1.webp"
+    },
+    {
+      "id": "gd26-833",
+      "sku": "GD26-833",
+      "name": "Pink spinel and diamond flare pendant",
+      "collection": "Flare",
+      "type": "Pendants",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Sq-Princess",
+      "stonePcs": 4,
+      "stoneCt": 1.5,
+      "diamondCt": 1.49,
+      "netG": 5.482,
+      "grossG": 6.08,
+      "story": "Crafted in 18k White and Rose Gold, set with 1.5 carats of princess-cut pink spinel paired with 1.49 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-833.webp",
+        "img/products/gd26-833-1.webp"
+      ],
+      "hover": "img/products/gd26-833-1.webp"
+    },
+    {
+      "id": "gd26-905",
+      "sku": "GD26-905",
+      "name": "Pink spinel and diamond flare pendant",
+      "collection": "Flare",
+      "type": "Pendants",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Mix",
+      "stonePcs": 7,
+      "stoneCt": 2.97,
+      "diamondCt": 1.89,
+      "netG": 12.038,
+      "grossG": 13.01,
+      "story": "Crafted in 18k White and Rose Gold, set with 2.97 carats of pink spinel paired with 1.89 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-905.webp"
+      ]
+    },
+    {
+      "id": "gd26-196-b",
+      "sku": "GD26-196 B",
+      "name": "Aquamarine and diamond flare necklace",
+      "collection": "Flare",
+      "type": "Necklaces",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Sq-Princess",
+      "stonePcs": 2,
+      "stoneCt": 1.35,
+      "diamondCt": 7.76,
+      "netG": 16.148,
+      "grossG": 17.97,
+      "story": "Crafted in White Gold, set with 1.35 carats of princess-cut aquamarine paired with 7.76 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-196-b.webp",
+        "img/products/gd26-196-b-1.webp"
+      ],
+      "hover": "img/products/gd26-196-b-1.webp"
+    },
+    {
+      "id": "gd25-878",
+      "sku": "GD25-878",
+      "name": "Pink spinel and diamond flare necklace",
+      "collection": "Flare",
+      "type": "Necklaces",
+      "metal": "Rose Gold",
+      "metalCode": "G-14kt-R",
+      "stone": "Pink Spinel",
+      "shape": "Mix",
+      "stonePcs": 29,
+      "stoneCt": 12.44,
+      "diamondCt": 7.32,
+      "netG": 33.848,
+      "grossG": 37.8,
+      "story": "Crafted in Rose Gold, set with 12.44 carats of pink spinel paired with 7.32 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-878.webp",
+        "img/products/gd25-878-1.webp"
+      ],
+      "hover": "img/products/gd25-878-1.webp"
+    },
+    {
+      "id": "g-624",
+      "sku": "G 624",
+      "name": "Pink spinel, spessartite and diamond ring",
+      "collection": "Multi Colour",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel & Spessartite",
+      "shape": "Mix",
+      "stonePcs": 4,
+      "stoneCt": 0.68,
+      "diamondCt": 0.572,
+      "netG": 6.2,
+      "grossG": 6.45,
+      "story": "Crafted in White Gold, set with 0.29 carats of pink spinel and 0.39 carats of spessartite paired with 0.572 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/g-624.webp",
+        "img/products/g-624-1.webp"
+      ],
+      "hover": "img/products/g-624-1.webp"
+    },
+    {
+      "id": "gd23-316",
+      "sku": "GD23-316",
+      "name": "Pink spinel, aquamarine and diamond ring",
+      "collection": "Multi Colour",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel & Aquamarine",
+      "shape": "Mix",
+      "stonePcs": 7,
+      "stoneCt": 3.05,
+      "diamondCt": 0.96,
+      "netG": 4.485,
+      "grossG": 5.287,
+      "story": "Crafted in 18k White Gold, set with 1.35 carats of pink spinel and 1.7 carats of aquamarine paired with 0.96 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd23-316.webp",
+        "img/products/gd23-316-1.webp",
+        "img/products/gd23-316-2.webp",
+        "img/products/gd23-316-3.webp"
+      ],
+      "hover": "img/products/gd23-316-3.webp"
+    },
+    {
+      "id": "gd26-190",
+      "sku": "GD26-190",
+      "name": "Pink spinel, aquamarine and diamond ring",
+      "collection": "Multi Colour",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel & Aquamarine",
+      "shape": "Oval",
+      "stonePcs": 5,
+      "stoneCt": 1.66,
+      "diamondCt": 0.8,
+      "netG": 6.718,
+      "grossG": 7.21,
+      "story": "Crafted in White Gold, set with 0.77 carats of pink spinel and 0.89 carats of aquamarine paired with 0.8 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-190.webp",
+        "img/products/gd26-190-1.webp",
+        "img/products/gd26-190-2.webp",
+        "img/products/gd26-190-3.webp"
+      ],
+      "hover": "img/products/gd26-190-3.webp"
+    },
+    {
+      "id": "gd26-792",
+      "sku": "GD26-792",
+      "name": "Pink spinel, spessartite and diamond ring",
+      "collection": "Multi Colour",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel & Spessartite",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 1.38,
+      "diamondCt": 0.425,
+      "netG": 2.159,
+      "grossG": 2.52,
+      "story": "Crafted in 18k White Gold, set with 0.57 carats of pink spinel and 0.81 carats of spessartite paired with 0.425 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-792.webp"
+      ]
+    },
+    {
+      "id": "gd26-793",
+      "sku": "GD26-793",
+      "name": "Pink spinel, spessartite and diamond ring",
+      "collection": "Multi Colour",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel & Spessartite",
+      "shape": "Pears",
+      "stonePcs": 7,
+      "stoneCt": 1.66,
+      "diamondCt": 0.495,
+      "netG": 4.719,
+      "grossG": 5.15,
+      "story": "Crafted in 18k White Gold, set with 0.52 carats of pink spinel and 1.14 carats of spessartite paired with 0.495 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-793.webp"
+      ]
+    },
+    {
+      "id": "g-636",
+      "sku": "G 636",
+      "name": "Aquamarine, mint garnet and diamond ring",
+      "collection": "Multi Colour",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine & Mint Garnet",
+      "shape": "Mix",
+      "stonePcs": 9,
+      "stoneCt": 1.4,
+      "diamondCt": 0.599,
+      "netG": 9.318,
+      "grossG": 9.718,
+      "story": "Crafted in White Gold, set with 0.69 carats of aquamarine and 0.71 carats of mint garnet paired with 0.599 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/g-636.webp",
+        "img/products/g-636-1.webp"
+      ],
+      "hover": "img/products/g-636-1.webp"
+    },
+    {
+      "id": "gd24-537",
+      "sku": "GD24-537",
+      "name": "Aquamarine, tanzanite and diamond earrings",
+      "collection": "Multi Colour",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine & Tanzanite",
+      "shape": "Octagon",
+      "stonePcs": 12,
+      "stoneCt": 13.23,
+      "diamondCt": 1.02,
+      "netG": 13.05,
+      "grossG": 15.9,
+      "story": "Crafted in 18k White Gold, set with 1.94 carats of aquamarine and 11.29 carats of tanzanite paired with 1.02 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd24-537.webp"
+      ]
+    },
+    {
+      "id": "gd26-76",
+      "sku": "GD26-76",
+      "name": "Aquamarine, mint garnet and diamond bracelet",
+      "collection": "Multi Colour",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine & Mint Garnet",
+      "shape": "Oval",
+      "stonePcs": 55,
+      "stoneCt": 11.62,
+      "diamondCt": 0.46,
+      "netG": 12.744,
+      "grossG": 15.16,
+      "story": "Crafted in White Gold, set with 2.42 carats of aquamarine and 9.2 carats of mint garnet paired with 0.46 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-76.webp"
+      ]
+    },
+    {
+      "id": "gd26-195-c",
+      "sku": "GD26-195 C",
+      "name": "Mint garnet, tsavorite and diamond bracelet",
+      "collection": "Multi Colour",
+      "type": "Bracelets",
+      "metal": "Yellow Gold",
+      "metalCode": "G-14kt-Y",
+      "stone": "Mint Garnet & Tsavorite",
+      "shape": "Rds",
+      "stonePcs": 24,
+      "stoneCt": 4.69,
+      "diamondCt": null,
+      "netG": 13.872,
+      "grossG": 14.81,
+      "story": "Crafted in Yellow Gold, set with 2.26 carats of mint garnet and 2.42 carats of tsavorite.",
+      "tone": "#6a9e7a",
+      "images": [
+        "img/products/gd26-195-c.webp",
+        "img/products/gd26-195-c-1.webp"
+      ],
+      "hover": "img/products/gd26-195-c-1.webp"
+    },
+    {
+      "id": "gd26-271",
+      "sku": "GD26-271",
+      "name": "Tanzanite and diamond shamsa necklace",
+      "collection": "Shamsa Fine",
+      "type": "Necklaces",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 14.83,
+      "diamondCt": 2.62,
+      "netG": 23.36,
+      "grossG": 26.85,
+      "story": "Crafted in 18k White Gold, set with 14.83 carats of pear-cut tanzanite paired with 2.62 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-271.webp"
+      ]
+    },
+    {
+      "id": "gd26-271-a",
+      "sku": "GD26-271 A",
+      "name": "Tanzanite and diamond shamsa earrings",
+      "collection": "Shamsa Fine",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Pears",
+      "stonePcs": 2,
+      "stoneCt": 15.17,
+      "diamondCt": 1.91,
+      "netG": 14.384,
+      "grossG": 17.8,
+      "story": "Crafted in 18k White Gold, set with 15.17 carats of pear-cut tanzanite paired with 1.91 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-271-a.webp"
+      ]
+    },
+    {
+      "id": "gd26-895",
+      "sku": "GD26-895",
+      "name": "Pink spinel and diamond shamsa pendant",
+      "collection": "Shamsa Fine",
+      "type": "Pendants",
+      "metal": "18k Yellow and White Gold",
+      "metalCode": "G-18kt-YW",
+      "stone": "Pink Spinel",
+      "shape": "Oval Cabs",
+      "stonePcs": 1,
+      "stoneCt": 1.77,
+      "diamondCt": 1.315,
+      "netG": 4.923,
+      "grossG": 5.54,
+      "story": "Crafted in 18k Yellow and White Gold, set with 1.77 carats of pink spinel paired with 1.315 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-895.webp"
+      ]
+    },
+    {
+      "id": "gd26-897",
+      "sku": "GD26-897",
+      "name": "Pink spinel and diamond shamsa ring",
+      "collection": "Shamsa Fine",
+      "type": "Rings",
+      "metal": "18k Yellow and White Gold",
+      "metalCode": "G-18kt-YW",
+      "stone": "Pink Spinel",
+      "shape": "Oval Cabs",
+      "stonePcs": 1,
+      "stoneCt": 1.03,
+      "diamondCt": 1.35,
+      "netG": 6.514,
+      "grossG": 6.99,
+      "story": "Crafted in 18k Yellow and White Gold, set with 1.03 carats of pink spinel paired with 1.35 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-897.webp"
+      ]
+    },
+    {
+      "id": "gd24-647",
+      "sku": "GD24-647",
+      "name": "Tanzanite and diamond dome earrings",
+      "collection": "Dome",
+      "type": "Earrings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Mix",
+      "stonePcs": 20,
+      "stoneCt": 30.49,
+      "diamondCt": 1.42,
+      "netG": 8.318,
+      "grossG": 14.7,
+      "story": "Crafted in 18k White Gold, set with 30.49 carats of tanzanite paired with 1.42 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd24-647.webp",
+        "img/products/gd24-647-1.webp"
+      ],
+      "hover": "img/products/gd24-647-1.webp"
+    },
+    {
+      "id": "gd25-1028",
+      "sku": "GD25-1028",
+      "name": "Spessartite and diamond dome earrings",
+      "collection": "Dome",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Round Cabs",
+      "stonePcs": 44,
+      "stoneCt": 18.53,
+      "diamondCt": 1.61,
+      "netG": 7.722,
+      "grossG": 11.75,
+      "story": "Crafted in White Gold, set with 18.53 carats of spessartite paired with 1.61 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd25-1028.webp",
+        "img/products/gd25-1028-1.webp",
+        "img/products/gd25-1028-2.webp"
+      ],
+      "hover": "img/products/gd25-1028-2.webp"
+    },
+    {
+      "id": "gd25-1060",
+      "sku": "GD25-1060",
+      "name": "Spessartite and diamond dome earrings",
+      "collection": "Dome",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 10,
+      "stoneCt": 18.33,
+      "diamondCt": 2.26,
+      "netG": 9.392,
+      "grossG": 13.51,
+      "story": "Crafted in White Gold, set with 18.33 carats of drop-cut spessartite paired with 2.26 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd25-1060.webp",
+        "img/products/gd25-1060-1.webp",
+        "img/products/gd25-1060-2.webp"
+      ],
+      "hover": "img/products/gd25-1060-2.webp"
+    },
+    {
+      "id": "gd25-1093",
+      "sku": "GD25-1093",
+      "name": "Spessartite and diamond dome earrings",
+      "collection": "Dome",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Round Cabs",
+      "stonePcs": 200,
+      "stoneCt": 102.09,
+      "diamondCt": 4.37,
+      "netG": 12.958,
+      "grossG": 34.38,
+      "story": "Crafted in White Gold, set with 102.09 carats of spessartite paired with 4.37 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd25-1093.webp",
+        "img/products/gd25-1093-1.webp",
+        "img/products/gd25-1093-2.webp"
+      ],
+      "hover": "img/products/gd25-1093-2.webp"
+    },
+    {
+      "id": "gd26-174",
+      "sku": "GD26-174",
+      "name": "Pink spinel and diamond dome earrings",
+      "collection": "Dome",
+      "type": "Earrings",
+      "metal": "White and Rose Gold",
+      "metalCode": "G-14kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 16,
+      "stoneCt": 18.35,
+      "diamondCt": 1.49,
+      "netG": 11.512,
+      "grossG": 15.48,
+      "story": "Crafted in White and Rose Gold, set with 18.35 carats of drop-cut pink spinel paired with 1.49 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-174.webp",
+        "img/products/gd26-174-1.webp"
+      ],
+      "hover": "img/products/gd26-174-1.webp"
+    },
+    {
+      "id": "gd26-59",
+      "sku": "GD26-59",
+      "name": "Spessartite and diamond dome earrings",
+      "collection": "Dome",
+      "type": "Earrings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 16,
+      "stoneCt": 22.72,
+      "diamondCt": 1.56,
+      "netG": 11.604,
+      "grossG": 16.46,
+      "story": "Crafted in White Gold, set with 22.72 carats of drop-cut spessartite paired with 1.56 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-59.webp",
+        "img/products/gd26-59-1.webp",
+        "img/products/gd26-59-2.webp"
+      ],
+      "hover": "img/products/gd26-59-2.webp"
+    },
+    {
+      "id": "gd26-214",
+      "sku": "GD26-214",
+      "name": "Pink spinel and diamond dome bangle",
+      "collection": "Dome",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Rcb",
+      "stonePcs": 18,
+      "stoneCt": 8.68,
+      "diamondCt": 2.46,
+      "netG": 23.212,
+      "grossG": 25.44,
+      "story": "Crafted in White Gold, set with 8.68 carats of pink spinel paired with 2.46 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-214.webp",
+        "img/products/gd26-214-1.webp",
+        "img/products/gd26-214-2.webp",
+        "img/products/gd26-214-3.webp"
+      ],
+      "hover": "img/products/gd26-214-3.webp"
+    },
+    {
+      "id": "gd26-259",
+      "sku": "GD26-259",
+      "name": "Pink spinel and diamond dome bracelet",
+      "collection": "Dome",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Rcb",
+      "stonePcs": 47,
+      "stoneCt": 26.33,
+      "diamondCt": 8.37,
+      "netG": 26.17,
+      "grossG": 33.11,
+      "story": "Crafted in White Gold, set with 26.33 carats of pink spinel paired with 8.37 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-259.webp",
+        "img/products/gd26-259-1.webp"
+      ],
+      "hover": "img/products/gd26-259-1.webp"
+    },
+    {
+      "id": "gd26-261",
+      "sku": "GD26-261",
+      "name": "Spessartite and diamond dome bracelet",
+      "collection": "Dome",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Round Cabs",
+      "stonePcs": 47,
+      "stoneCt": 16.75,
+      "diamondCt": 7.99,
+      "netG": 28.212,
+      "grossG": 33.16,
+      "story": "Crafted in White Gold, set with 16.75 carats of spessartite paired with 7.99 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-261.webp",
+        "img/products/gd26-261-1.webp"
+      ],
+      "hover": "img/products/gd26-261-1.webp"
+    },
+    {
+      "id": "gd26-568",
+      "sku": "GD26-568",
+      "name": "Pink spinel and diamond dome bangle",
+      "collection": "Dome",
+      "type": "Bracelets",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 22,
+      "stoneCt": 5.53,
+      "diamondCt": 2.17,
+      "netG": 14.59,
+      "grossG": 16.13,
+      "story": "Crafted in 18k White Gold, set with 5.53 carats of drop-cut pink spinel paired with 2.17 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-568.webp",
+        "img/products/gd26-568-1.webp",
+        "img/products/gd26-568-2.webp"
+      ],
+      "hover": "img/products/gd26-568-1.webp"
+    },
+    {
+      "id": "gd25-1027",
+      "sku": "GD25-1027",
+      "name": "Pink spinel and diamond dome bangle",
+      "collection": "Dome",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 117,
+      "stoneCt": 52.55,
+      "diamondCt": 8.11,
+      "netG": 29.028,
+      "grossG": 41.16,
+      "story": "Crafted in White Gold, set with 52.55 carats of drop-cut pink spinel paired with 8.11 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-1027.webp",
+        "img/products/gd25-1027-1.webp",
+        "img/products/gd25-1027-2.webp"
+      ],
+      "hover": "img/products/gd25-1027-2.webp"
+    },
+    {
+      "id": "gd25-673",
+      "sku": "GD25-673",
+      "name": "Tsavorite and diamond dome bangle",
+      "collection": "Dome",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Tsavorite",
+      "shape": "Drops",
+      "stonePcs": 28,
+      "stoneCt": 12.74,
+      "diamondCt": 7.07,
+      "netG": 27.028,
+      "grossG": 30.99,
+      "story": "Crafted in White Gold, set with 12.74 carats of drop-cut tsavorite paired with 7.07 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd25-673.webp",
+        "img/products/gd25-673-1.webp",
+        "img/products/gd25-673-2.webp",
+        "img/products/gd25-673-3.webp"
+      ],
+      "hover": "img/products/gd25-673-3.webp"
+    },
+    {
+      "id": "gd26-198",
+      "sku": "GD26-198",
+      "name": "Pink spinel and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Balls\nCabs",
+      "stonePcs": 21,
+      "stoneCt": 27.97,
+      "diamondCt": 1.1,
+      "netG": 6.666,
+      "grossG": 12.48,
+      "story": "Crafted in White Gold, set with 27.97 carats of pink spinel paired with 1.1 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-198.webp"
+      ]
+    },
+    {
+      "id": "gd26-227-c",
+      "sku": "GD26-227 C",
+      "name": "Spessartite and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Pears Cabs",
+      "stonePcs": 1,
+      "stoneCt": 5.62,
+      "diamondCt": 0.26,
+      "netG": 1.624,
+      "grossG": 2.8,
+      "story": "Crafted in White Gold, set with 5.62 carats of spessartite paired with 0.26 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-227-c.webp",
+        "img/products/gd26-227-c-1.webp"
+      ],
+      "hover": "img/products/gd26-227-c-1.webp"
+    },
+    {
+      "id": "gd26-236",
+      "sku": "GD26-236",
+      "name": "Pink spinel and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 2.76,
+      "diamondCt": 0.13,
+      "netG": 0.662,
+      "grossG": 1.24,
+      "story": "Crafted in White Gold, set with 2.76 carats of drop-cut pink spinel paired with 0.13 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-236.webp",
+        "img/products/gd26-236-1.webp"
+      ],
+      "hover": "img/products/gd26-236-1.webp"
+    },
+    {
+      "id": "gd26-57",
+      "sku": "GD26-57",
+      "name": "Spessartite and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 9,
+      "stoneCt": 12.46,
+      "diamondCt": 1.63,
+      "netG": 21.422,
+      "grossG": 24.24,
+      "story": "Crafted in White Gold, set with 12.46 carats of drop-cut spessartite paired with 1.63 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-57.webp",
+        "img/products/gd26-57-1.webp",
+        "img/products/gd26-57-2.webp"
+      ],
+      "hover": "img/products/gd26-57-2.webp"
+    },
+    {
+      "id": "gd26-841",
+      "sku": "GD26-841",
+      "name": "Tanzanite and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 2.82,
+      "diamondCt": 0.13,
+      "netG": 0.65,
+      "grossG": 1.24,
+      "story": "Crafted in 18k White Gold, set with 2.82 carats of drop-cut tanzanite paired with 0.13 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-841.webp",
+        "img/products/gd26-841-1.webp"
+      ],
+      "hover": "img/products/gd26-841-1.webp"
+    },
+    {
+      "id": "gd26-846",
+      "sku": "GD26-846",
+      "name": "Spessartite and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "18k Yellow and White Gold",
+      "metalCode": "G-18kt-YW",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 2.18,
+      "diamondCt": 0.14,
+      "netG": 0.666,
+      "grossG": 1.13,
+      "story": "Crafted in 18k Yellow and White Gold, set with 2.18 carats of drop-cut spessartite paired with 0.14 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-846.webp",
+        "img/products/gd26-846-1.webp"
+      ],
+      "hover": "img/products/gd26-846-1.webp"
+    },
+    {
+      "id": "gd26-173",
+      "sku": "GD26-173",
+      "name": "Tanzanite and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "White and Rose Gold",
+      "metalCode": "G-14kt-WR",
+      "stone": "Tanzanite",
+      "shape": "Drops",
+      "stonePcs": 9,
+      "stoneCt": 10.14,
+      "diamondCt": 0.96,
+      "netG": 6.78,
+      "grossG": 9,
+      "story": "Crafted in White and Rose Gold, set with 10.14 carats of drop-cut tanzanite paired with 0.96 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-173.webp",
+        "img/products/gd26-173-1.webp"
+      ],
+      "hover": "img/products/gd26-173-1.webp"
+    },
+    {
+      "id": "gd26-299",
+      "sku": "GD26-299",
+      "name": "Rhodolite and diamond dome pendant",
+      "collection": "Dome",
+      "type": "Pendants",
+      "metal": "White and Rose Gold",
+      "metalCode": "G-14kt-WR",
+      "stone": "Rhodolite",
+      "shape": "Balls",
+      "stonePcs": 1,
+      "stoneCt": 3.91,
+      "diamondCt": 0.47,
+      "netG": 2.524,
+      "grossG": 3.4,
+      "story": "Crafted in White and Rose Gold, set with 3.91 carats of rhodolite paired with 0.47 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-299.webp",
+        "img/products/gd26-299-1.webp"
+      ],
+      "hover": "img/products/gd26-299-1.webp"
+    },
+    {
+      "id": "gd25-786",
+      "sku": "GD25-786",
+      "name": "Tsavorite and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tsavorite",
+      "shape": "Drops",
+      "stonePcs": 20,
+      "stoneCt": 8.6,
+      "diamondCt": 0.83,
+      "netG": 7.114,
+      "grossG": 9,
+      "story": "Crafted in 18k White Gold, set with 8.6 carats of drop-cut tsavorite paired with 0.83 carats of brilliant cut diamonds.",
+      "tone": "#2f8a4f",
+      "images": [
+        "img/products/gd25-786.webp",
+        "img/products/gd25-786-1.webp",
+        "img/products/gd25-786-2.webp",
+        "img/products/gd25-786-3.webp"
+      ],
+      "hover": "img/products/gd25-786-3.webp"
+    },
+    {
+      "id": "gd25-795",
+      "sku": "GD25-795",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 18,
+      "stoneCt": 8.48,
+      "diamondCt": 0.65,
+      "netG": 3.524,
+      "grossG": 5.35,
+      "story": "Crafted in 18k White Gold, set with 8.48 carats of drop-cut pink spinel paired with 0.65 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-795.webp",
+        "img/products/gd25-795-1.webp",
+        "img/products/gd25-795-2.webp",
+        "img/products/gd25-795-3.webp"
+      ],
+      "hover": "img/products/gd25-795-3.webp"
+    },
+    {
+      "id": "gd25-796",
+      "sku": "GD25-796",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Oval Cabs",
+      "stonePcs": 1,
+      "stoneCt": 5.9,
+      "diamondCt": 1,
+      "netG": 6.98,
+      "grossG": 8.36,
+      "story": "Crafted in 18k White Gold, set with 5.9 carats of pink spinel paired with 1 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd25-796.webp",
+        "img/products/gd25-796-1.webp",
+        "img/products/gd25-796-2.webp"
+      ],
+      "hover": "img/products/gd25-796-1.webp"
+    },
+    {
+      "id": "gd26-237",
+      "sku": "GD26-237",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 1.9,
+      "diamondCt": 0.22,
+      "netG": 2.376,
+      "grossG": 2.8,
+      "story": "Crafted in White Gold, set with 1.9 carats of drop-cut pink spinel paired with 0.22 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-237.webp",
+        "img/products/gd26-237-1.webp",
+        "img/products/gd26-237-2.webp"
+      ],
+      "hover": "img/products/gd26-237-1.webp"
+    },
+    {
+      "id": "gd26-560",
+      "sku": "GD26-560",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 9,
+      "stoneCt": 9.96,
+      "diamondCt": 1.1,
+      "netG": 7.308,
+      "grossG": 9.52,
+      "story": "Crafted in 18k White Gold, set with 9.96 carats of drop-cut pink spinel paired with 1.1 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-560.webp"
+      ]
+    },
+    {
+      "id": "gd26-58",
+      "sku": "GD26-58",
+      "name": "Spessartite and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 1.321,
+      "diamondCt": 0.701,
+      "netG": 3.376,
+      "grossG": 3.78,
+      "story": "Crafted in White Gold, set with 1.321 carats of drop-cut spessartite paired with 0.701 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-58.webp",
+        "img/products/gd26-58-1.webp",
+        "img/products/gd26-58-2.webp",
+        "img/products/gd26-58-3.webp"
+      ],
+      "hover": "img/products/gd26-58-3.webp"
+    },
+    {
+      "id": "gd26-806",
+      "sku": "GD26-806",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 13,
+      "stoneCt": 2.57,
+      "diamondCt": 0.58,
+      "netG": 3.48,
+      "grossG": 4.11,
+      "story": "Crafted in 18k White Gold, set with 2.57 carats of drop-cut pink spinel paired with 0.58 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-806.webp",
+        "img/products/gd26-806-1.webp",
+        "img/products/gd26-806-2.webp"
+      ],
+      "hover": "img/products/gd26-806-1.webp"
+    },
+    {
+      "id": "gd26-840",
+      "sku": "GD26-840",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White and Rose Gold",
+      "metalCode": "G-18kt-WR",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 13,
+      "stoneCt": 3.22,
+      "diamondCt": 0.69,
+      "netG": 4.938,
+      "grossG": 5.72,
+      "story": "Crafted in 18k White and Rose Gold, set with 3.22 carats of drop-cut pink spinel paired with 0.69 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-840.webp",
+        "img/products/gd26-840-1.webp",
+        "img/products/gd26-840-2.webp"
+      ],
+      "hover": "img/products/gd26-840-1.webp"
+    },
+    {
+      "id": "gd26-839",
+      "sku": "GD26-839",
+      "name": "Pink spinel and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 26,
+      "stoneCt": 4.8,
+      "diamondCt": 0.71,
+      "netG": 4.898,
+      "grossG": 6,
+      "story": "Crafted in 18k White Gold, set with 4.8 carats of drop-cut pink spinel paired with 0.71 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-839.webp",
+        "img/products/gd26-839-1.webp",
+        "img/products/gd26-839-2.webp"
+      ],
+      "hover": "img/products/gd26-839-1.webp"
+    },
+    {
+      "id": "gd26-843",
+      "sku": "GD26-843",
+      "name": "Tanzanite and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Tanzanite",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 1.31,
+      "diamondCt": 0.21,
+      "netG": 2.556,
+      "grossG": 2.86,
+      "story": "Crafted in 18k White Gold, set with 1.31 carats of drop-cut tanzanite paired with 0.21 carats of brilliant cut diamonds.",
+      "tone": "#3a5f9a",
+      "images": [
+        "img/products/gd26-843.webp",
+        "img/products/gd26-843-1.webp",
+        "img/products/gd26-843-2.webp"
+      ],
+      "hover": "img/products/gd26-843-1.webp"
+    },
+    {
+      "id": "gd26-848",
+      "sku": "GD26-848",
+      "name": "Spessartite and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 1,
+      "stoneCt": 1.61,
+      "diamondCt": 0.23,
+      "netG": 2.612,
+      "grossG": 2.98,
+      "story": "Crafted in 18k White Gold, set with 1.61 carats of drop-cut spessartite paired with 0.23 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-848.webp",
+        "img/products/gd26-848-1.webp",
+        "img/products/gd26-848-2.webp"
+      ],
+      "hover": "img/products/gd26-848-1.webp"
+    },
+    {
+      "id": "gd26-158",
+      "sku": "GD26-158",
+      "name": "Spessartite and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Ball",
+      "stonePcs": 13,
+      "stoneCt": 6.09,
+      "diamondCt": 0.76,
+      "netG": 4.49,
+      "grossG": 5.86,
+      "story": "Crafted in White Gold, set with 6.09 carats of spessartite paired with 0.76 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-158.webp",
+        "img/products/gd26-158-1.webp",
+        "img/products/gd26-158-2.webp"
+      ],
+      "hover": "img/products/gd26-158-1.webp"
+    },
+    {
+      "id": "gd26-262",
+      "sku": "GD26-262",
+      "name": "Spessartite and diamond dome ring",
+      "collection": "Dome",
+      "type": "Rings",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Cabs",
+      "stonePcs": 11,
+      "stoneCt": 2.94,
+      "diamondCt": 0.72,
+      "netG": 4.608,
+      "grossG": 5.34,
+      "story": "Crafted in White Gold, set with 2.94 carats of spessartite paired with 0.72 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-262.webp",
+        "img/products/gd26-262-1.webp",
+        "img/products/gd26-262-2.webp",
+        "img/products/gd26-262-3.webp"
+      ],
+      "hover": "img/products/gd26-262-3.webp"
+    },
+    {
+      "id": "gd25-836",
+      "sku": "GD25-836",
+      "name": "Aquamarine and diamond tide bangle",
+      "collection": "Tide",
+      "type": "Bracelets",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Aquamarine",
+      "shape": "Pears",
+      "stonePcs": 1,
+      "stoneCt": 3.74,
+      "diamondCt": 1.902,
+      "netG": 16.962,
+      "grossG": 18.09,
+      "story": "Crafted in 18k White Gold, set with 3.74 carats of pear-cut aquamarine paired with 1.902 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd25-836.webp",
+        "img/products/gd25-836-1.webp",
+        "img/products/gd25-836-2.webp",
+        "img/products/gd25-836-3.webp"
+      ],
+      "hover": "img/products/gd25-836-3.webp"
+    },
+    {
+      "id": "gd26-51",
+      "sku": "GD26-51",
+      "name": "Pink spinel and diamond tide bangle",
+      "collection": "Tide",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Pink Spinel",
+      "shape": "Drops",
+      "stonePcs": 13,
+      "stoneCt": 9.09,
+      "diamondCt": 0.52,
+      "netG": 15.548,
+      "grossG": 17.47,
+      "story": "Crafted in White Gold, set with 9.09 carats of drop-cut pink spinel paired with 0.52 carats of brilliant cut diamonds.",
+      "tone": "#c45a7a",
+      "images": [
+        "img/products/gd26-51.webp",
+        "img/products/gd26-51-1.webp",
+        "img/products/gd26-51-2.webp"
+      ],
+      "hover": "img/products/gd26-51-1.webp"
+    },
+    {
+      "id": "gd26-165",
+      "sku": "GD26-165",
+      "name": "Spessartite and diamond tide bangle",
+      "collection": "Tide",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Spessartite",
+      "shape": "Drops",
+      "stonePcs": 11,
+      "stoneCt": 9.89,
+      "diamondCt": 0.49,
+      "netG": 15.934,
+      "grossG": 18.01,
+      "story": "Crafted in White Gold, set with 9.89 carats of drop-cut spessartite paired with 0.49 carats of brilliant cut diamonds.",
+      "tone": "#d4783a",
+      "images": [
+        "img/products/gd26-165.webp",
+        "img/products/gd26-165-1.webp",
+        "img/products/gd26-165-2.webp"
+      ],
+      "hover": "img/products/gd26-165-1.webp"
+    },
+    {
+      "id": "gd26-73",
+      "sku": "GD26-73",
+      "name": "Aquamarine and diamond tide bangle",
+      "collection": "Tide",
+      "type": "Bracelets",
+      "metal": "White Gold",
+      "metalCode": "G-14kt-W",
+      "stone": "Aquamarine",
+      "shape": "Rds",
+      "stonePcs": 14,
+      "stoneCt": 2.82,
+      "diamondCt": 0.25,
+      "netG": 9.506,
+      "grossG": 10.12,
+      "story": "Crafted in White Gold, set with 2.82 carats of round cut aquamarine paired with 0.25 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
+      "images": [
+        "img/products/gd26-73.webp",
+        "img/products/gd26-73-1.webp",
+        "img/products/gd26-73-2.webp",
+        "img/products/gd26-73-3.webp"
+      ],
+      "hover": "img/products/gd26-73-3.webp"
+    },
+    {
+      "id": "gd26-750",
+      "sku": "GD26-750",
+      "name": "Bracelet and diamond bloom white",
+      "collection": "Bloom",
+      "type": "Whites",
+      "metal": "18k White Gold",
+      "metalCode": "G-18kt-W",
+      "stone": "Bracelet",
+      "shape": "Aquamarine",
+      "stonePcs": null,
+      "stoneCt": 1.78,
+      "diamondCt": 0.88,
+      "netG": 4.528,
+      "grossG": 5.06,
+      "story": "Crafted in 18k White Gold, set with 1.78 carats of bracelet paired with 0.88 carats of brilliant cut diamonds.",
+      "tone": "#8a7f9a",
+      "images": [
+        "img/products/gd26-750.webp"
+      ]
     }
   ]
 };

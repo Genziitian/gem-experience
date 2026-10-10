@@ -1,6 +1,6 @@
 /* Runs the Vercel-style handlers on a plain Node server, for the VPS deploy.
  *
- * nginx proxies /api/collect here and fills in the x-vercel-ip-* headers from
+ * nginx proxies /api/collect and /api/notify here and fills in the x-vercel-ip-* headers from
  * its GeoIP database, so collect.js reads the same headers it does on Vercel.
  * This only adds the two Vercel helpers it uses (res.status, res.json) and the
  * parsed body.
@@ -10,10 +10,11 @@
 
 import { createServer } from "node:http";
 import collect from "./collect.js";
+import notify from "./notify.js";
 
 const PORT = Number(process.env.PORT || 3001);
 const MAX_BODY = 64 * 1024;
-const routes = { "/api/collect": collect };
+const routes = { "/api/collect": collect, "/api/notify": notify };
 
 createServer((req, res) => {
   res.status = (code) => ((res.statusCode = code), res);

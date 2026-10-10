@@ -20,7 +20,7 @@ const LINKS = [
     ["/activity", "Activity", "traffic"],
   ] },
   { section: "Engagement", items: [
-    ["/forms", "Forms", "forms", "forms"],
+    ["/forms", "Leads", "forms", "forms"],
     ["/traffic", "Traffic", "traffic"],
   ] },
   { section: "Content", items: [

@@ -85,8 +85,7 @@ export default function Gifts() {
     const { error: err } = await supabase
       .from("form_submissions").update({ status }).eq("id", row.id);
     if (err) { show(err.message, false); return; }
-    await supabase.from("form_activity")
-      .insert({ submission_id: row.id, action: "status", note: `Gift request marked ${status}` });
+    /* the database logs the status change in the lead's timeline itself */
     show(`Marked ${status}.`);
     load();
   }

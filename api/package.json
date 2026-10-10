@@ -1,5 +1,8 @@
 {
   "name": "gem-experience-api",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
 }

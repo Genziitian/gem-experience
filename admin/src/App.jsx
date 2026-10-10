@@ -7,8 +7,7 @@ import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Catalog from "./pages/Catalog.jsx";
 import Orders from "./pages/Orders.jsx";
-import Forms from "./pages/Forms.jsx";
-import Quotations from "./pages/Quotations.jsx";
+import Leads from "./pages/Leads.jsx";
 import Traffic from "./pages/Traffic.jsx";
 import Seo from "./pages/Seo.jsx";
 import Security from "./pages/Security.jsx";
@@ -90,9 +89,9 @@ export default function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/users" element={<Navigate to="/people" replace />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/quotations" element={<Quotations />} />
+        <Route path="/quotations" element={<Leads kinds={["quotation", "checkout"]} title="Quotations" lede="Pieces clients asked us to price, from the quotation form and from checkout." />} />
         <Route path="/gifts" element={<Gifts />} />
-        <Route path="/forms" element={<Forms />} />
+        <Route path="/forms" element={<Leads />} />
         <Route path="/traffic" element={<Traffic />} />
         <Route path="/seo" element={<Seo />} />
         <Route path="/navigation" element={<Navigation />} />

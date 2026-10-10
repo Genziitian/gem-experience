@@ -45,3 +45,9 @@ admin/.env
 /assets/GE11663.jpg
 /assets/GE10715.jpg
 /assets/GE11668.jpg
+
+# VPS API dependencies (installed on the server with npm ci)
+api/node_modules/
+
+# Python bytecode from tools/
+__pycache__/

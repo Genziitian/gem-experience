@@ -75,7 +75,7 @@ export default function Dashboard() {
       <div className="stat-grid">
         <Link className="stat" to="/catalog"><span>Products</span><strong>{stats ? stats.products : "—"}</strong></Link>
         <Link className="stat" to="/quotations"><span>Active quotes</span><strong>{stats ? stats.quotes : "—"}</strong></Link>
-        <Link className="stat" to="/forms"><span>New forms</span><strong>{stats ? stats.forms : "—"}</strong></Link>
+        <Link className="stat" to="/forms"><span>New leads</span><strong>{stats ? stats.forms : "—"}</strong></Link>
         <Link className="stat" to="/orders"><span>Orders</span><strong>{stats ? stats.orders : "—"}</strong></Link>
         <Link className="stat" to="/traffic"><span><i className="live-dot" />Visitors now</span><strong>{stats ? stats.visitors : "—"}</strong></Link>
       </div>
@@ -106,7 +106,7 @@ export default function Dashboard() {
       </div>
 
       <div className="split">
-        <Panel title="Latest enquiries" actions={<Link className="cell-sub" to="/forms">All forms →</Link>}>
+        <Panel title="Latest leads" actions={<Link className="cell-sub" to="/forms">All leads →</Link>}>
           {enquiries === null ? (
             <Skeleton rows={4} />
           ) : enquiries.length ? (

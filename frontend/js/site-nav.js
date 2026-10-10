@@ -24,7 +24,9 @@
       children: [
         { label: "Shop all", href: "fine-jewellery/#/shop" },
         { label: "Bloom", href: "fine-jewellery/#/bloom" },
-        { label: "Safar", href: "fine-jewellery/#/safar" }
+        { label: "Safar", href: "fine-jewellery/#/safar" },
+        { label: "Dazzle", href: "fine-jewellery/#/dazzle" },
+        { label: "Entwine", href: "fine-jewellery/#/entwine" }
       ]
     },
     {

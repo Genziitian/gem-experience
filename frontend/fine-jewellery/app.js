@@ -347,6 +347,15 @@
     return root;
   }
 
+  /* Points a photo banner at the collection's image. The portrait banners
+     are framed from the upper third in the wide band, which is where the
+     face and the piece sit; Shop all keeps its own photograph from the CSS. */
+  function photoBanner(node, col) {
+    if (!col || !col.banner) return;
+    node.style.setProperty("--fj-banner", 'url("' + col.banner + '")');
+    node.style.setProperty("--fj-banner-y", col.bannerY || "28%");
+  }
+
   function renderShop(route) {
     var col = route.collection;
     var type = route.type;
@@ -354,9 +363,11 @@
 
     var root = el("div", "fj-shop");
 
-    /* Shop all gets the collection photograph; a single collection keeps the
-       gradient, since its own banner already runs above the grid. */
-    var banner = el("header", "fj-shop-banner" + (col ? "" : " fj-shop-banner--photo"));
+    /* Shop all gets the house photograph; a collection gets its own banner,
+       so choosing Bloom or Safar opens on Bloom or Safar rather than on a
+       flat band of colour. The gradient underneath stays as the fallback. */
+    var banner = el("header", "fj-shop-banner" + (!col || col.banner ? " fj-shop-banner--photo" : ""));
+    photoBanner(banner, col);
     banner.appendChild(el("p", "fj-kicker", { text: "Fine Jewellery" }));
     banner.appendChild(el("h1", "fj-title", {
       text: type ? type : (col ? col.name : "Shop all")
@@ -468,7 +479,10 @@
       hero.appendChild(panel);
       root.appendChild(hero);
     } else {
-      var subHead = el("header", "fj-col-subhead");
+      /* A category inside a collection (Bloom · Rings) keeps the collection's
+         photograph across the top, so the page still reads as Bloom. */
+      var subHead = el("header", col.banner ? "fj-shop-banner fj-shop-banner--photo fj-col-subhead--photo" : "fj-col-subhead");
+      photoBanner(subHead, col);
       subHead.appendChild(el("a", "fj-back", {
         href: "#/" + col.id,
         text: "← " + col.name

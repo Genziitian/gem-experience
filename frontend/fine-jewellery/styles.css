@@ -262,8 +262,11 @@ button {
 .fj-shop-banner--photo::before {
   /* pulled up so the crop keeps the face and the piece rather than trimming
      to the exact centre of the frame */
-  background: url("img/shop-banner.webp") 50% 50% / cover no-repeat, #2a2420;
+  background: var(--fj-banner, url("img/shop-banner.webp")) 50% var(--fj-banner-y, 50%) / cover no-repeat, #2a2420;
 }
+/* A category page's photo header: the back link reads on the photograph. */
+.fj-col-subhead--photo .fj-back { color: rgba(255,255,255,0.85); }
+.fj-col-subhead--photo .fj-col-count { color: rgba(255,255,255,0.8); margin: 4px 0 0; }
 @media (max-width: 760px) {
   /* A 16:7 band at phone width is a letterbox slit. Squarer, and the title
      still has room to sit under the subject rather than on top of it. */

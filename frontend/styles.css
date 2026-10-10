@@ -323,6 +323,13 @@ button {
 
 .hero-copy .rule-link { margin-top: 20px; }
 
+/* The banner itself is a link to High Jewellery. It sits over the image and
+   its shade; the copy stays on top but lets clicks through except on its own
+   link, so the tagline is clickable too. */
+.hero-hit { position: absolute; inset: 0; z-index: 1; cursor: pointer; }
+.hero-copy { pointer-events: none; z-index: 2; }
+.hero-copy a { pointer-events: auto; }
+
 @media (min-width: 700px) {
   .hero-copy { bottom: 64px; gap: 12px; }
   .hero-img { object-position: 50% 46%; }

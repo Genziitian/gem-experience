@@ -53,9 +53,12 @@
       <source media="(min-width: 700px)" srcset="img/home-hero-wide.webp">
       <img class="hero-img" src="img/home-hero.webp" alt="Model in white organza looking into the camera, wearing a pink spinel choker and cascading earrings." fetchpriority="high" decoding="async">
     </picture>
+    <!-- the whole banner opens High Jewellery; the link below is the one
+         keyboards and screen readers use, so this one stays out of their way -->
+    <a class="hero-hit" href="high-jewellery/" tabindex="-1" aria-hidden="true"></a>
     <div class="hero-copy">
       <p class="hero-tagline">Nothing begins above ground</p>
-      <a class="rule-link rule-link--light" href="#collections">Discover Now</a>
+      <a class="rule-link rule-link--light" href="high-jewellery/">Discover Now</a>
     </div>
   </div>
 </section>

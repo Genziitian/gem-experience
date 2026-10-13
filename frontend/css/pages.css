@@ -355,6 +355,11 @@ button {
 }
 .pg-btn--ghost:hover { background: var(--ink); color: #fff; opacity: 1; }
 
+/* WhatsApp hand-off. A deep, quiet green rather than the app's own bright one,
+   so it reads as WhatsApp at a glance without shouting over the page. */
+.pg-btn--wa { gap: 10px; background: #1d5e3b; }
+.pg-btn--wa .wa-ico { flex: none; }
+
 .pg-btn--sm { min-height: 36px; padding: 0 14px; font-size: 10px; }
 
 .pg-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; align-items: center; }
@@ -1793,4 +1798,67 @@ button {
   .acct-cal strong { font-size: 24px; }
   .acct-dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .acct-feed a { flex-direction: column; gap: 2px; }
+}
+
+/* ------------------------------------------------------ events & exhibitions */
+
+.ev-block { display: grid; gap: clamp(24px, 3vw, 36px); }
+.ev-block + .ev-block { margin-top: clamp(56px, 8vw, 96px); }
+
+.ev-list { display: grid; gap: clamp(32px, 5vw, 56px); }
+
+.ev-card {
+  display: grid;
+  gap: clamp(20px, 3vw, 40px);
+  padding-bottom: clamp(32px, 5vw, 56px);
+  border-bottom: 1px solid var(--rule);
+}
+.ev-card:last-child { border-bottom: 0; padding-bottom: 0; }
+@media (min-width: 820px) {
+  .ev-card:has(.ev-shot) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: start; }
+}
+
+.ev-shot { overflow: hidden; aspect-ratio: 4 / 3; background: var(--tile); }
+.ev-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.ev-body { display: grid; gap: 10px; align-content: start; }
+.ev-kind {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ev-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.15;
+}
+.ev-when { margin: 0; font-weight: 500; font-size: 15px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.ev-hours { font-weight: 300; color: var(--muted); }
+.ev-where { margin: 0; font-size: 15px; }
+.ev-addr { margin: 0; font-weight: 300; font-size: 14px; color: var(--muted); }
+.ev-desc { margin: 6px 0 0; font-weight: 300; font-size: 15px; line-height: 1.7; max-width: 60ch; }
+.ev-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+.ev-empty { display: grid; gap: 24px; justify-items: start; max-width: 560px; }
+.ev-empty .pg-lede { margin: 0; }
+
+.ev-past-list { list-style: none; margin: 0; padding: 0; }
+.ev-past-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 15px;
+}
+.ev-past-list strong { font-weight: 500; }
+.ev-past-list span { font-weight: 300; color: var(--muted); }
+
+@media (max-width: 620px) {
+  .ev-actions .pg-btn { flex: 1; }
 }

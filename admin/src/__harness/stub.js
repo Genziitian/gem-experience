@@ -10,14 +10,14 @@ const DB = {
     { id: "n6", parent_id: null, location: "secondary", label: "Contact us", href: "contact/", is_heading: false, sort_order: 0, published: true },
   ],
   offices: [
-    { id: "o1", kind: "atelier", name: "Gem Experience, Dubai", region: "United Arab Emirates", address: "25H, 25th floor, Jumeirah Lake Towers, Dubai", phone: "+971 58 865 1095", tel: "+971588651095", image: "", map_query: "Gem Experience Dubai", sort_order: 0, published: true },
+    { id: "o1", kind: "atelier", name: "Gem Experience, Dubai", region: "United Arab Emirates", address: "25H, 25th floor, Jumeirah Lake Towers, Dubai", phone: "+971 56 720 3896", tel: "+971567203896", image: "", map_query: "Gem Experience Dubai", sort_order: 0, published: true },
     { id: "o2", kind: "atelier", name: "Gem Experience, India", region: "India", address: "Plot No. 93, Tonk Road, Jaipur", phone: "+91 73000 43093", tel: "+917300043093", image: "", map_query: "Gem Experience Jaipur", sort_order: 1, published: true },
     { id: "o3", kind: "store", name: "Zanzibar Serena", region: null, address: "Shangani St, Zanzibar", phone: null, tel: null, image: "", map_query: "Zanzibar Serena", sort_order: 0, published: true },
   ],
   site_settings: [
     { key: "contact", value: { email: "contact@gem-experience.com", hours: "Monday to Saturday, 9am – 7pm", lines: [
       { region: "India", value: "+91 73000 43093", href: "https://wa.me/917300043093" },
-      { region: "United Arab Emirates", value: "+971 58 865 1095", href: "https://wa.me/971588651095" },
+      { region: "United Arab Emirates", value: "+971 56 720 3896", href: "https://wa.me/971567203896" },
     ] } },
   ],
   form_submissions: [

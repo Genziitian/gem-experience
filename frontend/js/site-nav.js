@@ -48,7 +48,8 @@
         { label: "Rhodolite", href: "world-of-preciousness/rhodolite/" },
         { label: "Malaya Garnet", href: "world-of-preciousness/malaya-garnet/" }
       ]
-    }
+    },
+    { label: "Events & Exhibitions", href: "events/" }
     /* Hidden from the menu for now (unpublished in the database too):
        Gemstones & Mining, Engagement & Bridal, Gifts (gifts/) and The House
        (About — Our History, Timeline, Craftsmanship, Sustainability, Maasai

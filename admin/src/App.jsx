@@ -14,6 +14,7 @@ import Security from "./pages/Security.jsx";
 import Setup from "./pages/Setup.jsx";
 import Navigation from "./pages/Navigation.jsx";
 import Offices from "./pages/Offices.jsx";
+import Events from "./pages/Events.jsx";
 import Contact from "./pages/Contact.jsx";
 import Media from "./pages/Media.jsx";
 import Audit from "./pages/Audit.jsx";
@@ -96,6 +97,7 @@ export default function App() {
         <Route path="/seo" element={<Seo />} />
         <Route path="/navigation" element={<Navigation />} />
         <Route path="/offices" element={<Offices />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/blog" element={<Blog />} />

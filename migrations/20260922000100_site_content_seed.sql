@@ -57,7 +57,7 @@ where not exists (select 1 from public.nav_items n where n.parent_id = p.id and 
 insert into public.offices (kind, name, region, address, phone, tel, image, map_query, sort_order)
 select * from (values
   ('atelier', 'Blue Plaza Museum', 'Tanzania', 'India Street Blue Plaza, 3rd Floor, Tanzania', '+255 767 600 99', '+25576760099', '../img/offices/blue-plaza.jpg', 'Blue Plaza Museum India Street Arusha Tanzania', 0),
-  ('atelier', 'Gem Experience, Dubai', 'United Arab Emirates', '25H, 25th floor, Jumeirah Lake Towers, Dubai, United Arab Emirates', '+971 58 865 1095', '+971588651095', '../img/offices/dubai.jpg', 'Gem Experience 25H Jumeirah Lake Towers Dubai', 1),
+  ('atelier', 'Gem Experience, Dubai', 'United Arab Emirates', '25H, 25th floor, Jumeirah Lake Towers, Dubai, United Arab Emirates', '+971 56 720 3896', '+971567203896', '../img/offices/dubai.jpg', 'Gem Experience 25H Jumeirah Lake Towers Dubai', 1),
   ('atelier', 'Gem Experience, India', 'India', 'Ground floor, Plot No. 93, Opposite Sanghi Farm, Tonk Road, Kailash Puri, Jaipur, Rajasthan', '+91 73000 43093', '+917300043093', '../img/offices/india.jpg', 'Gem Experience Plot 93 Tonk Road Kailash Puri Jaipur', 2),
   ('store', 'Manyara Airport', null, 'Manyara Airstrip, Nr Karatu, C/o Tanzanite Experience, India Street, Arusha, Arusha 2706, Tanzania', null, null, '../img/offices/manyara-airport.jpg', 'Manyara Airport Karatu Tanzania', 0),
   ('store', 'Arusha Coffee Lodge', null, 'Coffee Lodge, India Street Blue Plaza TZ, Arusha 2706, Tanzania', null, null, '../img/offices/arusha-coffee.jpg', 'Arusha Coffee Lodge Tanzania', 1),
@@ -74,5 +74,5 @@ where not exists (select 1 from public.offices o where o.name = v.name);
 
 -- --------------------------------------------------------------- contact
 
-update public.site_settings set value = '{"lede":"High Jewellery is quoted privately. Reach us on any of these and an adviser will reply within two working days.","email":"contact@gem-experience.com","hours":"Monday to Saturday, 9am – 7pm","lines":[{"region":"India","value":"+91 73000 43093","href":"https://wa.me/917300043093"},{"region":"United Arab Emirates","value":"+971 58 865 1095","href":"https://wa.me/971588651095"}]}'::jsonb where key = 'contact';
+update public.site_settings set value = '{"lede":"High Jewellery is quoted privately. Reach us on any of these and an adviser will reply within two working days.","email":"contact@gem-experience.com","hours":"Monday to Saturday, 9am – 7pm","lines":[{"region":"India","value":"+91 73000 43093","href":"https://wa.me/917300043093"},{"region":"United Arab Emirates","value":"+971 56 720 3896","href":"https://wa.me/971567203896"}]}'::jsonb where key = 'contact';
 

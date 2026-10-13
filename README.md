@@ -53,6 +53,8 @@ Or from root: `npm run dev:frontend` (run inside `frontend/`) and `npm run dev:a
 
 ## Deploy
 
+Run `npm run build:seo` before every deploy: it regenerates the SEO tags, structured data, the Fine Jewellery product pages (`/fine-jewellery/p/<id>/`), `robots.txt`, `sitemap.xml` and `llms.txt` from the catalog, FAQs and offices. See [`tools/build-seo.mjs`](tools/build-seo.mjs).
+
 `vercel.json` publishes **`frontend/`** only. Admin can live on the same host at `/admin` later (build output) or a subdomain.
 
 ## Backend

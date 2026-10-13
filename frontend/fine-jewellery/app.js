@@ -52,7 +52,10 @@
   }
 
   function parseRoute() {
-    var hash = (location.hash || "#/").replace(/^#/, "") || "/";
+    /* /fine-jewellery/p/<id>/ is this same page with the product written in
+       for crawlers (tools/build-seo.mjs); it names its route in FJ_ROUTE, and
+       any hash the visitor then follows takes over as usual. */
+    var hash = (location.hash || window.FJ_ROUTE || "#/").replace(/^#/, "") || "/";
     var parts = hash.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean);
     if (!parts.length) return { page: "home" };
     if (parts[0] === "p" && parts[1]) return { page: "product", id: parts[1] };

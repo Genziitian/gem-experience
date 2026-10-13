@@ -1,10 +1,11 @@
 {
   "name": "gem-experience",
   "private": true,
-  "description": "Gem Experience — storefront, admin, Supabase backend",
+  "description": "Gem Experience \u2014 storefront, admin, Supabase backend",
   "scripts": {
     "dev:frontend": "cd frontend && python3 -m http.server 8000",
     "dev:admin": "npm run dev --prefix admin",
-    "build:admin": "npm run build --prefix admin"
+    "build:admin": "npm run build --prefix admin",
+    "build:seo": "node tools/build-seo.mjs"
   }
 }

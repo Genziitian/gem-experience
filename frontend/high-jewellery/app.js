@@ -313,6 +313,17 @@
     });
   }
 
+  /* What the wishlist keeps for a piece: enough to list it anywhere. */
+  function hjWishItem(p) {
+    return {
+      key: "hj:" + p.id,
+      name: p.name,
+      detail: [p.materials, "High Jewellery"].filter(Boolean).join(" · "),
+      image: "/high-jewellery/" + IMG + p.id + ".w640.webp",
+      href: p.storyUrl || "/high-jewellery/#/product/" + p.id
+    };
+  }
+
   function productCard(p, opts) {
     opts = opts || {};
     var cls = opts.related ? "card card--related" : "card";
@@ -323,6 +334,7 @@
       ? el("a", cls, { href: p.storyUrl })
       : el("div", cls + " card--inert");
     var fr = frame(cardImg(p), p.name, null, opts.eager);
+    if (!opts.related && window.Gem && window.Gem.wishlist) fr.appendChild(window.Gem.wishlist.button(hjWishItem(p), "corner"));
     if (p.visualiser) {
       var tag = el("span", "card-viz");
       tag.textContent = "360°";
@@ -712,14 +724,9 @@
 
     var head = el("div", "pdp-head");
     var h1 = el("h1", "pdp-title"); h1.textContent = p.name;
-    var wish = el("button", "pdp-wish", {
-      type: "button", "aria-pressed": String(!!state.wished[p.id]), "aria-label": "Save " + p.name
-    });
-    wish.appendChild(svg(22, { stroke: "#201e1d", sw: 1 },
-      ["M12 20s-7-4.4-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.6 12 20 12 20Z"]));
-    wish.addEventListener("click", function () {
-      state.wished[p.id] = !state.wished[p.id]; render();
-    });
+    var wish = window.Gem && window.Gem.wishlist
+      ? window.Gem.wishlist.button(hjWishItem(p), "icon")
+      : el("span");
     head.appendChild(h1); head.appendChild(wish);
     panel.appendChild(head);
 

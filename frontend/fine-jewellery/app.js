@@ -311,9 +311,22 @@
     return p.images && p.images.length ? p.images[0] : "";
   }
 
+  /* What the wishlist keeps for a piece: enough to list it anywhere. */
+  function wishItem(p) {
+    return {
+      key: "fj:" + p.id,
+      name: p.name,
+      detail: [p.subtitle, p.sku].filter(Boolean).join(" · "),
+      image: mainImage(p) ? "/fine-jewellery/" + small(mainImage(p)) : "",
+      href: "/fine-jewellery/p/" + p.id + "/"
+    };
+  }
+
   function card(p) {
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
-    a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name, p.hover || ""));
+    var pl = plate(p.tone, p.sku, mainImage(p), p.name, p.hover || "");
+    if (window.Gem && window.Gem.wishlist) pl.appendChild(window.Gem.wishlist.button(wishItem(p), "corner"));
+    a.appendChild(pl);
     var body = el("div", "fj-card-body");
     body.appendChild(el("span", "fj-card-type", { text: p.collection }));
     body.appendChild(el("h3", null, { text: p.name }));
@@ -642,6 +655,11 @@
     actions.appendChild(addBtn);
     actions.appendChild(enquireBtn);
     copy.appendChild(actions);
+    if (window.Gem && window.Gem.wishlist) {
+      var saveRow = el("div", "fj-pdp-save");
+      saveRow.appendChild(window.Gem.wishlist.button(wishItem(p), "line"));
+      copy.appendChild(saveRow);
+    }
 
     // details, care & shipping — plain disclosure elements, no extra JS state
     var specRows = [

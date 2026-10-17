@@ -26,6 +26,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /account/
 Disallow: /cart/
+Disallow: /wishlist/
 Disallow: /checkout/
 Disallow: /api/
 

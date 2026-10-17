@@ -52,7 +52,7 @@ const ORG_DESCRIPTION =
 const NOINDEX = new Set(["/account/", "/cart/", "/checkout/", "/login/", "/search/", "/404.html"]);
 /* Not ours to annotate: the blog post template writes its own tags per post,
    the probe is a deploy check, the admin is a separate app. */
-const SKIP = new Set(["/blog/post/", "/__probe.html"]);
+const SKIP = new Set(["/blog/post/", "/__probe.html", "/wishlist/"]);
 
 const SECTION_NAMES = {
   "high-jewellery": "High Jewellery",
@@ -633,6 +633,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /account/
 Disallow: /cart/
+Disallow: /wishlist/
 Disallow: /checkout/
 Disallow: /api/
 

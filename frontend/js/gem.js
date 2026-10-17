@@ -111,8 +111,168 @@
       var provider = (u.app_metadata && u.app_metadata.provider) || "email";
       /* Supabase calls made inside this callback can deadlock its auth lock;
          run the write once the callback has returned. */
-      setTimeout(function () { logActivity("login", { provider: provider }); }, 0);
+      setTimeout(function () { logActivity("login", { provider: provider }); wishSync(); }, 0);
     });
+  }
+
+  /* -------------------------------------------------------------- wishlist */
+
+  /* Pieces saved with the heart. The list always lives on the device, so the
+     heart works for anybody; once signed in it is also kept in
+     public.wishlist_items and merged both ways, so it follows the client to
+     any device and into My Account. Items carry what a list needs to draw
+     them (name, a line of detail, image, link) so no catalogue is loaded. */
+  var WISH_KEY = "gem_wishlist_v1";
+
+  function readWish() {
+    try {
+      var v = JSON.parse(localStorage.getItem(WISH_KEY) || "[]");
+      return Array.isArray(v) ? v : [];
+    } catch (e) { return []; }
+  }
+
+  function writeWish(list) {
+    try { localStorage.setItem(WISH_KEY, JSON.stringify(list)); } catch (e) { /* ignore */ }
+    w.dispatchEvent(new CustomEvent("gem:wishlist", { detail: { count: list.length } }));
+    return list;
+  }
+
+  function wishHas(key) {
+    return readWish().some(function (x) { return x.key === key; });
+  }
+
+  function wishRow(userId, item) {
+    return {
+      user_id: userId, piece_key: item.key, name: item.name,
+      detail: item.detail || null, image: item.image || null, href: item.href
+    };
+  }
+
+  function wishRemote(fn) {
+    var sb = getClient();
+    if (!sb) return;
+    sb.auth.getSession().then(function (res) {
+      var s = res.data.session;
+      if (s) fn(sb, s.user.id);
+    });
+  }
+
+  function wishToggle(item) {
+    var list = readWish();
+    var at = list.findIndex(function (x) { return x.key === item.key; });
+    var on = at === -1;
+    if (on) list.unshift({ key: item.key, name: item.name, detail: item.detail || "", image: item.image || "", href: item.href, at: Date.now() });
+    else list.splice(at, 1);
+    writeWish(list);
+    wishRemote(function (sb, uid) {
+      if (on) sb.from("wishlist_items").upsert(wishRow(uid, item)).then(function () {});
+      else sb.from("wishlist_items").delete().eq("user_id", uid).eq("piece_key", item.key).then(function () {});
+    });
+    return on;
+  }
+
+  function wishRemove(key) {
+    var item = readWish().find(function (x) { return x.key === key; });
+    if (item) wishToggle(item);
+  }
+
+  /* Signed in: what is in the account and what is on this device become one
+     list, saved in both places. */
+  function wishSync() {
+    wishRemote(function (sb, uid) {
+      sb.from("wishlist_items").select("piece_key,name,detail,image,href,created_at")
+        .order("created_at", { ascending: false })
+        .then(function (res) {
+          if (res.error) return;
+          var remote = (res.data || []).map(function (r) {
+            return { key: r.piece_key, name: r.name, detail: r.detail || "", image: r.image || "", href: r.href, at: Date.parse(r.created_at) || 0 };
+          });
+          var have = {};
+          remote.forEach(function (r) { have[r.key] = true; });
+          var local = readWish().filter(function (x) { return !have[x.key]; });
+          if (local.length) sb.from("wishlist_items").upsert(local.map(function (x) { return wishRow(uid, x); })).then(function () {});
+          writeWish(local.concat(remote).sort(function (a, b) { return (b.at || 0) - (a.at || 0); }));
+        });
+    });
+  }
+
+  var HEART = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">' +
+    '<path d="M12 20.3s-7.6-4.5-7.6-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.6 2.5c0 5.7-7.6 10.2-7.6 10.2Z"></path></svg>';
+
+  function wishCss() {
+    if (d.getElementById("ge-wish-css")) return;
+    var css = d.createElement("style");
+    css.id = "ge-wish-css";
+    css.textContent =
+      ".ge-heart{display:inline-grid;place-items:center;width:38px;height:38px;padding:0;border:0;border-radius:50%;" +
+      "background:rgba(255,255,255,.88);color:#17140f;cursor:pointer;transition:transform .2s ease}" +
+      ".ge-heart:hover{transform:scale(1.08)}.ge-heart svg{width:18px;height:18px}" +
+      ".ge-heart[aria-pressed=true] path{fill:currentColor}" +
+      ".ge-heart--corner{position:absolute;top:10px;right:10px;z-index:3}" +
+      ".ge-heart--line{width:auto;height:auto;border-radius:0;background:none;gap:8px;display:inline-flex;align-items:center;" +
+      "font:500 11px/1 Jost,-apple-system,sans-serif;letter-spacing:2.4px;text-transform:uppercase}" +
+      ".ge-wish{position:relative}.ge-wish svg path{transition:fill .2s}.ge-wish.is-on svg path{fill:currentColor}" +
+      ".ge-wish-n{position:absolute;top:-6px;right:-8px;min-width:16px;height:16px;padding:0 4px;border-radius:999px;" +
+      "background:#17140f;color:#fff;font:500 9px/16px Jost,-apple-system,sans-serif;text-align:center}" +
+      /* four icons now share the phone header with the wordmark */
+      "@media (max-width:430px){.pg-hdr-icons,.fj-hdr-end,.hdr-icons,.hdr-side--end{gap:12px!important}" +
+      ".pg-hdr-brand,.fj-brand,.hdr-brand{letter-spacing:3.2px!important;font-size:13px!important}}" +
+      "@media (max-width:360px){.pg-hdr-icons,.fj-hdr-end,.hdr-icons,.hdr-side--end{gap:8px!important}" +
+      ".pg-hdr-brand,.fj-brand,.hdr-brand{letter-spacing:2.4px!important}}";
+    d.head.appendChild(css);
+  }
+
+  /* A heart for one piece. `variant` is "corner" (over a photograph) or
+     "line" (a labelled button beside the other actions). It never lets the
+     click reach a surrounding card link. */
+  function wishButton(item, variant) {
+    wishCss();
+    var b = d.createElement("button");
+    b.type = "button";
+    b.className = "ge-heart ge-heart--" + (variant || "corner");
+    function paint() {
+      var on = wishHas(item.key);
+      b.setAttribute("aria-pressed", String(on));
+      b.setAttribute("aria-label", (on ? "Remove " : "Save ") + item.name + (on ? " from" : " to") + " your wishlist");
+      b.innerHTML = HEART + (variant === "line" ? "<span>" + (on ? "Saved" : "Save to wishlist") + "</span>" : "");
+    }
+    paint();
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      wishToggle(item);
+    });
+    w.addEventListener("gem:wishlist", paint);
+    return b;
+  }
+
+  /* Every header draws its own icons; a heart goes in before the bag on each,
+     linked to the wishlist page, with a count. */
+  function mountWishIcons() {
+    if (!d.querySelector) return;
+    wishCss();
+    function apply() {
+      var n = readWish().length;
+      d.querySelectorAll(".pg-cart").forEach(function (bag) {
+        var prev = bag.previousElementSibling;
+        var icon = prev && prev.classList.contains("ge-wish") ? prev : null;
+        if (!icon) {
+          icon = d.createElement("a");
+          icon.className = (bag.className.replace(/\bpg-cart\b/, "").trim() + " ge-wish").trim();
+          icon.href = "/wishlist/";
+          bag.parentNode.insertBefore(icon, bag);
+        }
+        var want = HEART + (n ? '<span class="ge-wish-n">' + n + "</span>" : "");
+        if (icon.innerHTML !== want) icon.innerHTML = want;
+        icon.setAttribute("aria-label", n ? "Wishlist, " + n + (n === 1 ? " piece" : " pieces") : "Wishlist");
+        icon.classList.toggle("is-on", n > 0);
+      });
+    }
+    apply();
+    w.addEventListener("gem:wishlist", apply);
+    if (w.MutationObserver) new MutationObserver(function (m) {
+      if (m.some(function (r) { return r.addedNodes.length; })) apply();
+    }).observe(d.body, { childList: true, subtree: true });
   }
 
   /* ------------------------------------------------------------------ cart */
@@ -308,6 +468,8 @@
     /* Before, not after: once signed out there is no actor to write the row as. */
     await logActivity("logout", {});
     await sb.auth.signOut();
+    /* the list belongs to the account now; a shared device should not keep it */
+    writeWish([]);
   }
 
   async function getProfile() {
@@ -419,6 +581,14 @@
       remove: removeFromCart,
       clear: clearCart
     },
+    wishlist: {
+      list: readWish,
+      has: wishHas,
+      toggle: wishToggle,
+      remove: wishRemove,
+      sync: wishSync,
+      button: wishButton
+    },
     submitForm: submitForm,
     whatsappUrl: whatsappUrl,
     pieceUrl: pieceUrl,
@@ -442,4 +612,6 @@
 
   if (authReturnInUrl()) finishAuthReturn();
   showSignedInAvatar();
+  mountWishIcons();
+  wishSync();
 })(window, document);

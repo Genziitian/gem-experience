@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wishlist — Gem Experience</title>
+<meta name="description" content="The Gem Experience pieces you have saved, ready to enquire about or view in private.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/site-nav.css">
+<link rel="stylesheet" href="../css/mini-cart.css">
+<link rel="stylesheet" href="../css/gift-note.css" media="print" onload="this.media='all'">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body class="pg">
+<div class="pg-wrap">
+  <div id="pg-header"></div>
+  <header class="pg-hero">
+    <span class="pg-kicker">Client account</span>
+    <h1 class="pg-title">Wishlist</h1>
+    <p class="pg-lede" id="wl-lede">The pieces you have set aside. Enquire about any of them, or see them in private.</p>
+  </header>
+
+  <main class="pg-main wl">
+    <p class="wl-signin" id="wl-signin" hidden>
+      Saved on this device only. <a href="../login/?next=../wishlist/">Sign in</a> to keep your wishlist on every device.
+    </p>
+    <div class="wl-grid" id="wl-grid"></div>
+    <div class="wl-empty" id="wl-empty" hidden>
+      <p class="pg-section-title">Nothing saved yet</p>
+      <p class="pg-note">Tap the heart on any piece to keep it here.</p>
+      <div class="wl-empty-acts">
+        <a class="pg-btn" href="../high-jewellery/">Explore High Jewellery</a>
+        <a class="pg-btn pg-btn--ghost" href="../fine-jewellery/">Explore Fine Jewellery</a>
+      </div>
+    </div>
+    <div class="wl-all" id="wl-all" hidden>
+      <a class="pg-btn" id="wl-wa" href="#" target="_blank" rel="noopener noreferrer">Enquire about my wishlist on WhatsApp</a>
+      <a class="pg-btn pg-btn--ghost" href="../appointment/">Book a private viewing</a>
+    </div>
+  </main>
+
+  <div id="pg-footer"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/gem.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-content.js"></script>
+<script src="../js/site-nav.js"></script>
+<script src="../js/mini-cart.js"></script>
+<script src="../js/gift-note.js"></script>
+<script src="../js/shell.js"></script>
+<script>
+GemShell.mount();
+
+(function () {
+  var grid = document.getElementById("wl-grid");
+  var empty = document.getElementById("wl-empty");
+  var all = document.getElementById("wl-all");
+
+  function esc(v) {
+    return String(v == null ? "" : v)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  /* The quotation form takes the reference and the name; for Fine Jewellery
+     the reference is the SKU at the end of the detail line. */
+  function enquireHref(it) {
+    var ref = (it.detail || "").split(" · ").pop();
+    if (!/^G/i.test(ref)) ref = it.key.split(":")[1];
+    return "../quotation/?ref=" + encodeURIComponent(ref) + "&name=" + encodeURIComponent(it.name);
+  }
+
+  function draw() {
+    var list = Gem.wishlist.list();
+    empty.hidden = list.length > 0;
+    all.hidden = list.length === 0;
+    grid.innerHTML = list.map(function (it) {
+      return '<article class="wl-card">' +
+        '<a class="wl-shot" href="' + esc(it.href) + '">' +
+          (it.image ? '<img src="' + esc(it.image) + '" alt="' + esc(it.name) + '" loading="lazy" decoding="async">' : "") +
+        "</a>" +
+        '<div class="wl-body">' +
+          '<h2 class="wl-name"><a href="' + esc(it.href) + '">' + esc(it.name) + "</a></h2>" +
+          (it.detail ? '<p class="wl-detail">' + esc(it.detail) + "</p>" : "") +
+          '<div class="wl-acts">' +
+            '<a class="wl-act wl-act--primary" href="' + esc(enquireHref(it)) + '">Enquire</a>' +
+            '<a class="wl-act" href="' + esc(it.href) + '">View</a>' +
+            '<button class="wl-act" type="button" data-remove="' + esc(it.key) + '">Remove</button>' +
+          "</div>" +
+        "</div>" +
+      "</article>";
+    }).join("");
+    grid.querySelectorAll("[data-remove]").forEach(function (b) {
+      b.addEventListener("click", function () { Gem.wishlist.remove(b.getAttribute("data-remove")); });
+    });
+    document.getElementById("wl-wa").href = Gem.whatsappUrl(
+      ["Hello Gem Experience, I would like to enquire about the pieces on my wishlist:", ""]
+        .concat(list.map(function (it) { return "• *" + it.name + "*" + (it.detail ? " (" + it.detail + ")" : "") + "\n  " + new URL(it.href, location.href).href; }))
+        .concat(["", "Sent from " + location.origin + "/wishlist/"])
+    );
+  }
+
+  draw();
+  window.addEventListener("gem:wishlist", draw);
+
+  Gem.auth.getSession().then(function (s) {
+    document.getElementById("wl-signin").hidden = !!s;
+  });
+})();
+</script>
+<script src="../js/analytics.js" defer></script>
+</body>
+</html>

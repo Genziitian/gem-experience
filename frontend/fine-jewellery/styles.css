@@ -960,3 +960,5 @@ button {
   .fj-card:hover .fj-plate { transform: none; }
   .fj-explore-arrow { animation: none; }
 }
+
+.fj-pdp-save { margin-top: 18px; }

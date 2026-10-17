@@ -280,7 +280,15 @@
         src: src, alt: alt || "", loading: "lazy", decoding: "async"
       });
       img.addEventListener("error", function () { img.remove(); wrap.classList.remove("has-img"); });
-      img.addEventListener("load", function () { wrap.classList.add("has-img"); });
+      /* A frame never crops a photograph out of shape: on the product page the
+         frame takes the photograph's own proportions; in a square grid card an
+         off-square shot is shown whole on the ground instead of cut down. */
+      img.addEventListener("load", function () {
+        wrap.classList.add("has-img");
+        var r = img.naturalWidth / img.naturalHeight;
+        if (wrap.classList.contains("fj-plate--natural")) wrap.style.aspectRatio = img.naturalWidth + " / " + img.naturalHeight;
+        else img.classList.toggle("is-fit", Math.abs(r - 1) > 0.03);
+      });
       wrap.appendChild(img);
     }
     if (sku) wrap.appendChild(el("span", "fj-plate-sku", { text: sku }));
@@ -295,10 +303,10 @@
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
     a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name, p.hover || ""));
     var body = el("div", "fj-card-body");
-    body.appendChild(el("span", "fj-card-type", { text: p.metal || p.type }));
+    body.appendChild(el("span", "fj-card-type", { text: p.collection }));
     body.appendChild(el("h3", null, { text: p.name }));
     body.appendChild(el("p", null, {
-      text: (p.subtitle || p.stone) + (p.stoneCt != null ? " · " + ct(p.stoneCt) : "")
+      text: [p.metal, p.stoneCt != null ? ct(p.stoneCt) : ""].filter(Boolean).join(" · ")
     }));
     a.appendChild(body);
     return a;
@@ -557,6 +565,7 @@
     var media = el("div", "fj-pdp-media");
     var shots = p.images || [];
     var hero = plate(p.tone, p.sku, shots[0], p.name);
+    hero.classList.add("fj-plate--natural");
     media.appendChild(hero);
     if (shots.length > 1) {
       var thumbs = el("div", "fj-pdp-thumbs");

@@ -193,7 +193,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-148",
       "sku": "GD26-148",
-      "name": "Safar Cuff",
+      "name": "Tanzanite Cuff",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -220,7 +220,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1103",
       "sku": "GD25-1103",
-      "name": "Safar Cuff",
+      "name": "Pink Spinel Cuff",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -246,7 +246,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-196-c",
       "sku": "GD26-196 C",
-      "name": "Safar Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White and Rose Gold",
@@ -273,7 +273,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-197-c",
       "sku": "GD26-197 C",
-      "name": "Safar Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White and Rose Gold",
@@ -299,7 +299,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-224",
       "sku": "GD26-224",
-      "name": "Safar Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White and Rose Gold",
@@ -324,7 +324,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-275-a",
       "sku": "GD26-275 A",
-      "name": "Safar Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -347,7 +347,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-294",
       "sku": "GD25-294",
-      "name": "Safar Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -373,7 +373,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-842",
       "sku": "GD25-842",
-      "name": "Safar Drops",
+      "name": "Rose Rhodolite Drop Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -399,7 +399,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-140",
       "sku": "GD26-140",
-      "name": "Safar Drops",
+      "name": "Morganite Drop Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -425,7 +425,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-146",
       "sku": "GD26-146",
-      "name": "Safar Hoops",
+      "name": "Pink Spinel Hoops",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -451,7 +451,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-147",
       "sku": "GD26-147",
-      "name": "Safar Hoops",
+      "name": "Tanzanite Hoops",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White Gold",
@@ -463,7 +463,7 @@ window.FJ_DATA = {
       "diamondCt": 1.33,
       "netG": 11.762,
       "grossG": 12.07,
-      "story": "Crafted in White gold, set with 1.21 carats of vivid round tanzanite paired with 1.33 carats of brilliant cut diamonds",
+      "story": "Crafted in White gold, set with 0.21 carats of vivid round tanzanite paired with 1.33 carats of brilliant cut diamonds",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-147.webp",
@@ -477,7 +477,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-197-b",
       "sku": "GD26-197 B",
-      "name": "Safar Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -503,7 +503,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-198-c",
       "sku": "GD26-198 C",
-      "name": "Safar Earrings",
+      "name": "Tourmaline and Rose Quartz Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White Gold",
@@ -526,7 +526,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-203",
       "sku": "GD26-203",
-      "name": "Safar Earrings",
+      "name": "Pink Spinel and Rose Quartz Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -549,7 +549,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-218",
       "sku": "GD26-218",
-      "name": "Safar Drops",
+      "name": "Pink Spinel Drop Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "Rose Gold",
@@ -575,7 +575,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-275-b",
       "sku": "GD26-275 B",
-      "name": "Safar Studs",
+      "name": "Pink Spinel Studs",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White Gold",
@@ -598,7 +598,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-141",
       "sku": "GD26-141",
-      "name": "Safar Pendant",
+      "name": "Morganite Pendant",
       "collection": "Safar",
       "type": "Pendants",
       "metal": "White Gold",
@@ -624,7 +624,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-197",
       "sku": "GD26-197",
-      "name": "Safar Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Safar",
       "type": "Pendants",
       "metal": "White Gold",
@@ -636,7 +636,7 @@ window.FJ_DATA = {
       "diamondCt": 0.796,
       "netG": 5.349,
       "grossG": 5.84,
-      "story": "Crafted in White gold, set with 1.66 carats of custom cut hexagon pink spinel paired with 5.35 carats of brilliant cut diamonds",
+      "story": "Crafted in White gold, set with 1.66 carats of custom cut hexagon pink spinel paired with 0.80 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-197.webp",
@@ -651,7 +651,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-275-c",
       "sku": "GD26-275 C",
-      "name": "Safar Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Safar",
       "type": "Pendants",
       "metal": "White Gold",
@@ -663,7 +663,7 @@ window.FJ_DATA = {
       "diamondCt": 1.37,
       "netG": 2.44,
       "grossG": 3.07,
-      "story": "Crafted in White gold, set with 1.78 carats of custom bead cut pink spinel paired with 2.44 carats of brilliant cut diamonds",
+      "story": "Crafted in White gold, set with 1.78 carats of custom bead cut pink spinel paired with 1.37 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-275-c.webp"
@@ -674,7 +674,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1081",
       "sku": "GD25-1081",
-      "name": "Bloom Pendant",
+      "name": "Mint Garnet Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -697,7 +697,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1069",
       "sku": "GD25-1069",
-      "name": "Bloom Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -723,7 +723,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1067",
       "sku": "GD25-1067",
-      "name": "Bloom Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -748,7 +748,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-994",
       "sku": "GD25-994",
-      "name": "Bloom Bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -774,7 +774,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1026",
       "sku": "GD25-1026",
-      "name": "Bloom Ring",
+      "name": "Aquamarine Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -800,7 +800,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1086",
       "sku": "GD25-1086",
-      "name": "Bloom Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -825,7 +825,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1087",
       "sku": "GD25-1087",
-      "name": "Bloom Pendant",
+      "name": "Aquamarine Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -848,7 +848,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-875",
       "sku": "GD25-875",
-      "name": "Bloom Bracelet",
+      "name": "Tanzanite Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -874,8 +874,8 @@ window.FJ_DATA = {
     {
       "id": "gd25-964",
       "sku": "GD25-964",
-      "name": "Bloom Bracelet",
-      "collection": "Bloom",
+      "name": "Pink Spinel Bracelet",
+      "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -897,8 +897,8 @@ window.FJ_DATA = {
     {
       "id": "gd25-1096",
       "sku": "GD25-1096",
-      "name": "Bloom Earrings",
-      "collection": "Bloom",
+      "name": "Pink Spinel Earrings",
+      "collection": "Safar",
       "type": "Earrings",
       "metal": "Rose Gold",
       "metalCode": "G-14kt-WR",
@@ -922,8 +922,8 @@ window.FJ_DATA = {
     {
       "id": "gd25-1095",
       "sku": "GD25-1095",
-      "name": "Bloom Ring",
-      "collection": "Bloom",
+      "name": "Pink Spinel Ring",
+      "collection": "Safar",
       "type": "Rings",
       "metal": "Rose Gold",
       "metalCode": "G-14kt-WR",
@@ -948,8 +948,8 @@ window.FJ_DATA = {
     {
       "id": "gd25-1097",
       "sku": "GD25-1097",
-      "name": "Bloom Pendant",
-      "collection": "Bloom",
+      "name": "Pink Spinel Pendant",
+      "collection": "Safar",
       "type": "Pendants",
       "metal": "Rose Gold",
       "metalCode": "G-14kt-WR",
@@ -973,7 +973,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-790",
       "sku": "GD26-790",
-      "name": "Bloom Chain",
+      "name": "Pink Spinel and Spessartite Long Chain",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -990,13 +990,13 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-790.webp"
       ],
-      "subtitle": "Pink spinel and spessartite",
+      "subtitle": "Pink spinel, spessartite and diamonds",
       "specName": "Pink spinel and spessartite bloom long chain"
     },
     {
       "id": "gd26-68",
       "sku": "GD26-68",
-      "name": "Bloom Necklace",
+      "name": "Mint Garnet Necklace",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -1021,7 +1021,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-176",
       "sku": "GD26-176",
-      "name": "Bloom Necklace",
+      "name": "Spessartite Necklace",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -1044,7 +1044,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-513",
       "sku": "GD26-513",
-      "name": "Bloom Chain",
+      "name": "Spessartite and Chalcedony Long Chain",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -1061,13 +1061,13 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-513.webp"
       ],
-      "subtitle": "Spessartite and chalcedony",
+      "subtitle": "Spessartite, chalcedony and diamonds",
       "specName": "Chalcedony and spessartite floral motif long chain"
     },
     {
       "id": "gd26-219",
       "sku": "GD26-219",
-      "name": "Bloom Pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -1090,7 +1090,7 @@ window.FJ_DATA = {
     {
       "id": "gnk0923-27",
       "sku": "GNK0923-27",
-      "name": "Bloom Necklace",
+      "name": "Pink Spinel Necklace",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -1110,7 +1110,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1046",
       "sku": "GD25-1046",
-      "name": "Bloom Ring",
+      "name": "Rubellite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1136,7 +1136,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-124",
       "sku": "GD25-124",
-      "name": "Bloom Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1159,7 +1159,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1036",
       "sku": "GD25-1036",
-      "name": "Bloom Ring",
+      "name": "Pink Spinel and Morganite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White and Rose Gold",
@@ -1182,7 +1182,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-62",
       "sku": "GD26-62",
-      "name": "Bloom Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1207,7 +1207,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-71",
       "sku": "GD26-71",
-      "name": "Bloom Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1230,7 +1230,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-139",
       "sku": "GD26-139",
-      "name": "Bloom Ring",
+      "name": "Tanzanite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1256,7 +1256,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-167",
       "sku": "GD26-167",
-      "name": "Bloom Ring",
+      "name": "Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1282,7 +1282,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-200",
       "sku": "GD26-200",
-      "name": "Bloom Ring",
+      "name": "Pink Spinel and Aquamarine Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1308,7 +1308,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-201",
       "sku": "GD26-201",
-      "name": "Bloom Ring",
+      "name": "Spessartite and Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1334,7 +1334,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-766",
       "sku": "GD26-766",
-      "name": "Bloom Ring",
+      "name": "Aquamarine and Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1357,7 +1357,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-563",
       "sku": "GD26-563",
-      "name": "Bloom Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1383,7 +1383,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-205",
       "sku": "GD26-205",
-      "name": "Bloom Ring",
+      "name": "Tanzanite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1406,7 +1406,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-206",
       "sku": "GD26-206",
-      "name": "Bloom Ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1429,7 +1429,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-257",
       "sku": "GD26-257",
-      "name": "Bloom Ring",
+      "name": "Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1455,7 +1455,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-566",
       "sku": "GD26-566",
-      "name": "Bloom Ring",
+      "name": "Tanzanite and Crystal Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1472,13 +1472,13 @@ window.FJ_DATA = {
       "images": [
         "img/products/gd26-566.webp"
       ],
-      "subtitle": "Tanzanite and crystal",
+      "subtitle": "Tanzanite, crystal and diamonds",
       "specName": "Heart in bloom crystal and tanzanite dual finger ring"
     },
     {
       "id": "gd26-581",
       "sku": "GD26-581",
-      "name": "Bloom Ring",
+      "name": "Malaya Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1501,7 +1501,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-583",
       "sku": "GD26-583",
-      "name": "Bloom Ring",
+      "name": "Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1524,7 +1524,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1047",
       "sku": "GD25-1047",
-      "name": "Bloom Ring",
+      "name": "Rubellite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "Rose Gold",
@@ -1550,7 +1550,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-587",
       "sku": "GD26-587",
-      "name": "Bloom Ring",
+      "name": "Tanzanite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1573,7 +1573,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-816",
       "sku": "GD25-816",
-      "name": "Bloom Hoops",
+      "name": "Pink Spinel Hoops",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -1598,7 +1598,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-435",
       "sku": "GD25-435",
-      "name": "Bloom Earrings",
+      "name": "Rubellite Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -1617,13 +1617,13 @@ window.FJ_DATA = {
         "img/products/gd25-435-1.webp"
       ],
       "hover": "img/products/gd25-435-1.webp",
-      "subtitle": "Rubellite",
+      "subtitle": "Rubellite and diamonds",
       "specName": "Heart in bloom pink rubellite earrings"
     },
     {
       "id": "gd26-256",
       "sku": "GD26-256",
-      "name": "Bloom Bracelet",
+      "name": "Spessartite Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -1646,7 +1646,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-69",
       "sku": "GD26-69",
-      "name": "Bloom Bracelet",
+      "name": "Mint Garnet Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -1672,7 +1672,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-63",
       "sku": "GD26-63",
-      "name": "Bloom Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -1698,7 +1698,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-aq-br",
       "sku": "GD26-AQ-BR",
-      "name": "Bloom Bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -1718,7 +1718,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-762",
       "sku": "GD26-762",
-      "name": "Bloom Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "18k White and Rose Gold",
@@ -1741,7 +1741,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-288",
       "sku": "GD25-288",
-      "name": "Bloom Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -1766,7 +1766,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-915-a",
       "sku": "GD25-915 A",
-      "name": "Bloom Studs",
+      "name": "Pink Spinel Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "Yellow Gold",
@@ -1789,7 +1789,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-60",
       "sku": "GD26-60",
-      "name": "Bloom Studs",
+      "name": "Pink Spinel Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1814,7 +1814,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-70",
       "sku": "GD26-70",
-      "name": "Bloom Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1837,7 +1837,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-166",
       "sku": "GD26-166",
-      "name": "Bloom Studs",
+      "name": "Spessartite Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1862,7 +1862,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-177",
       "sku": "GD26-177",
-      "name": "Bloom Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1885,7 +1885,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-210",
       "sku": "GD26-210",
-      "name": "Bloom Studs",
+      "name": "Pink Spinel Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -1908,7 +1908,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-228-b",
       "sku": "GD26-228 B",
-      "name": "Bloom Studs",
+      "name": "Tanzanite Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1931,7 +1931,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-785",
       "sku": "GD26-785",
-      "name": "Bloom Earrings",
+      "name": "Pink Spinel and Spessartite Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -1954,7 +1954,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-61",
       "sku": "GD26-61",
-      "name": "Bloom Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -1977,8 +1977,8 @@ window.FJ_DATA = {
     {
       "id": "gd26-81",
       "sku": "GD26-81",
-      "name": "Bloom Ring",
-      "collection": "Bloom",
+      "name": "Pink Spinel Ring",
+      "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -1997,8 +1997,8 @@ window.FJ_DATA = {
     {
       "id": "gd26-80",
       "sku": "GD26-80",
-      "name": "Bloom Bracelet",
-      "collection": "Bloom",
+      "name": "Pink Spinel Bracelet",
+      "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -2017,8 +2017,8 @@ window.FJ_DATA = {
     {
       "id": "g-625",
       "sku": "G 625",
-      "name": "Bloom Ring",
-      "collection": "Bloom",
+      "name": "Mint Garnet and Pink Spinel Ring",
+      "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -2037,11 +2037,11 @@ window.FJ_DATA = {
     {
       "id": "gd23-146",
       "sku": "GD23-146",
-      "name": "Bloom Ring",
-      "collection": "Bloom",
+      "name": "Mint Garnet and Pink Spinel Ring",
+      "collection": "Multi Colour",
       "type": "Rings",
-      "metal": "White Gold",
-      "metalCode": "G-14kt-W",
+      "metal": "18k Rose Gold",
+      "metalCode": "G-18kt-R",
       "stone": "Mint Garnet & Pink Spinel",
       "shape": "Marquise & Round",
       "stonePcs": 15,
@@ -2049,7 +2049,7 @@ window.FJ_DATA = {
       "diamondCt": 1.221,
       "netG": 8.93,
       "grossG": 9.984,
-      "story": "Crafted in White Gold, set with 3.5 carats of marquise cut mint garnet alongside 0.55 carats of round cut pink spinel, paired with 1.221 carats of round and baguette cut diamonds.",
+      "story": "Crafted in 18k Rose Gold, set with 3.5 carats of marquise cut mint garnet alongside 0.55 carats of round cut pink spinel, paired with 1.221 carats of round and baguette cut diamonds.",
       "tone": "#6a9e7a",
       "subtitle": "Mint garnet, pink spinel and diamonds",
       "specName": "Mint garnet, pink spinel and diamond dew ring"
@@ -2057,7 +2057,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-198-a",
       "sku": "GD26-198 A",
-      "name": "Swirl Necklace",
+      "name": "Aquamarine Necklace",
       "collection": "Swirl",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -2080,7 +2080,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-786",
       "sku": "GD26-786",
-      "name": "Swirl Necklace",
+      "name": "Mint Garnet Necklace",
       "collection": "Swirl",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -2103,7 +2103,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-242",
       "sku": "GD26-242",
-      "name": "Swirl Necklace",
+      "name": "Mint Garnet Necklace",
       "collection": "Swirl",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -2126,7 +2126,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-242-a",
       "sku": "GD26-242 A",
-      "name": "Swirl Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2152,7 +2152,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-974",
       "sku": "GD25-974",
-      "name": "Swirl Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2177,7 +2177,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1055",
       "sku": "GD25-1055",
-      "name": "Swirl Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2202,7 +2202,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1074",
       "sku": "GD25-1074",
-      "name": "Swirl Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2227,7 +2227,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-198-b",
       "sku": "GD26-198 B",
-      "name": "Swirl Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2252,7 +2252,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-782",
       "sku": "GD26-782",
-      "name": "Swirl Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -2275,7 +2275,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-150",
       "sku": "GD26-150",
-      "name": "Swirl Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2295,7 +2295,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-991",
       "sku": "GD25-991",
-      "name": "Swirl Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "White Gold",
@@ -2321,7 +2321,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1025",
       "sku": "GD25-1025",
-      "name": "Swirl Ring",
+      "name": "Aquamarine Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2347,7 +2347,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1057",
       "sku": "GD25-1057",
-      "name": "Swirl Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "White Gold",
@@ -2373,7 +2373,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-783",
       "sku": "GD26-783",
-      "name": "Swirl Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2399,7 +2399,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-894",
       "sku": "GD25-894",
-      "name": "Swirl Bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2426,7 +2426,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-966",
       "sku": "GD25-966",
-      "name": "Swirl Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2452,7 +2452,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-992",
       "sku": "GD25-992",
-      "name": "Swirl Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2477,7 +2477,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1083",
       "sku": "GD25-1083",
-      "name": "Swirl Bracelet",
+      "name": "Mint Garnet Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2503,7 +2503,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-827",
       "sku": "GD26-827",
-      "name": "Swirl Pendant",
+      "name": "Mint Garnet Pendant",
       "collection": "Swirl",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -2526,7 +2526,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-149",
       "sku": "GD26-149",
-      "name": "Swirl Pendant",
+      "name": "Spessartite Pendant",
       "collection": "Swirl",
       "type": "Pendants",
       "metal": "White Gold",
@@ -2546,7 +2546,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-431",
       "sku": "GD25-431",
-      "name": "Swirl Pendant",
+      "name": "Rubellite Pendant",
       "collection": "Swirl",
       "type": "Pendants",
       "metal": "18k Rose Gold",
@@ -2566,7 +2566,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-976",
       "sku": "GD25-976",
-      "name": "Dazzle Bangle",
+      "name": "Pink Spinel and Aquamarine Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2592,7 +2592,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-163",
       "sku": "GD26-163",
-      "name": "Dazzle Bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2618,7 +2618,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-250",
       "sku": "GD26-250",
-      "name": "Dazzle Bangle",
+      "name": "Spessartite Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2644,7 +2644,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-252",
       "sku": "GD26-252",
-      "name": "Dazzle Bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2670,7 +2670,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-49",
       "sku": "GD26-49",
-      "name": "Dazzle Bangle",
+      "name": "Spessartite Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2696,7 +2696,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-54",
       "sku": "GD26-54",
-      "name": "Dazzle Bangle",
+      "name": "Aquamarine and Tanzanite Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2723,7 +2723,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-663",
       "sku": "GD25-663",
-      "name": "Dazzle Ring",
+      "name": "Tsavorite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2750,7 +2750,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-668",
       "sku": "GD25-668",
-      "name": "Dazzle Ring",
+      "name": "Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2776,7 +2776,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-704",
       "sku": "GD25-704",
-      "name": "Dazzle Ring",
+      "name": "Spessartite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2803,7 +2803,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-159",
       "sku": "GD26-159",
-      "name": "Dazzle Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2829,7 +2829,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-161",
       "sku": "GD26-161",
-      "name": "Dazzle Ring",
+      "name": "Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2855,7 +2855,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-48",
       "sku": "GD26-48",
-      "name": "Dazzle Ring",
+      "name": "Spessartite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2881,7 +2881,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-53",
       "sku": "GD26-53",
-      "name": "Dazzle Ring",
+      "name": "Tanzanite and Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2908,7 +2908,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1052",
       "sku": "GD25-1052",
-      "name": "Dazzle Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2934,7 +2934,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1002",
       "sku": "GD25-1002",
-      "name": "Dazzle Ring",
+      "name": "Green Tourmaline Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2960,7 +2960,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-750",
       "sku": "GD24-750",
-      "name": "Dazzle Ring",
+      "name": "Bi-colour Tourmaline Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2986,7 +2986,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-636",
       "sku": "GD25-636",
-      "name": "Dazzle Ring",
+      "name": "Tanzanite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3012,7 +3012,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-767",
       "sku": "GD26-767",
-      "name": "Dazzle Ring",
+      "name": "Aquamarine and Pink Spinel Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3035,7 +3035,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-768",
       "sku": "GD26-768",
-      "name": "Dazzle Ring",
+      "name": "Tanzanite and Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3058,7 +3058,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-249",
       "sku": "GD26-249",
-      "name": "Dazzle Ring",
+      "name": "Aquamarine and Pink Spinel Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -3084,7 +3084,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1053",
       "sku": "GD25-1053",
-      "name": "Dazzle Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3109,7 +3109,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1054",
       "sku": "GD25-1054",
-      "name": "Dazzle Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3134,7 +3134,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-977",
       "sku": "GD25-977",
-      "name": "Dazzle Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3159,7 +3159,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-160",
       "sku": "GD26-160",
-      "name": "Dazzle Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3182,7 +3182,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-162",
       "sku": "GD26-162",
-      "name": "Dazzle Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3205,7 +3205,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-310",
       "sku": "GD26-310",
-      "name": "Dazzle Earrings",
+      "name": "Aquamarine and Tanzanite Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3230,7 +3230,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-769",
       "sku": "GD26-769",
-      "name": "Dazzle Earrings",
+      "name": "Tanzanite and Aquamarine Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3253,7 +3253,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-788",
       "sku": "GD26-788",
-      "name": "Dazzle Earrings",
+      "name": "Pink Spinel and Aquamarine Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3276,7 +3276,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1098",
       "sku": "GD25-1098",
-      "name": "Dazzle Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Dazzle",
       "type": "Pendants",
       "metal": "White Gold",
@@ -3301,7 +3301,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-635",
       "sku": "GD25-635",
-      "name": "Dazzle Pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Dazzle",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -3326,7 +3326,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-435",
       "sku": "GD24-435",
-      "name": "Entwine Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3351,7 +3351,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-751",
       "sku": "GD24-751",
-      "name": "Entwine Earrings",
+      "name": "Bi-colour Tourmaline Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3376,7 +3376,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-900",
       "sku": "GD24-900",
-      "name": "Entwine Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3401,7 +3401,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-410",
       "sku": "GD25-410",
-      "name": "Entwine Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3426,7 +3426,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-426",
       "sku": "GD25-426",
-      "name": "Entwine Earrings",
+      "name": "Green Tourmaline Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3452,7 +3452,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-436",
       "sku": "GD25-436",
-      "name": "Entwine Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3477,7 +3477,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-633",
       "sku": "GD25-633",
-      "name": "Entwine Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3500,7 +3500,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-676",
       "sku": "GD25-676",
-      "name": "Entwine Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3525,7 +3525,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1035",
       "sku": "GD25-1035",
-      "name": "Entwine Earrings",
+      "name": "Morganite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -3552,7 +3552,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-27",
       "sku": "GD26-27",
-      "name": "Entwine Earrings",
+      "name": "Green Tourmaline Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3577,7 +3577,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-330",
       "sku": "GD26-330",
-      "name": "Entwine Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3602,7 +3602,7 @@ window.FJ_DATA = {
     {
       "id": "gd23-159",
       "sku": "GD23-159",
-      "name": "Entwine Ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3627,7 +3627,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-103",
       "sku": "GD24-103",
-      "name": "Entwine Ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3653,7 +3653,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-307",
       "sku": "GD25-307",
-      "name": "Entwine Ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3679,7 +3679,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-728",
       "sku": "GD25-728",
-      "name": "Entwine Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3706,7 +3706,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-729",
       "sku": "GD25-729",
-      "name": "Entwine Ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3732,7 +3732,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1040",
       "sku": "GD25-1040",
-      "name": "Entwine Ring",
+      "name": "Fancy Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "White Gold",
@@ -3758,7 +3758,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-584",
       "sku": "GD26-584",
-      "name": "Entwine Ring",
+      "name": "Malaya Garnet Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3784,7 +3784,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-697",
       "sku": "GD25-697",
-      "name": "Spectrum Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3809,7 +3809,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-698",
       "sku": "GD25-698",
-      "name": "Spectrum Earrings",
+      "name": "Rose Rhodolite Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3834,7 +3834,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-699",
       "sku": "GD25-699",
-      "name": "Spectrum Earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3859,7 +3859,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-954",
       "sku": "GD25-954",
-      "name": "Spectrum Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3884,7 +3884,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-667",
       "sku": "GD25-667",
-      "name": "Spectrum Ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3910,7 +3910,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-727",
       "sku": "GD25-727",
-      "name": "Spectrum Ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3939,7 +3939,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-665",
       "sku": "GD25-665",
-      "name": "Spectrum Ring",
+      "name": "Rose Rhodolite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3965,7 +3965,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-913",
       "sku": "GD25-913",
-      "name": "Spectrum Ring",
+      "name": "Rose Rhodolite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White and Rose Gold",
@@ -3991,7 +3991,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-720",
       "sku": "GD25-720",
-      "name": "Spectrum Ring",
+      "name": "Rose Rhodolite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "Rose Gold",
@@ -4017,7 +4017,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-880",
       "sku": "GD25-880",
-      "name": "Spectrum Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4043,7 +4043,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-909",
       "sku": "GD25-909",
-      "name": "Spectrum Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4072,7 +4072,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-910",
       "sku": "GD25-910",
-      "name": "Spectrum Ring",
+      "name": "Tsavorite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4101,7 +4101,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-911",
       "sku": "GD25-911",
-      "name": "Spectrum Ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4130,7 +4130,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-882",
       "sku": "GD25-882",
-      "name": "Spectrum Ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4156,7 +4156,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-652",
       "sku": "GD25-652",
-      "name": "Spectrum Ring",
+      "name": "Tanzanite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4185,7 +4185,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-36",
       "sku": "GD26-36",
-      "name": "Spectrum Ring",
+      "name": "Tanzanite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -4208,7 +4208,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-253",
       "sku": "GD26-253",
-      "name": "Spectrum Necklace",
+      "name": "Aquamarine Necklace",
       "collection": "Spectrum",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -4233,7 +4233,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-253-a",
       "sku": "GD26-253 A",
-      "name": "Spectrum Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4259,7 +4259,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-254",
       "sku": "GD26-254",
-      "name": "Spectrum Necklace",
+      "name": "Rose Rhodolite Necklace",
       "collection": "Spectrum",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -4282,7 +4282,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-254-a",
       "sku": "GD26-254 A",
-      "name": "Spectrum Earrings",
+      "name": "Rose Rhodolite Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4308,7 +4308,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-66",
       "sku": "GD26-66",
-      "name": "Royal Starling Bangle",
+      "name": "Mint Garnet Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -4335,7 +4335,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-311",
       "sku": "GD26-311",
-      "name": "Royal Starling Bangle",
+      "name": "Mint Garnet Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4362,7 +4362,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-188",
       "sku": "GD26-188",
-      "name": "Royal Starling Bangle",
+      "name": "Tanzanite Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4389,7 +4389,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-178",
       "sku": "GD26-178",
-      "name": "Royal Starling Bangle",
+      "name": "Tsavorite Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4414,7 +4414,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-67",
       "sku": "GD26-67",
-      "name": "Royal Starling Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4441,7 +4441,7 @@ window.FJ_DATA = {
     {
       "id": "g-622",
       "sku": "G 622",
-      "name": "Royal Starling Ring",
+      "name": "Tsavorite Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "White and Rose Gold",
@@ -4467,7 +4467,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-191",
       "sku": "GD26-191",
-      "name": "Royal Starling Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "White Gold",
@@ -4493,7 +4493,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-825",
       "sku": "GD26-825",
-      "name": "Royal Starling Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -4519,7 +4519,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-824",
       "sku": "GD26-824",
-      "name": "Royal Starling Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4545,7 +4545,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-813",
       "sku": "GD26-813",
-      "name": "Royal Starling Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k Yellow and White Gold",
@@ -4571,7 +4571,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-312",
       "sku": "GD26-312",
-      "name": "Royal Starling Ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "White Gold",
@@ -4598,7 +4598,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-853",
       "sku": "GD26-853",
-      "name": "Royal Starling Ring",
+      "name": "Tanzanite Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4624,7 +4624,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-868",
       "sku": "GD26-868",
-      "name": "Royal Starling Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -4647,7 +4647,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-187",
       "sku": "GD26-187",
-      "name": "Royal Starling Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Royal Starling",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4672,7 +4672,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-169",
       "sku": "GD26-169",
-      "name": "Royal Starling Necklace",
+      "name": "Tsavorite Necklace",
       "collection": "Royal Starling",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -4695,7 +4695,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-170",
       "sku": "GD26-170",
-      "name": "Royal Starling Earrings",
+      "name": "Tsavorite Earrings",
       "collection": "Royal Starling",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4720,7 +4720,7 @@ window.FJ_DATA = {
     {
       "id": "gd23-443",
       "sku": "GD23-443",
-      "name": "Royal Starling Necklace",
+      "name": "Tsavorite Necklace",
       "collection": "Royal Starling",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -4745,7 +4745,7 @@ window.FJ_DATA = {
     {
       "id": "gd23-443-a",
       "sku": "GD23-443 A",
-      "name": "Royal Starling Earrings",
+      "name": "Tsavorite Earrings",
       "collection": "Royal Starling",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4770,7 +4770,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-184",
       "sku": "GD26-184",
-      "name": "Flare Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Flare",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4797,7 +4797,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-828",
       "sku": "GD26-828",
-      "name": "Flare Bracelet",
+      "name": "Tourmaline Bracelet",
       "collection": "Flare",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -4820,7 +4820,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-581",
       "sku": "GD24-581",
-      "name": "Flare Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4845,7 +4845,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-434",
       "sku": "GD25-434",
-      "name": "Flare Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4871,7 +4871,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-623",
       "sku": "GD25-623",
-      "name": "Flare Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4896,7 +4896,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-790",
       "sku": "GD25-790",
-      "name": "Flare Earrings",
+      "name": "Rhodolite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4922,7 +4922,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-791",
       "sku": "GD25-791",
-      "name": "Flare Earrings",
+      "name": "Morganite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -4948,7 +4948,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-265",
       "sku": "GD26-265",
-      "name": "Flare Earrings",
+      "name": "Lavender Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4974,7 +4974,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-268",
       "sku": "GD26-268",
-      "name": "Flare Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "White Gold",
@@ -5000,7 +5000,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-901",
       "sku": "GD26-901",
-      "name": "Flare Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5023,7 +5023,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-801",
       "sku": "GD26-801",
-      "name": "Flare Earrings",
+      "name": "Tourmaline Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5046,7 +5046,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-864",
       "sku": "GD26-864",
-      "name": "Flare Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White and Rose Gold",
@@ -5071,7 +5071,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-832",
       "sku": "GD26-832",
-      "name": "Flare Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5096,7 +5096,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-863",
       "sku": "GD26-863",
-      "name": "Flare Earrings",
+      "name": "Pink Tourmaline Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White and Rose Gold",
@@ -5119,7 +5119,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-188",
       "sku": "GD24-188",
-      "name": "Flare Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5144,7 +5144,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-799",
       "sku": "GD24-799",
-      "name": "Flare Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5169,7 +5169,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-346",
       "sku": "GD24-346",
-      "name": "Flare Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5194,7 +5194,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-562",
       "sku": "GD26-562",
-      "name": "Flare Earrings",
+      "name": "Rose Rhodolite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k Gold",
@@ -5219,7 +5219,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1088",
       "sku": "GD25-1088",
-      "name": "Flare Earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "White Gold",
@@ -5244,7 +5244,7 @@ window.FJ_DATA = {
     {
       "id": "gd23-287",
       "sku": "GD23-287",
-      "name": "Flare Ring",
+      "name": "Tanzanite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5269,7 +5269,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-632",
       "sku": "GD25-632",
-      "name": "Flare Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5294,7 +5294,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-918",
       "sku": "GD26-918",
-      "name": "Flare Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White and Rose Gold",
@@ -5319,7 +5319,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-795",
       "sku": "GD26-795",
-      "name": "Flare Ring",
+      "name": "Aquamarine Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5345,7 +5345,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-791",
       "sku": "GD26-791",
-      "name": "Flare Ring",
+      "name": "Spessartite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5371,7 +5371,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-829",
       "sku": "GD26-829",
-      "name": "Flare Ring",
+      "name": "Tourmaline Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5394,7 +5394,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-831",
       "sku": "GD26-831",
-      "name": "Flare Ring",
+      "name": "Aquamarine Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5420,7 +5420,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-834",
       "sku": "GD26-834",
-      "name": "Flare Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -5443,7 +5443,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-862",
       "sku": "GD26-862",
-      "name": "Flare Ring",
+      "name": "Pink Tourmaline Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5469,7 +5469,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-207",
       "sku": "GD26-207",
-      "name": "Flare Ring",
+      "name": "Tanzanite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5495,7 +5495,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-183",
       "sku": "GD26-183",
-      "name": "Flare Ring",
+      "name": "Tanzanite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5521,7 +5521,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-550",
       "sku": "GD26-550",
-      "name": "Flare Ring",
+      "name": "Rhodolite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5547,7 +5547,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1022",
       "sku": "GD25-1022",
-      "name": "Flare Ring",
+      "name": "Tanzanite Cut Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5573,7 +5573,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1071",
       "sku": "GD25-1071",
-      "name": "Flare Ring",
+      "name": "Aquamarine Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5599,7 +5599,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-279-a",
       "sku": "GD26-279 A",
-      "name": "Flare Ring",
+      "name": "Diamond Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "Gold-14kt",
@@ -5619,13 +5619,13 @@ window.FJ_DATA = {
         "img/products/gd26-279-a-2.webp"
       ],
       "hover": "img/products/gd26-279-a-1.webp",
-      "subtitle": "Diamonds",
+      "subtitle": "Diamond and diamonds",
       "specName": "Diamond and diamond flare ring"
     },
     {
       "id": "gd26-266",
       "sku": "GD26-266",
-      "name": "Flare Pendant",
+      "name": "Lavender Tanzanite Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "White Gold",
@@ -5650,7 +5650,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-269",
       "sku": "GD26-269",
-      "name": "Flare Pendant",
+      "name": "Spessartite Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "White Gold",
@@ -5676,7 +5676,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-800",
       "sku": "GD26-800",
-      "name": "Flare Pendant",
+      "name": "Tourmaline Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -5699,7 +5699,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-803",
       "sku": "GD26-803",
-      "name": "Flare Pendant",
+      "name": "Aquamarine Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -5724,7 +5724,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-833",
       "sku": "GD26-833",
-      "name": "Flare Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White and Rose Gold",
@@ -5749,7 +5749,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-905",
       "sku": "GD26-905",
-      "name": "Flare Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White and Rose Gold",
@@ -5772,7 +5772,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-196-b",
       "sku": "GD26-196 B",
-      "name": "Flare Necklace",
+      "name": "Aquamarine Necklace",
       "collection": "Flare",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -5797,7 +5797,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-878",
       "sku": "GD25-878",
-      "name": "Flare Necklace",
+      "name": "Pink Spinel Necklace",
       "collection": "Flare",
       "type": "Necklaces",
       "metal": "Rose Gold",
@@ -5822,7 +5822,7 @@ window.FJ_DATA = {
     {
       "id": "g-624",
       "sku": "G 624",
-      "name": "Multi Colour Ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
@@ -5847,7 +5847,7 @@ window.FJ_DATA = {
     {
       "id": "gd23-316",
       "sku": "GD23-316",
-      "name": "Multi Colour Ring",
+      "name": "Pink Spinel and Aquamarine Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5874,7 +5874,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-190",
       "sku": "GD26-190",
-      "name": "Multi Colour Ring",
+      "name": "Pink Spinel and Aquamarine Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
@@ -5901,7 +5901,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-792",
       "sku": "GD26-792",
-      "name": "Multi Colour Ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5924,7 +5924,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-793",
       "sku": "GD26-793",
-      "name": "Multi Colour Ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5947,7 +5947,7 @@ window.FJ_DATA = {
     {
       "id": "g-636",
       "sku": "G 636",
-      "name": "Multi Colour Ring",
+      "name": "Aquamarine and Mint Garnet Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
@@ -5972,7 +5972,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-537",
       "sku": "GD24-537",
-      "name": "Multi Colour Earrings",
+      "name": "Aquamarine and Tanzanite Earrings",
       "collection": "Multi Colour",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5995,7 +5995,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-76",
       "sku": "GD26-76",
-      "name": "Multi Colour Bracelet",
+      "name": "Aquamarine and Mint Garnet Bracelet",
       "collection": "Multi Colour",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6018,7 +6018,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-195-c",
       "sku": "GD26-195 C",
-      "name": "Multi Colour Bracelet",
+      "name": "Mint Garnet and Tsavorite Bracelet",
       "collection": "Multi Colour",
       "type": "Bracelets",
       "metal": "Yellow Gold",
@@ -6043,7 +6043,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-271",
       "sku": "GD26-271",
-      "name": "Shamsa Necklace",
+      "name": "Tanzanite Necklace",
       "collection": "Shamsa Fine",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -6066,7 +6066,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-271-a",
       "sku": "GD26-271 A",
-      "name": "Shamsa Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Shamsa Fine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -6089,7 +6089,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-895",
       "sku": "GD26-895",
-      "name": "Shamsa Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Shamsa Fine",
       "type": "Pendants",
       "metal": "18k Yellow and White Gold",
@@ -6112,7 +6112,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-897",
       "sku": "GD26-897",
-      "name": "Shamsa Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Shamsa Fine",
       "type": "Rings",
       "metal": "18k Yellow and White Gold",
@@ -6135,7 +6135,7 @@ window.FJ_DATA = {
     {
       "id": "gd24-647",
       "sku": "GD24-647",
-      "name": "Dome Earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -6160,7 +6160,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1028",
       "sku": "GD25-1028",
-      "name": "Dome Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -6186,7 +6186,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1060",
       "sku": "GD25-1060",
-      "name": "Dome Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -6212,7 +6212,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1093",
       "sku": "GD25-1093",
-      "name": "Dome Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -6238,7 +6238,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-174",
       "sku": "GD26-174",
-      "name": "Dome Earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -6263,7 +6263,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-59",
       "sku": "GD26-59",
-      "name": "Dome Earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -6289,7 +6289,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-214",
       "sku": "GD26-214",
-      "name": "Dome Bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6316,7 +6316,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-259",
       "sku": "GD26-259",
-      "name": "Dome Bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6341,7 +6341,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-261",
       "sku": "GD26-261",
-      "name": "Dome Bracelet",
+      "name": "Spessartite Bracelet",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6366,7 +6366,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-568",
       "sku": "GD26-568",
-      "name": "Dome Bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -6392,7 +6392,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-1027",
       "sku": "GD25-1027",
-      "name": "Dome Bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6418,7 +6418,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-673",
       "sku": "GD25-673",
-      "name": "Dome Bangle",
+      "name": "Tsavorite Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6445,7 +6445,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-198",
       "sku": "GD26-198",
-      "name": "Dome Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -6468,7 +6468,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-227-c",
       "sku": "GD26-227 C",
-      "name": "Dome Pendant",
+      "name": "Spessartite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -6493,7 +6493,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-236",
       "sku": "GD26-236",
-      "name": "Dome Pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -6518,7 +6518,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-57",
       "sku": "GD26-57",
-      "name": "Dome Pendant",
+      "name": "Spessartite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -6544,7 +6544,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-841",
       "sku": "GD26-841",
-      "name": "Dome Pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -6569,7 +6569,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-846",
       "sku": "GD26-846",
-      "name": "Dome Pendant",
+      "name": "Spessartite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "18k Yellow and White Gold",
@@ -6594,7 +6594,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-173",
       "sku": "GD26-173",
-      "name": "Dome Pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White and Rose Gold",
@@ -6619,7 +6619,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-299",
       "sku": "GD26-299",
-      "name": "Dome Pendant",
+      "name": "Rhodolite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White and Rose Gold",
@@ -6644,7 +6644,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-786",
       "sku": "GD25-786",
-      "name": "Dome Ring",
+      "name": "Tsavorite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6671,7 +6671,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-795",
       "sku": "GD25-795",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6698,7 +6698,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-796",
       "sku": "GD25-796",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6724,7 +6724,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-237",
       "sku": "GD26-237",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6750,7 +6750,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-560",
       "sku": "GD26-560",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6773,7 +6773,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-58",
       "sku": "GD26-58",
-      "name": "Dome Ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6800,7 +6800,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-806",
       "sku": "GD26-806",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6826,7 +6826,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-840",
       "sku": "GD26-840",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -6852,7 +6852,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-839",
       "sku": "GD26-839",
-      "name": "Dome Ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6878,7 +6878,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-843",
       "sku": "GD26-843",
-      "name": "Dome Ring",
+      "name": "Tanzanite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6904,7 +6904,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-848",
       "sku": "GD26-848",
-      "name": "Dome Ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6930,7 +6930,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-158",
       "sku": "GD26-158",
-      "name": "Dome Ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6956,7 +6956,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-262",
       "sku": "GD26-262",
-      "name": "Dome Ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6983,7 +6983,7 @@ window.FJ_DATA = {
     {
       "id": "gd25-836",
       "sku": "GD25-836",
-      "name": "Tide Bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -7010,7 +7010,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-51",
       "sku": "GD26-51",
-      "name": "Tide Bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -7036,7 +7036,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-165",
       "sku": "GD26-165",
-      "name": "Tide Bangle",
+      "name": "Spessartite Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -7062,7 +7062,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-73",
       "sku": "GD26-73",
-      "name": "Tide Bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -7089,25 +7089,25 @@ window.FJ_DATA = {
     {
       "id": "gd26-750",
       "sku": "GD26-750",
-      "name": "Bloom Bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "18k White Gold",
       "metalCode": "G-18kt-W",
-      "stone": "Diamond",
+      "stone": "Aquamarine",
       "shape": "Aquamarine",
       "stonePcs": null,
       "stoneCt": 1.78,
       "diamondCt": 0.88,
       "netG": 4.528,
       "grossG": 5.06,
-      "story": "Crafted in 18k White Gold, set with 1.78 carats of bracelet paired with 0.88 carats of brilliant cut diamonds.",
-      "tone": "#8a7f9a",
+      "story": "Crafted in 18k White Gold, set with 1.78 carats of vivid aquamarine paired with 0.88 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-750.webp"
       ],
-      "subtitle": "Diamonds",
-      "specName": "Bracelet and diamond bloom white"
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom bracelet"
     }
   ]
 };

@@ -403,15 +403,13 @@ window.HJ_STORIES = {
   },
 
   "dew-fall": {
-    kicker: "Mediterranea",
-    lede: "The world awakens to the delicate touch of dewdrops, capturing the essence " +
-          "of a new day. The Dewfall Necklace, part of the illustrious Mediterranea " +
-          "Collection, weaves a tale of serenity and hope.",
+    kicker: "High Jewellery",
+    lede: "Dew Fall is the first light of a new day, held in one drop: an " +
+          "aquamarine hanging free on a fine line of diamonds.",
     quote: "Like a single dewdrop poised on the petal of a flower.",
     craft: {
       h: "A tribute to fleeting moments",
-      p: ["The Dewfall Necklace is a tribute to these fleeting moments of nature's " +
-          "purity and peace.",
+      p: ["It is made for those few quiet minutes before the day begins.",
           "The line of diamond is kept deliberately fine so that nothing competes with " +
           "the drop itself, which hangs free at the lowest point of the necklace."],
     },

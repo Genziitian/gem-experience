@@ -79,7 +79,6 @@
                 '<h2 class="ftr-group-title">Client care</h2>' +
                 '<div class="ftr-group-links">' +
                   '<a href="' + prefix + 'appointment/">Book a private viewing</a>' +
-                  '<a href="' + prefix + 'quotation/">Commission a piece</a>' +
                   '<a href="' + prefix + 'contact/">Care and repairs</a>' +
                   '<a href="' + prefix + 'contact/">Contact us</a>' +
                   '<a href="' + prefix + 'faqs/">FAQs</a>' +

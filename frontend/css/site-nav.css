@@ -151,6 +151,15 @@
   border-bottom: 1px solid #e8e2d6;
 }
 .site-nav-sheet:not(.is-root) .site-nav-heading + .site-nav-link { border-top: 0; }
+.site-nav-link.has-note { flex-direction: column; align-items: flex-start; gap: 3px; }
+.site-nav-note {
+  font-family: Jost, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: #6b6259;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .site-nav-panel, .site-nav-scrim { transition: none; }

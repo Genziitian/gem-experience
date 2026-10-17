@@ -62,12 +62,46 @@
 
         <div class="auth-or"><span>or</span></div>
 
+        <p class="pg-toast" id="toast" hidden></p>
+
         <form class="pg-form auth-form" id="auth-form">
-          <p class="pg-toast" id="toast" hidden></p>
           <label id="name-field" hidden>Full name<input name="name" autocomplete="name"></label>
           <label>Email<input name="email" type="email" required autocomplete="email"></label>
           <label>Password<input name="password" type="password" required autocomplete="current-password" minlength="6"></label>
           <button class="pg-btn" type="submit" id="submit-btn">Sign in</button>
+          <p class="auth-alt" id="alt-line">
+            <button type="button" id="code-btn">Email me a sign-in code</button>
+            <span aria-hidden="true">·</span>
+            <button type="button" id="forgot-btn">Forgot password?</button>
+          </p>
+        </form>
+
+        <!-- Sign in with a code: the email first, then the six digits we send. -->
+        <form class="pg-form auth-form" id="code-form" hidden>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label id="code-field" hidden>Sign-in code
+            <input name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" maxlength="8" placeholder="6-digit code">
+          </label>
+          <button class="pg-btn" type="submit" id="code-submit">Email me a code</button>
+          <p class="auth-alt">
+            <button type="button" class="js-back">Sign in with a password</button>
+            <span aria-hidden="true" id="resend-sep" hidden>·</span>
+            <button type="button" id="resend-btn" hidden>Send a new code</button>
+          </p>
+        </form>
+
+        <!-- Forgot password: a link to set a new one. -->
+        <form class="pg-form auth-form" id="forgot-form" hidden>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <button class="pg-btn" type="submit" id="forgot-submit">Email me a reset link</button>
+          <p class="auth-alt"><button type="button" class="js-back">Back to sign in</button></p>
+        </form>
+
+        <!-- Arrived from the reset link: choose the new password. -->
+        <form class="pg-form auth-form" id="reset-form" hidden>
+          <label>New password<input name="password" type="password" required autocomplete="new-password" minlength="8"></label>
+          <label>Confirm new password<input name="confirm" type="password" required autocomplete="new-password" minlength="8"></label>
+          <button class="pg-btn" type="submit" id="reset-submit">Save new password</button>
         </form>
 
         <p class="pg-auth-switch" id="switch-line">
@@ -107,8 +141,40 @@ var switchLine = document.getElementById("switch-line");
 var googleLabel = document.getElementById("google-label");
 var toast = document.getElementById("toast");
 
+var resetting = GemShell.qs("reset") === "1";
+var forms = {
+  password: document.getElementById("auth-form"),
+  code: document.getElementById("code-form"),
+  forgot: document.getElementById("forgot-form"),
+  reset: document.getElementById("reset-form")
+};
+var googleBtn = document.getElementById("google-btn");
+var orLine = document.querySelector(".auth-or");
+
+/* One panel at a time: the password form (sign in / create account), the
+   sign-in code, the forgotten password, or the new password after a reset. */
+function show(which, heading, line) {
+  Object.keys(forms).forEach(function (k) { forms[k].hidden = k !== which; });
+  var withGoogle = which === "password";
+  googleBtn.hidden = !withGoogle;
+  orLine.hidden = !withGoogle;
+  switchLine.hidden = !withGoogle;
+  toast.hidden = true;
+  if (heading) title.textContent = heading;
+  if (line) lede.textContent = line;
+  var first = forms[which].querySelector("input:not([type=hidden])");
+  if (first && which !== "password") first.focus();
+}
+
 (async function () {
   var s = await Gem.auth.getSession();
+  if (resetting) {
+    if (s) show("reset", "Choose a new password", "Set the password you will use from now on.");
+    else {
+      show("forgot", "Reset your password", "That link has expired or was opened in another browser. Ask for a new one here.");
+    }
+    return;
+  }
   if (s) location.replace(next);
 })();
 
@@ -125,6 +191,7 @@ function setMode(nextMode) {
   switchLine.innerHTML = signingIn
     ? 'New here? <button type="button" id="toggle-mode">Create an account</button>'
     : 'Already registered? <button type="button" id="toggle-mode">Sign in</button>';
+  document.getElementById("alt-line").hidden = !signingIn;
   document.querySelector("[name=password]").setAttribute(
     "autocomplete", signingIn ? "current-password" : "new-password"
   );
@@ -146,6 +213,104 @@ document.getElementById("google-btn").addEventListener("click", async function (
   } catch (err) {
     GemShell.toast(toast, err.message || "Google sign-in is unavailable.", false);
     e.currentTarget.disabled = false;
+  }
+});
+
+function backToSignIn() {
+  setMode("signin");
+  show("password", "Sign in", "Follow your orders, quotations and appointments in one place.");
+}
+document.querySelectorAll(".js-back").forEach(function (b) { b.addEventListener("click", backToSignIn); });
+
+/* Carry an email already typed from one panel to the next. */
+function typedEmail() {
+  var v = forms.password.email.value.trim();
+  return v;
+}
+
+document.getElementById("code-btn").addEventListener("click", function () {
+  forms.code.email.value = typedEmail();
+  document.getElementById("code-field").hidden = true;
+  forms.code.code.required = false;
+  document.getElementById("code-submit").textContent = "Email me a code";
+  show("code", "Sign in with a code", "We will email you a six-digit code. No password needed.");
+});
+
+document.getElementById("forgot-btn").addEventListener("click", function () {
+  forms.forgot.email.value = typedEmail();
+  show("forgot", "Reset your password", "Enter your email and we will send you a link to choose a new password.");
+});
+
+var codeSent = false;
+async function requestCode() {
+  var email = forms.code.email.value.trim();
+  await Gem.auth.sendCode(email);
+  codeSent = true;
+  document.getElementById("code-field").hidden = false;
+  forms.code.code.required = true;
+  document.getElementById("resend-btn").hidden = false;
+  document.getElementById("resend-sep").hidden = false;
+  document.getElementById("code-submit").textContent = "Sign in";
+  lede.textContent = "We have sent a code to " + email + ". It is valid for one hour.";
+  forms.code.code.focus();
+}
+
+forms.code.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var btn = document.getElementById("code-submit");
+  btn.disabled = true;
+  try {
+    if (!codeSent) await requestCode();
+    else {
+      await Gem.auth.verifyCode(forms.code.email.value.trim(), forms.code.code.value.trim());
+      location.href = next;
+    }
+  } catch (err) {
+    GemShell.toast(toast, err.message || "That did not work. Please try again.", false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+document.getElementById("resend-btn").addEventListener("click", async function () {
+  try {
+    await requestCode();
+    GemShell.toast(toast, "A new code is on its way.", true);
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Could not send a new code yet. Please wait a minute.", false);
+  }
+});
+
+forms.forgot.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var btn = document.getElementById("forgot-submit");
+  btn.disabled = true;
+  try {
+    await Gem.auth.sendReset(forms.forgot.email.value.trim(), new URL("/login/?reset=1", location.href).href);
+    GemShell.toast(toast, "If that address has an account, a reset link is on its way. Open it in this browser.", true);
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Could not send the link. Please try again.", false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+forms.reset.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var f = e.target;
+  if (f.password.value !== f.confirm.value) {
+    GemShell.toast(toast, "The two passwords do not match.", false);
+    return;
+  }
+  var btn = document.getElementById("reset-submit");
+  btn.disabled = true;
+  try {
+    await Gem.auth.setPassword(f.password.value);
+    GemShell.toast(toast, "Your password is saved. Taking you to your account…", true);
+    setTimeout(function () { location.href = next; }, 1200);
+  } catch (err) {
+    GemShell.toast(toast, err.message || "Could not save the password.", false);
+    btn.disabled = false;
   }
 });
 

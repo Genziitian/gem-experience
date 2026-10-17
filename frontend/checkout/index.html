@@ -224,7 +224,10 @@ document.getElementById("checkout-form").addEventListener("submit", async functi
       country: countryName(),
       source: "checkout",
       order_number: order.order_number,
-      pieces: items.map(function (i) { return i.name; }),
+      pieces: items.map(function (i) {
+        return [i.name, String(i.id || "").toUpperCase(), i.materials, (i.qty || 1) > 1 ? "× " + i.qty : ""]
+          .filter(Boolean).join(" · ");
+      }),
       notes: f.notes.value.trim(),
       gift: gift
     });

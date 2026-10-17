@@ -1259,6 +1259,16 @@ button {
   text-underline-offset: 3px;
 }
 
+.auth-alt { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px 10px; font-weight: 300; font-size: 13px; color: var(--muted); }
+.auth-alt[hidden], .auth-alt [hidden] { display: none; }
+.auth-alt button {
+  padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--ink);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+#code-form input[name=code] { letter-spacing: 0.4em; font-size: 20px; }
+#code-form, #forgot-form, #reset-form { margin-top: 28px; }
+
 /* ------------------------------------------------------------ responsive */
 
 @media (max-width: 820px) {

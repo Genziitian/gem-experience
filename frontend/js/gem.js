@@ -246,6 +246,44 @@
     return res.data;
   }
 
+  /* Passwordless: a six-digit code by email. shouldCreateUser lets a first-time
+     visitor in the same way, so the code works whether or not they had an
+     account. The code is checked in this browser with verifyCode. */
+  async function sendCode(email) {
+    var sb = getClient();
+    if (!sb) throw new Error("Supabase is not configured.");
+    var res = await sb.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } });
+    if (res.error) throw new Error(res.error.message);
+    return true;
+  }
+
+  async function verifyCode(email, token) {
+    var sb = getClient();
+    if (!sb) throw new Error("Supabase is not configured.");
+    var res = await sb.auth.verifyOtp({ email: email, token: token, type: "email" });
+    if (res.error) throw new Error(res.error.message);
+    return res.data;
+  }
+
+  /* The reset link brings the visitor back to redirectTo signed in for
+     recovery; setPassword then replaces the password. With PKCE the link has
+     to be opened in the browser that asked for it. */
+  async function sendReset(email, redirectTo) {
+    var sb = getClient();
+    if (!sb) throw new Error("Supabase is not configured.");
+    var res = await sb.auth.resetPasswordForEmail(email, { redirectTo: redirectTo });
+    if (res.error) throw new Error(res.error.message);
+    return true;
+  }
+
+  async function setPassword(password) {
+    var sb = getClient();
+    if (!sb) throw new Error("Supabase is not configured.");
+    var res = await sb.auth.updateUser({ password: password });
+    if (res.error) throw new Error(res.error.message);
+    return res.data;
+  }
+
   /* Google returns to the page we name here, so the visitor lands back in the
      account rather than on a bare callback URL. */
   async function signInWithGoogle(redirectTo) {
@@ -389,6 +427,10 @@
       signIn: signIn,
       signUp: signUp,
       signInWithGoogle: signInWithGoogle,
+      sendCode: sendCode,
+      verifyCode: verifyCode,
+      sendReset: sendReset,
+      setPassword: setPassword,
       signOut: signOut,
       getProfile: getProfile
     },

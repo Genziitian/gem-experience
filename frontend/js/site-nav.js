@@ -49,18 +49,28 @@
         { label: "Malaya Garnet", href: "world-of-preciousness/malaya-garnet/" }
       ]
     },
-    { label: "Events & Exhibitions", href: "events/" }
+    { label: "Events & Exhibitions", href: "events/" },
+    {
+      label: "The House",
+      href: "the-house/",
+      children: [
+        { label: "About", href: "the-house/" },
+        { label: "Lookbook", href: "lookbook/" },
+        { label: "Events & Exhibitions", href: "events/" },
+        { label: "Ateliers & stores", href: "offices/" }
+      ]
+    }
     /* Hidden from the menu for now (unpublished in the database too):
-       Gemstones & Mining, Engagement & Bridal, Gifts (gifts/) and The House
-       (About — Our History, Timeline, Craftsmanship, Sustainability, Maasai
-       Women Project, Our Museum; Services — Upgrade Your Jewellery, Preserve
-       Your Jewellery). */
+       Gemstones & Mining, Engagement & Bridal and Gifts (gifts/). The House's
+       planned pages (Our History, Timeline, Craftsmanship, Sustainability,
+       Maasai Women Project, Our Museum, Services) stay unpublished until each
+       has a page. */
   ];
 
   /* Sections kept off the menu whatever the database says. The admin can
      unpublish them too; this makes sure they stay hidden even when that has
      not been done on the live database yet. Remove a name to bring it back. */
-  var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts", "The House"];
+  var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts"];
 
   /* Entries inside a section kept off the menu the same way: collections
      with nothing photographed to show yet. (Tide and Swirl were here until

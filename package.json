@@ -6,6 +6,6 @@
     "dev:frontend": "cd frontend && python3 -m http.server 8000",
     "dev:admin": "npm run dev --prefix admin",
     "build:admin": "npm run build --prefix admin",
-    "build:seo": "node tools/build-seo.mjs"
+    "build:seo": "node tools/build-lookbook.mjs && node tools/build-seo.mjs"
   }
 }

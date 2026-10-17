@@ -295,10 +295,10 @@
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
     a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name, p.hover || ""));
     var body = el("div", "fj-card-body");
-    body.appendChild(el("span", "fj-card-type", { text: p.collection + " · " + p.type }));
+    body.appendChild(el("span", "fj-card-type", { text: p.metal || p.type }));
     body.appendChild(el("h3", null, { text: p.name }));
     body.appendChild(el("p", null, {
-      text: p.stone + (p.stoneCt != null ? " · " + ct(p.stoneCt) : "")
+      text: (p.subtitle || p.stone) + (p.stoneCt != null ? " · " + ct(p.stoneCt) : "")
     }));
     a.appendChild(body);
     return a;
@@ -580,6 +580,7 @@
     var copy = el("div", "fj-pdp-copy");
     copy.appendChild(el("p", "fj-kicker", { text: p.sku }));
     copy.appendChild(el("h1", "fj-title", { text: headline(p) }));
+    if (p.subtitle) copy.appendChild(el("p", "fj-subtitle", { text: p.subtitle }));
 
     var priceRow = el("div", "fj-pdp-price");
     priceRow.appendChild(el("span", "fj-pdp-price-val", { text: formatPrice(p) }));
@@ -670,16 +671,16 @@
     pdp.appendChild(copy);
     root.appendChild(pdp);
 
-    /* Closer look — detail crops of this specific piece, dropped in per SKU at
-       img/products/<id>/detail-N.jpg. The section stays out of the DOM until at
-       least one crop actually loads, so a piece without them shows nothing
-       rather than a row of empty placeholders. */
+    /* Closer look — detail crops of this specific piece, listed in the
+       catalog as p.details (paths under img/products/<id>/). Only listed crops
+       are requested, so a piece without them costs no failed requests. The
+       section stays out of the DOM until at least one crop actually loads. */
     var closer = el("section", "fj-closer");
     closer.appendChild(el("h2", "fj-section-h", { text: "A closer look" }));
     var closerGrid = el("div", "fj-closer-grid");
     var closerShown = false;
-    ["detail-1", "detail-2", "detail-3"].forEach(function (n) {
-      var src = "img/products/" + p.id + "/" + n + ".jpg";
+    (p.details || []).forEach(function (n) {
+      var src = /\//.test(n) ? n : "img/products/" + p.id + "/" + n;
       var probe = new Image();
       probe.addEventListener("load", function () {
         closerGrid.appendChild(mediaFrame(src, p.name + " — detail", p.tone, "fj-closer-tile"));
@@ -722,7 +723,7 @@
   function pageTitle(route) {
     if (route.page === "product") {
       var p = data.products.find(function (x) { return x.id === route.id; });
-      return p ? p.name + " | Fine Jewellery | Gem Experience" : "Fine Jewellery | Gem Experience";
+      return p ? p.name + " " + p.sku + " | Fine Jewellery | Gem Experience" : "Fine Jewellery | Gem Experience";
     }
     if (route.page === "shop") {
       var bits = ["Shop all"];

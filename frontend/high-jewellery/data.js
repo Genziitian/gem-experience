@@ -22,11 +22,8 @@ window.HJ_DATA = {
   ],
   "types": [
     "Gemstones",
-    "Rings",
     "Necklaces",
-    "Earrings",
-    "Bracelets",
-    "Tiaras"
+    "Earrings"
   ],
   "occasions": [
     "Bridal",
@@ -345,14 +342,14 @@ window.HJ_DATA = {
     },
     {
       "id": "merelani",
-      "name": "Spinel Balls necklace",
-      "materials": "Rubellite, Diamond and 18k White Gold",
-      "type": "Earrings",
+      "name": "Rosette",
+      "materials": "36.5ct Pink Spinel and Diamond, 18k White and Rose Gold",
+      "type": "Necklaces",
       "collection": "Tanzania Universe",
       "occasion": "Bridal",
-      "carat": "—",
+      "carat": "36.5ct",
       "origin": "—",
-      "metal": "18k White Gold",
+      "metal": "18k White and Rose Gold",
       "ref": "—",
       "story": "",
       "gallery": [
@@ -363,7 +360,9 @@ window.HJ_DATA = {
       ],
       "models": [
         "img/pieces/merelani/m1.webp"
-      ]
+      ],
+      "storyUrl": "/high-jewellery/merelani/",
+      "storyLabel": "Explore Rosette"
     },
     {
       "id": "helix",
@@ -424,8 +423,8 @@ window.HJ_DATA = {
       "carat": "21.86ct",
       "origin": "Merelani, Tanzania",
       "metal": "Platinum 950",
-      "ref": "HJ-1042",
-      "story": "One rough stone, followed from the Merelani hills to the bench, cut to hold a single line of blue at the centre and set in a halo that disappears when worn.",
+      "ref": "—",
+      "story": "",
       "visualiser": {
         "color": "#1a4588",
         "accent": "#553a9a",
@@ -444,16 +443,16 @@ window.HJ_DATA = {
     },
     {
       "id": "kilimanjaro",
-      "name": "Ocean Wave",
-      "materials": "Tanzanite, Diamond and 18k White Gold",
+      "name": "Lagoon",
+      "materials": "Green stones and Diamond, White Gold",
       "type": "Necklaces",
       "collection": "Tanzania Universe",
       "occasion": "Gala",
-      "carat": "41.80ct total",
-      "origin": "Merelani, Tanzania",
-      "metal": "18k White Gold",
-      "ref": "HJ-1108",
-      "story": "Thirty-one graduated tanzanites, matched over four years, laid along a collar that sits flat against the skin.",
+      "carat": "—",
+      "origin": "—",
+      "metal": "—",
+      "ref": "—",
+      "story": "",
       "gallery": [
         "img/pieces/kilimanjaro/p1.webp"
       ],
@@ -461,16 +460,16 @@ window.HJ_DATA = {
     },
     {
       "id": "rift",
-      "name": "Tsavorite necklace",
-      "materials": "9.1ct Tanzanite Pair and Diamond",
-      "type": "Earrings",
+      "name": "Fern",
+      "materials": "Tsavorite and Diamond",
+      "type": "Necklaces",
       "collection": "Tanzania Universe",
       "occasion": "Gala",
-      "carat": "9.14ct pair",
-      "origin": "Merelani, Tanzania",
-      "metal": "Platinum 950",
-      "ref": "HJ-1073",
-      "story": "A matched pair from one crystal, split at the mine and cut together so the two drops read as one colour under any light.",
+      "carat": "—",
+      "origin": "—",
+      "metal": "—",
+      "ref": "—",
+      "story": "",
       "gallery": [
         "img/pieces/rift/p1.webp",
         "img/pieces/rift/p2.webp",
@@ -488,20 +487,20 @@ window.HJ_DATA = {
         "img/pieces/rift/m6.webp"
       ],
       "storyUrl": "/high-jewellery/rift/",
-      "storyLabel": "Explore Tsavorite"
+      "storyLabel": "Explore Fern"
     },
     {
       "id": "mahenge",
       "name": "Samaah",
-      "materials": "Spinel, Diamond and Rose Gold",
-      "type": "Bracelets",
+      "materials": "Pink Tourmaline and Diamond",
+      "type": "Necklaces",
       "collection": "Origin",
       "occasion": "Collector",
-      "carat": "22.60ct total",
-      "origin": "Mahenge, Tanzania",
-      "metal": "18k Rose Gold",
-      "ref": "HJ-0994",
-      "story": "Mahenge spinel in the pink that made the deposit famous, held in rose gold links that take the colour warmer still.",
+      "carat": "16.05ct pink tourmaline · 32.10ct diamond",
+      "origin": "—",
+      "metal": "—",
+      "ref": "—",
+      "story": "",
       "visualiser": {
         "color": "#c45a7a",
         "accent": "#e8a0b4",
@@ -530,15 +529,15 @@ window.HJ_DATA = {
     {
       "id": "oldoinyo",
       "name": "Mediterranea",
-      "materials": "Diamond and Platinum",
-      "type": "Tiaras",
+      "materials": "Pink stones and Diamond, Rose Gold",
+      "type": "Necklaces",
       "collection": "Heritage",
       "occasion": "Bridal",
-      "carat": "28.40ct total",
-      "origin": "Various",
-      "metal": "Platinum 950",
-      "ref": "HJ-0921",
-      "story": "Built as a tiara, worn as a necklace: the frame separates into three, each part finished to be seen on its own.",
+      "carat": "—",
+      "origin": "—",
+      "metal": "Rose Gold",
+      "ref": "—",
+      "story": "",
       "gallery": [
         "img/pieces/oldoinyo/p1.webp",
         "img/pieces/oldoinyo/p2.webp",

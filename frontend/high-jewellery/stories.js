@@ -41,10 +41,9 @@ window.HJ_STORIES = {
     },
     suite: { note: "Celestine is a necklace, a bracelet and a pair of earrings, made as one.",
              labels: ["Earrings", "Bracelet", "Necklace"] },
-    say: "To wear Celestine is to wear a garden caught in a moment of cosmic light. " +
-         "Nestled within the floral star-map are pastel aquamarines and vivid pink " +
-         "spinels, pulsing with the soft blues and rosy hues of an early morning sky. " +
-         "It is elegant, light-filled, and utterly timeless.",
+    say: "To wear Celestine is to wear a garden caught in starlight. Set into " +
+         "the floral star-map are pastel aquamarines and vivid pink spinels, in" +
+         " the soft blues and pinks of an early morning sky.",
   },
 
   usambara: {
@@ -52,12 +51,13 @@ window.HJ_STORIES = {
     lede: "Poetry in motion. Flamenco translates the graceful energy of Spanish dance " +
           "into a sculpted form. Every curve mimics the defiant flare of silk; every " +
           "line follows the arc of a dancer's silhouette.",
-    quote: "Born from rhythm and movement, this jewel is an ode to Flamenco, the dance of celebration and defiance.",
+    quote: "Born from rhythm and movement, this jewel belongs to Flamenco, the " +
+           "dance of celebration and defiance.",
     craft: {
       h: "Two thousand one hundred hours",
-      p: ["The centrepiece, a majestic necklace featuring 34.56 carats of Pink Spinel, " +
-          "serves as a testament to intensity that took 2,100 hours. These rare, vivid " +
-          "stones radiate a spirited glow, graduating through a sea of brilliance.",
+      p: ["The centrepiece is a necklace of 34.56 carats of pink spinel, and " +
+          "2,100 hours of work. The stones are rare and vivid, and they " +
+          "graduate in size down the length of the piece.",
           "Just as a dancer's skirt swirls in rippling waves of fabric, the design " +
           "curves and flares with movement, highlighting the brilliance of the stones."],
     },
@@ -66,9 +66,8 @@ window.HJ_STORIES = {
       p: ["The companion set carries a harmonious interplay of soft purple and blue " +
           "tones in white gold: a vivid 20.36 carat aquamarine, paired with 25.16 " +
           "carats of fancy lavender tanzanite and 19.97 carats of blue tanzanites.",
-          "Interwoven with 24.53 carats of diamonds, together these exceptional " +
-          "gemstones evoke the grace of the dance that inspired the piece. Over 3,700 " +
-          "hours of meticulous craftsmanship brought it to life."],
+          "Between them run 24.53 carats of diamonds, set to follow the turn of" +
+          " the dancer. In all, the piece took more than 3,700 hours to make."],
     },
     suite: { note: "Flamenco is made as a set: necklace, earrings and ring.",
              labels: ["Necklace", "Earrings", "Ring"] },
@@ -87,17 +86,16 @@ window.HJ_STORIES = {
       p: ["Reflecting over 3,000 hours of masterful artistry, Ember feels like a fluid " +
           "drape of 156 disk-cut pink spinels entwined with 11 carats of portrait-cut " +
           "and 23.18 carats of round brilliant-cut diamonds against one's collarbone.",
-          "Meticulously interwoven, they form a seamless surface that allows light to " +
-          "flow. The necklace embodies the most intimate moment, just before flame " +
+          "Set close and interwoven, they make one unbroken surface for the " +
+          "light to cross. The necklace holds the moment just before flame " +
           "becomes fire."],
     },
     stones: {
       h: "Spinel from Mahenge",
       p: ["The 156 bead-cut pink spinels come from Mahenge in East Africa, all custom " +
           "cut to create this dense, layered surface.",
-          "At the centre of the composition, a breathtaking vivid 23.7 carat " +
-          "pear-shaped pink spinel bestows life on this dramatic tapestry around the " +
-          "neck. Ember captures a powerful expression of colour and artisanal precision."],
+          "At the centre sits a vivid pear-shaped pink spinel of 23.7 carats, " +
+          "and the whole of the necklace is drawn towards it."],
     },
     say: "Ember is not about something delicate, it is about presence. It is designed " +
          "to sit boldly on the neck, not disappear into it. The idea behind it is a " +
@@ -116,22 +114,20 @@ window.HJ_STORIES = {
       p: ["Set in 18k white gold, the design balances precision with fluidity, each " +
           "element thoughtfully placed yet naturally flowing. Our craftsmen spent 2,950 " +
           "hours bringing this serene garden to life.",
-          "Conceived as a transformable piece, Jardin Bleu adapts effortlessly across " +
-          "moments while retaining its sculptural elegance. The layers of the necklace " +
-          "are detachable and can be worn in more than one way."],
+          "Jardin Bleu was conceived to change with the occasion. The layers of" +
+          " the necklace are detachable and can be worn in more than one way."],
     },
     stones: {
       h: "Forty-one carats of tanzanite",
-      p: ["At its heart, a 41 carat Asscher-cut tanzanite draws the eye with its rich, " +
-          "velvety blue tone: calm, luminous, and quietly captivating.",
+      p: ["At its heart, a 41 carat Asscher-cut tanzanite in a deep, velvety " +
+          "blue that holds the eye.",
           "Around it, floral clusters of 42.43 carats of portrait-cut diamonds unfold " +
           "like petals in low light, interwoven with tanzanite and aquamarine in gentle " +
           "tonal shifts from deep twilight to pale, aqueous blue."],
     },
-    say: "What makes this piece special is not just the centre stone, but how wearable " +
-         "it is despite the scale. It is fully detachable, so it transitions from " +
-         "something very grand to something more wearable. It holds its impact, but it " +
-         "is not restricted to one way of wearing. It adapts with you.",
+    say: "Beyond the centre stone, what surprises people is how wearable it is " +
+         "at this scale. Everything detaches, so it can go from very grand to " +
+         "something far simpler, and it keeps its presence either way.",
   },
 
   shamsa: {
@@ -142,8 +138,8 @@ window.HJ_STORIES = {
     quote: "From the 365 days around the sun, this orbit took 2,300 hours.",
     craft: {
       h: "A halo of warmth",
-      p: ["The soft organic folds are meticulously crafted in yellow gold, softened by " +
-          "arches of natural diamond that catch light and come alive when worn.",
+      p: ["The soft folds are worked in yellow gold and edged with arches of " +
+          "natural diamond, which catch the light when the piece is worn.",
           "Both regal and fluid, the necklace encircles the wearer like a halo of " +
           "warmth. The sun evokes a sense of power, resilience and divine rhythm, which " +
           "is the essence of the design."],
@@ -164,17 +160,17 @@ window.HJ_STORIES = {
 
   rihla: {
     kicker: "High Jewellery",
-    lede: "Rihla, Arabic for the journey, is more than a tribute to the cosmos. It is a " +
-          "wearable sonnet dedicated to the rare moments that stop us in our tracks.",
+    lede: "Rihla is Arabic for the journey. The piece was made for the night " +
+          "sky, and for the rare moments that stop us where we stand.",
     quote: "It doesn't just sit in the light; it breathes with it.",
     craft: {
       h: "Nineteen hundred hours",
       p: ["Movement is the invisible thread that sews Rihla together. The architecture " +
           "of the piece is a masterclass in uninterrupted precision, with 1,900 hours " +
           "in the making.",
-          "Sweeping curves of 15.58 carats of brilliant-cut pavé diamonds trace the " +
-          "silhouette of a rising crescent. These are not embellishments; they are the " +
-          "light trails of the moon's journey, unfolding in a sequence of lunar phases."],
+          "Sweeping curves of 15.58 carats of brilliant-cut pavé diamonds trace" +
+          " the silhouette of a rising crescent. They follow the moon through " +
+          "its phases, like a trail of light."],
     },
     stones: {
       h: "A blue moon",
@@ -302,27 +298,27 @@ window.HJ_STORIES = {
 
   oldoinyo: {
     kicker: "High Jewellery",
-    lede: "Built as a tiara, worn as a necklace: the frame separates into three, each " +
-          "part finished to be seen on its own.",
-    quote: "Each part finished to be seen on its own.",
+    /* No write-up in the house's documents yet. Written from the photographs
+       only, with no weights or stones named that are not confirmed. */
+    lede: "Mediterranea gathers pink stones edge to edge in rose gold, a collar that " +
+          "narrows to a point at the throat, with earrings drawn in the same curve.",
+    quote: "Colour laid edge to edge.",
     craft: {
-      h: "One piece, three ways",
-      p: ["The frame separates into three. Nothing is hidden at the joins, because " +
-          "each section has to hold up as a finished piece in its own right.",
-          "Platinum 950 throughout, which is what allows a tiara frame to be light " +
-          "enough to wear as a collar."],
+      h: "One sweep of colour",
+      p: ["The collar is set so closely that the pink reads as a single surface, " +
+          "outlined in diamond on both edges.",
+          "The earrings repeat the line of the necklace in a smaller, twisting form."],
     },
     stones: {
-      h: "Twenty-eight carats of diamond",
-      p: ["28.40 carats in total, in platinum.",
-          "The stones are gathered rather than from a single source, matched for " +
-          "colour and cut across the whole frame."],
+      h: "Pink, in rose gold",
+      p: ["Pink stones in mixed cuts, framed by brilliant-cut diamonds.",
+          "Rose gold throughout, which warms the pink rather than cooling it."],
     },
   },
 
   /* ------------------------------------------------------------------ DRAFTS
    *
-   * Two remain without copy: Spinel Balls necklace and Ocean Wave, which the
+   * One remains without copy: Lagoon, which the
    * house has said are still being written. The other five in this block have
    * since been replaced with their real descriptions and are no longer drafts.
    *
@@ -342,9 +338,8 @@ window.HJ_STORIES = {
 
   weaver: {
     kicker: "Dancing Weaver",
-    lede: "The intricate overlapping pattern in the piece is inspired by the meticulous " +
-          "weaves in a bird's nest. An ode to nature's creative brilliance, reflecting " +
-          "the fine details of the world around us.",
+    lede: "The overlapping pattern is taken from a bird's nest, strand laid " +
+          "over strand, the kind of fine detail that is easy to walk past.",
     quote: "Each link symbolises delicate balance and flow in the design.",
     craft: {
       h: "Woven, as a nest is woven",
@@ -366,31 +361,29 @@ window.HJ_STORIES = {
 
   merelani: {
     kicker: "High Jewellery",
-    draft: true,
-    /* Catalogue says Earrings; the photographs show a necklace and earrings. */
-    lede: "Rubellite gathered in clusters, scattered across a collar and repeated in a " +
-          "fan of stones at the ear.",
-    quote: "Colour massed rather than placed.",
+    lede: "Rosette is a garden in full bloom: pink spinels cut as spheres, each one " +
+          "ringed with diamonds so the clusters open like petals.",
+    quote: "The charm of a garden in blossom.",
     craft: {
-      h: "Clustered",
-      p: ["The stones are grouped instead of spaced, so the eye reads a field of " +
-          "colour before it picks out any individual stone.",
-          "White gold and diamond hold them from beneath, largely hidden, which is " +
-          "what lets the pink sit almost unbroken across the front of the collar."],
+      h: "Looped and linked",
+      p: ["The necklace runs on looping, diamond-set links, which keep it light and let " +
+          "it move with the wearer.",
+          "Touches of rose gold among the white give the diamonds some warmth."],
     },
     stones: {
-      h: "Rubellite and diamond",
-      p: ["Rubellite in rounds and pears, in a pink that runs warm rather than cool.",
-          "The earrings take the same stones into a fan, wider at the base than at the " +
-          "lobe, so they sit forward rather than hanging straight."],
+      h: "Thirty-six carats of pink spinel",
+      p: ["36.5 carats of vivid pink spinel, cut precisely into spheres to form the " +
+          "centre of each flower.",
+          "Each sphere is circled by a halo of round brilliant-cut diamonds, set in " +
+          "18k white and rose gold."],
     },
   },
 
   georgie: {
     kicker: "High Jewellery",
-    lede: "The Georgie Necklace is a tribute to Grace Kelly's portrayal of Georgie " +
-          "Elgin in The Country Girl, a role marked by emotional depth and grace. " +
-          "Inspired by Georgie's resilience, this necklace embodies her elegance.",
+    lede: "The Georgie Necklace is a tribute to Grace Kelly's portrayal of " +
+          "Georgie Elgin in The Country Girl. The necklace is drawn from " +
+          "Georgie's resilience and her quiet elegance.",
     quote: "Her inner light, and her unwavering dignity.",
     craft: {
       h: "Warmth, in rose gold",
@@ -434,21 +427,20 @@ window.HJ_STORIES = {
 
   helix: {
     kicker: "High Jewellery",
-    lede: "The Helix Necklace draws inspiration from the intricate dance that is the " +
-          "very foundation of life, translated seamlessly into a piece that embodies " +
-          "nature's serenity and the geometric splendour of the circle.",
+    lede: "The Helix Necklace takes the spiral at the foundation of life and " +
+          "sets it inside the calm geometry of the circle.",
     quote: "A spiral reminiscent of life's helix.",
     craft: {
       h: "Set in a spiral",
-      p: ["Encircling this beacon of tranquillity are 12 carats of round, flawless " +
-          "diamonds, set meticulously in a spiral reminiscent of life's helix.",
+      p: ["Around it, 12 carats of round, flawless diamonds are set in a " +
+          "spiral, after the helix of life.",
           "As light catches each diamond, they shimmer like stars peeking through the " +
           "forest's thick blanket."],
     },
     stones: {
       h: "Nine carats of tanzanite",
-      p: ["Suspended gracefully is a mesmerising 9.16 carat pear-shaped tanzanite, a " +
-          "gem that reflects the deep twilight hues of the forest at dusk.",
+      p: ["From it hangs a 9.16 carat pear-shaped tanzanite, the deep blue of a" +
+          " forest at dusk.",
           "As the sky deepens into shades of purples and blues."],
     },
   },
@@ -469,9 +461,8 @@ window.HJ_STORIES = {
     },
     stones: {
       h: "Twenty-one carats of rhodolite",
-      p: ["21.86 carats of octagon-shaped rose-coloured rhodolite, carefully set to " +
-          "evoke the moment just before a wave breaks: bold, breathtaking, and full of " +
-          "life.",
+      p: ["21.86 carats of octagon-shaped rose-coloured rhodolite, set to catch" +
+          " the moment just before a wave breaks.",
           "The rhodolite's unique hue reflects both strength and softness, like the sea " +
           "itself at sunset."],
     },

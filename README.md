@@ -10,7 +10,8 @@ Monorepo for the public website, admin panel, database, and design assets.
 | [`admin/`](admin/) | **Staff admin** (React + Supabase). Local dev on port 5173 |
 | [`backend/`](backend/) | Backend docs — Supabase setup, roles, next steps |
 | [`migrations/`](migrations/) | **SQL schema + seed** — run in Supabase SQL Editor |
-| [`api/`](api/) | Placeholder for webhooks / Edge Functions (Razorpay, forms) |
+| [`api/`](api/) | Analytics collector and lead mail, run on the VPS as the `gem-api` service |
+| [`deploy/`](deploy/) | Server config and the database backup script |
 | [`assets/`](assets/) | **Non-deployed assets** — source photos, Claude Design handoff |
 
 Legacy duplicate at repo root `/project/` is gitignored (old zip extract).
@@ -36,6 +37,9 @@ Also live under `frontend/`:
 | `/login/` · `/account/` | Auth + my account |
 | `/legal/` | Privacy / Terms / Cookies |
 | `/offices/` | Ateliers and Tanzania stores |
+| `/the-house/` | The House (brand page) |
+| `/lookbook/` | Lookbook, generated from the catalog |
+| `/events/` | Events & Exhibitions |
 | `/404.html` | Branded error page |
 
 Forms and checkout enquiries write to Supabase (`form_submissions`, `orders`). Admin → **Quotations** shows active quotes.
@@ -53,9 +57,19 @@ Or from root: `npm run dev:frontend` (run inside `frontend/`) and `npm run dev:a
 
 ## Deploy
 
-Run `npm run build:seo` before every deploy: it regenerates the SEO tags, structured data, the Fine Jewellery product pages (`/fine-jewellery/p/<id>/`), `robots.txt`, `sitemap.xml` and `llms.txt` from the catalog, FAQs and offices. See [`tools/build-seo.mjs`](tools/build-seo.mjs).
+The site is served from a Hostinger VPS (nginx, Ubuntu 24.04) since 2026-10-06; `vercel.json` is kept only as a record of the routing nginx reproduces.
 
-`vercel.json` publishes **`frontend/`** only. Admin can live on the same host at `/admin` later (build output) or a subdomain.
+```bash
+npm run build:admin     # admin → frontend/admin/
+npm run build:seo       # lookbook, SEO tags, structured data, FJ product pages, sitemap.xml, robots.txt, llms.txt
+rsync -az --delete --exclude .DS_Store frontend/ root@187.126.117.222:/var/www/gem-experience/
+```
+
+`build:seo` reads the catalog, FAQs and offices, so run it after every catalog change. Story pages are rebuilt with `node tools/build-stories.mjs` after editing `frontend/high-jewellery/stories.js`.
+
+**Catalog edits in the admin are not live on their own.** The storefront renders from `frontend/*/data.js`; after editing products in the admin, use Catalog → Export, replace the two `data.js` files, rebuild and deploy. Everything else in the admin (menu, contact details, offices, events, FAQs, journal) is live as soon as it is saved.
+
+Server-side pieces live in [`deploy/`](deploy/): nginx caching/HTTP2/security headers to add, and the nightly database backup.
 
 ## Backend
 

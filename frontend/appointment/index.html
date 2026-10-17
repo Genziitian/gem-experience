@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="../css/mini-cart.css">
 <link rel="stylesheet" href="../css/gift-note.css">
 <!-- seo -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://gem-experience.com/appointment/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:site_name" content="Gem Experience">
@@ -82,8 +85,9 @@
             <label>Location
               <select name="location" required>
                 <option value="">Select</option>
-                <option>Mumbai</option>
                 <option>Dubai</option>
+                <option>Jaipur</option>
+                <option>Arusha</option>
                 <option>Private viewing (video)</option>
               </select>
             </label>
@@ -138,7 +142,7 @@
   </main>
   <div id="pg-footer"></div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/gem.js"></script>
 <script src="../js/site-footer.js"></script>
@@ -155,7 +159,8 @@ GemShell.mount();
    (and can vary it by location / weekday). Keep the shape stable. */
 var SLOT_CATALOG = {
   default: ["10:00", "11:30", "13:00", "15:00", "16:30", "18:00"],
-  Mumbai:  ["11:00", "12:30", "14:00", "16:00", "17:30", "19:00"],
+  Jaipur:  ["11:00", "12:30", "14:00", "16:00", "17:30", "19:00"],
+  Arusha:  ["09:30", "11:00", "12:30", "14:30", "16:00"],
   Dubai:   ["10:00", "11:30", "13:00", "15:30", "17:00", "18:30"],
   "Private viewing (video)": ["09:00", "11:00", "13:00", "15:00", "17:00", "20:00"]
 };

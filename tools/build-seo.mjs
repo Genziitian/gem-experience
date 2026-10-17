@@ -60,6 +60,8 @@ const SECTION_NAMES = {
   "world-of-preciousness": "World of Preciousness",
   "blog": "Journal",
   "stories": "Stories",
+  "the-house": "The House",
+  "lookbook": "Lookbook",
 };
 
 /* AI crawlers, named so the welcome is explicit rather than implied by `*`. */
@@ -293,6 +295,9 @@ function headBlock({ url, html, ogType = "website", extra = [], image, title, de
   }
 
   return [
+    `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
+    `<link rel="icon" href="/favicon.ico" sizes="48x48">`,
+    `<link rel="apple-touch-icon" href="/apple-touch-icon.png">`,
     noindex ? "" : `<link rel="canonical" href="${ORIGIN + url}">`,
     `<meta name="robots" content="${noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}">`,
     `<meta property="og:site_name" content="${SITE}">`,
@@ -354,8 +359,8 @@ function fjProductPre(p) {
   return `<article class="seo-pre">
 <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/fine-jewellery/">Fine Jewellery</a>${col ? ` / <a href="/fine-jewellery/#/${esc(col.id)}">${esc(col.name)}</a>` : ""}</nav>
 <h1>${esc(p.name)}</h1>
-<p>${esc(fjDescription(p))}</p>
-<img src="${esc(fjImg(p.images[0]))}" alt="${esc(p.name)}" width="800" height="800">
+${p.subtitle ? `<p>${esc(p.subtitle)}</p>\n` : ""}<p>${esc(fjDescription(p))}</p>
+<img src="${esc(fjImg(p.images[0]))}" alt="${esc([p.name, p.subtitle].filter(Boolean).join(", "))}" width="800" height="800">
 <dl>${specs.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
 <p>Price on request. Made to order from Gem Experience.</p>
 <p><a href="/quotation/?ref=${encodeURIComponent(p.sku || p.id)}&amp;name=${encodeURIComponent(p.name)}">Request a quotation</a> · <a href="/contact/">Contact an adviser</a></p>
@@ -374,7 +379,7 @@ ${fjCollections.map((c) => {
 ${c.lede ? `<p>${esc(c.lede)}</p>` : ""}
 ${c.story ? c.story.split(/\n\n+/).map((para) => `<p>${esc(para)}</p>`).join("\n") : ""}
 <ul>
-${items.map((p) => `<li><a href="${fjProductUrl(p)}">${esc(p.name)}</a>${p.sku ? ` (${esc(p.sku)})` : ""}</li>`).join("\n")}
+${items.map((p) => `<li><a href="${fjProductUrl(p)}">${esc(p.name)}</a>${p.subtitle ? `, ${esc(p.subtitle)}` : ""}${p.sku ? ` (${esc(p.sku)})` : ""}</li>`).join("\n")}
 </ul>
 </section>`;
 }).join("\n")}
@@ -589,7 +594,7 @@ const fjIds = new Set();
 for (const p of fjProducts) {
   const url = fjProductUrl(p);
   fjIds.add(p.id);
-  const title = `${p.name} | Fine Jewellery | ${SITE}`;
+  const title = `${p.name} ${p.sku} | ${SITE}`;
   const description = clip(`${fjDescription(p)}. ${p.collection} collection by Gem Experience. Price on request.`.replace(/\.\./g, "."), 160);
   let html = fjShell
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
@@ -600,9 +605,9 @@ for (const p of fjProducts) {
   if (!html.includes("window.FJ_ROUTE")) throw new Error("could not find the app.js tag in fine-jewellery/index.html");
   const images = p.images.map(fjImg);
   const head = headBlock({
-    url, html, ogType: "product", title: p.name, description, image: images[0],
+    url, html, ogType: "product", title: `${p.name} ${p.sku}`, description, image: images[0],
     extra: { pageType: "ItemPage", nodes: [productNode({
-      url, name: p.name, description: fjDescription(p), images, sku: p.sku,
+      url, name: [p.name, p.subtitle].filter(Boolean).join(", "), description: fjDescription(p), images, sku: p.sku,
       category: `Fine Jewellery > ${p.type}`, material: [p.metal, p.stone, p.diamondCt && "Diamond"].filter(Boolean).join(", "),
       collection: p.collection,
     })] },
@@ -630,7 +635,6 @@ Disallow: /account/
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /api/
-Disallow: /__probe.html
 
 Sitemap: ${ORIGIN}/sitemap.xml
 `;
@@ -656,6 +660,11 @@ Prices are not published: Fine Jewellery and High Jewellery are quoted on reques
 - [Fine Jewellery](${ORIGIN}/fine-jewellery/): ${fjProducts.length} pieces in ${fjCollections.length} collections (${fjCollections.map((c) => c.name).join(", ")}).
 - [Gifts](${ORIGIN}/gifts/): pieces chosen to be given, with a handwritten card.
 - [Request a quotation](${ORIGIN}/quotation/) · [Book a private viewing](${ORIGIN}/appointment/)
+
+## The house
+
+- [The House](${ORIGIN}/the-house/): stones chosen at the source in Tanzania, cut in the house's own workshop, ateliers in Dubai, Jaipur and Arusha.
+- [Lookbook](${ORIGIN}/lookbook/): High Jewellery and Fine Jewellery photographed as worn.
 
 ## Events and exhibitions
 

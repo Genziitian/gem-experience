@@ -50,7 +50,7 @@
          built from, and they carry the collections' own vocabulary rather
          than a guess about the person receiving them. */
       test: function (p) {
-        var name = (p.name || "").toLowerCase();
+        var name = (p.specName || p.name || "").toLowerCase();
         return /bloom|petal|flora|rosette|garland|blossom|dew|swirl/.test(name);
       },
     },
@@ -109,10 +109,10 @@
     var a = el("a", "fj-card", { href: "../fine-jewellery/#/p/" + p.id });
     a.appendChild(plate(p));
     var body = el("div", "fj-card-body");
-    body.appendChild(el("span", "fj-card-type", { text: p.collection + " · " + p.type }));
+    body.appendChild(el("span", "fj-card-type", { text: p.metal || p.type }));
     body.appendChild(el("h3", null, { text: p.name }));
     body.appendChild(el("p", null, {
-      text: p.stone + (p.stoneCt != null ? " · " + ct(p.stoneCt) : "")
+      text: (p.subtitle || p.stone) + (p.stoneCt != null ? " · " + ct(p.stoneCt) : "")
     }));
     a.appendChild(body);
     return a;

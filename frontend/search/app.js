@@ -138,8 +138,8 @@
       out.push(doc("fj", p.name, "/fine-jewellery/#/p/" + encodeURIComponent(p.id), {
         kicker: "Fine Jewellery · " + p.collection,
         img: p.images && p.images[0] ? "/fine-jewellery/" + p.images[0] : "",
-        snippet: [p.stone, p.metal].filter(Boolean).join(" · "),
-        keys: [p.stone, p.metal, p.type, p.collection, p.shape, p.sku, "fine jewellery"].join(" "),
+        snippet: [p.subtitle || p.stone, p.metal].filter(Boolean).join(" · "),
+        keys: [p.specName, p.stone, p.metal, p.type, p.collection, p.shape, p.sku, "fine jewellery"].join(" "),
         body: p.story || ""
       }));
     });

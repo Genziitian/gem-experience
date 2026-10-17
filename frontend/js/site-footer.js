@@ -68,10 +68,10 @@
               '<section class="ftr-group">' +
                 '<h2 class="ftr-group-title">The maison</h2>' +
                 '<div class="ftr-group-links">' +
-                  '<a href="' + prefix + '">Our story</a>' +
-                  '<a href="' + prefix + 'offices/">Where the stones come from</a>' +
-                  '<a href="' + prefix + 'high-jewellery/">Inside the workshop</a>' +
-                  '<a href="' + prefix + 'legal/#privacy">Responsible sourcing</a>' +
+                  '<a href="' + prefix + 'the-house/">Our story</a>' +
+                  '<a href="' + prefix + 'world-of-preciousness/">Where the stones come from</a>' +
+                  '<a href="' + prefix + 'high-jewellery/stories/">Inside the workshop</a>' +
+                  '<a href="' + prefix + 'lookbook/">Lookbook</a>' +
                   '<a href="' + prefix + 'blog/">Journal</a>' +
                 "</div>" +
               "</section>" +
@@ -146,6 +146,41 @@
     );
   }
 
+  /* The sign-up is a form_submission like any other, so it lands in the
+     admin's Leads and the database sends the welcome mail. Posted straight to
+     PostgREST: not every page loads gem.js, and a few not even config.js. */
+  function config() {
+    if (w.GEM_CONFIG) return Promise.resolve(w.GEM_CONFIG);
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = "/js/config.js";
+      s.onload = function () { w.GEM_CONFIG ? resolve(w.GEM_CONFIG) : reject(new Error("no config")); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function subscribe(email) {
+    return config().then(function (c) {
+      return fetch(c.supabaseUrl + "/rest/v1/form_submissions", {
+        method: "POST",
+        headers: {
+          apikey: c.supabaseAnonKey,
+          Authorization: "Bearer " + c.supabaseAnonKey,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal"
+        },
+        body: JSON.stringify({
+          form_type: "newsletter",
+          status: "new",
+          payload: { email: email, page: location.pathname }
+        })
+      });
+    }).then(function (res) {
+      if (!res.ok) throw new Error("subscribe " + res.status);
+    });
+  }
+
   function wire(root) {
     root = root || document;
     var form = root.querySelector("#signup-form");
@@ -161,8 +196,15 @@
           if (input) input.focus();
           return;
         }
-        note.textContent = "Thank you. Welcome to the Gem Experience universe.";
-        if (input) input.value = "";
+        var btn = form.querySelector(".signup-submit");
+        if (btn) btn.disabled = true;
+        note.textContent = "One moment…";
+        subscribe(value).then(function () {
+          note.textContent = "Thank you. Welcome to the Gem Experience universe.";
+          if (input) input.value = "";
+        }, function () {
+          note.textContent = "That did not go through. Please try again in a moment.";
+        }).then(function () { if (btn) btn.disabled = false; });
       });
     }
 

@@ -28,6 +28,5 @@ Disallow: /account/
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /api/
-Disallow: /__probe.html
 
 Sitemap: https://gem-experience.com/sitemap.xml

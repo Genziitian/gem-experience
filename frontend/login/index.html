@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="../css/mini-cart.css">
 <link rel="stylesheet" href="../css/gift-note.css">
 <!-- seo -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="robots" content="noindex, follow">
 <meta property="og:site_name" content="Gem Experience">
 <meta property="og:type" content="website">
@@ -44,7 +47,7 @@
       <div class="auth-card">
         <span class="pg-kicker">Client account</span>
         <h1 class="pg-title" id="page-title">Sign in</h1>
-        <p class="pg-lede" id="page-lede">Save your wishlist, follow enquiries, and return to pieces you have set aside.</p>
+        <p class="pg-lede" id="page-lede">Follow your orders, quotations and appointments in one place.</p>
 
         <button class="auth-google" type="button" id="google-btn">
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
@@ -79,7 +82,7 @@
   </main>
   <div id="pg-footer"></div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/gem.js"></script>
 <script src="../js/site-footer.js"></script>
@@ -114,7 +117,7 @@ function setMode(nextMode) {
   nameField.hidden = signingIn;
   title.textContent = signingIn ? "Sign in" : "Create account";
   lede.textContent = signingIn
-    ? "Save your wishlist, follow enquiries, and return to pieces you have set aside."
+    ? "Follow your orders, quotations and appointments in one place."
     : "An account keeps your selections and enquiries close to the atelier.";
   submitBtn.textContent = signingIn ? "Sign in" : "Create account";
   googleLabel.textContent = signingIn ? "Continue with Google" : "Sign up with Google";

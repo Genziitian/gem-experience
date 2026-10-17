@@ -782,7 +782,7 @@
   --gd-hero-pos-m: 46% 50%;
 }
 .gd-hero-title--long {
-  max-width: 11ch;
+  max-width: 15ch;
   text-align: center;
   font-size: clamp(52px, 7.4vw, 118px);
   line-height: 1.02;

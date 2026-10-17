@@ -38,7 +38,7 @@
       ]
     },
     {
-      label: "World of Preciousness",
+      label: "The Collector’s Bench",
       href: "world-of-preciousness/",
       children: [
         { label: "Introduction", href: "world-of-preciousness/" },

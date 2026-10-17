@@ -41,7 +41,7 @@
     { t: "High Jewellery stories", u: "/high-jewellery/stories/", s: "How each High Jewellery piece came to be, in the house's own words.", k: "story making craftsmanship" },
     { t: "Fine Jewellery", u: "/fine-jewellery/", s: "Bloom and Safar: coloured stones for every day.", k: "bloom safar everyday" },
     { t: "Gifts", u: "/gifts/", s: "Pieces chosen to be given, with a card written by hand.", k: "gift present card message personalise wrapping" },
-    { t: "World of Preciousness", u: "/world-of-preciousness/", s: "Colour, cut, clarity and character. How a coloured stone is read.", k: "gemstones education tsavorite rhodolite garnet 4cs" },
+    { t: "The Collector’s Bench", u: "/world-of-preciousness/", s: "Colour, cut, clarity and character. How a coloured stone is read.", k: "gemstones education tsavorite rhodolite garnet 4cs" },
     { t: "Tanzanite", u: "/world-of-preciousness/tanzanite/", s: "A trichroic stone from a few square kilometres at the foot of Kilimanjaro.", k: "merelani trichroic blue violet gemstone" },
     { t: "Pink Spinel", u: "/world-of-preciousness/spinel/", s: "The stone that spent six centuries in the Crown Jewels under the wrong name.", k: "mahenge spinel gemstone pink red" },
     { t: "Book an appointment", u: "/appointment/", s: "A private viewing with an adviser, at an atelier or with you.", k: "private viewing visit consultation booking" },

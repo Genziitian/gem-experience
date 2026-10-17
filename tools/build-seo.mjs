@@ -57,7 +57,7 @@ const SKIP = new Set(["/blog/post/", "/__probe.html"]);
 const SECTION_NAMES = {
   "high-jewellery": "High Jewellery",
   "fine-jewellery": "Fine Jewellery",
-  "world-of-preciousness": "World of Preciousness",
+  "world-of-preciousness": "The Collector’s Bench",
   "blog": "Journal",
   "stories": "Stories",
   "the-house": "The House",
@@ -681,7 +681,7 @@ ${fjCollections.map((c) => `- ${c.name}: ${c.lede || ""} ${c.meta ? `(${c.meta})
 
 ## Gemstones
 
-- [World of Preciousness](${ORIGIN}/world-of-preciousness/): how a coloured stone is judged, and the gemstones of the East African belt.
+- [The Collector’s Bench](${ORIGIN}/world-of-preciousness/): how a coloured stone is judged, and the gemstones of the East African belt.
 ${stones.join("\n")}
 
 ## Client care

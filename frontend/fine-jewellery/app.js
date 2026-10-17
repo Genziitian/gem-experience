@@ -259,7 +259,7 @@
   /* The tone orb stays the fallback: pieces still awaiting photography keep
      the catalog's existing look, and a broken file drops back to it rather
      than leaving a hole in the grid. */
-  function plate(tone, sku, src, alt, hover) {
+  function plate(tone, sku, src, alt, hover, sizes) {
     var wrap = el("div", "fj-plate");
     wrap.style.setProperty("--tone", tone || "#9a958e");
     wrap.appendChild(el("div", "fj-plate-orb"));
@@ -268,23 +268,43 @@
        when one image fades in over nothing. Lazy, because most of these are
        never hovered — a grid of 98 would otherwise double its own weight. */
     if (hover) {
-      var hv = el("img", "fj-plate-hover", {
+      var hv = el("img", "fj-plate-hover", withSrcset({
         src: hover, alt: "", loading: "lazy", decoding: "async", "aria-hidden": "true"
-      });
+      }, sizes || "(max-width: 700px) 50vw, 420px"));
       hv.addEventListener("error", function () { hv.remove(); wrap.classList.remove("has-hover"); });
       hv.addEventListener("load", function () { wrap.classList.add("has-hover"); });
       wrap.appendChild(hv);
     }
     if (src) {
-      var img = el("img", "fj-plate-img", {
+      var img = el("img", "fj-plate-img", withSrcset({
         src: src, alt: alt || "", loading: "lazy", decoding: "async"
-      });
+      }, sizes || "(max-width: 700px) 50vw, 420px"));
       img.addEventListener("error", function () { img.remove(); wrap.classList.remove("has-img"); });
       img.addEventListener("load", function () { wrap.classList.add("has-img"); });
       wrap.appendChild(img);
     }
     if (sku) wrap.appendChild(el("span", "fj-plate-sku", { text: sku }));
     return wrap;
+  }
+
+  /* Every catalogue photograph also exists as a smaller copy beside it
+     (<name>.w640.webp; the collection banners <name>.w900.webp), made by
+     tools/build-responsive.sh. srcset lets a phone take the small one and a
+     wide screen the original; a path outside those sets gets no srcset. */
+  function srcsetFor(src) {
+    if (/img\/products\/[^/]+\.webp$/.test(src) && !/\.w640\.webp$/.test(src)) {
+      return src.replace(/\.webp$/, ".w640.webp") + " 640w, " + src + " 1400w";
+    }
+    if (/-banner\.webp$/.test(src)) return src.replace(/\.webp$/, ".w900.webp") + " 900w, " + src + " 1800w";
+    return "";
+  }
+  function small(src) {
+    return /img\/products\/[^/]+\.webp$/.test(src) ? src.replace(/\.webp$/, ".w640.webp") : src;
+  }
+  function withSrcset(attrs, sizes) {
+    var set = srcsetFor(attrs.src);
+    if (set) { attrs.srcset = set; attrs.sizes = sizes; }
+    return attrs;
   }
 
   function mainImage(p) {
@@ -315,7 +335,7 @@
     root.appendChild(hero);
 
     var cats = el("div", "fj-cats");
-    data.collections.forEach(function (c) {
+    data.collections.forEach(function (c, ci) {
       var a = el("a", "fj-cat", { href: "#/" + c.id });
       a.style.setProperty("--cat-tone", c.tone);
 
@@ -325,7 +345,11 @@
       var media = el("div", "fj-cat-media");
       media.appendChild(el("div", "fj-cat-placeholder"));
       if (c.banner) {
-        var bnr = el("img", null, { src: c.banner, alt: c.name, loading: "lazy" });
+        /* The first row is the largest thing on the page: fetched at once and
+           first, the rest only as they scroll into view. */
+        var bnr = el("img", null, withSrcset(ci < 3
+          ? { src: c.banner, alt: c.name, fetchpriority: "high", decoding: "async" }
+          : { src: c.banner, alt: c.name, loading: "lazy", decoding: "async" }, "(max-width: 700px) 50vw, 33vw"));
         bnr.addEventListener("error", function () { bnr.remove(); });
         media.appendChild(bnr);
       }
@@ -442,11 +466,12 @@
 
       var visual = el("div", "fj-hero-visual");
       if (col.banner) {
-        visual.appendChild(el("img", null, {
+        visual.appendChild(el("img", null, withSrcset({
           src: col.banner,
           alt: col.name,
+          fetchpriority: "high",
           decoding: "async"
-        }));
+        }, "(max-width: 900px) 100vw, 50vw")));
       } else {
         visual.appendChild(el("div", "fj-hero-fallback"));
       }
@@ -556,7 +581,7 @@
     var pdp = el("section", "fj-pdp");
     var media = el("div", "fj-pdp-media");
     var shots = p.images || [];
-    var hero = plate(p.tone, p.sku, shots[0], p.name);
+    var hero = plate(p.tone, p.sku, shots[0], p.name, "", "(max-width: 900px) 100vw, 560px");
     media.appendChild(hero);
     if (shots.length > 1) {
       var thumbs = el("div", "fj-pdp-thumbs");
@@ -564,10 +589,14 @@
         var t = el("button", "fj-pdp-thumb" + (i === 0 ? " is-active" : ""), {
           type: "button", "aria-label": "View image " + (i + 1) + " of " + shots.length
         });
-        t.appendChild(el("img", null, { src: src, alt: "", loading: "lazy", decoding: "async" }));
+        t.appendChild(el("img", null, { src: small(src), alt: "", loading: "lazy", decoding: "async" }));
         t.addEventListener("click", function () {
           var full = hero.querySelector(".fj-plate-img");
-          if (full) full.src = src;
+          if (full) {
+            var set = srcsetFor(src);
+            if (set) full.srcset = set; else full.removeAttribute("srcset");
+            full.src = src;
+          }
           thumbs.querySelectorAll(".fj-pdp-thumb").forEach(function (o) { o.classList.remove("is-active"); });
           t.classList.add("is-active");
         });

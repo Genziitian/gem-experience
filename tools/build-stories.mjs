@@ -253,11 +253,12 @@ function build(id) {
 <!-- Paths are absolute from the site root. This page sits two directories deep,
      so a relative one only resolves when the URL carries a trailing slash, and
      /high-jewellery/${id} is served without one. -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="/css/pages.css">
 <link rel="stylesheet" href="/css/site-nav.css">
 <link rel="stylesheet" href="/css/mini-cart.css">
-<link rel="stylesheet" href="/css/gift-note.css">
+<link rel="stylesheet" href="/css/gift-note.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="/high-jewellery/story.css">
 </head>
 <body class="pg st-body">
@@ -310,11 +311,12 @@ function buildIndex(ids) {
 <meta name="description" content="How each High Jewellery piece came to be, in the house's own words.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="/css/pages.css">
 <link rel="stylesheet" href="/css/site-nav.css">
 <link rel="stylesheet" href="/css/mini-cart.css">
-<link rel="stylesheet" href="/css/gift-note.css">
+<link rel="stylesheet" href="/css/gift-note.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="/high-jewellery/story.css">
 </head>
 <body class="pg st-body">

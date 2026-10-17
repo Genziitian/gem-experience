@@ -259,15 +259,46 @@
     return s;
   }
 
-  function frame(src, alt, cls) {
+  function frame(src, alt, cls, eager) {
     var f = el("div", cls || "frame");
-    var i = el("img", null, { src: src, alt: alt, loading: "lazy", decoding: "async" });
+    var i = el("img", null, eager
+      ? { src: src, alt: alt, fetchpriority: "high", decoding: "async" }
+      : { src: src, alt: alt, loading: "lazy", decoding: "async" });
+    /* Card photographs (img/<id>.webp) have a 640px copy beside them for
+       phones; see tools/build-responsive.sh. */
+    if (/(^|\/)img\/[^/]+\.webp$/.test(src) && !/\.w640\.webp$/.test(src)) {
+      i.setAttribute("srcset", src.replace(/\.webp$/, ".w640.webp") + " 640w, " + src + " 1200w");
+      i.setAttribute("sizes", "(max-width: 700px) 50vw, 25vw");
+    }
     f.appendChild(i);
     return f;
   }
 
+  /* The 360° viewer (three.js, ~340 KB) is fetched the first time somebody
+     asks for it, not with every page: most visits never open it, and loading
+     it up front held the first photograph back on phones. */
+  var vizLoading = null;
+  function loadVisualiser() {
+    if (window.GemVisualiser) return Promise.resolve();
+    if (!vizLoading) {
+      vizLoading = new Promise(function (resolve, reject) {
+        var s = document.createElement("script");
+        s.type = "module";
+        s.src = "/high-jewellery/visualiser.js?v=202610170000";
+        s.onload = resolve;
+        s.onerror = function () { vizLoading = null; reject(); };
+        document.body.appendChild(s);
+      });
+    }
+    return vizLoading;
+  }
+
   function openVisualiser(p) {
-    if (!p || !p.visualiser || !window.GemVisualiser) return;
+    if (!p || !p.visualiser) return;
+    if (!window.GemVisualiser) {
+      loadVisualiser().then(function () { if (window.GemVisualiser) openVisualiser(p); }, function () {});
+      return;
+    }
     var v = p.visualiser;
     window.GemVisualiser.open({
       name: p.name,
@@ -291,7 +322,7 @@
     var a = p.storyUrl
       ? el("a", cls, { href: p.storyUrl })
       : el("div", cls + " card--inert");
-    var fr = frame(cardImg(p), p.name);
+    var fr = frame(cardImg(p), p.name, null, opts.eager);
     if (p.visualiser) {
       var tag = el("span", "card-viz");
       tag.textContent = "360°";
@@ -429,7 +460,7 @@
     var b = 0;
     list.forEach(function (p, i) {
       var cell = el("div", "cell");
-      cell.appendChild(productCard(p));
+      cell.appendChild(productCard(p, { eager: i < 2 }));
       /* Two ways on from every piece: its story, and a word with an adviser. */
       var acts = el("div", "card-acts");
       acts.appendChild(storyButton(p));

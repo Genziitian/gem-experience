@@ -311,6 +311,10 @@ button {
   white-space: nowrap;
   transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
 }
+.card-acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.card-acts .card-book { margin-top: 0; }
+.card-book--enquire { cursor: pointer; font-family: inherit; background: var(--ink-soft); border-color: var(--ink-soft); color: #fff; }
+.card-book--enquire:hover { background: transparent; color: var(--ink-soft); }
 .card-book:hover {
   background: var(--ink-soft);
   border-color: var(--ink-soft);
@@ -486,21 +490,23 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 .gal-track::-webkit-scrollbar { display: none; }
-/* Every photograph at its own proportions, on the phone as on desktop: a
-   square crop cut the head off a portrait shot and the ends off a necklace.
-   A shorter frame sits centred against the tallest one in the set, and the
-   track is always as tall as that tallest frame, so the carousel keeps one
-   height as it is swiped. */
+/* Every frame is a square, on the phone and on desktop, whatever the
+   photograph's own shape: the gallery mixes square plates with portrait model
+   frames, and one shape keeps the set even and the carousel still as it is
+   swiped. A portrait frame is cropped, not matted into bands of ground, and
+   each photograph carries its own crop position (--focal), measured from
+   where the stones are, so the jewellery stays in the square. */
 .gal-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  align-self: center;
+  aspect-ratio: 1 / 1;
   min-width: 0;
   overflow: hidden;
 }
 .gal-slide img {
-  display: block;
-  width: 100%; height: auto;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center var(--focal, 60%);
 }
 
 .gal-dots { display: flex; justify-content: center; gap: 9px; padding: 22px 0 6px; }
@@ -527,17 +533,13 @@ button {
     gap: 2px;
     overflow: visible;
   }
-  .gal-slide { aspect-ratio: auto; max-height: none; }
+  .gal-slide { max-height: none; }
   /* The lead still opens wide; a piece photographed only once keeps the
      full-width frame rather than sitting in a half-empty row. */
   .gal-slide:first-child { grid-column: 1 / -1; }
   /* An even tail would otherwise leave the last frame orphaned beside white,
      so an odd remainder closes the set at full width too. */
   .gal-slide:last-child:nth-child(even) { grid-column: 1 / -1; }
-  /* Desktop keeps each photograph's own proportions in the mosaic, so the
-     square crop the phone applies is undone here rather than left to depend
-     on the box happening to match the image. */
-  .gal-slide img { height: auto; object-fit: fill; object-position: center; }
   .gal-dots {
     position: sticky;
     bottom: 40px;

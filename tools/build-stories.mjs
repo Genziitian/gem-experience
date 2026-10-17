@@ -112,6 +112,7 @@ function build(id) {
     <span class="st-kicker">${esc(story.kicker || "High Jewellery")}</span>
     <h1 class="st-title">${esc(name)}</h1>
     <p class="st-lede">${esc(story.lede)}</p>
+    <a class="pg-btn st-enquire" href="/quotation/?ref=${encodeURIComponent(piece.ref && piece.ref !== "—" ? piece.ref : id)}&amp;name=${encodeURIComponent(name)}">Enquire now</a>
   </header>`);
 
   // the piece itself beside the piece worn

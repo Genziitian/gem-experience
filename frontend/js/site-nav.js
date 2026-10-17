@@ -23,6 +23,13 @@
       href: "fine-jewellery/",
       children: [
         { label: "Shop all", href: "fine-jewellery/#/shop" },
+        { heading: "By piece" },
+        { label: "Rings", href: "fine-jewellery/#/shop/rings" },
+        { label: "Earrings", href: "fine-jewellery/#/shop/earrings" },
+        { label: "Necklaces", href: "fine-jewellery/#/shop/necklaces" },
+        { label: "Pendants", href: "fine-jewellery/#/shop/pendants" },
+        { label: "Bracelets", href: "fine-jewellery/#/shop/bracelets" },
+        { heading: "Collections" },
         { label: "Bloom", href: "fine-jewellery/#/bloom" },
         { label: "Safar", href: "fine-jewellery/#/safar" },
         { label: "Dazzle", href: "fine-jewellery/#/dazzle" },

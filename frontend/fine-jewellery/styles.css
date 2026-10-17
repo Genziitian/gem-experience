@@ -626,10 +626,9 @@ button {
   transition: opacity 0.45s ease;
 }
 .fj-plate.has-img .fj-plate-img { opacity: 1; }
-.fj-plate-img.is-fit { object-fit: contain; }
-/* On the product page the frame follows the photograph (set from its own
-   size on load), so a portrait model shot shows whole rather than cropped. */
-.fj-pdp-media .fj-plate--natural { min-height: 0; }
+/* Every frame is square, product page included; a portrait model shot fills
+   it, cropped from just above centre where the jewellery is worn. */
+.fj-plate-img { object-position: center 45%; }
 .fj-plate.has-img .fj-plate-orb { display: none; }
 
 /* ---------------------------------------------------- the second frame

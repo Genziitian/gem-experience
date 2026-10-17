@@ -1926,7 +1926,7 @@ button {
 .lb-group-title { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 24px; }
 .lb-group-note { margin: 0; font-weight: 300; font-size: 14px; color: var(--muted); }
 .lb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.lb-shot { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--tile); }
+.lb-shot { display: block; aspect-ratio: 1; overflow: hidden; background: var(--tile); }
 .lb-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .lb-shot:hover img { transform: scale(1.03); }
 @media (min-width: 800px) { .lb-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; } }

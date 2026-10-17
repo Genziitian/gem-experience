@@ -430,7 +430,14 @@
     list.forEach(function (p, i) {
       var cell = el("div", "cell");
       cell.appendChild(productCard(p));
-      cell.appendChild(storyButton(p));
+      /* Two ways on from every piece: its story, and a word with an adviser. */
+      var acts = el("div", "card-acts");
+      acts.appendChild(storyButton(p));
+      var enq = el("button", "card-book card-book--enquire", { type: "button" });
+      enq.textContent = "Enquire now";
+      enq.addEventListener("click", function () { openEnquiry(p); });
+      acts.appendChild(enq);
+      cell.appendChild(acts);
       grid.appendChild(cell);
       var slot = BANNER_AFTER.indexOf(i + 1);
       if (slot !== -1) {
@@ -747,11 +754,14 @@
         "&name=" + encodeURIComponent(p.name);
     });
     var c2b = el("button", "cta cta--ghost", { type: "button" });
-    c2b.textContent = "Book a private viewing";
-    c2b.addEventListener("click", function () {
+    c2b.textContent = "Enquire now";
+    c2b.addEventListener("click", function () { openEnquiry(p); });
+    var c3b = el("button", "cta cta--ghost", { type: "button" });
+    c3b.textContent = "Book a private viewing";
+    c3b.addEventListener("click", function () {
       location.href = "../appointment/";
     });
-    ctas.appendChild(c1b); ctas.appendChild(c2b);
+    ctas.appendChild(c1b); ctas.appendChild(c2b); ctas.appendChild(c3b);
 
     /* Pieces with a story page of their own link to it from here, which is
        where somebody reading about the piece would look for more. */

@@ -26,6 +26,7 @@ const LINKS = [
   { section: "Content", items: [
     ["/navigation", "Menu", "menu"],
     ["/offices", "Offices", "globe"],
+    ["/events", "Events", "calendar"],
     ["/contact", "Contact", "inbox"],
     ["/faqs", "FAQs", "help"],
     ["/blog", "Blog", "blog"],

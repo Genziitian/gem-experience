@@ -270,7 +270,7 @@ ${bands.join("\n\n")}
   <div id="pg-footer"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
 <script src="/js/config.js"></script>
 <script src="/js/gem.js"></script>
 <script src="/js/site-content.js"></script>
@@ -341,7 +341,7 @@ ${cards}
   <div id="pg-footer"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
 <script src="/js/config.js"></script>
 <script src="/js/gem.js"></script>
 <script src="/js/site-content.js"></script>

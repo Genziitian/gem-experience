@@ -22,7 +22,7 @@ window.FJ_DATA = {
       "id": "safar",
       "name": "Safar",
       "lede": "A journey through time. Designed with Shantanu Garg.",
-      "story": "The Safar collection is inspired by a journey through time where Indian architectural heritage and modern expression converge into a singular narrative.\n\nInfluenced by the geometry, symmetry and intricate ornamentation of temple and Mughal architecture, and developed in collaboration with Shantanu Garg, each piece transforms traditional motifs into fluid, contemporary forms, reinterpreting India's architectural vocabulary into a modern, wearable expression.\n\nStructured yet effortless, the designs are conceived to be versatile and transformable, adapting seamlessly to the wearer while retaining their architectural essence.\n\nSafar embodies movement not just in form, but in meaning, capturing the evolution of design across cultures, reimagined for the present.",
+      "story": "Safar means journey. The collection travels through time, from the architecture of India's past to the way it is worn today.\n\nInfluenced by the geometry, symmetry and intricate ornamentation of temple and Mughal architecture, and developed in collaboration with Shantanu Garg, each piece transforms traditional motifs into fluid, contemporary forms, reinterpreting India's architectural vocabulary into a modern, wearable expression.\n\nThe pieces are structured but easy to wear, and many of them transform, changing with the wearer while keeping the lines of the buildings they come from.\n\nThe movement is in the meaning as much as the form: design carried from one culture to another and drawn again for now.",
       "tone": "#c45a7a",
       "banner": "img/safar-banner.webp",
       "designer": "Shantanu Garg",
@@ -38,7 +38,7 @@ window.FJ_DATA = {
       "id": "dazzle",
       "name": "Dazzle",
       "lede": "Tame the brilliance.",
-      "story": "Dazzle is about how precision can control blinding light: the way light is captured, shaped and released with intention.\n\nEach piece is designed as a composition of contrast. A gemstone sits at the centre, surrounded by fine pavé-set diamonds that act like a halo of light, enhancing depth, sharpness and dimension.\n\nIt overshadows the bling in a refined way that feels timeless. Every sparkle is placed, every reflection considered. The result is a balance between colour and light, where the gemstone holds identity and the diamonds create presence.",
+      "story": "Dazzle is about how precision can control blinding light: the way light is captured, shaped and released with intention.\n\nEach piece is designed as a composition of contrast. A gemstone sits at the centre, surrounded by fine pavé-set diamonds that act like a halo of light, enhancing depth, sharpness and dimension.\n\nIt is brilliant without being loud. Each point of light is placed on purpose. The result is a balance between colour and light, where the gemstone holds identity and the diamonds create presence.",
       "tone": "#4a6fa5",
       "banner": "img/products/gd26-54-3.webp",
       "meta": "Tanzanite · Aquamarine · Pink spinel · Mint garnet · Spessartite · Tsavorite · White gold",
@@ -67,7 +67,7 @@ window.FJ_DATA = {
       "id": "dome",
       "name": "Dome",
       "lede": "Celestial forms, suspended in space.",
-      "story": "The Dome collection draws inspiration from celestial forms suspended in space: symbols of unity, balance and quiet strength.\n\nEach gemstone is sculpted into a perfect sphere through specialised precision cutting, allowing light to travel seamlessly across its surface while revealing the stone's natural depth and character.\n\nDefined by purity of form, Dome is an exploration of harmony, where geometry meets emotion in its most refined expression.",
+      "story": "The Dome collection draws inspiration from celestial forms suspended in space: symbols of unity, balance and quiet strength.\n\nEach gemstone is sculpted into a perfect sphere through specialised precision cutting, so light travels across the whole surface and shows how deep the colour goes.\n\nDefined by purity of form, Dome is an exploration of harmony, where geometry meets emotion in its most refined expression.",
       "tone": "#c4703a",
       "banner": "img/products/gd25-1028-2.webp",
       "bannerY": "34%",
@@ -97,7 +97,7 @@ window.FJ_DATA = {
       "id": "swirl",
       "name": "Swirl",
       "lede": "Fluid, playful, and intuitively balanced motion.",
-      "story": "The swirl collection is inspired by the playful yet delicate turning of form in motion. Each piece is shaped through soft rotations and layered curves, recreating a sense of flow that feels natural. The design focuses on smooth transitions and balanced proportions, allowing the form to move seamlessly.\n\nThe swirl evolves, guiding the eye and the light in a continuous path. Interpreted through fine craftsmanship the collection expresses movement with subtlety in jewellery that feels timeless.",
+      "story": "The swirl collection is inspired by the playful yet delicate turning of form in motion. Each piece is shaped through soft rotations and layered curves, recreating a sense of flow that feels natural. The proportions are balanced so each curve hands on to the next without a break.\n\nThe swirl evolves, guiding the eye and the light in a continuous path. It is movement, kept quiet, in jewellery made to be worn for years.",
       "tone": "#7d6fa8",
       "banner": "img/products/gd26-242-a-2.webp",
       "meta": "Soft rotations · layered curves",
@@ -119,7 +119,8 @@ window.FJ_DATA = {
         "img/products/gd26-253-1.webp",
         "img/products/gd26-253-a-2.webp",
         "img/products/gd26-254-a-2.webp"
-      ]
+      ],
+      "story": ""
     },
     {
       "id": "flare",
@@ -134,7 +135,8 @@ window.FJ_DATA = {
         "img/products/gd25-790-2.webp",
         "img/products/gd25-791-2.webp",
         "img/products/gd26-265-2.webp"
-      ]
+      ],
+      "story": ""
     },
     {
       "id": "royal-starling",
@@ -149,7 +151,8 @@ window.FJ_DATA = {
         "img/products/gd26-311-3.webp",
         "img/products/gd26-188-3.webp",
         "img/products/gd26-67-3.webp"
-      ]
+      ],
+      "story": ""
     },
     {
       "id": "multi-colour",
@@ -164,7 +167,8 @@ window.FJ_DATA = {
         "img/products/gd23-316-3.webp",
         "img/products/gd26-190-3.webp",
         "img/products/g-636-1.webp"
-      ]
+      ],
+      "story": ""
     },
     {
       "id": "shamsa-fine",
@@ -174,7 +178,8 @@ window.FJ_DATA = {
       "banner": "img/products/gd26-271.webp",
       "bannerY": "50%",
       "meta": "Tanzanite · Pink spinel · White and yellow gold",
-      "models": []
+      "models": [],
+      "story": ""
     }
   ],
   "types": [
@@ -188,7 +193,7 @@ window.FJ_DATA = {
     {
       "id": "gd26-148",
       "sku": "GD26-148",
-      "name": "Tanzanite and diamond cuff bracelet",
+      "name": "Tanzanite Cuff",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -208,12 +213,14 @@ window.FJ_DATA = {
         "img/products/gd26-148-2.webp",
         "img/products/gd26-148-3.webp"
       ],
-      "hover": "img/products/gd26-148-3.webp"
+      "hover": "img/products/gd26-148-3.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond cuff bracelet"
     },
     {
       "id": "gd25-1103",
       "sku": "GD25-1103",
-      "name": "Pink spinel and diamond cuff bracelet",
+      "name": "Pink Spinel Cuff",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -232,12 +239,14 @@ window.FJ_DATA = {
         "img/products/gd25-1103-1.webp",
         "img/products/gd25-1103-2.webp"
       ],
-      "hover": "img/products/gd25-1103-1.webp"
+      "hover": "img/products/gd25-1103-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond cuff bracelet"
     },
     {
       "id": "gd26-196-c",
       "sku": "GD26-196 C",
-      "name": "Pink spinel and diamond motif bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White and Rose Gold",
@@ -257,12 +266,14 @@ window.FJ_DATA = {
         "img/products/gd26-196-c-2.webp",
         "img/products/gd26-196-c-3.webp"
       ],
-      "hover": "img/products/gd26-196-c-3.webp"
+      "hover": "img/products/gd26-196-c-3.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond motif bracelet"
     },
     {
       "id": "gd26-197-c",
       "sku": "GD26-197 C",
-      "name": "Dual motif pink spinel and diamond bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White and Rose Gold",
@@ -281,12 +292,14 @@ window.FJ_DATA = {
         "img/products/gd26-197-c-1.webp",
         "img/products/gd26-197-c-2.webp"
       ],
-      "hover": "img/products/gd26-197-c-1.webp"
+      "hover": "img/products/gd26-197-c-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Dual motif pink spinel and diamond bracelet"
     },
     {
       "id": "gd26-224",
       "sku": "GD26-224",
-      "name": "Pink spinel and diamond multi motif bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White and Rose Gold",
@@ -304,12 +317,14 @@ window.FJ_DATA = {
         "img/products/gd26-224.webp",
         "img/products/gd26-224-1.webp"
       ],
-      "hover": "img/products/gd26-224-1.webp"
+      "hover": "img/products/gd26-224-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond multi motif bracelet"
     },
     {
       "id": "gd26-275-a",
       "sku": "GD26-275 A",
-      "name": "Pink spinel and diamond statement bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -325,12 +340,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-275-a.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond statement bracelet"
     },
     {
       "id": "gd25-294",
       "sku": "GD25-294",
-      "name": "Mix metal pink spinel and diamond safar motif earring",
+      "name": "Pink Spinel Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -349,12 +366,14 @@ window.FJ_DATA = {
         "img/products/gd25-294-1.webp",
         "img/products/gd25-294-2.webp"
       ],
-      "hover": "img/products/gd25-294-2.webp"
+      "hover": "img/products/gd25-294-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Mix metal pink spinel and diamond safar motif earring"
     },
     {
       "id": "gd25-842",
       "sku": "GD25-842",
-      "name": "Rose rhodolite and diamond danglers",
+      "name": "Rose Rhodolite Drop Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -373,12 +392,14 @@ window.FJ_DATA = {
         "img/products/gd25-842-1.webp",
         "img/products/gd25-842-2.webp"
       ],
-      "hover": "img/products/gd25-842-2.webp"
+      "hover": "img/products/gd25-842-2.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond danglers"
     },
     {
       "id": "gd26-140",
       "sku": "GD26-140",
-      "name": "Morganite and diamond danglers",
+      "name": "Morganite Drop Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -397,12 +418,14 @@ window.FJ_DATA = {
         "img/products/gd26-140-1.webp",
         "img/products/gd26-140-2.webp"
       ],
-      "hover": "img/products/gd26-140-2.webp"
+      "hover": "img/products/gd26-140-2.webp",
+      "subtitle": "Morganite and diamonds",
+      "specName": "Morganite and diamond danglers"
     },
     {
       "id": "gd26-146",
       "sku": "GD26-146",
-      "name": "Pink spinel and diamond hoop",
+      "name": "Pink Spinel Hoops",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -421,12 +444,14 @@ window.FJ_DATA = {
         "img/products/gd26-146-1.webp",
         "img/products/gd26-146-2.webp"
       ],
-      "hover": "img/products/gd26-146-2.webp"
+      "hover": "img/products/gd26-146-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond hoop"
     },
     {
       "id": "gd26-147",
       "sku": "GD26-147",
-      "name": "Tanzanite and diamond hoop",
+      "name": "Tanzanite Hoops",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White Gold",
@@ -438,19 +463,21 @@ window.FJ_DATA = {
       "diamondCt": 1.33,
       "netG": 11.762,
       "grossG": 12.07,
-      "story": "Crafted in White gold, set with 1.21 carats of vivid round tanzanite paired with 1.33 carats of brilliant cut diamonds",
+      "story": "Crafted in White gold, set with 0.21 carats of vivid round tanzanite paired with 1.33 carats of brilliant cut diamonds",
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-147.webp",
         "img/products/gd26-147-1.webp",
         "img/products/gd26-147-2.webp"
       ],
-      "hover": "img/products/gd26-147-2.webp"
+      "hover": "img/products/gd26-147-2.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond hoop"
     },
     {
       "id": "gd26-197-b",
       "sku": "GD26-197 B",
-      "name": "Pink spinel and diamond motif earring",
+      "name": "Pink Spinel Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -469,12 +496,14 @@ window.FJ_DATA = {
         "img/products/gd26-197-b-1.webp",
         "img/products/gd26-197-b-2.webp"
       ],
-      "hover": "img/products/gd26-197-b-2.webp"
+      "hover": "img/products/gd26-197-b-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond motif earring"
     },
     {
       "id": "gd26-198-c",
       "sku": "GD26-198 C",
-      "name": "Tourmaline, rose quartz and diamond motif earring",
+      "name": "Tourmaline and Rose Quartz Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White Gold",
@@ -490,12 +519,14 @@ window.FJ_DATA = {
       "tone": "#2a7a5a",
       "images": [
         "img/products/gd26-198-c.webp"
-      ]
+      ],
+      "subtitle": "Tourmaline, rose quartz and diamonds",
+      "specName": "Tourmaline, rose quartz and diamond motif earring"
     },
     {
       "id": "gd26-203",
       "sku": "GD26-203",
-      "name": "Pink spinel, rose quartz and diamond motif earring",
+      "name": "Pink Spinel and Rose Quartz Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -511,12 +542,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-203.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, rose quartz and diamonds",
+      "specName": "Pink spinel, rose quartz and diamond motif earring"
     },
     {
       "id": "gd26-218",
       "sku": "GD26-218",
-      "name": "Pink spinel and diamond sleek dangler",
+      "name": "Pink Spinel Drop Earrings",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "Rose Gold",
@@ -535,12 +568,14 @@ window.FJ_DATA = {
         "img/products/gd26-218-1.webp",
         "img/products/gd26-218-2.webp"
       ],
-      "hover": "img/products/gd26-218-2.webp"
+      "hover": "img/products/gd26-218-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond sleek dangler"
     },
     {
       "id": "gd26-275-b",
       "sku": "GD26-275 B",
-      "name": "Pink spinel and diamond motif stud",
+      "name": "Pink Spinel Studs",
       "collection": "Safar",
       "type": "Earrings",
       "metal": "White Gold",
@@ -556,12 +591,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-275-b.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond motif stud"
     },
     {
       "id": "gd26-141",
       "sku": "GD26-141",
-      "name": "Morganite and diamond pendant",
+      "name": "Morganite Pendant",
       "collection": "Safar",
       "type": "Pendants",
       "metal": "White Gold",
@@ -580,12 +617,14 @@ window.FJ_DATA = {
         "img/products/gd26-141-1.webp",
         "img/products/gd26-141-2.webp"
       ],
-      "hover": "img/products/gd26-141-2.webp"
+      "hover": "img/products/gd26-141-2.webp",
+      "subtitle": "Morganite and diamonds",
+      "specName": "Morganite and diamond pendant"
     },
     {
       "id": "gd26-197",
       "sku": "GD26-197",
-      "name": "Pink spinel and diamond motif pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Safar",
       "type": "Pendants",
       "metal": "White Gold",
@@ -597,7 +636,7 @@ window.FJ_DATA = {
       "diamondCt": 0.796,
       "netG": 5.349,
       "grossG": 5.84,
-      "story": "Crafted in White gold, set with 1.66 carats of custom cut hexagon pink spinel paired with 5.35 carats of brilliant cut diamonds",
+      "story": "Crafted in White gold, set with 1.66 carats of custom cut hexagon pink spinel paired with 0.80 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-197.webp",
@@ -605,12 +644,14 @@ window.FJ_DATA = {
         "img/products/gd26-197-2.webp",
         "img/products/gd26-197-3.webp"
       ],
-      "hover": "img/products/gd26-197-3.webp"
+      "hover": "img/products/gd26-197-3.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond motif pendant"
     },
     {
       "id": "gd26-275-c",
       "sku": "GD26-275 C",
-      "name": "Pink spinel and diamond motif pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Safar",
       "type": "Pendants",
       "metal": "White Gold",
@@ -622,16 +663,18 @@ window.FJ_DATA = {
       "diamondCt": 1.37,
       "netG": 2.44,
       "grossG": 3.07,
-      "story": "Crafted in White gold, set with 1.78 carats of custom bead cut pink spinel paired with 2.44 carats of brilliant cut diamonds",
+      "story": "Crafted in White gold, set with 1.78 carats of custom bead cut pink spinel paired with 1.37 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-275-c.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond motif pendant"
     },
     {
       "id": "gd25-1081",
       "sku": "GD25-1081",
-      "name": "Mint garnet and diamond bloom pendant",
+      "name": "Mint Garnet Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -647,12 +690,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd25-1081.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond bloom pendant"
     },
     {
       "id": "gd25-1069",
       "sku": "GD25-1069",
-      "name": "Mint garnet and diamond bloom ring",
+      "name": "Mint Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -671,12 +716,14 @@ window.FJ_DATA = {
         "img/products/gd25-1069-1.webp",
         "img/products/gd25-1069-2.webp"
       ],
-      "hover": "img/products/gd25-1069-1.webp"
+      "hover": "img/products/gd25-1069-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond bloom ring"
     },
     {
       "id": "gd25-1067",
       "sku": "GD25-1067",
-      "name": "Mint garnet and diamond bloom earring",
+      "name": "Mint Garnet Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -694,12 +741,14 @@ window.FJ_DATA = {
         "img/products/gd25-1067.webp",
         "img/products/gd25-1067-1.webp"
       ],
-      "hover": "img/products/gd25-1067-1.webp"
+      "hover": "img/products/gd25-1067-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond bloom earring"
     },
     {
       "id": "gd25-994",
       "sku": "GD25-994",
-      "name": "Aquamarine and diamond bloom bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -718,12 +767,14 @@ window.FJ_DATA = {
         "img/products/gd25-994-1.webp",
         "img/products/gd25-994-2.webp"
       ],
-      "hover": "img/products/gd25-994-1.webp"
+      "hover": "img/products/gd25-994-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom bracelet"
     },
     {
       "id": "gd25-1026",
       "sku": "GD25-1026",
-      "name": "Aquamarine and diamond bloom ring",
+      "name": "Aquamarine Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -742,12 +793,14 @@ window.FJ_DATA = {
         "img/products/gd25-1026-1.webp",
         "img/products/gd25-1026-2.webp"
       ],
-      "hover": "img/products/gd25-1026-1.webp"
+      "hover": "img/products/gd25-1026-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom ring"
     },
     {
       "id": "gd25-1086",
       "sku": "GD25-1086",
-      "name": "Aquamarine and diamond bloom earring",
+      "name": "Aquamarine Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -765,12 +818,14 @@ window.FJ_DATA = {
         "img/products/gd25-1086.webp",
         "img/products/gd25-1086-1.webp"
       ],
-      "hover": "img/products/gd25-1086-1.webp"
+      "hover": "img/products/gd25-1086-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom earring"
     },
     {
       "id": "gd25-1087",
       "sku": "GD25-1087",
-      "name": "Aquamarine and diamond bloom pendant",
+      "name": "Aquamarine Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -786,12 +841,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd25-1087.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom pendant"
     },
     {
       "id": "gd25-875",
       "sku": "GD25-875",
-      "name": "Tanzanite and diamond bloom bracelet",
+      "name": "Tanzanite Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -810,13 +867,15 @@ window.FJ_DATA = {
         "img/products/gd25-875-1.webp",
         "img/products/gd25-875-2.webp"
       ],
-      "hover": "img/products/gd25-875-1.webp"
+      "hover": "img/products/gd25-875-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond bloom bracelet"
     },
     {
       "id": "gd25-964",
       "sku": "GD25-964",
-      "name": "Pink spinel and diamond petal bracelet",
-      "collection": "Bloom",
+      "name": "Pink Spinel Bracelet",
+      "collection": "Safar",
       "type": "Bracelets",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -831,13 +890,15 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-964.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond petal bracelet"
     },
     {
       "id": "gd25-1096",
       "sku": "GD25-1096",
-      "name": "Pink spinel and diamond petal earring",
-      "collection": "Bloom",
+      "name": "Pink Spinel Earrings",
+      "collection": "Safar",
       "type": "Earrings",
       "metal": "Rose Gold",
       "metalCode": "G-14kt-WR",
@@ -854,13 +915,15 @@ window.FJ_DATA = {
         "img/products/gd25-1096.webp",
         "img/products/gd25-1096-1.webp"
       ],
-      "hover": "img/products/gd25-1096-1.webp"
+      "hover": "img/products/gd25-1096-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond petal earring"
     },
     {
       "id": "gd25-1095",
       "sku": "GD25-1095",
-      "name": "Pink spinel and diamond petal ring",
-      "collection": "Bloom",
+      "name": "Pink Spinel Ring",
+      "collection": "Safar",
       "type": "Rings",
       "metal": "Rose Gold",
       "metalCode": "G-14kt-WR",
@@ -878,13 +941,15 @@ window.FJ_DATA = {
         "img/products/gd25-1095-1.webp",
         "img/products/gd25-1095-2.webp"
       ],
-      "hover": "img/products/gd25-1095-1.webp"
+      "hover": "img/products/gd25-1095-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond petal ring"
     },
     {
       "id": "gd25-1097",
       "sku": "GD25-1097",
-      "name": "Pink spinel and diamond petal pendant",
-      "collection": "Bloom",
+      "name": "Pink Spinel Pendant",
+      "collection": "Safar",
       "type": "Pendants",
       "metal": "Rose Gold",
       "metalCode": "G-14kt-WR",
@@ -901,12 +966,14 @@ window.FJ_DATA = {
         "img/products/gd25-1097.webp",
         "img/products/gd25-1097-1.webp"
       ],
-      "hover": "img/products/gd25-1097-1.webp"
+      "hover": "img/products/gd25-1097-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond petal pendant"
     },
     {
       "id": "gd26-790",
       "sku": "GD26-790",
-      "name": "Pink spinel and spessartite bloom long chain",
+      "name": "Pink Spinel and Spessartite Long Chain",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -922,12 +989,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-790.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, spessartite and diamonds",
+      "specName": "Pink spinel and spessartite bloom long chain"
     },
     {
       "id": "gd26-68",
       "sku": "GD26-68",
-      "name": "Mint garnet and diamond garland necklace",
+      "name": "Mint Garnet Necklace",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -945,12 +1014,14 @@ window.FJ_DATA = {
         "img/products/gd26-68.webp",
         "img/products/gd26-68-1.webp"
       ],
-      "hover": "img/products/gd26-68-1.webp"
+      "hover": "img/products/gd26-68-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond garland necklace"
     },
     {
       "id": "gd26-176",
       "sku": "GD26-176",
-      "name": "Spessartite and diamond garland necklace",
+      "name": "Spessartite Necklace",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -966,12 +1037,14 @@ window.FJ_DATA = {
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-176.webp"
-      ]
+      ],
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond garland necklace"
     },
     {
       "id": "gd26-513",
       "sku": "GD26-513",
-      "name": "Chalcedony and spessartite floral motif long chain",
+      "name": "Spessartite and Chalcedony Long Chain",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -987,12 +1060,14 @@ window.FJ_DATA = {
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-513.webp"
-      ]
+      ],
+      "subtitle": "Spessartite, chalcedony and diamonds",
+      "specName": "Chalcedony and spessartite floral motif long chain"
     },
     {
       "id": "gd26-219",
       "sku": "GD26-219",
-      "name": "Fancy tanzanite and diamond flora pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -1008,12 +1083,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-219.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Fancy tanzanite and diamond flora pendant"
     },
     {
       "id": "gnk0923-27",
       "sku": "GNK0923-27",
-      "name": "Pink spinel and diamond petal necklace",
+      "name": "Pink Spinel Necklace",
       "collection": "Bloom",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -1026,12 +1103,14 @@ window.FJ_DATA = {
       "netG": 17.977,
       "grossG": 20.14,
       "story": "A square-cushion cut brings a more architectural pink spinel to the Petal line: 8.96 carats of it, paired with 1.85 carats of diamonds in 18k white gold, for a necklace with more presence than its siblings.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond petal necklace"
     },
     {
       "id": "gd25-1046",
       "sku": "GD25-1046",
-      "name": "Heart in bloom rubellite and diamond dual finger ring",
+      "name": "Rubellite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1050,12 +1129,14 @@ window.FJ_DATA = {
         "img/products/gd25-1046-1.webp",
         "img/products/gd25-1046-2.webp"
       ],
-      "hover": "img/products/gd25-1046-1.webp"
+      "hover": "img/products/gd25-1046-1.webp",
+      "subtitle": "Rubellite and diamonds",
+      "specName": "Heart in bloom rubellite and diamond dual finger ring"
     },
     {
       "id": "gd25-124",
       "sku": "GD25-124",
-      "name": "Pink spinel and diamond ring",
+      "name": "Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1071,12 +1152,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-124.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond ring"
     },
     {
       "id": "gd25-1036",
       "sku": "GD25-1036",
-      "name": "Morganite, pink spinel and diamond feather ring",
+      "name": "Pink Spinel and Morganite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White and Rose Gold",
@@ -1092,12 +1175,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-1036.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, morganite and diamonds",
+      "specName": "Morganite, pink spinel and diamond feather ring"
     },
     {
       "id": "gd26-62",
       "sku": "GD26-62",
-      "name": "Pink spinel and diamond rosette ring",
+      "name": "Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1115,12 +1200,14 @@ window.FJ_DATA = {
         "img/products/gd26-62.webp",
         "img/products/gd26-62-1.webp"
       ],
-      "hover": "img/products/gd26-62-1.webp"
+      "hover": "img/products/gd26-62-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond rosette ring"
     },
     {
       "id": "gd26-71",
       "sku": "GD26-71",
-      "name": "Mint garnet and diamond garland ring",
+      "name": "Mint Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1136,12 +1223,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-71.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond garland ring"
     },
     {
       "id": "gd26-139",
       "sku": "GD26-139",
-      "name": "Heart in bloom tanzanite and diamond dual finger ring",
+      "name": "Tanzanite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1160,12 +1249,14 @@ window.FJ_DATA = {
         "img/products/gd26-139-1.webp",
         "img/products/gd26-139-2.webp"
       ],
-      "hover": "img/products/gd26-139-1.webp"
+      "hover": "img/products/gd26-139-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Heart in bloom tanzanite and diamond dual finger ring"
     },
     {
       "id": "gd26-167",
       "sku": "GD26-167",
-      "name": "Spessartite and diamond rosette ring",
+      "name": "Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1184,12 +1275,14 @@ window.FJ_DATA = {
         "img/products/gd26-167-1.webp",
         "img/products/gd26-167-2.webp"
       ],
-      "hover": "img/products/gd26-167-1.webp"
+      "hover": "img/products/gd26-167-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond rosette ring"
     },
     {
       "id": "gd26-200",
       "sku": "GD26-200",
-      "name": "Pink spinel, aquamarine and diamond bloom statement ring",
+      "name": "Pink Spinel and Aquamarine Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1208,12 +1301,14 @@ window.FJ_DATA = {
         "img/products/gd26-200-1.webp",
         "img/products/gd26-200-2.webp"
       ],
-      "hover": "img/products/gd26-200-1.webp"
+      "hover": "img/products/gd26-200-1.webp",
+      "subtitle": "Pink spinel, aquamarine and diamonds",
+      "specName": "Pink spinel, aquamarine and diamond bloom statement ring"
     },
     {
       "id": "gd26-201",
       "sku": "GD26-201",
-      "name": "Spessartite, pink spinel and diamond bloom statement ring",
+      "name": "Spessartite and Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1232,12 +1327,14 @@ window.FJ_DATA = {
         "img/products/gd26-201-1.webp",
         "img/products/gd26-201-2.webp"
       ],
-      "hover": "img/products/gd26-201-1.webp"
+      "hover": "img/products/gd26-201-1.webp",
+      "subtitle": "Spessartite, pink spinel and diamonds",
+      "specName": "Spessartite, pink spinel and diamond bloom statement ring"
     },
     {
       "id": "gd26-766",
       "sku": "GD26-766",
-      "name": "Aquamarine, pink spinel and diamond bloom statement ring",
+      "name": "Aquamarine and Pink Spinel Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1253,12 +1350,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-766.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine, pink spinel and diamonds",
+      "specName": "Aquamarine, pink spinel and diamond bloom statement ring"
     },
     {
       "id": "gd26-563",
       "sku": "GD26-563",
-      "name": "Mint garnet and diamond bloom statement ring",
+      "name": "Mint Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1277,12 +1376,14 @@ window.FJ_DATA = {
         "img/products/gd26-563-1.webp",
         "img/products/gd26-563-2.webp"
       ],
-      "hover": "img/products/gd26-563-1.webp"
+      "hover": "img/products/gd26-563-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond bloom statement ring"
     },
     {
       "id": "gd26-205",
       "sku": "GD26-205",
-      "name": "Lavender tanzanite, tanzanite and diamond fern ring",
+      "name": "Tanzanite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1298,12 +1399,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-205.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Lavender tanzanite, tanzanite and diamond fern ring"
     },
     {
       "id": "gd26-206",
       "sku": "GD26-206",
-      "name": "Spessartite, pink spinel and diamond fern ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1319,12 +1422,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-206.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, spessartite and diamonds",
+      "specName": "Spessartite, pink spinel and diamond fern ring"
     },
     {
       "id": "gd26-257",
       "sku": "GD26-257",
-      "name": "Spessartite and diamond garland ring",
+      "name": "Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "White Gold",
@@ -1343,12 +1448,14 @@ window.FJ_DATA = {
         "img/products/gd26-257-1.webp",
         "img/products/gd26-257-2.webp"
       ],
-      "hover": "img/products/gd26-257-1.webp"
+      "hover": "img/products/gd26-257-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond garland ring"
     },
     {
       "id": "gd26-566",
       "sku": "GD26-566",
-      "name": "Heart in bloom crystal and tanzanite dual finger ring",
+      "name": "Tanzanite and Crystal Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1364,12 +1471,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-566.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite, crystal and diamonds",
+      "specName": "Heart in bloom crystal and tanzanite dual finger ring"
     },
     {
       "id": "gd26-581",
       "sku": "GD26-581",
-      "name": "Petal ring in Malaya garnet and diamond",
+      "name": "Malaya Garnet Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1385,12 +1494,14 @@ window.FJ_DATA = {
       "tone": "#c47858",
       "images": [
         "img/products/gd26-581.webp"
-      ]
+      ],
+      "subtitle": "Malaya garnet and diamonds",
+      "specName": "Petal ring in Malaya garnet and diamond"
     },
     {
       "id": "gd26-583",
       "sku": "GD26-583",
-      "name": "Spessartite and diamond bloom statement ring",
+      "name": "Spessartite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1406,12 +1517,14 @@ window.FJ_DATA = {
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-583.webp"
-      ]
+      ],
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond bloom statement ring"
     },
     {
       "id": "gd25-1047",
       "sku": "GD25-1047",
-      "name": "Heart in bloom rubellite and diamond ring",
+      "name": "Rubellite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "Rose Gold",
@@ -1430,12 +1543,14 @@ window.FJ_DATA = {
         "img/products/gd25-1047-1.webp",
         "img/products/gd25-1047-2.webp"
       ],
-      "hover": "img/products/gd25-1047-1.webp"
+      "hover": "img/products/gd25-1047-1.webp",
+      "subtitle": "Rubellite and diamonds",
+      "specName": "Heart in bloom rubellite and diamond ring"
     },
     {
       "id": "gd26-587",
       "sku": "GD26-587",
-      "name": "Fancy tanzanite and diamond flora ring",
+      "name": "Tanzanite Ring",
       "collection": "Bloom",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -1451,12 +1566,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-587.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Fancy tanzanite and diamond flora ring"
     },
     {
       "id": "gd25-816",
       "sku": "GD25-816",
-      "name": "In bloom pink spinel and diamond hoop",
+      "name": "Pink Spinel Hoops",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -1474,12 +1591,14 @@ window.FJ_DATA = {
         "img/products/gd25-816.webp",
         "img/products/gd25-816-2.webp"
       ],
-      "hover": "img/products/gd25-816-2.webp"
+      "hover": "img/products/gd25-816-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "In bloom pink spinel and diamond hoop"
     },
     {
       "id": "gd25-435",
       "sku": "GD25-435",
-      "name": "Heart in bloom pink rubellite earrings",
+      "name": "Rubellite Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -1497,12 +1616,14 @@ window.FJ_DATA = {
         "img/products/gd25-435.webp",
         "img/products/gd25-435-1.webp"
       ],
-      "hover": "img/products/gd25-435-1.webp"
+      "hover": "img/products/gd25-435-1.webp",
+      "subtitle": "Rubellite and diamonds",
+      "specName": "Heart in bloom pink rubellite earrings"
     },
     {
       "id": "gd26-256",
       "sku": "GD26-256",
-      "name": "Spessartite and diamond garland bracelet",
+      "name": "Spessartite Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -1518,12 +1639,14 @@ window.FJ_DATA = {
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-256.webp"
-      ]
+      ],
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond garland bracelet"
     },
     {
       "id": "gd26-69",
       "sku": "GD26-69",
-      "name": "Mint garnet and diamond garland bracelet",
+      "name": "Mint Garnet Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -1542,12 +1665,14 @@ window.FJ_DATA = {
         "img/products/gd26-69-1.webp",
         "img/products/gd26-69-2.webp"
       ],
-      "hover": "img/products/gd26-69-2.webp"
+      "hover": "img/products/gd26-69-2.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond garland bracelet"
     },
     {
       "id": "gd26-63",
       "sku": "GD26-63",
-      "name": "Pink spinel and diamond rosette bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -1566,12 +1691,14 @@ window.FJ_DATA = {
         "img/products/gd26-63-1.webp",
         "img/products/gd26-63-2.webp"
       ],
-      "hover": "img/products/gd26-63-2.webp"
+      "hover": "img/products/gd26-63-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond rosette bracelet"
     },
     {
       "id": "gd26-aq-br",
       "sku": "GD26-AQ-BR",
-      "name": "Aquamarine and diamond bloom bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -1584,12 +1711,14 @@ window.FJ_DATA = {
       "netG": 4.528,
       "grossG": 5.06,
       "story": "A lighter aquamarine bracelet for everyday wear: 1.78 carats of pear-cut stone with 0.88 carats of diamonds in 18k white gold.",
-      "tone": "#7eb8c9"
+      "tone": "#7eb8c9",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom bracelet"
     },
     {
       "id": "gd26-762",
       "sku": "GD26-762",
-      "name": "Pink spinel and diamond bloom bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Bloom",
       "type": "Bracelets",
       "metal": "18k White and Rose Gold",
@@ -1605,12 +1734,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-762.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond bloom bracelet"
     },
     {
       "id": "gd25-288",
       "sku": "GD25-288",
-      "name": "Pink spinel and diamond bud earring",
+      "name": "Pink Spinel Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -1628,12 +1759,14 @@ window.FJ_DATA = {
         "img/products/gd25-288.webp",
         "img/products/gd25-288-1.webp"
       ],
-      "hover": "img/products/gd25-288-1.webp"
+      "hover": "img/products/gd25-288-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond bud earring"
     },
     {
       "id": "gd25-915-a",
       "sku": "GD25-915 A",
-      "name": "Pink spinel and diamond bloom studs",
+      "name": "Pink Spinel Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "Yellow Gold",
@@ -1649,12 +1782,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd25-915-a.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond bloom studs"
     },
     {
       "id": "gd26-60",
       "sku": "GD26-60",
-      "name": "Pink spinel and diamond rosette studs",
+      "name": "Pink Spinel Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1672,12 +1807,14 @@ window.FJ_DATA = {
         "img/products/gd26-60.webp",
         "img/products/gd26-60-2.webp"
       ],
-      "hover": "img/products/gd26-60-2.webp"
+      "hover": "img/products/gd26-60-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond rosette studs"
     },
     {
       "id": "gd26-70",
       "sku": "GD26-70",
-      "name": "Mint garnet and diamond garland earring",
+      "name": "Mint Garnet Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1693,12 +1830,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-70.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond garland earring"
     },
     {
       "id": "gd26-166",
       "sku": "GD26-166",
-      "name": "Spessartite and diamond rosette studs",
+      "name": "Spessartite Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1716,12 +1855,14 @@ window.FJ_DATA = {
         "img/products/gd26-166.webp",
         "img/products/gd26-166-2.webp"
       ],
-      "hover": "img/products/gd26-166-2.webp"
+      "hover": "img/products/gd26-166-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond rosette studs"
     },
     {
       "id": "gd26-177",
       "sku": "GD26-177",
-      "name": "Spessartite and diamond garland earring",
+      "name": "Spessartite Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1737,12 +1878,14 @@ window.FJ_DATA = {
       "tone": "#d4783a",
       "images": [
         "img/products/gd26-177.webp"
-      ]
+      ],
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond garland earring"
     },
     {
       "id": "gd26-210",
       "sku": "GD26-210",
-      "name": "Pink spinel and diamond rosette studs rose",
+      "name": "Pink Spinel Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -1758,12 +1901,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-210.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond rosette studs rose"
     },
     {
       "id": "gd26-228-b",
       "sku": "GD26-228 B",
-      "name": "Fancy tanzanite and diamond flora studs",
+      "name": "Tanzanite Studs",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1779,12 +1924,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-228-b.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Fancy tanzanite and diamond flora studs"
     },
     {
       "id": "gd26-785",
       "sku": "GD26-785",
-      "name": "Spessartite, pink spinel and diamond garland earring",
+      "name": "Pink Spinel and Spessartite Earrings",
       "collection": "Bloom",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -1800,12 +1947,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-785.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, spessartite and diamonds",
+      "specName": "Spessartite, pink spinel and diamond garland earring"
     },
     {
       "id": "gd26-61",
       "sku": "GD26-61",
-      "name": "Pink spinel and diamond dew pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Bloom",
       "type": "Pendants",
       "metal": "White Gold",
@@ -1821,13 +1970,15 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-61-1.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dew pendant"
     },
     {
       "id": "gd26-81",
       "sku": "GD26-81",
-      "name": "Pink spinel and diamond dew ring",
-      "collection": "Bloom",
+      "name": "Pink Spinel Ring",
+      "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -1839,13 +1990,15 @@ window.FJ_DATA = {
       "netG": 3.676,
       "grossG": 4.65,
       "story": "Crafted in White Gold, set with 4.45 carats of mixed ball, pear and drop-cut pink spinel paired with 0.42 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dew ring"
     },
     {
       "id": "gd26-80",
       "sku": "GD26-80",
-      "name": "Pink spinel and diamond dew bracelet",
-      "collection": "Bloom",
+      "name": "Pink Spinel Bracelet",
+      "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -1857,13 +2010,15 @@ window.FJ_DATA = {
       "netG": 15.212,
       "grossG": 17.56,
       "story": "Crafted in White Gold, set with 9.5 carats of mixed ball, pear and drop-cut pink spinel paired with 2.24 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a"
+      "tone": "#c45a7a",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dew bracelet"
     },
     {
       "id": "g-625",
       "sku": "G 625",
-      "name": "Mint garnet, pink spinel and diamond dew ring",
-      "collection": "Bloom",
+      "name": "Mint Garnet and Pink Spinel Ring",
+      "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
       "metalCode": "G-14kt-W",
@@ -1875,16 +2030,18 @@ window.FJ_DATA = {
       "netG": 7.767,
       "grossG": 9.013,
       "story": "Crafted in White Gold, set with 3.99 carats of pear-cut mint garnet alongside 1.78 carats of oval cut pink spinel, paired with 0.46 carats of brilliant cut diamonds.",
-      "tone": "#6a9e7a"
+      "tone": "#6a9e7a",
+      "subtitle": "Mint garnet, pink spinel and diamonds",
+      "specName": "Mint garnet, pink spinel and diamond dew ring"
     },
     {
       "id": "gd23-146",
       "sku": "GD23-146",
-      "name": "Mint garnet, pink spinel and diamond dew ring",
-      "collection": "Bloom",
+      "name": "Mint Garnet and Pink Spinel Ring",
+      "collection": "Multi Colour",
       "type": "Rings",
-      "metal": "White Gold",
-      "metalCode": "G-14kt-W",
+      "metal": "18k Rose Gold",
+      "metalCode": "G-18kt-R",
       "stone": "Mint Garnet & Pink Spinel",
       "shape": "Marquise & Round",
       "stonePcs": 15,
@@ -1892,13 +2049,15 @@ window.FJ_DATA = {
       "diamondCt": 1.221,
       "netG": 8.93,
       "grossG": 9.984,
-      "story": "Crafted in White Gold, set with 3.5 carats of marquise cut mint garnet alongside 0.55 carats of round cut pink spinel, paired with 1.221 carats of round and baguette cut diamonds.",
-      "tone": "#6a9e7a"
+      "story": "Crafted in 18k Rose Gold, set with 3.5 carats of marquise cut mint garnet alongside 0.55 carats of round cut pink spinel, paired with 1.221 carats of round and baguette cut diamonds.",
+      "tone": "#6a9e7a",
+      "subtitle": "Mint garnet, pink spinel and diamonds",
+      "specName": "Mint garnet, pink spinel and diamond dew ring"
     },
     {
       "id": "gd26-198-a",
       "sku": "GD26-198 A",
-      "name": "Aquamarine and diamond swirl necklace",
+      "name": "Aquamarine Necklace",
       "collection": "Swirl",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -1914,12 +2073,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-198-a.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond swirl necklace"
     },
     {
       "id": "gd26-786",
       "sku": "GD26-786",
-      "name": "Mint garnet and diamond swirl necklace",
+      "name": "Mint Garnet Necklace",
       "collection": "Swirl",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -1935,12 +2096,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-786.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl necklace"
     },
     {
       "id": "gd26-242",
       "sku": "GD26-242",
-      "name": "Mint garnet and diamond swirl necklace",
+      "name": "Mint Garnet Necklace",
       "collection": "Swirl",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -1956,12 +2119,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-242.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl necklace"
     },
     {
       "id": "gd26-242-a",
       "sku": "GD26-242 A",
-      "name": "Mint garnet and diamond swirl earring",
+      "name": "Mint Garnet Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -1980,12 +2145,14 @@ window.FJ_DATA = {
         "img/products/gd26-242-a-1.webp",
         "img/products/gd26-242-a-2.webp"
       ],
-      "hover": "img/products/gd26-242-a-2.webp"
+      "hover": "img/products/gd26-242-a-2.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl earring"
     },
     {
       "id": "gd25-974",
       "sku": "GD25-974",
-      "name": "Pink spinel and diamond swirl earring",
+      "name": "Pink Spinel Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2003,12 +2170,14 @@ window.FJ_DATA = {
         "img/products/gd25-974.webp",
         "img/products/gd25-974-1.webp"
       ],
-      "hover": "img/products/gd25-974-1.webp"
+      "hover": "img/products/gd25-974-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond swirl earring"
     },
     {
       "id": "gd25-1055",
       "sku": "GD25-1055",
-      "name": "Mint garnet and diamond swirl earring",
+      "name": "Mint Garnet Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2026,12 +2195,14 @@ window.FJ_DATA = {
         "img/products/gd25-1055.webp",
         "img/products/gd25-1055-1.webp"
       ],
-      "hover": "img/products/gd25-1055-1.webp"
+      "hover": "img/products/gd25-1055-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl earring"
     },
     {
       "id": "gd25-1074",
       "sku": "GD25-1074",
-      "name": "Aquamarine and diamond swirl earring",
+      "name": "Aquamarine Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2049,12 +2220,14 @@ window.FJ_DATA = {
         "img/products/gd25-1074.webp",
         "img/products/gd25-1074-1.webp"
       ],
-      "hover": "img/products/gd25-1074-1.webp"
+      "hover": "img/products/gd25-1074-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond swirl earring"
     },
     {
       "id": "gd26-198-b",
       "sku": "GD26-198 B",
-      "name": "Aquamarine and diamond swirl earring",
+      "name": "Aquamarine Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2072,12 +2245,14 @@ window.FJ_DATA = {
         "img/products/gd26-198-b.webp",
         "img/products/gd26-198-b-1.webp"
       ],
-      "hover": "img/products/gd26-198-b-1.webp"
+      "hover": "img/products/gd26-198-b-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond swirl earring"
     },
     {
       "id": "gd26-782",
       "sku": "GD26-782",
-      "name": "Mint garnet and diamond swirl earring",
+      "name": "Mint Garnet Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -2093,12 +2268,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-782.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl earring"
     },
     {
       "id": "gd26-150",
       "sku": "GD26-150",
-      "name": "Spessartite and diamond swirl earring",
+      "name": "Spessartite Earrings",
       "collection": "Swirl",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2111,12 +2288,14 @@ window.FJ_DATA = {
       "netG": 2.448,
       "grossG": 3.52,
       "story": "Crafted in White Gold, set with 5.11 carats of drop-cut spessartite paired with 0.25 carats of brilliant cut diamonds.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond swirl earring"
     },
     {
       "id": "gd25-991",
       "sku": "GD25-991",
-      "name": "Pink spinel and diamond swirl ring",
+      "name": "Pink Spinel Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "White Gold",
@@ -2135,12 +2314,14 @@ window.FJ_DATA = {
         "img/products/gd25-991-1.webp",
         "img/products/gd25-991-2.webp"
       ],
-      "hover": "img/products/gd25-991-1.webp"
+      "hover": "img/products/gd25-991-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond swirl ring"
     },
     {
       "id": "gd25-1025",
       "sku": "GD25-1025",
-      "name": "Aquamarine and diamond swirl ring",
+      "name": "Aquamarine Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2159,12 +2340,14 @@ window.FJ_DATA = {
         "img/products/gd25-1025-1.webp",
         "img/products/gd25-1025-2.webp"
       ],
-      "hover": "img/products/gd25-1025-1.webp"
+      "hover": "img/products/gd25-1025-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond swirl ring"
     },
     {
       "id": "gd25-1057",
       "sku": "GD25-1057",
-      "name": "Mint garnet and diamond swirl ring",
+      "name": "Mint Garnet Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "White Gold",
@@ -2183,12 +2366,14 @@ window.FJ_DATA = {
         "img/products/gd25-1057-1.webp",
         "img/products/gd25-1057-2.webp"
       ],
-      "hover": "img/products/gd25-1057-1.webp"
+      "hover": "img/products/gd25-1057-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl ring"
     },
     {
       "id": "gd26-783",
       "sku": "GD26-783",
-      "name": "Mint garnet and diamond swirl ring",
+      "name": "Mint Garnet Ring",
       "collection": "Swirl",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2207,12 +2392,14 @@ window.FJ_DATA = {
         "img/products/gd26-783-1.webp",
         "img/products/gd26-783-2.webp"
       ],
-      "hover": "img/products/gd26-783-1.webp"
+      "hover": "img/products/gd26-783-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl ring"
     },
     {
       "id": "gd25-894",
       "sku": "GD25-894",
-      "name": "Aquamarine and diamond swirl bracelet",
+      "name": "Aquamarine Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2232,12 +2419,14 @@ window.FJ_DATA = {
         "img/products/gd25-894-2.webp",
         "img/products/gd25-894-3.webp"
       ],
-      "hover": "img/products/gd25-894-3.webp"
+      "hover": "img/products/gd25-894-3.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond swirl bracelet"
     },
     {
       "id": "gd25-966",
       "sku": "GD25-966",
-      "name": "Pink spinel and diamond swirl bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2256,12 +2445,14 @@ window.FJ_DATA = {
         "img/products/gd25-966-1.webp",
         "img/products/gd25-966-2.webp"
       ],
-      "hover": "img/products/gd25-966-1.webp"
+      "hover": "img/products/gd25-966-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond swirl bracelet"
     },
     {
       "id": "gd25-992",
       "sku": "GD25-992",
-      "name": "Pink spinel and diamond swirl bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2279,12 +2470,14 @@ window.FJ_DATA = {
         "img/products/gd25-992.webp",
         "img/products/gd25-992-1.webp"
       ],
-      "hover": "img/products/gd25-992-1.webp"
+      "hover": "img/products/gd25-992-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond swirl bracelet"
     },
     {
       "id": "gd25-1083",
       "sku": "GD25-1083",
-      "name": "Mint garnet and diamond swirl bracelet",
+      "name": "Mint Garnet Bracelet",
       "collection": "Swirl",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2303,12 +2496,14 @@ window.FJ_DATA = {
         "img/products/gd25-1083-1.webp",
         "img/products/gd25-1083-2.webp"
       ],
-      "hover": "img/products/gd25-1083-1.webp"
+      "hover": "img/products/gd25-1083-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl bracelet"
     },
     {
       "id": "gd26-827",
       "sku": "GD26-827",
-      "name": "Mint garnet and diamond swirl pendant",
+      "name": "Mint Garnet Pendant",
       "collection": "Swirl",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -2324,12 +2519,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-827.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond swirl pendant"
     },
     {
       "id": "gd26-149",
       "sku": "GD26-149",
-      "name": "Spessartite and diamond swirl pendant",
+      "name": "Spessartite Pendant",
       "collection": "Swirl",
       "type": "Pendants",
       "metal": "White Gold",
@@ -2342,12 +2539,14 @@ window.FJ_DATA = {
       "netG": 0.628,
       "grossG": 1.24,
       "story": "Crafted in White Gold, set with 2.92 carats of drop-cut spessartite paired with 0.14 carats of brilliant cut diamonds.",
-      "tone": "#d4783a"
+      "tone": "#d4783a",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond swirl pendant"
     },
     {
       "id": "gd25-431",
       "sku": "GD25-431",
-      "name": "Rubellite and diamond swirl pendant",
+      "name": "Rubellite Pendant",
       "collection": "Swirl",
       "type": "Pendants",
       "metal": "18k Rose Gold",
@@ -2360,12 +2559,14 @@ window.FJ_DATA = {
       "netG": 2.154,
       "grossG": 2.94,
       "story": "Crafted in 18k Rose Gold, set with 3.66 carats of cabochon pear-cut rubellite paired with 0.27 carats of brilliant cut diamonds.",
-      "tone": "#b8325a"
+      "tone": "#b8325a",
+      "subtitle": "Rubellite and diamonds",
+      "specName": "Rubellite and diamond swirl pendant"
     },
     {
       "id": "gd25-976",
       "sku": "GD25-976",
-      "name": "Pink spinel, aquamarine and diamond dazzle bangle",
+      "name": "Pink Spinel and Aquamarine Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2384,12 +2585,14 @@ window.FJ_DATA = {
         "img/products/gd25-976-1.webp",
         "img/products/gd25-976-2.webp"
       ],
-      "hover": "img/products/gd25-976-1.webp"
+      "hover": "img/products/gd25-976-1.webp",
+      "subtitle": "Pink spinel, aquamarine and diamonds",
+      "specName": "Pink spinel, aquamarine and diamond dazzle bangle"
     },
     {
       "id": "gd26-163",
       "sku": "GD26-163",
-      "name": "Aquamarine and diamond dazzle bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2408,12 +2611,14 @@ window.FJ_DATA = {
         "img/products/gd26-163-1.webp",
         "img/products/gd26-163-2.webp"
       ],
-      "hover": "img/products/gd26-163-1.webp"
+      "hover": "img/products/gd26-163-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond dazzle bangle"
     },
     {
       "id": "gd26-250",
       "sku": "GD26-250",
-      "name": "Spessartite and diamond dazzle bangle",
+      "name": "Spessartite Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2432,12 +2637,14 @@ window.FJ_DATA = {
         "img/products/gd26-250-1.webp",
         "img/products/gd26-250-2.webp"
       ],
-      "hover": "img/products/gd26-250-1.webp"
+      "hover": "img/products/gd26-250-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dazzle bangle"
     },
     {
       "id": "gd26-252",
       "sku": "GD26-252",
-      "name": "Aquamarine and diamond dazzle bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2456,12 +2663,14 @@ window.FJ_DATA = {
         "img/products/gd26-252-1.webp",
         "img/products/gd26-252-2.webp"
       ],
-      "hover": "img/products/gd26-252-1.webp"
+      "hover": "img/products/gd26-252-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond dazzle bangle"
     },
     {
       "id": "gd26-49",
       "sku": "GD26-49",
-      "name": "Spessartite and diamond dazzle bangle",
+      "name": "Spessartite Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2480,12 +2689,14 @@ window.FJ_DATA = {
         "img/products/gd26-49-1.webp",
         "img/products/gd26-49-2.webp"
       ],
-      "hover": "img/products/gd26-49-1.webp"
+      "hover": "img/products/gd26-49-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dazzle bangle"
     },
     {
       "id": "gd26-54",
       "sku": "GD26-54",
-      "name": "Aquamarine, tanzanite and diamond dazzle bangle",
+      "name": "Aquamarine and Tanzanite Bangle",
       "collection": "Dazzle",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -2505,12 +2716,14 @@ window.FJ_DATA = {
         "img/products/gd26-54-2.webp",
         "img/products/gd26-54-3.webp"
       ],
-      "hover": "img/products/gd26-54-3.webp"
+      "hover": "img/products/gd26-54-3.webp",
+      "subtitle": "Aquamarine, tanzanite and diamonds",
+      "specName": "Aquamarine, tanzanite and diamond dazzle bangle"
     },
     {
       "id": "gd25-663",
       "sku": "GD25-663",
-      "name": "Tsavorite and diamond dazzle ring",
+      "name": "Tsavorite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2530,12 +2743,14 @@ window.FJ_DATA = {
         "img/products/gd25-663-2.webp",
         "img/products/gd25-663-3.webp"
       ],
-      "hover": "img/products/gd25-663-3.webp"
+      "hover": "img/products/gd25-663-3.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond dazzle ring"
     },
     {
       "id": "gd25-668",
       "sku": "GD25-668",
-      "name": "Aquamarine and diamond dazzle ring",
+      "name": "Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2554,12 +2769,14 @@ window.FJ_DATA = {
         "img/products/gd25-668-1.webp",
         "img/products/gd25-668-2.webp"
       ],
-      "hover": "img/products/gd25-668-1.webp"
+      "hover": "img/products/gd25-668-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond dazzle ring"
     },
     {
       "id": "gd25-704",
       "sku": "GD25-704",
-      "name": "Spessartite and diamond dazzle ring",
+      "name": "Spessartite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2579,12 +2796,14 @@ window.FJ_DATA = {
         "img/products/gd25-704-2.webp",
         "img/products/gd25-704-3.webp"
       ],
-      "hover": "img/products/gd25-704-3.webp"
+      "hover": "img/products/gd25-704-3.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dazzle ring"
     },
     {
       "id": "gd26-159",
       "sku": "GD26-159",
-      "name": "Mint garnet and diamond dazzle ring",
+      "name": "Mint Garnet Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2603,12 +2822,14 @@ window.FJ_DATA = {
         "img/products/gd26-159-1.webp",
         "img/products/gd26-159-2.webp"
       ],
-      "hover": "img/products/gd26-159-1.webp"
+      "hover": "img/products/gd26-159-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond dazzle ring"
     },
     {
       "id": "gd26-161",
       "sku": "GD26-161",
-      "name": "Aquamarine and diamond dazzle ring",
+      "name": "Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2627,12 +2848,14 @@ window.FJ_DATA = {
         "img/products/gd26-161-1.webp",
         "img/products/gd26-161-2.webp"
       ],
-      "hover": "img/products/gd26-161-1.webp"
+      "hover": "img/products/gd26-161-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond dazzle ring"
     },
     {
       "id": "gd26-48",
       "sku": "GD26-48",
-      "name": "Spessartite and diamond dazzle ring",
+      "name": "Spessartite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2651,12 +2874,14 @@ window.FJ_DATA = {
         "img/products/gd26-48-1.webp",
         "img/products/gd26-48-2.webp"
       ],
-      "hover": "img/products/gd26-48-1.webp"
+      "hover": "img/products/gd26-48-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dazzle ring"
     },
     {
       "id": "gd26-53",
       "sku": "GD26-53",
-      "name": "Tanzanite, aquamarine and diamond dazzle ring",
+      "name": "Tanzanite and Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2676,12 +2901,14 @@ window.FJ_DATA = {
         "img/products/gd26-53-2.webp",
         "img/products/gd26-53-3.webp"
       ],
-      "hover": "img/products/gd26-53-3.webp"
+      "hover": "img/products/gd26-53-3.webp",
+      "subtitle": "Tanzanite, aquamarine and diamonds",
+      "specName": "Tanzanite, aquamarine and diamond dazzle ring"
     },
     {
       "id": "gd25-1052",
       "sku": "GD25-1052",
-      "name": "Mint garnet and diamond dazzle ring",
+      "name": "Mint Garnet Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2700,12 +2927,14 @@ window.FJ_DATA = {
         "img/products/gd25-1052-1.webp",
         "img/products/gd25-1052-2.webp"
       ],
-      "hover": "img/products/gd25-1052-1.webp"
+      "hover": "img/products/gd25-1052-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond dazzle ring"
     },
     {
       "id": "gd25-1002",
       "sku": "GD25-1002",
-      "name": "Green tourmaline and diamond dazzle ring",
+      "name": "Green Tourmaline Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2724,12 +2953,14 @@ window.FJ_DATA = {
         "img/products/gd25-1002-1.webp",
         "img/products/gd25-1002-2.webp"
       ],
-      "hover": "img/products/gd25-1002-1.webp"
+      "hover": "img/products/gd25-1002-1.webp",
+      "subtitle": "Green tourmaline and diamonds",
+      "specName": "Green tourmaline and diamond dazzle ring"
     },
     {
       "id": "gd24-750",
       "sku": "GD24-750",
-      "name": "Bi-colour tourmaline and diamond dazzle ring",
+      "name": "Bi-colour Tourmaline Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2748,12 +2979,14 @@ window.FJ_DATA = {
         "img/products/gd24-750-1.webp",
         "img/products/gd24-750-2.webp"
       ],
-      "hover": "img/products/gd24-750-1.webp"
+      "hover": "img/products/gd24-750-1.webp",
+      "subtitle": "Bi-colour tourmaline and diamonds",
+      "specName": "Bi-colour tourmaline and diamond dazzle ring"
     },
     {
       "id": "gd25-636",
       "sku": "GD25-636",
-      "name": "Tanzanite and diamond dazzle ring",
+      "name": "Tanzanite Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2772,12 +3005,14 @@ window.FJ_DATA = {
         "img/products/gd25-636-1.webp",
         "img/products/gd25-636-2.webp"
       ],
-      "hover": "img/products/gd25-636-1.webp"
+      "hover": "img/products/gd25-636-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond dazzle ring"
     },
     {
       "id": "gd26-767",
       "sku": "GD26-767",
-      "name": "Aquamarine, pink spinel and diamond dazzle ring",
+      "name": "Aquamarine and Pink Spinel Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2793,12 +3028,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-767.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine, pink spinel and diamonds",
+      "specName": "Aquamarine, pink spinel and diamond dazzle ring"
     },
     {
       "id": "gd26-768",
       "sku": "GD26-768",
-      "name": "Tanzanite, aquamarine and diamond dazzle ring",
+      "name": "Tanzanite and Aquamarine Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -2814,12 +3051,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-768.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite, aquamarine and diamonds",
+      "specName": "Tanzanite, aquamarine and diamond dazzle ring"
     },
     {
       "id": "gd26-249",
       "sku": "GD26-249",
-      "name": "Aquamarine, pink spinel and diamond dazzle ring",
+      "name": "Aquamarine and Pink Spinel Ring",
       "collection": "Dazzle",
       "type": "Rings",
       "metal": "White Gold",
@@ -2838,12 +3077,14 @@ window.FJ_DATA = {
         "img/products/gd26-249-1.webp",
         "img/products/gd26-249-2.webp"
       ],
-      "hover": "img/products/gd26-249-1.webp"
+      "hover": "img/products/gd26-249-1.webp",
+      "subtitle": "Aquamarine, pink spinel and diamonds",
+      "specName": "Aquamarine, pink spinel and diamond dazzle ring"
     },
     {
       "id": "gd25-1053",
       "sku": "GD25-1053",
-      "name": "Mint garnet and diamond dazzle earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2861,12 +3102,14 @@ window.FJ_DATA = {
         "img/products/gd25-1053.webp",
         "img/products/gd25-1053-1.webp"
       ],
-      "hover": "img/products/gd25-1053-1.webp"
+      "hover": "img/products/gd25-1053-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond dazzle earrings"
     },
     {
       "id": "gd25-1054",
       "sku": "GD25-1054",
-      "name": "Mint garnet and diamond dazzle earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2884,12 +3127,14 @@ window.FJ_DATA = {
         "img/products/gd25-1054.webp",
         "img/products/gd25-1054-1.webp"
       ],
-      "hover": "img/products/gd25-1054-1.webp"
+      "hover": "img/products/gd25-1054-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond dazzle earrings"
     },
     {
       "id": "gd25-977",
       "sku": "GD25-977",
-      "name": "Pink spinel and diamond dazzle earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2907,12 +3152,14 @@ window.FJ_DATA = {
         "img/products/gd25-977.webp",
         "img/products/gd25-977-1.webp"
       ],
-      "hover": "img/products/gd25-977-1.webp"
+      "hover": "img/products/gd25-977-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dazzle earrings"
     },
     {
       "id": "gd26-160",
       "sku": "GD26-160",
-      "name": "Mint garnet and diamond dazzle earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2928,12 +3175,14 @@ window.FJ_DATA = {
       "tone": "#6a9e7a",
       "images": [
         "img/products/gd26-160.webp"
-      ]
+      ],
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond dazzle earrings"
     },
     {
       "id": "gd26-162",
       "sku": "GD26-162",
-      "name": "Aquamarine and diamond dazzle earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2949,12 +3198,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-162.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond dazzle earrings"
     },
     {
       "id": "gd26-310",
       "sku": "GD26-310",
-      "name": "Aquamarine, tanzanite and diamond dazzle earrings",
+      "name": "Aquamarine and Tanzanite Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "White Gold",
@@ -2972,12 +3223,14 @@ window.FJ_DATA = {
         "img/products/gd26-310.webp",
         "img/products/gd26-310-1.webp"
       ],
-      "hover": "img/products/gd26-310-1.webp"
+      "hover": "img/products/gd26-310-1.webp",
+      "subtitle": "Aquamarine, tanzanite and diamonds",
+      "specName": "Aquamarine, tanzanite and diamond dazzle earrings"
     },
     {
       "id": "gd26-769",
       "sku": "GD26-769",
-      "name": "Tanzanite, aquamarine and diamond dazzle earrings",
+      "name": "Tanzanite and Aquamarine Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -2993,12 +3246,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-769.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite, aquamarine and diamonds",
+      "specName": "Tanzanite, aquamarine and diamond dazzle earrings"
     },
     {
       "id": "gd26-788",
       "sku": "GD26-788",
-      "name": "Pink spinel, aquamarine and diamond dazzle earrings",
+      "name": "Pink Spinel and Aquamarine Earrings",
       "collection": "Dazzle",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3014,12 +3269,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-788.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, aquamarine and diamonds",
+      "specName": "Pink spinel, aquamarine and diamond dazzle earrings"
     },
     {
       "id": "gd25-1098",
       "sku": "GD25-1098",
-      "name": "Pink spinel and diamond dazzle pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Dazzle",
       "type": "Pendants",
       "metal": "White Gold",
@@ -3037,12 +3294,14 @@ window.FJ_DATA = {
         "img/products/gd25-1098.webp",
         "img/products/gd25-1098-1.webp"
       ],
-      "hover": "img/products/gd25-1098-1.webp"
+      "hover": "img/products/gd25-1098-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dazzle pendant"
     },
     {
       "id": "gd25-635",
       "sku": "GD25-635",
-      "name": "Tanzanite and diamond dazzle pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Dazzle",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -3060,12 +3319,14 @@ window.FJ_DATA = {
         "img/products/gd25-635.webp",
         "img/products/gd25-635-1.webp"
       ],
-      "hover": "img/products/gd25-635-1.webp"
+      "hover": "img/products/gd25-635-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond dazzle pendant"
     },
     {
       "id": "gd24-435",
       "sku": "GD24-435",
-      "name": "Tanzanite and diamond entwine earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3083,12 +3344,14 @@ window.FJ_DATA = {
         "img/products/gd24-435.webp",
         "img/products/gd24-435-1.webp"
       ],
-      "hover": "img/products/gd24-435-1.webp"
+      "hover": "img/products/gd24-435-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine earrings"
     },
     {
       "id": "gd24-751",
       "sku": "GD24-751",
-      "name": "Bi-colour tourmaline and diamond entwine earrings",
+      "name": "Bi-colour Tourmaline Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3106,12 +3369,14 @@ window.FJ_DATA = {
         "img/products/gd24-751.webp",
         "img/products/gd24-751-1.webp"
       ],
-      "hover": "img/products/gd24-751-1.webp"
+      "hover": "img/products/gd24-751-1.webp",
+      "subtitle": "Bi-colour tourmaline and diamonds",
+      "specName": "Bi-colour tourmaline and diamond entwine earrings"
     },
     {
       "id": "gd24-900",
       "sku": "GD24-900",
-      "name": "Tanzanite and diamond entwine earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3129,12 +3394,14 @@ window.FJ_DATA = {
         "img/products/gd24-900.webp",
         "img/products/gd24-900-1.webp"
       ],
-      "hover": "img/products/gd24-900-1.webp"
+      "hover": "img/products/gd24-900-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine earrings"
     },
     {
       "id": "gd25-410",
       "sku": "GD25-410",
-      "name": "Tanzanite and diamond entwine earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3152,12 +3419,14 @@ window.FJ_DATA = {
         "img/products/gd25-410.webp",
         "img/products/gd25-410-1.webp"
       ],
-      "hover": "img/products/gd25-410-1.webp"
+      "hover": "img/products/gd25-410-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine earrings"
     },
     {
       "id": "gd25-426",
       "sku": "GD25-426",
-      "name": "Green tourmaline and diamond entwine earrings",
+      "name": "Green Tourmaline Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3176,12 +3445,14 @@ window.FJ_DATA = {
         "img/products/gd25-426-1.webp",
         "img/products/gd25-426-2.webp"
       ],
-      "hover": "img/products/gd25-426-2.webp"
+      "hover": "img/products/gd25-426-2.webp",
+      "subtitle": "Green tourmaline and diamonds",
+      "specName": "Green tourmaline and diamond entwine earrings"
     },
     {
       "id": "gd25-436",
       "sku": "GD25-436",
-      "name": "Aquamarine and diamond entwine earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3199,12 +3470,14 @@ window.FJ_DATA = {
         "img/products/gd25-436.webp",
         "img/products/gd25-436-1.webp"
       ],
-      "hover": "img/products/gd25-436-1.webp"
+      "hover": "img/products/gd25-436-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond entwine earrings"
     },
     {
       "id": "gd25-633",
       "sku": "GD25-633",
-      "name": "Tanzanite and diamond entwine earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3220,12 +3493,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd25-633.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine earrings"
     },
     {
       "id": "gd25-676",
       "sku": "GD25-676",
-      "name": "Aquamarine and diamond entwine earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3243,12 +3518,14 @@ window.FJ_DATA = {
         "img/products/gd25-676.webp",
         "img/products/gd25-676-1.webp"
       ],
-      "hover": "img/products/gd25-676-1.webp"
+      "hover": "img/products/gd25-676-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond entwine earrings"
     },
     {
       "id": "gd25-1035",
       "sku": "GD25-1035",
-      "name": "Morganite and diamond entwine earrings",
+      "name": "Morganite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -3268,12 +3545,14 @@ window.FJ_DATA = {
         "img/products/gd25-1035-2.webp",
         "img/products/gd25-1035-3.webp"
       ],
-      "hover": "img/products/gd25-1035-1.webp"
+      "hover": "img/products/gd25-1035-1.webp",
+      "subtitle": "Morganite and diamonds",
+      "specName": "Morganite and diamond entwine earrings"
     },
     {
       "id": "gd26-27",
       "sku": "GD26-27",
-      "name": "Green tourmaline and diamond entwine earrings",
+      "name": "Green Tourmaline Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3291,12 +3570,14 @@ window.FJ_DATA = {
         "img/products/gd26-27.webp",
         "img/products/gd26-27-1.webp"
       ],
-      "hover": "img/products/gd26-27-1.webp"
+      "hover": "img/products/gd26-27-1.webp",
+      "subtitle": "Green tourmaline and diamonds",
+      "specName": "Green tourmaline and diamond entwine earrings"
     },
     {
       "id": "gd26-330",
       "sku": "GD26-330",
-      "name": "Tanzanite and diamond entwine earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Entwine",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3314,12 +3595,14 @@ window.FJ_DATA = {
         "img/products/gd26-330.webp",
         "img/products/gd26-330-1.webp"
       ],
-      "hover": "img/products/gd26-330-1.webp"
+      "hover": "img/products/gd26-330-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine earrings"
     },
     {
       "id": "gd23-159",
       "sku": "GD23-159",
-      "name": "Tanzanite and diamond entwine ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3337,12 +3620,14 @@ window.FJ_DATA = {
         "img/products/gd23-159.webp",
         "img/products/gd23-159-1.webp"
       ],
-      "hover": "img/products/gd23-159-1.webp"
+      "hover": "img/products/gd23-159-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine ring"
     },
     {
       "id": "gd24-103",
       "sku": "GD24-103",
-      "name": "Tanzanite and diamond entwine ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3361,12 +3646,14 @@ window.FJ_DATA = {
         "img/products/gd24-103-1.webp",
         "img/products/gd24-103-2.webp"
       ],
-      "hover": "img/products/gd24-103-1.webp"
+      "hover": "img/products/gd24-103-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine ring"
     },
     {
       "id": "gd25-307",
       "sku": "GD25-307",
-      "name": "Tanzanite and diamond entwine ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3385,12 +3672,14 @@ window.FJ_DATA = {
         "img/products/gd25-307-1.webp",
         "img/products/gd25-307-2.webp"
       ],
-      "hover": "img/products/gd25-307-1.webp"
+      "hover": "img/products/gd25-307-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine ring"
     },
     {
       "id": "gd25-728",
       "sku": "GD25-728",
-      "name": "Mint garnet and diamond entwine ring",
+      "name": "Mint Garnet Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3410,12 +3699,14 @@ window.FJ_DATA = {
         "img/products/gd25-728-2.webp",
         "img/products/gd25-728-3.webp"
       ],
-      "hover": "img/products/gd25-728-3.webp"
+      "hover": "img/products/gd25-728-3.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond entwine ring"
     },
     {
       "id": "gd25-729",
       "sku": "GD25-729",
-      "name": "Tanzanite and diamond entwine ring",
+      "name": "Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3434,12 +3725,14 @@ window.FJ_DATA = {
         "img/products/gd25-729-1.webp",
         "img/products/gd25-729-2.webp"
       ],
-      "hover": "img/products/gd25-729-1.webp"
+      "hover": "img/products/gd25-729-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond entwine ring"
     },
     {
       "id": "gd25-1040",
       "sku": "GD25-1040",
-      "name": "Fancy tanzanite and diamond entwine ring",
+      "name": "Fancy Tanzanite Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "White Gold",
@@ -3458,12 +3751,14 @@ window.FJ_DATA = {
         "img/products/gd25-1040-1.webp",
         "img/products/gd25-1040-2.webp"
       ],
-      "hover": "img/products/gd25-1040-1.webp"
+      "hover": "img/products/gd25-1040-1.webp",
+      "subtitle": "Fancy tanzanite and diamonds",
+      "specName": "Fancy tanzanite and diamond entwine ring"
     },
     {
       "id": "gd26-584",
       "sku": "GD26-584",
-      "name": "Malaya garnet and diamond entwine ring",
+      "name": "Malaya Garnet Ring",
       "collection": "Entwine",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -3482,12 +3777,14 @@ window.FJ_DATA = {
         "img/products/gd26-584-1.webp",
         "img/products/gd26-584-2.webp"
       ],
-      "hover": "img/products/gd26-584-1.webp"
+      "hover": "img/products/gd26-584-1.webp",
+      "subtitle": "Malaya garnet and diamonds",
+      "specName": "Malaya garnet and diamond entwine ring"
     },
     {
       "id": "gd25-697",
       "sku": "GD25-697",
-      "name": "Aquamarine and diamond spectrum earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3505,12 +3802,14 @@ window.FJ_DATA = {
         "img/products/gd25-697.webp",
         "img/products/gd25-697-1.webp"
       ],
-      "hover": "img/products/gd25-697-1.webp"
+      "hover": "img/products/gd25-697-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum earrings"
     },
     {
       "id": "gd25-698",
       "sku": "GD25-698",
-      "name": "Rose rhodolite and diamond spectrum earrings",
+      "name": "Rose Rhodolite Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3528,12 +3827,14 @@ window.FJ_DATA = {
         "img/products/gd25-698.webp",
         "img/products/gd25-698-1.webp"
       ],
-      "hover": "img/products/gd25-698-1.webp"
+      "hover": "img/products/gd25-698-1.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond spectrum earrings"
     },
     {
       "id": "gd25-699",
       "sku": "GD25-699",
-      "name": "Mint garnet and diamond spectrum earrings",
+      "name": "Mint Garnet Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3551,12 +3852,14 @@ window.FJ_DATA = {
         "img/products/gd25-699.webp",
         "img/products/gd25-699-1.webp"
       ],
-      "hover": "img/products/gd25-699-1.webp"
+      "hover": "img/products/gd25-699-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond spectrum earrings"
     },
     {
       "id": "gd25-954",
       "sku": "GD25-954",
-      "name": "Tanzanite and diamond spectrum earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -3574,12 +3877,14 @@ window.FJ_DATA = {
         "img/products/gd25-954.webp",
         "img/products/gd25-954-1.webp"
       ],
-      "hover": "img/products/gd25-954-1.webp"
+      "hover": "img/products/gd25-954-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond spectrum earrings"
     },
     {
       "id": "gd25-667",
       "sku": "GD25-667",
-      "name": "Aquamarine and diamond spectrum ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3598,12 +3903,14 @@ window.FJ_DATA = {
         "img/products/gd25-667-1.webp",
         "img/products/gd25-667-2.webp"
       ],
-      "hover": "img/products/gd25-667-1.webp"
+      "hover": "img/products/gd25-667-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum ring"
     },
     {
       "id": "gd25-727",
       "sku": "GD25-727",
-      "name": "Aquamarine and diamond spectrum ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3625,12 +3932,14 @@ window.FJ_DATA = {
         "img/products/gd25-727-4.webp",
         "img/products/gd25-727-5.webp"
       ],
-      "hover": "img/products/gd25-727-1.webp"
+      "hover": "img/products/gd25-727-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum ring"
     },
     {
       "id": "gd25-665",
       "sku": "GD25-665",
-      "name": "Rose rhodolite and diamond spectrum ring",
+      "name": "Rose Rhodolite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3649,12 +3958,14 @@ window.FJ_DATA = {
         "img/products/gd25-665-1.webp",
         "img/products/gd25-665-2.webp"
       ],
-      "hover": "img/products/gd25-665-1.webp"
+      "hover": "img/products/gd25-665-1.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond spectrum ring"
     },
     {
       "id": "gd25-913",
       "sku": "GD25-913",
-      "name": "Rose rhodolite and diamond spectrum ring",
+      "name": "Rose Rhodolite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White and Rose Gold",
@@ -3673,12 +3984,14 @@ window.FJ_DATA = {
         "img/products/gd25-913-1.webp",
         "img/products/gd25-913-2.webp"
       ],
-      "hover": "img/products/gd25-913-1.webp"
+      "hover": "img/products/gd25-913-1.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond spectrum ring"
     },
     {
       "id": "gd25-720",
       "sku": "GD25-720",
-      "name": "Rose rhodolite and diamond spectrum ring",
+      "name": "Rose Rhodolite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "Rose Gold",
@@ -3697,12 +4010,14 @@ window.FJ_DATA = {
         "img/products/gd25-720-1.webp",
         "img/products/gd25-720-2.webp"
       ],
-      "hover": "img/products/gd25-720-1.webp"
+      "hover": "img/products/gd25-720-1.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond spectrum ring"
     },
     {
       "id": "gd25-880",
       "sku": "GD25-880",
-      "name": "Mint garnet and diamond spectrum ring",
+      "name": "Mint Garnet Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3721,12 +4036,14 @@ window.FJ_DATA = {
         "img/products/gd25-880-1.webp",
         "img/products/gd25-880-2.webp"
       ],
-      "hover": "img/products/gd25-880-1.webp"
+      "hover": "img/products/gd25-880-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond spectrum ring"
     },
     {
       "id": "gd25-909",
       "sku": "GD25-909",
-      "name": "Mint garnet and diamond spectrum ring",
+      "name": "Mint Garnet Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3748,12 +4065,14 @@ window.FJ_DATA = {
         "img/products/gd25-909-4.webp",
         "img/products/gd25-909-5.webp"
       ],
-      "hover": "img/products/gd25-909-1.webp"
+      "hover": "img/products/gd25-909-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond spectrum ring"
     },
     {
       "id": "gd25-910",
       "sku": "GD25-910",
-      "name": "Tsavorite and diamond spectrum ring",
+      "name": "Tsavorite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3775,12 +4094,14 @@ window.FJ_DATA = {
         "img/products/gd25-910-4.webp",
         "img/products/gd25-910-5.webp"
       ],
-      "hover": "img/products/gd25-910-1.webp"
+      "hover": "img/products/gd25-910-1.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond spectrum ring"
     },
     {
       "id": "gd25-911",
       "sku": "GD25-911",
-      "name": "Aquamarine and diamond spectrum ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3802,12 +4123,14 @@ window.FJ_DATA = {
         "img/products/gd25-911-4.webp",
         "img/products/gd25-911-5.webp"
       ],
-      "hover": "img/products/gd25-911-1.webp"
+      "hover": "img/products/gd25-911-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum ring"
     },
     {
       "id": "gd25-882",
       "sku": "GD25-882",
-      "name": "Aquamarine and diamond spectrum ring",
+      "name": "Aquamarine Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3826,12 +4149,14 @@ window.FJ_DATA = {
         "img/products/gd25-882-1.webp",
         "img/products/gd25-882-2.webp"
       ],
-      "hover": "img/products/gd25-882-1.webp"
+      "hover": "img/products/gd25-882-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum ring"
     },
     {
       "id": "gd25-652",
       "sku": "GD25-652",
-      "name": "Tanzanite and diamond spectrum ring",
+      "name": "Tanzanite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3853,12 +4178,14 @@ window.FJ_DATA = {
         "img/products/gd25-652-4.webp",
         "img/products/gd25-652-5.webp"
       ],
-      "hover": "img/products/gd25-652-1.webp"
+      "hover": "img/products/gd25-652-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond spectrum ring"
     },
     {
       "id": "gd26-36",
       "sku": "GD26-36",
-      "name": "Tanzanite and diamond spectrum ring",
+      "name": "Tanzanite Ring",
       "collection": "Spectrum",
       "type": "Rings",
       "metal": "White Gold",
@@ -3874,12 +4201,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-36.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond spectrum ring"
     },
     {
       "id": "gd26-253",
       "sku": "GD26-253",
-      "name": "Aquamarine and diamond spectrum necklace",
+      "name": "Aquamarine Necklace",
       "collection": "Spectrum",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -3897,12 +4226,14 @@ window.FJ_DATA = {
         "img/products/gd26-253.webp",
         "img/products/gd26-253-1.webp"
       ],
-      "hover": "img/products/gd26-253-1.webp"
+      "hover": "img/products/gd26-253-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum necklace"
     },
     {
       "id": "gd26-253-a",
       "sku": "GD26-253 A",
-      "name": "Aquamarine and diamond spectrum earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3921,12 +4252,14 @@ window.FJ_DATA = {
         "img/products/gd26-253-a-1.webp",
         "img/products/gd26-253-a-2.webp"
       ],
-      "hover": "img/products/gd26-253-a-2.webp"
+      "hover": "img/products/gd26-253-a-2.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond spectrum earrings"
     },
     {
       "id": "gd26-254",
       "sku": "GD26-254",
-      "name": "Rose rhodolite and diamond spectrum necklace",
+      "name": "Rose Rhodolite Necklace",
       "collection": "Spectrum",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -3942,12 +4275,14 @@ window.FJ_DATA = {
       "tone": "#9a3a6a",
       "images": [
         "img/products/gd26-254.webp"
-      ]
+      ],
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond spectrum necklace"
     },
     {
       "id": "gd26-254-a",
       "sku": "GD26-254 A",
-      "name": "Rose rhodolite and diamond spectrum earrings",
+      "name": "Rose Rhodolite Earrings",
       "collection": "Spectrum",
       "type": "Earrings",
       "metal": "White Gold",
@@ -3966,12 +4301,14 @@ window.FJ_DATA = {
         "img/products/gd26-254-a-1.webp",
         "img/products/gd26-254-a-2.webp"
       ],
-      "hover": "img/products/gd26-254-a-2.webp"
+      "hover": "img/products/gd26-254-a-2.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond spectrum earrings"
     },
     {
       "id": "gd26-66",
       "sku": "GD26-66",
-      "name": "Mint garnet and diamond royal starling bangle",
+      "name": "Mint Garnet Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -3991,12 +4328,14 @@ window.FJ_DATA = {
         "img/products/gd26-66-2.webp",
         "img/products/gd26-66-3.webp"
       ],
-      "hover": "img/products/gd26-66-3.webp"
+      "hover": "img/products/gd26-66-3.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond royal starling bangle"
     },
     {
       "id": "gd26-311",
       "sku": "GD26-311",
-      "name": "Mint garnet and diamond royal starling bangle",
+      "name": "Mint Garnet Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4016,12 +4355,14 @@ window.FJ_DATA = {
         "img/products/gd26-311-2.webp",
         "img/products/gd26-311-3.webp"
       ],
-      "hover": "img/products/gd26-311-3.webp"
+      "hover": "img/products/gd26-311-3.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond royal starling bangle"
     },
     {
       "id": "gd26-188",
       "sku": "GD26-188",
-      "name": "Tanzanite and diamond royal starling bangle",
+      "name": "Tanzanite Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4041,12 +4382,14 @@ window.FJ_DATA = {
         "img/products/gd26-188-2.webp",
         "img/products/gd26-188-3.webp"
       ],
-      "hover": "img/products/gd26-188-3.webp"
+      "hover": "img/products/gd26-188-3.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond royal starling bangle"
     },
     {
       "id": "gd26-178",
       "sku": "GD26-178",
-      "name": "Tsavorite and diamond royal starling bangle",
+      "name": "Tsavorite Bangle",
       "collection": "Royal Starling",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4064,12 +4407,14 @@ window.FJ_DATA = {
         "img/products/gd26-178.webp",
         "img/products/gd26-178-1.webp"
       ],
-      "hover": "img/products/gd26-178-1.webp"
+      "hover": "img/products/gd26-178-1.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond royal starling bangle"
     },
     {
       "id": "gd26-67",
       "sku": "GD26-67",
-      "name": "Mint garnet and diamond royal starling ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4089,12 +4434,14 @@ window.FJ_DATA = {
         "img/products/gd26-67-2.webp",
         "img/products/gd26-67-3.webp"
       ],
-      "hover": "img/products/gd26-67-3.webp"
+      "hover": "img/products/gd26-67-3.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond royal starling ring"
     },
     {
       "id": "g-622",
       "sku": "G 622",
-      "name": "Tsavorite and diamond royal starling ring",
+      "name": "Tsavorite Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "White and Rose Gold",
@@ -4113,12 +4460,14 @@ window.FJ_DATA = {
         "img/products/g-622-1.webp",
         "img/products/g-622-2.webp"
       ],
-      "hover": "img/products/g-622-1.webp"
+      "hover": "img/products/g-622-1.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond royal starling ring"
     },
     {
       "id": "gd26-191",
       "sku": "GD26-191",
-      "name": "Pink spinel and diamond royal starling ring",
+      "name": "Pink Spinel Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "White Gold",
@@ -4137,12 +4486,14 @@ window.FJ_DATA = {
         "img/products/gd26-191-1.webp",
         "img/products/gd26-191-2.webp"
       ],
-      "hover": "img/products/gd26-191-1.webp"
+      "hover": "img/products/gd26-191-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond royal starling ring"
     },
     {
       "id": "gd26-825",
       "sku": "GD26-825",
-      "name": "Pink spinel and diamond royal starling ring",
+      "name": "Pink Spinel Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -4161,12 +4512,14 @@ window.FJ_DATA = {
         "img/products/gd26-825-1.webp",
         "img/products/gd26-825-2.webp"
       ],
-      "hover": "img/products/gd26-825-1.webp"
+      "hover": "img/products/gd26-825-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond royal starling ring"
     },
     {
       "id": "gd26-824",
       "sku": "GD26-824",
-      "name": "Mint garnet and diamond royal starling ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4185,12 +4538,14 @@ window.FJ_DATA = {
         "img/products/gd26-824-1.webp",
         "img/products/gd26-824-2.webp"
       ],
-      "hover": "img/products/gd26-824-1.webp"
+      "hover": "img/products/gd26-824-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond royal starling ring"
     },
     {
       "id": "gd26-813",
       "sku": "GD26-813",
-      "name": "Mint garnet and diamond royal starling ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k Yellow and White Gold",
@@ -4209,12 +4564,14 @@ window.FJ_DATA = {
         "img/products/gd26-813-1.webp",
         "img/products/gd26-813-2.webp"
       ],
-      "hover": "img/products/gd26-813-1.webp"
+      "hover": "img/products/gd26-813-1.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond royal starling ring"
     },
     {
       "id": "gd26-312",
       "sku": "GD26-312",
-      "name": "Mint garnet and diamond royal starling ring",
+      "name": "Mint Garnet Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "White Gold",
@@ -4234,12 +4591,14 @@ window.FJ_DATA = {
         "img/products/gd26-312-2.webp",
         "img/products/gd26-312-3.webp"
       ],
-      "hover": "img/products/gd26-312-3.webp"
+      "hover": "img/products/gd26-312-3.webp",
+      "subtitle": "Mint garnet and diamonds",
+      "specName": "Mint garnet and diamond royal starling ring"
     },
     {
       "id": "gd26-853",
       "sku": "GD26-853",
-      "name": "Tanzanite and diamond royal starling ring",
+      "name": "Tanzanite Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4258,12 +4617,14 @@ window.FJ_DATA = {
         "img/products/gd26-853-1.webp",
         "img/products/gd26-853-2.webp"
       ],
-      "hover": "img/products/gd26-853-1.webp"
+      "hover": "img/products/gd26-853-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond royal starling ring"
     },
     {
       "id": "gd26-868",
       "sku": "GD26-868",
-      "name": "Pink spinel and diamond royal starling ring",
+      "name": "Pink Spinel Ring",
       "collection": "Royal Starling",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -4279,12 +4640,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-868.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond royal starling ring"
     },
     {
       "id": "gd26-187",
       "sku": "GD26-187",
-      "name": "Tanzanite and diamond royal starling earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Royal Starling",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4302,12 +4665,14 @@ window.FJ_DATA = {
         "img/products/gd26-187.webp",
         "img/products/gd26-187-1.webp"
       ],
-      "hover": "img/products/gd26-187-1.webp"
+      "hover": "img/products/gd26-187-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond royal starling earrings"
     },
     {
       "id": "gd26-169",
       "sku": "GD26-169",
-      "name": "Tsavorite and diamond royal starling necklace",
+      "name": "Tsavorite Necklace",
       "collection": "Royal Starling",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -4323,12 +4688,14 @@ window.FJ_DATA = {
       "tone": "#2f8a4f",
       "images": [
         "img/products/gd26-169.webp"
-      ]
+      ],
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond royal starling necklace"
     },
     {
       "id": "gd26-170",
       "sku": "GD26-170",
-      "name": "Tsavorite and diamond royal starling earrings",
+      "name": "Tsavorite Earrings",
       "collection": "Royal Starling",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4346,12 +4713,14 @@ window.FJ_DATA = {
         "img/products/gd26-170.webp",
         "img/products/gd26-170-1.webp"
       ],
-      "hover": "img/products/gd26-170-1.webp"
+      "hover": "img/products/gd26-170-1.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond royal starling earrings"
     },
     {
       "id": "gd23-443",
       "sku": "GD23-443",
-      "name": "Tsavorite and diamond royal starling necklace",
+      "name": "Tsavorite Necklace",
       "collection": "Royal Starling",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -4369,12 +4738,14 @@ window.FJ_DATA = {
         "img/products/gd23-443.webp",
         "img/products/gd23-443-1.webp"
       ],
-      "hover": "img/products/gd23-443-1.webp"
+      "hover": "img/products/gd23-443-1.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond royal starling necklace"
     },
     {
       "id": "gd23-443-a",
       "sku": "GD23-443 A",
-      "name": "Tsavorite and diamond royal starling earrings",
+      "name": "Tsavorite Earrings",
       "collection": "Royal Starling",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4392,12 +4763,14 @@ window.FJ_DATA = {
         "img/products/gd23-443-a.webp",
         "img/products/gd23-443-a-1.webp"
       ],
-      "hover": "img/products/gd23-443-a-1.webp"
+      "hover": "img/products/gd23-443-a-1.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond royal starling earrings"
     },
     {
       "id": "gd26-184",
       "sku": "GD26-184",
-      "name": "Pink spinel and diamond flare bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Flare",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -4417,12 +4790,14 @@ window.FJ_DATA = {
         "img/products/gd26-184-2.webp",
         "img/products/gd26-184-3.webp"
       ],
-      "hover": "img/products/gd26-184-1.webp"
+      "hover": "img/products/gd26-184-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare bracelet"
     },
     {
       "id": "gd26-828",
       "sku": "GD26-828",
-      "name": "Tourmaline and diamond flare bracelet",
+      "name": "Tourmaline Bracelet",
       "collection": "Flare",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -4438,12 +4813,14 @@ window.FJ_DATA = {
       "tone": "#8a7f9a",
       "images": [
         "img/products/gd26-828.webp"
-      ]
+      ],
+      "subtitle": "Tourmaline and diamonds",
+      "specName": "Tourmaline and diamond flare bracelet"
     },
     {
       "id": "gd24-581",
       "sku": "GD24-581",
-      "name": "Tanzanite and diamond flare earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4461,12 +4838,14 @@ window.FJ_DATA = {
         "img/products/gd24-581.webp",
         "img/products/gd24-581-1.webp"
       ],
-      "hover": "img/products/gd24-581-1.webp"
+      "hover": "img/products/gd24-581-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare earrings"
     },
     {
       "id": "gd25-434",
       "sku": "GD25-434",
-      "name": "Aquamarine and diamond flare earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4485,12 +4864,14 @@ window.FJ_DATA = {
         "img/products/gd25-434-1.webp",
         "img/products/gd25-434-2.webp"
       ],
-      "hover": "img/products/gd25-434-2.webp"
+      "hover": "img/products/gd25-434-2.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare earrings"
     },
     {
       "id": "gd25-623",
       "sku": "GD25-623",
-      "name": "Tanzanite and diamond flare earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4508,12 +4889,14 @@ window.FJ_DATA = {
         "img/products/gd25-623.webp",
         "img/products/gd25-623-1.webp"
       ],
-      "hover": "img/products/gd25-623-1.webp"
+      "hover": "img/products/gd25-623-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare earrings"
     },
     {
       "id": "gd25-790",
       "sku": "GD25-790",
-      "name": "Rhodolite and diamond flare earrings",
+      "name": "Rhodolite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4532,12 +4915,14 @@ window.FJ_DATA = {
         "img/products/gd25-790-1.webp",
         "img/products/gd25-790-2.webp"
       ],
-      "hover": "img/products/gd25-790-2.webp"
+      "hover": "img/products/gd25-790-2.webp",
+      "subtitle": "Rhodolite and diamonds",
+      "specName": "Rhodolite and diamond flare earrings"
     },
     {
       "id": "gd25-791",
       "sku": "GD25-791",
-      "name": "Morganite and diamond flare earrings",
+      "name": "Morganite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k Rose Gold",
@@ -4556,12 +4941,14 @@ window.FJ_DATA = {
         "img/products/gd25-791-1.webp",
         "img/products/gd25-791-2.webp"
       ],
-      "hover": "img/products/gd25-791-2.webp"
+      "hover": "img/products/gd25-791-2.webp",
+      "subtitle": "Morganite and diamonds",
+      "specName": "Morganite and diamond flare earrings"
     },
     {
       "id": "gd26-265",
       "sku": "GD26-265",
-      "name": "Lavender tanzanite and diamond flare earrings",
+      "name": "Lavender Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4580,12 +4967,14 @@ window.FJ_DATA = {
         "img/products/gd26-265-1.webp",
         "img/products/gd26-265-2.webp"
       ],
-      "hover": "img/products/gd26-265-2.webp"
+      "hover": "img/products/gd26-265-2.webp",
+      "subtitle": "Lavender tanzanite and diamonds",
+      "specName": "Lavender tanzanite and diamond flare earrings"
     },
     {
       "id": "gd26-268",
       "sku": "GD26-268",
-      "name": "Spessartite and diamond flare earrings",
+      "name": "Spessartite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4604,12 +4993,14 @@ window.FJ_DATA = {
         "img/products/gd26-268-1.webp",
         "img/products/gd26-268-2.webp"
       ],
-      "hover": "img/products/gd26-268-2.webp"
+      "hover": "img/products/gd26-268-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond flare earrings"
     },
     {
       "id": "gd26-901",
       "sku": "GD26-901",
-      "name": "Aquamarine and diamond flare earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4625,12 +5016,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-901.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare earrings"
     },
     {
       "id": "gd26-801",
       "sku": "GD26-801",
-      "name": "Tourmaline and diamond flare earrings",
+      "name": "Tourmaline Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4646,12 +5039,14 @@ window.FJ_DATA = {
       "tone": "#8a7f9a",
       "images": [
         "img/products/gd26-801.webp"
-      ]
+      ],
+      "subtitle": "Tourmaline and diamonds",
+      "specName": "Tourmaline and diamond flare earrings"
     },
     {
       "id": "gd26-864",
       "sku": "GD26-864",
-      "name": "Pink spinel and diamond flare earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White and Rose Gold",
@@ -4669,12 +5064,14 @@ window.FJ_DATA = {
         "img/products/gd26-864.webp",
         "img/products/gd26-864-1.webp"
       ],
-      "hover": "img/products/gd26-864-1.webp"
+      "hover": "img/products/gd26-864-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare earrings"
     },
     {
       "id": "gd26-832",
       "sku": "GD26-832",
-      "name": "Aquamarine and diamond flare earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4692,12 +5089,14 @@ window.FJ_DATA = {
         "img/products/gd26-832.webp",
         "img/products/gd26-832-1.webp"
       ],
-      "hover": "img/products/gd26-832-1.webp"
+      "hover": "img/products/gd26-832-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare earrings"
     },
     {
       "id": "gd26-863",
       "sku": "GD26-863",
-      "name": "Pink tourmaline and diamond flare earrings",
+      "name": "Pink Tourmaline Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White and Rose Gold",
@@ -4713,12 +5112,14 @@ window.FJ_DATA = {
       "tone": "#8a7f9a",
       "images": [
         "img/products/gd26-863.webp"
-      ]
+      ],
+      "subtitle": "Pink tourmaline and diamonds",
+      "specName": "Pink tourmaline and diamond flare earrings"
     },
     {
       "id": "gd24-188",
       "sku": "GD24-188",
-      "name": "Tanzanite and diamond flare earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4736,12 +5137,14 @@ window.FJ_DATA = {
         "img/products/gd24-188.webp",
         "img/products/gd24-188-1.webp"
       ],
-      "hover": "img/products/gd24-188-1.webp"
+      "hover": "img/products/gd24-188-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare earrings"
     },
     {
       "id": "gd24-799",
       "sku": "GD24-799",
-      "name": "Tanzanite and diamond flare earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4759,12 +5162,14 @@ window.FJ_DATA = {
         "img/products/gd24-799.webp",
         "img/products/gd24-799-1.webp"
       ],
-      "hover": "img/products/gd24-799-1.webp"
+      "hover": "img/products/gd24-799-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare earrings"
     },
     {
       "id": "gd24-346",
       "sku": "GD24-346",
-      "name": "Tanzanite and diamond flare earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4782,12 +5187,14 @@ window.FJ_DATA = {
         "img/products/gd24-346.webp",
         "img/products/gd24-346-1.webp"
       ],
-      "hover": "img/products/gd24-346-1.webp"
+      "hover": "img/products/gd24-346-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare earrings"
     },
     {
       "id": "gd26-562",
       "sku": "GD26-562",
-      "name": "Rose rhodolite and diamond flare earrings",
+      "name": "Rose Rhodolite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k Gold",
@@ -4805,12 +5212,14 @@ window.FJ_DATA = {
         "img/products/gd26-562.webp",
         "img/products/gd26-562-1.webp"
       ],
-      "hover": "img/products/gd26-562-1.webp"
+      "hover": "img/products/gd26-562-1.webp",
+      "subtitle": "Rose rhodolite and diamonds",
+      "specName": "Rose rhodolite and diamond flare earrings"
     },
     {
       "id": "gd25-1088",
       "sku": "GD25-1088",
-      "name": "Aquamarine and diamond flare earrings",
+      "name": "Aquamarine Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "White Gold",
@@ -4828,12 +5237,14 @@ window.FJ_DATA = {
         "img/products/gd25-1088.webp",
         "img/products/gd25-1088-1.webp"
       ],
-      "hover": "img/products/gd25-1088-1.webp"
+      "hover": "img/products/gd25-1088-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare earrings"
     },
     {
       "id": "gd23-287",
       "sku": "GD23-287",
-      "name": "Tanzanite and diamond flare ring",
+      "name": "Tanzanite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4851,12 +5262,14 @@ window.FJ_DATA = {
         "img/products/gd23-287.webp",
         "img/products/gd23-287-1.webp"
       ],
-      "hover": "img/products/gd23-287-1.webp"
+      "hover": "img/products/gd23-287-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare ring"
     },
     {
       "id": "gd25-632",
       "sku": "GD25-632",
-      "name": "Tanzanite and diamond flare earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -4874,12 +5287,14 @@ window.FJ_DATA = {
         "img/products/gd25-632.webp",
         "img/products/gd25-632-1.webp"
       ],
-      "hover": "img/products/gd25-632-1.webp"
+      "hover": "img/products/gd25-632-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare earrings"
     },
     {
       "id": "gd26-918",
       "sku": "GD26-918",
-      "name": "Pink spinel and diamond flare earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Flare",
       "type": "Earrings",
       "metal": "18k White and Rose Gold",
@@ -4897,12 +5312,14 @@ window.FJ_DATA = {
         "img/products/gd26-918.webp",
         "img/products/gd26-918-1.webp"
       ],
-      "hover": "img/products/gd26-918-1.webp"
+      "hover": "img/products/gd26-918-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare earrings"
     },
     {
       "id": "gd26-795",
       "sku": "GD26-795",
-      "name": "Aquamarine and diamond flare ring",
+      "name": "Aquamarine Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4921,12 +5338,14 @@ window.FJ_DATA = {
         "img/products/gd26-795-1.webp",
         "img/products/gd26-795-2.webp"
       ],
-      "hover": "img/products/gd26-795-1.webp"
+      "hover": "img/products/gd26-795-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare ring"
     },
     {
       "id": "gd26-791",
       "sku": "GD26-791",
-      "name": "Spessartite and diamond flare ring",
+      "name": "Spessartite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4945,12 +5364,14 @@ window.FJ_DATA = {
         "img/products/gd26-791-1.webp",
         "img/products/gd26-791-2.webp"
       ],
-      "hover": "img/products/gd26-791-1.webp"
+      "hover": "img/products/gd26-791-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond flare ring"
     },
     {
       "id": "gd26-829",
       "sku": "GD26-829",
-      "name": "Tourmaline and diamond flare ring",
+      "name": "Tourmaline Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4966,12 +5387,14 @@ window.FJ_DATA = {
       "tone": "#8a7f9a",
       "images": [
         "img/products/gd26-829.webp"
-      ]
+      ],
+      "subtitle": "Tourmaline and diamonds",
+      "specName": "Tourmaline and diamond flare ring"
     },
     {
       "id": "gd26-831",
       "sku": "GD26-831",
-      "name": "Aquamarine and diamond flare ring",
+      "name": "Aquamarine Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -4990,12 +5413,14 @@ window.FJ_DATA = {
         "img/products/gd26-831-1.webp",
         "img/products/gd26-831-2.webp"
       ],
-      "hover": "img/products/gd26-831-1.webp"
+      "hover": "img/products/gd26-831-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare ring"
     },
     {
       "id": "gd26-834",
       "sku": "GD26-834",
-      "name": "Pink spinel and diamond flare ring",
+      "name": "Pink Spinel Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -5011,12 +5436,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-834.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare ring"
     },
     {
       "id": "gd26-862",
       "sku": "GD26-862",
-      "name": "Pink tourmaline and diamond flare ring",
+      "name": "Pink Tourmaline Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5035,12 +5462,14 @@ window.FJ_DATA = {
         "img/products/gd26-862-1.webp",
         "img/products/gd26-862-2.webp"
       ],
-      "hover": "img/products/gd26-862-1.webp"
+      "hover": "img/products/gd26-862-1.webp",
+      "subtitle": "Pink tourmaline and diamonds",
+      "specName": "Pink tourmaline and diamond flare ring"
     },
     {
       "id": "gd26-207",
       "sku": "GD26-207",
-      "name": "Tanzanite and diamond flare ring",
+      "name": "Tanzanite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5059,12 +5488,14 @@ window.FJ_DATA = {
         "img/products/gd26-207-1.webp",
         "img/products/gd26-207-2.webp"
       ],
-      "hover": "img/products/gd26-207-1.webp"
+      "hover": "img/products/gd26-207-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare ring"
     },
     {
       "id": "gd26-183",
       "sku": "GD26-183",
-      "name": "Tanzanite and diamond flare ring",
+      "name": "Tanzanite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5083,12 +5514,14 @@ window.FJ_DATA = {
         "img/products/gd26-183-1.webp",
         "img/products/gd26-183-2.webp"
       ],
-      "hover": "img/products/gd26-183-1.webp"
+      "hover": "img/products/gd26-183-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond flare ring"
     },
     {
       "id": "gd26-550",
       "sku": "GD26-550",
-      "name": "Rhodolite and diamond flare ring",
+      "name": "Rhodolite Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5107,12 +5540,14 @@ window.FJ_DATA = {
         "img/products/gd26-550-1.webp",
         "img/products/gd26-550-2.webp"
       ],
-      "hover": "img/products/gd26-550-1.webp"
+      "hover": "img/products/gd26-550-1.webp",
+      "subtitle": "Rhodolite and diamonds",
+      "specName": "Rhodolite and diamond flare ring"
     },
     {
       "id": "gd25-1022",
       "sku": "GD25-1022",
-      "name": "Tanzanite cut and diamond flare ring",
+      "name": "Tanzanite Cut Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5131,12 +5566,14 @@ window.FJ_DATA = {
         "img/products/gd25-1022-1.webp",
         "img/products/gd25-1022-2.webp"
       ],
-      "hover": "img/products/gd25-1022-1.webp"
+      "hover": "img/products/gd25-1022-1.webp",
+      "subtitle": "Tanzanite cut and diamonds",
+      "specName": "Tanzanite cut and diamond flare ring"
     },
     {
       "id": "gd25-1071",
       "sku": "GD25-1071",
-      "name": "Aquamarine and diamond flare ring",
+      "name": "Aquamarine Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "White Gold",
@@ -5155,12 +5592,14 @@ window.FJ_DATA = {
         "img/products/gd25-1071-1.webp",
         "img/products/gd25-1071-2.webp"
       ],
-      "hover": "img/products/gd25-1071-1.webp"
+      "hover": "img/products/gd25-1071-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare ring"
     },
     {
       "id": "gd26-279-a",
       "sku": "GD26-279 A",
-      "name": "Diamond and diamond flare ring",
+      "name": "Diamond Ring",
       "collection": "Flare",
       "type": "Rings",
       "metal": "Gold-14kt",
@@ -5179,12 +5618,14 @@ window.FJ_DATA = {
         "img/products/gd26-279-a-1.webp",
         "img/products/gd26-279-a-2.webp"
       ],
-      "hover": "img/products/gd26-279-a-1.webp"
+      "hover": "img/products/gd26-279-a-1.webp",
+      "subtitle": "Diamond and diamonds",
+      "specName": "Diamond and diamond flare ring"
     },
     {
       "id": "gd26-266",
       "sku": "GD26-266",
-      "name": "Lavender tanzanite and diamond flare pendant",
+      "name": "Lavender Tanzanite Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "White Gold",
@@ -5202,12 +5643,14 @@ window.FJ_DATA = {
         "img/products/gd26-266.webp",
         "img/products/gd26-266-1.webp"
       ],
-      "hover": "img/products/gd26-266-1.webp"
+      "hover": "img/products/gd26-266-1.webp",
+      "subtitle": "Lavender tanzanite and diamonds",
+      "specName": "Lavender tanzanite and diamond flare pendant"
     },
     {
       "id": "gd26-269",
       "sku": "GD26-269",
-      "name": "Spessartite and diamond flare pendant",
+      "name": "Spessartite Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "White Gold",
@@ -5226,12 +5669,14 @@ window.FJ_DATA = {
         "img/products/gd26-269-1.webp",
         "img/products/gd26-269-2.webp"
       ],
-      "hover": "img/products/gd26-269-2.webp"
+      "hover": "img/products/gd26-269-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond flare pendant"
     },
     {
       "id": "gd26-800",
       "sku": "GD26-800",
-      "name": "Tourmaline and diamond flare pendant",
+      "name": "Tourmaline Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -5247,12 +5692,14 @@ window.FJ_DATA = {
       "tone": "#8a7f9a",
       "images": [
         "img/products/gd26-800.webp"
-      ]
+      ],
+      "subtitle": "Tourmaline and diamonds",
+      "specName": "Tourmaline and diamond flare pendant"
     },
     {
       "id": "gd26-803",
       "sku": "GD26-803",
-      "name": "Aquamarine and diamond flare pendant",
+      "name": "Aquamarine Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -5270,12 +5717,14 @@ window.FJ_DATA = {
         "img/products/gd26-803.webp",
         "img/products/gd26-803-1.webp"
       ],
-      "hover": "img/products/gd26-803-1.webp"
+      "hover": "img/products/gd26-803-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare pendant"
     },
     {
       "id": "gd26-833",
       "sku": "GD26-833",
-      "name": "Pink spinel and diamond flare pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White and Rose Gold",
@@ -5293,12 +5742,14 @@ window.FJ_DATA = {
         "img/products/gd26-833.webp",
         "img/products/gd26-833-1.webp"
       ],
-      "hover": "img/products/gd26-833-1.webp"
+      "hover": "img/products/gd26-833-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare pendant"
     },
     {
       "id": "gd26-905",
       "sku": "GD26-905",
-      "name": "Pink spinel and diamond flare pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Flare",
       "type": "Pendants",
       "metal": "18k White and Rose Gold",
@@ -5314,12 +5765,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-905.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare pendant"
     },
     {
       "id": "gd26-196-b",
       "sku": "GD26-196 B",
-      "name": "Aquamarine and diamond flare necklace",
+      "name": "Aquamarine Necklace",
       "collection": "Flare",
       "type": "Necklaces",
       "metal": "White Gold",
@@ -5337,12 +5790,14 @@ window.FJ_DATA = {
         "img/products/gd26-196-b.webp",
         "img/products/gd26-196-b-1.webp"
       ],
-      "hover": "img/products/gd26-196-b-1.webp"
+      "hover": "img/products/gd26-196-b-1.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond flare necklace"
     },
     {
       "id": "gd25-878",
       "sku": "GD25-878",
-      "name": "Pink spinel and diamond flare necklace",
+      "name": "Pink Spinel Necklace",
       "collection": "Flare",
       "type": "Necklaces",
       "metal": "Rose Gold",
@@ -5360,12 +5815,14 @@ window.FJ_DATA = {
         "img/products/gd25-878.webp",
         "img/products/gd25-878-1.webp"
       ],
-      "hover": "img/products/gd25-878-1.webp"
+      "hover": "img/products/gd25-878-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond flare necklace"
     },
     {
       "id": "g-624",
       "sku": "G 624",
-      "name": "Pink spinel, spessartite and diamond ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
@@ -5383,12 +5840,14 @@ window.FJ_DATA = {
         "img/products/g-624.webp",
         "img/products/g-624-1.webp"
       ],
-      "hover": "img/products/g-624-1.webp"
+      "hover": "img/products/g-624-1.webp",
+      "subtitle": "Pink spinel, spessartite and diamonds",
+      "specName": "Pink spinel, spessartite and diamond ring"
     },
     {
       "id": "gd23-316",
       "sku": "GD23-316",
-      "name": "Pink spinel, aquamarine and diamond ring",
+      "name": "Pink Spinel and Aquamarine Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5408,12 +5867,14 @@ window.FJ_DATA = {
         "img/products/gd23-316-2.webp",
         "img/products/gd23-316-3.webp"
       ],
-      "hover": "img/products/gd23-316-3.webp"
+      "hover": "img/products/gd23-316-3.webp",
+      "subtitle": "Pink spinel, aquamarine and diamonds",
+      "specName": "Pink spinel, aquamarine and diamond ring"
     },
     {
       "id": "gd26-190",
       "sku": "GD26-190",
-      "name": "Pink spinel, aquamarine and diamond ring",
+      "name": "Pink Spinel and Aquamarine Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
@@ -5433,12 +5894,14 @@ window.FJ_DATA = {
         "img/products/gd26-190-2.webp",
         "img/products/gd26-190-3.webp"
       ],
-      "hover": "img/products/gd26-190-3.webp"
+      "hover": "img/products/gd26-190-3.webp",
+      "subtitle": "Pink spinel, aquamarine and diamonds",
+      "specName": "Pink spinel, aquamarine and diamond ring"
     },
     {
       "id": "gd26-792",
       "sku": "GD26-792",
-      "name": "Pink spinel, spessartite and diamond ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5454,12 +5917,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-792.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, spessartite and diamonds",
+      "specName": "Pink spinel, spessartite and diamond ring"
     },
     {
       "id": "gd26-793",
       "sku": "GD26-793",
-      "name": "Pink spinel, spessartite and diamond ring",
+      "name": "Pink Spinel and Spessartite Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -5475,12 +5940,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-793.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel, spessartite and diamonds",
+      "specName": "Pink spinel, spessartite and diamond ring"
     },
     {
       "id": "g-636",
       "sku": "G 636",
-      "name": "Aquamarine, mint garnet and diamond ring",
+      "name": "Aquamarine and Mint Garnet Ring",
       "collection": "Multi Colour",
       "type": "Rings",
       "metal": "White Gold",
@@ -5498,12 +5965,14 @@ window.FJ_DATA = {
         "img/products/g-636.webp",
         "img/products/g-636-1.webp"
       ],
-      "hover": "img/products/g-636-1.webp"
+      "hover": "img/products/g-636-1.webp",
+      "subtitle": "Aquamarine, mint garnet and diamonds",
+      "specName": "Aquamarine, mint garnet and diamond ring"
     },
     {
       "id": "gd24-537",
       "sku": "GD24-537",
-      "name": "Aquamarine, tanzanite and diamond earrings",
+      "name": "Aquamarine and Tanzanite Earrings",
       "collection": "Multi Colour",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5519,12 +5988,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd24-537.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine, tanzanite and diamonds",
+      "specName": "Aquamarine, tanzanite and diamond earrings"
     },
     {
       "id": "gd26-76",
       "sku": "GD26-76",
-      "name": "Aquamarine, mint garnet and diamond bracelet",
+      "name": "Aquamarine and Mint Garnet Bracelet",
       "collection": "Multi Colour",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -5540,12 +6011,14 @@ window.FJ_DATA = {
       "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-76.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine, mint garnet and diamonds",
+      "specName": "Aquamarine, mint garnet and diamond bracelet"
     },
     {
       "id": "gd26-195-c",
       "sku": "GD26-195 C",
-      "name": "Mint garnet, tsavorite and diamond bracelet",
+      "name": "Mint Garnet and Tsavorite Bracelet",
       "collection": "Multi Colour",
       "type": "Bracelets",
       "metal": "Yellow Gold",
@@ -5563,12 +6036,14 @@ window.FJ_DATA = {
         "img/products/gd26-195-c.webp",
         "img/products/gd26-195-c-1.webp"
       ],
-      "hover": "img/products/gd26-195-c-1.webp"
+      "hover": "img/products/gd26-195-c-1.webp",
+      "subtitle": "Mint garnet, tsavorite and diamonds",
+      "specName": "Mint garnet, tsavorite and diamond bracelet"
     },
     {
       "id": "gd26-271",
       "sku": "GD26-271",
-      "name": "Tanzanite and diamond shamsa necklace",
+      "name": "Tanzanite Necklace",
       "collection": "Shamsa Fine",
       "type": "Necklaces",
       "metal": "18k White Gold",
@@ -5584,12 +6059,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-271.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond shamsa necklace"
     },
     {
       "id": "gd26-271-a",
       "sku": "GD26-271 A",
-      "name": "Tanzanite and diamond shamsa earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Shamsa Fine",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5605,12 +6082,14 @@ window.FJ_DATA = {
       "tone": "#3a5f9a",
       "images": [
         "img/products/gd26-271-a.webp"
-      ]
+      ],
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond shamsa earrings"
     },
     {
       "id": "gd26-895",
       "sku": "GD26-895",
-      "name": "Pink spinel and diamond shamsa pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Shamsa Fine",
       "type": "Pendants",
       "metal": "18k Yellow and White Gold",
@@ -5626,12 +6105,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-895.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond shamsa pendant"
     },
     {
       "id": "gd26-897",
       "sku": "GD26-897",
-      "name": "Pink spinel and diamond shamsa ring",
+      "name": "Pink Spinel Ring",
       "collection": "Shamsa Fine",
       "type": "Rings",
       "metal": "18k Yellow and White Gold",
@@ -5647,12 +6128,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-897.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond shamsa ring"
     },
     {
       "id": "gd24-647",
       "sku": "GD24-647",
-      "name": "Tanzanite and diamond dome earrings",
+      "name": "Tanzanite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "18k White Gold",
@@ -5670,12 +6153,14 @@ window.FJ_DATA = {
         "img/products/gd24-647.webp",
         "img/products/gd24-647-1.webp"
       ],
-      "hover": "img/products/gd24-647-1.webp"
+      "hover": "img/products/gd24-647-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond dome earrings"
     },
     {
       "id": "gd25-1028",
       "sku": "GD25-1028",
-      "name": "Spessartite and diamond dome earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -5694,12 +6179,14 @@ window.FJ_DATA = {
         "img/products/gd25-1028-1.webp",
         "img/products/gd25-1028-2.webp"
       ],
-      "hover": "img/products/gd25-1028-2.webp"
+      "hover": "img/products/gd25-1028-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome earrings"
     },
     {
       "id": "gd25-1060",
       "sku": "GD25-1060",
-      "name": "Spessartite and diamond dome earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -5718,12 +6205,14 @@ window.FJ_DATA = {
         "img/products/gd25-1060-1.webp",
         "img/products/gd25-1060-2.webp"
       ],
-      "hover": "img/products/gd25-1060-2.webp"
+      "hover": "img/products/gd25-1060-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome earrings"
     },
     {
       "id": "gd25-1093",
       "sku": "GD25-1093",
-      "name": "Spessartite and diamond dome earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -5742,12 +6231,14 @@ window.FJ_DATA = {
         "img/products/gd25-1093-1.webp",
         "img/products/gd25-1093-2.webp"
       ],
-      "hover": "img/products/gd25-1093-2.webp"
+      "hover": "img/products/gd25-1093-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome earrings"
     },
     {
       "id": "gd26-174",
       "sku": "GD26-174",
-      "name": "Pink spinel and diamond dome earrings",
+      "name": "Pink Spinel Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White and Rose Gold",
@@ -5765,12 +6256,14 @@ window.FJ_DATA = {
         "img/products/gd26-174.webp",
         "img/products/gd26-174-1.webp"
       ],
-      "hover": "img/products/gd26-174-1.webp"
+      "hover": "img/products/gd26-174-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome earrings"
     },
     {
       "id": "gd26-59",
       "sku": "GD26-59",
-      "name": "Spessartite and diamond dome earrings",
+      "name": "Spessartite Earrings",
       "collection": "Dome",
       "type": "Earrings",
       "metal": "White Gold",
@@ -5789,12 +6282,14 @@ window.FJ_DATA = {
         "img/products/gd26-59-1.webp",
         "img/products/gd26-59-2.webp"
       ],
-      "hover": "img/products/gd26-59-2.webp"
+      "hover": "img/products/gd26-59-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome earrings"
     },
     {
       "id": "gd26-214",
       "sku": "GD26-214",
-      "name": "Pink spinel and diamond dome bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -5814,12 +6309,14 @@ window.FJ_DATA = {
         "img/products/gd26-214-2.webp",
         "img/products/gd26-214-3.webp"
       ],
-      "hover": "img/products/gd26-214-3.webp"
+      "hover": "img/products/gd26-214-3.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome bangle"
     },
     {
       "id": "gd26-259",
       "sku": "GD26-259",
-      "name": "Pink spinel and diamond dome bracelet",
+      "name": "Pink Spinel Bracelet",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -5837,12 +6334,14 @@ window.FJ_DATA = {
         "img/products/gd26-259.webp",
         "img/products/gd26-259-1.webp"
       ],
-      "hover": "img/products/gd26-259-1.webp"
+      "hover": "img/products/gd26-259-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome bracelet"
     },
     {
       "id": "gd26-261",
       "sku": "GD26-261",
-      "name": "Spessartite and diamond dome bracelet",
+      "name": "Spessartite Bracelet",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -5860,12 +6359,14 @@ window.FJ_DATA = {
         "img/products/gd26-261.webp",
         "img/products/gd26-261-1.webp"
       ],
-      "hover": "img/products/gd26-261-1.webp"
+      "hover": "img/products/gd26-261-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome bracelet"
     },
     {
       "id": "gd26-568",
       "sku": "GD26-568",
-      "name": "Pink spinel and diamond dome bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -5884,12 +6385,14 @@ window.FJ_DATA = {
         "img/products/gd26-568-1.webp",
         "img/products/gd26-568-2.webp"
       ],
-      "hover": "img/products/gd26-568-1.webp"
+      "hover": "img/products/gd26-568-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome bangle"
     },
     {
       "id": "gd25-1027",
       "sku": "GD25-1027",
-      "name": "Pink spinel and diamond dome bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -5908,12 +6411,14 @@ window.FJ_DATA = {
         "img/products/gd25-1027-1.webp",
         "img/products/gd25-1027-2.webp"
       ],
-      "hover": "img/products/gd25-1027-2.webp"
+      "hover": "img/products/gd25-1027-2.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome bangle"
     },
     {
       "id": "gd25-673",
       "sku": "GD25-673",
-      "name": "Tsavorite and diamond dome bangle",
+      "name": "Tsavorite Bangle",
       "collection": "Dome",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -5933,12 +6438,14 @@ window.FJ_DATA = {
         "img/products/gd25-673-2.webp",
         "img/products/gd25-673-3.webp"
       ],
-      "hover": "img/products/gd25-673-3.webp"
+      "hover": "img/products/gd25-673-3.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond dome bangle"
     },
     {
       "id": "gd26-198",
       "sku": "GD26-198",
-      "name": "Pink spinel and diamond dome pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -5954,12 +6461,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-198.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome pendant"
     },
     {
       "id": "gd26-227-c",
       "sku": "GD26-227 C",
-      "name": "Spessartite and diamond dome pendant",
+      "name": "Spessartite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -5977,12 +6486,14 @@ window.FJ_DATA = {
         "img/products/gd26-227-c.webp",
         "img/products/gd26-227-c-1.webp"
       ],
-      "hover": "img/products/gd26-227-c-1.webp"
+      "hover": "img/products/gd26-227-c-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome pendant"
     },
     {
       "id": "gd26-236",
       "sku": "GD26-236",
-      "name": "Pink spinel and diamond dome pendant",
+      "name": "Pink Spinel Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -6000,12 +6511,14 @@ window.FJ_DATA = {
         "img/products/gd26-236.webp",
         "img/products/gd26-236-1.webp"
       ],
-      "hover": "img/products/gd26-236-1.webp"
+      "hover": "img/products/gd26-236-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome pendant"
     },
     {
       "id": "gd26-57",
       "sku": "GD26-57",
-      "name": "Spessartite and diamond dome pendant",
+      "name": "Spessartite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White Gold",
@@ -6024,12 +6537,14 @@ window.FJ_DATA = {
         "img/products/gd26-57-1.webp",
         "img/products/gd26-57-2.webp"
       ],
-      "hover": "img/products/gd26-57-2.webp"
+      "hover": "img/products/gd26-57-2.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome pendant"
     },
     {
       "id": "gd26-841",
       "sku": "GD26-841",
-      "name": "Tanzanite and diamond dome pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "18k White Gold",
@@ -6047,12 +6562,14 @@ window.FJ_DATA = {
         "img/products/gd26-841.webp",
         "img/products/gd26-841-1.webp"
       ],
-      "hover": "img/products/gd26-841-1.webp"
+      "hover": "img/products/gd26-841-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond dome pendant"
     },
     {
       "id": "gd26-846",
       "sku": "GD26-846",
-      "name": "Spessartite and diamond dome pendant",
+      "name": "Spessartite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "18k Yellow and White Gold",
@@ -6070,12 +6587,14 @@ window.FJ_DATA = {
         "img/products/gd26-846.webp",
         "img/products/gd26-846-1.webp"
       ],
-      "hover": "img/products/gd26-846-1.webp"
+      "hover": "img/products/gd26-846-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome pendant"
     },
     {
       "id": "gd26-173",
       "sku": "GD26-173",
-      "name": "Tanzanite and diamond dome pendant",
+      "name": "Tanzanite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White and Rose Gold",
@@ -6093,12 +6612,14 @@ window.FJ_DATA = {
         "img/products/gd26-173.webp",
         "img/products/gd26-173-1.webp"
       ],
-      "hover": "img/products/gd26-173-1.webp"
+      "hover": "img/products/gd26-173-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond dome pendant"
     },
     {
       "id": "gd26-299",
       "sku": "GD26-299",
-      "name": "Rhodolite and diamond dome pendant",
+      "name": "Rhodolite Pendant",
       "collection": "Dome",
       "type": "Pendants",
       "metal": "White and Rose Gold",
@@ -6116,12 +6637,14 @@ window.FJ_DATA = {
         "img/products/gd26-299.webp",
         "img/products/gd26-299-1.webp"
       ],
-      "hover": "img/products/gd26-299-1.webp"
+      "hover": "img/products/gd26-299-1.webp",
+      "subtitle": "Rhodolite and diamonds",
+      "specName": "Rhodolite and diamond dome pendant"
     },
     {
       "id": "gd25-786",
       "sku": "GD25-786",
-      "name": "Tsavorite and diamond dome ring",
+      "name": "Tsavorite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6141,12 +6664,14 @@ window.FJ_DATA = {
         "img/products/gd25-786-2.webp",
         "img/products/gd25-786-3.webp"
       ],
-      "hover": "img/products/gd25-786-3.webp"
+      "hover": "img/products/gd25-786-3.webp",
+      "subtitle": "Tsavorite and diamonds",
+      "specName": "Tsavorite and diamond dome ring"
     },
     {
       "id": "gd25-795",
       "sku": "GD25-795",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6166,12 +6691,14 @@ window.FJ_DATA = {
         "img/products/gd25-795-2.webp",
         "img/products/gd25-795-3.webp"
       ],
-      "hover": "img/products/gd25-795-3.webp"
+      "hover": "img/products/gd25-795-3.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd25-796",
       "sku": "GD25-796",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6190,12 +6717,14 @@ window.FJ_DATA = {
         "img/products/gd25-796-1.webp",
         "img/products/gd25-796-2.webp"
       ],
-      "hover": "img/products/gd25-796-1.webp"
+      "hover": "img/products/gd25-796-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd26-237",
       "sku": "GD26-237",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6214,12 +6743,14 @@ window.FJ_DATA = {
         "img/products/gd26-237-1.webp",
         "img/products/gd26-237-2.webp"
       ],
-      "hover": "img/products/gd26-237-1.webp"
+      "hover": "img/products/gd26-237-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd26-560",
       "sku": "GD26-560",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6235,12 +6766,14 @@ window.FJ_DATA = {
       "tone": "#c45a7a",
       "images": [
         "img/products/gd26-560.webp"
-      ]
+      ],
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd26-58",
       "sku": "GD26-58",
-      "name": "Spessartite and diamond dome ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6260,12 +6793,14 @@ window.FJ_DATA = {
         "img/products/gd26-58-2.webp",
         "img/products/gd26-58-3.webp"
       ],
-      "hover": "img/products/gd26-58-3.webp"
+      "hover": "img/products/gd26-58-3.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome ring"
     },
     {
       "id": "gd26-806",
       "sku": "GD26-806",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6284,12 +6819,14 @@ window.FJ_DATA = {
         "img/products/gd26-806-1.webp",
         "img/products/gd26-806-2.webp"
       ],
-      "hover": "img/products/gd26-806-1.webp"
+      "hover": "img/products/gd26-806-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd26-840",
       "sku": "GD26-840",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White and Rose Gold",
@@ -6308,12 +6845,14 @@ window.FJ_DATA = {
         "img/products/gd26-840-1.webp",
         "img/products/gd26-840-2.webp"
       ],
-      "hover": "img/products/gd26-840-1.webp"
+      "hover": "img/products/gd26-840-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd26-839",
       "sku": "GD26-839",
-      "name": "Pink spinel and diamond dome ring",
+      "name": "Pink Spinel Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6332,12 +6871,14 @@ window.FJ_DATA = {
         "img/products/gd26-839-1.webp",
         "img/products/gd26-839-2.webp"
       ],
-      "hover": "img/products/gd26-839-1.webp"
+      "hover": "img/products/gd26-839-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond dome ring"
     },
     {
       "id": "gd26-843",
       "sku": "GD26-843",
-      "name": "Tanzanite and diamond dome ring",
+      "name": "Tanzanite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6356,12 +6897,14 @@ window.FJ_DATA = {
         "img/products/gd26-843-1.webp",
         "img/products/gd26-843-2.webp"
       ],
-      "hover": "img/products/gd26-843-1.webp"
+      "hover": "img/products/gd26-843-1.webp",
+      "subtitle": "Tanzanite and diamonds",
+      "specName": "Tanzanite and diamond dome ring"
     },
     {
       "id": "gd26-848",
       "sku": "GD26-848",
-      "name": "Spessartite and diamond dome ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "18k White Gold",
@@ -6380,12 +6923,14 @@ window.FJ_DATA = {
         "img/products/gd26-848-1.webp",
         "img/products/gd26-848-2.webp"
       ],
-      "hover": "img/products/gd26-848-1.webp"
+      "hover": "img/products/gd26-848-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome ring"
     },
     {
       "id": "gd26-158",
       "sku": "GD26-158",
-      "name": "Spessartite and diamond dome ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6404,12 +6949,14 @@ window.FJ_DATA = {
         "img/products/gd26-158-1.webp",
         "img/products/gd26-158-2.webp"
       ],
-      "hover": "img/products/gd26-158-1.webp"
+      "hover": "img/products/gd26-158-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome ring"
     },
     {
       "id": "gd26-262",
       "sku": "GD26-262",
-      "name": "Spessartite and diamond dome ring",
+      "name": "Spessartite Ring",
       "collection": "Dome",
       "type": "Rings",
       "metal": "White Gold",
@@ -6429,12 +6976,14 @@ window.FJ_DATA = {
         "img/products/gd26-262-2.webp",
         "img/products/gd26-262-3.webp"
       ],
-      "hover": "img/products/gd26-262-3.webp"
+      "hover": "img/products/gd26-262-3.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond dome ring"
     },
     {
       "id": "gd25-836",
       "sku": "GD25-836",
-      "name": "Aquamarine and diamond tide bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "18k White Gold",
@@ -6454,12 +7003,14 @@ window.FJ_DATA = {
         "img/products/gd25-836-2.webp",
         "img/products/gd25-836-3.webp"
       ],
-      "hover": "img/products/gd25-836-3.webp"
+      "hover": "img/products/gd25-836-3.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond tide bangle"
     },
     {
       "id": "gd26-51",
       "sku": "GD26-51",
-      "name": "Pink spinel and diamond tide bangle",
+      "name": "Pink Spinel Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6478,12 +7029,14 @@ window.FJ_DATA = {
         "img/products/gd26-51-1.webp",
         "img/products/gd26-51-2.webp"
       ],
-      "hover": "img/products/gd26-51-1.webp"
+      "hover": "img/products/gd26-51-1.webp",
+      "subtitle": "Pink spinel and diamonds",
+      "specName": "Pink spinel and diamond tide bangle"
     },
     {
       "id": "gd26-165",
       "sku": "GD26-165",
-      "name": "Spessartite and diamond tide bangle",
+      "name": "Spessartite Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6502,12 +7055,14 @@ window.FJ_DATA = {
         "img/products/gd26-165-1.webp",
         "img/products/gd26-165-2.webp"
       ],
-      "hover": "img/products/gd26-165-1.webp"
+      "hover": "img/products/gd26-165-1.webp",
+      "subtitle": "Spessartite and diamonds",
+      "specName": "Spessartite and diamond tide bangle"
     },
     {
       "id": "gd26-73",
       "sku": "GD26-73",
-      "name": "Aquamarine and diamond tide bangle",
+      "name": "Aquamarine Bangle",
       "collection": "Tide",
       "type": "Bracelets",
       "metal": "White Gold",
@@ -6527,28 +7082,32 @@ window.FJ_DATA = {
         "img/products/gd26-73-2.webp",
         "img/products/gd26-73-3.webp"
       ],
-      "hover": "img/products/gd26-73-3.webp"
+      "hover": "img/products/gd26-73-3.webp",
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond tide bangle"
     },
     {
       "id": "gd26-750",
       "sku": "GD26-750",
-      "name": "Bracelet and diamond bloom white",
+      "name": "Aquamarine Bracelet",
       "collection": "Bloom",
-      "type": "Whites",
+      "type": "Bracelets",
       "metal": "18k White Gold",
       "metalCode": "G-18kt-W",
-      "stone": "Bracelet",
+      "stone": "Aquamarine",
       "shape": "Aquamarine",
       "stonePcs": null,
       "stoneCt": 1.78,
       "diamondCt": 0.88,
       "netG": 4.528,
       "grossG": 5.06,
-      "story": "Crafted in 18k White Gold, set with 1.78 carats of bracelet paired with 0.88 carats of brilliant cut diamonds.",
-      "tone": "#8a7f9a",
+      "story": "Crafted in 18k White Gold, set with 1.78 carats of vivid aquamarine paired with 0.88 carats of brilliant cut diamonds.",
+      "tone": "#7eb8c9",
       "images": [
         "img/products/gd26-750.webp"
-      ]
+      ],
+      "subtitle": "Aquamarine and diamonds",
+      "specName": "Aquamarine and diamond bloom bracelet"
     }
   ]
 };

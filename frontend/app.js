@@ -1,5 +1,5 @@
 /* Gem Experience — Home
-   Menu drawer, the mobile action bar, newsletter validation, the region
+   Menu drawer, the mobile action bar, the region
    picker and the film,
    which plays in its own section. No dependencies. */
 
@@ -34,27 +34,7 @@
     });
   });
 
-  /* ------------------------------------------------------ newsletter */
-
-  var form = document.getElementById('signup-form');
-  var note = document.getElementById('signup-note');
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var input = document.getElementById('signup-email');
-      var value = (input.value || '').trim();
-
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-        note.textContent = 'Please enter a valid email address.';
-        input.focus();
-        return;
-      }
-
-      note.textContent = 'Thank you. Welcome to the Gem Experience universe.';
-      input.value = '';
-    });
-  }
+  /* The newsletter sign-up is wired by js/site-footer.js. */
 
   /* -------------------------------------------------------- film */
 

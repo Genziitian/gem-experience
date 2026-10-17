@@ -48,18 +48,29 @@
         { label: "Rhodolite", href: "world-of-preciousness/rhodolite/" },
         { label: "Malaya Garnet", href: "world-of-preciousness/malaya-garnet/" }
       ]
+    },
+    { label: "Events & Exhibitions", href: "events/" },
+    {
+      label: "The House",
+      href: "the-house/",
+      children: [
+        { label: "About", href: "the-house/" },
+        { label: "Lookbook", href: "lookbook/" },
+        { label: "Events & Exhibitions", href: "events/" },
+        { label: "Ateliers & stores", href: "offices/" }
+      ]
     }
     /* Hidden from the menu for now (unpublished in the database too):
-       Gemstones & Mining, Engagement & Bridal, Gifts (gifts/) and The House
-       (About — Our History, Timeline, Craftsmanship, Sustainability, Maasai
-       Women Project, Our Museum; Services — Upgrade Your Jewellery, Preserve
-       Your Jewellery). */
+       Gemstones & Mining, Engagement & Bridal and Gifts (gifts/). The House's
+       planned pages (Our History, Timeline, Craftsmanship, Sustainability,
+       Maasai Women Project, Our Museum, Services) stay unpublished until each
+       has a page. */
   ];
 
   /* Sections kept off the menu whatever the database says. The admin can
      unpublish them too; this makes sure they stay hidden even when that has
      not been done on the live database yet. Remove a name to bring it back. */
-  var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts", "The House"];
+  var HIDDEN = ["Gemstones & Mining", "Engagement & Bridal", "Gifts"];
 
   /* Entries inside a section kept off the menu the same way: collections
      with nothing photographed to show yet. (Tide and Swirl were here until
@@ -127,10 +138,33 @@
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
+  /* The gemstone guides read as a list of stone names alone, so each carries
+     one line from its own page. Keyed by link so a label edited in the admin
+     keeps its line; a link not listed here renders plain. */
+  var NOTES = {
+    "world-of-preciousness/": { label: "How a stone is read" },
+    "world-of-preciousness/tanzanite/": { note: "Found at the foot of Kilimanjaro, and nowhere else" },
+    "world-of-preciousness/spinel/": { note: "Six centuries in the Crown Jewels, under the wrong name" },
+    "world-of-preciousness/tsavorite/": { note: "Four times rarer than emerald" },
+    "world-of-preciousness/rhodolite/": { note: "The rose garnet of the Umba Valley" },
+    "world-of-preciousness/malaya-garnet/": { note: "Once the miners' outcast" }
+  };
+
   function row(item, prefix) {
     if (item.heading) return '<p class="site-nav-heading">' + esc(item.heading) + "</p>";
     if (!item.href) return '<span class="site-nav-link is-pending">' + esc(item.label) + "</span>";
-    return '<a class="site-nav-link" href="' + prefix + item.href + '">' + esc(item.label) + "</a>";
+    var extra = NOTES[item.href.replace(/^\//, "")] || {};
+    var label = extra.label && /^introduction$/i.test(item.label) ? extra.label : item.label;
+    return '<a class="site-nav-link' + (extra.note ? " has-note" : "") + '" href="' + prefix + item.href + '">' + esc(label) +
+      (extra.note ? '<span class="site-nav-note">' + esc(extra.note) + "</span>" : "") + "</a>";
+  }
+
+  /* "All <section>" opens the section's own page; skipped when one of the
+     section's links already goes there, so the page is never listed twice. */
+  function allLink(s, prefix) {
+    if (!s.href) return "";
+    var same = s.children.some(function (c) { return c.href && c.href.replace(/^\//, "") === s.href.replace(/^\//, ""); });
+    return same ? "" : '<a class="site-nav-link" href="' + prefix + s.href + '">All ' + esc(s.label) + "</a>";
   }
 
   function markup(prefix, sections, secondary) {
@@ -140,7 +174,7 @@
         '<div class="site-nav-sheet" data-sheet="' + i + '" hidden>' +
           '<button class="site-nav-back" type="button" data-back>' + BACK + " " + esc(s.label) + "</button>" +
           '<div class="site-nav-list">' +
-            (s.href ? '<a class="site-nav-link" href="' + prefix + s.href + '">All ' + esc(s.label) + "</a>" : "") +
+            allLink(s, prefix) +
             s.children.map(function (c) { return row(c, prefix); }).join("") +
           "</div>" +
         "</div>"

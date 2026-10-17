@@ -178,6 +178,26 @@
     return writeCart([]);
   }
 
+  /* -------------------------------------------------------------- whatsapp */
+
+  /* A wa.me link to the Dubai line with the message already written, so the
+     enquiry arrives in WhatsApp complete and the client only presses send.
+     `lines` are joined one per line; null and false are dropped (so a field
+     left empty can simply be null) while "" stays as a blank spacer line.
+     WhatsApp renders *text* as bold. wa.me wants digits only. */
+  function whatsappUrl(lines) {
+    var num = String((cfg().whatsapp || {}).uae || "+971567203896").replace(/\D/g, "");
+    var text = (lines || []).filter(function (l) { return l != null && l !== false; }).join("\n");
+    return "https://wa.me/" + num + (text ? "?text=" + encodeURIComponent(text) : "");
+  }
+
+  /* Where a cart piece can be seen, for the adviser reading the message. */
+  function pieceUrl(item) {
+    var origin = location.origin;
+    if (/fine-jewellery\//.test(item.image || "")) return origin + "/fine-jewellery/p/" + item.id + "/";
+    return origin + "/high-jewellery/#/product/" + item.id;
+  }
+
   /* ----------------------------------------------------------------- forms */
 
   async function submitForm(formType, payload, productId) {
@@ -362,6 +382,8 @@
       clear: clearCart
     },
     submitForm: submitForm,
+    whatsappUrl: whatsappUrl,
+    pieceUrl: pieceUrl,
     auth: {
       getSession: getSession,
       signIn: signIn,

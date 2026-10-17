@@ -391,3 +391,47 @@ export async function deletePost(id) {
   const { error } = await supabase.from("blog_posts").delete().eq("id", id);
   if (error) throw error;
 }
+
+/* ----------------------------------------------------------------- events */
+
+export async function readEvents() {
+  const { data, error } = await supabase
+    .from("events").select("*").order("starts_on", { ascending: false });
+  if (error) throw error;
+  return data || [];
+}
+
+export async function saveEvent(e) {
+  const t = (v) => (v || "").trim() || null;
+  const row = {
+    title: (e.title || "").trim(),
+    kind: (e.kind || "").trim() || "Exhibition",
+    starts_on: e.starts_on || null,
+    ends_on: e.ends_on || null,
+    hours: t(e.hours),
+    venue: t(e.venue),
+    city: t(e.city),
+    country: t(e.country),
+    address: t(e.address),
+    description: t(e.description),
+    image: t(e.image),
+    published: e.published !== false,
+  };
+  if (!row.title) throw new Error("An event needs a title.");
+  if (!row.starts_on) throw new Error("An event needs a start date.");
+  if (row.ends_on && row.ends_on < row.starts_on) throw new Error("The end date is before the start date.");
+
+  if (e.id) {
+    const { error } = await supabase.from("events").update(row).eq("id", e.id);
+    if (error) throw error;
+    return e.id;
+  }
+  const { data, error } = await supabase.from("events").insert(row).select("id").single();
+  if (error) throw error;
+  return data.id;
+}
+
+export async function deleteEvent(id) {
+  const { error } = await supabase.from("events").delete().eq("id", id);
+  if (error) throw error;
+}

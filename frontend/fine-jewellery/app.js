@@ -52,7 +52,10 @@
   }
 
   function parseRoute() {
-    var hash = (location.hash || "#/").replace(/^#/, "") || "/";
+    /* /fine-jewellery/p/<id>/ is this same page with the product written in
+       for crawlers (tools/build-seo.mjs); it names its route in FJ_ROUTE, and
+       any hash the visitor then follows takes over as usual. */
+    var hash = (location.hash || window.FJ_ROUTE || "#/").replace(/^#/, "") || "/";
     var parts = hash.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean);
     if (!parts.length) return { page: "home" };
     if (parts[0] === "p" && parts[1]) return { page: "product", id: parts[1] };
@@ -277,7 +280,15 @@
         src: src, alt: alt || "", loading: "lazy", decoding: "async"
       });
       img.addEventListener("error", function () { img.remove(); wrap.classList.remove("has-img"); });
-      img.addEventListener("load", function () { wrap.classList.add("has-img"); });
+      /* A frame never crops a photograph out of shape: on the product page the
+         frame takes the photograph's own proportions; in a square grid card an
+         off-square shot is shown whole on the ground instead of cut down. */
+      img.addEventListener("load", function () {
+        wrap.classList.add("has-img");
+        var r = img.naturalWidth / img.naturalHeight;
+        if (wrap.classList.contains("fj-plate--natural")) wrap.style.aspectRatio = img.naturalWidth + " / " + img.naturalHeight;
+        else img.classList.toggle("is-fit", Math.abs(r - 1) > 0.03);
+      });
       wrap.appendChild(img);
     }
     if (sku) wrap.appendChild(el("span", "fj-plate-sku", { text: sku }));
@@ -292,10 +303,10 @@
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
     a.appendChild(plate(p.tone, p.sku, mainImage(p), p.name, p.hover || ""));
     var body = el("div", "fj-card-body");
-    body.appendChild(el("span", "fj-card-type", { text: p.collection + " · " + p.type }));
+    body.appendChild(el("span", "fj-card-type", { text: p.collection }));
     body.appendChild(el("h3", null, { text: p.name }));
     body.appendChild(el("p", null, {
-      text: p.stone + (p.stoneCt != null ? " · " + ct(p.stoneCt) : "")
+      text: [p.metal, p.stoneCt != null ? ct(p.stoneCt) : ""].filter(Boolean).join(" · ")
     }));
     a.appendChild(body);
     return a;
@@ -554,6 +565,7 @@
     var media = el("div", "fj-pdp-media");
     var shots = p.images || [];
     var hero = plate(p.tone, p.sku, shots[0], p.name);
+    hero.classList.add("fj-plate--natural");
     media.appendChild(hero);
     if (shots.length > 1) {
       var thumbs = el("div", "fj-pdp-thumbs");
@@ -577,6 +589,7 @@
     var copy = el("div", "fj-pdp-copy");
     copy.appendChild(el("p", "fj-kicker", { text: p.sku }));
     copy.appendChild(el("h1", "fj-title", { text: headline(p) }));
+    if (p.subtitle) copy.appendChild(el("p", "fj-subtitle", { text: p.subtitle }));
 
     var priceRow = el("div", "fj-pdp-price");
     priceRow.appendChild(el("span", "fj-pdp-price-val", { text: formatPrice(p) }));
@@ -667,16 +680,16 @@
     pdp.appendChild(copy);
     root.appendChild(pdp);
 
-    /* Closer look — detail crops of this specific piece, dropped in per SKU at
-       img/products/<id>/detail-N.jpg. The section stays out of the DOM until at
-       least one crop actually loads, so a piece without them shows nothing
-       rather than a row of empty placeholders. */
+    /* Closer look — detail crops of this specific piece, listed in the
+       catalog as p.details (paths under img/products/<id>/). Only listed crops
+       are requested, so a piece without them costs no failed requests. The
+       section stays out of the DOM until at least one crop actually loads. */
     var closer = el("section", "fj-closer");
     closer.appendChild(el("h2", "fj-section-h", { text: "A closer look" }));
     var closerGrid = el("div", "fj-closer-grid");
     var closerShown = false;
-    ["detail-1", "detail-2", "detail-3"].forEach(function (n) {
-      var src = "img/products/" + p.id + "/" + n + ".jpg";
+    (p.details || []).forEach(function (n) {
+      var src = /\//.test(n) ? n : "img/products/" + p.id + "/" + n;
       var probe = new Image();
       probe.addEventListener("load", function () {
         closerGrid.appendChild(mediaFrame(src, p.name + " — detail", p.tone, "fj-closer-tile"));
@@ -719,7 +732,7 @@
   function pageTitle(route) {
     if (route.page === "product") {
       var p = data.products.find(function (x) { return x.id === route.id; });
-      return p ? p.name + " | Fine Jewellery | Gem Experience" : "Fine Jewellery | Gem Experience";
+      return p ? p.name + " " + p.sku + " | Fine Jewellery | Gem Experience" : "Fine Jewellery | Gem Experience";
     }
     if (route.page === "shop") {
       var bits = ["Shop all"];

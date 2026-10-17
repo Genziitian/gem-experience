@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body style="margin:0;padding:0;background:#f5f1e8">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">One step to open your Gem Experience account.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">Your code to finish creating your account.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#f5f1e8">
 <tr><td align="center" style="padding:32px 12px">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;max-width:600px;background:#ffffff">
@@ -18,11 +18,9 @@
     <tr><td style="padding:44px 40px 40px">
       <div style="font:500 10px/16px Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;letter-spacing:3.6px;text-transform:uppercase;color:#6b6259">Client account</div>
       <h1 style="margin:14px 0 22px;font:400 32px/1.15 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;color:#17140f">Confirm your email</h1>
-      <p style="margin:0 0 16px;font:300 15px/25px Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;color:#2b2620">Thank you for creating an account. Confirm this address to follow your orders, quotations and appointments in one place.</p><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:32px 0 0">
-  <tr><td style="background:#17140f">
-    <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:16px 30px;font:500 11px/1 Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;letter-spacing:3px;text-transform:uppercase;color:#ffffff;text-decoration:none">Confirm my email</a>
-  </td></tr>
-</table><p style="margin:0 0 16px;font:300 15px/25px Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;color:#2b2620"><span style="font-size:13px">Please open the link in the browser where you created the account.</span></p>
+      <p style="margin:0 0 16px;font:300 15px/25px Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;color:#2b2620">Thank you for creating an account. Enter this code on the page you came from to confirm your email. It is valid for one hour.</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#f5f1e8;margin:8px 0 22px">
+  <tr><td align="center" style="padding:28px 16px;font:400 34px/1 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;letter-spacing:10px;color:#17140f">{{ .Token }}</td></tr>
+</table>
       <p style="margin:32px 0 0;padding-top:20px;border-top:1px solid #e3ddd0;font:300 12px/19px Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;color:#6b6259">If you did not ask for this, you can ignore this email; nothing changes on your account. Questions? Reply to this email or write to contact@gem-experience.com.</p>
     </td></tr>
     <tr><td align="center" style="background:#2b2620;padding:36px 32px">

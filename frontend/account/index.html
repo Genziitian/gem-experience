@@ -400,7 +400,7 @@ var loaded = false;
 
 (async function () {
   var session = await Gem.auth.getSession();
-  if (!session) { location.replace("../login/?next=" + encodeURIComponent("../account/" + location.hash)); return; }
+  if (!session) { location.replace("/login/?next=" + encodeURIComponent("/account/" + location.hash)); return; }
   state.user = session.user;
 
   paintIdentity(Gem.displayName(session.user));

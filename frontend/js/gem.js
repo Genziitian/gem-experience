@@ -240,7 +240,16 @@
     b.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      wishToggle(item);
+      var sb = getClient();
+      if (!sb) { wishToggle(item); return; }
+      sb.auth.getSession().then(function (res) {
+        if (res.data.session) { wishToggle(item); return; }
+        /* Signed out: the wishlist belongs to an account, so keep this piece
+           on the device and go to sign in; it is saved to the account the
+           moment they are in, and they come straight back here. */
+        if (!wishHas(item.key)) wishToggle(item);
+        location.href = loginUrl("wishlist");
+      });
     });
     w.addEventListener("gem:wishlist", paint);
     return b;
@@ -417,12 +426,30 @@
     return true;
   }
 
-  async function verifyCode(email, token) {
+  /* `kind` is what the code was sent for: "email" (sign in), "signup"
+     (confirm a new account) or "recovery" (reset the password). */
+  async function verifyCode(email, token, kind) {
     var sb = getClient();
     if (!sb) throw new Error("Supabase is not configured.");
-    var res = await sb.auth.verifyOtp({ email: email, token: token, type: "email" });
+    var res = await sb.auth.verifyOtp({ email: email, token: token, type: kind || "email" });
     if (res.error) throw new Error(res.error.message);
     return res.data;
+  }
+
+  async function resendSignup(email) {
+    var sb = getClient();
+    if (!sb) throw new Error("Supabase is not configured.");
+    var res = await sb.auth.resend({ type: "signup", email: email });
+    if (res.error) throw new Error(res.error.message);
+    return true;
+  }
+
+  /* The sign-in page, told to bring the visitor back to exactly where they
+     are now: the page, its query and the #route of a piece or a filter. */
+  function loginUrl(reason) {
+    var here = location.pathname + location.search + location.hash;
+    if (/^\/login\//.test(location.pathname)) here = "/account/";
+    return "/login/?next=" + encodeURIComponent(here) + (reason ? "&reason=" + encodeURIComponent(reason) : "");
   }
 
   /* The reset link brings the visitor back to redirectTo signed in for
@@ -533,12 +560,26 @@
      each becomes the person's initial and leads to the account rather than
      the sign-in form. The shared header re-renders on every cart change, so a
      watcher re-applies it to whatever icon appears next. */
+  /* Signed out, every header's account icon goes to sign-in remembering this
+     page, so the visitor comes back to where they were. The icons are links
+     on most pages and buttons on High Jewellery, and some headers are drawn
+     after this runs, so the click is caught for all of them at once. */
+  function rememberPageOnSignIn() {
+    d.addEventListener("click", function (e) {
+      var el = e.target.closest && e.target.closest('[aria-label="Account"]');
+      if (!el) return;
+      e.preventDefault();
+      e.stopPropagation();
+      location.href = loginUrl();
+    }, true);
+  }
+
   function showSignedInAvatar() {
     var sb = getClient();
     if (!sb || !d.querySelector) return;
     sb.auth.getSession().then(function (res) {
       var s = res.data.session;
-      if (!s) return;
+      if (!s) { rememberPageOnSignIn(); return; }
       var name = displayName(s.user);
       var mark = initialOf(name);
 
@@ -599,6 +640,8 @@
       signInWithGoogle: signInWithGoogle,
       sendCode: sendCode,
       verifyCode: verifyCode,
+      resendSignup: resendSignup,
+      loginUrl: loginUrl,
       sendReset: sendReset,
       setPassword: setPassword,
       signOut: signOut,

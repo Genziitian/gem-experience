@@ -1266,8 +1266,9 @@ button {
   font: inherit; color: var(--ink);
   text-decoration: underline; text-underline-offset: 3px;
 }
-#code-form input[name=code] { letter-spacing: 0.4em; font-size: 20px; }
-#code-form, #forgot-form, #reset-form { margin-top: 28px; }
+#f-code input[name=code] { letter-spacing: 0.5em; font-size: 22px; }
+.auth-card [data-panel] { margin-top: 8px; }
+#google-wrap[hidden] ~ [data-panel] { margin-top: 28px; }
 
 /* ------------------------------------------------------------ responsive */
 

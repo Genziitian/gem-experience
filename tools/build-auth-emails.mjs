@@ -9,8 +9,9 @@
  * that file; it is added when the config is applied, from the server's
  * settings, so no password is ever committed.
  *
- * Go template variables Supabase fills in: {{ .ConfirmationURL }} (the link),
- * {{ .Token }} (the one-time code), {{ .Email }}, {{ .NewEmail }}.
+ * Sign-in, new-account and reset mail carry a six-digit code ({{ .Token }}),
+ * never a link: a code works in any browser, a link only in the one that
+ * asked. {{ .ConfirmationURL }} remains for email change and invites.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -25,32 +26,28 @@ const NOTE = "If you did not ask for this, you can ignore this email; nothing ch
 
 const T = {
   confirmation: {
-    subject: "Confirm your email | Gem Experience",
+    subject: "{{ .Token }} confirms your Gem Experience account",
     kicker: "Client account",
     heading: "Confirm your email",
-    preheader: "One step to open your Gem Experience account.",
-    body: paragraph("Thank you for creating an account. Confirm this address to follow your orders, quotations and appointments in one place.") +
-      button("{{ .ConfirmationURL }}", "Confirm my email") +
-      paragraph('<span style="font-size:13px">Please open the link in the browser where you created the account.</span>'),
+    preheader: "Your code to finish creating your account.",
+    body: paragraph("Thank you for creating an account. Enter this code on the page you came from to confirm your email. It is valid for one hour.") +
+      codeBlock("{{ .Token }}"),
   },
   magic_link: {
     subject: "{{ .Token }} is your Gem Experience sign-in code",
     kicker: "Sign in",
     heading: "Your sign-in code",
-    preheader: "Enter this code on the sign-in page. It is valid for one hour.",
+    preheader: "Enter this code to sign in. It is valid for one hour.",
     body: paragraph("Enter this code on the sign-in page to continue. It is valid for one hour and can be used once.") +
-      codeBlock("{{ .Token }}") +
-      paragraph('<span style="font-size:13px">Or sign in from this device in one step:</span>') +
-      button("{{ .ConfirmationURL }}", "Sign in"),
+      codeBlock("{{ .Token }}"),
   },
   recovery: {
-    subject: "Reset your password | Gem Experience",
+    subject: "{{ .Token }} is your Gem Experience password reset code",
     kicker: "Client account",
-    heading: "Choose a new password",
-    preheader: "A link to set a new password for your account.",
-    body: paragraph("We received a request to reset the password for {{ .Email }}. Use the button below to choose a new one. The link is valid for one hour.") +
-      button("{{ .ConfirmationURL }}", "Choose a new password") +
-      paragraph('<span style="font-size:13px">Open the link in the same browser where you asked for it.</span>'),
+    heading: "Reset your password",
+    preheader: "Your code to choose a new password.",
+    body: paragraph("We received a request to reset the password for {{ .Email }}. Enter this code on the sign-in page, then choose your new password. It is valid for one hour.") +
+      codeBlock("{{ .Token }}"),
   },
   email_change: {
     subject: "Confirm your new email | Gem Experience",

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wishlist — Gem Experience</title>
+<title>Collector’s Bench — Gem Experience</title>
 <meta name="description" content="The Gem Experience pieces you have saved, ready to enquire about or view in private.">
 <meta name="robots" content="noindex, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,13 +23,13 @@
   <div id="pg-header"></div>
   <header class="pg-hero">
     <span class="pg-kicker">Client account</span>
-    <h1 class="pg-title">Wishlist</h1>
+    <h1 class="pg-title">Your Collector’s Bench</h1>
     <p class="pg-lede" id="wl-lede">The pieces you have set aside. Enquire about any of them, or see them in private.</p>
   </header>
 
   <main class="pg-main wl">
     <p class="wl-signin" id="wl-signin" hidden>
-      <a href="/login/?next=%2Fwishlist%2F&amp;reason=wishlist">Sign in</a> to see your wishlist and keep it on every device.
+      <a href="/login/?next=%2Fwishlist%2F&amp;reason=wishlist">Sign in</a> to see your Collector’s Bench and keep it on every device.
     </p>
     <div class="wl-grid" id="wl-grid"></div>
     <div class="wl-empty" id="wl-empty" hidden>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="wl-all" id="wl-all" hidden>
-      <a class="pg-btn" id="wl-wa" href="#" target="_blank" rel="noopener noreferrer">Enquire about my wishlist on WhatsApp</a>
+      <a class="pg-btn" id="wl-wa" href="#" target="_blank" rel="noopener noreferrer">Enquire now on WhatsApp</a>
       <a class="pg-btn pg-btn--ghost" href="../appointment/">Book a private viewing</a>
     </div>
   </main>
@@ -70,12 +70,45 @@ GemShell.mount();
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
 
-  /* The quotation form takes the reference and the name; for Fine Jewellery
-     the reference is the SKU at the end of the detail line. */
-  function enquireHref(it) {
+  /* For Fine Jewellery the reference is the SKU at the end of the detail
+     line; High Jewellery pieces go by their id. */
+  function refOf(it) {
     var ref = (it.detail || "").split(" · ").pop();
-    if (!/^G/i.test(ref)) ref = it.key.split(":")[1];
-    return "../quotation/?ref=" + encodeURIComponent(ref) + "&name=" + encodeURIComponent(it.name);
+    return /^G/i.test(ref) ? ref : it.key.split(":")[1];
+  }
+
+  /* The quotation form takes the reference and the name. */
+  function enquireHref(it) {
+    return "../quotation/?ref=" + encodeURIComponent(refOf(it)) + "&name=" + encodeURIComponent(it.name);
+  }
+
+  /* Who is asking, filled in once the account is read, so the adviser has
+     the client's name, email and phone without asking for them. */
+  var client = null;
+
+  function pieceLines(it) {
+    return [
+      "• *" + it.name + "*",
+      it.detail ? "  " + it.detail : null,
+      "  Reference: " + refOf(it),
+      "  " + new URL(it.href, location.href).href
+    ];
+  }
+
+  function waHref(items, intro) {
+    var lines = [intro, ""];
+    items.forEach(function (it, i) {
+      if (i) lines.push("");
+      lines = lines.concat(pieceLines(it));
+    });
+    if (client) {
+      lines.push("", "*My details*");
+      if (client.name) lines.push("Name: " + client.name);
+      if (client.email) lines.push("Email: " + client.email);
+      if (client.phone) lines.push("Phone: " + client.phone);
+    }
+    lines.push("", "Sent from " + location.origin + "/wishlist/");
+    return Gem.whatsappUrl(lines);
   }
 
   function draw() {
@@ -91,7 +124,8 @@ GemShell.mount();
           '<h2 class="wl-name"><a href="' + esc(it.href) + '">' + esc(it.name) + "</a></h2>" +
           (it.detail ? '<p class="wl-detail">' + esc(it.detail) + "</p>" : "") +
           '<div class="wl-acts">' +
-            '<a class="wl-act wl-act--primary" href="' + esc(enquireHref(it)) + '">Enquire</a>' +
+            '<a class="wl-act wl-act--primary" href="' + esc(enquireHref(it)) + '">Enquire now</a>' +
+            '<a class="wl-act" href="' + esc(waHref([it], "Hello Gem Experience, I would like to enquire about this piece from my Collector’s Bench:")) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>' +
             '<a class="wl-act" href="' + esc(it.href) + '">View</a>' +
             '<button class="wl-act" type="button" data-remove="' + esc(it.key) + '">Remove</button>' +
           "</div>" +
@@ -101,11 +135,9 @@ GemShell.mount();
     grid.querySelectorAll("[data-remove]").forEach(function (b) {
       b.addEventListener("click", function () { Gem.wishlist.remove(b.getAttribute("data-remove")); });
     });
-    document.getElementById("wl-wa").href = Gem.whatsappUrl(
-      ["Hello Gem Experience, I would like to enquire about the pieces on my wishlist:", ""]
-        .concat(list.map(function (it) { return "• *" + it.name + "*" + (it.detail ? " (" + it.detail + ")" : "") + "\n  " + new URL(it.href, location.href).href; }))
-        .concat(["", "Sent from " + location.origin + "/wishlist/"])
-    );
+    document.getElementById("wl-wa").href = waHref(list, list.length === 1
+      ? "Hello Gem Experience, I would like to enquire about this piece from my Collector’s Bench:"
+      : "Hello Gem Experience, I would like to enquire about these " + list.length + " pieces from my Collector’s Bench:");
   }
 
   draw();
@@ -113,7 +145,16 @@ GemShell.mount();
 
   Gem.auth.getSession().then(function (s) {
     document.getElementById("wl-signin").hidden = !!s;
-  });
+    if (!s) return;
+    return Gem.auth.getProfile().then(function (pr) {
+      client = {
+        name: Gem.displayName(s.user, pr),
+        email: (pr && pr.email) || s.user.email || "",
+        phone: (pr && pr.phone) || s.user.phone || ""
+      };
+      draw();
+    });
+  }).catch(function () { /* the links still work without the client's details */ });
 })();
 </script>
 <script src="../js/analytics.js" defer></script>

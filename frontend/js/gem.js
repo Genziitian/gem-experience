@@ -233,8 +233,8 @@
     function paint() {
       var on = wishHas(item.key);
       b.setAttribute("aria-pressed", String(on));
-      b.setAttribute("aria-label", (on ? "Remove " : "Save ") + item.name + (on ? " from" : " to") + " your wishlist");
-      b.innerHTML = HEART + (variant === "line" ? "<span>" + (on ? "Saved" : "Save to wishlist") + "</span>" : "");
+      b.setAttribute("aria-label", (on ? "Remove " : "Add ") + item.name + (on ? " from" : " to") + " your Collector’s Bench");
+      b.innerHTML = HEART + (variant === "line" ? "<span>" + (on ? "On your Collector’s Bench" : "Add to Collector’s Bench") + "</span>" : "");
     }
     paint();
     b.addEventListener("click", function (e) {
@@ -273,7 +273,7 @@
         }
         var want = HEART + (n ? '<span class="ge-wish-n">' + n + "</span>" : "");
         if (icon.innerHTML !== want) icon.innerHTML = want;
-        icon.setAttribute("aria-label", n ? "Wishlist, " + n + (n === 1 ? " piece" : " pieces") : "Wishlist");
+        icon.setAttribute("aria-label", n ? "Collector’s Bench, " + n + (n === 1 ? " piece" : " pieces") : "Collector’s Bench");
         icon.classList.toggle("is-on", n > 0);
       });
     }

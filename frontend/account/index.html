@@ -54,7 +54,7 @@
         <a href="#quotations" data-tab="quotations">Quotations <span class="acct-n" data-n="quotations"></span></a>
         <a href="#appointments" data-tab="appointments">Appointments <span class="acct-n" data-n="appointments"></span></a>
         <a href="#messages" data-tab="messages">Messages <span class="acct-n" data-n="messages"></span></a>
-        <a href="#wishlist" data-tab="wishlist">Wishlist <span class="acct-n" data-n="wishlist"></span></a>
+        <a href="#wishlist" data-tab="wishlist">Collector’s Bench <span class="acct-n" data-n="wishlist"></span></a>
         <a href="#gifting" data-tab="gifting">Gifting <span class="acct-n" data-n="gifting"></span></a>
         <a href="#profile" data-tab="profile">Profile</a>
       </nav>
@@ -308,7 +308,7 @@ var SECTIONS = {
 
   wishlist: function () {
     var list = Gem.wishlist.list();
-    return head("Wishlist", "The pieces you have saved with the heart, kept on every device you sign in on.") +
+    return head("Collector’s Bench", "The pieces you have set aside with the heart, kept on every device you sign in on.") +
       (list.length
         ? '<div class="wl-grid acct-wl">' + list.map(function (it) {
             return '<article class="wl-card"><a class="wl-shot" href="' + esc(it.href) + '">' +
@@ -316,7 +316,7 @@ var SECTIONS = {
               '<div class="wl-body"><h3 class="wl-name"><a href="' + esc(it.href) + '">' + esc(it.name) + "</a></h3>" +
               (it.detail ? '<p class="wl-detail">' + esc(it.detail) + "</p>" : "") + "</div></article>";
           }).join("") + "</div>" +
-          '<div class="acct-quick"><a class="pg-btn pg-btn--sm" href="../wishlist/">Enquire about these pieces</a></div>'
+          '<div class="acct-quick"><a class="pg-btn pg-btn--sm" href="../wishlist/">Enquire now</a></div>'
         : empty("Nothing saved yet", "Tap the heart on any piece to keep it here.", "../high-jewellery/", "Explore High Jewellery"));
   },
 

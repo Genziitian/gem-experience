@@ -48,7 +48,7 @@
       <div class="auth-card">
         <span class="pg-kicker">Client account</span>
         <h1 class="pg-title" id="page-title">Sign in</h1>
-        <p class="pg-lede" id="page-lede">Follow your orders, quotations, appointments and wishlist in one place.</p>
+        <p class="pg-lede" id="page-lede">Follow your orders, quotations, appointments and Collector’s Bench in one place.</p>
 
         <p class="pg-toast" id="toast" hidden></p>
 
@@ -170,11 +170,11 @@ document.querySelectorAll("[data-panel]").forEach(function (f) { panels[f.id.sli
 var COPY = {
   email: ["Sign in", "We will email you a six-digit code. No password needed, and it opens an account if you are new."],
   password: ["Sign in", "Sign in with your email and password."],
-  signup: ["Create account", "An account keeps your wishlist, selections and enquiries close to the atelier."],
+  signup: ["Create account", "An account keeps your Collector’s Bench, selections and enquiries close to the atelier."],
   forgot: ["Reset your password", "Enter your email and we will send you a code to choose a new password."],
   newpass: ["Choose a new password", "Set the password you will use from now on."]
 };
-if (reason === "wishlist") COPY.email[1] = "Sign in to save this piece to your wishlist. We will bring you straight back to it.";
+if (reason === "wishlist") COPY.email[1] = "Sign in to add this piece to your Collector’s Bench. We will bring you straight back to it.";
 
 /* What the code panel is confirming, and for which address. */
 var pending = { kind: "", email: "" };

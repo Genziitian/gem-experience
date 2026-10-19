@@ -175,7 +175,7 @@ window.FJ_DATA = {
       "name": "Shamsa Fine",
       "lede": "Inspired by the sun: a study in incandescence and inner energy.",
       "tone": "#c4703a",
-      "banner": "img/products/gd26-271.webp",
+      "banner": "img/products/gd26-271.g2.webp",
       "bannerY": "50%",
       "meta": "Tanzanite · Pink spinel · White and yellow gold",
       "models": [],
@@ -339,7 +339,7 @@ window.FJ_DATA = {
       "story": "Crafted in Rose gold, set with 20.1 carats of custom bead cut pink spinel paired with 10.3 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-275-a.webp"
+        "img/products/gd26-275-a.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond statement bracelet"
@@ -518,7 +518,7 @@ window.FJ_DATA = {
       "story": "Crafted in White gold, set with 3.28 carats of custom cut triangle tourmaline set in 29.87 carats of carved rose quartz paired with 0.93 carats of brilliant cut diamonds",
       "tone": "#2a7a5a",
       "images": [
-        "img/products/gd26-198-c.webp"
+        "img/products/gd26-198-c.g2.webp"
       ],
       "subtitle": "Tourmaline, rose quartz and diamonds",
       "specName": "Tourmaline, rose quartz and diamond motif earring"
@@ -541,7 +541,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White gold, set with 2.31 carats of pear shape pink spinel set in 15.22 carats of carved rose quartz paired with 0.71 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-203.webp"
+        "img/products/gd26-203.g2.webp"
       ],
       "subtitle": "Pink spinel, rose quartz and diamonds",
       "specName": "Pink spinel, rose quartz and diamond motif earring"
@@ -590,7 +590,7 @@ window.FJ_DATA = {
       "story": "Crafted in White gold, set with 3.54 carats of custom bead cut pink spinel paired with 1.73 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-275-b.webp"
+        "img/products/gd26-275-b.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond motif stud"
@@ -666,7 +666,7 @@ window.FJ_DATA = {
       "story": "Crafted in White gold, set with 1.78 carats of custom bead cut pink spinel paired with 1.37 carats of brilliant cut diamonds",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-275-c.webp"
+        "img/products/gd26-275-c.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond motif pendant"
@@ -988,7 +988,7 @@ window.FJ_DATA = {
       "story": "A long chain that carries two stones at once: 0.94 carats of pink spinel for rebirth alongside 3.83 carats of spessartite for warmth, joined by 1.03 carats of brilliant-cut diamonds in 18k white gold. Worn open, it moves the way a garland does.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-790.webp"
+        "img/products/gd26-790.g2.webp"
       ],
       "subtitle": "Pink spinel, spessartite and diamonds",
       "specName": "Pink spinel and spessartite bloom long chain"
@@ -1059,7 +1059,7 @@ window.FJ_DATA = {
       "story": "A floral motif built from two very different textures: 6.89 carats of faceted spessartite set against 51.34 carats of carved, cabochon chalcedony, finished with 2.16 carats of round brilliant-cut diamonds in 18k white gold. Chalcedony is Bloom's stone for quiet renewal: matte where the spessartite is fire.",
       "tone": "#d4783a",
       "images": [
-        "img/products/gd26-513.webp"
+        "img/products/gd26-513.g2.webp"
       ],
       "subtitle": "Spessartite, chalcedony and diamonds",
       "specName": "Chalcedony and spessartite floral motif long chain"
@@ -1151,7 +1151,7 @@ window.FJ_DATA = {
       "story": "A cabochon oval pink spinel, polished rather than faceted so its colour reads as pure saturation: 2.92 carats, set with 0.67 carats of diamonds in 18k white gold.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd25-124.webp"
+        "img/products/gd25-124.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond ring"
@@ -1349,7 +1349,7 @@ window.FJ_DATA = {
       "story": "A cooler pairing for the same statement silhouette: 1.51 carats of pear-cut aquamarine beside 0.57 carats of pink spinel, set with 0.96 carats of diamonds in 18k white gold.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-766.webp"
+        "img/products/gd26-766.g2.webp"
       ],
       "subtitle": "Aquamarine, pink spinel and diamonds",
       "specName": "Aquamarine, pink spinel and diamond bloom statement ring"
@@ -1565,7 +1565,7 @@ window.FJ_DATA = {
       "story": "A fancy-cut tanzanite of 4.09 carats, part of the Flora line, set with 1.87 carats of diamonds in 18k white gold: the stone left in an unconventional shape that favours colour over symmetry.",
       "tone": "#3a5f9a",
       "images": [
-        "img/products/gd26-587.webp"
+        "img/products/gd26-587.g2.webp"
       ],
       "subtitle": "Tanzanite and diamonds",
       "specName": "Fancy tanzanite and diamond flora ring"
@@ -1733,7 +1733,7 @@ window.FJ_DATA = {
       "story": "Pink spinel across two golds at once: 2.15 carats of pear-cut stone with 0.97 carats of diamonds, set in a mix of white and rose gold.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-762.webp"
+        "img/products/gd26-762.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond bloom bracelet"
@@ -1781,7 +1781,7 @@ window.FJ_DATA = {
       "story": "Ball-cut pink spinel drops give these studs unusual movement: 17.75 carats of stone with 0.82 carats of diamonds, set in yellow gold: the warmest metal in the collection paired with Bloom's stone for love.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd25-915-a.webp"
+        "img/products/gd25-915-a.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond bloom studs"
@@ -1900,7 +1900,7 @@ window.FJ_DATA = {
       "story": "A Rosette stud in mixed metal: 14.42 carats of drop-cut pink spinel with 2.97 carats of diamonds, set across white and rose gold.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-210.webp"
+        "img/products/gd26-210.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond rosette studs rose"
@@ -1946,7 +1946,7 @@ window.FJ_DATA = {
       "story": "A Garland earring that mixes stones: 3.71 carats of spessartite beside 0.5 carats of pink spinel, set with 0.97 carats of diamonds in 18k white gold: warmth and rose meeting in the same setting.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-785.webp"
+        "img/products/gd26-785.g2.webp"
       ],
       "subtitle": "Pink spinel, spessartite and diamonds",
       "specName": "Spessartite, pink spinel and diamond garland earring"
@@ -2095,7 +2095,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 2.55 carats of round cut mint garnet paired with 4.75 carats of brilliant cut diamonds.",
       "tone": "#6a9e7a",
       "images": [
-        "img/products/gd26-786.webp"
+        "img/products/gd26-786.g2.webp"
       ],
       "subtitle": "Mint garnet and diamonds",
       "specName": "Mint garnet and diamond swirl necklace"
@@ -2518,7 +2518,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 0.79 carats of pear-cut mint garnet paired with 0.88 carats of brilliant cut diamonds.",
       "tone": "#6a9e7a",
       "images": [
-        "img/products/gd26-827.webp"
+        "img/products/gd26-827.g2.webp"
       ],
       "subtitle": "Mint garnet and diamonds",
       "specName": "Mint garnet and diamond swirl pendant"
@@ -3027,7 +3027,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 0.61 carats of aquamarine and 0.83 carats of pink spinel paired with 1.25 carats of brilliant cut diamonds.",
       "tone": "#7eb8c9",
       "images": [
-        "img/products/gd26-767.webp"
+        "img/products/gd26-767.g2.webp"
       ],
       "subtitle": "Aquamarine, pink spinel and diamonds",
       "specName": "Aquamarine, pink spinel and diamond dazzle ring"
@@ -3268,7 +3268,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 1.62 carats of pink spinel and 1.33 carats of aquamarine paired with 3.79 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-788.webp"
+        "img/products/gd26-788.g2.webp"
       ],
       "subtitle": "Pink spinel, aquamarine and diamonds",
       "specName": "Pink spinel, aquamarine and diamond dazzle earrings"
@@ -3492,7 +3492,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 15.08 carats of round cut tanzanite paired with 2.54 carats of brilliant cut diamonds.",
       "tone": "#3a5f9a",
       "images": [
-        "img/products/gd25-633.webp"
+        "img/products/gd25-633.g2.webp"
       ],
       "subtitle": "Tanzanite and diamonds",
       "specName": "Tanzanite and diamond entwine earrings"
@@ -4200,7 +4200,7 @@ window.FJ_DATA = {
       "story": "Crafted in White Gold, set with 9.7 carats of cushion-cut tanzanite paired with 0.6 carats of brilliant cut diamonds.",
       "tone": "#3a5f9a",
       "images": [
-        "img/products/gd26-36.webp"
+        "img/products/gd26-36.g2.webp"
       ],
       "subtitle": "Tanzanite and diamonds",
       "specName": "Tanzanite and diamond spectrum ring"
@@ -4274,7 +4274,7 @@ window.FJ_DATA = {
       "story": "Crafted in White Gold, set with 8.26 carats of princess-cut rose rhodolite paired with 3.25 carats of brilliant cut diamonds.",
       "tone": "#9a3a6a",
       "images": [
-        "img/products/gd26-254.webp"
+        "img/products/gd26-254.g2.webp"
       ],
       "subtitle": "Rose rhodolite and diamonds",
       "specName": "Rose rhodolite and diamond spectrum necklace"
@@ -4639,7 +4639,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White and Rose Gold, set with 0.72 carats of marquise-cut pink spinel paired with 0.73 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-868.webp"
+        "img/products/gd26-868.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond royal starling ring"
@@ -4735,7 +4735,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 29.53 carats of marquise-cut tsavorite paired with 12.53 carats of brilliant cut diamonds.",
       "tone": "#2f8a4f",
       "images": [
-        "img/products/gd23-443.webp",
+        "img/products/gd23-443.g2.webp",
         "img/products/gd23-443-1.webp"
       ],
       "hover": "img/products/gd23-443-1.webp",
@@ -4760,7 +4760,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 4.91 carats of marquise-cut tsavorite paired with 2.76 carats of brilliant cut diamonds.",
       "tone": "#2f8a4f",
       "images": [
-        "img/products/gd23-443-a.webp",
+        "img/products/gd23-443-a.g2.webp",
         "img/products/gd23-443-a-1.webp"
       ],
       "hover": "img/products/gd23-443-a-1.webp",
@@ -4812,7 +4812,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 1.83 carats of triangle-cut tourmaline paired with 1.07 carats of brilliant cut diamonds.",
       "tone": "#8a7f9a",
       "images": [
-        "img/products/gd26-828.webp"
+        "img/products/gd26-828.g2.webp"
       ],
       "subtitle": "Tourmaline and diamonds",
       "specName": "Tourmaline and diamond flare bracelet"
@@ -5015,7 +5015,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 7.05 carats of oval aquamarine paired with 3.205 carats of brilliant cut diamonds.",
       "tone": "#7eb8c9",
       "images": [
-        "img/products/gd26-901.webp"
+        "img/products/gd26-901.g2.webp"
       ],
       "subtitle": "Aquamarine and diamonds",
       "specName": "Aquamarine and diamond flare earrings"
@@ -5038,7 +5038,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 3.29 carats of triangle-cut tourmaline paired with 3.03 carats of brilliant cut diamonds.",
       "tone": "#8a7f9a",
       "images": [
-        "img/products/gd26-801.webp"
+        "img/products/gd26-801.g2.webp"
       ],
       "subtitle": "Tourmaline and diamonds",
       "specName": "Tourmaline and diamond flare earrings"
@@ -5111,7 +5111,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White and Rose Gold, set with 3.9 carats of square octagon-cut pink tourmaline paired with 2.62 carats of brilliant cut diamonds.",
       "tone": "#8a7f9a",
       "images": [
-        "img/products/gd26-863.webp"
+        "img/products/gd26-863.g2.webp"
       ],
       "subtitle": "Pink tourmaline and diamonds",
       "specName": "Pink tourmaline and diamond flare earrings"
@@ -5435,7 +5435,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White and Rose Gold, set with 1.28 carats of princess-cut pink spinel paired with 1.21 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-834.webp"
+        "img/products/gd26-834.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond flare ring"
@@ -5691,7 +5691,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 1.47 carats of triangle-cut tourmaline paired with 1.54 carats of brilliant cut diamonds.",
       "tone": "#8a7f9a",
       "images": [
-        "img/products/gd26-800.webp"
+        "img/products/gd26-800.g2.webp"
       ],
       "subtitle": "Tourmaline and diamonds",
       "specName": "Tourmaline and diamond flare pendant"
@@ -5764,7 +5764,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White and Rose Gold, set with 2.97 carats of pink spinel paired with 1.89 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-905.webp"
+        "img/products/gd26-905.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond flare pendant"
@@ -5916,7 +5916,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 0.57 carats of pink spinel and 0.81 carats of spessartite paired with 0.425 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-792.webp"
+        "img/products/gd26-792.g2.webp"
       ],
       "subtitle": "Pink spinel, spessartite and diamonds",
       "specName": "Pink spinel, spessartite and diamond ring"
@@ -5939,7 +5939,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 0.52 carats of pink spinel and 1.14 carats of spessartite paired with 0.495 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-793.webp"
+        "img/products/gd26-793.g2.webp"
       ],
       "subtitle": "Pink spinel, spessartite and diamonds",
       "specName": "Pink spinel, spessartite and diamond ring"
@@ -6058,7 +6058,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 14.83 carats of pear-cut tanzanite paired with 2.62 carats of brilliant cut diamonds.",
       "tone": "#3a5f9a",
       "images": [
-        "img/products/gd26-271.webp"
+        "img/products/gd26-271.g2.webp"
       ],
       "subtitle": "Tanzanite and diamonds",
       "specName": "Tanzanite and diamond shamsa necklace"
@@ -6081,7 +6081,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 15.17 carats of pear-cut tanzanite paired with 1.91 carats of brilliant cut diamonds.",
       "tone": "#3a5f9a",
       "images": [
-        "img/products/gd26-271-a.webp"
+        "img/products/gd26-271-a.g2.webp"
       ],
       "subtitle": "Tanzanite and diamonds",
       "specName": "Tanzanite and diamond shamsa earrings"
@@ -6104,7 +6104,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k Yellow and White Gold, set with 1.77 carats of pink spinel paired with 1.315 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-895.webp"
+        "img/products/gd26-895.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond shamsa pendant"
@@ -6127,7 +6127,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k Yellow and White Gold, set with 1.03 carats of pink spinel paired with 1.35 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-897.webp"
+        "img/products/gd26-897.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond shamsa ring"
@@ -6460,7 +6460,7 @@ window.FJ_DATA = {
       "story": "Crafted in White Gold, set with 27.97 carats of pink spinel paired with 1.1 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-198.webp"
+        "img/products/gd26-198.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond dome pendant"
@@ -6765,7 +6765,7 @@ window.FJ_DATA = {
       "story": "Crafted in 18k White Gold, set with 9.96 carats of drop-cut pink spinel paired with 1.1 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-560.webp"
+        "img/products/gd26-560.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond dome ring"

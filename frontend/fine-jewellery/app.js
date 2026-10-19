@@ -149,13 +149,33 @@
 
   function introParas(col) { return storyParas(col).slice(0, INTRO_PARAS); }
 
-  /* The tail of the collection story plus its meta line, shown on every
-     product in that collection. Safar's meta repeats the designer byline, so
-     it is skipped there exactly as it was in the intro. */
-  function collectionNotes(col) {
+  /* The tail of the collection story, shown under a piece's details. It was
+     shown whole on every piece, so every Bloom piece read the same symbolism
+     for four stones and the same "Stones used:" list, whatever it was set
+     with. Now the stone symbolism keeps only the sentences for this piece's
+     own stones (and goes when none apply), and the collection-wide stone and
+     metal lists are left out: the spec rows above already say what this
+     piece is made of. Safar's meta repeats the designer byline, so it is
+     skipped there exactly as it was in the intro. */
+  function collectionNotes(col, p) {
     if (!col) return [];
-    var out = storyParas(col).slice(INTRO_PARAS);
-    if (col.meta && col.meta !== "Designed with " + (col.designer || "")) out.push(col.meta);
+    var stones = stoneList(p).map(function (s) { return s.toLowerCase(); });
+    var out = [];
+    storyParas(col).slice(INTRO_PARAS).forEach(function (para) {
+      if (/^stones used:/i.test(para)) return;
+      var sentences = para.match(/[^.]+\.(\s+|$)/g) || [para];
+      var symbols = sentences.filter(function (t) { return /^\s*[A-Z][a-z]+(?: [a-z]+)? for /.test(t); });
+      if (!symbols.length) { out.push(para); return; }
+      var mine = symbols.filter(function (t) {
+        var name = t.trim().split(" for ")[0].toLowerCase();
+        return stones.some(function (s) { return s === name || s.indexOf(name) !== -1; });
+      });
+      if (!mine.length) return;
+      out.push(sentences.filter(function (t) {
+        return symbols.indexOf(t) === -1 || mine.indexOf(t) !== -1;
+      }).join("").trim());
+    });
+    if (col.meta && col.meta !== "Designed with " + (col.designer || "") && !/gold/i.test(col.meta)) out.push(col.meta);
     return out;
   }
 
@@ -184,46 +204,6 @@
     img.addEventListener("load", function () { frame.classList.add("has-img"); });
     frame.appendChild(img);
     return frame;
-  }
-
-  function addToCart(p, btn) {
-    /* Go through Gem.cart when it is there. Writing localStorage directly —
-       which is all this did — left every other part of the site unaware: no
-       cart event, so the header count never moved and the bag drawer never
-       opened. The direct write stays as the fallback for a page that somehow
-       loads without the library. */
-    if (window.Gem && window.Gem.cart) {
-      window.Gem.cart.add({
-        id: p.id, slug: p.id, name: p.name,
-        materials: p.stone + " \u00b7 " + p.metal,
-        image: mainImage(p) ? "../fine-jewellery/" + mainImage(p) : "",
-        priceOnEnquiry: !p.priceINR,
-        priceCents: p.priceINR ? p.priceINR * 100 : 0
-      });
-      if (btn) {
-        btn.textContent = "Added to cart";
-        setTimeout(function () { btn.textContent = "Add to cart"; }, 1800);
-      }
-      return;
-    }
-    try {
-      var raw = JSON.parse(localStorage.getItem("gem_cart_v1") || "[]");
-      var found = raw.find(function (x) { return x.id === p.id; });
-      if (found) found.qty = (found.qty || 1) + 1;
-      else raw.push({
-        id: p.id, slug: p.id, name: p.name,
-        materials: p.stone + " · " + p.metal,
-        /* the cart renders from /cart/, so store a path relative to that page */
-        image: mainImage(p) ? "../fine-jewellery/" + mainImage(p) : "",
-        priceOnEnquiry: !p.priceINR, priceCents: p.priceINR ? p.priceINR * 100 : 0, qty: 1
-      });
-      localStorage.setItem("gem_cart_v1", JSON.stringify(raw));
-      if (btn) {
-        var was = btn.textContent;
-        btn.textContent = "Added to cart";
-        setTimeout(function () { btn.textContent = was; }, 1600);
-      }
-    } catch (e) {}
   }
 
   /* One shared editorial sequence, reused on every Fine Jewellery product page.
@@ -645,21 +625,19 @@
     });
     copy.appendChild(strip);
 
+    /* There is no checkout: a piece is saved to the Collector's Bench or
+       enquired about, so those are the two actions. */
     var actions = el("div", "fj-pdp-actions");
-    var addBtn = el("button", "fj-btn", { type: "button", text: "Add to cart" });
-    addBtn.addEventListener("click", function () { addToCart(p, addBtn); });
-    var enquireBtn = el("a", "fj-btn fj-btn--ghost", {
+    if (window.Gem && window.Gem.wishlist) {
+      var saveBtn = window.Gem.wishlist.button(wishItem(p), "line");
+      saveBtn.classList.add("fj-btn");
+      actions.appendChild(saveBtn);
+    }
+    actions.appendChild(el("a", "fj-btn fj-btn--ghost", {
       href: "../quotation/?ref=" + encodeURIComponent(p.sku) + "&name=" + encodeURIComponent(p.name),
       text: "Enquire now"
-    });
-    actions.appendChild(addBtn);
-    actions.appendChild(enquireBtn);
+    }));
     copy.appendChild(actions);
-    if (window.Gem && window.Gem.wishlist) {
-      var saveRow = el("div", "fj-pdp-save");
-      saveRow.appendChild(window.Gem.wishlist.button(wishItem(p), "line"));
-      copy.appendChild(saveRow);
-    }
 
     // details, care & shipping — plain disclosure elements, no extra JS state
     var specRows = [
@@ -684,7 +662,7 @@
     /* The tail of the collection story, moved off the intro. It sits under the
        spec rows so the piece's own facts come first and the collection's
        symbolism reads as context rather than as the lead. */
-    collectionNotes(col).forEach(function (para) {
+    collectionNotes(col, p).forEach(function (para) {
       d1body.appendChild(el("p", "fj-acc-note", { text: para }));
     });
     d1.appendChild(d1body);

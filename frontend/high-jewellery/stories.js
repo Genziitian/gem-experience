@@ -69,8 +69,14 @@ window.HJ_STORIES = {
           "Between them run 24.53 carats of diamonds, set to follow the turn of" +
           " the dancer. In all, the piece took more than 3,700 hours to make."],
     },
-    suite: { note: "Flamenco is made as a set: necklace, earrings and ring.",
-             labels: ["Necklace", "Earrings", "Ring"] },
+    /* Two sets, each a necklace with its earrings: the pink spinel, and the
+       aquamarine and tanzanite companion. Named stills, so each necklace
+       stands beside its own earrings. */
+    suite: { note: "Flamenco is made in two sets, each a necklace with its earrings: " +
+                   "pink spinel, and aquamarine with tanzanite.",
+             labels: ["Necklace", "Earrings", "Necklace", "Earrings"],
+             images: ["img/pieces/usambara/p4.webp", "img/pieces/usambara/p3.webp",
+                      "img/pieces/usambara/p7.webp", "img/pieces/usambara/p5.webp"] },
     say: "Flamenco echoes the spirit of vibrance and the power of self-expression. " +
          "It evokes passion, grace, and the enduring power of the Flamenco spirit.",
   },
@@ -298,9 +304,9 @@ window.HJ_STORIES = {
 
   oldoinyo: {
     kicker: "High Jewellery",
-    /* No write-up in the house's documents yet. Written from the photographs
-       only, with no weights or stones named that are not confirmed. */
-    lede: "Mediterranea gathers pink stones edge to edge in rose gold, a collar that " +
+    /* No write-up in the house's documents yet. Written from the photographs;
+       the house has confirmed the stone as pink spinel, but gives no weight. */
+    lede: "Mediterranea gathers pink spinel edge to edge in rose gold, a collar that " +
           "narrows to a point at the throat, with earrings drawn in the same curve.",
     quote: "Colour laid edge to edge.",
     craft: {
@@ -310,17 +316,17 @@ window.HJ_STORIES = {
           "The earrings repeat the line of the necklace in a smaller, twisting form."],
     },
     stones: {
-      h: "Pink, in rose gold",
-      p: ["Pink stones in mixed cuts, framed by brilliant-cut diamonds.",
+      h: "Pink spinel, in rose gold",
+      p: ["Pink spinel in mixed cuts, framed by brilliant-cut diamonds.",
           "Rose gold throughout, which warms the pink rather than cooling it."],
     },
   },
 
   /* ------------------------------------------------------------------ DRAFTS
    *
-   * One remains without copy: Lagoon, which the
-   * house has said are still being written. The other five in this block have
-   * since been replaced with their real descriptions and are no longer drafts.
+   * The five in this block have since been replaced with their real
+   * descriptions and are no longer drafts. (Lagoon was here until the piece
+   * was melted down.)
    *
    * The two below have no copy in any of the documents. These are written
    * from the photographs and from the fields already recorded against each
@@ -463,30 +469,6 @@ window.HJ_STORIES = {
           " the moment just before a wave breaks.",
           "The rhodolite's unique hue reflects both strength and softness, like the sea " +
           "itself at sunset."],
-    },
-  },
-
-  kilimanjaro: {
-    kicker: "High Jewellery",
-    draft: true,
-    /* Catalogue says tanzanite; the photographs show green stones. The copy
-       describes the colour without naming a stone that cannot be confirmed. */
-    lede: "A wave in white gold, carrying green through its length. The form is the " +
-          "same rhythm as the sea it is named for, drawn flat around the collarbone.",
-    quote: "The shape of water, held still.",
-    craft: {
-      h: "Drawn flat",
-      p: ["The wave is worked so that it sits against the body rather than standing " +
-          "away from it, which is what allows a piece of this width to be worn without " +
-          "weight.",
-          "Diamond follows the inside of every curve, so the line is lit from within " +
-          "the shape rather than outlined around it."],
-    },
-    stones: {
-      h: "Green, through the curve",
-      p: ["Green stones in pear and cushion cuts are set into the hollows of the wave, " +
-          "where the metal turns and the light collects.",
-          "White gold throughout, which leaves the green to do all of the colour."],
     },
   },
 };

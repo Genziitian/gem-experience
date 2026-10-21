@@ -53,9 +53,9 @@ const byId = Object.fromEntries(data.products.map((p) => [p.id, p]));
 
    A kind that has run out falls back to the other, so a piece photographed only
    on the stand still gets its pairs rather than a column of single frames. */
-function dealer(piece) {
+function dealer(piece, reserved = []) {
   const models = (piece.models || []).slice();
-  const stills = (piece.gallery || []).slice();
+  const stills = (piece.gallery || []).filter((src) => !reserved.includes(src));
   return {
     draw(kinds) {
       if (models.length + stills.length < kinds.length) return null;
@@ -104,7 +104,8 @@ function build(id) {
   const story = STORIES[id];
   if (!piece || !story) return null;
 
-  const d = dealer(piece);
+  // stills a story names for its suite are kept for it, not dealt elsewhere
+  const d = dealer(piece, (story.suite && story.suite.images) || []);
   const name = piece.name;
   const bands = [];
 
@@ -180,15 +181,17 @@ function build(id) {
     bands.push(textBand(story.stones));
   }
 
-  // the suite, only where there are three stills to spare for it
-  if (story.suite && d.stillsLeft() >= 3) {
-    const three = d.still(3);
+  /* the suite: the stills the story names (so a set's pieces stand side by
+     side), or else the next three, where there are three to spare */
+  const suiteImgs = story.suite && (story.suite.images ||
+    (d.stillsLeft() >= 3 ? d.still(3) : null));
+  if (suiteImgs) {
     const labels = story.suite.labels || [];
     bands.push(`  <section class="st-suite">
     <h2>The suite</h2>
     <p class="st-suite-note">${esc(story.suite.note)}</p>
-    <div class="st-suite-grid">
-      ${three.map((src, i) => `<figure>
+    <div class="st-suite-grid${suiteImgs.length === 4 ? " st-suite-grid--4" : ""}">
+      ${suiteImgs.map((src, i) => `<figure>
         <img src="/high-jewellery/${src}" alt="${esc(labels[i] || name)}" loading="lazy" decoding="async">
         <figcaption>${esc(labels[i] || "")}</figcaption>
       </figure>`).join("\n      ")}

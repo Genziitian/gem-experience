@@ -74,7 +74,7 @@ window.HJ_DATA = {
     {
       "id": "the-crown",
       "name": "The Crown",
-      "materials": "Natural Royal Blue Tanzanite Gemstone",
+      "materials": "18.45ct Royal Blue Tanzanite",
       "type": "Gemstones",
       "collection": "Heritage",
       "occasion": "Collector",
@@ -111,7 +111,7 @@ window.HJ_DATA = {
     {
       "id": "shamsa",
       "name": "Shamsa",
-      "materials": "Pink Spinel, Diamond and 18k Yellow Gold",
+      "materials": "8.82ct Pink Spinel and Diamond",
       "type": "Earrings",
       "collection": "Nocturne",
       "occasion": "Gala",
@@ -177,7 +177,7 @@ window.HJ_DATA = {
     {
       "id": "hive",
       "name": "Hive",
-      "materials": "17.92ct Tanzanite, Diamond and Ceramic",
+      "materials": "17.92ct Tanzanite, Ceramic and Diamond",
       "type": "Necklaces",
       "collection": "Tanzania Universe",
       "occasion": "Gala",
@@ -199,7 +199,7 @@ window.HJ_DATA = {
     {
       "id": "georgie",
       "name": "Georgie",
-      "materials": "19 Natural Pearls, 12.35ct Tanzanite and 18k Rose Gold",
+      "materials": "12.35ct Tanzanite and 19 Natural Pearls",
       "type": "Necklaces",
       "collection": "Heritage",
       "occasion": "Gifting",
@@ -219,7 +219,7 @@ window.HJ_DATA = {
     {
       "id": "usambara",
       "name": "Flamenco",
-      "materials": "Pink Spinel, Aquamarine, Tanzanite and Diamond",
+      "materials": "34.56ct Pink Spinel, Aquamarine, Tanzanite and Diamond",
       "type": "Necklaces",
       "collection": "Nocturne",
       "occasion": "Collector",
@@ -237,22 +237,14 @@ window.HJ_DATA = {
         "img/pieces/usambara/p6.webp",
         "img/pieces/usambara/p7.webp"
       ],
-      "models": [
-        "img/pieces/usambara/m1.webp",
-        "img/pieces/usambara/m2.webp",
-        "img/pieces/usambara/m3.webp",
-        "img/pieces/usambara/m4.webp",
-        "img/pieces/usambara/m5.webp",
-        "img/pieces/usambara/m6.webp",
-        "img/pieces/usambara/m7.webp"
-      ],
+      "models": [],
       "storyUrl": "/high-jewellery/usambara/",
       "storyLabel": "Explore Flamenco"
     },
     {
       "id": "ember",
       "name": "Ember",
-      "materials": "Pink Spinel and Diamond",
+      "materials": "23.7ct Pink Spinel and Diamond",
       "type": "Earrings",
       "collection": "Tanzania Universe",
       "occasion": "Gala",
@@ -287,7 +279,7 @@ window.HJ_DATA = {
     {
       "id": "dew-fall",
       "name": "Dew Fall",
-      "materials": "10.37ct Aquamarine and 17ct Diamond",
+      "materials": "10.37ct Aquamarine and Diamond",
       "type": "Necklaces",
       "collection": "Origin",
       "occasion": "Collector",
@@ -307,11 +299,11 @@ window.HJ_DATA = {
     {
       "id": "celestine",
       "name": "Celestine",
-      "materials": "Aquamarine, Pink Spinel and Diamond",
+      "materials": "1.25ct Aquamarine, 3.24ct Pink Spinel and Diamond",
       "type": "Earrings",
       "collection": "Tanzania Universe",
       "occasion": "Gifting",
-      "carat": "—",
+      "carat": "1.25ct aquamarine · 3.24ct pink spinel",
       "origin": "—",
       "metal": "18k White Gold",
       "ref": "—",
@@ -343,7 +335,7 @@ window.HJ_DATA = {
     {
       "id": "merelani",
       "name": "Rosette",
-      "materials": "36.5ct Pink Spinel and Diamond, 18k White and Rose Gold",
+      "materials": "36.5ct Pink Spinel and Diamond",
       "type": "Necklaces",
       "collection": "Tanzania Universe",
       "occasion": "Bridal",
@@ -367,7 +359,7 @@ window.HJ_DATA = {
     {
       "id": "helix",
       "name": "Helix",
-      "materials": "9.16ct Tanzanite and 12ct Diamond",
+      "materials": "9.16ct Tanzanite and Diamond",
       "type": "Necklaces",
       "collection": "Heritage",
       "occasion": "Gifting",
@@ -442,23 +434,6 @@ window.HJ_DATA = {
       "storyLabel": "Explore Wimbi"
     },
     {
-      "id": "kilimanjaro",
-      "name": "Lagoon",
-      "materials": "Green stones and Diamond, White Gold",
-      "type": "Necklaces",
-      "collection": "Tanzania Universe",
-      "occasion": "Gala",
-      "carat": "—",
-      "origin": "—",
-      "metal": "—",
-      "ref": "—",
-      "story": "",
-      "gallery": [
-        "img/pieces/kilimanjaro/p1.webp"
-      ],
-      "models": []
-    },
-    {
       "id": "rift",
       "name": "Fern",
       "materials": "Tsavorite and Diamond",
@@ -492,7 +467,7 @@ window.HJ_DATA = {
     {
       "id": "mahenge",
       "name": "Samaah",
-      "materials": "Pink Tourmaline and Diamond",
+      "materials": "16.05ct Pink Tourmaline and Diamond",
       "type": "Necklaces",
       "collection": "Origin",
       "occasion": "Collector",
@@ -529,7 +504,7 @@ window.HJ_DATA = {
     {
       "id": "oldoinyo",
       "name": "Mediterranea",
-      "materials": "Pink stones and Diamond, Rose Gold",
+      "materials": "Pink Spinel and Diamond",
       "type": "Necklaces",
       "collection": "Heritage",
       "occasion": "Bridal",
@@ -609,13 +584,6 @@ window.HJ_DATA = {
     "img/pieces/shamsa/m6.webp": 43,
     "img/pieces/shamsa/p3.webp": 64,
     "img/pieces/shamsa/p5.webp": 23,
-    "img/pieces/usambara/m1.webp": 63,
-    "img/pieces/usambara/m2.webp": 100,
-    "img/pieces/usambara/m3.webp": 100,
-    "img/pieces/usambara/m4.webp": 89,
-    "img/pieces/usambara/m5.webp": 66,
-    "img/pieces/usambara/m6.webp": 100,
-    "img/pieces/usambara/m7.webp": 81,
     "img/pieces/weaver/m1.webp": 65,
     "img/pieces/weaver/m2.webp": 16,
     "img/pieces/weaver/m3.webp": 49,

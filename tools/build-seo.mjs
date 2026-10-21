@@ -173,11 +173,14 @@ const fjCollections = FJraw.collections.filter((c) => fjLive.has(c.name));
 
 const hjHasPage = (id) => fs.existsSync(path.join(WEB, "high-jewellery", id, "index.html"));
 
-const [faqCats, faqs, offices] = await Promise.all([
+const [faqCats, faqs, officeRows] = await Promise.all([
   rest("faq_categories?select=slug,label,intro,sort_order&order=sort_order.asc"),
   rest("faqs?select=category,question,answer,sort_order&published=eq.true&order=sort_order.asc"),
   rest("offices?select=*&published=eq.true&order=sort_order.asc"),
 ]);
+/* The Tanzania stores were withdrawn from the site (2026-10-21); only the
+   ateliers are listed, whatever the table still holds. */
+const offices = officeRows.filter((o) => o.kind !== "store");
 /* Events arrived later (migrations/20261013010000_events.sql); until that has
    run there is no table, and the page simply shows its WhatsApp invitation. */
 const events = await rest("events?select=*&published=eq.true&order=starts_on.asc").catch((e) => {
@@ -578,7 +581,6 @@ for (const { file, url } of pages) {
   if (x.pre) html = setInner(html, x.pre[0], x.pre[1], x.pre[2]);
   if (x.offices) {
     html = setInner(html, '<div class="off-grid" id="atelier-grid">', "</div>\n", offices.filter((o) => o.kind === "atelier").map(officeCard).join(""));
-    html = setInner(html, '<div class="off-grid off-grid--stores" id="store-grid">', "</div>\n", offices.filter((o) => o.kind === "store").map(officeCard).join(""));
   }
   const head = headBlock({ url, html, ogType: x.ogType, image: x.image, extra: x }) +
     (x.faq ? "\n" + faqLd() : "") + (x.pre ? "\n" + PRE_CSS : "");

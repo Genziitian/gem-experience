@@ -155,6 +155,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(12px, 2vw, 32px);
 }
+.st-suite-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .st-suite-grid figure { margin: 0; display: grid; gap: 12px; }
 .st-suite-grid img { width: 100%; aspect-ratio: 1; object-fit: contain; background: var(--ground, #f3f1ee); }
 .st-suite-grid figcaption {
@@ -227,6 +228,8 @@
   /* The suite keeps its caption under each frame, so the labels break up the
      run rather than three photographs meeting each other. */
   .st-suite-grid { grid-template-columns: 1fr; gap: 30px; }
+  /* two sets of two: each necklace stays beside its earrings */
+  .st-suite-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
 
   .st-more-grid { gap: 10px 8px; }
 }

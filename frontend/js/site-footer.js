@@ -29,12 +29,15 @@
               "</form>" +
             "</section>" +
 
-            '<a class="tile" href="' + prefix + 'high-jewellery/">' +
+            /* Tanzania, beside the signup on every page: where the stones come from */
+            '<a class="tile" href="' + prefix + 'world-of-preciousness/">' +
               '<img class="tile-img" src="' + prefix + 'img/banner-high-jewellery.webp" alt="A rough gemstone crystal lit warm against the dark." loading="lazy" decoding="async">' +
               '<span class="tile-overlay" aria-hidden="true"></span>' +
               '<span class="tile-copy">' +
-                '<span class="tile-tagline">Cut from the rough</span>' +
-                '<span class="rule-link rule-link--light">Discover High Jewellery</span>' +
+                '<span class="tile-kicker">From Tanzania</span>' +
+                '<span class="tile-tagline">Every stone begins in Tanzania</span>' +
+                '<span class="tile-text">Tanzanite is found in one place on earth, at the foot of Mount Kilimanjaro. We choose every stone there, at the source.</span>' +
+                '<span class="rule-link rule-link--light">Discover the World of Preciousness</span>' +
               "</span>" +
             "</a>" +
 

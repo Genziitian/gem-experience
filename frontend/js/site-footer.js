@@ -13,8 +13,10 @@
           '<div class="ftr-inner ftr-top">' +
 
             '<section class="signup" aria-labelledby="signup-title">' +
-              '<h2 class="signup-title" id="signup-title">Join the Gem Experience Universe</h2>' +
-              '<p class="signup-lede">New pieces before they are shown, and the occasional letter from the workshop.</p>' +
+              /* Tanzania leads the footer: the words sit here, the photograph beside them stays clear */
+              '<h2 class="signup-title" id="signup-title">Every stone begins in Tanzania</h2>' +
+              '<p class="signup-lede">Tanzanite is found in one place on earth, at the foot of Mount Kilimanjaro. We choose every stone there, at the source. ' +
+                'Leave your email for new pieces before they are shown, and the occasional letter from the workshop.</p>' +
               '<form class="signup-form" id="signup-form" novalidate>' +
                 '<label class="sr-only" for="signup-email">Email address</label>' +
                 '<div class="signup-field">' +
@@ -29,15 +31,11 @@
               "</form>" +
             "</section>" +
 
-            /* Tanzania, beside the signup on every page: where the stones come from */
             '<a class="tile" href="' + prefix + 'world-of-preciousness/">' +
               '<img class="tile-img" src="' + prefix + 'img/banner-high-jewellery.webp" alt="A rough gemstone crystal lit warm against the dark." loading="lazy" decoding="async">' +
               '<span class="tile-overlay" aria-hidden="true"></span>' +
               '<span class="tile-copy">' +
-                '<span class="tile-kicker">From Tanzania</span>' +
-                '<span class="tile-tagline">Every stone begins in Tanzania</span>' +
-                '<span class="tile-text">Tanzanite is found in one place on earth, at the foot of Mount Kilimanjaro. We choose every stone there, at the source.</span>' +
-                '<span class="rule-link rule-link--light">Discover the World of Preciousness</span>' +
+                '<span class="rule-link rule-link--light">World of Preciousness</span>' +
               "</span>" +
             "</a>" +
 

@@ -199,6 +199,24 @@ function build(id) {
   </section>`);
   }
 
+  /* Smaller pieces that belong to the same design (Shamsa Fine under
+     Shamsa), each with its weights and its own enquiry. */
+  if (story.pieces) {
+    const pc = story.pieces;
+    bands.push(`  <section class="st-suite st-pieces">
+    <h2>${esc(pc.h)}</h2>
+    ${pc.note ? `<p class="st-suite-note">${esc(pc.note)}</p>` : ""}
+    <div class="st-suite-grid${pc.items.length === 4 ? " st-suite-grid--4" : ""}">
+      ${pc.items.map((it) => `<figure>
+        <img src="/high-jewellery/${it.img}" alt="${esc(`${name} ${it.name}, ${it.sku}`)}" loading="lazy" decoding="async">
+        <figcaption>${esc(it.name)}</figcaption>
+        <p class="st-piece-line">${esc(it.line)}</p>
+        <a class="st-piece-enquire" href="/quotation/?ref=${encodeURIComponent(it.sku)}&amp;name=${encodeURIComponent(`${name} ${it.name}`)}">Enquire · ${esc(it.sku)}</a>
+      </figure>`).join("\n      ")}
+    </div>
+  </section>`);
+  }
+
   // worn, at the scale the pieces are actually seen
   const pairB = d.draw(["model", "model"]);
   if (pairB) {

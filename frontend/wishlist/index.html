@@ -44,6 +44,26 @@
       <a class="pg-btn" id="wl-wa" href="#" target="_blank" rel="noopener noreferrer">Enquire now on WhatsApp</a>
       <a class="pg-btn pg-btn--ghost" href="../appointment/">Book a private viewing</a>
     </div>
+
+    <!-- where every piece on the bench began -->
+    <section class="wl-source" aria-labelledby="wl-source-title">
+      <h2 class="pg-section-title" id="wl-source-title">Before it reaches your bench</h2>
+      <p class="pg-lede">Every piece you set aside began as rough in Tanzania: brought out of the ground, sorted by hand and cut in our own workshop.</p>
+      <div class="wl-source-grid">
+        <figure>
+          <img src="img/rough.webp" alt="A piece of rough gemstone lit from within, before it is cut." loading="lazy" decoding="async">
+          <figcaption><span>01</span>Rough, as it leaves the mine</figcaption>
+        </figure>
+        <figure>
+          <img src="../world-of-preciousness/img/sorting.webp" alt="A gem sorter grading parcels of coloured stones at a light table." loading="lazy" decoding="async">
+          <figcaption><span>02</span>Sorted and graded by hand</figcaption>
+        </figure>
+        <figure>
+          <img src="../world-of-preciousness/img/parcel.webp" alt="A parcel of pink spinel held open with tweezers." loading="lazy" decoding="async">
+          <figcaption><span>03</span>Chosen, stone by stone</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
 
   <div id="pg-footer"></div>
@@ -75,11 +95,6 @@ GemShell.mount();
   function refOf(it) {
     var ref = (it.detail || "").split(" · ").pop();
     return /^G/i.test(ref) ? ref : it.key.split(":")[1];
-  }
-
-  /* The quotation form takes the reference and the name. */
-  function enquireHref(it) {
-    return "../quotation/?ref=" + encodeURIComponent(refOf(it)) + "&name=" + encodeURIComponent(it.name);
   }
 
   /* Who is asking, filled in once the account is read, so the adviser has
@@ -124,8 +139,7 @@ GemShell.mount();
           '<h2 class="wl-name"><a href="' + esc(it.href) + '">' + esc(it.name) + "</a></h2>" +
           (it.detail ? '<p class="wl-detail">' + esc(it.detail) + "</p>" : "") +
           '<div class="wl-acts">' +
-            '<a class="wl-act wl-act--primary" href="' + esc(enquireHref(it)) + '">Enquire now</a>' +
-            '<a class="wl-act" href="' + esc(waHref([it], "Hello Gem Experience, I would like to enquire about this piece from my Collector’s Bench:")) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>' +
+            '<a class="wl-act wl-act--primary" href="' + esc(waHref([it], "Hello Gem Experience, I would like to enquire about this piece from my Collector’s Bench:")) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>' +
             '<a class="wl-act" href="' + esc(it.href) + '">View</a>' +
             '<button class="wl-act" type="button" data-remove="' + esc(it.key) + '">Remove</button>' +
           "</div>" +

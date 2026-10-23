@@ -355,6 +355,21 @@ button {
 }
 .pg-btn--ghost:hover { background: var(--ink); color: #fff; opacity: 1; }
 
+/* The concierge line at the head of the Contact page: a rule, a heading,
+   the hours and one outlined button. */
+.pg-concierge {
+  max-width: 760px;
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  padding: clamp(28px, 3vw, 40px) 0 0;
+  border-top: 1px solid var(--rule);
+}
+.pg-concierge-title {
+  margin: 0 0 14px;
+  font-family: var(--sans); font-weight: 500;
+  font-size: clamp(17px, 1.6vw, 20px); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.pg-concierge-copy { margin: 0 0 28px; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; }
+
 /* WhatsApp hand-off. A deep, quiet green rather than the app's own bright one,
    so it reads as WhatsApp at a glance without shouting over the page. */
 .pg-btn--wa { gap: 10px; background: #1d5e3b; }
@@ -1945,6 +1960,14 @@ button {
 /* --------------------------------------------------------------- wishlist */
 
 .wl { padding-top: 8px; }
+.wl-source { margin: clamp(64px, 8vw, 112px) auto 0; max-width: 1200px; padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--rule); text-align: center; }
+.wl-source .pg-lede { max-width: 56ch; margin: 14px auto 0; }
+.wl-source-grid { display: grid; gap: 28px 16px; grid-template-columns: 1fr; margin-top: clamp(28px, 4vw, 48px); text-align: left; }
+@media (min-width: 760px) { .wl-source-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.wl-source-grid figure { margin: 0; display: grid; gap: 14px; }
+.wl-source-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.wl-source-grid figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--ink); }
+.wl-source-grid figcaption span { margin-right: 10px; font-size: 11px; color: var(--muted); letter-spacing: 0.16em; }
 .wl-signin { margin: 0 auto 28px; max-width: 640px; text-align: center; font-weight: 300; font-size: 14px; color: var(--muted); }
 .wl-signin a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .wl-grid { display: grid; gap: 28px 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }

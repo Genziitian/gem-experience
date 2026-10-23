@@ -64,7 +64,7 @@ window.HJ_STORIES = {
     stones: {
       h: "Soft purple and blue",
       p: ["The companion set carries a harmonious interplay of soft purple and blue " +
-          "tones in white gold: a vivid 20.36 carat aquamarine, paired with 25.16 " +
+          "tones in white gold: a vivid 20.36 carat aquamarine, paired with 25.18 " +
           "carats of fancy lavender tanzanite and 19.97 carats of blue tanzanites.",
           "Between them run 24.53 carats of diamonds, set to follow the turn of" +
           " the dancer. In all, the piece took more than 3,700 hours to make."],
@@ -162,6 +162,22 @@ window.HJ_STORIES = {
          "outward. The marquise diamonds give that sense of direction. It is a strong " +
          "piece, but the concept is very personal: it reflects someone whose presence " +
          "comes from within.",
+    /* Shamsa Fine, moved here from Fine Jewellery (2026-10-23): the same sun,
+       at a smaller scale. Weights from the Fine Jewellery spec sheet. */
+    pieces: {
+      h: "Shamsa, in every size",
+      note: "The same sunburst, drawn smaller: a pendant and necklace, earrings and a ring.",
+      items: [
+        { sku: "GD26-271", name: "Tanzanite Necklace", img: "img/pieces/shamsa/fine-gd26-271.webp",
+          line: "14.83ct tanzanite · 2.62ct diamond · 18k white gold" },
+        { sku: "GD26-271 A", name: "Tanzanite Earrings", img: "img/pieces/shamsa/fine-gd26-271-a.webp",
+          line: "15.17ct tanzanite · 1.91ct diamond · 18k white gold" },
+        { sku: "GD26-895", name: "Pink Spinel Pendant", img: "img/pieces/shamsa/fine-gd26-895.webp",
+          line: "1.77ct pink spinel · 1.32ct diamond · 18k yellow and white gold" },
+        { sku: "GD26-897", name: "Pink Spinel Ring", img: "img/pieces/shamsa/fine-gd26-897.webp",
+          line: "1.03ct pink spinel · 1.35ct diamond · 18k yellow and white gold" },
+      ],
+    },
   },
 
   rihla: {
@@ -183,8 +199,8 @@ window.HJ_STORIES = {
       p: ["The soul of Rihla is a rare 11.83 carat trillion-cut tanzanite, chosen for " +
           "its uncanny resemblance to a blue moon. Watch as it shifts in the light, " +
           "from a meditative indigo to a vibrant, electric royal blue.",
-          "Custom-cut mother of pearl is hand-inlaid into the architecture of the " +
-          "piece. Its milky iridescence provides a soft warmth that balances the cold " +
+          "48.92 carats of custom-cut mother of pearl are hand-inlaid into the " +
+          "architecture of the necklace. Its milky iridescence provides a soft warmth that balances the cold " +
           "fire of the stones."],
     },
     say: "Rihla is a wearable celestial map, tracing the moon's transit across a " +
@@ -305,7 +321,7 @@ window.HJ_STORIES = {
   oldoinyo: {
     kicker: "High Jewellery",
     /* No write-up in the house's documents yet. Written from the photographs;
-       the house has confirmed the stone as pink spinel, but gives no weight. */
+       stone and weights from Necklace and Earring Detail.pdf (GD23-442, 442 A). */
     lede: "Mediterranea gathers pink spinel edge to edge in rose gold, a collar that " +
           "narrows to a point at the throat, with earrings drawn in the same curve.",
     quote: "Colour laid edge to edge.",
@@ -317,8 +333,10 @@ window.HJ_STORIES = {
     },
     stones: {
       h: "Pink spinel, in rose gold",
-      p: ["Pink spinel in mixed cuts, framed by brilliant-cut diamonds.",
-          "Rose gold throughout, which warms the pink rather than cooling it."],
+      p: ["The necklace carries 82.32 carats of pink spinel in mixed cuts, framed " +
+          "by 15.59 carats of brilliant-cut diamonds; the earrings 9.84 carats of " +
+          "pink spinel and 1.85 of diamond.",
+          "18k rose gold throughout, which warms the pink rather than cooling it."],
     },
   },
 

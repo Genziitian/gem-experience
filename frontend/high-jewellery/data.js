@@ -69,7 +69,8 @@ window.HJ_DATA = {
         "img/pieces/weaver/m8.webp"
       ],
       "storyUrl": "/high-jewellery/weaver/",
-      "storyLabel": "Explore Weaver"
+      "storyLabel": "Explore Weaver",
+      "card": "img/weaver-set.webp"
     },
     {
       "id": "the-crown",
@@ -106,7 +107,8 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/the-crown/",
-      "storyLabel": "Explore The Crown"
+      "storyLabel": "Explore The Crown",
+      "card": "img/the-crown-set.webp"
     },
     {
       "id": "shamsa",
@@ -136,7 +138,8 @@ window.HJ_DATA = {
         "img/pieces/shamsa/m6.webp"
       ],
       "storyUrl": "/high-jewellery/shamsa/",
-      "storyLabel": "Explore Shamsa"
+      "storyLabel": "Explore Shamsa",
+      "card": "img/shamsa-set.webp"
     },
     {
       "id": "jardin-bleu",
@@ -172,7 +175,8 @@ window.HJ_DATA = {
         "img/pieces/jardin-bleu/m4.webp"
       ],
       "storyUrl": "/high-jewellery/jardin-bleu/",
-      "storyLabel": "Explore Jardin Bleu"
+      "storyLabel": "Explore Jardin Bleu",
+      "card": "img/jardin-bleu-set.webp"
     },
     {
       "id": "hive",
@@ -194,7 +198,8 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/hive/",
-      "storyLabel": "Explore Hive"
+      "storyLabel": "Explore Hive",
+      "card": "img/hive-set.webp"
     },
     {
       "id": "georgie",
@@ -226,7 +231,7 @@ window.HJ_DATA = {
       "carat": "34.56ct pink spinel",
       "origin": "—",
       "metal": "18k White Gold",
-      "ref": "—",
+      "ref": "GD26-229 · GD26-229 A (aquamarine and tanzanite set)",
       "story": "",
       "gallery": [
         "img/pieces/usambara/p1.webp",
@@ -239,7 +244,8 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/usambara/",
-      "storyLabel": "Explore Flamenco"
+      "storyLabel": "Explore Flamenco",
+      "card": "img/usambara-set.webp"
     },
     {
       "id": "ember",
@@ -274,7 +280,8 @@ window.HJ_DATA = {
         "img/pieces/ember/m3.webp"
       ],
       "storyUrl": "/high-jewellery/ember/",
-      "storyLabel": "Explore Ember"
+      "storyLabel": "Explore Ember",
+      "card": "img/ember-set.webp"
     },
     {
       "id": "dew-fall",
@@ -330,7 +337,8 @@ window.HJ_DATA = {
         "img/pieces/celestine/m9.webp"
       ],
       "storyUrl": "/high-jewellery/celestine/",
-      "storyLabel": "Explore Celestine"
+      "storyLabel": "Explore Celestine",
+      "card": "img/celestine-set.webp"
     },
     {
       "id": "merelani",
@@ -354,7 +362,8 @@ window.HJ_DATA = {
         "img/pieces/merelani/m1.webp"
       ],
       "storyUrl": "/high-jewellery/merelani/",
-      "storyLabel": "Explore Rosette"
+      "storyLabel": "Explore Rosette",
+      "card": "img/merelani-set.webp"
     },
     {
       "id": "helix",
@@ -379,14 +388,14 @@ window.HJ_DATA = {
     {
       "id": "rihla",
       "name": "Rihla",
-      "materials": "11.83ct Tanzanite, Mother-of-Pearl and Diamond",
+      "materials": "11.83ct Tanzanite, 48.92ct Mother-of-Pearl and Diamond",
       "type": "Necklaces",
       "collection": "Nocturne",
       "occasion": "Gala",
-      "carat": "11.83ct",
+      "carat": "11.83ct tanzanite · 48.92ct mother-of-pearl (necklace)",
       "origin": "—",
-      "metal": "18k White Gold",
-      "ref": "—",
+      "metal": "14k White Gold",
+      "ref": "GD26-11 · GD26-12",
       "story": "",
       "gallery": [
         "img/pieces/rihla/p1.webp",
@@ -403,7 +412,8 @@ window.HJ_DATA = {
         "img/pieces/rihla/m5.webp"
       ],
       "storyUrl": "/high-jewellery/rihla/",
-      "storyLabel": "Explore Rihla"
+      "storyLabel": "Explore Rihla",
+      "card": "img/rihla-set.webp"
     },
     {
       "id": "serengeti",
@@ -435,7 +445,7 @@ window.HJ_DATA = {
     },
     {
       "id": "rift",
-      "name": "Fern",
+      "name": "The Queen of Green",
       "materials": "Tsavorite and Diamond",
       "type": "Necklaces",
       "collection": "Tanzania Universe",
@@ -443,7 +453,7 @@ window.HJ_DATA = {
       "carat": "—",
       "origin": "—",
       "metal": "—",
-      "ref": "—",
+      "ref": "GD25-401 · GD25-401 A",
       "story": "",
       "gallery": [
         "img/pieces/rift/p1.webp",
@@ -462,7 +472,8 @@ window.HJ_DATA = {
         "img/pieces/rift/m6.webp"
       ],
       "storyUrl": "/high-jewellery/rift/",
-      "storyLabel": "Explore Fern"
+      "storyLabel": "Explore The Queen of Green",
+      "card": "img/rift-set.webp"
     },
     {
       "id": "mahenge",
@@ -499,19 +510,20 @@ window.HJ_DATA = {
         "img/pieces/mahenge/m5.webp"
       ],
       "storyUrl": "/high-jewellery/mahenge/",
-      "storyLabel": "Explore Samaah"
+      "storyLabel": "Explore Samaah",
+      "card": "img/mahenge-set.webp"
     },
     {
       "id": "oldoinyo",
       "name": "Mediterranea",
-      "materials": "Pink Spinel and Diamond",
+      "materials": "82.32ct Pink Spinel and Diamond",
       "type": "Necklaces",
       "collection": "Heritage",
       "occasion": "Bridal",
-      "carat": "—",
+      "carat": "82.32ct pink spinel (necklace) · 9.84ct (earrings)",
       "origin": "—",
-      "metal": "Rose Gold",
-      "ref": "—",
+      "metal": "18k Rose Gold",
+      "ref": "GD23-442 · GD23-442 A",
       "story": "",
       "gallery": [
         "img/pieces/oldoinyo/p1.webp",
@@ -521,7 +533,8 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/oldoinyo/",
-      "storyLabel": "Explore Mediterranea"
+      "storyLabel": "Explore Mediterranea",
+      "card": "img/oldoinyo-set.webp"
     }
   ],
   "focal": {

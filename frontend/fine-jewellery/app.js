@@ -91,6 +91,50 @@
     });
   }
 
+  /* One design made in several stones (data.js "design": the id of the
+     piece the grid shows for the group). Grids show the design once, with a
+     dot per colour; the product page offers the other colours. */
+  function variantsOf(p) {
+    if (!p.design) return [p];
+    return data.products.filter(function (q) { return q.design === p.design; });
+  }
+  function designs(items) {
+    var seen = {};
+    var out = [];
+    items.forEach(function (p) {
+      var key = p.design || p.id;
+      if (seen[key]) return;
+      seen[key] = true;
+      out.push(p.design ? data.products.find(function (q) { return q.id === p.design; }) || p : p);
+    });
+    return out;
+  }
+  /* What tells one colour from another: the stone, and the metal when two
+     share a stone. */
+  function variantLabel(q, all) {
+    var same = all.filter(function (o) { return o.stone === q.stone; }).length > 1;
+    return same ? q.stone + ", " + q.metal : q.stone;
+  }
+  function swatches(p, cls, linked) {
+    var all = variantsOf(p);
+    var row = el("div", cls);
+    all.forEach(function (q) {
+      var label = variantLabel(q, all);
+      var dot = el(linked ? "a" : "span", "fj-swatch" + (q.id === p.id ? " is-on" : ""),
+        linked ? { href: "#/p/" + q.id, title: label, "aria-label": label + (q.id === p.id ? " (shown)" : "") }
+               : { title: label });
+      dot.style.setProperty("--swatch", q.tone || "#9a958e");
+      if (linked) {
+        dot.className = "fj-variant" + (q.id === p.id ? " is-on" : "");
+        var d = el("span", "fj-swatch"); d.style.setProperty("--swatch", q.tone || "#9a958e");
+        dot.appendChild(d);
+        dot.appendChild(el("span", null, { text: label }));
+      }
+      row.appendChild(dot);
+    });
+    return row;
+  }
+
   function typesPresent(collectionName) {
     var set = {};
     productsFor(collectionName).forEach(function (p) { set[p.type] = true; });
@@ -102,6 +146,27 @@
     if (collection) path += "/" + collection.id;
     if (type) path += "/" + slugify(type);
     return path;
+  }
+
+  /* A compact filter bar: a labelled dropdown per field, changing the route
+     on selection, and the piece count at the end of the line. */
+  function filterBar(fields, count) {
+    var bar = el("div", "fj-filterbar");
+    fields.forEach(function (f) {
+      var wrap = el("label", "fj-select");
+      wrap.appendChild(el("span", "fj-select-label", { text: f.label }));
+      var sel = el("select", null, { "aria-label": f.label });
+      f.options.forEach(function (o) {
+        var opt = el("option", null, { value: o.value, text: o.text });
+        if (o.value === f.value) opt.selected = true;
+        sel.appendChild(opt);
+      });
+      sel.addEventListener("change", function () { location.hash = f.href(sel.value); });
+      wrap.appendChild(sel);
+      bar.appendChild(wrap);
+    });
+    if (count != null) bar.appendChild(el("p", "fj-filterbar-count", { text: count + (count === 1 ? " design" : " designs") }));
+    return bar;
   }
 
   function ct(n) {
@@ -313,6 +378,11 @@
     body.appendChild(el("p", null, {
       text: [p.metal, p.stoneCt != null ? ct(p.stoneCt) : ""].filter(Boolean).join(" · ")
     }));
+    if (variantsOf(p).length > 1) {
+      var dots = swatches(p, "fj-card-swatches", false);
+      dots.appendChild(el("span", "fj-card-swatch-n", { text: variantsOf(p).length + " colours" }));
+      body.appendChild(dots);
+    }
     a.appendChild(body);
     return a;
   }
@@ -379,7 +449,7 @@
   function renderShop(route) {
     var col = route.collection;
     var type = route.type;
-    var items = productsFor(col ? col.name : null, type);
+    var items = designs(productsFor(col ? col.name : null, type));
 
     var root = el("div", "fj-shop");
 
@@ -400,41 +470,22 @@
     }));
     root.appendChild(banner);
 
-    var filters = el("div", "fj-filters");
-
-    var colRow = el("div", "fj-filter-row");
-    colRow.appendChild(el("span", "fj-filter-label", { text: "Collection" }));
-    colRow.appendChild(el("a", "fj-chip" + (!col ? " is-on" : ""), {
-      href: shopHref(null, type),
-      text: "All"
-    }));
-    data.collections.forEach(function (c) {
-      colRow.appendChild(el("a", "fj-chip" + (col && col.id === c.id ? " is-on" : ""), {
-        href: shopHref(c, type),
-        text: c.name
-      }));
-    });
-    filters.appendChild(colRow);
-
-    var typeRow = el("div", "fj-filter-row");
-    typeRow.appendChild(el("span", "fj-filter-label", { text: "Category" }));
-    typeRow.appendChild(el("a", "fj-chip" + (!type ? " is-on" : ""), {
-      href: shopHref(col, null),
-      text: "All"
-    }));
-    data.types.forEach(function (t) {
-      typeRow.appendChild(el("a", "fj-chip" + (type === t ? " is-on" : ""), {
-        href: shopHref(col, t),
-        text: t
-      }));
-    });
-    filters.appendChild(typeRow);
-    root.appendChild(filters);
+    /* Two dropdowns in one bar, rather than a row of chips for every
+       collection and category spread across the page. */
+    root.appendChild(filterBar([
+      { label: "Collection", value: col ? col.id : "",
+        options: [{ value: "", text: "All collections" }].concat(data.collections.map(function (c) {
+          return { value: c.id, text: c.name };
+        })),
+        href: function (v) { return shopHref(v ? data.collections.find(function (c) { return c.id === v; }) : null, type); } },
+      { label: "Category", value: type || "",
+        options: [{ value: "", text: "All categories" }].concat(data.types.map(function (t) {
+          return { value: t, text: t };
+        })),
+        href: function (v) { return shopHref(col, v || null); } }
+    ], items.length));
 
     var body = el("div", "fj-shop-body");
-    body.appendChild(el("p", "fj-shop-meta", {
-      text: items.length + (items.length === 1 ? " piece" : " pieces")
-    }));
     var grid = el("div", "fj-grid");
     if (!items.length) {
       grid.appendChild(el("p", "fj-empty", { text: "No pieces match these filters." }));
@@ -449,7 +500,7 @@
   function renderCollection(route) {
     var col = route.collection;
     var type = route.type;
-    var items = productsFor(col.name, type);
+    var items = designs(productsFor(col.name, type));
     var types = typesPresent(col.name);
     var root = el("div", "fj-col");
 
@@ -510,7 +561,7 @@
       }));
       subHead.appendChild(el("h1", "fj-title", { text: type }));
       subHead.appendChild(el("p", "fj-col-count", {
-        text: items.length + (items.length === 1 ? " piece" : " pieces")
+        text: items.length + (items.length === 1 ? " design" : " designs")
       }));
       root.appendChild(subHead);
     }
@@ -520,22 +571,21 @@
       pieces.appendChild(el("header", "fj-pieces-head", {
         html: "<h2 class=\"fj-pieces-title\">The collection</h2>" +
           "<p class=\"fj-col-count\">" +
-          items.length + (items.length === 1 ? " piece" : " pieces") +
+          items.length + (items.length === 1 ? " design" : " designs") +
           "</p>"
       }));
     }
 
-    /* rail first, then the grid: the filter reads across the top */
     var layout = el("div", "fj-layout");
-    var rail = el("nav", "fj-rail", { "aria-label": "Categories" });
-    rail.appendChild(el("a", type ? "" : "is-on", { href: "#/" + col.id, text: "All" }));
-    types.forEach(function (t) {
-      rail.appendChild(el("a", type === t ? "is-on" : "", {
-        href: "#/" + col.id + "/" + slugify(t),
-        text: t
-      }));
-    });
-    layout.appendChild(rail);
+    if (types.length > 1) {
+      pieces.appendChild(filterBar([
+        { label: "Category", value: type || "",
+          options: [{ value: "", text: "All categories" }].concat(types.map(function (t) {
+            return { value: t, text: t };
+          })),
+          href: function (v) { return "#/" + col.id + (v ? "/" + slugify(v) : ""); } }
+      ], type ? items.length : null));
+    }
 
     var grid = el("div", "fj-grid");
     if (!items.length) {
@@ -603,6 +653,12 @@
     copy.appendChild(el("p", "fj-kicker", { text: p.sku }));
     copy.appendChild(el("h1", "fj-title", { text: headline(p) }));
     if (p.subtitle) copy.appendChild(el("p", "fj-subtitle", { text: p.subtitle }));
+    if (variantsOf(p).length > 1) {
+      var pick = el("div", "fj-variants");
+      pick.appendChild(el("p", "fj-variants-label", { text: "This design in other stones" }));
+      pick.appendChild(swatches(p, "fj-variants-row", true));
+      copy.appendChild(pick);
+    }
 
     var priceRow = el("div", "fj-pdp-price");
     priceRow.appendChild(el("span", "fj-pdp-price-val", { text: formatPrice(p) }));
@@ -716,8 +772,9 @@
     closer.appendChild(closerGrid);
 
     // cross-sell — same collection first, then the rest
-    var rel = data.products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
-      .concat(data.products.filter(function (q) { return q.id !== p.id && q.collection !== p.collection; }))
+    var mine = (p.design || p.id);
+    var rel = designs(data.products.filter(function (q) { return (q.design || q.id) !== mine && q.collection === p.collection; })
+      .concat(data.products.filter(function (q) { return q.collection !== p.collection; })))
       .slice(0, 3);
     var relWrap = el("section", "fj-related");
     var relHead = el("div", "fj-related-head");

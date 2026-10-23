@@ -169,17 +169,6 @@ window.FJ_DATA = {
         "img/products/g-636-1.webp"
       ],
       "story": ""
-    },
-    {
-      "id": "shamsa-fine",
-      "name": "Shamsa Fine",
-      "lede": "Inspired by the sun: a study in incandescence and inner energy.",
-      "tone": "#c4703a",
-      "banner": "img/products/gd26-271.g2.webp",
-      "bannerY": "50%",
-      "meta": "Tanzanite · Pink spinel · White and yellow gold",
-      "models": [],
-      "story": ""
     }
   ],
   "types": [
@@ -215,7 +204,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-148-3.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond cuff bracelet"
+      "specName": "Tanzanite and diamond cuff bracelet",
+      "design": "gd26-148"
     },
     {
       "id": "gd25-1103",
@@ -241,7 +231,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1103-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond cuff bracelet"
+      "specName": "Pink spinel and diamond cuff bracelet",
+      "design": "gd26-148"
     },
     {
       "id": "gd26-196-c",
@@ -619,7 +610,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-141-2.webp",
       "subtitle": "Morganite and diamonds",
-      "specName": "Morganite and diamond pendant"
+      "specName": "Morganite and diamond pendant",
+      "design": "gd25-1097"
     },
     {
       "id": "gd26-197",
@@ -692,7 +684,8 @@ window.FJ_DATA = {
         "img/products/gd25-1081.webp"
       ],
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond bloom pendant"
+      "specName": "Mint garnet and diamond bloom pendant",
+      "design": "gd25-1081"
     },
     {
       "id": "gd25-1069",
@@ -718,7 +711,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1069-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond bloom ring"
+      "specName": "Mint garnet and diamond bloom ring",
+      "design": "gd25-1069"
     },
     {
       "id": "gd25-1067",
@@ -743,7 +737,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1067-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond bloom earring"
+      "specName": "Mint garnet and diamond bloom earring",
+      "design": "gd25-1067"
     },
     {
       "id": "gd25-994",
@@ -769,7 +764,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-994-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond bloom bracelet"
+      "specName": "Aquamarine and diamond bloom bracelet",
+      "design": "gd25-875"
     },
     {
       "id": "gd25-1026",
@@ -795,7 +791,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1026-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond bloom ring"
+      "specName": "Aquamarine and diamond bloom ring",
+      "design": "gd25-1069"
     },
     {
       "id": "gd25-1086",
@@ -820,7 +817,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1086-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond bloom earring"
+      "specName": "Aquamarine and diamond bloom earring",
+      "design": "gd25-1067"
     },
     {
       "id": "gd25-1087",
@@ -843,7 +841,8 @@ window.FJ_DATA = {
         "img/products/gd25-1087.webp"
       ],
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond bloom pendant"
+      "specName": "Aquamarine and diamond bloom pendant",
+      "design": "gd25-1081"
     },
     {
       "id": "gd25-875",
@@ -869,7 +868,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-875-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond bloom bracelet"
+      "specName": "Tanzanite and diamond bloom bracelet",
+      "design": "gd25-875"
     },
     {
       "id": "gd25-964",
@@ -968,7 +968,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1097-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond petal pendant"
+      "specName": "Pink spinel and diamond petal pendant",
+      "design": "gd25-1097"
     },
     {
       "id": "gd26-790",
@@ -1131,7 +1132,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1046-1.webp",
       "subtitle": "Rubellite and diamonds",
-      "specName": "Heart in bloom rubellite and diamond dual finger ring"
+      "specName": "Heart in bloom rubellite and diamond dual finger ring",
+      "design": "gd25-1046"
     },
     {
       "id": "gd25-124",
@@ -1177,7 +1179,8 @@ window.FJ_DATA = {
         "img/products/gd25-1036.webp"
       ],
       "subtitle": "Pink spinel, morganite and diamonds",
-      "specName": "Morganite, pink spinel and diamond feather ring"
+      "specName": "Morganite, pink spinel and diamond feather ring",
+      "design": "gd25-1069"
     },
     {
       "id": "gd26-62",
@@ -1251,7 +1254,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-139-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Heart in bloom tanzanite and diamond dual finger ring"
+      "specName": "Heart in bloom tanzanite and diamond dual finger ring",
+      "design": "gd25-1046"
     },
     {
       "id": "gd26-167",
@@ -1303,7 +1307,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-200-1.webp",
       "subtitle": "Pink spinel, aquamarine and diamonds",
-      "specName": "Pink spinel, aquamarine and diamond bloom statement ring"
+      "specName": "Pink spinel, aquamarine and diamond bloom statement ring",
+      "design": "gd26-200"
     },
     {
       "id": "gd26-201",
@@ -1329,7 +1334,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-201-1.webp",
       "subtitle": "Spessartite, pink spinel and diamonds",
-      "specName": "Spessartite, pink spinel and diamond bloom statement ring"
+      "specName": "Spessartite, pink spinel and diamond bloom statement ring",
+      "design": "gd26-200"
     },
     {
       "id": "gd26-766",
@@ -1352,7 +1358,8 @@ window.FJ_DATA = {
         "img/products/gd26-766.g2.webp"
       ],
       "subtitle": "Aquamarine, pink spinel and diamonds",
-      "specName": "Aquamarine, pink spinel and diamond bloom statement ring"
+      "specName": "Aquamarine, pink spinel and diamond bloom statement ring",
+      "design": "gd26-200"
     },
     {
       "id": "gd26-563",
@@ -1378,7 +1385,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-563-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond bloom statement ring"
+      "specName": "Mint garnet and diamond bloom statement ring",
+      "design": "gd26-563"
     },
     {
       "id": "gd26-205",
@@ -1401,7 +1409,8 @@ window.FJ_DATA = {
         "img/products/gd26-205.webp"
       ],
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Lavender tanzanite, tanzanite and diamond fern ring"
+      "specName": "Lavender tanzanite, tanzanite and diamond fern ring",
+      "design": "gd26-205"
     },
     {
       "id": "gd26-206",
@@ -1424,7 +1433,8 @@ window.FJ_DATA = {
         "img/products/gd26-206.webp"
       ],
       "subtitle": "Pink spinel, spessartite and diamonds",
-      "specName": "Spessartite, pink spinel and diamond fern ring"
+      "specName": "Spessartite, pink spinel and diamond fern ring",
+      "design": "gd26-205"
     },
     {
       "id": "gd26-257",
@@ -1519,7 +1529,8 @@ window.FJ_DATA = {
         "img/products/gd26-583.webp"
       ],
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond bloom statement ring"
+      "specName": "Spessartite and diamond bloom statement ring",
+      "design": "gd26-563"
     },
     {
       "id": "gd25-1047",
@@ -1545,7 +1556,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1047-1.webp",
       "subtitle": "Rubellite and diamonds",
-      "specName": "Heart in bloom rubellite and diamond ring"
+      "specName": "Heart in bloom rubellite and diamond ring",
+      "design": "gd25-1046"
     },
     {
       "id": "gd26-587",
@@ -1736,7 +1748,8 @@ window.FJ_DATA = {
         "img/products/gd26-762.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond bloom bracelet"
+      "specName": "Pink spinel and diamond bloom bracelet",
+      "design": "gd26-750"
     },
     {
       "id": "gd25-288",
@@ -1809,7 +1822,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-60-2.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond rosette studs"
+      "specName": "Pink spinel and diamond rosette studs",
+      "design": "gd26-60"
     },
     {
       "id": "gd26-70",
@@ -1832,7 +1846,8 @@ window.FJ_DATA = {
         "img/products/gd26-70.webp"
       ],
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond garland earring"
+      "specName": "Mint garnet and diamond garland earring",
+      "design": "gd26-60"
     },
     {
       "id": "gd26-166",
@@ -1880,7 +1895,8 @@ window.FJ_DATA = {
         "img/products/gd26-177.webp"
       ],
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond garland earring"
+      "specName": "Spessartite and diamond garland earring",
+      "design": "gd26-60"
     },
     {
       "id": "gd26-210",
@@ -2147,7 +2163,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-242-a-2.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond swirl earring"
+      "specName": "Mint garnet and diamond swirl earring",
+      "design": "gd26-198-b"
     },
     {
       "id": "gd25-974",
@@ -2172,7 +2189,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-974-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond swirl earring"
+      "specName": "Pink spinel and diamond swirl earring",
+      "design": "gd25-1074"
     },
     {
       "id": "gd25-1055",
@@ -2197,7 +2215,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1055-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond swirl earring"
+      "specName": "Mint garnet and diamond swirl earring",
+      "design": "gd25-1074"
     },
     {
       "id": "gd25-1074",
@@ -2222,7 +2241,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1074-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond swirl earring"
+      "specName": "Aquamarine and diamond swirl earring",
+      "design": "gd25-1074"
     },
     {
       "id": "gd26-198-b",
@@ -2247,7 +2267,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-198-b-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond swirl earring"
+      "specName": "Aquamarine and diamond swirl earring",
+      "design": "gd26-198-b"
     },
     {
       "id": "gd26-782",
@@ -2316,7 +2337,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-991-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond swirl ring"
+      "specName": "Pink spinel and diamond swirl ring",
+      "design": "gd25-1025"
     },
     {
       "id": "gd25-1025",
@@ -2342,7 +2364,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1025-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond swirl ring"
+      "specName": "Aquamarine and diamond swirl ring",
+      "design": "gd25-1025"
     },
     {
       "id": "gd25-1057",
@@ -2368,7 +2391,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1057-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond swirl ring"
+      "specName": "Mint garnet and diamond swirl ring",
+      "design": "gd25-1025"
     },
     {
       "id": "gd26-783",
@@ -2421,7 +2445,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-894-3.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond swirl bracelet"
+      "specName": "Aquamarine and diamond swirl bracelet",
+      "design": "gd25-894"
     },
     {
       "id": "gd25-966",
@@ -2472,7 +2497,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-992-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond swirl bracelet"
+      "specName": "Pink spinel and diamond swirl bracelet",
+      "design": "gd25-894"
     },
     {
       "id": "gd25-1083",
@@ -2498,7 +2524,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1083-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond swirl bracelet"
+      "specName": "Mint garnet and diamond swirl bracelet",
+      "design": "gd25-894"
     },
     {
       "id": "gd26-827",
@@ -2613,7 +2640,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-163-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond dazzle bangle"
+      "specName": "Aquamarine and diamond dazzle bangle",
+      "design": "gd26-163"
     },
     {
       "id": "gd26-250",
@@ -2691,7 +2719,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-49-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dazzle bangle"
+      "specName": "Spessartite and diamond dazzle bangle",
+      "design": "gd26-163"
     },
     {
       "id": "gd26-54",
@@ -2798,7 +2827,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-704-3.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dazzle ring"
+      "specName": "Spessartite and diamond dazzle ring",
+      "design": "gd25-1052"
     },
     {
       "id": "gd26-159",
@@ -2824,7 +2854,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-159-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond dazzle ring"
+      "specName": "Mint garnet and diamond dazzle ring",
+      "design": "gd26-159"
     },
     {
       "id": "gd26-161",
@@ -2850,7 +2881,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-161-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond dazzle ring"
+      "specName": "Aquamarine and diamond dazzle ring",
+      "design": "gd26-159"
     },
     {
       "id": "gd26-48",
@@ -2876,7 +2908,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-48-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dazzle ring"
+      "specName": "Spessartite and diamond dazzle ring",
+      "design": "gd26-159"
     },
     {
       "id": "gd26-53",
@@ -2903,7 +2936,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-53-3.webp",
       "subtitle": "Tanzanite, aquamarine and diamonds",
-      "specName": "Tanzanite, aquamarine and diamond dazzle ring"
+      "specName": "Tanzanite, aquamarine and diamond dazzle ring",
+      "design": "gd26-249"
     },
     {
       "id": "gd25-1052",
@@ -2929,7 +2963,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1052-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond dazzle ring"
+      "specName": "Mint garnet and diamond dazzle ring",
+      "design": "gd25-1052"
     },
     {
       "id": "gd25-1002",
@@ -2955,7 +2990,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1002-1.webp",
       "subtitle": "Green tourmaline and diamonds",
-      "specName": "Green tourmaline and diamond dazzle ring"
+      "specName": "Green tourmaline and diamond dazzle ring",
+      "design": "gd25-1002"
     },
     {
       "id": "gd24-750",
@@ -2981,7 +3017,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd24-750-1.webp",
       "subtitle": "Bi-colour tourmaline and diamonds",
-      "specName": "Bi-colour tourmaline and diamond dazzle ring"
+      "specName": "Bi-colour tourmaline and diamond dazzle ring",
+      "design": "gd25-1002"
     },
     {
       "id": "gd25-636",
@@ -3079,7 +3116,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-249-1.webp",
       "subtitle": "Aquamarine, pink spinel and diamonds",
-      "specName": "Aquamarine, pink spinel and diamond dazzle ring"
+      "specName": "Aquamarine, pink spinel and diamond dazzle ring",
+      "design": "gd26-249"
     },
     {
       "id": "gd25-1053",
@@ -3154,7 +3192,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-977-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dazzle earrings"
+      "specName": "Pink spinel and diamond dazzle earrings",
+      "design": "gd25-977"
     },
     {
       "id": "gd26-160",
@@ -3177,7 +3216,8 @@ window.FJ_DATA = {
         "img/products/gd26-160.webp"
       ],
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond dazzle earrings"
+      "specName": "Mint garnet and diamond dazzle earrings",
+      "design": "gd26-160"
     },
     {
       "id": "gd26-162",
@@ -3200,7 +3240,8 @@ window.FJ_DATA = {
         "img/products/gd26-162.webp"
       ],
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond dazzle earrings"
+      "specName": "Aquamarine and diamond dazzle earrings",
+      "design": "gd26-160"
     },
     {
       "id": "gd26-310",
@@ -3225,7 +3266,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-310-1.webp",
       "subtitle": "Aquamarine, tanzanite and diamonds",
-      "specName": "Aquamarine, tanzanite and diamond dazzle earrings"
+      "specName": "Aquamarine, tanzanite and diamond dazzle earrings",
+      "design": "gd25-977"
     },
     {
       "id": "gd26-769",
@@ -3296,7 +3338,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1098-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dazzle pendant"
+      "specName": "Pink spinel and diamond dazzle pendant",
+      "design": "gd25-1098"
     },
     {
       "id": "gd25-635",
@@ -3321,7 +3364,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-635-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond dazzle pendant"
+      "specName": "Tanzanite and diamond dazzle pendant",
+      "design": "gd25-1098"
     },
     {
       "id": "gd24-435",
@@ -3396,7 +3440,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd24-900-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond entwine earrings"
+      "specName": "Tanzanite and diamond entwine earrings",
+      "design": "gd24-900"
     },
     {
       "id": "gd25-410",
@@ -3421,7 +3466,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-410-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond entwine earrings"
+      "specName": "Tanzanite and diamond entwine earrings",
+      "design": "gd25-410"
     },
     {
       "id": "gd25-426",
@@ -3447,7 +3493,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-426-2.webp",
       "subtitle": "Green tourmaline and diamonds",
-      "specName": "Green tourmaline and diamond entwine earrings"
+      "specName": "Green tourmaline and diamond entwine earrings",
+      "design": "gd25-410"
     },
     {
       "id": "gd25-436",
@@ -3572,7 +3619,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-27-1.webp",
       "subtitle": "Green tourmaline and diamonds",
-      "specName": "Green tourmaline and diamond entwine earrings"
+      "specName": "Green tourmaline and diamond entwine earrings",
+      "design": "gd24-900"
     },
     {
       "id": "gd26-330",
@@ -3622,7 +3670,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd23-159-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond entwine ring"
+      "specName": "Tanzanite and diamond entwine ring",
+      "design": "gd23-159"
     },
     {
       "id": "gd24-103",
@@ -3701,7 +3750,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-728-3.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond entwine ring"
+      "specName": "Mint garnet and diamond entwine ring",
+      "design": "gd25-729"
     },
     {
       "id": "gd25-729",
@@ -3727,7 +3777,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-729-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond entwine ring"
+      "specName": "Tanzanite and diamond entwine ring",
+      "design": "gd25-729"
     },
     {
       "id": "gd25-1040",
@@ -3753,7 +3804,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1040-1.webp",
       "subtitle": "Fancy tanzanite and diamonds",
-      "specName": "Fancy tanzanite and diamond entwine ring"
+      "specName": "Fancy tanzanite and diamond entwine ring",
+      "design": "gd23-159"
     },
     {
       "id": "gd26-584",
@@ -3804,7 +3856,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-697-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond spectrum earrings"
+      "specName": "Aquamarine and diamond spectrum earrings",
+      "design": "gd25-697"
     },
     {
       "id": "gd25-698",
@@ -3829,7 +3882,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-698-1.webp",
       "subtitle": "Rose rhodolite and diamonds",
-      "specName": "Rose rhodolite and diamond spectrum earrings"
+      "specName": "Rose rhodolite and diamond spectrum earrings",
+      "design": "gd25-697"
     },
     {
       "id": "gd25-699",
@@ -3854,7 +3908,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-699-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond spectrum earrings"
+      "specName": "Mint garnet and diamond spectrum earrings",
+      "design": "gd25-697"
     },
     {
       "id": "gd25-954",
@@ -3905,7 +3960,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-667-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond spectrum ring"
+      "specName": "Aquamarine and diamond spectrum ring",
+      "design": "gd25-652"
     },
     {
       "id": "gd25-727",
@@ -3960,7 +4016,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-665-1.webp",
       "subtitle": "Rose rhodolite and diamonds",
-      "specName": "Rose rhodolite and diamond spectrum ring"
+      "specName": "Rose rhodolite and diamond spectrum ring",
+      "design": "gd25-652"
     },
     {
       "id": "gd25-913",
@@ -3986,7 +4043,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-913-1.webp",
       "subtitle": "Rose rhodolite and diamonds",
-      "specName": "Rose rhodolite and diamond spectrum ring"
+      "specName": "Rose rhodolite and diamond spectrum ring",
+      "design": "gd25-911"
     },
     {
       "id": "gd25-720",
@@ -4038,7 +4096,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-880-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond spectrum ring"
+      "specName": "Mint garnet and diamond spectrum ring",
+      "design": "gd25-882"
     },
     {
       "id": "gd25-909",
@@ -4067,7 +4126,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-909-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond spectrum ring"
+      "specName": "Mint garnet and diamond spectrum ring",
+      "design": "gd25-911"
     },
     {
       "id": "gd25-910",
@@ -4096,7 +4156,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-910-1.webp",
       "subtitle": "Tsavorite and diamonds",
-      "specName": "Tsavorite and diamond spectrum ring"
+      "specName": "Tsavorite and diamond spectrum ring",
+      "design": "gd25-911"
     },
     {
       "id": "gd25-911",
@@ -4125,7 +4186,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-911-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond spectrum ring"
+      "specName": "Aquamarine and diamond spectrum ring",
+      "design": "gd25-911"
     },
     {
       "id": "gd25-882",
@@ -4151,7 +4213,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-882-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond spectrum ring"
+      "specName": "Aquamarine and diamond spectrum ring",
+      "design": "gd25-882"
     },
     {
       "id": "gd25-652",
@@ -4180,7 +4243,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-652-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond spectrum ring"
+      "specName": "Tanzanite and diamond spectrum ring",
+      "design": "gd25-652"
     },
     {
       "id": "gd26-36",
@@ -4254,7 +4318,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-253-a-2.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond spectrum earrings"
+      "specName": "Aquamarine and diamond spectrum earrings",
+      "design": "gd26-253-a"
     },
     {
       "id": "gd26-254",
@@ -4303,7 +4368,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-254-a-2.webp",
       "subtitle": "Rose rhodolite and diamonds",
-      "specName": "Rose rhodolite and diamond spectrum earrings"
+      "specName": "Rose rhodolite and diamond spectrum earrings",
+      "design": "gd26-253-a"
     },
     {
       "id": "gd26-66",
@@ -4357,7 +4423,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-311-3.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond royal starling bangle"
+      "specName": "Mint garnet and diamond royal starling bangle",
+      "design": "gd26-188"
     },
     {
       "id": "gd26-188",
@@ -4384,7 +4451,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-188-3.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond royal starling bangle"
+      "specName": "Tanzanite and diamond royal starling bangle",
+      "design": "gd26-188"
     },
     {
       "id": "gd26-178",
@@ -4409,7 +4477,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-178-1.webp",
       "subtitle": "Tsavorite and diamonds",
-      "specName": "Tsavorite and diamond royal starling bangle"
+      "specName": "Tsavorite and diamond royal starling bangle",
+      "design": "gd26-188"
     },
     {
       "id": "gd26-67",
@@ -4593,7 +4662,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-312-3.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond royal starling ring"
+      "specName": "Mint garnet and diamond royal starling ring",
+      "design": "gd26-853"
     },
     {
       "id": "gd26-853",
@@ -4619,7 +4689,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-853-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond royal starling ring"
+      "specName": "Tanzanite and diamond royal starling ring",
+      "design": "gd26-853"
     },
     {
       "id": "gd26-868",
@@ -4667,7 +4738,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-187-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond royal starling earrings"
+      "specName": "Tanzanite and diamond royal starling earrings",
+      "design": "gd26-187"
     },
     {
       "id": "gd26-169",
@@ -4715,7 +4787,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-170-1.webp",
       "subtitle": "Tsavorite and diamonds",
-      "specName": "Tsavorite and diamond royal starling earrings"
+      "specName": "Tsavorite and diamond royal starling earrings",
+      "design": "gd26-187"
     },
     {
       "id": "gd23-443",
@@ -4969,7 +5042,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-265-2.webp",
       "subtitle": "Lavender tanzanite and diamonds",
-      "specName": "Lavender tanzanite and diamond flare earrings"
+      "specName": "Lavender tanzanite and diamond flare earrings",
+      "design": "gd26-265"
     },
     {
       "id": "gd26-268",
@@ -4995,7 +5069,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-268-2.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond flare earrings"
+      "specName": "Spessartite and diamond flare earrings",
+      "design": "gd26-265"
     },
     {
       "id": "gd26-901",
@@ -5041,7 +5116,8 @@ window.FJ_DATA = {
         "img/products/gd26-801.g2.webp"
       ],
       "subtitle": "Tourmaline and diamonds",
-      "specName": "Tourmaline and diamond flare earrings"
+      "specName": "Tourmaline and diamond flare earrings",
+      "design": "gd26-864"
     },
     {
       "id": "gd26-864",
@@ -5066,7 +5142,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-864-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond flare earrings"
+      "specName": "Pink spinel and diamond flare earrings",
+      "design": "gd26-864"
     },
     {
       "id": "gd26-832",
@@ -5091,7 +5168,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-832-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond flare earrings"
+      "specName": "Aquamarine and diamond flare earrings",
+      "design": "gd26-864"
     },
     {
       "id": "gd26-863",
@@ -5114,7 +5192,8 @@ window.FJ_DATA = {
         "img/products/gd26-863.g2.webp"
       ],
       "subtitle": "Pink tourmaline and diamonds",
-      "specName": "Pink tourmaline and diamond flare earrings"
+      "specName": "Pink tourmaline and diamond flare earrings",
+      "design": "gd26-864"
     },
     {
       "id": "gd24-188",
@@ -5189,7 +5268,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd24-346-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond flare earrings"
+      "specName": "Tanzanite and diamond flare earrings",
+      "design": "gd24-346"
     },
     {
       "id": "gd26-562",
@@ -5214,7 +5294,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-562-1.webp",
       "subtitle": "Rose rhodolite and diamonds",
-      "specName": "Rose rhodolite and diamond flare earrings"
+      "specName": "Rose rhodolite and diamond flare earrings",
+      "design": "gd24-346"
     },
     {
       "id": "gd25-1088",
@@ -5239,7 +5320,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1088-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond flare earrings"
+      "specName": "Aquamarine and diamond flare earrings",
+      "design": "gd24-346"
     },
     {
       "id": "gd23-287",
@@ -5340,7 +5422,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-795-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond flare ring"
+      "specName": "Aquamarine and diamond flare ring",
+      "design": "gd26-791"
     },
     {
       "id": "gd26-791",
@@ -5366,7 +5449,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-791-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond flare ring"
+      "specName": "Spessartite and diamond flare ring",
+      "design": "gd26-791"
     },
     {
       "id": "gd26-829",
@@ -5389,7 +5473,8 @@ window.FJ_DATA = {
         "img/products/gd26-829.webp"
       ],
       "subtitle": "Tourmaline and diamonds",
-      "specName": "Tourmaline and diamond flare ring"
+      "specName": "Tourmaline and diamond flare ring",
+      "design": "gd26-834"
     },
     {
       "id": "gd26-831",
@@ -5415,7 +5500,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-831-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond flare ring"
+      "specName": "Aquamarine and diamond flare ring",
+      "design": "gd26-834"
     },
     {
       "id": "gd26-834",
@@ -5438,7 +5524,8 @@ window.FJ_DATA = {
         "img/products/gd26-834.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond flare ring"
+      "specName": "Pink spinel and diamond flare ring",
+      "design": "gd26-834"
     },
     {
       "id": "gd26-862",
@@ -5464,7 +5551,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-862-1.webp",
       "subtitle": "Pink tourmaline and diamonds",
-      "specName": "Pink tourmaline and diamond flare ring"
+      "specName": "Pink tourmaline and diamond flare ring",
+      "design": "gd26-834"
     },
     {
       "id": "gd26-207",
@@ -5542,7 +5630,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-550-1.webp",
       "subtitle": "Rhodolite and diamonds",
-      "specName": "Rhodolite and diamond flare ring"
+      "specName": "Rhodolite and diamond flare ring",
+      "design": "gd25-1022"
     },
     {
       "id": "gd25-1022",
@@ -5568,7 +5657,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1022-1.webp",
       "subtitle": "Tanzanite cut and diamonds",
-      "specName": "Tanzanite cut and diamond flare ring"
+      "specName": "Tanzanite cut and diamond flare ring",
+      "design": "gd25-1022"
     },
     {
       "id": "gd25-1071",
@@ -5594,7 +5684,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-1071-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond flare ring"
+      "specName": "Aquamarine and diamond flare ring",
+      "design": "gd25-1022"
     },
     {
       "id": "gd26-279-a",
@@ -5645,7 +5736,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-266-1.webp",
       "subtitle": "Lavender tanzanite and diamonds",
-      "specName": "Lavender tanzanite and diamond flare pendant"
+      "specName": "Lavender tanzanite and diamond flare pendant",
+      "design": "gd26-266"
     },
     {
       "id": "gd26-269",
@@ -5671,7 +5763,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-269-2.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond flare pendant"
+      "specName": "Spessartite and diamond flare pendant",
+      "design": "gd26-266"
     },
     {
       "id": "gd26-800",
@@ -5694,7 +5787,8 @@ window.FJ_DATA = {
         "img/products/gd26-800.g2.webp"
       ],
       "subtitle": "Tourmaline and diamonds",
-      "specName": "Tourmaline and diamond flare pendant"
+      "specName": "Tourmaline and diamond flare pendant",
+      "design": "gd26-833"
     },
     {
       "id": "gd26-803",
@@ -5719,7 +5813,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-803-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond flare pendant"
+      "specName": "Aquamarine and diamond flare pendant",
+      "design": "gd26-833"
     },
     {
       "id": "gd26-833",
@@ -5744,7 +5839,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-833-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond flare pendant"
+      "specName": "Pink spinel and diamond flare pendant",
+      "design": "gd26-833"
     },
     {
       "id": "gd26-905",
@@ -6041,98 +6137,6 @@ window.FJ_DATA = {
       "specName": "Mint garnet, tsavorite and diamond bracelet"
     },
     {
-      "id": "gd26-271",
-      "sku": "GD26-271",
-      "name": "Tanzanite Necklace",
-      "collection": "Shamsa Fine",
-      "type": "Necklaces",
-      "metal": "18k White Gold",
-      "metalCode": "G-18kt-W",
-      "stone": "Tanzanite",
-      "shape": "Pears",
-      "stonePcs": 1,
-      "stoneCt": 14.83,
-      "diamondCt": 2.62,
-      "netG": 23.36,
-      "grossG": 26.85,
-      "story": "Crafted in 18k White Gold, set with 14.83 carats of pear-cut tanzanite paired with 2.62 carats of brilliant cut diamonds.",
-      "tone": "#3a5f9a",
-      "images": [
-        "img/products/gd26-271.g2.webp"
-      ],
-      "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond shamsa necklace"
-    },
-    {
-      "id": "gd26-271-a",
-      "sku": "GD26-271 A",
-      "name": "Tanzanite Earrings",
-      "collection": "Shamsa Fine",
-      "type": "Earrings",
-      "metal": "18k White Gold",
-      "metalCode": "G-18kt-W",
-      "stone": "Tanzanite",
-      "shape": "Pears",
-      "stonePcs": 2,
-      "stoneCt": 15.17,
-      "diamondCt": 1.91,
-      "netG": 14.384,
-      "grossG": 17.8,
-      "story": "Crafted in 18k White Gold, set with 15.17 carats of pear-cut tanzanite paired with 1.91 carats of brilliant cut diamonds.",
-      "tone": "#3a5f9a",
-      "images": [
-        "img/products/gd26-271-a.g2.webp"
-      ],
-      "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond shamsa earrings"
-    },
-    {
-      "id": "gd26-895",
-      "sku": "GD26-895",
-      "name": "Pink Spinel Pendant",
-      "collection": "Shamsa Fine",
-      "type": "Pendants",
-      "metal": "18k Yellow and White Gold",
-      "metalCode": "G-18kt-YW",
-      "stone": "Pink Spinel",
-      "shape": "Oval Cabs",
-      "stonePcs": 1,
-      "stoneCt": 1.77,
-      "diamondCt": 1.315,
-      "netG": 4.923,
-      "grossG": 5.54,
-      "story": "Crafted in 18k Yellow and White Gold, set with 1.77 carats of pink spinel paired with 1.315 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a",
-      "images": [
-        "img/products/gd26-895.g2.webp"
-      ],
-      "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond shamsa pendant"
-    },
-    {
-      "id": "gd26-897",
-      "sku": "GD26-897",
-      "name": "Pink Spinel Ring",
-      "collection": "Shamsa Fine",
-      "type": "Rings",
-      "metal": "18k Yellow and White Gold",
-      "metalCode": "G-18kt-YW",
-      "stone": "Pink Spinel",
-      "shape": "Oval Cabs",
-      "stonePcs": 1,
-      "stoneCt": 1.03,
-      "diamondCt": 1.35,
-      "netG": 6.514,
-      "grossG": 6.99,
-      "story": "Crafted in 18k Yellow and White Gold, set with 1.03 carats of pink spinel paired with 1.35 carats of brilliant cut diamonds.",
-      "tone": "#c45a7a",
-      "images": [
-        "img/products/gd26-897.g2.webp"
-      ],
-      "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond shamsa ring"
-    },
-    {
       "id": "gd24-647",
       "sku": "GD24-647",
       "name": "Tanzanite Earrings",
@@ -6258,7 +6262,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-174-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome earrings"
+      "specName": "Pink spinel and diamond dome earrings",
+      "design": "gd26-174"
     },
     {
       "id": "gd26-59",
@@ -6284,7 +6289,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-59-2.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dome earrings"
+      "specName": "Spessartite and diamond dome earrings",
+      "design": "gd26-174"
     },
     {
       "id": "gd26-214",
@@ -6336,7 +6342,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-259-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome bracelet"
+      "specName": "Pink spinel and diamond dome bracelet",
+      "design": "gd26-259"
     },
     {
       "id": "gd26-261",
@@ -6361,7 +6368,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-261-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dome bracelet"
+      "specName": "Spessartite and diamond dome bracelet",
+      "design": "gd26-259"
     },
     {
       "id": "gd26-568",
@@ -6488,7 +6496,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-227-c-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dome pendant"
+      "specName": "Spessartite and diamond dome pendant",
+      "design": "gd26-236"
     },
     {
       "id": "gd26-236",
@@ -6513,7 +6522,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-236-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome pendant"
+      "specName": "Pink spinel and diamond dome pendant",
+      "design": "gd26-236"
     },
     {
       "id": "gd26-57",
@@ -6564,7 +6574,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-841-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond dome pendant"
+      "specName": "Tanzanite and diamond dome pendant",
+      "design": "gd26-236"
     },
     {
       "id": "gd26-846",
@@ -6745,7 +6756,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-237-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome ring"
+      "specName": "Pink spinel and diamond dome ring",
+      "design": "gd26-237"
     },
     {
       "id": "gd26-560",
@@ -6795,7 +6807,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-58-3.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dome ring"
+      "specName": "Spessartite and diamond dome ring",
+      "design": "gd26-806"
     },
     {
       "id": "gd26-806",
@@ -6821,7 +6834,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-806-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome ring"
+      "specName": "Pink spinel and diamond dome ring",
+      "design": "gd26-806"
     },
     {
       "id": "gd26-840",
@@ -6847,7 +6861,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-840-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome ring"
+      "specName": "Pink spinel and diamond dome ring",
+      "design": "gd26-840"
     },
     {
       "id": "gd26-839",
@@ -6899,7 +6914,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-843-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond dome ring"
+      "specName": "Tanzanite and diamond dome ring",
+      "design": "gd26-237"
     },
     {
       "id": "gd26-848",
@@ -6925,7 +6941,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-848-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dome ring"
+      "specName": "Spessartite and diamond dome ring",
+      "design": "gd26-237"
     },
     {
       "id": "gd26-158",
@@ -6951,7 +6968,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-158-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond dome ring"
+      "specName": "Spessartite and diamond dome ring",
+      "design": "gd26-840"
     },
     {
       "id": "gd26-262",
@@ -7107,7 +7125,8 @@ window.FJ_DATA = {
         "img/products/gd26-750.webp"
       ],
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond bloom bracelet"
+      "specName": "Aquamarine and diamond bloom bracelet",
+      "design": "gd26-750"
     }
   ]
 };

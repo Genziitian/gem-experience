@@ -110,7 +110,9 @@
     return -1;
   }
 
-  function cardImg(p) { return IMG + p.id + ".webp"; }
+  /* A piece made as a set has a card of necklace and earrings together
+     (tools/hj-set-cards.py); the rest keep img/<id>.webp. */
+  function cardImg(p) { return p.card || IMG + p.id + ".webp"; }
 
   /* Every piece now has its own shoot in img/pieces/<id>: p*.webp are the
      stills on white, m*.webp the model frames. The gallery takes the stills,
@@ -385,6 +387,29 @@
     var list = visible();
     var chips = activeChips();
 
+    /* High Jewellery opens on its own band, three portraits across the width
+       with the title set over them, so it reads as a different house from
+       Fine Jewellery's centred heading. One portrait on a phone. */
+    var hero = el("section", "hj-hero");
+    var strip = el("div", "hj-hero-strip");
+    [["img/hero-1.webp", "Ember worn"], ["img/hero-2.webp", "Weaver worn"], ["img/hero-3.webp", "Shamsa worn"]].forEach(function (h, i) {
+      strip.appendChild(el("img", "hj-hero-img hj-hero-img--" + (i + 1), {
+        src: h[0], alt: i === 1 ? "High Jewellery by Gem Experience, " + h[1] + "." : "",
+        srcset: h[0].replace(/\.webp$/, ".w640.webp") + " 640w, " + h[0] + " 900w",
+        sizes: "(max-width: 700px) 100vw, 34vw",
+        fetchpriority: i === 1 ? "high" : "low", decoding: "async"
+      }));
+    });
+    hero.appendChild(strip);
+    var heroCopy = el("div", "hj-hero-copy");
+    var heroKicker = el("span", "hj-hero-kicker"); heroKicker.textContent = "Gem Experience";
+    var heroTitle = el("h1", "hj-hero-title"); heroTitle.textContent = "High Jewellery";
+    var heroLede = el("p", "hj-hero-lede");
+    heroLede.textContent = "One of a kind, from the stone up.";
+    heroCopy.appendChild(heroKicker); heroCopy.appendChild(heroTitle); heroCopy.appendChild(heroLede);
+    hero.appendChild(heroCopy);
+    root.appendChild(hero);
+
     // intro
     var intro = el("section", "intro");
     var crumbs = el("nav", "crumbs", { "aria-label": "Breadcrumb" });
@@ -394,10 +419,9 @@
     var sep2 = el("span"); sep2.textContent = "/";
     var here = el("span", "crumbs-here", { "aria-current": "page" }); here.textContent = "High Jewellery";
     crumbs.appendChild(c1); crumbs.appendChild(sep1); crumbs.appendChild(c2); crumbs.appendChild(sep2); crumbs.appendChild(here);
-    var h1 = el("h1", "intro-title"); h1.textContent = "High Jewellery";
     var lede = el("p", "intro-lede");
     lede.textContent = "Singular pieces, each cut from a stone we followed out of the ground.";
-    intro.appendChild(crumbs); intro.appendChild(h1); intro.appendChild(lede);
+    intro.appendChild(crumbs); intro.appendChild(lede);
     root.appendChild(intro);
 
     // toolbar

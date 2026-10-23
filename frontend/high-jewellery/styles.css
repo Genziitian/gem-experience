@@ -107,7 +107,30 @@ button {
 
 /* --------------------------------------------------------------- listing */
 
-.intro { padding: 28px var(--gutter) 56px; }
+/* the High Jewellery hero: three portraits edge to edge, title over them */
+.hj-hero { position: relative; background: #141210; color: #fff; overflow: hidden; }
+.hj-hero-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: min(78vh, 760px); }
+.hj-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; }
+.hj-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(20,18,16,0) 45%, rgba(20,18,16,0.72) 100%);
+}
+.hj-hero-copy {
+  position: absolute; left: 0; right: 0; bottom: clamp(32px, 6vh, 64px); z-index: 1;
+  display: grid; justify-items: center; gap: 12px; padding: 0 var(--gutter); text-align: center;
+}
+.hj-hero-kicker { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.85; }
+.hj-hero-title {
+  margin: 0; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px); line-height: 1; letter-spacing: 0.02em;
+}
+.hj-hero-lede { margin: 6px 0 0; font-weight: 300; font-size: clamp(14px, 1.3vw, 17px); opacity: 0.9; }
+@media (max-width: 700px) {
+  .hj-hero-strip { grid-template-columns: 1fr; height: 72vh; }
+  .hj-hero-img--1, .hj-hero-img--3 { display: none; }
+}
+
+.intro { padding: 28px var(--gutter) 40px; }
 
 .crumbs {
   display: flex;
@@ -121,15 +144,6 @@ button {
 .crumbs a { color: var(--muted); }
 .crumbs a:hover { color: var(--ink); }
 .crumbs .crumbs-here { color: var(--ink); }
-
-.intro-title {
-  margin: 22px 0 0;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(32px, 4.4vw, 48px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
 
 .intro-lede {
   margin: 20px 0 0;
@@ -929,7 +943,6 @@ button {
   .toolbar-count { display: none; }
 
   .intro { padding: 26px 20px 30px; }
-  .intro-title { margin-top: 0; letter-spacing: 4px; }
   .intro-lede { margin-top: 14px; font-size: 15px; line-height: 24px; }
 
   /* Sort and Filter split the bar as two equal, centred targets. */

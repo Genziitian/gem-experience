@@ -293,38 +293,37 @@ button {
   max-width: 48ch;
 }
 
-.fj-filters {
-  display: flex; flex-direction: column; gap: 18px;
-  padding: 28px var(--gutter) 0;
+/* One bar of dropdowns over the grid (Shop all: collection and category;
+   a collection: category), with the count at the end of the line. */
+.fj-filterbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px;
+  margin: 0 var(--gutter); padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
 }
-.fj-filter-row {
-  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-}
-.fj-filter-label {
-  margin-right: 6px;
-  font-weight: 400; font-size: 13px; color: var(--muted);
-  min-width: 5.5rem;
-}
-.fj-chip {
-  padding: 8px 14px;
-  border: 1px solid var(--rule);
-  background: transparent;
-  font-family: var(--sans);
-  font-weight: 400; font-size: 13px; letter-spacing: 0.01em;
+.fj-pieces .fj-filterbar { margin-top: 8px; }
+.fj-select { display: inline-flex; align-items: center; gap: 10px; }
+.fj-select-label {
+  font-weight: 400; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--muted);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.fj-chip:hover { color: var(--ink); border-color: var(--ink); }
-.fj-chip.is-on {
-  background: var(--ink); border-color: var(--ink); color: #fff;
+.fj-select select {
+  appearance: none; -webkit-appearance: none;
+  min-width: 12.5rem; padding: 10px 34px 10px 14px;
+  border: 1px solid var(--rule); border-radius: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23201e1d' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat right 14px center;
+  font: 400 14px/1.2 var(--sans); color: var(--ink); cursor: pointer;
+}
+.fj-select select:hover, .fj-select select:focus { border-color: var(--ink); outline: none; }
+.fj-filterbar-count { margin: 0 0 0 auto; font-weight: 300; font-size: 14px; color: var(--muted); }
+@media (max-width: 600px) {
+  .fj-filterbar { gap: 10px; }
+  .fj-select { flex: 1 1 100%; justify-content: space-between; }
+  .fj-select select { flex: 1; min-width: 0; }
+  .fj-filterbar-count { margin-left: 0; }
 }
 
 .fj-shop-body {
   padding: 24px var(--gutter) clamp(64px, 8vw, 100px);
-}
-.fj-shop-meta {
-  margin: 0 0 22px;
-  font-weight: 300; font-size: 14px; color: var(--muted);
 }
 
 /* ------------------------------------------------------------- collection */
@@ -525,62 +524,6 @@ button {
     grid-template-columns: 200px minmax(0, 1fr);
     gap: 48px;
     align-items: start;
-  }
-}
-
-/* A row of filters, scrollable sideways on a phone rather than wrapping into
-   three stacked lines before the first piece is visible. */
-.fj-rail {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding-bottom: 2px;
-  margin: 0 calc(var(--gutter) * -1);
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-.fj-rail::-webkit-scrollbar { display: none; }
-@media (min-width: 900px) {
-  .fj-rail {
-    flex-wrap: wrap;
-    overflow: visible;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    border-bottom: 1px solid var(--rule);
-    gap: 0 4px;
-  }
-}
-
-.fj-rail a {
-  padding: 10px 14px;
-  border: 1px solid var(--rule);
-  font-weight: 400; font-size: 13px; letter-spacing: 0.01em;
-  color: var(--muted);
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-@media (min-width: 900px) {
-  /* underline rather than a boxed chip, so the row reads as one bar of tabs
-     and not as a scatter of buttons */
-  .fj-rail a {
-    border: 0;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    padding: 12px 16px;
-    border-radius: 0;
-  }
-}
-.fj-rail a:hover { color: var(--ink); border-color: var(--ink); }
-.fj-rail a.is-on {
-  background: var(--ink); border-color: var(--ink); color: #fff;
-}
-@media (min-width: 900px) {
-  .fj-rail a.is-on {
-    background: transparent; color: var(--ink);
-    border-bottom-color: var(--ink);
-    box-shadow: none;
   }
 }
 
@@ -969,3 +912,20 @@ button {
   font: 400 14px/1 var(--sans); letter-spacing: 0.02em; text-transform: none;
 }
 .fj-pdp-actions .fj-btn.ge-heart--line:hover { transform: none; opacity: 0.78; }
+
+/* One design in several stones: dots on the card, a picker on the piece. */
+.fj-card-swatches { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+.fj-swatch {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--swatch); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+.fj-card-swatch-n { margin-left: 4px; font-size: 12px; color: var(--muted); }
+.fj-variants { margin-top: 22px; }
+.fj-variants-label { margin: 0 0 12px; font-size: 13px; color: var(--muted); }
+.fj-variants-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.fj-variant {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border: 1px solid var(--rule);
+  font-size: 13px; color: var(--ink-soft); transition: border-color 0.2s ease;
+}
+.fj-variant:hover, .fj-variant.is-on { border-color: var(--ink); color: var(--ink); }

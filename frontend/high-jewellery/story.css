@@ -156,6 +156,11 @@
   gap: clamp(12px, 2vw, 32px);
 }
 .st-suite-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.st-piece-line { margin: -4px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted, #8a8279); }
+.st-piece-enquire {
+  justify-self: center; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink, #201e1d); border-bottom: 1px solid currentColor; padding-bottom: 2px;
+}
 .st-suite-grid figure { margin: 0; display: grid; gap: 12px; }
 .st-suite-grid img { width: 100%; aspect-ratio: 1; object-fit: contain; background: var(--ground, #f3f1ee); }
 .st-suite-grid figcaption {

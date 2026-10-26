@@ -109,7 +109,7 @@ button {
 
 /* the High Jewellery hero: three portraits edge to edge, title over them */
 .hj-hero { position: relative; background: #141210; color: #fff; overflow: hidden; }
-.hj-hero-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: min(78vh, 760px); }
+.hj-hero-strip { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 100%; height: min(78vh, 760px); overflow: hidden; }
 .hj-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; }
 .hj-hero::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
@@ -126,8 +126,13 @@ button {
 }
 .hj-hero-lede { margin: 6px 0 0; font-weight: 300; font-size: clamp(14px, 1.3vw, 17px); opacity: 0.9; }
 @media (max-width: 700px) {
-  .hj-hero-strip { grid-template-columns: 1fr; height: 72vh; }
+  .hj-hero-strip { grid-template-columns: 1fr; height: 62vh; }
   .hj-hero-img--1, .hj-hero-img--3 { display: none; }
+  .hj-hero-img { object-position: 50% 30%; }
+  /* on a phone the title would sit on the face: it goes under the photograph */
+  .hj-hero::after { display: none; }
+  .hj-hero-copy { position: static; padding: 28px 20px 32px; gap: 10px; }
+  .hj-hero-title { font-size: 42px; }
 }
 
 .intro { padding: 28px var(--gutter) 40px; }

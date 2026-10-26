@@ -375,25 +375,23 @@
 
   /* The chapters of the landing, in order. Photographs are the house's own
      shoot; the quote is each piece's line from its write-up (stories.js);
-     the label is the figure the write-up leads with. */
+     each chapter links to the piece's story. */
   var CHAPTERS = [
-    { id: "ember", name: "Ember", hero: "m2", pair: ["p4", "p1"], label: "23.7 ct pink spinel",
+    { id: "ember", name: "Ember", hero: "m2",
       quote: "A presence that is unapologetic, powerful, and lightening." },
-    { id: "usambara", name: "Flamenco", hero: "p2", pair: ["p7", "p5"], label: "34.56 ct pink spinel",
-      quote: "Born from rhythm and movement, this jewel belongs to Flamenco, the dance of celebration and defiance." },
-    { id: "jardin-bleu", name: "Jardin Bleu", hero: "m1", pair: ["p1", "p3"], label: "41 ct tanzanite",
+    { id: "jardin-bleu", name: "Jardin Bleu", hero: "m1",
       quote: "A jewel that lingers rather than insists." },
     { line: "Every stone was followed out of the ground." },
-    { id: "weaver", name: "Weaver", hero: "m3", pair: ["p3", "p1"], label: "28.25 ct tanzanite",
+    { id: "weaver", name: "Weaver", hero: "m3",
       quote: "Each link symbolises delicate balance and flow in the design." },
-    { id: "shamsa", name: "Shamsa", hero: "m1", pair: ["p4", "p1"], label: "8.82 ct pink spinel",
+    { id: "shamsa", name: "Shamsa", hero: "m1",
       quote: "From the 365 days around the sun, this orbit took 2,300 hours." },
-    { id: "rihla", name: "Rihla", hero: "m4", pair: ["p1", "p3"], label: "11.83 ct tanzanite",
+    { id: "rihla", name: "Rihla", hero: "m4",
       quote: "It doesn't just sit in the light; it breathes with it." },
     { line: "Thousands of hours at the bench, for a single piece." },
-    { id: "celestine", name: "Celestine", hero: "m4", pair: ["p8", "p1"], label: "2,100 hours",
+    { id: "celestine", name: "Celestine", hero: "m4",
       quote: "Celestine transforms the idea of a floral arrangement into a constellation." },
-    { id: "mahenge", name: "Samaah", hero: "m3", pair: ["p4", "p1"], label: "16.05 ct pink tourmaline",
+    { id: "mahenge", name: "Samaah", hero: "m3",
       quote: "The piece transforms gemstones into the very poetry of the dance." }
   ];
 
@@ -451,16 +449,6 @@
       var q = el("p", "hj-ch-quote hj-reveal"); q.textContent = "\u201c" + c.quote + "\u201d";
       ch.appendChild(q);
 
-      var pair = el("div", "hj-ch-pair hj-reveal");
-      c.pair.forEach(function (k, i) {
-        pair.appendChild(el("img", null, {
-          src: base + k + ".webp", alt: c.name + (i ? ", the earrings." : ", the necklace."), loading: "lazy", decoding: "async"
-        }));
-      });
-      var lab = el("span", "hj-ch-label"); lab.appendChild(spaced(c.label));
-      pair.appendChild(lab);
-      ch.appendChild(pair);
-
       var more = el("a", "hj-ch-more", { href: "/high-jewellery/" + c.id + "/" });
       more.textContent = "Explore " + c.name;
       ch.appendChild(more);
@@ -495,8 +483,7 @@
     /* The landing: a film-like run of chapters on black before the
        collection, so High Jewellery is something to go through rather than
        a catalogue to scan (Fine Jewellery stays the shop). One column of
-       large photographs, words set in wide capitals between them, and each
-       chapter closing on its necklace and earrings side by side. */
+       large photographs and words set in wide capitals between them. */
     root.appendChild(landing());
 
     // intro
@@ -581,14 +568,11 @@
       root.appendChild(chipRow);
     }
 
-    // the collection, numbered /01 /02 ... as a series
+    // the collection
     var grid = el("section", "grid");
-    list.forEach(function (p, i) {
+    list.forEach(function (p) {
       var cell = el("div", "cell");
-      var card = productCard(p, { eager: false });
-      var num = el("span", "hj-num"); num.textContent = "/" + (i < 9 ? "0" : "") + (i + 1);
-      card.insertBefore(num, card.firstChild.nextSibling);
-      cell.appendChild(card);
+      cell.appendChild(productCard(p, { eager: false }));
       /* Two ways on from every piece: its story, and a word with an adviser. */
       var acts = el("div", "card-acts");
       acts.appendChild(storyButton(p));
@@ -1173,8 +1157,6 @@
       revealLanding(root);
       document.title = "High Jewellery \u00b7 Gem Experience";
     }
-    /* the listing is the dark room; a piece's own page keeps the light one */
-    document.body.classList.toggle("hj-noir", state.view !== "product");
     renderDrawer();
   }
 

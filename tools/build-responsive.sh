@@ -29,7 +29,7 @@ make() { # src target-width suffix
 }
 
 n=0
-for f in fine-jewellery/img/products/*.webp high-jewellery/img/*.webp high-jewellery/img/pieces/*/m*.webp high-jewellery/img/pieces/usambara/p2.webp; do
+for f in fine-jewellery/img/products/*.webp high-jewellery/img/*.webp high-jewellery/img/pieces/*/m*.webp; do
   case "$f" in *.w640.webp|*.w900.webp) continue ;; esac
   make "$f" 640 w640; n=$((n + 1))
 done

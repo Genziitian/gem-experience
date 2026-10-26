@@ -3,7 +3,8 @@
 #
 #   tools/build-responsive.sh
 #
-# For every product photograph and High Jewellery card image, writes
+# For every product photograph, High Jewellery card image and model frame
+# (the High Jewellery landing shows those large), writes
 # <name>.w640.webp beside it (the collection banners get <name>.w900.webp).
 # The storefront offers both through srcset, so a phone downloads the small
 # copy and a wide screen the original. An original already 640px or narrower
@@ -28,7 +29,7 @@ make() { # src target-width suffix
 }
 
 n=0
-for f in fine-jewellery/img/products/*.webp high-jewellery/img/*.webp; do
+for f in fine-jewellery/img/products/*.webp high-jewellery/img/*.webp high-jewellery/img/pieces/*/m*.webp high-jewellery/img/pieces/usambara/p2.webp; do
   case "$f" in *.w640.webp|*.w900.webp) continue ;; esac
   make "$f" 640 w640; n=$((n + 1))
 done

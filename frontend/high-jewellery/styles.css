@@ -107,34 +107,6 @@ button {
 
 /* --------------------------------------------------------------- listing */
 
-/* the High Jewellery hero: three portraits edge to edge, title over them */
-.hj-hero { position: relative; background: #141210; color: #fff; overflow: hidden; }
-.hj-hero-strip { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 100%; height: min(78vh, 760px); overflow: hidden; }
-.hj-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; }
-.hj-hero::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(20,18,16,0) 45%, rgba(20,18,16,0.72) 100%);
-}
-.hj-hero-copy {
-  position: absolute; left: 0; right: 0; bottom: clamp(32px, 6vh, 64px); z-index: 1;
-  display: grid; justify-items: center; gap: 12px; padding: 0 var(--gutter); text-align: center;
-}
-.hj-hero-kicker { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.85; }
-.hj-hero-title {
-  margin: 0; font-family: var(--serif); font-weight: 400;
-  font-size: clamp(44px, 7vw, 96px); line-height: 1; letter-spacing: 0.02em;
-}
-.hj-hero-lede { margin: 6px 0 0; font-weight: 300; font-size: clamp(14px, 1.3vw, 17px); opacity: 0.9; }
-@media (max-width: 700px) {
-  .hj-hero-strip { grid-template-columns: 1fr; height: 62vh; }
-  .hj-hero-img--1, .hj-hero-img--3 { display: none; }
-  .hj-hero-img { object-position: 50% 30%; }
-  /* on a phone the title would sit on the face: it goes under the photograph */
-  .hj-hero::after { display: none; }
-  .hj-hero-copy { position: static; padding: 28px 20px 32px; gap: 10px; }
-  .hj-hero-title { font-size: 42px; }
-}
-
 .intro { padding: 28px var(--gutter) 40px; }
 
 .crumbs {
@@ -339,38 +311,6 @@ button {
   border-color: var(--ink-soft);
   color: #fff;
 }
-
-/* editorial banner tile */
-
-.banner {
-  position: relative;
-  background: var(--ink-soft);
-  height: 100%;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  overflow: hidden;
-}
-.banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.05) 62%);
-  pointer-events: none;
-}
-.banner-body { position: relative; z-index: 1; padding: clamp(20px, 2vw, 34px); display: flex; }
-.banner-link {
-  align-self: flex-start;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 3.4px;
-  text-transform: uppercase;
-  padding-bottom: 6px;
-}
-.banner-link:hover { color: #fff; border-bottom: 1px solid rgba(255, 255, 255, 0.85); padding-bottom: 5px; }
 
 /* empty state */
 
@@ -934,8 +874,7 @@ button {
   .pdp-panel { position: static; top: auto; }
 }
 
-/* Phones and small tablets: two products per row, and the editorial banner
-   runs full-bleed across both columns after every fourth product. */
+/* Phones and small tablets: two products per row. */
 @media (max-width: 700px) {
   .hdr { padding: 18px 20px; }
   .hdr-brand { font-size: 12px; letter-spacing: 4px; }
@@ -964,9 +903,6 @@ button {
     padding: 24px 16px 72px;
   }
 
-  .cell--banner { grid-column: 1 / -1; }
-  .cell--banner .banner { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
-  .banner-body { padding: 24px 20px; }
 
   .card-info { padding-top: 14px; padding-bottom: 12px; gap: 6px; }
   .card-name { font-size: 11px; letter-spacing: 2px; }
@@ -1014,8 +950,8 @@ button {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .frame img, .shot img, .banner img { transition: transform 600ms cubic-bezier(0.2, 0, 0.1, 1); }
-  .card:not(.card--inert):hover .frame img, .banner:hover img { transform: scale(1.03); }
+  .frame img, .shot img { transition: transform 600ms cubic-bezier(0.2, 0, 0.1, 1); }
+  .card:not(.card--inert):hover .frame img { transform: scale(1.03); }
 }
 
 /* -------------------------------------------------------- 360° visualiser */
@@ -1229,3 +1165,128 @@ button {
   cursor: default;
 }
 .pdp-story-link--soon:hover { opacity: 1; }
+
+/* ------------------------------------------------------------ the dark room */
+/* The listing is a film on black (body.hj-noir, set by app.js), so High
+   Jewellery reads as a different experience from the Fine Jewellery shop:
+   one centred column of large photographs, words in wide capitals between
+   them, and the collection at the end as a numbered series. */
+
+body.hj-noir, body.hj-noir .shell { background: #0b0a09; color: #f3efe8; }
+body.hj-noir .hdr { background: #0b0a09; border-bottom-color: #26221d; color: #f3efe8; }
+body.hj-noir .hdr a, body.hj-noir .hdr button { color: #f3efe8; }
+
+.hj-spaced { display: block; letter-spacing: 0.42em; text-transform: uppercase; margin-right: -0.42em; }
+
+.hj-land { --col: min(760px, 100%); padding-bottom: clamp(40px, 6vw, 80px); }
+
+/* the opening fits the first screen whole, title included */
+.hj-open { position: relative; width: min(var(--col), calc((100svh - 73px) * 2 / 3)); margin: 0 auto; }
+.hj-open-img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
+.hj-open::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(11,10,9,0) 55%, rgba(11,10,9,0.75) 100%);
+}
+.hj-open-copy {
+  position: absolute; left: 0; right: 0; bottom: clamp(32px, 6vw, 64px); z-index: 1;
+  display: grid; justify-items: center; gap: clamp(22px, 3vw, 34px); text-align: center; padding: 0 16px;
+}
+.hj-open-title { margin: 0; display: grid; gap: 14px; font-weight: 500; font-size: clamp(17px, 2.6vw, 30px); line-height: 1.2; color: #fff; }
+.hj-open-title .hj-spaced:last-child { font-size: 0.62em; letter-spacing: 0.6em; margin-right: -0.6em; opacity: 0.9; }
+.hj-open-down {
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #fff;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.hj-open-down:hover { color: #fff; opacity: 0.7; }
+
+.hj-pause { min-height: 62vh; display: grid; place-items: center; padding: 60px 20px; text-align: center; }
+.hj-pause--last { min-height: 46vh; }
+.hj-pause-line { margin: 0; max-width: 980px; font-weight: 400; font-size: clamp(16px, 2.2vw, 30px); line-height: 2.1; color: #fff; }
+.hj-pause-line .hj-spaced { display: inline; }
+
+.hj-chapter { width: var(--col); margin: clamp(56px, 8vw, 120px) auto 0; display: grid; justify-items: center; }
+.hj-ch-hero { position: relative; display: block; width: 100%; color: #fff; }
+.hj-ch-hero img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
+.hj-ch-hero--still img { aspect-ratio: 1; object-fit: contain; background: #000; }
+.hj-ch-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,0.6) 100%);
+}
+.hj-ch-hero:hover { color: #fff; }
+.hj-ch-name {
+  position: absolute; left: 0; right: 0; bottom: clamp(24px, 5vw, 52px); z-index: 1; margin: 0;
+  text-align: center; font-weight: 500; font-size: clamp(22px, 4vw, 44px); line-height: 1.1; color: #fff;
+}
+.hj-ch-quote {
+  margin: clamp(36px, 5vw, 60px) 0 clamp(32px, 4vw, 52px); max-width: 34ch; padding: 0 20px; text-align: center;
+  font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2vw, 25px); line-height: 1.5; color: #e9e3d8;
+}
+.hj-ch-pair { position: relative; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #f2f2f2; }
+.hj-ch-pair img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.hj-ch-label {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap; font-size: 11px; font-weight: 500; color: #17140f;
+}
+.hj-ch-label .hj-spaced { letter-spacing: 0.36em; }
+.hj-ch-more {
+  margin-top: 26px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #f3efe8;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(243,239,232,0.5);
+}
+.hj-ch-more:hover { color: #fff; border-bottom-color: #fff; }
+
+.hj-reveal { opacity: 0; transform: translateY(24px); transition: opacity 900ms ease, transform 900ms ease; }
+.hj-reveal.is-in { opacity: 1; transform: none; }
+
+/* the collection, on the same black */
+body.hj-noir .intro { width: min(1000px, 100%); margin: 0 auto; padding: 24px 20px 36px; text-align: center; }
+body.hj-noir .crumbs { justify-content: center; color: #8d857a; }
+body.hj-noir .crumbs a { color: #8d857a; }
+body.hj-noir .crumbs .crumbs-here { color: #f3efe8; }
+.hj-col-title {
+  margin: 28px 0 0; font-weight: 500; font-size: clamp(18px, 2.4vw, 26px);
+  letter-spacing: 0.42em; margin-right: -0.42em; text-transform: uppercase; color: #fff;
+}
+body.hj-noir .intro-lede { color: #b8b0a4; margin-top: 16px; }
+body.hj-noir .toolbar { width: min(1000px, 100%); margin: 0 auto; border-color: #2a2621; }
+body.hj-noir .toolbar-sort, body.hj-noir .toolbar-filter { border-left-color: #2a2621; }
+body.hj-noir .toolbar-count, body.hj-noir .toolbar-btn { color: #b8b0a4; }
+body.hj-noir .toolbar-btn:hover, body.hj-noir .toolbar-active { color: #fff; }
+body.hj-noir .chips { width: min(1000px, 100%); margin: 0 auto; border-color: #2a2621; }
+body.hj-noir .chip { border-color: #f3efe8; color: #f3efe8; }
+body.hj-noir .chip:hover { background: #1b1814; }
+body.hj-noir .chips-clear { color: #b8b0a4; }
+body.hj-noir .grid {
+  width: min(1000px, 100%); margin: 0 auto; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(36px, 4vw, 56px) clamp(12px, 1.6vw, 20px);
+}
+body.hj-noir .card { color: #f3efe8; }
+body.hj-noir .card:hover { color: #f3efe8; }
+.hj-num { display: block; margin-top: 16px; text-align: center; font-size: 13px; letter-spacing: 0.3em; color: #f3efe8; }
+body.hj-noir .card-info { align-items: center; text-align: center; padding-top: 12px; }
+body.hj-noir .card-name { color: #f3efe8; font-size: 18px; }
+body.hj-noir .card-materials { color: #9d958a; }
+body.hj-noir .card-acts { justify-content: center; }
+body.hj-noir .card-book { border-color: rgba(243,239,232,0.35); color: #f3efe8; }
+body.hj-noir .card-book:hover { background: #f3efe8; border-color: #f3efe8; color: #0b0a09; }
+body.hj-noir .card-book--enquire { background: #f3efe8; border-color: #f3efe8; color: #0b0a09; }
+body.hj-noir .card-book--enquire:hover { background: transparent; color: #f3efe8; }
+body.hj-noir .empty-title { color: #f3efe8; }
+
+@media (max-width: 700px) {
+  .hj-ch-name { font-size: 22px; }
+  .hj-open { width: 100%; }
+  /* too narrow to run the label up the middle: it sits under the pair */
+  .hj-ch-label {
+    position: static; transform: none; grid-column: 1 / -1;
+    padding: 14px 8px; text-align: center; background: #0b0a09; color: #f3efe8; font-size: 10px;
+  }
+  .hj-pause { min-height: 50vh; }
+  .hj-pause-line { line-height: 2; }
+  body.hj-noir .grid { gap: 32px 10px; padding-left: 12px; padding-right: 12px; }
+  body.hj-noir .card-name { font-size: 15px; }
+  body.hj-noir .card-acts { flex-direction: column; align-items: stretch; }
+  body.hj-noir .card-acts .card-book { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hj-reveal { opacity: 1; transform: none; transition: none; }
+}

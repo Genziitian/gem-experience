@@ -26,7 +26,7 @@
   // ---------------------------------------------------------------- data
 
   /* Catalog lives in data.js so the admin can read and rewrite it. Order
-     follows the client's list; banner slots fall after 4 and 12. */
+     follows the client's list. */
   var products = (window.HJ_DATA && window.HJ_DATA.products) || [];
 
   /* Where the jewellery sits in each frame, as a percentage down the image,
@@ -46,16 +46,6 @@
 
   var sortLabels = { featured: "Featured", asc: "Name A \u2013 Z", desc: "Name Z \u2013 A" };
 
-  /* The two supplied interlink images, one per banner slot. */
-  var EDITORIAL = ["interlink-1", "interlink-2"];
-
-  var BANNER_LABEL = "Discover High Jewellery";
-
-  /* Two banners at fixed positions: four products, banner, eight products,
-     banner, then the rest run uninterrupted. Both numbers divide evenly into
-     the two-up mobile grid and the four-up desktop grid, so the rhythm holds
-     at either breakpoint. */
-  var BANNER_AFTER = [4, 12];
   var STAT_ICONS = {
     Stone: "M6 3h12l3 6-9 12L3 9l3-6ZM3 9h18M9 3 6 9l6 12M15 3l3 6-6 12",
     Origin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0ZM12 12a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z",
@@ -383,32 +373,131 @@
     return a;
   }
 
+  /* The chapters of the landing, in order. Photographs are the house's own
+     shoot; the quote is each piece's line from its write-up (stories.js);
+     the label is the figure the write-up leads with. */
+  var CHAPTERS = [
+    { id: "ember", name: "Ember", hero: "m2", pair: ["p4", "p1"], label: "23.7 ct pink spinel",
+      quote: "A presence that is unapologetic, powerful, and lightening." },
+    { id: "usambara", name: "Flamenco", hero: "p2", pair: ["p7", "p5"], label: "34.56 ct pink spinel",
+      quote: "Born from rhythm and movement, this jewel belongs to Flamenco, the dance of celebration and defiance." },
+    { id: "jardin-bleu", name: "Jardin Bleu", hero: "m1", pair: ["p1", "p3"], label: "41 ct tanzanite",
+      quote: "A jewel that lingers rather than insists." },
+    { line: "Every stone was followed out of the ground." },
+    { id: "weaver", name: "Weaver", hero: "m3", pair: ["p3", "p1"], label: "28.25 ct tanzanite",
+      quote: "Each link symbolises delicate balance and flow in the design." },
+    { id: "shamsa", name: "Shamsa", hero: "m1", pair: ["p4", "p1"], label: "8.82 ct pink spinel",
+      quote: "From the 365 days around the sun, this orbit took 2,300 hours." },
+    { id: "rihla", name: "Rihla", hero: "m4", pair: ["p1", "p3"], label: "11.83 ct tanzanite",
+      quote: "It doesn't just sit in the light; it breathes with it." },
+    { line: "Thousands of hours at the bench, for a single piece." },
+    { id: "celestine", name: "Celestine", hero: "m4", pair: ["p8", "p1"], label: "2,100 hours",
+      quote: "Celestine transforms the idea of a floral arrangement into a constellation." },
+    { id: "mahenge", name: "Samaah", hero: "m3", pair: ["p4", "p1"], label: "16.05 ct pink tourmaline",
+      quote: "The piece transforms gemstones into the very poetry of the dance." }
+  ];
+
+  function spaced(text) {
+    // wide capitals, as one word to a screen reader
+    var s = el("span", "hj-spaced", { "aria-label": text });
+    s.textContent = text;
+    return s;
+  }
+
+  function landing() {
+    var wrap = el("div", "hj-land");
+
+    var open = el("section", "hj-open");
+    open.appendChild(el("img", "hj-open-img", {
+      src: "img/pieces/weaver/m6.webp", srcset: "img/pieces/weaver/m6.w640.webp 640w, img/pieces/weaver/m6.webp 1067w",
+      sizes: "(max-width: 700px) 100vw, 760px",
+      alt: "Weaver, tanzanite and diamond, worn against a fold of deep blue.", fetchpriority: "high", decoding: "async"
+    }));
+    var oc = el("div", "hj-open-copy");
+    var h1 = el("h1", "hj-open-title");
+    h1.appendChild(spaced("Gem Experience"));
+    h1.appendChild(spaced("High Jewellery"));
+    oc.appendChild(h1);
+    var down = el("a", "hj-open-down", { href: "#collection" });
+    down.textContent = "The Collection";
+    down.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("collection").scrollIntoView({ behavior: "smooth" });
+    });
+    oc.appendChild(down);
+    open.appendChild(oc);
+    wrap.appendChild(open);
+
+    CHAPTERS.forEach(function (c, ci) {
+      if (c.line) {
+        var pause = el("section", "hj-pause hj-reveal");
+        var pl = el("p", "hj-pause-line"); pl.appendChild(spaced(c.line));
+        pause.appendChild(pl);
+        wrap.appendChild(pause);
+        return;
+      }
+      var base = "img/pieces/" + c.id + "/";
+      var ch = el("section", "hj-chapter", { "aria-label": c.name });
+
+      var fig = el("a", "hj-ch-hero hj-reveal" + (/^p/.test(c.hero) ? " hj-ch-hero--still" : ""), { href: "/high-jewellery/" + c.id + "/" });
+      fig.appendChild(el("img", null, {
+        src: base + c.hero + ".webp", srcset: base + c.hero + ".w640.webp 640w, " + base + c.hero + ".webp " + (/^p/.test(c.hero) ? "1400w" : "1067w"),
+        sizes: "(max-width: 700px) 100vw, 760px", alt: c.name + ", worn.", loading: ci < 1 ? "eager" : "lazy", decoding: "async"
+      }));
+      var name = el("h2", "hj-ch-name"); name.appendChild(spaced(c.name));
+      fig.appendChild(name);
+      ch.appendChild(fig);
+
+      var q = el("p", "hj-ch-quote hj-reveal"); q.textContent = "\u201c" + c.quote + "\u201d";
+      ch.appendChild(q);
+
+      var pair = el("div", "hj-ch-pair hj-reveal");
+      c.pair.forEach(function (k, i) {
+        pair.appendChild(el("img", null, {
+          src: base + k + ".webp", alt: c.name + (i ? ", the earrings." : ", the necklace."), loading: "lazy", decoding: "async"
+        }));
+      });
+      var lab = el("span", "hj-ch-label"); lab.appendChild(spaced(c.label));
+      pair.appendChild(lab);
+      ch.appendChild(pair);
+
+      var more = el("a", "hj-ch-more", { href: "/high-jewellery/" + c.id + "/" });
+      more.textContent = "Explore " + c.name;
+      ch.appendChild(more);
+      wrap.appendChild(ch);
+    });
+
+    var last = el("section", "hj-pause hj-pause--last hj-reveal");
+    var ll = el("p", "hj-pause-line"); ll.appendChild(spaced("Each piece is made once."));
+    last.appendChild(ll);
+    wrap.appendChild(last);
+    return wrap;
+  }
+
+  /* Chapters fade up as they come into view; without the observer (or with
+     reduced motion asked for) they are simply there. */
+  function revealLanding(root) {
+    var items = root.querySelectorAll(".hj-reveal");
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      items.forEach(function (n) { n.classList.add("is-in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    items.forEach(function (n) { io.observe(n); });
+  }
+
   function renderGrid(root) {
     var list = visible();
     var chips = activeChips();
 
-    /* High Jewellery opens on its own band, three portraits across the width
-       with the title set over them, so it reads as a different house from
-       Fine Jewellery's centred heading. One portrait on a phone. */
-    var hero = el("section", "hj-hero");
-    var strip = el("div", "hj-hero-strip");
-    [["img/hero-1.webp", "Ember worn"], ["img/hero-2.webp", "Weaver worn"], ["img/hero-3.webp", "Shamsa worn"]].forEach(function (h, i) {
-      strip.appendChild(el("img", "hj-hero-img hj-hero-img--" + (i + 1), {
-        src: h[0], alt: i === 1 ? "High Jewellery by Gem Experience, " + h[1] + "." : "",
-        srcset: h[0].replace(/\.webp$/, ".w640.webp") + " 640w, " + h[0] + " 900w",
-        sizes: "(max-width: 700px) 100vw, 34vw",
-        fetchpriority: i === 1 ? "high" : "low", decoding: "async"
-      }));
-    });
-    hero.appendChild(strip);
-    var heroCopy = el("div", "hj-hero-copy");
-    var heroKicker = el("span", "hj-hero-kicker"); heroKicker.textContent = "Gem Experience";
-    var heroTitle = el("h1", "hj-hero-title"); heroTitle.textContent = "High Jewellery";
-    var heroLede = el("p", "hj-hero-lede");
-    heroLede.textContent = "One of a kind, from the stone up.";
-    heroCopy.appendChild(heroKicker); heroCopy.appendChild(heroTitle); heroCopy.appendChild(heroLede);
-    hero.appendChild(heroCopy);
-    root.appendChild(hero);
+    /* The landing: a film-like run of chapters on black before the
+       collection, so High Jewellery is something to go through rather than
+       a catalogue to scan (Fine Jewellery stays the shop). One column of
+       large photographs, words set in wide capitals between them, and each
+       chapter closing on its necklace and earrings side by side. */
+    root.appendChild(landing());
 
     // intro
     var intro = el("section", "intro");
@@ -419,9 +508,10 @@
     var sep2 = el("span"); sep2.textContent = "/";
     var here = el("span", "crumbs-here", { "aria-current": "page" }); here.textContent = "High Jewellery";
     crumbs.appendChild(c1); crumbs.appendChild(sep1); crumbs.appendChild(c2); crumbs.appendChild(sep2); crumbs.appendChild(here);
+    var colTitle = el("h2", "hj-col-title", { id: "collection" }); colTitle.textContent = "The Collection";
     var lede = el("p", "intro-lede");
     lede.textContent = "Singular pieces, each cut from a stone we followed out of the ground.";
-    intro.appendChild(crumbs); intro.appendChild(lede);
+    intro.appendChild(crumbs); intro.appendChild(colTitle); intro.appendChild(lede);
     root.appendChild(intro);
 
     // toolbar
@@ -491,12 +581,14 @@
       root.appendChild(chipRow);
     }
 
-    // grid with an editorial banner after every third product
+    // the collection, numbered /01 /02 ... as a series
     var grid = el("section", "grid");
-    var b = 0;
     list.forEach(function (p, i) {
       var cell = el("div", "cell");
-      cell.appendChild(productCard(p, { eager: i < 2 }));
+      var card = productCard(p, { eager: false });
+      var num = el("span", "hj-num"); num.textContent = "/" + (i < 9 ? "0" : "") + (i + 1);
+      card.insertBefore(num, card.firstChild.nextSibling);
+      cell.appendChild(card);
       /* Two ways on from every piece: its story, and a word with an adviser. */
       var acts = el("div", "card-acts");
       acts.appendChild(storyButton(p));
@@ -506,23 +598,6 @@
       acts.appendChild(enq);
       cell.appendChild(acts);
       grid.appendChild(cell);
-      var slot = BANNER_AFTER.indexOf(i + 1);
-      if (slot !== -1) {
-        b++;
-        var bc = el("div", "cell cell--banner");
-        var ban = el("a", "banner", { href: "#/" });
-        ban.appendChild(el("img", null, {
-          src: IMG + EDITORIAL[slot % EDITORIAL.length] + ".webp",
-          alt: "High Jewellery editorial", loading: "lazy", decoding: "async"
-        }));
-        var body = el("div", "banner-body");
-        var lk = el("span", "banner-link");
-        lk.textContent = BANNER_LABEL;
-        body.appendChild(lk);
-        ban.appendChild(body);
-        bc.appendChild(ban);
-        grid.appendChild(bc);
-      }
     });
     root.appendChild(grid);
 
@@ -1095,8 +1170,11 @@
       document.title = current().name + " \u00b7 High Jewellery | Gem Experience";
     } else {
       renderGrid(root);
+      revealLanding(root);
       document.title = "High Jewellery \u00b7 Gem Experience";
     }
+    /* the listing is the dark room; a piece's own page keeps the light one */
+    document.body.classList.toggle("hj-noir", state.view !== "product");
     renderDrawer();
   }
 

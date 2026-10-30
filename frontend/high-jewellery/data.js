@@ -70,7 +70,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/weaver/",
       "storyLabel": "Explore Weaver",
-      "card": "img/weaver-set.webp",
+      "card": "img/weaver-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -115,7 +115,7 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/the-crown/",
       "storyLabel": "Explore The Crown",
-      "card": "img/the-crown-set.webp",
+      "card": "img/the-crown-set-2.webp",
       "cover": "img/pieces/the-crown/p3.webp",
       "details": [
         {
@@ -154,7 +154,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/shamsa/",
       "storyLabel": "Explore Shamsa",
-      "card": "img/shamsa-set.webp",
+      "card": "img/shamsa-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -200,7 +200,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/jardin-bleu/",
       "storyLabel": "Explore Jardin Bleu",
-      "card": "img/jardin-bleu-set.webp",
+      "card": "img/jardin-bleu-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -231,7 +231,7 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/hive/",
       "storyLabel": "Explore Hive",
-      "card": "img/hive-set.webp",
+      "card": "img/hive-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -293,7 +293,7 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/usambara/",
       "storyLabel": "Explore Flamenco",
-      "card": "img/usambara-set.webp",
+      "card": "img/usambara-set-2.webp",
       "cover": "img/pieces/usambara/p4.webp",
       "details": [
         {
@@ -358,7 +358,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/ember/",
       "storyLabel": "Explore Ember",
-      "card": "img/ember-set.webp",
+      "card": "img/ember-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -432,7 +432,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/celestine/",
       "storyLabel": "Explore Celestine",
-      "card": "img/celestine-set.webp",
+      "card": "img/celestine-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -464,7 +464,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/merelani/",
       "storyLabel": "Explore Rosette",
-      "card": "img/merelani-set.webp",
+      "card": "img/merelani-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -531,7 +531,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/rihla/",
       "storyLabel": "Explore Rihla",
-      "card": "img/rihla-set.webp",
+      "card": "img/rihla-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -620,7 +620,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/rift/",
       "storyLabel": "Explore The Queen of Green",
-      "card": "img/rift-set.webp",
+      "card": "img/rift-set-2.webp",
       "details": [
         {
           "part": "Necklace",
@@ -665,7 +665,7 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/mahenge/",
       "storyLabel": "Explore Samaah",
-      "card": "img/mahenge-set.webp",
+      "card": "img/mahenge-set-2.webp",
       "cover": "img/pieces/mahenge/m3.webp",
       "details": [
         {
@@ -697,7 +697,7 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/oldoinyo/",
       "storyLabel": "Explore Mediterranea",
-      "card": "img/oldoinyo-set.webp",
+      "card": "img/oldoinyo-set-2.webp",
       "cover": "img/pieces/oldoinyo/p3.webp",
       "details": [
         {

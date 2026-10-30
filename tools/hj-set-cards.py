@@ -9,9 +9,13 @@ necklace and others only by their earrings. For a piece made as a set, this
 draws the card from two of its own stills: the necklace large on the left and
 its earrings beside it, on the house grey the stills were shot on.
 
-Writes high-jewellery/img/<id>-set.webp (1200px square, like the other card
-images) and sets "card" on the piece in data.js; app.js prefers that over
-img/<id>.webp. Needs Pillow, numpy and cwebp.
+Writes high-jewellery/img/<id>-set-<VERSION>.webp (1200px square, like the
+other card images) and sets "card" on the piece in data.js; app.js prefers
+that over img/<id>.webp. Needs Pillow, numpy and cwebp.
+
+Images are cached for 30 days, so a card that is redrawn has to get a new
+name or phones keep showing the old one: bump VERSION whenever the cards
+change. The previous version's files are removed.
 """
 import json, re, subprocess, sys, tempfile
 from pathlib import Path
@@ -24,6 +28,7 @@ HJ = ROOT / "frontend/high-jewellery"
 DATA = HJ / "data.js"
 GROUND = 242  # as in fj-import.py
 SIZE = 1200
+VERSION = 2  # 1 was the subject-lifted card that lost Jardin Bleu's drop
 
 # piece -> (necklace still, earrings still), both from img/pieces/<id>/
 SETS = {
@@ -81,11 +86,15 @@ def main(ids):
                 continue
             neck, ear = (HJ / f"img/pieces/{pid}/{s}.webp" for s in SETS[pid])
             card = compose(on_ground(neck), on_ground(ear))
-            png, dst = t / "card.png", HJ / f"img/{pid}-set.webp"
+            png, dst = t / "card.png", HJ / f"img/{pid}-set-{VERSION}.webp"
             card.save(png)
             subprocess.run(["cwebp", "-quiet", "-m", "6", "-sharp_yuv", "-q", "86", str(png), "-o", str(dst)], check=True)
-            (HJ / f"img/{pid}-set.w640.webp").unlink(missing_ok=True)
-            by[pid]["card"] = f"img/{pid}-set.webp"
+            dst.with_suffix(".w640.webp").unlink(missing_ok=True)
+            old = by[pid].get("card")
+            if old and old != f"img/{dst.name}":
+                for f in (HJ / old, (HJ / old).with_suffix(".w640.webp")):
+                    f.unlink(missing_ok=True)
+            by[pid]["card"] = f"img/{dst.name}"
             print(f"   {pid:12} {SETS[pid][0]} + {SETS[pid][1]} -> {dst.name} {dst.stat().st_size // 1024}KB")
     DATA.write_text(head + "window.HJ_DATA = " + json.dumps(data, indent=2, ensure_ascii=False) + ";\n")
 

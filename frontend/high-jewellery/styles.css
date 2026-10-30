@@ -449,24 +449,24 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 .gal-track::-webkit-scrollbar { display: none; }
-/* Every frame is a square, on the phone and on desktop, whatever the
-   photograph's own shape: the gallery mixes square plates with portrait model
-   frames, and one shape keeps the set even and the carousel still as it is
-   swiped. A portrait frame is cropped, not matted into bands of ground, and
-   each photograph carries its own crop position (--focal), measured from
-   where the stones are, so the jewellery stays in the square. */
+/* Every frame is 4:5, on the phone and on desktop. A square cropped the
+   portrait model frames to half a face; at 4:5 a 2:3 portrait loses only a
+   sliver (its --focal keeps the jewellery in), and a square still sits whole
+   on the grey it was shot on, so the margin does not show. */
 .gal-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   min-width: 0;
   overflow: hidden;
+  background: #f2f2f2;
 }
 .gal-slide img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center var(--focal, 60%);
+  object-position: center var(--focal, 40%);
 }
+.gal-slide--still img { object-fit: contain; }
 
 .gal-dots { display: flex; justify-content: center; gap: 9px; padding: 22px 0 6px; }
 .gal-dot {
@@ -499,6 +499,10 @@ button {
   /* An even tail would otherwise leave the last frame orphaned beside white,
      so an odd remainder closes the set at full width too. */
   .gal-slide:last-child:nth-child(even) { grid-column: 1 / -1; }
+  /* a full-width frame stays square so it does not tower, and shows its
+     photograph whole */
+  .gal-slide:first-child, .gal-slide:last-child:nth-child(even) { aspect-ratio: 1 / 1; }
+  .gal-slide:first-child img, .gal-slide:last-child:nth-child(even) img { object-fit: contain; }
   .gal-dots {
     position: sticky;
     bottom: 40px;
@@ -599,6 +603,12 @@ button {
 }
 .spec-list dt { color: var(--muted); }
 .spec-list dd { margin: 0; color: var(--ink-soft); }
+.detail-part {
+  margin: 18px 0 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink);
+}
+.detail-part:first-child { margin-top: 4px; }
+.opt-block--metal { display: flex; flex-direction: column; gap: 6px; }
+.opt-note { font-weight: 300; font-size: 13px; line-height: 20px; color: var(--muted); }
 
 /* ---------------------------------------------------------- editorial/faq */
 
@@ -723,25 +733,6 @@ button {
   color: var(--ink-soft);
   max-width: 46ch;
 }
-
-/* --------------------------------------------------------------- spec strip */
-
-.specs {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
-  gap: 44px 24px;
-  padding: 60px var(--gutter);
-}
-.spec { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
-.spec-k {
-  font-family: var(--serif);
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-.spec-v { font-weight: 300; font-size: 14px; line-height: 22px; color: var(--muted); }
 
 /* --------------------------------------------------------- enquiry modal */
 
@@ -934,7 +925,6 @@ button {
   .story-p { max-width: none; }
   .faq { padding: 0 20px 48px; }
   .concierge { padding: 40px 20px; }
-  .specs { padding: 40px 20px; gap: 32px 20px; }
   .concierge-cta { align-self: stretch; text-align: center; }
 
 }
@@ -1238,4 +1228,43 @@ button {
 }
 @media (prefers-reduced-motion: reduce) {
   .hj-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Desktop: the landing fills the width. One centred column left wide white
+   margins on either side (client, 2026-10-28: "empty and disproportionate");
+   from 900px the opening and each chapter become two columns, photograph
+   beside its words, alternating sides. The phone layout above is unchanged. */
+@media (min-width: 900px) {
+  .hj-land { --col: min(1240px, calc(100% - 2 * var(--gutter))); }
+
+  .hj-open {
+    width: var(--col); margin: 32px auto 0;
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center;
+    gap: clamp(40px, 6vw, 96px);
+  }
+  .hj-open-img { height: calc(100svh - 140px); min-height: 520px; width: 100%; aspect-ratio: auto; }
+  .hj-open::after { display: none; }
+  .hj-open-copy { position: static; justify-items: start; text-align: left; padding: 0; gap: 34px; }
+  .hj-open-title { color: var(--ink); font-size: clamp(30px, 3.4vw, 50px); gap: 18px; }
+  .hj-open-title .hj-spaced:last-child { font-size: 0.5em; }
+  .hj-open-down { color: var(--ink); border-bottom-color: rgba(23, 20, 15, 0.5); }
+  .hj-open-down:hover { color: var(--ink); }
+
+  .hj-chapter {
+    width: var(--col); margin-top: clamp(80px, 9vw, 140px);
+    display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    grid-template-areas: "hero quote" "hero more";
+    grid-template-rows: 1fr 1fr; column-gap: clamp(48px, 7vw, 120px); align-items: end; justify-items: start;
+  }
+  .hj-chapter:nth-of-type(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); grid-template-areas: "quote hero" "more hero"; }
+  .hj-ch-hero { grid-area: hero; }
+  .hj-ch-hero img { height: min(88vh, 900px); aspect-ratio: auto; }
+  .hj-ch-quote {
+    grid-area: quote; margin: 0 0 28px; padding: 0; text-align: left; max-width: 22ch;
+    font-size: clamp(26px, 2.6vw, 40px); line-height: 1.35;
+  }
+  .hj-ch-more { grid-area: more; align-self: start; }
+
+  .hj-pause { min-height: 34vh; padding: clamp(80px, 9vw, 140px) 20px 0; }
+  .hj-pause--last { min-height: 0; padding-bottom: clamp(60px, 7vw, 100px); }
 }

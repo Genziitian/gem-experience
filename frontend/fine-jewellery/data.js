@@ -1653,7 +1653,9 @@ window.FJ_DATA = {
         "img/products/gd26-256.webp"
       ],
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond garland bracelet"
+      "specName": "Spessartite and diamond garland bracelet",
+      "hidden": true,
+      "hiddenReason": "Sheet: spessartite bangle. Photograph: blue (tanzanite-coloured) flowers."
     },
     {
       "id": "gd26-69",
@@ -2472,7 +2474,9 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-966-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond swirl bracelet"
+      "specName": "Pink spinel and diamond swirl bracelet",
+      "hidden": true,
+      "hiddenReason": "Sheet: pink spinel bracelet. Photograph: blue stones."
     },
     {
       "id": "gd25-992",
@@ -3067,7 +3071,8 @@ window.FJ_DATA = {
         "img/products/gd26-767.g2.webp"
       ],
       "subtitle": "Aquamarine, pink spinel and diamonds",
-      "specName": "Aquamarine, pink spinel and diamond dazzle ring"
+      "specName": "Aquamarine, pink spinel and diamond dazzle ring",
+      "design": "gd26-767"
     },
     {
       "id": "gd26-768",
@@ -3090,7 +3095,8 @@ window.FJ_DATA = {
         "img/products/gd26-768.webp"
       ],
       "subtitle": "Tanzanite, aquamarine and diamonds",
-      "specName": "Tanzanite, aquamarine and diamond dazzle ring"
+      "specName": "Tanzanite, aquamarine and diamond dazzle ring",
+      "design": "gd26-767"
     },
     {
       "id": "gd26-249",
@@ -3587,12 +3593,9 @@ window.FJ_DATA = {
       "story": "Crafted in White and Rose Gold, set with 7.38 carats of pear-cut morganite paired with 2.77 carats of brilliant cut diamonds.",
       "tone": "#e8b4b8",
       "images": [
-        "img/products/gd25-1035.webp",
-        "img/products/gd25-1035-1.webp",
         "img/products/gd25-1035-2.webp",
         "img/products/gd25-1035-3.webp"
       ],
-      "hover": "img/products/gd25-1035-1.webp",
       "subtitle": "Morganite and diamonds",
       "specName": "Morganite and diamond entwine earrings"
     },
@@ -4117,14 +4120,10 @@ window.FJ_DATA = {
       "story": "Crafted in White Gold, set with 0.58 carats of cushion-cut mint garnet paired with 0.62 carats of brilliant cut diamonds.",
       "tone": "#6a9e7a",
       "images": [
-        "img/products/gd25-909.webp",
-        "img/products/gd25-909-1.webp",
-        "img/products/gd25-909-2.webp",
         "img/products/gd25-909-3.webp",
         "img/products/gd25-909-4.webp",
         "img/products/gd25-909-5.webp"
       ],
-      "hover": "img/products/gd25-909-1.webp",
       "subtitle": "Mint garnet and diamonds",
       "specName": "Mint garnet and diamond spectrum ring",
       "design": "gd25-911"
@@ -4177,14 +4176,10 @@ window.FJ_DATA = {
       "story": "Crafted in White Gold, set with 0.52 carats of princess-cut aquamarine paired with 0.61 carats of brilliant cut diamonds.",
       "tone": "#7eb8c9",
       "images": [
-        "img/products/gd25-911.webp",
-        "img/products/gd25-911-1.webp",
-        "img/products/gd25-911-2.webp",
         "img/products/gd25-911-3.webp",
         "img/products/gd25-911-4.webp",
         "img/products/gd25-911-5.webp"
       ],
-      "hover": "img/products/gd25-911-1.webp",
       "subtitle": "Aquamarine and diamonds",
       "specName": "Aquamarine and diamond spectrum ring",
       "design": "gd25-911"
@@ -4505,7 +4500,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-67-3.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond royal starling ring"
+      "specName": "Mint garnet and diamond royal starling ring",
+      "design": "gd26-67"
     },
     {
       "id": "g-622",
@@ -4557,7 +4553,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-191-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond royal starling ring"
+      "specName": "Pink spinel and diamond royal starling ring",
+      "design": "gd26-191"
     },
     {
       "id": "gd26-825",
@@ -4583,7 +4580,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-825-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond royal starling ring"
+      "specName": "Pink spinel and diamond royal starling ring",
+      "design": "gd26-191"
     },
     {
       "id": "gd26-824",
@@ -4609,7 +4607,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-824-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond royal starling ring"
+      "specName": "Mint garnet and diamond royal starling ring",
+      "design": "gd26-191"
     },
     {
       "id": "gd26-813",
@@ -4635,7 +4634,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-813-1.webp",
       "subtitle": "Mint garnet and diamonds",
-      "specName": "Mint garnet and diamond royal starling ring"
+      "specName": "Mint garnet and diamond royal starling ring",
+      "design": "gd26-67"
     },
     {
       "id": "gd26-312",
@@ -4713,7 +4713,8 @@ window.FJ_DATA = {
         "img/products/gd26-868.g2.webp"
       ],
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond royal starling ring"
+      "specName": "Pink spinel and diamond royal starling ring",
+      "design": "gd26-853"
     },
     {
       "id": "gd26-187",
@@ -4858,12 +4859,9 @@ window.FJ_DATA = {
       "story": "Crafted in White Gold, set with 4.27 carats of princess-cut pink spinel paired with 7.38 carats of brilliant cut diamonds.",
       "tone": "#c45a7a",
       "images": [
-        "img/products/gd26-184.webp",
-        "img/products/gd26-184-1.webp",
         "img/products/gd26-184-2.webp",
         "img/products/gd26-184-3.webp"
       ],
-      "hover": "img/products/gd26-184-1.webp",
       "subtitle": "Pink spinel and diamonds",
       "specName": "Pink spinel and diamond flare bracelet"
     },
@@ -5346,7 +5344,9 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd23-287-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond flare ring"
+      "specName": "Tanzanite and diamond flare ring",
+      "hidden": true,
+      "hiddenReason": "Sheet: tanzanite ring. Photograph: earrings (the GD24-346 design)."
     },
     {
       "id": "gd25-632",
@@ -5578,7 +5578,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-207-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond flare ring"
+      "specName": "Tanzanite and diamond flare ring",
+      "design": "gd26-834"
     },
     {
       "id": "gd26-183",
@@ -5604,7 +5605,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-183-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond flare ring"
+      "specName": "Tanzanite and diamond flare ring",
+      "design": "gd26-834"
     },
     {
       "id": "gd26-550",
@@ -5693,7 +5695,7 @@ window.FJ_DATA = {
       "name": "Diamond Ring",
       "collection": "Flare",
       "type": "Rings",
-      "metal": "Gold-14kt",
+      "metal": "14k Gold",
       "metalCode": "Gold-14kt",
       "stone": "Diamond",
       "shape": "Round",
@@ -6625,7 +6627,9 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-173-1.webp",
       "subtitle": "Tanzanite and diamonds",
-      "specName": "Tanzanite and diamond dome pendant"
+      "specName": "Tanzanite and diamond dome pendant",
+      "hidden": true,
+      "hiddenReason": "Sheet: tanzanite pendant. Photograph: pink stones."
     },
     {
       "id": "gd26-299",
@@ -6888,7 +6892,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-839-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond dome ring"
+      "specName": "Pink spinel and diamond dome ring",
+      "design": "gd26-840"
     },
     {
       "id": "gd26-843",
@@ -7049,7 +7054,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-51-1.webp",
       "subtitle": "Pink spinel and diamonds",
-      "specName": "Pink spinel and diamond tide bangle"
+      "specName": "Pink spinel and diamond tide bangle",
+      "design": "gd26-51"
     },
     {
       "id": "gd26-165",
@@ -7075,7 +7081,8 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd26-165-1.webp",
       "subtitle": "Spessartite and diamonds",
-      "specName": "Spessartite and diamond tide bangle"
+      "specName": "Spessartite and diamond tide bangle",
+      "design": "gd26-51"
     },
     {
       "id": "gd26-73",

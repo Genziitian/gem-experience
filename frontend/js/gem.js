@@ -349,13 +349,32 @@
 
   /* -------------------------------------------------------------- whatsapp */
 
-  /* A wa.me link to the Dubai line with the message already written, so the
+  /* A wa.me link to the region's line (Dubai unless chosen otherwise) with the message already written, so the
      enquiry arrives in WhatsApp complete and the client only presses send.
      `lines` are joined one per line; null and false are dropped (so a field
      left empty can simply be null) while "" stays as a blank spacer line.
      WhatsApp renders *text* as bold. wa.me wants digits only. */
+  /* The visitor's region, chosen in the footer and kept on this device. It
+     decides which adviser desk answers: India goes to Jaipur, Tanzania to
+     Arusha, everywhere else to Dubai. */
+  var REGIONS = {
+    "India": { desk: "Jaipur", phone: "+91 73000 43093", tel: "+917300043093", wa: "india" },
+    "Tanzania": { desk: "Arusha", phone: "+255 767 600 99", tel: "+25576760099", wa: "uae" },
+    "United Arab Emirates": { desk: "Dubai", phone: "+971 56 720 3896", tel: "+971567203896", wa: "uae" }
+  };
+  function region(set) {
+    if (set) {
+      try { localStorage.setItem("ge_region", set); } catch (e) { /* not kept */ }
+      w.dispatchEvent(new CustomEvent("gem:region", { detail: { region: set } }));
+      return set;
+    }
+    try { return localStorage.getItem("ge_region") || "United Arab Emirates"; } catch (e) { return "United Arab Emirates"; }
+  }
+  function regionDesk(name) { return REGIONS[name || region()] || REGIONS["United Arab Emirates"]; }
+
   function whatsappUrl(lines) {
-    var num = String((cfg().whatsapp || {}).uae || "+971567203896").replace(/\D/g, "");
+    var wa = cfg().whatsapp || {};
+    var num = String(wa[regionDesk().wa] || wa.uae || "+971567203896").replace(/\D/g, "");
     var text = (lines || []).filter(function (l) { return l != null && l !== false; }).join("\n");
     return "https://wa.me/" + num + (text ? "?text=" + encodeURIComponent(text) : "");
   }
@@ -632,6 +651,8 @@
     },
     submitForm: submitForm,
     whatsappUrl: whatsappUrl,
+    region: region,
+    regionDesk: regionDesk,
     pieceUrl: pieceUrl,
     auth: {
       getSession: getSession,

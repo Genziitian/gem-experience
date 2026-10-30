@@ -70,7 +70,14 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/weaver/",
       "storyLabel": "Explore Weaver",
-      "card": "img/weaver-set.webp"
+      "card": "img/weaver-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "stone": "Tanzanite",
+          "stoneCt": "28.25"
+        }
+      ]
     },
     {
       "id": "the-crown",
@@ -108,7 +115,15 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/the-crown/",
       "storyLabel": "Explore The Crown",
-      "card": "img/the-crown-set.webp"
+      "card": "img/the-crown-set.webp",
+      "cover": "img/pieces/the-crown/p3.webp",
+      "details": [
+        {
+          "part": "Gemstones",
+          "stone": "Royal Blue Tanzanite",
+          "stoneCt": "18.45"
+        }
+      ]
     },
     {
       "id": "shamsa",
@@ -139,7 +154,16 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/shamsa/",
       "storyLabel": "Explore Shamsa",
-      "card": "img/shamsa-set.webp"
+      "card": "img/shamsa-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k Yellow Gold",
+          "stone": "Pink Spinel",
+          "stoneCt": "8.82",
+          "diamondCt": "18.76"
+        }
+      ]
     },
     {
       "id": "jardin-bleu",
@@ -176,7 +200,15 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/jardin-bleu/",
       "storyLabel": "Explore Jardin Bleu",
-      "card": "img/jardin-bleu-set.webp"
+      "card": "img/jardin-bleu-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White Gold",
+          "stone": "Tanzanite and Aquamarine (41 ct Asscher-cut tanzanite centre)",
+          "diamondCt": "42.43"
+        }
+      ]
     },
     {
       "id": "hive",
@@ -199,7 +231,15 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/hive/",
       "storyLabel": "Explore Hive",
-      "card": "img/hive-set.webp"
+      "card": "img/hive-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White Gold",
+          "stone": "Tanzanite and Ceramic",
+          "stoneCt": "17.92"
+        }
+      ]
     },
     {
       "id": "georgie",
@@ -219,7 +259,15 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/georgie/",
-      "storyLabel": "Explore Georgie"
+      "storyLabel": "Explore Georgie",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k Rose Gold",
+          "stone": "Tanzanite and 19 Natural Pearls",
+          "stoneCt": "12.35"
+        }
+      ]
     },
     {
       "id": "usambara",
@@ -245,7 +293,36 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/usambara/",
       "storyLabel": "Explore Flamenco",
-      "card": "img/usambara-set.webp"
+      "card": "img/usambara-set.webp",
+      "cover": "img/pieces/usambara/p4.webp",
+      "details": [
+        {
+          "part": "Pink spinel necklace",
+          "metal": "18k White Gold",
+          "stone": "Pink Spinel",
+          "stoneCt": "34.56"
+        },
+        {
+          "part": "Aquamarine and tanzanite necklace",
+          "ref": "GD26-229",
+          "metal": "14k White Gold",
+          "stone": "Aquamarine 20.36 ct · Lavender Tanzanite 25.18 ct · Tanzanite 19.97 ct",
+          "stoneCt": "65.51",
+          "diamondCt": "24.53",
+          "netG": "99.942",
+          "grossG": "117.95"
+        },
+        {
+          "part": "Aquamarine and tanzanite earrings",
+          "ref": "GD26-229 A",
+          "metal": "14k White Gold",
+          "stone": "Aquamarine 6.92 ct · Lavender Tanzanite 14.57 ct · Tanzanite 6.19 ct",
+          "stoneCt": "27.68",
+          "diamondCt": "6.36",
+          "netG": "28.902",
+          "grossG": "35.71"
+        }
+      ]
     },
     {
       "id": "ember",
@@ -281,7 +358,15 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/ember/",
       "storyLabel": "Explore Ember",
-      "card": "img/ember-set.webp"
+      "card": "img/ember-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White Gold",
+          "stone": "Pink Spinel (23.7 ct centre and 156 disc-cut)",
+          "diamondCt": "34.18"
+        }
+      ]
     },
     {
       "id": "dew-fall",
@@ -301,7 +386,16 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/dew-fall/",
-      "storyLabel": "Explore Dew Fall"
+      "storyLabel": "Explore Dew Fall",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White Gold",
+          "stone": "Aquamarine",
+          "stoneCt": "10.37",
+          "diamondCt": "17"
+        }
+      ]
     },
     {
       "id": "celestine",
@@ -338,7 +432,14 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/celestine/",
       "storyLabel": "Explore Celestine",
-      "card": "img/celestine-set.webp"
+      "card": "img/celestine-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White Gold",
+          "stone": "Aquamarine 1.25 ct · Pink Spinel 3.24 ct"
+        }
+      ]
     },
     {
       "id": "merelani",
@@ -363,7 +464,15 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/merelani/",
       "storyLabel": "Explore Rosette",
-      "card": "img/merelani-set.webp"
+      "card": "img/merelani-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White and Rose Gold",
+          "stone": "Pink Spinel",
+          "stoneCt": "36.5"
+        }
+      ]
     },
     {
       "id": "helix",
@@ -383,7 +492,16 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/helix/",
-      "storyLabel": "Explore Helix"
+      "storyLabel": "Explore Helix",
+      "details": [
+        {
+          "part": "Necklace",
+          "metal": "18k White Gold",
+          "stone": "Tanzanite",
+          "stoneCt": "9.16",
+          "diamondCt": "12"
+        }
+      ]
     },
     {
       "id": "rihla",
@@ -413,7 +531,29 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/rihla/",
       "storyLabel": "Explore Rihla",
-      "card": "img/rihla-set.webp"
+      "card": "img/rihla-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD26-11",
+          "metal": "14k White Gold",
+          "stone": "Tanzanite 11.83 ct · Mother-of-Pearl 48.92 ct",
+          "stoneCt": "60.75",
+          "diamondCt": "15.58",
+          "netG": "57.704",
+          "grossG": "72.97"
+        },
+        {
+          "part": "Earrings",
+          "ref": "GD26-12",
+          "metal": "14k White Gold",
+          "stone": "Tanzanite 6.31 ct · Mother-of-Pearl 10.47 ct",
+          "stoneCt": "16.78",
+          "diamondCt": "2.61",
+          "netG": "12.282",
+          "grossG": "16.16"
+        }
+      ]
     },
     {
       "id": "serengeti",
@@ -441,7 +581,14 @@ window.HJ_DATA = {
       ],
       "models": [],
       "storyUrl": "/high-jewellery/serengeti/",
-      "storyLabel": "Explore Wimbi"
+      "storyLabel": "Explore Wimbi",
+      "details": [
+        {
+          "part": "Necklace",
+          "stone": "Rhodolite",
+          "stoneCt": "21.86"
+        }
+      ]
     },
     {
       "id": "rift",
@@ -473,7 +620,14 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/rift/",
       "storyLabel": "Explore The Queen of Green",
-      "card": "img/rift-set.webp"
+      "card": "img/rift-set.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD25-401 · GD25-401 A",
+          "stone": "Tsavorite"
+        }
+      ]
     },
     {
       "id": "mahenge",
@@ -511,7 +665,16 @@ window.HJ_DATA = {
       ],
       "storyUrl": "/high-jewellery/mahenge/",
       "storyLabel": "Explore Samaah",
-      "card": "img/mahenge-set.webp"
+      "card": "img/mahenge-set.webp",
+      "cover": "img/pieces/mahenge/m3.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "stone": "Pink Tourmaline",
+          "stoneCt": "16.05",
+          "diamondCt": "32.10"
+        }
+      ]
     },
     {
       "id": "oldoinyo",
@@ -534,7 +697,30 @@ window.HJ_DATA = {
       "models": [],
       "storyUrl": "/high-jewellery/oldoinyo/",
       "storyLabel": "Explore Mediterranea",
-      "card": "img/oldoinyo-set.webp"
+      "card": "img/oldoinyo-set.webp",
+      "cover": "img/pieces/oldoinyo/p3.webp",
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD23-442",
+          "metal": "18k Rose Gold",
+          "stone": "Pink Spinel",
+          "stoneCt": "82.32",
+          "diamondCt": "15.59",
+          "netG": "83.868",
+          "grossG": "103.45"
+        },
+        {
+          "part": "Earrings",
+          "ref": "GD23-442 A",
+          "metal": "18k Rose Gold",
+          "stone": "Pink Spinel",
+          "stoneCt": "9.84",
+          "diamondCt": "1.85",
+          "netG": "14.692",
+          "grossG": "17.03"
+        }
+      ]
     }
   ],
   "focal": {

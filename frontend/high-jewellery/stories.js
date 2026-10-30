@@ -39,8 +39,11 @@ window.HJ_STORIES = {
           "competing with it. The colour arrives the way light does, in pale blues and " +
           "rosy hues, before the eye has decided what it is looking at."],
     },
+    /* Named stills: the automatic pick put the bracelet under "Earrings". */
     suite: { note: "Celestine is a necklace, a bracelet and a pair of earrings, made as one.",
-             labels: ["Earrings", "Bracelet", "Necklace"] },
+             labels: ["Earrings", "Bracelet", "Necklace"],
+             images: ["img/pieces/celestine/p1.webp", "img/pieces/celestine/p4.webp",
+                      "img/pieces/celestine/p8.webp"] },
     say: "To wear Celestine is to wear a garden caught in starlight. Set into " +
          "the floral star-map are pastel aquamarines and vivid pink spinels, in" +
          " the soft blues and pinks of an early morning sky.",

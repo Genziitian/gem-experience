@@ -18,8 +18,10 @@
      catalogue: add images to a product and it appears on its own, and its
      collection with it. */
   (function () {
+    /* `hidden` marks a piece whose photograph contradicts its spec sheet,
+       held back until the house confirms which is right. */
     var shown = (data.products || []).filter(function (p) {
-      return p.images && p.images.length;
+      return p.images && p.images.length && !p.hidden;
     });
     var live = {};
     shown.forEach(function (p) { live[p.collection] = true; });
@@ -109,11 +111,14 @@
     });
     return out;
   }
-  /* What tells one colour from another: the stone, and the metal when two
-     share a stone. */
+  /* What tells one colour from another: the stone, then the metal when two
+     share a stone, then the weight when they share that too. */
   function variantLabel(q, all) {
-    var same = all.filter(function (o) { return o.stone === q.stone; }).length > 1;
-    return same ? q.stone + ", " + q.metal : q.stone;
+    var sameStone = all.filter(function (o) { return o.stone === q.stone; });
+    if (sameStone.length < 2) return q.stone;
+    var sameMetal = sameStone.filter(function (o) { return o.metal === q.metal; }).length > 1;
+    // two in one stone and metal differ only by weight (GD26-183, GD26-207)
+    return q.stone + ", " + (sameMetal && q.stoneCt != null ? ct(q.stoneCt) : q.metal);
   }
   function swatches(p, cls, linked) {
     var all = variantsOf(p);
@@ -242,6 +247,22 @@
     });
     if (col.meta && col.meta !== "Designed with " + (col.designer || "") && !/gold/i.test(col.meta)) out.push(col.meta);
     return out;
+  }
+
+  /* The spec sheets abbreviate cuts ("Sq-Princess", "Prs", "Heart Cabs");
+     the page spells them out. A value that is not a cut (one row has
+     "Aquamarine") is left off. */
+  var SHAPE_WORDS = { sq: "Square", prs: "Pear", pears: "Pear", rds: "Round", ovl: "Oval", rcb: "Round cabochon",
+    cabs: "cabochon", cab: "cabochon", balls: "Ball", drops: "Drop", mix: "Mixed" };
+  function shapeName(raw) {
+    var s = String(raw || "").replace(/\s+/g, " ").trim();
+    if (!s || /aquamarine/i.test(s)) return "";
+    var out = s.split(/([\s&-]+)/).map(function (w) {
+      var k = w.toLowerCase();
+      return SHAPE_WORDS[k] ? SHAPE_WORDS[k] : w;
+    }).join("").replace(/-/g, " ").replace(/\s+/g, " ");
+    out = out.replace(/^cabochon$/i, "Cabochon");
+    return out.charAt(0).toUpperCase() + out.slice(1).toLowerCase().replace(/ & (\w)/, function (m, c) { return " & " + c; });
   }
 
   function stoneList(p) {
@@ -681,6 +702,18 @@
     });
     copy.appendChild(strip);
 
+    var opts = el("div", "fj-pdp-opts");
+    opts.appendChild(el("p", "fj-pdp-metal", {
+      text: "Also available in white, yellow and rose gold, made to order."
+    }));
+    if (p.type === "Rings" || p.type === "Bracelets") {
+      opts.appendChild(el("a", "fj-size-link", {
+        href: "/size-guide/#" + (p.type === "Rings" ? "rings" : "bracelets"),
+        text: "Find your size"
+      }));
+    }
+    copy.appendChild(opts);
+
     /* There is no checkout: a piece is saved to the Collector's Bench or
        enquired about, so those are the two actions. */
     var actions = el("div", "fj-pdp-actions");
@@ -698,7 +731,7 @@
     // details, care & shipping — plain disclosure elements, no extra JS state
     var specRows = [
       ["Category", p.type], ["Collection", p.collection], ["Metal", p.metal],
-      ["Stone", p.stone], ["Shape", p.shape],
+      ["Stone", p.stone], ["Shape", shapeName(p.shape)],
       ["Stone weight", ct(p.stoneCt)], ["Diamond weight", ct(p.diamondCt)],
       ["Net weight", gm(p.netG)], ["Gross weight", gm(p.grossG)], ["Reference", p.sku]
     ].filter(function (r) { return r[1]; });
@@ -830,9 +863,39 @@
     else node = renderHome();
     document.title = pageTitle(route);
     view.appendChild(node);
-    window.scrollTo(0, 0);
+    /* A product opens at the top; a list returns to where the reader left
+       it, so coming back from a piece does not start the list over. */
+    var y = route.page === "product" || !restoreNext ? 0 : (scrollMemo()[location.hash || "#/"] || 0);
+    restoreNext = true;
+    window.scrollTo(0, y);
+    if (y) setTimeout(function () { window.scrollTo(0, y); }, 120); // after images settle
   }
 
-  window.addEventListener("hashchange", render);
+  /* Scroll position per list route, kept for the tab (sessionStorage), so it
+     also survives leaving for another page and coming back with Back. */
+  function scrollMemo() {
+    try { return JSON.parse(sessionStorage.getItem("fj_scroll") || "{}"); } catch (e) { return {}; }
+  }
+  function rememberScroll(hash) {
+    try {
+      var m = scrollMemo();
+      m[hash || "#/"] = window.scrollY;
+      sessionStorage.setItem("fj_scroll", JSON.stringify(m));
+    } catch (e) { /* private mode: nothing to keep */ }
+  }
+  /* The first render restores only when the reader came Back to this page;
+     after that, every return to a list does. */
+  var restoreNext = (function () {
+    var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+    return nav ? nav.type === "back_forward" : false;
+  })();
+  var shownHash = location.hash;
+  window.addEventListener("hashchange", function () {
+    rememberScroll(shownHash);
+    shownHash = location.hash;
+    render();
+  });
+  window.addEventListener("pagehide", function () { rememberScroll(location.hash); });
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   render();
 })();

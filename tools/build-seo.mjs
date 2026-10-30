@@ -167,7 +167,7 @@ const HJ = readAssigned(path.join(WEB, "high-jewellery/data.js"), "HJ_DATA");
 const FJraw = readAssigned(path.join(WEB, "fine-jewellery/data.js"), "FJ_DATA");
 /* Same rule as fine-jewellery/app.js: a product shows only once it has photos,
    and a collection only once it has a product. */
-const fjProducts = FJraw.products.filter((p) => p.images && p.images.length);
+const fjProducts = FJraw.products.filter((p) => p.images && p.images.length && !p.hidden);
 const fjLive = new Set(fjProducts.map((p) => p.collection));
 const fjCollections = FJraw.collections.filter((c) => fjLive.has(c.name));
 

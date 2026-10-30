@@ -16,6 +16,18 @@
 (function (w, d) {
   "use strict";
 
+  /* Every page loads this file, so it also brings in the shared behaviour
+     (hide-on-scroll header, one-open accordions, photo magnifier). */
+  (function () {
+    var me = d.currentScript && d.currentScript.src;
+    if (!me || d.querySelector("script[data-ge-ux]")) return;
+    var s = d.createElement("script");
+    s.src = me.replace(/site-nav\.js(\?.*)?$/, "site-ux.js?v=1");
+    s.defer = true;
+    s.setAttribute("data-ge-ux", "");
+    d.head.appendChild(s);
+  })();
+
   var SECTIONS = [
     { label: "High Jewellery", href: "high-jewellery/" },
     {
@@ -40,8 +52,7 @@
         { label: "Spectrum", href: "fine-jewellery/#/spectrum" },
         { label: "Flare", href: "fine-jewellery/#/flare" },
         { label: "Royal Starling", href: "fine-jewellery/#/royal-starling" },
-        { label: "Multi Colour", href: "fine-jewellery/#/multi-colour" },
-        { label: "Shamsa Fine", href: "fine-jewellery/#/shamsa-fine" }
+        { label: "Multi Colour", href: "fine-jewellery/#/multi-colour" }
       ]
     },
     {
@@ -62,16 +73,21 @@
       href: "the-house/",
       children: [
         { label: "About", href: "the-house/" },
+        { label: "GE Icons", href: "icons/" },
+        { label: "Craftsmanship", href: "craftsmanship/" },
+        { label: "Mining", href: "mining/" },
+        { label: "Sustainability", href: "sustainability/" },
+        { label: "Maasai Women Project", href: "maasai-women/" },
+        { label: "Timeline", href: "timeline/" },
         { label: "Lookbook", href: "lookbook/" },
         { label: "Events & Exhibitions", href: "events/" },
-        { label: "Ateliers & stores", href: "offices/" }
+        { label: "Our ateliers", href: "offices/" },
+        { label: "Investors", href: "investors/" },
+        { label: "Careers", href: "careers/" }
       ]
     }
     /* Hidden from the menu for now (unpublished in the database too):
-       Gemstones & Mining, Engagement & Bridal and Gifts (gifts/). The House's
-       planned pages (Our History, Timeline, Craftsmanship, Sustainability,
-       Maasai Women Project, Our Museum, Services) stay unpublished until each
-       has a page. */
+       Gemstones & Mining, Engagement & Bridal and Gifts (gifts/). */
   ];
 
   /* Sections kept off the menu whatever the database says. The admin can
@@ -82,7 +98,21 @@
   /* Entries inside a section kept off the menu the same way: collections
      with nothing photographed to show yet. (Tide and Swirl were here until
      their photography arrived.) */
-  var HIDDEN_CHILDREN = { "Fine Jewellery": [] };
+  var HIDDEN_CHILDREN = {
+    // Shamsa Fine moved into High Jewellery (2026-10-23)
+    "Fine Jewellery": ["Shamsa Fine"],
+    // stores withdrawn (2026-10-21); the ateliers stay, under "Our ateliers"
+    "The House": ["Ateliers & stores"]
+  };
+
+  /* Pages added after the menu was seeded in the database. If the database
+     section does not have them yet they are added at the end, so a new page
+     is reachable before anyone edits the admin; an entry the admin already
+     has (by label) is left as the admin has it. */
+  var ADDED_CHILDREN = {
+    "The House": ["GE Icons", "Craftsmanship", "Mining", "Sustainability", "Maasai Women Project",
+                  "Timeline", "Our ateliers", "Investors", "Careers"]
+  };
 
   /* The database menu is the source of truth, but rows seeded before a page
      existed carry no href and render as unclickable text. Where the database
@@ -105,6 +135,13 @@
         if (drop && out.children) {
           out.children = out.children.filter(function (kid) { return drop.indexOf(kid.label) === -1; });
         }
+        var add = ADDED_CHILDREN[sec.label];
+        if (add && out.children && ref.children) {
+          var have = out.children.map(function (kid) { return kid.label; });
+          ref.children.forEach(function (kid) {
+            if (add.indexOf(kid.label) !== -1 && have.indexOf(kid.label) === -1) out.children = out.children.concat([kid]);
+          });
+        }
         if (out.children && ref.children) {
           out.children = out.children.map(function (kid) {
             if (kid.href || kid.heading) return kid;
@@ -121,7 +158,7 @@
   }
 
   var SECONDARY = [
-    { label: "Find our store", href: "offices/" },
+    { label: "Our ateliers", href: "offices/" },
     { label: "Book an appointment", href: "appointment/" },
     { label: "Request a quotation", href: "quotation/" },
     { label: "My account", href: "account/" },

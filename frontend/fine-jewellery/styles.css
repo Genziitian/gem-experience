@@ -929,3 +929,8 @@ button {
   font-size: 13px; color: var(--ink-soft); transition: border-color 0.2s ease;
 }
 .fj-variant:hover, .fj-variant.is-on { border-color: var(--ink); color: var(--ink); }
+
+/* metal availability and the size guide link, under the stone strip */
+.fj-pdp-opts { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; margin-top: 18px; }
+.fj-pdp-metal { margin: 0; font-weight: 300; font-size: 13px; line-height: 20px; color: var(--muted); }
+.fj-size-link { font-size: 13px; color: var(--ink); border-bottom: 1px solid currentColor; padding-bottom: 1px; }

@@ -10,7 +10,8 @@
  * request arrived, and a slow SMTP handshake should not hold its queue.
  *
  * Env: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, MAIL_FROM,
- *      STAFF_NOTIFY_EMAIL (comma-separated), NOTIFY_SECRET, SITE_URL.
+ *      STAFF_NOTIFY_EMAIL (comma-separated), NOTIFY_SECRET, SITE_URL,
+ *      MAIL_CC (comma-separated; default marketing@gem-experience.com).
  */
 
 import { timingSafeEqual } from "node:crypto";
@@ -21,6 +22,8 @@ const env = process.env;
 const SITE = (env.SITE_URL || "https://gem-experience.com").replace(/\/$/, "");
 const FROM = env.MAIL_FROM || `Gem Experience <${env.SMTP_USER}>`;
 const STAFF = (env.STAFF_NOTIFY_EMAIL || "").split(",").map((s) => s.trim()).filter(Boolean);
+// copied on every mail the website sends (client request, 2026-10-29)
+const CC = (env.MAIL_CC ?? "marketing@gem-experience.com").split(",").map((s) => s.trim()).filter(Boolean);
 
 let transport = null;
 function mailer() {
@@ -211,6 +214,7 @@ async function send(to, msg, replyTo) {
   if (!to || (Array.isArray(to) && !to.length) || !msg) return;
   await mailer().sendMail({
     from: FROM, to, subject: msg.subject, html: msg.html,
+    ...(CC.length ? { cc: CC } : {}),
     text: msg.html.replace(/<style[\s\S]*?<\/style>|<head[\s\S]*?<\/head>/g, "").replace(/<br\s*\/?>/g, "\n").replace(/<\/(p|tr|h1|div)>/g, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\n\s*\n+/g, "\n\n").trim(),
     ...(replyTo ? { replyTo } : {}),
   });

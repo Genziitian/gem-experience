@@ -72,8 +72,16 @@
                   '<a href="' + prefix + 'the-house/">Our story</a>' +
                   '<a href="' + prefix + 'world-of-preciousness/">Where the stones come from</a>' +
                   '<a href="' + prefix + 'high-jewellery/stories/">Inside the workshop</a>' +
+                  '<a href="' + prefix + 'craftsmanship/">Craftsmanship</a>' +
+                  '<a href="' + prefix + 'mining/">Mining</a>' +
+                  '<a href="' + prefix + 'sustainability/">Sustainability</a>' +
+                  '<a href="' + prefix + 'maasai-women/">Maasai Women Project</a>' +
+                  '<a href="' + prefix + 'icons/">GE Icons</a>' +
+                  '<a href="' + prefix + 'timeline/">Timeline</a>' +
                   '<a href="' + prefix + 'lookbook/">Lookbook</a>' +
                   '<a href="' + prefix + 'blog/">Journal</a>' +
+                  '<a href="' + prefix + 'investors/">Investors</a>' +
+                  '<a href="' + prefix + 'careers/">Careers</a>' +
                 "</div>" +
               "</section>" +
               '<section class="ftr-group">' +
@@ -82,6 +90,7 @@
                   '<a href="' + prefix + 'appointment/">Book a private viewing</a>' +
                   '<a href="' + prefix + 'contact/">Care and repairs</a>' +
                   '<a href="' + prefix + 'contact/">Contact us</a>' +
+                  '<a href="' + prefix + 'size-guide/">Size guide</a>' +
                   '<a href="' + prefix + 'faqs/">FAQs</a>' +
                 "</div>" +
               "</section>" +
@@ -125,7 +134,7 @@
             '<div class="ftr-bottom">' +
               '<div class="region">' +
                 '<button class="region-btn" id="region-btn" type="button" aria-expanded="false" aria-controls="region-list">' +
-                  'Change Country/Region <span class="region-current" id="region-current">India</span>' +
+                  'Change Country/Region <span class="region-current" id="region-current">United Arab Emirates</span>' +
                 "</button>" +
                 '<ul class="region-list" id="region-list" hidden>' +
                   '<li><button type="button" data-region="India">India</button></li>' +
@@ -135,6 +144,7 @@
                   '<li><button type="button" data-region="Singapore">Singapore</button></li>' +
                   '<li><button type="button" data-region="Tanzania">Tanzania</button></li>' +
                 "</ul>" +
+                '<p class="region-desk" id="region-desk"></p>' +
               "</div>" +
               '<span class="legal-copy">&copy; 2026 Gem Experience</span>' +
             "</div>" +
@@ -218,9 +228,23 @@
         regionBtn.setAttribute("aria-expanded", String(!open));
         regionList.hidden = open;
       });
+      /* The choice is kept on this device and decides which adviser desk the
+         site's WhatsApp links and this line point to (gem.js). */
+      var deskLine = root.querySelector("#region-desk");
+      function show(name) {
+        if (regionCurrent) regionCurrent.textContent = name;
+        var g = window.Gem && window.Gem.regionDesk ? window.Gem.regionDesk(name) : null;
+        if (deskLine && g) {
+          deskLine.innerHTML = "Your adviser desk: " + g.desk + " \u00b7 " +
+            '<a href="tel:' + g.tel + '">' + g.phone + "</a>";
+        }
+      }
+      show(window.Gem && window.Gem.region ? window.Gem.region() : "United Arab Emirates");
       regionList.querySelectorAll("[data-region]").forEach(function (btn) {
         btn.addEventListener("click", function () {
-          if (regionCurrent) regionCurrent.textContent = btn.getAttribute("data-region");
+          var name = btn.getAttribute("data-region");
+          if (window.Gem && window.Gem.region) window.Gem.region(name);
+          show(name);
           regionBtn.setAttribute("aria-expanded", "false");
           regionList.hidden = true;
         });

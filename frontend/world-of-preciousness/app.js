@@ -121,9 +121,14 @@
     var play = figure.querySelector(".wop-film-play");
     if (!video || !play) return;
 
+    /* The icon follows the state: a triangle while paused, two bars while
+       playing. It used to stay a triangle either way. */
+    var PLAY = "M8 6.5v11l9-5.5Z", PAUSE = "M7 6h3.5v12H7ZM13.5 6H17v12h-3.5Z";
+    var icon = play.querySelector("path");
     function sync() {
       figure.classList.toggle("is-playing", !video.paused);
       play.setAttribute("aria-label", video.paused ? "Play film" : "Pause film");
+      if (icon) icon.setAttribute("d", video.paused ? PLAY : PAUSE);
     }
 
     play.addEventListener("click", function () {

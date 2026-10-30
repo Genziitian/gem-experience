@@ -407,6 +407,8 @@
   list-style: none;
 }
 .site-ftr .region-list[hidden] { display: none; }
+.site-ftr .region-desk { margin: 8px 0 0; font-size: 12px; color: rgba(243, 239, 232, 0.7); }
+.site-ftr .region-desk a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .site-ftr .region-list button {
   font-family: var(--sans);
   font-weight: 300;

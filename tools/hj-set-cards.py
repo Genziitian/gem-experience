@@ -7,15 +7,13 @@
 A card used to show one photograph, so some pieces were known by their
 necklace and others only by their earrings. For a piece made as a set, this
 draws the card from two of its own stills: the necklace large on the left and
-its earrings beside it, on the house grey. Each still is first put on the
-common ground the way tools/fj-reground.py does it (macOS subject mask, then
-only backdrop-like pixels lifted), so the two sit on one even field.
+its earrings beside it, on the house grey the stills were shot on.
 
 Writes high-jewellery/img/<id>-set.webp (1200px square, like the other card
 images) and sets "card" on the piece in data.js; app.js prefers that over
-img/<id>.webp. Needs macOS 14+ with swiftc, Pillow, numpy and cwebp.
+img/<id>.webp. Needs Pillow, numpy and cwebp.
 """
-import importlib.util, json, re, subprocess, sys, tempfile
+import json, re, subprocess, sys, tempfile
 from pathlib import Path
 
 import numpy as np
@@ -24,10 +22,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 HJ = ROOT / "frontend/high-jewellery"
 DATA = HJ / "data.js"
-spec = importlib.util.spec_from_file_location("fj_reground", ROOT / "tools/fj-reground.py")
-rg = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(rg)
-GROUND = rg.GROUND
+GROUND = 242  # as in fj-import.py
 SIZE = 1200
 
 # piece -> (necklace still, earrings still), both from img/pieces/<id>/
@@ -40,21 +35,20 @@ SETS = {
 }
 
 
-def on_ground(src, tool, t):
-    """The still on a flat GROUND, cropped to the piece with a margin."""
-    base, mask = t / "base.png", t / "mask.png"
-    Image.open(src).convert("RGB").save(base)
-    a = np.asarray(Image.open(base).convert("RGB")).astype(np.float64)
-    if subprocess.run([str(tool), str(base), str(mask)]).returncode == 0:
-        m = np.asarray(Image.open(mask).convert("L").resize(a.shape[1::-1], Image.BILINEAR))
-    else:
-        # no subject found (a fine, open necklace): whatever stands off the ground
-        m = np.where(np.abs(a - rg.blur(a, 40)).max(axis=2) > 10, 255, 0).astype(np.uint8)
-    a = rg.reground(a, m)
-    ys, xs = np.where(np.abs(a - GROUND).max(axis=2) > 6)
+def on_ground(src):
+    """The still cropped to the piece with a margin. The stills are already on
+    the house grey, so nothing is lifted or masked: an earlier version ran
+    them through subject lifting, which took Jardin Bleu's 41 ct drop for
+    backdrop and painted it out."""
+    a = np.asarray(Image.open(src).convert("RGB")).astype(np.float64)
+    g = np.median(np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3)]), axis=0)
+    ys, xs = np.where(np.abs(a - g).max(axis=2) > 10)
     pad = int(0.03 * max(a.shape))
     box = (max(xs.min() - pad, 0), max(ys.min() - pad, 0),
            min(xs.max() + pad, a.shape[1]), min(ys.max() + pad, a.shape[0]))
+    # a still on a slightly different grey: only near-ground pixels move to GROUND
+    near = np.clip(1 - (np.abs(a - g).max(axis=2) - 6) / 10, 0, 1)[..., None]
+    a = np.clip(a + (GROUND - g) * near, 0, 255)
     return Image.fromarray((a + 0.5).astype(np.uint8)).crop(box)
 
 
@@ -81,14 +75,12 @@ def main(ids):
     by = {p["id"]: p for p in data["products"]}
     with tempfile.TemporaryDirectory() as t:
         t = Path(t)
-        tool = t / "subject-mask"
-        subprocess.run(["swiftc", "-O", str(ROOT / "tools/subject-mask.swift"), "-o", str(tool)], check=True)
         for pid in ids or SETS:
             if pid not in by or pid not in SETS:
                 print(f"   {pid:12} not a set piece in data.js (skipped)")
                 continue
             neck, ear = (HJ / f"img/pieces/{pid}/{s}.webp" for s in SETS[pid])
-            card = compose(on_ground(neck, tool, t), on_ground(ear, tool, t))
+            card = compose(on_ground(neck), on_ground(ear))
             png, dst = t / "card.png", HJ / f"img/{pid}-set.webp"
             card.save(png)
             subprocess.run(["cwebp", "-quiet", "-m", "6", "-sharp_yuv", "-q", "86", str(png), "-o", str(dst)], check=True)

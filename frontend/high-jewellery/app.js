@@ -46,19 +46,9 @@
 
   var sortLabels = { featured: "Featured", asc: "Name A \u2013 Z", desc: "Name Z \u2013 A" };
 
-  var STAT_ICONS = {
-    Stone: "M6 3h12l3 6-9 12L3 9l3-6ZM3 9h18M9 3 6 9l6 12M15 3l3 6-6 12",
-    Origin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0ZM12 12a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z",
-    Metal: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z",
-    Gemstone: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z",
-    Jewellery: "M12 2L3 9l9 13 9-13-9-14ZM5.5 9h13M8 9l4 10 4-10",
-    Reference: "M3 8h18v8H3V8ZM7 11v2M11 11v2M15 11v2M19 11v2",
-    Category: "M20.6 13.4 12 22l-9-9V4h9l8.6 8.6a1.4 1.4 0 0 1 0 2ZM7.5 7.5v.01",
-    Collection: "M12 3 3 7.5l9 4.5 9-4.5L12 3ZM3 12.5 12 17l9-4.5M3 17 12 21.5 21 17",
-    Carat: "M12 2L4 8l8 14 8-14-8-6ZM4 8h16M9 8l3 14 3-14",
-    Cut: "M12 2L3 9l9 13 9-13-9-14ZM5.5 9h13M8 9l4 10 4-10",
-    Colour: "M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9Zm0 15a6 6 0 0 1 0-12v12Z"
-  };
+  /* The 360° viewer draws a generic stone, not the piece, so it stays off
+     until each piece's CAD file (GLB, OBJ or STL) is supplied. */
+  var VISUALISER = false;
 
   // --------------------------------------------------------------- state
 
@@ -327,7 +317,7 @@
       : el("div", cls + " card--inert");
     var fr = frame(cardImg(p), p.name, null, opts.eager);
     if (!opts.related && window.Gem && window.Gem.wishlist) fr.appendChild(window.Gem.wishlist.button(hjWishItem(p), "corner"));
-    if (p.visualiser) {
+    if (VISUALISER && p.visualiser) {
       var tag = el("span", "card-viz");
       tag.textContent = "360°";
       fr.appendChild(tag);
@@ -676,7 +666,7 @@
     card.appendChild(list);
 
     var foot = el("span", "modal-foot");
-    foot.textContent = "Monday to Saturday, 9am \u2013 7pm";
+    foot.textContent = "Monday to Saturday, 10 a.m. to 7 p.m. (Dubai time)";
     card.appendChild(foot);
 
     wrap.appendChild(card);
@@ -721,6 +711,29 @@
     host.appendChild(dl);
   }
 
+  /* The piece's facts in the Fine Jewellery order (Metal, Stone, Stone
+     weight, Diamond weight, Net weight, Gross weight), each once. A set
+     lists each piece under its own heading. */
+  function detailsList(host, p) {
+    var parts = p.details || [];
+    parts.forEach(function (d) {
+      if (parts.length > 1) {
+        var h = el("p", "detail-part");
+        h.textContent = d.part + (d.ref ? " \u00b7 " + d.ref : "");
+        host.appendChild(h);
+      }
+      specRows(host, [
+        ["Metal", d.metal || (parts.length === 1 ? p.metal : null)],
+        ["Stone", d.stone],
+        ["Stone weight", d.stoneCt && d.stoneCt + " ct"],
+        ["Diamond weight", d.diamondCt && d.diamondCt + " ct"],
+        ["Net weight", d.netG && d.netG + " g"],
+        ["Gross weight", d.grossG && d.grossG + " g"],
+        ["Reference", parts.length === 1 ? (d.ref || p.ref) : null]
+      ]);
+    });
+  }
+
   function bullets(host, lines) {
     var ul = el("ul", "acc-bullets");
     lines.forEach(function (t) { var li = el("li"); li.textContent = t; ul.appendChild(li); });
@@ -742,6 +755,12 @@
          object-position would follow the image onto the desktop mosaic where
          each frame keeps its own proportions. */
       if (FOCAL[src] != null) img.style.setProperty("--focal", FOCAL[src] + "%");
+      /* A square still is shown whole on its own grey; only a portrait frame
+         fills the slide, and a 4:5 slide trims a 2:3 portrait by a sliver
+         rather than halving it. */
+      img.addEventListener("load", function () {
+        if (img.naturalWidth >= img.naturalHeight * 0.95) slide.classList.add("gal-slide--still");
+      });
       slide.appendChild(img);
       track.appendChild(slide);
     });
@@ -839,21 +858,23 @@
          to sit here was invented: the second circle advertised a yellow gold
          version that does not exist, and clicking it changed nothing on the
          page. The fact stays, the control goes. */
+      var metalBlock = el("div", "opt-block opt-block--metal");
       if (p.metal) {
-        var metalBlock = el("div", "opt-block opt-block--metal");
         var metalLabel = el("span", "opt-label");
         metalLabel.textContent = "Metal: " + p.metal;
         metalBlock.appendChild(metalLabel);
-        panel.appendChild(metalBlock);
       }
+      var metalAlso = el("span", "opt-note");
+      metalAlso.textContent = "Also available in white, yellow and rose gold, made to order.";
+      metalBlock.appendChild(metalAlso);
+      panel.appendChild(metalBlock);
 
-      // No size selector: every High Jewellery piece is a single commission,
-      // so there is nothing to choose between. The guide stays for sizing.
-      var guide = el("a", "size-guide", { href: "#/" }); guide.textContent = "Size guide";
+      // No size selector: every High Jewellery piece is a single commission.
+      var guide = el("a", "size-guide", { href: "/size-guide/" }); guide.textContent = "Size guide";
       panel.appendChild(guide);
     }
 
-    if (p.visualiser) {
+    if (VISUALISER && p.visualiser) {
       var vizBtn = el("button", "viz-launch", { type: "button" });
       vizBtn.appendChild(svg(16, { stroke: "currentColor", sw: 1.2, round: true }, [
         "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z",
@@ -898,32 +919,14 @@
       panel.appendChild(soonLink);
     }
 
-    var addSel = el("button", "cta cta--ghost", { type: "button" });
-    addSel.textContent = "Add to selection";
-    addSel.style.marginTop = "10px";
-    addSel.addEventListener("click", function () {
-      if (!window.Gem) {
-        openEnquiry(p);
-        return;
-      }
-      Gem.cart.add({
-        id: p.id,
-        slug: p.id,
-        name: p.name,
-        materials: p.materials,
-        image: cardImg(p),
-        priceOnEnquiry: true
-      });
-      addSel.textContent = "Added to selection";
-    });
-    ctas.appendChild(addSel);
     panel.appendChild(ctas);
 
     // three accordions, collapsed by default, one open at a time
     panel.appendChild(accordion("acc--pdp", [
       { label: "Description & details", render: function (b) {
           if (p.story) { var s0 = el("p", "acc-copy"); s0.textContent = p.story; b.appendChild(s0); }
-          specRows(b, [["Stone", p.carat], ["Origin", p.origin], ["Gemstone", p.materials], ["Reference", p.ref]]);
+          specRows(b, [["Category", p.type], ["Collection", p.collection]]);
+          detailsList(b, p);
         } },
       { label: "Care and services", render: function (b) {
           bullets(b, [
@@ -945,26 +948,6 @@
 
     pdp.appendChild(panel);
     root.appendChild(pdp);
-
-    // spec strip — icon, label, value; hairline top and bottom
-    /* carat / origin / reference are placeholders on newer pieces, so drop any
-       em-dash and top up from attributes every piece actually has. */
-    var specPairs = [["Stone", p.carat], ["Origin", p.origin], ["Gemstone", p.materials], ["Reference", p.ref]]
-      .filter(function (x) { return x[1] && x[1] !== "\u2014"; });
-    [["Category", p.type], ["Collection", p.collection], ["Jewellery", "High Jewellery"]].forEach(function (x) {
-      if (specPairs.length < 4) specPairs.push(x);
-    });
-
-    var specs = el("div", "specs");
-    specPairs
-      .forEach(function (pair) {
-        var cell = el("div", "spec");
-        cell.appendChild(svg(24, { stroke: "#201e1d", sw: 1, round: true }, [STAT_ICONS[pair[0]]]));
-        var k = el("span", "spec-k"); k.textContent = pair[0];
-        var v = el("span", "spec-v"); v.textContent = pair[1];
-        cell.appendChild(k); cell.appendChild(v);
-        specs.appendChild(cell);
-      });
 
     /* Alternating sequence: a half-width frame with its paragraph beside it,
        stepping left, right, left down the page. Every frame is this piece on
@@ -988,14 +971,6 @@
       root.appendChild(story);
     }
 
-    /* The story runs before the spec strip, not after it. A column of icons
-       reading Gemstone / Category / Collection / Jewellery is the most
-       commercial thing on the page, and sitting it between the piece and its
-       story broke the narrative in half on a phone, where it stacks to most
-       of a screen. The piece is shown, then told, and the facts close it.
-       This sits outside the story branch: a piece with no model frames has no
-       story rows, and it still needs its specs. */
-    root.appendChild(specs);
 
     // cross-sell — same collection first, then the rest
     var rel = products.filter(function (q) { return q.id !== p.id && q.collection === p.collection; })
@@ -1052,7 +1027,7 @@
       + "or how it wears.";
     var bA = el("button", "concierge-cta", { type: "button" }); bA.textContent = "Contact us";
     bA.addEventListener("click", function () { openEnquiry(p); });
-    var bH = el("span", "concierge-hours"); bH.textContent = "Monday to Saturday, 9am \u2013 7pm";
+    var bH = el("span", "concierge-hours"); bH.textContent = "Monday to Saturday, 10 a.m. to 7 p.m. (Dubai time)";
     band.appendChild(bK); band.appendChild(bT); band.appendChild(bA); band.appendChild(bH);
     root.appendChild(band);
 
@@ -1177,8 +1152,27 @@
     state.pid = null;
   }
 
+  /* Where the reader was in the listing, kept for the tab, so coming back
+     from a piece (its product view or its story page) returns them there. */
+  function rememberListing() {
+    if (state.view !== "grid") return;
+    try { sessionStorage.setItem("hj_scroll", String(window.scrollY)); } catch (e) { /* nothing to keep */ }
+  }
+  function listingY() {
+    try { return parseInt(sessionStorage.getItem("hj_scroll") || "0", 10) || 0; } catch (e) { return 0; }
+  }
+
+  var firstRoute = true;
+  function cameBack() {
+    var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+    return nav ? nav.type === "back_forward" : false;
+  }
+
   function onRoute() {
-    var was = state.view + ":" + state.pid;
+    var was = firstRoute ? "" : state.view + ":" + state.pid;
+    if (!firstRoute) rememberListing();
+    var back = firstRoute && cameBack();
+    firstRoute = false;
     readHash();
     if (was !== state.view + ":" + state.pid) {
       state.storyOpen = false; state.drawerOpen = false;
@@ -1187,9 +1181,22 @@
       window.scrollTo(0, 0);
     }
     render();
+    if (state.view === "grid" && (back || (was && was !== "grid:null"))) {
+      var y = listingY();
+      if (y) {
+        window.scrollTo(0, y);
+        setTimeout(function () { window.scrollTo(0, y); }, 150); // after images settle
+      }
+    }
   }
 
   window.addEventListener("hashchange", onRoute);
+  window.addEventListener("pagehide", rememberListing);
+  // links from the grid to a piece's story page leave this page
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("a[href]")) rememberListing();
+  }, true);
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
   document.addEventListener("click", function () {
     if (state.sortOpen) { state.sortOpen = false; render(); }

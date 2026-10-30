@@ -41,6 +41,11 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
 
 const byId = Object.fromEntries(data.products.map((p) => [p.id, p]));
 
+/* The picture that stands for a piece: its chosen cover (the necklace, for a
+   piece whose first frame is an earring), else its first model frame, else
+   its first still. */
+const coverOf = (p) => p.cover || (p.models || [])[0] || (p.gallery || [])[0];
+
 /* Hands out photographs in the order the page wants them and never twice, so a
    piece with fewer frames simply loses its optional bands instead of repeating
    a picture two screens apart.
@@ -247,7 +252,7 @@ function build(id) {
     <div class="st-more-grid">
       ${others.map((k) => {
         const o = byId[k];
-        const img = (o.models || [])[0] || (o.gallery || [])[0];
+        const img = coverOf(o);
         return `<a href="/high-jewellery/${k}/">
         <img src="/high-jewellery/${img}" alt="" loading="lazy" decoding="async">
         <span>${esc(o.name)}</span>
@@ -314,7 +319,7 @@ ${bands.join("\n\n")}
 function buildIndex(ids) {
   const cards = ids.map((id) => {
     const p = byId[id];
-    const img = (p.models || [])[0] || (p.gallery || [])[0];
+    const img = coverOf(p);
     const st = STORIES[id];
     return `      <a class="sx-card" href="/high-jewellery/${id}/">
         <img src="/high-jewellery/${img}" alt="" loading="lazy" decoding="async">

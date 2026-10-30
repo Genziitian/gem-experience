@@ -134,7 +134,7 @@
 
     /* Pieces without a photograph are not on the Fine Jewellery page, so they
        are not offered here either. */
-    fj.products.filter(function (p) { return p.images && p.images.length; }).forEach(function (p) {
+    fj.products.filter(function (p) { return p.images && p.images.length && !p.hidden; }).forEach(function (p) {
       out.push(doc("fj", p.name, "/fine-jewellery/#/p/" + encodeURIComponent(p.id), {
         kicker: "Fine Jewellery · " + p.collection,
         img: p.images && p.images[0] ? "/fine-jewellery/" + p.images[0] : "",

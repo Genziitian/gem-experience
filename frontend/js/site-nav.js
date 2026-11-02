@@ -55,6 +55,7 @@
         { label: "Multi Colour", href: "fine-jewellery/#/multi-colour" }
       ]
     },
+    { label: "GE Icons", href: "icons/" },
     {
       label: "The Collector’s Bench",
       href: "world-of-preciousness/",
@@ -72,18 +73,17 @@
       label: "The House",
       href: "the-house/",
       children: [
-        { label: "About", href: "the-house/" },
-        { label: "GE Icons", href: "icons/" },
         { label: "Craftsmanship", href: "craftsmanship/" },
         { label: "Mining", href: "mining/" },
         { label: "Sustainability", href: "sustainability/" },
         { label: "Maasai Women Project", href: "maasai-women/" },
         { label: "Timeline", href: "timeline/" },
+        { label: "Investors", href: "investors/" },
+        { label: "Careers", href: "careers/" },
+        { label: "About", href: "the-house/" },
         { label: "Lookbook", href: "lookbook/" },
         { label: "Events & Exhibitions", href: "events/" },
-        { label: "Our ateliers", href: "offices/" },
-        { label: "Investors", href: "investors/" },
-        { label: "Careers", href: "careers/" }
+        { label: "Our ateliers", href: "offices/" }
       ]
     }
     /* Hidden from the menu for now (unpublished in the database too):
@@ -101,32 +101,59 @@
   var HIDDEN_CHILDREN = {
     // Shamsa Fine moved into High Jewellery (2026-10-23)
     "Fine Jewellery": ["Shamsa Fine"],
-    // stores withdrawn (2026-10-21); the ateliers stay, under "Our ateliers"
-    "The House": ["Ateliers & stores"]
+    // stores withdrawn (2026-10-21); the ateliers stay, under "Our ateliers".
+    // GE Icons moved up to the first level (2026-11-02).
+    "The House": ["Ateliers & stores", "GE Icons"]
   };
 
+  /* Sections added after the menu was seeded in the database, each placed
+     straight after the section named here. A section the admin already has
+     (by label) is left where the admin put it. */
+  var ADDED_SECTIONS = { "GE Icons": "Fine Jewellery" };
+
   /* Pages added after the menu was seeded in the database. If the database
-     section does not have them yet they are added at the end, so a new page
-     is reachable before anyone edits the admin; an entry the admin already
-     has (by label) is left as the admin has it. */
+     section does not have them yet they are added, so a new page is
+     reachable before anyone edits the admin: those in `first` at the top of
+     the section, those in `last` at the end. An entry the admin already has
+     (by label) is left as the admin has it. */
   var ADDED_CHILDREN = {
-    "The House": ["GE Icons", "Craftsmanship", "Mining", "Sustainability", "Maasai Women Project",
-                  "Timeline", "Our ateliers", "Investors", "Careers"]
+    "The House": {
+      first: ["Craftsmanship", "Mining", "Sustainability", "Maasai Women Project", "Timeline", "Investors", "Careers"],
+      last: ["Our ateliers"]
+    }
   };
+
+  /* Secondary links the database still calls by an old name. */
+  var RENAMED_SECONDARY = { "Find our store": "Our ateliers" };
+
+  function secondaryOf(rows) {
+    return rows.map(function (r) {
+      var to = RENAMED_SECONDARY[r.label];
+      if (!to) return r;
+      var copy = {};
+      for (var k in r) copy[k] = r[k];
+      copy.label = to;
+      return copy;
+    });
+  }
+
+  function hrefKey(h) { return (h || "").replace(/^\//, ""); }
 
   /* The database menu is the source of truth, but rows seeded before a page
      existed carry no href and render as unclickable text. Where the database
      row has no link and this file has one for the same section and label,
      the link here fills the gap; a link set in the admin always wins. */
   function reconcile(primary) {
-    var known = {};
+    var known = {}, byHref = {};
     SECTIONS.forEach(function (sec) {
       known[sec.label] = sec;
+      if (sec.href) byHref[hrefKey(sec.href)] = sec;
     });
-    return primary
+    var out = primary
       .filter(function (sec) { return HIDDEN.indexOf(sec.label) === -1; })
       .map(function (sec) {
-        var ref = known[sec.label];
+        // a section renamed in the admin is still recognised by its link
+        var ref = known[sec.label] || byHref[hrefKey(sec.href)];
         if (!ref) return sec;
         var out = {};
         for (var k in sec) out[k] = sec[k];
@@ -136,11 +163,13 @@
           out.children = out.children.filter(function (kid) { return drop.indexOf(kid.label) === -1; });
         }
         var add = ADDED_CHILDREN[sec.label];
-        if (add && out.children && ref.children) {
-          var have = out.children.map(function (kid) { return kid.label; });
-          ref.children.forEach(function (kid) {
-            if (add.indexOf(kid.label) !== -1 && have.indexOf(kid.label) === -1) out.children = out.children.concat([kid]);
-          });
+        if (add && ref.children) {
+          var kids = out.children || [];
+          var have = kids.map(function (kid) { return kid.label; });
+          var missing = function (names) {
+            return ref.children.filter(function (kid) { return names.indexOf(kid.label) !== -1 && have.indexOf(kid.label) === -1; });
+          };
+          out.children = missing(add.first || []).concat(kids, missing(add.last || []));
         }
         if (out.children && ref.children) {
           out.children = out.children.map(function (kid) {
@@ -155,6 +184,12 @@
         }
         return out;
       });
+    Object.keys(ADDED_SECTIONS).forEach(function (label) {
+      if (out.some(function (sec) { return sec.label === label; })) return;
+      var after = out.map(function (sec) { return sec.label; }).indexOf(ADDED_SECTIONS[label]);
+      out.splice(after === -1 ? out.length : after + 1, 0, known[label]);
+    });
+    return out;
   }
 
   var SECONDARY = [
@@ -319,7 +354,7 @@
       function redraw(tree) {
         if (!tree) return;
         var sections = tree.primary && tree.primary.length ? reconcile(tree.primary) : SECTIONS;
-        var secondary = tree.secondary && tree.secondary.length ? tree.secondary : SECONDARY;
+        var secondary = tree.secondary && tree.secondary.length ? secondaryOf(tree.secondary) : SECONDARY;
         root.innerHTML = markup(prefix, sections, secondary);
         show("root");
       }

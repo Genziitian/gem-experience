@@ -113,20 +113,16 @@
               "</section>" +
             "</div>" +
 
+            /* The house's accounts. YouTube and Facebook come back when their
+               links are supplied. */
             '<div class="social">' +
-              '<a href="https://instagram.com" aria-label="Instagram" rel="noopener noreferrer" target="_blank">' +
+              '<a href="https://www.instagram.com/gemexperienceofficial/" aria-label="Instagram" rel="noopener noreferrer" target="_blank">' +
                 '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 5.19a4.65 4.65 0 1 0 0 9.3 4.65 4.65 0 0 0 0-9.3Zm0 7.67a3.02 3.02 0 1 1 0-6.04 3.02 3.02 0 0 1 0 6.04Zm5.92-7.85a1.09 1.09 0 1 1-2.17 0 1.09 1.09 0 0 1 2.17 0Z"></path></svg>' +
               "</a>" +
-              '<a href="https://youtube.com" aria-label="YouTube" rel="noopener noreferrer" target="_blank">' +
-                '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.9a3.02 3.02 0 0 0-2.12-2.14C19.5 4.25 12 4.25 12 4.25s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.9C0 8.79 0 12 0 12s0 3.21.5 5.1a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.21 24 12 24 12s0-3.21-.5-5.1ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"></path></svg>' +
-              "</a>" +
-              '<a href="https://facebook.com" aria-label="Facebook" rel="noopener noreferrer" target="_blank">' +
-                '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.68.24 2.68.24v2.95h-1.51c-1.49 0-1.95.92-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12Z"></path></svg>' +
-              "</a>" +
-              '<a href="https://pinterest.com" aria-label="Pinterest" rel="noopener noreferrer" target="_blank">' +
+              '<a href="https://pin.it/14GYX5dE7" aria-label="Pinterest" rel="noopener noreferrer" target="_blank">' +
                 '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.18c-.06-.94-.01-2.07.23-3.1l1.53-6.5s-.38-.76-.38-1.89c0-1.77 1.03-3.09 2.3-3.09 1.09 0 1.61.82 1.61 1.8 0 1.09-.7 2.73-1.06 4.25-.3 1.27.64 2.3 1.89 2.3 2.27 0 3.8-2.91 3.8-6.36 0-2.62-1.77-4.58-4.98-4.58-3.63 0-5.89 2.71-5.89 5.73 0 1.04.31 1.78.79 2.35.22.26.25.37.17.67l-.24.95c-.08.3-.32.41-.59.3-1.65-.68-2.42-2.48-2.42-4.51 0-3.35 2.83-7.37 8.44-7.37 4.51 0 7.48 3.26 7.48 6.76 0 4.63-2.58 8.09-6.37 8.09-1.28 0-2.48-.69-2.89-1.48l-.79 3.13c-.28 1.03-.84 2.06-1.35 2.86A12 12 0 1 0 12 0Z"></path></svg>' +
               "</a>" +
-              '<a href="https://linkedin.com" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">' +
+              '<a href="https://www.linkedin.com/company/gem-experience/" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">' +
                 '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"></path></svg>' +
               "</a>" +
             "</div>" +

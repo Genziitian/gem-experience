@@ -52,18 +52,26 @@
 .hp-timeline h2 { margin: 8px 0 8px; font-family: var(--serif, "EB Garamond", Georgia, serif); font-weight: 500; font-size: clamp(22px, 2.4vw, 30px); }
 .hp-timeline p { margin: 0; }
 
-.hp-icons .pg-lede { margin: -8px 0 24px; }
-.hp-icons-more { margin-top: clamp(48px, 6vw, 80px) !important; }
-.hp-icons-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
-@media (min-width: 900px) { .hp-icons-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 44px 20px; } }
-@media (min-width: 900px) { .hp-icons-grid--set { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.hp-icon { display: grid; gap: 6px; justify-items: start; }
-.hp-icon-shot { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: hidden; background: #f2f2f2; }
-.hp-icon-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.4s ease; }
-.hp-icon-worn { position: absolute; inset: 0; opacity: 0; }
-@media (hover: hover) { .hp-icon-shot:hover .hp-icon-worn { opacity: 1; } }
-.hp-icon-kind { margin: 10px 0 0 !important; font-family: var(--serif, "EB Garamond", Georgia, serif); font-size: 18px !important; line-height: 1.2 !important; color: var(--ink, #17140f) !important; }
-.hp-icon-ref { margin: 0 !important; font-size: 12px !important; letter-spacing: 0.08em; color: var(--muted, #8a8279) !important; }
+/* GE Icons: one row per piece, two photographs beside its description,
+   sides alternating on a wide screen. Product shots are on white, so their
+   frame is white and they are shown whole; model shots fill theirs. */
+.hp-gis { display: grid; gap: clamp(64px, 9vw, 128px); }
+.hp-gi { display: grid; gap: 24px; align-items: center; scroll-margin-top: 90px; }
+.hp-gi-media { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.hp-gi-shot { margin: 0; aspect-ratio: 4 / 5; background: #fff; overflow: hidden; }
+.hp-gi-shot img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.hp-gi-shot--model img { object-fit: cover; }
+.hp-gi-kind { margin: 0 0 8px !important; font-size: 11px !important; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted, #8a8279) !important; }
+.hp-gi-title { margin: 0 0 6px; font-family: var(--serif, "EB Garamond", Georgia, serif); font-weight: 500; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; }
+.hp-gi-facts { margin: 0 0 18px !important; font-family: var(--serif, "EB Garamond", Georgia, serif); font-style: italic; font-size: 18px !important; color: var(--ink, #17140f) !important; }
+.hp-gi-spec { margin: -10px 0 18px !important; font-size: 12px !important; letter-spacing: 0.06em; color: var(--muted, #8a8279) !important; }
+.hp-gi-copy p { margin: 0 0 14px; max-width: 56ch; }
+.hp-gi-copy .pg-actions { margin-top: 22px; }
+@media (min-width: 900px) {
+  .hp-gi { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 80px); }
+  .hp-gi:nth-child(even) .hp-gi-media { order: 2; }
+  .hp-gi:nth-child(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+}
 
 .hp-cta { text-align: center; padding-top: clamp(32px, 5vw, 56px); border-top: 1px solid var(--rule, #e3ddd0); }
 .hp-cta .pg-actions { justify-content: center; }

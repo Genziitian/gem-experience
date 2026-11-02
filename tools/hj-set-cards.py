@@ -36,7 +36,7 @@ SETS = {
     "jardin-bleu": ("p1", "p3"), "mahenge": ("p4", "p1"), "merelani": ("p3", "p1"),
     "oldoinyo": ("p3", "p1"), "rift": ("p1", "p2"), "rihla": ("p1", "p3"),
     "shamsa": ("p4", "p1"), "the-crown": ("p3", "p1"), "usambara": ("p4", "p3"),
-    "weaver": ("p3", "p1"),
+    "weaver": ("p3", "p1"), "dancing-weaver": ("p1", "p2"),
 }
 
 

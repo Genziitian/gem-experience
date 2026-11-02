@@ -7,7 +7,7 @@
  * on the site (The House, the World of Preciousness guides, the High Jewellery
  * write-ups, the product care text) or from the client's corrections list.
  * Where the house has not yet supplied something (investor reports, founding
- * dates, the Maasai Women Project write-up, names of the Icons pieces) the
+ * dates, the Maasai Women Project write-up) the
  * page says only what is known and leaves the rest out; nothing is invented.
  * Adding a section is adding an entry below and re-running this. Run
  * build:seo afterwards for the head tags and the sitemap.
@@ -28,29 +28,48 @@ const HOURS = [
   ["2,300", "hours", "Shamsa"], ["2,100", "hours", "Celestine"], ["1,900", "hours", "Rihla"],
 ];
 
-/* Statement pieces from the supplier drop ("Fine and Pret Jewellery 2/
-   Statement Pieces"). The drop has no spec sheet for them, so each is shown
-   by its reference and kind until the house names them. */
+/* GE Icons, from the house's sheet "GE Icons for website.xlsx": title, type,
+   the description used earlier and the photographs it links to (model and
+   product shots, downloaded to icons/img/<slug>-1/-2). The facts line only
+   repeats what the description states; ref and spec come from the pieces'
+   own sheet where there is one ("URNS & VASE - Sheet1.pdf"). Tangerine and
+   Scarlet have model photographs only. */
 const ICONS = [
-  { ref: "GD26-301", kind: "Necklace", img: "gd26-301", worn: "gd26-301-m", set: "GD26-301" },
-  { ref: "GD26-301 A", kind: "Earrings", img: "gd26-301-a", worn: "gd26-301-a-m", set: "GD26-301" },
-  { ref: "GD26-301 B", kind: "Ring", img: "gd26-301-b", worn: "gd26-301-b-m", set: "GD26-301" },
-  { ref: "GD26-14", kind: "Ring", img: "gd26-14", worn: "gd26-14-m" },
-  { ref: "GD26-22", kind: "Ring", img: "gd26-22", worn: "gd26-22-m" },
-  { ref: "GD26-920", kind: "Ring", img: "gd26-920" },
-  { ref: "GD26-924", kind: "Ring", img: "gd26-924" },
-  { ref: "GD24-906", kind: "Earrings", img: "gd24-906", worn: "gd24-906-m" },
-  { ref: "GER0923-70", kind: "Earrings", img: "ger0923-70", worn: "ger0923-70-m" },
-  { ref: "GD26-921", kind: "Earrings", img: "gd26-921" },
-  { ref: "GPN0923-63", kind: "Pendant", img: "gpn0923-63" },
-  { ref: "GD26-923", kind: "Pendant", img: "gd26-923" },
+  { slug: "tangerine", title: "Tangerine", kind: "Set: necklace and earrings", facts: "122.6 ct morganite", model: [1, 2],
+    p: ["Tangerine, is an iconic jewellery set that has graced the lobes and necks of queens and princesses throughout the ages. Crafted from the finest morganite stone, this set consists of earrings and a pendant with an impressive total weight of 122.6 carats.",
+        "The subtle shade of orange that permeates the morganite stones exudes an opulence that has long been associated with royalty and nobility. The delicate hues of Tangerine perfectly complemented the opulent gowns of these regal women, accentuating their natural beauty and elegance."] },
+  { slug: "scarlet", title: "Scarlet", kind: "Earrings", facts: "54.5 ct Malaya garnet", model: [1, 2],
+    p: ["Let the ‘Scarlet’ set transport you to a bygone era of opulence and extravagance. Fit for royalty, this magnificent set features a total of 54.5-carat Malaya Garnet stones that will leave you spellbound.",
+        "The pink-orange hue of the Malaya Garnet stones is reminiscent of the sun-kissed skies of a summer's day, adding an ethereal touch of beauty and grace to the Scarlet set. The attention to detail and exquisite craftsmanship that has gone into the creation of this set is truly remarkable, a testament to the skilled artisans who have brought this masterpiece to life."] },
+  { slug: "urns-vase-i", title: "Urns and Vase Collection", kind: "Earrings", facts: "22.820 ct tanzanite · 2.366 ct diamonds", model: [2],
+    ref: "SG-01", spec: "18k gold · 2 fancy-cut tanzanites · net 9.473 g · gross 14.51 g",
+    p: ["The Urns and Vase collection is a true celebration of the art of floral arrangement. With influences from diverse cultures, this collection boasts an awe-inspiring range of vases that showcase slender flowers arranged in two dimensions, as well as extravagant bouquets that pay homage to European florilegia from centuries past. Infusing signature style with organic foliage shapes as basic geometry, the designer has created a modern and clean graphical setting that elevates the classic beauty of these compositions.",
+        "Dripping with grandeur, these drop-dangle earrings are a masterpiece. Adorned with a stunning combination of 22.820 carats of enchanting Tanzanite precious stone and 2.366 carats of dazzling diamonds, these earrings are crafted in the brand's signature style, showcasing a modern and sleek graphical aesthetic."] },
+  { slug: "urns-vase-ii", title: "Urns and Vase Collection", kind: "Earrings", facts: "25.050 ct tanzanite · 2.268 ct diamonds", model: [2],
+    ref: "SG-02", spec: "18k gold · 2 fancy-cut tanzanites · net 13.536 g · gross 19.00 g",
+    p: ["The visionary artist Shantanu Garg, with the assistance of Saloni Meratwal, has crafted each piece in this collection with a timeless elegance and unforgettable charm that is guaranteed to leave a lasting impression.",
+        "Experience pure luxury with these earrings that are the epitome of elegance. Featuring a lavish combination of 25.050 carats of Mesmerising Tanzanite precious stone and 2.268 carats of scintillating diamonds, meticulously crafted in the brand's signature style."] },
+  { slug: "bleu-bow", title: "Bleu Bow Ring", kind: "Ring", facts: "18k gold · round tanzanite · diamonds",
+    p: ["A magnificent embodiment of sophistication and allure, behold the resplendent Bleu Bow Ring, crafted from 18k gold and crowned with a dazzling round-shaped tanzanite at its centre, while the exquisite bow sparkles with a captivating array of mixed-shaped diamonds."] },
+  { slug: "le-fleur", title: "Le Fleur Ring", kind: "Ring", facts: "18k gold · octagon tanzanite · diamonds",
+    p: ["Behold the majesty of the Le Fleur Ring - an 18k gold masterpiece that exudes timeless elegance and is a symbol of luxurious taste and grace. Its octagon-shaped Tanzanite stone, placed at the center, captures the eye with its stunning violet hues, while the intricate leaf-shaped design, adorned with a mix of diamonds of varying shapes, adds a touch of natural splendor."] },
+  { slug: "jardin-de-tulips", title: "Jardin De Tulips", kind: "Bracelet", facts: "18k white gold · 6.19 ct rhodolite · diamonds",
+    p: ["The Jardin de tulips bracelet features a seamless fusion of modern sophistication and timeless design. The links of 18K white gold form a delicate yet sturdy foundation, creating a luxurious and comfortable fit on the wrist. The addition of meticulously placed diamonds adds a touch of opulence and brilliance, illuminating the piece with captivating sparkle. At the heart of the bracelet lies the mesmerizing 6.19 carats rhodolite, its deep pinkish-red hue symbolizing passion and strength."] },
+  { slug: "festoon", title: "Festoon Bracelet", kind: "Bracelet", facts: "9.24 ct rhodolite · diamonds",
+    p: ["Festoon bracelet is a true statement piece, perfect for those seeking a touch of luxury and uniqueness. Indulge in the beauty of ancient architecture while embracing the allure of fine jewellery. Elevate your style and make a lasting impression with this exceptional piece that embodies the essence of luxury, craftsmanship, and the captivating charm of 9.24 carats rhodolite. The addition of meticulously placed diamonds adds a touch of opulence and brilliance, illuminating the piece with captivating sparkle."] },
+  { slug: "pink-monarch", title: "The Pink Monarch", kind: "Bracelet", facts: "18k gold · 18.26 ct pink spinel · diamonds",
+    p: ["The Pink Monarch bracelet boasts a timeless design that effortlessly captures attention. Its 18K gold links form an elegant and sturdy foundation, while the strategically placed diamonds add a touch of opulence and brilliance, captivating the eye with their scintillating sparkle.",
+        "At the heart of this extraordinary bracelet lies the stunning 18.26 carats pink spinel. Each spinel is carefully selected for its exceptional color, radiating a captivating pink hue that exudes femininity and sophistication. Pink spinels are expertly set, allowing them to shine with their inherent beauty and natural allure."] },
+  { slug: "blue-belle-diva", title: "Blue Belle Diva Ring", kind: "Ring", facts: "1.63 ct tanzanite",
+    p: ["Blue Belle Diva Ring, a true masterpiece that combines the allure of Tanzanite with a unique and distinctive wedge shape. This exquisite ring showcases a stunning Tanzanite gemstone weighing 1.63 carats, meticulously cut and polished to enhance its natural beauty.",
+        "What sets this ring apart is its remarkable wedge shape, which adds a touch of modernity and uniqueness to the design. The tapering silhouette creates a captivating visual effect and makes a bold statement on the finger."] },
 ];
 
 const PAGES = {
   icons: {
     title: "GE Icons", kicker: "The House",
-    description: "GE Icons: statement pieces from Gem Experience, outside the Fine and High Jewellery collections, each in coloured stones from East Africa.",
-    lede: "Statement pieces that sit outside the Fine and High Jewellery collections: rings, earrings and pendants made to be noticed.",
+    description: "GE Icons: statement pieces from Gem Experience outside the Fine and High Jewellery collections, from the Tangerine morganite set to the Pink Monarch spinel bracelet.",
+    lede: "Statement pieces that sit outside the Fine and High Jewellery collections: sets, earrings, rings and bracelets made to be noticed.",
     blocks: [
       { type: "icons" },
       { type: "cta", h: "See an Icon in person", p: "Every piece is shown in private, at our ateliers or by appointment.",
@@ -260,27 +279,36 @@ function block(b) {
       </ol>
     </section>`;
     case "icons": {
-      const sets = ICONS.filter((i) => i.set);
-      const rest = ICONS.filter((i) => !i.set);
-      const card = (i) => `<article class="hp-icon">
-          <a class="hp-icon-shot" href="/quotation/?ref=${encodeURIComponent(i.ref)}&amp;name=${encodeURIComponent("GE Icons " + i.kind)}">
-            <img src="/icons/img/${i.img}.webp" alt="${esc(i.kind)}, ${esc(i.ref)}." loading="lazy" decoding="async">
-            ${i.worn ? `<img class="hp-icon-worn" src="/icons/img/${i.worn}.webp" alt="" loading="lazy" decoding="async">` : ""}
-          </a>
-          <p class="hp-icon-kind">${esc(i.kind)}</p>
-          <p class="hp-icon-ref">${esc(i.ref)}</p>
-          <a class="pg-link" href="/quotation/?ref=${encodeURIComponent(i.ref)}&amp;name=${encodeURIComponent("GE Icons " + i.kind)}">Enquire</a>
-        </article>`;
-      return `    <section class="hp-icons">
-      <h2 class="pg-section-title">The GD26-301 set</h2>
-      <p class="pg-lede">A necklace, earrings and a ring, made as one.</p>
-      <div class="hp-icons-grid hp-icons-grid--set">
-        ${sets.map(card).join("\n        ")}
-      </div>
-      <h2 class="pg-section-title hp-icons-more">The pieces</h2>
-      <div class="hp-icons-grid">
-        ${rest.map(card).join("\n        ")}
-      </div>
+      // each piece: two photographs and its description, sides alternating
+      const shot = (i, n) => {
+        const model = (i.model || []).includes(n);
+        const src = `/icons/img/${i.slug}-${n}`;
+        return `<figure class="hp-gi-shot${model ? " hp-gi-shot--model" : ""}">
+            <img src="${src}.webp" srcset="${src}.w640.webp 640w, ${src}.webp 1200w" sizes="(min-width: 900px) 25vw, 50vw" alt="${esc(i.title)}${model ? ", worn" : ""}." loading="lazy" decoding="async">
+          </figure>`;
+      };
+      const piece = (i) => {
+        const enquire = `/quotation/?${i.ref ? `ref=${encodeURIComponent(i.ref)}&amp;` : ""}name=${encodeURIComponent("GE Icons · " + i.title + " (" + i.facts + ")")}`;
+        return `<article class="hp-gi" id="${i.slug}">
+        <div class="hp-gi-media">
+          ${shot(i, 1)}
+          ${shot(i, 2)}
+        </div>
+        <div class="hp-gi-copy">
+          <p class="hp-gi-kind">${esc(i.kind)}</p>
+          <h2 class="hp-gi-title">${esc(i.title)}</h2>
+          <p class="hp-gi-facts">${esc(i.facts)}</p>
+          ${i.spec ? `<p class="hp-gi-spec">${i.ref ? `${esc(i.ref)} · ` : ""}${esc(i.spec)}</p>` : ""}
+          ${i.p.map((t) => `<p>${esc(t)}</p>`).join("\n          ")}
+          <div class="pg-actions">
+            <a class="pg-btn" href="${enquire}">Request a quotation</a>
+            <a class="pg-btn pg-btn--ghost" href="/appointment/">Book a private viewing</a>
+          </div>
+        </div>
+      </article>`;
+      };
+      return `    <section class="hp-gis">
+      ${ICONS.map(piece).join("\n      ")}
     </section>`;
     }
     case "cta":
@@ -312,7 +340,7 @@ function page(slug, p) {
 <link rel="stylesheet" href="/css/site-nav.css">
 <link rel="stylesheet" href="/css/mini-cart.css">
 <link rel="stylesheet" href="/css/gift-note.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/css/house.css">
+<link rel="stylesheet" href="/css/house.css?v=2">
 </head>
 <body class="pg">
 <!-- Written by tools/build-house-pages.mjs; edit the content there, not here. -->

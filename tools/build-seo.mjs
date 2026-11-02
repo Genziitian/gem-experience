@@ -215,6 +215,9 @@ const organization = {
   image: abs(DEFAULT_IMAGE),
   knowsAbout: ["Tanzanite", "Spinel", "Tsavorite", "Rhodolite garnet", "Malaya garnet",
     "Coloured gemstones", "Gemstone cutting", "Fine jewellery", "High jewellery"],
+  // the house's own accounts, as linked from the footer
+  sameAs: ["https://www.instagram.com/gemexperienceofficial/", "https://www.linkedin.com/company/gem-experience/",
+    "https://pin.it/14GYX5dE7"],
   contactPoint: offices.filter((o) => o.tel).map((o) => ({
     "@type": "ContactPoint", contactType: "customer service",
     telephone: o.tel, areaServed: o.region || "TZ", email: EMAIL,

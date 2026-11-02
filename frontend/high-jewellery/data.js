@@ -721,6 +721,134 @@ window.HJ_DATA = {
           "grossG": "17.03"
         }
       ]
+    },
+    {
+      "id": "dancing-weaver",
+      "name": "Dancing Weaver",
+      "materials": "20.23ct Tanzanite and Diamond",
+      "type": "Necklaces",
+      "collection": null,
+      "occasion": null,
+      "carat": "20.23ct",
+      "origin": "—",
+      "metal": "18k Gold",
+      "ref": "GD24-830 · GD24-830 A",
+      "story": "",
+      "gallery": [
+        "img/pieces/dancing-weaver/p1.webp",
+        "img/pieces/dancing-weaver/p2.webp"
+      ],
+      "models": [],
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD24-830",
+          "metal": "18k Gold",
+          "stone": "Tanzanite, oval (8 pcs)",
+          "stoneCt": "11.71",
+          "diamondCt": "7.01",
+          "netG": "46.036",
+          "grossG": "49.78"
+        },
+        {
+          "part": "Earrings",
+          "ref": "GD24-830 A",
+          "metal": "18k Gold",
+          "stone": "Tanzanite, oval (4 pcs)",
+          "stoneCt": "8.52",
+          "diamondCt": "2.16",
+          "netG": "16.204",
+          "grossG": "18.34"
+        }
+      ],
+      "card": "img/dancing-weaver-set-2.webp"
+    },
+    {
+      "id": "marinas-heart",
+      "name": "Marina's Heart",
+      "materials": "42.58ct Tanzanite and Diamond",
+      "type": "Necklaces",
+      "collection": null,
+      "occasion": null,
+      "carat": "42.58ct",
+      "origin": "—",
+      "metal": "18k Gold",
+      "ref": "GD24-894",
+      "story": "",
+      "gallery": [
+        "img/pieces/marinas-heart/p1.webp"
+      ],
+      "models": [],
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD24-894",
+          "metal": "18k Gold",
+          "stone": "Tanzanite, heart (37 pcs)",
+          "stoneCt": "42.58",
+          "diamondCt": "3.66",
+          "netG": "48.842",
+          "grossG": "58.09"
+        }
+      ]
+    },
+    {
+      "id": "murre",
+      "name": "Murre",
+      "materials": "20.3ct Tanzanite, Aquamarine and Diamond",
+      "type": "Necklaces",
+      "collection": null,
+      "occasion": null,
+      "carat": "20.3ct",
+      "origin": "—",
+      "metal": "18k Gold",
+      "ref": "GD24-772",
+      "story": "",
+      "gallery": [
+        "img/pieces/murre/p1.webp"
+      ],
+      "models": [],
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD24-772",
+          "metal": "18k Gold",
+          "stone": "Tanzanite 12.95 ct (marquise) and aquamarine 7.35 ct (square princess), 46 pcs",
+          "stoneCt": "20.3",
+          "diamondCt": "4.44",
+          "netG": "57.05",
+          "grossG": "61.998"
+        }
+      ]
+    },
+    {
+      "id": "poireen-bleu",
+      "name": "Poireen Bleu",
+      "materials": "20.39ct Tanzanite and Diamond",
+      "type": "Necklaces",
+      "collection": null,
+      "occasion": null,
+      "carat": "20.39ct",
+      "origin": "—",
+      "metal": "18k Gold",
+      "ref": "GD24-868",
+      "story": "",
+      "gallery": [
+        "img/pieces/poireen-bleu/p1.webp"
+      ],
+      "models": [],
+      "details": [
+        {
+          "part": "Necklace",
+          "ref": "GD24-868",
+          "metal": "18k Gold",
+          "stone": "Tanzanite, pear (15 pcs)",
+          "stoneCt": "20.39",
+          "diamondCt": "5.99",
+          "netG": "51.424",
+          "grossG": "56.7"
+        }
+      ]
     }
   ],
   "focal": {

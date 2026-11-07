@@ -627,7 +627,12 @@ window.HJ_DATA = {
           "ref": "GD25-401 · GD25-401 A",
           "stone": "Tsavorite"
         }
-      ]
+      ],
+      "model": {
+        "src": "models/rift.glb",
+        "metal": "white",
+        "gem": "#21a04a"
+      }
     },
     {
       "id": "mahenge",

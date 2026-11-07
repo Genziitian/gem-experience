@@ -277,14 +277,25 @@
     return p.priceINR ? inr(p.priceINR) : "Price on request";
   }
 
-  /* Every Fine Jewellery frame degrades gracefully: it shows the stone-tone
-     orb (same language as the catalog cards) until a real photo lands at
-     the given path, then swaps over automatically — no code change needed
-     when photography is ready. */
+  /* The house mark, a reversed E and an E on one stem, drawn line by line
+     while a photograph is on its way. It replaced the stone-tone orbs and
+     colour blocks, which read as shapes rather than as loading. */
+  var GE_MARK =
+    '<svg viewBox="0 0 100 100" aria-hidden="true"><g>' +
+    '<path pathLength="1" d="M3 4H97M3 4V11M97 4V12M50 4V96"/>' +
+    '<path pathLength="1" d="M5 47V90Q5 96 11 96H50M5 47H31M31 41V53"/>' +
+    '<path pathLength="1" d="M50 47H95M95 41V53M50 96H97M97 96V87"/>' +
+    "</g></svg>";
+  function loadingMark(cls) {
+    return el("div", "ge-loading" + (cls ? " " + cls : ""), { html: GE_MARK, "aria-hidden": "true" });
+  }
+
+  /* Every Fine Jewellery frame degrades gracefully: it shows the house mark
+     until a real photo lands at the given path, then swaps over
+     automatically — no code change needed when photography is ready. */
   function mediaFrame(src, alt, tone, cls) {
     var frame = el("div", "fj-frame" + (cls ? " " + cls : ""));
-    frame.style.setProperty("--tone", tone || "#9a958e");
-    frame.appendChild(el("div", "fj-frame-orb"));
+    frame.appendChild(loadingMark("fj-frame-orb"));
     var img = el("img", "fj-frame-img", { src: src, alt: alt || "", loading: "lazy", decoding: "async" });
     img.addEventListener("error", function () { img.remove(); });
     img.addEventListener("load", function () { frame.classList.add("has-img"); });
@@ -322,13 +333,11 @@
 
   /* ------------------------------------------------------------- render */
 
-  /* The tone orb stays the fallback: pieces still awaiting photography keep
-     the catalog's existing look, and a broken file drops back to it rather
-     than leaving a hole in the grid. */
+  /* The house mark shows until the photograph arrives, and a broken file
+     drops back to it rather than leaving a hole in the grid. */
   function plate(tone, sku, src, alt, hover, sizes) {
     var wrap = el("div", "fj-plate");
-    wrap.style.setProperty("--tone", tone || "#9a958e");
-    wrap.appendChild(el("div", "fj-plate-orb"));
+    wrap.appendChild(loadingMark("fj-plate-orb"));
     /* The second frame sits under the first and is revealed by fading the
        first out, so the piece never disappears mid-transition the way it does
        when one image fades in over nothing. Lazy, because most of these are
@@ -394,7 +403,7 @@
     if (window.Gem && window.Gem.wishlist) pl.appendChild(window.Gem.wishlist.button(wishItem(p), "corner"));
     a.appendChild(pl);
     var body = el("div", "fj-card-body");
-    body.appendChild(el("span", "fj-card-type", { text: p.collection }));
+    body.appendChild(el("span", "fj-card-type", { text: p.collection || p.type }));
     body.appendChild(el("h3", null, { text: p.name }));
     body.appendChild(el("p", null, {
       text: [p.metal, p.stoneCt != null ? ct(p.stoneCt) : ""].filter(Boolean).join(" · ")
@@ -423,11 +432,11 @@
       var a = el("a", "fj-cat", { href: "#/" + c.id });
       a.style.setProperty("--cat-tone", c.tone);
 
-      /* The tone gradient sits underneath always, so a collection whose banner
-         is missing or fails to load shows its colour rather than a broken
-         image. Drop the file in at c.banner and it covers the placeholder. */
+      /* The house mark sits underneath always, so a collection whose banner
+         is still loading, or fails to, shows the mark rather than a broken
+         image. The banner covers it once it arrives. */
       var media = el("div", "fj-cat-media");
-      media.appendChild(el("div", "fj-cat-placeholder"));
+      media.appendChild(loadingMark("fj-cat-placeholder"));
       if (c.banner) {
         /* The first row is the largest thing on the page: fetched at once and
            first, the rest only as they scroll into view. */
@@ -451,7 +460,8 @@
 
     var shop = el("div", "fj-shopall");
     shop.appendChild(el("p", null, {
-      text: data.products.length + " pieces across " + data.collections.length + " collections."
+      // counted the way Shop all counts: one per design, not per colour
+      text: designs(data.products).length + " designs across " + data.collections.length + " collections."
     }));
     shop.appendChild(el("a", "fj-link", { href: "#/shop", text: "Shop all pieces" }));
     root.appendChild(shop);

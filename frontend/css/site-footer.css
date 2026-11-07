@@ -357,8 +357,9 @@
 
 .site-ftr .social {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 22px;
+  gap: 18px 22px;
   margin-top: 48px;
 }
 .site-ftr .social a {

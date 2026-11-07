@@ -136,7 +136,7 @@
        are not offered here either. */
     fj.products.filter(function (p) { return p.images && p.images.length && !p.hidden; }).forEach(function (p) {
       out.push(doc("fj", p.name, "/fine-jewellery/#/p/" + encodeURIComponent(p.id), {
-        kicker: "Fine Jewellery · " + p.collection,
+        kicker: "Fine Jewellery · " + (p.collection || p.type),
         img: p.images && p.images[0] ? "/fine-jewellery/" + p.images[0] : "",
         snippet: [p.collection, p.metal].filter(Boolean).join(" · "),
         keys: [p.specName, p.stone, p.metal, p.type, p.collection, p.shape, p.sku, "fine jewellery"].join(" "),

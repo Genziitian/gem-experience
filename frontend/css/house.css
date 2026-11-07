@@ -17,6 +17,34 @@
 .hp-text { max-width: 720px; }
 .hp-text p { margin: 0 0 14px; }
 
+/* A wide photograph at the head of a page. */
+.hp-hero { margin: 0; }
+.hp-hero img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; }
+@media (max-width: 699px) { .hp-hero img { aspect-ratio: 4 / 3; } }
+
+/* Photographs in a grid; mixed shapes are cropped to one, so rows line up. */
+.hp-gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+@media (min-width: 900px) { .hp-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; } }
+.hp-gallery-grid figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: #efebe4; }
+.hp-gallery-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+@media (hover: hover) { .hp-gallery-grid figure:hover img { transform: scale(1.03); } }
+
+/* Four themes, each with its photograph. */
+.hp-pillars { display: grid; gap: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 56px); }
+@media (min-width: 760px) { .hp-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.hp-pillars article { display: grid; align-content: start; gap: 6px; }
+.hp-pillars figure { margin: 0 0 14px; aspect-ratio: 3 / 2; overflow: hidden; background: #efebe4; }
+.hp-pillars img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hp-pillars p { margin: 0; max-width: 56ch; }
+
+.hp-files { max-width: 760px; }
+.hp-files ul { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--rule, #e3ddd0); }
+.hp-files a { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 18px; padding: 18px 2px; border-bottom: 1px solid var(--rule, #e3ddd0); color: var(--ink, #17140f); text-decoration: none; transition: background 0.2s ease; }
+.hp-files a:hover { background: rgba(0, 0, 0, 0.025); }
+.hp-file-name { font-family: var(--serif, "EB Garamond", Georgia, serif); font-size: 20px; }
+.hp-file-meta { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted, #8a8279); }
+.hp-file-go { font-size: 16px; }
+
 .hp-figures { text-align: center; }
 .hp-figures ul {
   list-style: none; margin: 32px 0 0; padding: 0;

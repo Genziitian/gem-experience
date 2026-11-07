@@ -109,7 +109,7 @@
     var a = el("a", "fj-card", { href: "../fine-jewellery/#/p/" + p.id });
     a.appendChild(plate(p));
     var body = el("div", "fj-card-body");
-    body.appendChild(el("span", "fj-card-type", { text: p.collection }));
+    body.appendChild(el("span", "fj-card-type", { text: p.collection || p.type }));
     body.appendChild(el("h3", null, { text: p.name }));
     body.appendChild(el("p", null, {
       text: [p.metal, p.stoneCt != null ? ct(p.stoneCt) : ""].filter(Boolean).join(" · ")

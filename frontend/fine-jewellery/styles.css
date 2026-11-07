@@ -174,11 +174,34 @@ button {
 }
 .fj-cat-placeholder {
   position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.22), transparent 55%),
-    radial-gradient(ellipse at 80% 70%, rgba(0,0,0,0.18), transparent 50%),
-    var(--cat-tone, #8a7a6a);
+  display: grid; place-items: center;
+  background: var(--ground);
+}
+
+/* ------------------------------------------------- loading: the house mark
+ *
+ * While a photograph is on its way its frame shows the GE mark, drawn stroke
+ * by stroke, held, and faded, over and over; the photograph covers it. */
+.ge-loading { display: grid; place-items: center; aspect-ratio: 1; color: #9a9286; }
+.ge-loading svg { width: 100%; height: auto; overflow: visible; }
+.ge-loading path {
+  fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: butt;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: ge-draw 2.6s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+.ge-loading path:nth-child(2) { animation-delay: 0.18s; }
+.ge-loading path:nth-child(3) { animation-delay: 0.36s; }
+/* on a collection card the mark sits small in the middle of the frame */
+.fj-cat-media .fj-cat-placeholder svg { width: min(18%, 60px); }
+@keyframes ge-draw {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  45% { stroke-dashoffset: 0; opacity: 1; }
+  78% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ge-loading path { animation: ge-breathe 2.4s ease-in-out infinite; stroke-dashoffset: 0; }
+  @keyframes ge-breathe { 50% { opacity: 0.35; } }
 }
 .fj-cat-copy {
   display: flex;
@@ -553,14 +576,7 @@ button {
   transition: transform 0.55s cubic-bezier(0.2, 0, 0.1, 1);
   position: relative; overflow: hidden;
 }
-.fj-plate-orb {
-  width: min(46%, 140px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.55), transparent 42%),
-              var(--tone, #9a958e);
-  box-shadow: inset 0 -12px 28px rgba(0,0,0,0.18);
-}
+.fj-plate-orb { width: min(22%, 64px); }
 .fj-plate-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -791,12 +807,7 @@ button {
   background: var(--ground);
   display: grid; place-items: center;
 }
-.fj-frame-orb {
-  width: min(30%, 90px); aspect-ratio: 1; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.55), transparent 42%),
-              var(--tone, #9a958e);
-  box-shadow: inset 0 -12px 28px rgba(0,0,0,0.18);
-}
+.fj-frame-orb { width: min(18%, 56px); }
 .fj-frame-img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; opacity: 0;

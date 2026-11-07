@@ -11,7 +11,7 @@
  *
  * Env: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, MAIL_FROM,
  *      STAFF_NOTIFY_EMAIL (comma-separated), NOTIFY_SECRET, SITE_URL,
- *      MAIL_CC (comma-separated; default marketing@gem-experience.com).
+ *      MAIL_CC (comma-separated; default marketing@ and akshit@gem-experience.com).
  */
 
 import { timingSafeEqual } from "node:crypto";
@@ -23,7 +23,7 @@ const SITE = (env.SITE_URL || "https://gem-experience.com").replace(/\/$/, "");
 const FROM = env.MAIL_FROM || `Gem Experience <${env.SMTP_USER}>`;
 const STAFF = (env.STAFF_NOTIFY_EMAIL || "").split(",").map((s) => s.trim()).filter(Boolean);
 // copied on every mail the website sends (client request, 2026-10-29)
-const CC = (env.MAIL_CC ?? "marketing@gem-experience.com").split(",").map((s) => s.trim()).filter(Boolean);
+const CC = (env.MAIL_CC ?? "marketing@gem-experience.com,akshit@gem-experience.com").split(",").map((s) => s.trim()).filter(Boolean);
 
 let transport = null;
 function mailer() {

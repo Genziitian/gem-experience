@@ -46,9 +46,17 @@
 
   var sortLabels = { featured: "Featured", asc: "Name A \u2013 Z", desc: "Name Z \u2013 A" };
 
-  /* The 360° viewer draws a generic stone, not the piece, so it stays off
-     until each piece's CAD file (GLB, OBJ or STL) is supplied. */
+  /* The old 360° viewer draws a generic stone, not the piece, so it stays
+     off. A piece whose CAD file has been supplied carries "model" (a glTF
+     made from it, see tools/cad-to-glb.mjs) and opens in /js/piece-viewer.js
+     instead: the piece itself, in 3D. */
   var VISUALISER = false;
+
+  function openModel(p, from) {
+    import("/js/piece-viewer.js?v=1").then(function (m) {
+      m.open({ src: "/high-jewellery/" + p.model.src, metal: p.model.metal, gem: p.model.gem, title: p.name, returnFocus: from });
+    });
+  }
 
   // --------------------------------------------------------------- state
 
@@ -317,7 +325,7 @@
       : el("div", cls + " card--inert");
     var fr = frame(cardImg(p), p.name, null, opts.eager);
     if (!opts.related && window.Gem && window.Gem.wishlist) fr.appendChild(window.Gem.wishlist.button(hjWishItem(p), "corner"));
-    if (VISUALISER && p.visualiser) {
+    if ((VISUALISER && p.visualiser) || p.model) {
       var tag = el("span", "card-viz");
       tag.textContent = "360°";
       fr.appendChild(tag);
@@ -885,6 +893,17 @@
       vizBtn.appendChild(vizTxt);
       vizBtn.addEventListener("click", function () { openVisualiser(p); });
       panel.appendChild(vizBtn);
+    } else if (p.model) {
+      var modelBtn = el("button", "viz-launch", { type: "button" });
+      modelBtn.appendChild(svg(16, { stroke: "currentColor", sw: 1.2, round: true }, [
+        "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z",
+        "M12 2c2.5 2.8 4 6.2 4 10s-1.5 7.2-4 10c-2.5-2.8-4-6.2-4-10S9.5 4.8 12 2Z",
+        "M2 12h20"
+      ]));
+      var modelTxt = el("span"); modelTxt.textContent = "View the piece in 3D";
+      modelBtn.appendChild(modelTxt);
+      modelBtn.addEventListener("click", function () { openModel(p, modelBtn); });
+      panel.appendChild(modelBtn);
     }
 
     // CTA + the one availability line beneath it

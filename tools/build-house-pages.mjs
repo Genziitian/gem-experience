@@ -79,23 +79,30 @@ const PAGES = {
 
   craftsmanship: {
     title: "Craftsmanship", kicker: "The House",
-    description: "How Gem Experience cuts and sets coloured stones: cut in the house's own workshop, finished by hand, and counted in hours at the bench.",
-    lede: "Every stone is cut in our own workshop, and every piece is finished by hand.",
+    description: "How Gem Experience crafts its jewellery: precious stones sourced and mined with care, pieces made by hand in our atelier, polished and finished to perfection.",
+    lede: "Every piece is crafted by hand at our atelier, then polished and finished to perfection.",
+    // copy: the house's text, "website changes 1.1" (Nov 2026)
     blocks: [
-      { type: "split", img: "/world-of-preciousness/img/sorting.webp", alt: "A gem sorter grading parcels of coloured stones at a light table.",
-        h: "Cut for the stone", p: [
-          "We cut our stones ourselves rather than buying them finished, so each is cut for what it is. A stone that shows different colours from different angles, as tanzanite does, is turned until its full colour faces up.",
-          "Some cuts are made for a single piece: the 156 disc-cut pink spinels of Ember were all cut to order, to build its dense, layered surface. Others are the house's own, like the Gem Experience Dew Cut, a soft drop that holds the light.",
+      { type: "hero", img: "/craftsmanship/img/hero", alt: "A Gem Experience necklace on a dark bust." },
+      { type: "split", img: "/craftsmanship/img/setting.webp", alt: "An artisan's hands setting a stone at the bench.",
+        h: "From the earth", p: [
+          "The experience of crafting precious stones is a true art that requires skill, patience and attention to detail. It demands specialised knowledge and expertise in fields such as geology, mineralogy and mining techniques, to locate, extract and process precious stones successfully.",
+          "Gem Experience meticulously sources and mines the finest precious stones, maintaining ethical mining practices and guaranteeing exceptional quality.",
         ] },
-      { type: "figures", h: "Counted in hours", p: "High Jewellery is measured at the bench.", items: HOURS },
-      { type: "split", flip: true, img: "/high-jewellery/img/pieces/rihla/m1.webp", alt: "Rihla, tanzanite and mother of pearl, worn.",
-        h: "Set by hand", p: [
-          "Pavé petals, portrait-cut diamonds laid like flowers, mother of pearl inlaid by hand into Rihla, ceramic set beside tanzanite in Hive: each technique is chosen for the piece, not the other way round.",
-          "A setting is made precise enough to hold its shape and loose enough to move with the body.",
+      { type: "split", flip: true, img: "/craftsmanship/img/finishing.webp", alt: "An artisan polishing a piece by hand.",
+        h: "Savoir-faire", p: [
+          "Gem Experience jewellery making is a showcase of savoir-faire. At our atelier, teams of expert artisans craft every piece using the finest quality precious stones, employing various techniques to ensure superior craftsmanship.",
+          "After being crafted by hand, each piece is expertly polished and finished to perfection, ensuring the highest quality and beauty.",
         ] },
-      { type: "text", h: "Looked after for life", p: [
-        "Our workshop will clean and check any piece at any time, without charge. Rings are resized, and necklaces and bracelets restrung, in-house, and every piece carries a lifetime guarantee against manufacturing defect.",
+      { type: "text", h: "Design", p: [
+        "Our designs are created by skilled artisans who work closely with the design team to bring their vision to life. They draw inspiration from a variety of sources, including art, architecture and nature. Each piece is crafted with precision and attention to detail, using traditional and modern techniques, so that it is not only beautiful but also timeless and innovative.",
       ] },
+      { type: "figures", h: "Counted in hours", p: "High Jewellery is measured at the bench.", items: HOURS },
+      { type: "split", img: "/craftsmanship/img/stamp.webp", alt: "The Gem Experience stamp of authenticity.",
+        h: "Quality", p: [
+          "Quality is at the heart of everything we do. From sourcing the finest materials to the final finishing touches, we maintain the highest standards to ensure that every piece meets our exacting requirements.",
+          "We believe that true luxury lies in the flawless execution of every element.",
+        ] },
       { type: "cta", h: "See the work up close", p: "Book a private viewing and an adviser will take you through the pieces and how they were made.",
         actions: [["Book a private viewing", "/appointment/"], ["Explore High Jewellery", "/high-jewellery/", true]] },
     ],
@@ -103,18 +110,19 @@ const PAGES = {
 
   sustainability: {
     title: "Sustainability", kicker: "The House",
-    description: "How Gem Experience sources and makes its jewellery: stones chosen at the source in Tanzania, treatments disclosed, and pieces made to last.",
-    lede: "Fewer hands between the ground and the piece, and jewellery made to be kept.",
+    description: "Gem Experience's commitment to sustainability: ethical sourcing, people and the environment, eco-friendly production and community engagement.",
+    lede: "Preserving our planet for future generations, through every aspect of our business.",
+    // copy: the house's text, "website changes 1.1" (Nov 2026)
     blocks: [
-      { type: "split", img: "/the-house/img/rough.webp", alt: "A rough gemstone lit from within, before it is cut.",
-        h: "Chosen at the source", p: [
-          "Our stones are chosen in Tanzania, where they come out of the ground, rather than bought further down the line. Each one is sorted and graded by hand before it reaches the workshop, so we know where it came from and what it is.",
-        ] },
-      { type: "text", h: "Stones as they are", p: [
-        "Spinel needs no treatment or enhancement. Where any stone has been treated, the treatment is disclosed, and every stone above one carat comes with an independent laboratory report.",
+      { type: "hero", img: "/sustainability/img/hero", alt: "A cut diamond lit against black." },
+      { type: "text", h: "Our commitment", p: [
+        "At Gem Experience, we are deeply committed to sustainability and environmental responsibility. We recognise the importance of preserving our planet for future generations, and we strive to make a positive impact through every aspect of our business.",
       ] },
-      { type: "text", h: "Made to last", p: [
-        "High Jewellery is made to order. Every piece can be cleaned, checked, resized or restrung in our own workshop for as long as it is worn, and carries a lifetime guarantee against manufacturing defect.",
+      { type: "pillars", items: [
+        ["/sustainability/img/sourcing", "Ethical sourcing", "We believe in transparency and accountability throughout our supply chain. That's why we carefully vet our suppliers to ensure they adhere to strict ethical and environmental standards. From responsibly sourced gemstones to conflict-free metals, we prioritise ethical sourcing practices every step of the way."],
+        ["/sustainability/img/people", "People & environment", "Gem Experience is committed to living in harmony with the land and leaving a legacy for a brighter tomorrow. We consider the long-term impact of our operations and invest in sustainable practices and technologies."],
+        ["/sustainability/img/production", "Eco-friendly production", "Minimising our environmental footprint is a top priority. We've implemented eco-friendly production processes and use renewable energy whenever possible. Our manufacturing facilities are equipped with state-of-the-art technologies designed to reduce waste and conserve resources."],
+        ["/sustainability/img/community", "Community engagement", "We believe in giving back to the communities that support us. Through various philanthropic initiatives and partnerships, we're able to make a positive impact on the lives of others. Whether it's supporting local artisans or investing in environmental conservation projects, we're committed to creating lasting change."],
       ] },
       { type: "cta", h: "Ask us about a stone", p: "An adviser can tell you where any stone in our collections comes from.",
         actions: [["Contact us", "/contact/"], ["The World of Preciousness", "/world-of-preciousness/", true]] },
@@ -126,18 +134,23 @@ const PAGES = {
     description: "Where Gem Experience's stones come from: tanzanite from its single source at the foot of Kilimanjaro, and the spinel, tsavorite, rhodolite and Malaya garnet of the East African belt.",
     lede: "Every stone begins in Tanzania, and we choose it there.",
     blocks: [
-      { type: "split", img: "/the-house/img/mine.webp", alt: "Miners at work underground in Tanzania.",
+      { type: "hero", img: "/mining/img/canyon", alt: "A mining gorge in Tanzania, crossed by a bridge." },
+      { type: "split", img: "/mining/img/aerial.webp", alt: "The mine seen from above, among green hills.",
         h: "One place on earth", p: [
-          "There is only one source of high-quality tanzanite in the world: a few square kilometres at the foot of Kilimanjaro, in northern Tanzania. As there is only one source, experts estimate that its supply may run out within a few decades, which is why it is called a one-generation stone.",
+          "There is only one source of high-quality tanzanite in the world: a few square kilometres at the foot of Kilimanjaro, in northern Tanzania. As there is only one source, experts estimate that its supply may run out within a few decades.",
           "Our stones are chosen there, where they come out of the ground, rather than bought further down the line.",
         ] },
       { type: "text", h: "The East African belt", p: [
-        "Around tanzanite lies the belt that also gives us [spinel](/world-of-preciousness/spinel/), from Mahenge; [tsavorite](/world-of-preciousness/tsavorite/), four times rarer than emerald; [rhodolite](/world-of-preciousness/rhodolite/); and [Malaya garnet](/world-of-preciousness/malaya-garnet/), found by local miners in the Umba River Valley in the 1990s.",
+        "Around tanzanite lies the belt that also gives us [spinel](/world-of-preciousness/spinel/), from Mahenge; [tsavorite](/world-of-preciousness/tsavorite/), four times rarer than emerald; [rhodolite](/world-of-preciousness/rhodolite/); and [Malaya garnet](/world-of-preciousness/malaya-garnet/), from the Umba River Valley.",
       ] },
-      { type: "split", flip: true, img: "/world-of-preciousness/img/parcel.webp", alt: "A parcel of pink spinel held open with tweezers.",
+      { type: "split", flip: true, img: "/mining/img/plant.webp", alt: "The processing plant at the mine.",
         h: "From rough to the bench", p: [
           "Rough is sorted and graded by hand, then chosen stone by stone for the pieces it will become, before it is cut in our own workshop.",
         ] },
+      { type: "gallery", h: "At the mine", items: [
+        ["/mining/img/shaft", "A shaft cut into the rock."], ["/mining/img/gorge", "The gorge from above."], ["/mining/img/hills", "The workings among the hills."],
+        ["/mining/img/camp", "The camp from the air."], ["/mining/img/site", "The site and its buildings."], ["/mining/img/office", "The mine office."],
+      ] },
       { type: "cta", h: "Read about each stone", p: "The World of Preciousness tells the story of every stone we work with.",
         actions: [["The World of Preciousness", "/world-of-preciousness/"], ["Tanzanite", "/world-of-preciousness/tanzanite/", true]] },
     ],
@@ -145,14 +158,35 @@ const PAGES = {
 
   "maasai-women": {
     title: "Maasai Women Project", kicker: "The House",
-    description: "The Maasai Women Project: Gem Experience's social responsibility work with Maasai women in northern Tanzania, where its stones come from.",
-    lede: "Our social responsibility work with Maasai women in northern Tanzania, the land our stones come from.",
+    description: "The Maasai Women Project: Gem Experience works with Maasai women artisans from rural Arusha on their traditional jewellery, with income, healthcare and education for their community.",
+    lede: "Working with Maasai women artisans from rural Arusha, the land our stones come from.",
+    // copy: the house's text, "website changes 1.1" (Nov 2026)
     blocks: [
-      { type: "split", img: "/the-house/img/maasai.webp", alt: "Maasai women gathered at dusk in northern Tanzania.",
-        h: "The Maasai and tanzanite", p: [
-          "The Maasai tell of a lightning bolt that struck the earth and lit the rocks a brilliant blue. That, they say, is how tanzanite was made.",
-          "As a cherished heirloom it holds deep significance to the Maasai, who give it to women during childbirth. For them it stands for their bond with the earth and what lies hidden in it.",
+      { type: "split", img: "/maasai-women/img/portrait.webp", alt: "A Maasai woman in a blue shuka.",
+        h: "The project", p: [
+          "Our brand has integrated the remarkable jewellery created by inspiring Maasai women from rural Arusha into our vision. We are committed to promoting their traditional craft by providing them with a platform to make beautiful jewellery, while also creating exquisite pieces.",
+          "The Maasai women have unique skills and knowledge of traditional jewellery making that are vital to the preservation of their cultural identity. By working with them and promoting their talents, we aim to create a sustainable and meaningful impact in their lives and the local community. The profits generated from selling their jewellery will be reinvested in the Maasai women, making them self-sufficient and independent of non-sustainable revenue streams.",
         ] },
+      { type: "split", flip: true, img: "/maasai-women/img/elder.webp", alt: "A Maasai elder at the door of her home.",
+        h: "Craft and independence", p: [
+          "Our project works closely with Maasai women artisans to develop high-quality handmade crafts, including traditional beadwork, jewellery and textiles. By leveraging their unique skills and cultural heritage, we enable these women to generate income and achieve financial independence for themselves and their families.",
+          "We also prioritise healthcare access for Maasai women and their families. Through partnerships with local healthcare providers and community organisations, we offer medical clinics, vaccination programmes and maternal health services, ensuring that women receive the care they need to lead healthy and fulfilling lives.",
+        ] },
+      { type: "gallery", h: "The women and their work", items: [
+        ["/maasai-women/img/m2", "Making jewellery outside the boma."], ["/maasai-women/img/m12", "Wire and beads, worked by hand."], ["/maasai-women/img/m6", "Showing a finished piece."],
+        ["/maasai-women/img/m11", "Threading at the bench."], ["/maasai-women/img/m16", "A smile at the door."], ["/maasai-women/img/m7", "Holding up a new necklace."],
+        ["/maasai-women/img/m13", "Bending wire into shape."], ["/maasai-women/img/m8", "A bracelet held to the light."], ["/maasai-women/img/m4", "Tools and wire on the table."],
+        ["/maasai-women/img/m5", "Working together."], ["/maasai-women/img/m17", "Pieces held in the hands."], ["/maasai-women/img/m21", "The next generation."],
+      ] },
+      { type: "text", h: "A brighter future", p: [
+        "By supporting the Maasai Women Project, we are not only investing in the economic empowerment of Maasai women but also contributing to the preservation of Maasai culture and traditions. Together, we can create positive change and build a brighter future for generations to come.",
+      ] },
+      { type: "text", h: "Community work", p: [
+        "Gem Experience profoundly cares about the community and actively works to serve it. We have partnered with a local school to support its mission of providing quality education to underprivileged children, donating resources and volunteering our time to empower and uplift the students. We are sincerely committed to creating a positive impact and making a difference in people's lives.",
+      ] },
+      { type: "text", h: "The Maasai and tanzanite", p: [
+        "The Maasai tell of a lightning bolt that struck the earth and lit the rocks a brilliant blue. That, they say, is how tanzanite was made. As a cherished heirloom it holds deep significance to the Maasai, who give it to women during childbirth.",
+      ] },
       { type: "cta", h: "Hear more about the project", p: "Write to us to learn about the project and how to take part.",
         actions: [["contact@gem-experience.com", "mailto:contact@gem-experience.com"], ["Contact us", "/contact/", true]] },
     ],
@@ -163,9 +197,12 @@ const PAGES = {
     description: "Investor information for Gem Experience: annual return reports and other investor-related documents.",
     lede: "Annual return reports and other investor information.",
     blocks: [
-      { type: "text", h: "Reports", p: [
-        "Annual return reports and investor documents will be listed here as they are published.",
-      ] },
+      // Form MGT-7A, as filed; the PDFs are the house's own (investors/reports/)
+      { type: "files", h: "Annual returns", p: "Abridged annual returns (Form MGT-7A) under section 92 of the Companies Act, 2013.",
+        items: [
+          ["Annual Return 2024–25", "/investors/reports/annual-return-2024-25.pdf", "PDF · 18 pages"],
+          ["Annual Return 2023–24", "/investors/reports/annual-return-2023-24.pdf", "PDF · 15 pages"],
+        ] },
       { type: "cta", h: "Investor enquiries", p: "For investor-related questions, write to us and the right person will reply.",
         actions: [["contact@gem-experience.com", "mailto:contact@gem-experience.com"]] },
     ],
@@ -173,14 +210,18 @@ const PAGES = {
 
   timeline: {
     title: "Timeline", kicker: "The House",
-    description: "The journey of Gem Experience and the stones it works with, from the discovery of tanzanite to ateliers in Arusha, Dubai and Jaipur.",
-    lede: "The house's journey, and the stones that shaped it.",
+    description: "The journey of Gem Experience: from Color Clarity Ltd. and the first tanzanite in 1998 to the launch of Gem Experience in 2022.",
+    lede: "From Color Clarity Ltd. in 1998 to Gem Experience today.",
+    // copy: the house's timeline, "website changes 1.1" (Nov 2026)
     blocks: [
       { type: "timeline", items: [
-        ["Over thirty years ago", "Sourcing begins in East Africa", "The house starts choosing rare coloured stones directly at the source, in Tanzania."],
-        ["1990s", "Malaya garnet is found", "Local miners find Malaya garnet in the Umba River Valley, straddling Tanzania and Kenya; it joins the stones we work with."],
-        ["Today", "Ateliers in Arusha, Dubai and Jaipur", "Pieces are shown in private at our three ateliers, and the stones are cut in our own workshop."],
-        ["Today", "High Jewellery, counted in hours", "One-of-a-kind pieces such as Flamenco, over 3,700 hours at the bench, alongside the Fine Jewellery collections."],
+        ["1998", "Color Clarity Ltd. is born", "Color Clarity Ltd. was born from the earth below, with a passion to bring the riches of the earth to the world. The miners begin digging deep into the earth's core to find a gem of rare beauty, tanzanite. The process includes the identification of a deposit, the extraction of the rough stone, and manufacturing. With every piece, a story untold; the birth of this brand will forever hold."],
+        ["2007", "Tsavorite and spinel", "Our mining operations led to an exciting discovery: we had the privilege to discover two extraordinary precious stones in Tanzania. Tsavorite, a vibrant green gemstone, and spinel, a lesser-known gemstone with a range of impressive colours, were unearthed."],
+        ["2010", "Jewellery for a royal family", "The creation of the first jewellery for an African royal family marks a remarkable moment in the history of Color Clarity Ltd. It used the rosy hue of pink tanzanite, a precious stone not only stunning to behold but also incredibly rare, making it a prized possession and coveted treasure, and a reminder of the rich cultural heritage of African royalty."],
+        ["2015", "The Tanzanite Experience", "The beginning of an exciting year, with the launch of a new brand, The Tanzanite Experience: bringing beauty and style, a symbol of innovation, and a sparkle into the air. A journey begins with promise and care."],
+        ["2018", "Dubai", "In Dubai's bustling city, the hum of our business intensifies and the latest operation gets underway, with promise and purpose, shining so bright. A journey begins, with hope and delight, bringing innovation to a world so bright. A new chapter unfolds, in the land of light."],
+        ["2019", "A new store opens", "A new store opens, with a glistening shine, a milestone reached for this brand divine. Ten doors now stand, for all to see, a symbol of growth, for you and me. The future shines bright for our brand, so fine."],
+        ["2022", "Gem Experience", "A new brand, Gem Experience, begins with hope and dreams, bringing fresh ideas with vibrant gleams. A journey unfolds, with passion and fire, inspiring all with its unique desire. A future awaits; our brand is so new, shining bright, like the morning dew."],
       ] },
       { type: "cta", h: "Visit the house", p: "See the pieces, and the stones they began as, in person.",
         actions: [["Our ateliers", "/offices/"], ["Book a private viewing", "/appointment/", true]] },
@@ -207,6 +248,12 @@ const PAGES = {
     description: "Find your ring and bracelet size: how to measure at home, ring size conversions (UK, US, EU, India) and bangle sizes, from Gem Experience.",
     lede: "How to find your ring and bracelet size at home. If you are between sizes, an adviser will help you choose.",
     blocks: [
+      // the house's printable sizers (A4); print at 100%, no scaling
+      { type: "files", h: "Printable sizers", p: "Print at 100% on A4 with no scaling, then check the print size before measuring: the ring sizer has a 1 cm line, the bracelet sizer a credit-card outline.",
+        items: [
+          ["Ring sizer", "/size-guide/gem-experience-ring-sizer.pdf", "PDF · A4"],
+          ["Bracelet sizer", "/size-guide/gem-experience-bracelet-sizer.pdf", "PDF · A4"],
+        ] },
       { type: "steps", id: "rings", h: "Ring size", items: [
         ["Measure a ring you own", "Measure the inside diameter of a ring that fits the finger you want, in millimetres, and find it in the table."],
         ["Or measure your finger", "Wrap a strip of paper around the base of the finger, mark where it meets, and measure the length in millimetres. That is the circumference."],
@@ -246,6 +293,34 @@ function block(b) {
       return `    <section class="hp-text">
       <h2 class="pg-section-title">${esc(b.h)}</h2>
       ${b.p.map((x) => `<p>${rich(x)}</p>`).join("\n      ")}
+    </section>`;
+    // b.img / item images are paths without ".webp": each has a .w640 copy
+    case "hero":
+      return `    <figure class="hp-hero">
+      <img src="${b.img}.webp" srcset="${b.img}.w640.webp 640w, ${b.img}.webp 2000w" sizes="(min-width: 1180px) 1180px, 100vw" alt="${esc(b.alt)}" decoding="async" fetchpriority="high">
+    </figure>`;
+    case "gallery":
+      return `    <section class="hp-gallery">
+      ${b.h ? `<h2 class="pg-section-title">${esc(b.h)}</h2>` : ""}
+      <div class="hp-gallery-grid">
+        ${b.items.map(([img, alt]) => `<figure><img src="${img}.webp" srcset="${img}.w640.webp 640w, ${img}.webp 1200w" sizes="(min-width: 900px) 33vw, 50vw" alt="${esc(alt)}" loading="lazy" decoding="async"></figure>`).join("\n        ")}
+      </div>
+    </section>`;
+    case "pillars":
+      return `    <section class="hp-pillars">
+      ${b.items.map(([img, h, t]) => `<article>
+        <figure><img src="${img}.webp" srcset="${img}.w640.webp 640w, ${img}.webp 1200w" sizes="(min-width: 900px) 50vw, 100vw" alt="" loading="lazy" decoding="async"></figure>
+        <h2 class="pg-section-title">${esc(h)}</h2>
+        <p>${rich(t)}</p>
+      </article>`).join("\n      ")}
+    </section>`;
+    case "files":
+      return `    <section class="hp-files">
+      <h2 class="pg-section-title">${esc(b.h)}</h2>
+      ${b.p ? `<p>${rich(b.p)}</p>` : ""}
+      <ul>
+        ${b.items.map(([label, href, meta]) => `<li><a href="${href}" target="_blank" rel="noopener"><span class="hp-file-name">${esc(label)}</span><span class="hp-file-meta">${esc(meta)}</span><span class="hp-file-go" aria-hidden="true">↓</span></a></li>`).join("\n        ")}
+      </ul>
     </section>`;
     case "figures":
       return `    <section class="hp-figures">
@@ -340,7 +415,7 @@ function page(slug, p) {
 <link rel="stylesheet" href="/css/site-nav.css">
 <link rel="stylesheet" href="/css/mini-cart.css">
 <link rel="stylesheet" href="/css/gift-note.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/css/house.css?v=2">
+<link rel="stylesheet" href="/css/house.css?v=3">
 </head>
 <body class="pg">
 <!-- Written by tools/build-house-pages.mjs; edit the content there, not here. -->

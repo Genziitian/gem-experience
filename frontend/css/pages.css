@@ -77,6 +77,10 @@ button {
 
 /* ----------------------------------------------------------------- header */
 
+/* The shell writes the header into #pg-header, a box exactly its height, so
+   the box is what has to stick: a sticky header inside it has no room to. */
+#pg-header { position: sticky; top: 0; z-index: 40; }
+
 .pg-hdr {
   position: sticky;
   top: 0;
@@ -1960,14 +1964,66 @@ button {
 /* --------------------------------------------------------------- wishlist */
 
 .wl { padding-top: 8px; }
-.wl-source { margin: clamp(64px, 8vw, 112px) auto 0; max-width: 1200px; padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--rule); text-align: center; }
-.wl-source .pg-lede { max-width: 56ch; margin: 14px auto 0; }
-.wl-source-grid { display: grid; gap: 28px 16px; grid-template-columns: 1fr; margin-top: clamp(28px, 4vw, 48px); text-align: left; }
-@media (min-width: 760px) { .wl-source-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.wl-source-grid figure { margin: 0; display: grid; gap: 14px; }
-.wl-source-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
-.wl-source-grid figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--ink); }
-.wl-source-grid figcaption span { margin-right: 10px; font-size: 11px; color: var(--muted); letter-spacing: 0.16em; }
+/* Postcards from the mines (js/postcards.js): a stack of postcards on the
+   desk, a photograph on the front and a note on the back, with a jeweller's
+   loupe beside them. */
+.pc { margin: clamp(64px, 8vw, 112px) auto 0; max-width: 1200px; padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--rule); text-align: center; }
+.pc .pg-lede { max-width: 52ch; margin: 14px auto 0; }
+.pc-desk { position: relative; max-width: 760px; margin: clamp(32px, 5vw, 56px) auto 0; padding: 18px 0 34px; }
+.pc-stack { position: relative; width: min(100%, 640px); aspect-ratio: 3 / 2; margin: 0 auto; perspective: 1800px; touch-action: pan-y; outline: none; }
+.pc-stack:focus-visible { outline: 1px solid var(--ink); outline-offset: 10px; }
+.pc-card {
+  position: absolute; inset: 0; transform-style: preserve-3d; cursor: grab; user-select: none; -webkit-user-select: none;
+  transform: translate(var(--dx, 0px), calc(var(--dy, 0px) - var(--lift, 0px))) rotate(calc(var(--tilt, 0deg) + var(--rot, 0deg))) rotateY(var(--flip, 0deg));
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease;
+}
+.pc-card:not(.is-top) { pointer-events: none; }
+.pc-card.is-hidden { opacity: 0; }
+.pc-card.is-flipped { --flip: 180deg; }
+.pc-card.is-dragging { transition: none; cursor: grabbing; }
+.pc-card.is-leaving { transform: translate(115%, -18px) rotate(14deg); opacity: 0; transition: transform 0.26s ease-in, opacity 0.26s ease-in; }
+.pc-face {
+  position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: #fbf8f1; padding: clamp(8px, 1.6vw, 12px); border-radius: 3px;
+  box-shadow: 0 14px 34px rgba(48, 36, 22, 0.16), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.pc-front img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.pc-caption {
+  position: absolute; left: clamp(18px, 3vw, 28px); bottom: clamp(16px, 2.6vw, 26px);
+  font-family: var(--serif); font-style: italic; font-size: clamp(17px, 2.2vw, 24px); color: #fff; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+.pc-back { transform: rotateY(180deg); display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(14px, 3vw, 28px); padding: clamp(16px, 3.4vw, 30px); text-align: left; }
+.pc-note { align-self: center; }
+.pc-note p { margin: 0; font-family: var(--serif); font-style: italic; font-size: clamp(14px, 1.9vw, 20px); line-height: 1.55; color: #3b342b; }
+.pc-note .pc-sign { margin-top: 14px; font-style: normal; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.pc-address { position: relative; border-left: 1px dashed #cbbfa9; padding-left: clamp(12px, 2.6vw, 24px); display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 6%; }
+.pc-stamp { position: absolute; top: 0; right: 0; width: clamp(48px, 9vw, 74px); padding: 3px; background: #fff; box-shadow: 0 0 0 1px #d8ccb7; transform: rotate(3deg); }
+.pc-postmark { position: absolute; top: clamp(10px, 2vw, 22px); right: clamp(30px, 7vw, 56px); width: clamp(64px, 12vw, 96px); fill: none; stroke: #7d7264; stroke-width: 1.4; opacity: 0.65; transform: rotate(-12deg); }
+.pc-postmark text { fill: #7d7264; stroke: none; font: 500 8.6px var(--sans, Jost, sans-serif); letter-spacing: 1.6px; }
+.pc-postmark .pc-pm-n { font-size: 15px; letter-spacing: 1px; }
+.pc-line { display: block; min-height: clamp(22px, 4vw, 34px); border-bottom: 1px solid #ddd3c3; font-family: var(--serif); font-style: italic; font-size: clamp(13px, 1.7vw, 17px); color: #5b5247; padding-top: 6px; }
+@media (max-width: 559px) {
+  .pc-back { grid-template-columns: 1fr; }
+  .pc-address { display: none; }
+}
+
+.pc-loupe { position: absolute; right: max(-8px, calc(50% - 380px)); bottom: -6px; width: clamp(104px, 18vw, 150px); aspect-ratio: 1; z-index: 60; cursor: grab; touch-action: none; }
+.pc-loupe.is-held { cursor: grabbing; }
+.pc-lens {
+  position: absolute; inset: 0 22% 22% 0; border-radius: 50%; background-repeat: no-repeat; background-color: rgba(255, 255, 255, 0.18);
+  border: clamp(5px, 0.9vw, 7px) solid #c7a764;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6), inset 0 6px 18px rgba(255, 255, 255, 0.45), 0 10px 24px rgba(40, 28, 12, 0.28);
+}
+.pc-loupe:not(.is-over) .pc-lens { background-image: none !important; backdrop-filter: blur(0.5px); }
+.pc-handle { position: absolute; right: 2%; bottom: 2%; width: 13%; height: 40%; border-radius: 99px; background: linear-gradient(90deg, #7a5532, #4a311b); transform: rotate(-45deg); transform-origin: 50% 50%; box-shadow: 0 6px 12px rgba(40, 28, 12, 0.25); }
+
+.pc-bar { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 8px; }
+.pc-btn { min-width: 44px; height: 44px; border: 1px solid var(--rule); background: transparent; color: var(--ink); font: 300 22px/1 var(--sans, Jost, sans-serif); cursor: pointer; transition: border-color 0.2s ease; }
+.pc-btn:hover { border-color: var(--ink); }
+.pc-btn--turn { padding: 0 18px; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+.pc-count { min-width: 64px; font-size: 12px; letter-spacing: 0.18em; color: var(--muted); }
+.pc-hint { margin: 16px auto 0; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .pc-card { transition: none; } }
 .wl-signin { margin: 0 auto 28px; max-width: 640px; text-align: center; font-weight: 300; font-size: 14px; color: var(--muted); }
 .wl-signin a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .wl-grid { display: grid; gap: 28px 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -265,14 +265,14 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  /* One screen, header included. svh is the viewport minus the mobile
-     browser chrome, so the hero never ends up half-scrolled. */
-  height: 100vh;
-  height: calc(100svh - var(--bar));
+  /* One screen with the header above it. svh is the viewport minus the
+     mobile browser chrome, so the hero never ends up half-scrolled. */
+  height: calc(100vh - 72px);
+  height: calc(100svh - var(--bar) - 72px);
 }
 
 @media (min-width: 700px) {
-  .hero { max-height: 980px; }
+  .hero { max-height: 908px; }
 }
 
 .hero-media {

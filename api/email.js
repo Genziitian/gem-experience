@@ -94,7 +94,7 @@ export function layout({ kicker = "", heading, preheader = "", body = "", note =
       <div style="font:500 12px/1 ${SANS};letter-spacing:6px;text-transform:uppercase;color:#ffffff">Gem Experience</div>
       <div style="margin:14px 0 0;font:italic 400 16px/24px ${SERIF};color:${C.bandText}">Singular pieces, each cut from a stone<br>we followed out of the ground.</div>
       <div style="margin:22px 0 0;font:300 12px/20px ${SANS};color:${C.bandText}">
-        Dubai · Jaipur · Arusha<br>
+        UAE · India · Tanzania<br>
         <a href="mailto:contact@gem-experience.com" style="color:${C.bandText}">contact@gem-experience.com</a> · <a href="https://wa.me/971567203896" style="color:${C.bandText}">WhatsApp +971 56 720 3896</a>
       </div>
       <div style="margin:18px 0 0;font:500 10px/16px ${SANS};letter-spacing:2.4px;text-transform:uppercase">

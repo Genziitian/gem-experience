@@ -31,8 +31,8 @@ const HOURS = [
 /* GE Icons, from the house's sheet "GE Icons for website.xlsx": title, type,
    the description used earlier and the photographs it links to (model and
    product shots, downloaded to icons/img/<slug>-1/-2). The facts line only
-   repeats what the description states; ref and spec come from the pieces'
-   own sheet where there is one ("URNS & VASE - Sheet1.pdf"). Tangerine and
+   repeats what the description states; ref and the details come from each
+   piece's own sheet ("GE ICONS (Signature Style)/<piece>/*.xlsx"). Tangerine and
    Scarlet have model photographs only. */
 const ICONS = [
   { slug: "tangerine", title: "Tangerine", kind: "Set: necklace and earrings", facts: "122.6 ct morganite", model: [1, 2],
@@ -42,27 +42,44 @@ const ICONS = [
     p: ["Let the ‘Scarlet’ set transport you to a bygone era of opulence and extravagance. Fit for royalty, this magnificent set features a total of 54.5-carat Malaya Garnet stones that will leave you spellbound.",
         "The pink-orange hue of the Malaya Garnet stones is reminiscent of the sun-kissed skies of a summer's day, adding an ethereal touch of beauty and grace to the Scarlet set. The attention to detail and exquisite craftsmanship that has gone into the creation of this set is truly remarkable, a testament to the skilled artisans who have brought this masterpiece to life."] },
   { slug: "urns-vase-i", title: "Urns and Vase Collection", kind: "Earrings", facts: "22.820 ct tanzanite · 2.366 ct diamonds", model: [2],
-    ref: "SG-01", spec: "18k gold · 2 fancy-cut tanzanites · net 9.473 g · gross 14.51 g",
+    ref: "SG-01", d: { metal: "18k gold", stone: "Tanzanite", shape: "Fancy", pcs: 2, stoneCt: "22.82", diamondCt: "2.366", netG: "9.473", grossG: "14.51" },
     p: ["The Urns and Vase collection is a true celebration of the art of floral arrangement. With influences from diverse cultures, this collection boasts an awe-inspiring range of vases that showcase slender flowers arranged in two dimensions, as well as extravagant bouquets that pay homage to European florilegia from centuries past. Infusing signature style with organic foliage shapes as basic geometry, the designer has created a modern and clean graphical setting that elevates the classic beauty of these compositions.",
         "Dripping with grandeur, these drop-dangle earrings are a masterpiece. Adorned with a stunning combination of 22.820 carats of enchanting Tanzanite precious stone and 2.366 carats of dazzling diamonds, these earrings are crafted in the brand's signature style, showcasing a modern and sleek graphical aesthetic."] },
   { slug: "urns-vase-ii", title: "Urns and Vase Collection", kind: "Earrings", facts: "25.050 ct tanzanite · 2.268 ct diamonds", model: [2],
-    ref: "SG-02", spec: "18k gold · 2 fancy-cut tanzanites · net 13.536 g · gross 19.00 g",
+    ref: "SG-02", d: { metal: "18k gold", stone: "Tanzanite", shape: "Fancy", pcs: 2, stoneCt: "25.05", diamondCt: "2.268", netG: "13.536", grossG: "19.00" },
     p: ["The visionary artist Shantanu Garg, with the assistance of Saloni Meratwal, has crafted each piece in this collection with a timeless elegance and unforgettable charm that is guaranteed to leave a lasting impression.",
         "Experience pure luxury with these earrings that are the epitome of elegance. Featuring a lavish combination of 25.050 carats of Mesmerising Tanzanite precious stone and 2.268 carats of scintillating diamonds, meticulously crafted in the brand's signature style."] },
-  { slug: "bleu-bow", title: "Bleu Bow Ring", kind: "Ring", facts: "18k gold · round tanzanite · diamonds",
+  { slug: "bleu-bow", title: "Bleu Bow Ring", kind: "Ring", facts: "3.21 ct round tanzanite · 0.982 ct diamonds",
+    ref: "GD23-159", d: { metal: "18k gold", stone: "Tanzanite", shape: "Round", pcs: 1, stoneCt: "3.21", diamondCt: "0.982", netG: "6.722", grossG: "7.56" },
     p: ["A magnificent embodiment of sophistication and allure, behold the resplendent Bleu Bow Ring, crafted from 18k gold and crowned with a dazzling round-shaped tanzanite at its centre, while the exquisite bow sparkles with a captivating array of mixed-shaped diamonds."] },
-  { slug: "le-fleur", title: "Le Fleur Ring", kind: "Ring", facts: "18k gold · octagon tanzanite · diamonds",
+  { slug: "le-fleur", title: "Le Fleur Ring", kind: "Ring", facts: "4.77 ct octagon tanzanite · 1.932 ct diamonds",
+    ref: "GD23-158", d: { metal: "18k gold", stone: "Tanzanite", shape: "Octagon", pcs: 1, stoneCt: "4.77", diamondCt: "1.932", netG: "8.09", grossG: "9.43" },
     p: ["Behold the majesty of the Le Fleur Ring - an 18k gold masterpiece that exudes timeless elegance and is a symbol of luxurious taste and grace. Its octagon-shaped Tanzanite stone, placed at the center, captures the eye with its stunning violet hues, while the intricate leaf-shaped design, adorned with a mix of diamonds of varying shapes, adds a touch of natural splendor."] },
-  { slug: "jardin-de-tulips", title: "Jardin De Tulips", kind: "Bracelet", facts: "18k white gold · 6.19 ct rhodolite · diamonds",
+  { slug: "jardin-de-tulips", title: "Jardin De Tulips", kind: "Bracelet", facts: "6.19 ct rhodolite · 1.83 ct diamonds",
+    ref: "GD23-141", d: { metal: "18k gold", stone: "Rhodolite", shape: "Square princess", pcs: 7, stoneCt: "6.19", diamondCt: "1.83", netG: "17.086", grossG: "18.69" },
     p: ["The Jardin de tulips bracelet features a seamless fusion of modern sophistication and timeless design. The links of 18K white gold form a delicate yet sturdy foundation, creating a luxurious and comfortable fit on the wrist. The addition of meticulously placed diamonds adds a touch of opulence and brilliance, illuminating the piece with captivating sparkle. At the heart of the bracelet lies the mesmerizing 6.19 carats rhodolite, its deep pinkish-red hue symbolizing passion and strength."] },
-  { slug: "festoon", title: "Festoon Bracelet", kind: "Bracelet", facts: "9.24 ct rhodolite · diamonds",
+  { slug: "festoon", title: "Festoon Bracelet", kind: "Bracelet", facts: "9.24 ct rhodolite · 2.45 ct diamonds",
+    ref: "GD23-144", d: { metal: "18k gold", stone: "Rhodolite", shape: "Square octagon", pcs: 8, stoneCt: "9.24", diamondCt: "2.45", netG: "15.922", grossG: "18.26" },
     p: ["Festoon bracelet is a true statement piece, perfect for those seeking a touch of luxury and uniqueness. Indulge in the beauty of ancient architecture while embracing the allure of fine jewellery. Elevate your style and make a lasting impression with this exceptional piece that embodies the essence of luxury, craftsmanship, and the captivating charm of 9.24 carats rhodolite. The addition of meticulously placed diamonds adds a touch of opulence and brilliance, illuminating the piece with captivating sparkle."] },
-  { slug: "pink-monarch", title: "The Pink Monarch", kind: "Bracelet", facts: "18k gold · 18.26 ct pink spinel · diamonds",
+  { slug: "pink-monarch", title: "The Pink Monarch", kind: "Bracelet", facts: "18.26 ct pink spinel · 6.82 ct diamonds",
+    ref: "GD23-152", d: { metal: "18k gold", stone: "Pink spinel", shape: "Pear", pcs: 56, stoneCt: "18.26", diamondCt: "6.82", netG: "29.804", grossG: "34.82" },
     p: ["The Pink Monarch bracelet boasts a timeless design that effortlessly captures attention. Its 18K gold links form an elegant and sturdy foundation, while the strategically placed diamonds add a touch of opulence and brilliance, captivating the eye with their scintillating sparkle.",
         "At the heart of this extraordinary bracelet lies the stunning 18.26 carats pink spinel. Each spinel is carefully selected for its exceptional color, radiating a captivating pink hue that exudes femininity and sophistication. Pink spinels are expertly set, allowing them to shine with their inherent beauty and natural allure."] },
-  { slug: "blue-belle-diva", title: "Blue Belle Diva Ring", kind: "Ring", facts: "1.63 ct tanzanite",
+  { slug: "blue-belle-diva", title: "Blue Belle Diva Ring", kind: "Ring", facts: "1.63 ct tanzanite · 0.891 ct diamonds",
+    ref: "GD23-140", d: { metal: "18k gold", stone: "Tanzanite", shape: "Fancy (wedge)", pcs: 1, stoneCt: "1.63", diamondCt: "0.891", netG: "3.136", grossG: "3.64" },
     p: ["Blue Belle Diva Ring, a true masterpiece that combines the allure of Tanzanite with a unique and distinctive wedge shape. This exquisite ring showcases a stunning Tanzanite gemstone weighing 1.63 carats, meticulously cut and polished to enhance its natural beauty.",
         "What sets this ring apart is its remarkable wedge shape, which adds a touch of modernity and uniqueness to the design. The tapering silhouette creates a captivating visual effect and makes a bold statement on the finger."] },
+  // Grossular: three rings from "Grossular-Jewellery.xlsx". No write-up was
+  // supplied, so each says only what its sheet row does.
+  { slug: "grossular-pear", title: "Grossular Ring", kind: "Ring · Grossular", facts: "4.10 ct pear grossular · 0.35 ct diamonds",
+    ref: "GRG0923-04", d: { metal: "18k gold", stone: "Grossular garnet", shape: "Pear", pcs: 1, stoneCt: "4.10", diamondCt: "0.35", netG: "5.019", grossG: "5.91" },
+    p: ["Crafted in 18k gold, set with a 4.10 carat pear-shaped grossular garnet within 0.35 carats of diamonds. Beside it, the stone on its own."] },
+  { slug: "grossular-heart", title: "Grossular Ring", kind: "Ring · Grossular", facts: "3.85 ct heart grossular · 0.22 ct diamonds",
+    ref: "GRG0923-64", d: { metal: "18k gold", stone: "Grossular garnet", shape: "Heart", pcs: 1, stoneCt: "3.85", diamondCt: "0.22", netG: "4.737", grossG: "5.55" },
+    p: ["Crafted in 18k gold, set with a 3.85 carat heart-shaped grossular garnet within 0.22 carats of diamonds. Beside it, the stone on its own."] },
+  { slug: "grossular-oval", title: "Grossular Ring", kind: "Ring · Grossular", facts: "5.95 ct oval grossular · 0.30 ct diamonds",
+    ref: "GRG0923-76", d: { metal: "18k gold", stone: "Grossular garnet", shape: "Oval", pcs: 1, stoneCt: "5.95", diamondCt: "0.30", netG: "5.19", grossG: "6.44" },
+    p: ["Crafted in 18k gold, set with a 5.95 carat oval grossular garnet within 0.30 carats of diamonds. Beside it, the stone on its own."] },
 ];
 
 const PAGES = {
@@ -373,8 +390,12 @@ function block(b) {
           <p class="hp-gi-kind">${esc(i.kind)}</p>
           <h2 class="hp-gi-title">${esc(i.title)}</h2>
           <p class="hp-gi-facts">${esc(i.facts)}</p>
-          ${i.spec ? `<p class="hp-gi-spec">${i.ref ? `${esc(i.ref)} · ` : ""}${esc(i.spec)}</p>` : ""}
           ${i.p.map((t) => `<p>${esc(t)}</p>`).join("\n          ")}
+          ${i.d ? `<dl class="hp-gi-details">${[
+            ["Reference", i.ref], ["Metal", i.d.metal], ["Stone", i.d.stone], ["Shape", i.d.shape], ["Stones", i.d.pcs],
+            ["Stone weight", i.d.stoneCt + " ct"], ["Diamond weight", i.d.diamondCt + " ct"],
+            ["Net weight", i.d.netG + " g"], ["Gross weight", i.d.grossG + " g"],
+          ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
           <div class="pg-actions">
             <a class="pg-btn" href="${enquire}">Request a quotation</a>
             <a class="pg-btn pg-btn--ghost" href="/appointment/">Book a private viewing</a>
@@ -415,7 +436,7 @@ function page(slug, p) {
 <link rel="stylesheet" href="/css/site-nav.css">
 <link rel="stylesheet" href="/css/mini-cart.css">
 <link rel="stylesheet" href="/css/gift-note.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/css/house.css?v=3">
+<link rel="stylesheet" href="/css/house.css?v=4">
 </head>
 <body class="pg">
 <!-- Written by tools/build-house-pages.mjs; edit the content there, not here. -->

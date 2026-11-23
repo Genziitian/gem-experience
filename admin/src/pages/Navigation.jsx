@@ -5,7 +5,7 @@
  * reordering is two buttons per row, which works on a touch screen, needs no
  * library, and cannot drop a row into a position that does not exist.
  */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Panel, Empty, Skeleton, Icon, Toast, Segment } from "../components/ui.jsx";
 import { useToast } from "../lib/useToast.js";
 import { readNav, nest, saveNavItem, deleteNavItem, reorderNav } from "../lib/content.js";
@@ -61,6 +61,17 @@ export default function Navigation() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const { toast, show, dismiss } = useToast();
+  /* The form sits under the whole menu tree, so "Add inside…" changed it out of
+     sight and looked as if nothing happened. Every way into the form brings it
+     into view and puts the cursor in Label. */
+  const formRef = useRef(null);
+  const labelRef = useRef(null);
+  function reveal() {
+    requestAnimationFrame(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      labelRef.current?.focus({ preventScroll: true });
+    });
+  }
 
   const load = useCallback(async () => {
     try {
@@ -81,6 +92,7 @@ export default function Navigation() {
     setEditing(null);
     setForm(blank);
     setParentId(parent || "");
+    reveal();
   }
 
   function startEdit(item) {
@@ -92,6 +104,7 @@ export default function Navigation() {
       published: item.published !== false,
     });
     setParentId(item.parent_id || "");
+    reveal();
   }
 
   async function submit(e) {
@@ -163,6 +176,9 @@ export default function Navigation() {
   }
 
   const parentOptions = here.filter((r) => !r.parent_id);
+  const parentLabel = parentOptions.find((p) => p.id === parentId)?.label;
+  const formTitle = editing ? `Edit “${editing.label}”`
+    : parentLabel ? `New item inside “${parentLabel}”` : "New menu item";
 
   return (
     <>
@@ -219,11 +235,12 @@ export default function Navigation() {
         )}
       </Panel>
 
-      <Panel title={editing ? `Edit “${editing.label}”` : "New menu item"}>
+      <div ref={formRef} style={{ scrollMarginTop: 72 }}>
+      <Panel title={formTitle}>
         <form className="form-grid" onSubmit={submit}>
           <label>
             Label
-            <input value={form.label} required
+            <input ref={labelRef} value={form.label} required
                    onChange={(e) => setForm({ ...form, label: e.target.value })} />
           </label>
 
@@ -264,14 +281,15 @@ export default function Navigation() {
             <button className="btn" disabled={busy} type="submit">
               {busy ? "Saving…" : editing ? "Save changes" : "Add item"}
             </button>
-            {editing ? (
-              <button type="button" className="btn" onClick={() => { setEditing(null); setForm(blank); }}>
+            {editing || parentId || form.label ? (
+              <button type="button" className="btn btn--ghost" onClick={() => { setEditing(null); setForm(blank); setParentId(""); }}>
                 Cancel
               </button>
             ) : null}
           </div>
         </form>
       </Panel>
+      </div>
 
       <Toast toast={toast} onDismiss={dismiss} />
     </>

@@ -51,6 +51,26 @@ function extrasOf(product, known) {
   return out;
 }
 
+/* One upsert sends every row with the same columns: PostgREST takes the union
+   of the keys and writes NULL where a row lacks one. Fine and High Jewellery
+   rows carry different fields, and some columns are NOT NULL (collections.models,
+   products.gallery/models/extras…), so a mixed batch was refused outright —
+   which is why the import never got past the collections. Every row gets
+   every key here, with the column's own default where it had none. */
+function uniform(rows, defaults) {
+  const keys = new Set(rows.flatMap((r) => Object.keys(r)));
+  return rows.map((r) => {
+    const out = {};
+    for (const k of keys) out[k] = k in r ? r[k] : (k in defaults ? defaults[k] : null);
+    return out;
+  });
+}
+const COLLECTION_DEFAULTS = { models: [], published: true, sort_order: 0 };
+const PRODUCT_DEFAULTS = {
+  gallery: [], models: [], extras: {}, visualiser: {}, is_gemstone: false, has_visualiser: false,
+  price_on_enquiry: true, status: "published", featured_sort: 0,
+};
+
 function chunk(list, size = 100) {
   const out = [];
   for (let i = 0; i < list.length; i += size) out.push(list.slice(i, i + size));
@@ -76,7 +96,7 @@ export async function importFromSite(onProgress = () => {}) {
 
   // ---- collections
   onProgress("Collections…");
-  const collectionRows = [
+  const collectionRows = uniform([
     ...(fine.collections || []).map((c, i) => ({
       slug: c.id,
       name: c.name,
@@ -98,7 +118,7 @@ export async function importFromSite(onProgress = () => {}) {
       sort_order: i,
       published: true,
     })),
-  ];
+  ], COLLECTION_DEFAULTS);
   const { error: colErr } = await supabase
     .from("collections")
     .upsert(collectionRows, { onConflict: "slug" });
@@ -116,7 +136,7 @@ export async function importFromSite(onProgress = () => {}) {
 
   // ---- products
   onProgress("Products…");
-  const productRows = [
+  const productRows = uniform([
     ...(fine.products || []).map((p, i) => ({
       slug: p.id,
       name: p.name,
@@ -164,7 +184,7 @@ export async function importFromSite(onProgress = () => {}) {
       featured_sort: i,
       extras: extrasOf(p, HIGH_KEYS),
     })),
-  ];
+  ], PRODUCT_DEFAULTS);
 
   for (const batch of chunk(productRows)) {
     const { error } = await supabase.from("products").upsert(batch, { onConflict: "slug" });
@@ -193,9 +213,10 @@ export async function importFromSite(onProgress = () => {}) {
 
   const withImages = (fine.products || []).filter((p) => p.images && p.images.length);
   const ids = withImages.map((p) => prodId[p.id]).filter(Boolean);
-  if (ids.length) {
-    // replace wholesale rather than diff — the site file is authoritative here
-    const { error } = await supabase.from("product_images").delete().in("product_id", ids);
+  // replace wholesale rather than diff — the site file is authoritative here;
+  // in batches, since 387 ids in one URL is past what the gateway accepts
+  for (const batch of chunk(ids, 50)) {
+    const { error } = await supabase.from("product_images").delete().in("product_id", batch);
     if (error) throw error;
   }
   const imageRows = withImages.flatMap((p) =>

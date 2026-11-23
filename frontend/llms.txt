@@ -1,6 +1,6 @@
 # Gem Experience
 
-> Gem Experience is a coloured-gemstone jewellery house. Tanzanite and other stones of the East African belt are chosen at the source in Tanzania, cut in the house's own workshop and finished by hand as Fine Jewellery and one-of-a-kind High Jewellery, with ateliers in Dubai, Jaipur and Arusha.
+> Gem Experience is a coloured-gemstone jewellery house. Tanzanite and other stones of the East African belt are chosen at the source in Tanzania, cut in the house's own workshop and finished by hand as Fine Jewellery and one-of-a-kind High Jewellery, with ateliers in the UAE (Dubai), India (Jaipur) and Tanzania (Arusha).
 
 Prices are not published: Fine Jewellery and High Jewellery are quoted on request, and every piece is made to order. Enquiries are answered by an adviser, usually within two working days.
 
@@ -13,13 +13,16 @@ Prices are not published: Fine Jewellery and High Jewellery are quoted on reques
 
 ## The house
 
-- [The House](https://gem-experience.com/the-house/): stones chosen at the source in Tanzania, cut in the house's own workshop, ateliers in Dubai, Jaipur and Arusha.
+- [The House](https://gem-experience.com/the-house/): stones chosen at the source in Tanzania, cut in the house's own workshop, ateliers in the UAE (Dubai), India (Jaipur) and Tanzania (Arusha).
+- [Timeline](https://gem-experience.com/timeline/): the house's roots go back to Color Clarity Ltd. (1998), a Tanzanian mining and gemstone business; its operations later discovered tsavorite and spinel (2007), launched The Tanzanite Experience (2015) and opened in Dubai (2018).
+- [GE Icons](https://gem-experience.com/icons/): statement sets, earrings, rings and bracelets outside the main collections.
+- [Craftsmanship](https://gem-experience.com/craftsmanship/) · [Sustainability](https://gem-experience.com/sustainability/) · [Mining](https://gem-experience.com/mining/) · [Maasai Women](https://gem-experience.com/maasai-women/)
 - [Lookbook](https://gem-experience.com/lookbook/): High Jewellery and Fine Jewellery photographed as worn.
 
 ## Events and exhibitions
 
 - [Events & Exhibitions](https://gem-experience.com/events/): where to see the pieces in person; WhatsApp +971 56 720 3896 for details.
-  - Jewellery and Watch Show: 11 – 15 November 2026, Abu Dhabi, United Arab Emirates.
+
 
 ## High Jewellery pieces
 
@@ -93,3 +96,4 @@ Prices are not published: Fine Jewellery and High Jewellery are quoted on reques
 - [Journal](https://gem-experience.com/blog/)
 - [Legal](https://gem-experience.com/legal/)
 - [Sitemap](https://gem-experience.com/sitemap.xml)
+- [Full catalogue for AI assistants](https://gem-experience.com/llms-full.txt): every piece with its stones, weights, metal and link.

@@ -309,7 +309,9 @@ export async function buildExport() {
   const { data: prods, error: prodErr } = await supabase
     .from("products")
     .select("*, product_images (url, sort_order)")
-    .neq("status", "archived")
+    /* Only what is published reaches the website: a draft (Unpublish, or a new
+       piece not yet ready) and an archived piece both stay in the admin only. */
+    .eq("status", "published")
     .order("featured_sort", { ascending: true });
   if (prodErr) throw prodErr;
 

@@ -94,14 +94,17 @@ function groundOf(src) {
   stillGround.set(src, hex);
   return hex;
 }
-function figure(src, alt, cls = "") {
+/* `first` marks the pair at the top of the page: it is what a visitor sees
+   first (and what Lighthouse times as the largest paint), so it loads at once
+   instead of waiting to be scrolled to. */
+function figure(src, alt, cls = "", first = false) {
   const still = /\/p\d+\.webp$/.test(src);
   // a still drawn into a model's slot is not being worn
   if (still) alt = alt.replace(/ worn\.$/, ", in detail.");
   const classes = [cls, still ? "st-still" : ""].filter(Boolean).join(" ");
   return `<figure${classes ? ` class="${classes}"` : ""}` +
     `${still ? ` style="--still:${groundOf(src)}"` : ""}><img src="/high-jewellery/${src}" ` +
-    `alt="${esc(alt)}" loading="lazy" decoding="async"></figure>`;
+    `alt="${esc(alt)}" ${first ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></figure>`;
 }
 
 function build(id) {
@@ -125,8 +128,8 @@ function build(id) {
   const pairA = d.draw(["still", "model"]);
   if (pairA) {
     bands.push(`  <section class="st-pair">
-    ${figure(pairA[0], `${name}, the piece itself.`)}
-    ${figure(pairA[1], `${name} worn.`)}
+    ${figure(pairA[0], `${name}, the piece itself.`, "", true)}
+    ${figure(pairA[1], `${name} worn.`, "", true)}
   </section>`);
   }
 

@@ -45,7 +45,10 @@ const ORG_DESCRIPTION =
   "Gem Experience is a coloured-gemstone jewellery house. Tanzanite and other stones " +
   "of the East African belt are chosen at the source in Tanzania, cut in the house's " +
   "own workshop and finished by hand as Fine Jewellery and one-of-a-kind High Jewellery, " +
-  "with ateliers in Dubai, Jaipur and Arusha.";
+  "with ateliers in the UAE (Dubai), India (Jaipur) and Tanzania (Arusha).";
+/* The house's own history, as the Timeline page tells it. */
+const FOUNDED = "1998";
+const LOGO = "/apple-touch-icon.png";
 
 /* Pages search engines should not list. Still crawlable (so the noindex is
    seen); robots.txt keeps the purely private ones out altogether. */
@@ -213,6 +216,10 @@ const organization = {
   email: EMAIL,
   description: ORG_DESCRIPTION,
   image: abs(DEFAULT_IMAGE),
+  logo: { "@type": "ImageObject", "@id": ORIGIN + "/#logo", url: abs(LOGO), width: 180, height: 180, caption: SITE },
+  foundingDate: FOUNDED,
+  slogan: "Nothing begins above ground",
+  areaServed: ["United Arab Emirates", "India", "Tanzania", "Worldwide"],
   knowsAbout: ["Tanzanite", "Spinel", "Tsavorite", "Rhodolite garnet", "Malaya garnet",
     "Coloured gemstones", "Gemstone cutting", "Fine jewellery", "High jewellery"],
   // the house's own accounts, as linked from the footer
@@ -338,8 +345,8 @@ const PRE_CSS = `<style>
 // ------------------------------------------------- pre-rendered page bodies
 
 function fjProductUrl(p) { return `/fine-jewellery/p/${p.id}/`; }
-function fjImg(src) { return "/fine-jewellery/" + src.replace(/^\/+/, ""); }
-function hjImg(src) { return "/high-jewellery/" + src.replace(/^\/+/, ""); }
+function fjImg(src) { return /^https?:/.test(src) ? src : "/fine-jewellery/" + src.replace(/^\/+/, ""); }
+function hjImg(src) { return /^https?:/.test(src) ? src : "/high-jewellery/" + src.replace(/^\/+/, ""); }
 
 function fjSpecs(p) {
   const rows = [
@@ -488,9 +495,61 @@ function eventNode(e) {
   }));
 }
 
+/* Text of an HTML fragment, tags and entities gone. */
+const textOf = (h) => unesc(String(h).replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+
+/* The gemstone guides are written as questions ("What is Tanzanite?"); each
+   heading that asks one, with the copy under it, is the answer an assistant
+   or a search snippet can quote. "Did you know?" is a heading, not a question. */
+function questionsOf(html) {
+  const body = html.slice(html.indexOf("<body"));
+  const heads = [...body.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)];
+  const out = [];
+  heads.forEach((m, i) => {
+    const q = textOf(m[1]);
+    if (!q.endsWith("?") || /^did you know/i.test(q)) return;
+    const end = i + 1 < heads.length ? heads[i + 1].index : body.indexOf("</main>") > 0 ? body.indexOf("</main>") : body.length;
+    /* the paragraphs only: diagrams, captions and buttons in the section are
+       labels ("LIGHT IN LIGHT OUT", "Watch the film"), not sentences */
+    const paras = [...body.slice(m.index + m[0].length, end).matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)]
+      .map((p) => textOf(p[1])).filter((t) => t.length >= 50 && /[.!?…]$/.test(t));
+    const a = clip(paras.join(" "), 600);
+    if (a.length > 40) out.push([q, a]);
+  });
+  return out;
+}
+
+/* GE Icons, read from the page build-house-pages.mjs writes. */
+function iconsOf(html) {
+  return [...html.matchAll(/<article class="hp-gi" id="([^"]+)">([\s\S]*?)<\/article>/g)].map(([, id, a]) => {
+    const pick = (cls) => textOf((a.match(new RegExp(`class="${cls}"[^>]*>([\\s\\S]*?)</(?:p|h2|dl)>`)) || [])[1] || "");
+    const copy = a.slice(a.indexOf('class="hp-gi-copy"'));
+    const paras = [...copy.matchAll(/<p>([\s\S]*?)<\/p>/g)].map((m) => textOf(m[1]));
+    const ref = (a.match(/<dt>Ref[^<]*<\/dt>\s*<dd>([^<]+)<\/dd>/) || [])[1];
+    return {
+      id, name: pick("hp-gi-title"), kind: pick("hp-gi-kind") || "Jewellery", facts: pick("hp-gi-facts"),
+      description: clip(paras.join(" ") || pick("hp-gi-facts"), 500), ref: ref ? unesc(ref).trim() : null,
+      images: [...a.matchAll(/<img src="([^"]+)"/g)].map((m) => m[1]),
+    };
+  }).filter((x) => x.name);
+}
+
 // ------------------------------------------------------------------- build
 
 const written = [];
+/* Up to ten photographs a page shows, for the image sitemap: jewellery is
+   searched for by picture as much as by name. */
+function pageImages(html, url) {
+  const body = html.slice(html.indexOf("<body"));
+  const baseHref = (html.match(/<base href="([^"]+)"/) || [])[1];
+  const seen = new Set();
+  for (const m of body.matchAll(/<img\b[^>]*\bsrc="([^"]+\.(?:webp|jpe?g|png))"/g)) {
+    const src = /^https?:/.test(m[1]) ? m[1] : new URL(m[1], ORIGIN + (baseHref || url)).pathname;
+    if (!/\.w\d+\./.test(src)) seen.add(src);
+    if (seen.size >= 10) break;
+  }
+  return [...seen];
+}
 const sitemap = [];
 const lastmod = (file) => fs.statSync(file).mtime.toISOString().slice(0, 10);
 
@@ -543,20 +602,43 @@ function extrasFor(url, html) {
       }],
       pre: ["<main id=\"view\">", "</main>", fjIndexPre()],
       image: fjImg(fjProducts[0].images[0]),
+      /* The first collection's banner is the largest thing on the page, but the
+         browser only learns of it once app.js has drawn the grid. */
+      preload: fjCollections[0] && fjCollections[0].banner ? (() => {
+        const b = fjImg(fjCollections[0].banner);
+        return `<link rel="preload" as="image" href="${b.replace(/\.webp$/, ".w900.webp")}" imagesrcset="${b.replace(/\.webp$/, ".w900.webp")} 900w, ${b} 1800w" imagesizes="(max-width: 700px) 50vw, 33vw" fetchpriority="high">`;
+      })() : "",
     };
   }
 
   if (seg[0] === "world-of-preciousness" && seg.length === 2) {
     const head = h1Of(html) || shortTitle(titleOf(html));
+    const qa = questionsOf(html);
     return {
       pageType: "WebPage",
-      nodes: [{
+      nodes: [...(qa.length ? [{
+        "@type": "FAQPage", "@id": ORIGIN + url + "#faq",
+        mainEntity: qa.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      }] : []), {
         "@type": "Article", "@id": ORIGIN + url + "#article",
         headline: head, description: descOf(html),
         image: abs(firstImage(html, url)),
         author: { "@id": ORG_ID }, publisher: { "@id": ORG_ID },
         mainEntityOfPage: ORIGIN + url, about: { "@type": "Thing", name: head },
         dateModified: lastmod(path.join(WEB, url, "index.html")),
+      }],
+    };
+  }
+
+  if (url === "/icons/") {
+    const items = iconsOf(html);
+    return {
+      pageType: "CollectionPage",
+      nodes: [{
+        "@type": "ItemList", "@id": ORIGIN + url + "#items", name: "GE Icons", numberOfItems: items.length,
+        itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1,
+          item: productNode({ url: url + "#" + it.id, name: it.name, description: it.description,
+            images: it.images, sku: it.ref, category: `GE Icons > ${it.kind}`, material: it.facts }) })),
       }],
     };
   }
@@ -586,11 +668,11 @@ for (const { file, url } of pages) {
   if (x.offices) {
     html = setInner(html, '<div class="off-grid" id="atelier-grid">', "</div>\n", offices.filter((o) => o.kind === "atelier").map(officeCard).join(""));
   }
-  const head = headBlock({ url, html, ogType: x.ogType, image: x.image, extra: x }) +
+  const head = (x.preload ? x.preload + "\n" : "") + headBlock({ url, html, ogType: x.ogType, image: x.image, extra: x }) +
     (x.faq ? "\n" + faqLd() : "") + (x.pre ? "\n" + PRE_CSS : "");
   html = setBlock(html, "seo", head, "</head>");
   write(file, html);
-  if (!NOINDEX.has(url)) sitemap.push({ loc: ORIGIN + url, lastmod: lastmod(file) });
+  if (!NOINDEX.has(url)) sitemap.push({ loc: ORIGIN + url, lastmod: lastmod(file), images: pageImages(html, url) });
 }
 
 /* Fine Jewellery product pages: the shop's own page, opened on the product. */
@@ -620,7 +702,18 @@ for (const p of fjProducts) {
   }) + "\n" + PRE_CSS;
   html = setBlock(html, "seo", head, "</head>");
   write(path.join(WEB, url, "index.html"), html);
-  sitemap.push({ loc: ORIGIN + url, lastmod: fjDataDate });
+  sitemap.push({ loc: ORIGIN + url, lastmod: fjDataDate, images: images.slice(0, 6) });
+}
+
+/* Journal posts are drawn from Supabase by one template, so they have no file
+   of their own; they are listed here so they can be found. */
+const posts = await rest("blog_posts?select=slug,updated_at,published_at,cover_image&published=eq.true&order=published_at.desc").catch((e) => {
+  console.warn(`Journal posts skipped: ${e.message.split("\n")[0]}`);
+  return [];
+});
+for (const p of posts) {
+  sitemap.push({ loc: `${ORIGIN}/blog/${encodeURIComponent(p.slug)}/`, lastmod: (p.updated_at || p.published_at || TODAY).slice(0, 10),
+    images: p.cover_image ? [new URL(p.cover_image, ORIGIN + "/blog/").href.replace(ORIGIN, "")] : [] });
 }
 
 /* A product taken off the catalog loses its page too. */
@@ -647,8 +740,8 @@ Sitemap: ${ORIGIN}/sitemap.xml
 `;
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemap.sort((a, b) => a.loc.localeCompare(b.loc)).map((u) => `  <url><loc>${esc(u.loc)}</loc><lastmod>${u.lastmod}</lastmod></url>`).join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${sitemap.sort((a, b) => a.loc.localeCompare(b.loc)).map((u) => `  <url><loc>${esc(u.loc)}</loc><lastmod>${u.lastmod}</lastmod>${(u.images || []).map((i) => `<image:image><image:loc>${esc(abs(i))}</image:loc></image:image>`).join("")}</url>`).join("\n")}
 </urlset>
 `;
 
@@ -670,7 +763,10 @@ Prices are not published: Fine Jewellery and High Jewellery are quoted on reques
 
 ## The house
 
-- [The House](${ORIGIN}/the-house/): stones chosen at the source in Tanzania, cut in the house's own workshop, ateliers in Dubai, Jaipur and Arusha.
+- [The House](${ORIGIN}/the-house/): stones chosen at the source in Tanzania, cut in the house's own workshop, ateliers in the UAE (Dubai), India (Jaipur) and Tanzania (Arusha).
+- [Timeline](${ORIGIN}/timeline/): the house's roots go back to Color Clarity Ltd. (${FOUNDED}), a Tanzanian mining and gemstone business; its operations later discovered tsavorite and spinel (2007), launched The Tanzanite Experience (2015) and opened in Dubai (2018).
+- [GE Icons](${ORIGIN}/icons/): statement sets, earrings, rings and bracelets outside the main collections.
+- [Craftsmanship](${ORIGIN}/craftsmanship/) · [Sustainability](${ORIGIN}/sustainability/) · [Mining](${ORIGIN}/mining/) · [Maasai Women](${ORIGIN}/maasai-women/)
 - [Lookbook](${ORIGIN}/lookbook/): High Jewellery and Fine Jewellery photographed as worn.
 
 ## Events and exhibitions
@@ -705,11 +801,37 @@ ${offices.filter((o) => o.kind === "atelier").map((o) => `  - ${o.name}: ${o.add
 - [Journal](${ORIGIN}/blog/)
 - [Legal](${ORIGIN}/legal/)
 - [Sitemap](${ORIGIN}/sitemap.xml)
+- [Full catalogue for AI assistants](${ORIGIN}/llms-full.txt): every piece with its stones, weights, metal and link.
+`;
+
+/* llms-full.txt: the whole catalogue in plain text, so an assistant asked
+   "does Gem Experience make a tanzanite ring?" can answer from the source. */
+const fjLine = (p) => `- ${p.name}${p.subtitle ? ` (${p.subtitle})` : ""}. Ref ${p.sku}. ${[p.collection && p.collection + " collection", p.type,
+  p.metal, p.stone && `${p.stone}${p.stoneCt ? ` ${p.stoneCt} ct` : ""}`, p.diamondCt && `diamonds ${p.diamondCt} ct`].filter(Boolean).join("; ")}. ${ORIGIN}${fjProductUrl(p)}`;
+const iconsHtml = fs.existsSync(path.join(WEB, "icons/index.html")) ? fs.readFileSync(path.join(WEB, "icons/index.html"), "utf8") : "";
+const llmsFull = `${llms}
+# Full catalogue
+
+Prices are given on request for every piece below. To enquire: ${ORIGIN}/quotation/ or ${EMAIL}.
+
+## High Jewellery (one of a kind)
+
+${HJ.products.filter((p) => hjHasPage(p.id)).map((p) => `- ${p.name}. ${[p.collection && p.collection + " collection", p.type, p.materials, p.carat && p.carat !== "—" && p.carat, p.ref && p.ref !== "—" && "Ref " + p.ref].filter(Boolean).join("; ")}. ${ORIGIN}/high-jewellery/${p.id}/${p.story ? `\n  ${clip(p.story, 400)}` : ""}`).join("\n")}
+
+## GE Icons
+
+${iconsOf(iconsHtml).map((it) => `- ${it.name}. ${[it.kind, it.facts, it.ref && "Ref " + it.ref].filter(Boolean).join("; ")}. ${ORIGIN}/icons/#${it.id}\n  ${it.description}`).join("\n")}
+
+## Fine Jewellery (${fjProducts.length} pieces)
+
+${fjCollections.map((c) => `### ${c.name}\n\n${c.lede ? c.lede + "\n\n" : ""}${fjProducts.filter((p) => p.collection === c.name).map(fjLine).join("\n")}`).join("\n\n")}
+${fjProducts.some((p) => !fjLive.has(p.collection) || !p.collection) ? `\n### Other pieces\n\n${fjProducts.filter((p) => !p.collection).map(fjLine).join("\n")}` : ""}
 `;
 
 write(path.join(WEB, "robots.txt"), robots);
 write(path.join(WEB, "sitemap.xml"), sitemapXml);
 write(path.join(WEB, "llms.txt"), llms);
+write(path.join(WEB, "llms-full.txt"), llmsFull);
 
 console.log(`${pages.length} pages annotated, ${fjProducts.length} Fine Jewellery product pages, ${sitemap.length} URLs in the sitemap.`);
 console.log(written.length ? `${written.length} files changed${written.length <= 10 ? ": " + written.join(", ") : "."}` : "Nothing changed.");

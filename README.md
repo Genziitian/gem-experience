@@ -61,8 +61,9 @@ The site is served from a Hostinger VPS (nginx, Ubuntu 24.04) since 2026-10-06; 
 
 ```bash
 npm run build:admin     # admin → frontend/admin/
-npm run build:seo       # lookbook, SEO tags, structured data, FJ product pages, sitemap.xml, robots.txt, llms.txt
+npm run build:seo       # lookbook, SEO tags, structured data, FJ product pages, sitemap.xml (with images), robots.txt, llms.txt, llms-full.txt
 rsync -az --delete --exclude .DS_Store frontend/ root@187.126.117.222:/var/www/gem-experience/
+node tools/indexnow.mjs # after the deploy: tells Bing & co. the pages changed
 ```
 
 `build:seo` reads the catalog, FAQs and offices, so run it after every catalog change. Story pages are rebuilt with `node tools/build-stories.mjs` after editing `frontend/high-jewellery/stories.js`.

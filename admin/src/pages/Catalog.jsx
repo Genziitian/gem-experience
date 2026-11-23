@@ -55,7 +55,9 @@ export default function Catalog() {
       supabase.from("collections").select("id, slug, name, category_id, sort_order").order("sort_order"),
       supabase
         .from("products")
-        .select("id, slug, name, status, product_type, materials, has_visualiser, price_on_enquiry, ref_code, metal, occasion, carat, origin, story, is_gemstone, category_id, collection_id, stone, shape, stone_ct, diamond_ct, net_g, gross_g")
+        /* gallery and models too: the edit form saves them back, so leaving them
+           out here meant every save of a High Jewellery piece emptied its photos */
+        .select("id, slug, name, status, product_type, materials, has_visualiser, price_on_enquiry, ref_code, metal, occasion, carat, origin, story, is_gemstone, category_id, collection_id, stone, shape, stone_ct, diamond_ct, net_g, gross_g, gallery, models")
         .order("featured_sort", { ascending: true }),
     ]);
     const err = c.error || l.error || p.error;
@@ -122,17 +124,35 @@ export default function Catalog() {
       : mine;
   }, [cat, cols, rows]);
 
-  function startEdit(row) {
+  /* Fine Jewellery keeps its photographs in product_images (one row each, in
+     order), High Jewellery in the product's own gallery and models lists. */
+  const fineId = (cats || []).find((c) => c.slug === "fine-jewellery")?.id;
+  const isFine = (form.category_id ?? cat?.id) === fineId;
+  const [photosReady, setPhotosReady] = useState(true);
+
+  async function startEdit(row) {
     setEditing(row.id);
     setForm({ ...empty, ...row });
     /* focal stays as loaded — it is the whole catalogue's map, not this row's */
-    setMedia((m) => ({ ...m, gallery: row.gallery || [], models: row.models || [] }));
+    if (row.category_id === fineId) {
+      setPhotosReady(false);
+      setMedia((m) => ({ ...m, gallery: [], models: [] }));
+      const { data, error: imgErr } = await supabase
+        .from("product_images").select("url, sort_order").eq("product_id", row.id).order("sort_order");
+      if (imgErr) { show(`Could not load the photographs: ${imgErr.message}`, false); return; }
+      setMedia((m) => ({ ...m, gallery: (data || []).map((i) => i.url), models: [] }));
+      setPhotosReady(true);
+    } else {
+      setMedia((m) => ({ ...m, gallery: row.gallery || [], models: row.models || [] }));
+      setPhotosReady(true);
+    }
   }
 
   function startCreate() {
     setEditing("new");
     setForm({ ...empty, category_id: cat?.id, collection_id: col?.unassigned ? null : col?.id });
     setMedia((m) => ({ ...m, gallery: [], models: [] }));
+    setPhotosReady(true);
   }
 
   function numOrNull(v) {
@@ -143,6 +163,8 @@ export default function Catalog() {
 
   async function save(e) {
     e.preventDefault();
+    // never save while the photographs are still loading: that is how they got lost
+    if (!photosReady) { show("The photographs are still loading. Try again in a moment.", false); return; }
     const payload = {
       slug: form.slug.trim(),
       name: form.name.trim(),
@@ -166,17 +188,25 @@ export default function Catalog() {
       is_gemstone: !!form.is_gemstone,
       category_id: form.category_id ?? cat?.id ?? null,
       collection_id: form.collection_id ?? null,
-      gallery: media.gallery,
-      models: media.models,
     };
+    if (!isFine) { payload.gallery = media.gallery; payload.models = media.models; }
 
-    let err;
+    let err, productId = editing;
     if (editing === "new") {
-      ({ error: err } = await supabase.from("products").insert(payload));
+      let made;
+      ({ data: made, error: err } = await supabase.from("products").insert(payload).select("id").single());
+      productId = made?.id;
     } else {
       ({ error: err } = await supabase.from("products").update(payload).eq("id", editing));
     }
     if (err) { show(err.message, false); return; }
+
+    if (isFine && productId) {
+      const { error: delErr } = await supabase.from("product_images").delete().eq("product_id", productId);
+      const rowsOut = media.gallery.map((url, i) => ({ product_id: productId, url, alt: payload.name, sort_order: i }));
+      const { error: insErr } = delErr || !rowsOut.length ? { error: delErr } : await supabase.from("product_images").insert(rowsOut);
+      if (delErr || insErr) { show(`Product saved, but the photographs did not: ${(delErr || insErr).message}`, false); return; }
+    }
 
     await supabase.from("audit_logs").insert({
       action: editing === "new" ? "product.create" : "product.update",
@@ -208,7 +238,7 @@ export default function Catalog() {
   }
 
   async function remove(row) {
-    if (!confirm(`Archive "${row.name}"? This hides it from the storefront; it stays in the catalog as archived.`)) return;
+    if (!confirm(`Archive "${row.name}"? It leaves the website at the next publish; it stays in the catalog as archived.`)) return;
     await setStatus(row.id, "archived");
   }
 
@@ -337,14 +367,17 @@ export default function Catalog() {
             <label className="check"><input type="checkbox" checked={!!form.is_gemstone} onChange={(e) => setForm({ ...form, is_gemstone: e.target.checked })} /> Gemstone</label>
             <label className="full">Story<textarea rows={4} value={form.story || ""} onChange={(e) => setForm({ ...form, story: e.target.value })} /></label>
 
-            <GalleryEditor
-              gallery={media.gallery} models={media.models} focal={media.focal}
-              onChange={(next) => setMedia((m) => ({ ...m, ...next }))}
-              storefront="/high-jewellery/"
-            />
+            {photosReady ? (
+              <GalleryEditor
+                gallery={media.gallery} models={media.models} focal={media.focal}
+                onChange={(next) => setMedia((m) => ({ ...m, ...next }))}
+                storefront={isFine ? "/fine-jewellery/" : "/high-jewellery/"}
+                fine={isFine}
+              />
+            ) : <p className="panel-note full">Loading the photographs…</p>}
 
             <div className="form-actions full">
-              <button type="submit" className="btn">Save</button>
+              <button type="submit" className="btn" disabled={!photosReady}>Save</button>
               <button type="button" className="btn btn--ghost" onClick={() => setEditing(null)}>Cancel</button>
             </div>
           </form>

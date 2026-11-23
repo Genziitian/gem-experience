@@ -335,7 +335,7 @@
 
   /* The house mark shows until the photograph arrives, and a broken file
      drops back to it rather than leaving a hole in the grid. */
-  function plate(tone, sku, src, alt, hover, sizes) {
+  function plate(tone, sku, src, alt, hover, sizes, first) {
     var wrap = el("div", "fj-plate");
     wrap.appendChild(loadingMark("fj-plate-orb"));
     /* The second frame sits under the first and is revealed by fading the
@@ -352,8 +352,10 @@
     }
     if (src) {
       var img = el("img", "fj-plate-img", withSrcset({
-        src: src, alt: alt || "", loading: "lazy", decoding: "async"
+        src: src, alt: alt || "", loading: first ? "eager" : "lazy", decoding: "async"
       }, sizes || "(max-width: 700px) 50vw, 420px"));
+      // the product's own photograph is the first thing on its page
+      if (first) img.setAttribute("fetchpriority", "high");
       img.addEventListener("error", function () { img.remove(); wrap.classList.remove("has-img"); });
       img.addEventListener("load", function () { wrap.classList.add("has-img"); });
       wrap.appendChild(img);
@@ -655,7 +657,7 @@
     var pdp = el("section", "fj-pdp");
     var media = el("div", "fj-pdp-media");
     var shots = p.images || [];
-    var hero = plate(p.tone, p.sku, shots[0], p.name, "", "(max-width: 900px) 100vw, 560px");
+    var hero = plate(p.tone, p.sku, shots[0], p.name, "", "(max-width: 900px) 100vw, 560px", true);
     media.appendChild(hero);
     if (shots.length > 1) {
       var thumbs = el("div", "fj-pdp-thumbs");

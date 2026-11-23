@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Gem Experience — Admin Panel SOP</title>
+<!-- Source of "Gem Experience - Admin Panel SOP.pdf". Screenshots in img/ come
+     from the admin's harness with sample data (see admin/src/__harness). -->
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+* { box-sizing: border-box; }
+body { font: 10pt/1.45 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1d1b18; margin: 0; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; color: #17140f; }
+h2 { font-size: 19pt; margin: 0 0 6pt; padding-top: 2pt; border-bottom: 1px solid #d9d2c7; padding-bottom: 5pt; }
+h3 { font-size: 12.5pt; margin: 14pt 0 4pt; break-after: avoid; page-break-after: avoid; }
+p { margin: 0 0 7pt; }
+ol, ul { margin: 0 0 8pt; padding-left: 18pt; }
+li { margin-bottom: 3pt; }
+li ul { margin-top: 3pt; }
+b, strong { font-weight: 600; }
+.section { page-break-before: always; }
+.lead { font-size: 11.5pt; color: #3a352e; }
+table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.3pt; }
+tr { page-break-inside: avoid; }
+th { text-align: left; background: #f3efe8; font-weight: 600; padding: 5pt 6pt; border-bottom: 1px solid #cfc6b8; }
+td { padding: 4.5pt 6pt; border-bottom: 1px solid #ebe5dc; vertical-align: top; }
+.live { color: #2f6b3a; font-weight: 600; } .dev { color: #a2441f; font-weight: 600; }
+figure { margin: 8pt 0 12pt; page-break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #d9d2c7; border-radius: 4pt; display: block; }
+figcaption { font-size: 8.8pt; color: #6f675d; margin-top: 4pt; }
+.callout { border-left: 3pt solid #b08d57; background: #faf6ef; padding: 7pt 10pt; margin: 8pt 0 10pt; page-break-inside: avoid; }
+.warn { border-left-color: #b4452a; background: #fbf1ee; }
+.donts li { margin-bottom: 5pt; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; align-items: start; }
+.cover { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; }
+.brand { letter-spacing: .5em; font-size: 12pt; text-align: center; margin-top: 30mm; }
+.cover h1 { font-size: 34pt; text-align: center; margin: 18mm 0 4mm; line-height: 1.15; }
+.cover .sub { text-align: center; font-size: 13pt; color: #6f675d; }
+.cover .meta { border-top: 1px solid #d9d2c7; padding-top: 8pt; font-size: 9.5pt; color: #6f675d; display: flex; justify-content: space-between; }
+.toc { width: 70%; margin: 14mm auto 0; font-size: 11pt; }
+.toc div { display: flex; justify-content: space-between; border-bottom: 1px dotted #cfc6b8; padding: 4pt 0; }
+.flow { margin: 10pt 0 12pt; }
+</style></head>
+<body>
+
+<div class="cover">
+  <div>
+    <div class="brand">GEM EXPERIENCE</div>
+    <h1>Website Admin Panel<br>Standard Operating Procedure</h1>
+    <div class="sub">Signing in, managing products, and keeping the website correct</div>
+    <div class="toc">
+      <div><span>1. Purpose</span><span data-toc="1">2</span></div>
+      <div><span>2. Accessing the admin panel</span><span data-toc="2">2</span></div>
+      <div><span>3. Finding your way around</span><span data-toc="3">3</span></div>
+      <div><span>4. Changing an existing product</span><span data-toc="4">6</span></div>
+      <div><span>5. Uploading new products</span><span data-toc="5">10</span></div>
+      <div><span>6. Menu, contact details and FAQs</span><span data-toc="6">13</span></div>
+      <div><span>7. Photo and writing standards</span><span data-toc="7">14</span></div>
+      <div><span>8. Do it yourself, or ask the developer</span><span data-toc="8">15</span></div>
+      <div><span>9. What not to do</span><span data-toc="9">15</span></div>
+      <div><span>10. Troubleshooting and support</span><span data-toc="10">17</span></div>
+    </div>
+  </div>
+  <div class="meta"><span>Version 1.1 · 23 November 2026</span><span>For Gem Experience staff · Internal</span></div>
+</div>
+
+<div class="section">
+<h2>1. Purpose</h2>
+<p class="lead">This SOP shows the Gem Experience team how to sign in to the website's admin panel, update and add products, and manage day-to-day content safely, and marks clearly which jobs must go to the developer.</p>
+<p>It is written for the house's own staff: marketing, catalogue and operations. No technical knowledge is needed. Follow each step in order. If a screen looks different from what is described here, stop and contact the developer before going further.</p>
+
+<h2 style="margin-top:16pt">2. Accessing the admin panel</h2>
+<p>The admin panel lives at <b>https://gem-experience.com/admin/</b> and opens only for staff accounts. Each person has their own account; never share one.</p>
+<h3>Before your first sign-in</h3>
+<ol>
+  <li>Ask the developer (or your Super admin) to create your staff account. Give them the work email you will use.</li>
+  <li>They will tell you your role:
+    <ul><li><b>Super admin</b>: everything, including adding staff and changing roles.</li>
+        <li><b>Manager</b>: day-to-day running, including products, orders, leads and content.</li>
+        <li><b>Admin</b>: catalogue and content editing.</li></ul></li>
+  <li>Choose your own password with <b>Forgot password?</b> (below) the first time you sign in.</li>
+  <li>Use a laptop or desktop with an up-to-date Chrome, Safari or Edge. The panel works on a phone, but product editing is much easier on a large screen.</li>
+</ol>
+<h3>To sign in</h3>
+<div class="two">
+<ol>
+  <li>Open <b>https://gem-experience.com/admin/</b>.</li>
+  <li>Enter your <b>Email</b> and <b>Password</b>, then click <b>Sign in</b>.</li>
+  <li>You land on the <b>Dashboard</b>. Your email and role show at the bottom of the left-hand menu.</li>
+  <li>If you see "This account is not staff", click <b>Sign out</b> and ask the developer to set your role.</li>
+  <li>Click <b>Sign out</b> at the bottom of the left-hand menu when you finish on a shared computer.</li>
+</ol>
+<figure><img src="img/01-login.jpg"><figcaption>Figure 1. The admin sign-in page.</figcaption></figure>
+</div>
+</div>
+
+<div class="section">
+<h3 style="margin-top:0">Forgotten password</h3>
+<div class="two">
+<ol>
+  <li>On the sign-in page, click <b>Forgot password?</b></li>
+  <li>Enter your staff email and click <b>Email me a code</b>.</li>
+  <li>Open the email from Gem Experience and copy the code. It works for one hour.</li>
+  <li>Back in the admin, enter the code and your new password twice, then click <b>Save new password</b>. You are signed in straight away.</li>
+  <li>No email after five minutes? Check spam, then click <b>Send a new code</b>.</li>
+</ol>
+<figure><img src="img/01b-reset.jpg"><figcaption>Figure 2. Reset your password.</figcaption></figure>
+</div>
+<div class="callout">Every sign-in, sign-out, screen opened and change made is recorded under your name (see <b>Activity</b> and <b>Audit log</b>), so a mistake can be traced and, usually, put right. Never use a colleague's account.</div>
+
+<h2 style="margin-top:16pt">3. Finding your way around</h2>
+<p>The left-hand menu groups every screen into six sections. The last column below matters most: <span class="live">content edits go live within about 10 minutes</span>, but <span class="dev">product edits go live when the developer publishes them</span>.</p>
+<figure><img src="img/02-dashboard.jpg"><figcaption>Figure 3. The Dashboard. The left-hand menu is on every screen. Blue number badges count enquiries still waiting. (Sample data.)</figcaption></figure>
+</div>
+
+<div class="section">
+<table>
+<tr><th>Section</th><th>Screen</th><th>What you do there</th><th>Reaches the website</th></tr>
+<tr><td>Overview</td><td>Dashboard</td><td>New enquiries, orders and traffic at a glance</td><td>Nothing to publish</td></tr>
+<tr><td>Commerce</td><td>Catalog</td><td>Edit and add Fine and High Jewellery products</td><td class="dev">After the developer publishes</td></tr>
+<tr><td>Commerce</td><td>Orders</td><td>Follow an order and update its status</td><td>Visible to the client in their account</td></tr>
+<tr><td>Commerce</td><td>Quotations</td><td>Price requests from the quotation form and checkout</td><td>Nothing to publish</td></tr>
+<tr><td>Commerce</td><td>Gift requests</td><td>Gift orders that need a card written</td><td>Nothing to publish</td></tr>
+<tr><td>People</td><td>People &amp; roles</td><td>Staff and client accounts; roles (Super admin only)</td><td>Immediately</td></tr>
+<tr><td>People</td><td>Activity</td><td>Who signed in and what they changed</td><td>Read only</td></tr>
+<tr><td>Engagement</td><td>Leads</td><td>Every form sent from the site: contact, appointments, newsletter</td><td>Nothing to publish</td></tr>
+<tr><td>Engagement</td><td>Traffic</td><td>Visitors and the pages they read</td><td>Read only</td></tr>
+<tr><td>Content</td><td>Menu</td><td>The site's top menu and footer links</td><td class="live">Within ~10 minutes</td></tr>
+<tr><td>Content</td><td>Offices</td><td>The office cards on Our ateliers</td><td class="live">Within ~10 minutes</td></tr>
+<tr><td>Content</td><td>Events</td><td>Events &amp; Exhibitions dates</td><td class="live">Within ~10 minutes</td></tr>
+<tr><td>Content</td><td>Contact</td><td>Phone numbers, emails, WhatsApp, addresses</td><td class="live">Within ~10 minutes</td></tr>
+<tr><td>Content</td><td>FAQs</td><td>Questions and answers by category</td><td class="live">Within ~10 minutes</td></tr>
+<tr><td>Content</td><td>Blog</td><td>Journal articles</td><td class="live">When marked published</td></tr>
+<tr><td>Content</td><td>Media</td><td>The photo and video library used by the screens above</td><td>When used on a page</td></tr>
+<tr><td>Site</td><td>SEO</td><td>Page titles and descriptions for Google; saved here, applied by the developer</td><td class="dev">After the developer publishes</td></tr>
+<tr><td>Site</td><td>Security</td><td>Sign-in and account safety checks</td><td>Read only</td></tr>
+<tr><td>Site</td><td>Audit log</td><td>A permanent record of every change</td><td>Read only</td></tr>
+</table>
+
+<h3>Handling an enquiry (Leads, Quotations, Gift requests)</h3>
+<ol>
+  <li>Click the item to open it and read the client's details and message.</li>
+  <li>Change its status to <b>In progress</b> when you reply, so colleagues know it is taken.</li>
+  <li>Change it to <b>Closed</b> when it is finished. Never leave answered enquiries as New.</li>
+</ol>
+<figure><img src="img/08-leads.jpg"><figcaption>Figure 4. Leads. Filter by Open, New, In progress or Closed; the coloured status shows where each enquiry stands. (Sample data.)</figcaption></figure>
+</div>
+
+<div class="section">
+<h2>4. Changing an existing product</h2>
+<p class="lead">Product changes are a two-stage job: you <b>prepare</b> them in the admin, then the developer <b>publishes</b> them to the website.</p>
+<p>The live site reads its products from published catalogue files, not straight from the admin, so a saved edit appears on gem-experience.com after the second stage.</p>
+
+<svg class="flow" viewBox="0 0 720 120" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Helvetica Neue, Arial" font-size="13">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8a7f72"/></marker></defs>
+  <rect x="4" y="22" width="150" height="66" rx="8" fill="#faf6ef" stroke="#b08d57"/>
+  <text x="79" y="48" text-anchor="middle" font-weight="600">1. You edit</text>
+  <text x="79" y="68" text-anchor="middle" fill="#5a534a" font-size="11.5">Catalog → Edit → Save</text>
+  <rect x="190" y="22" width="150" height="66" rx="8" fill="#faf6ef" stroke="#b08d57"/>
+  <text x="265" y="48" text-anchor="middle" font-weight="600">2. You email</text>
+  <text x="265" y="68" text-anchor="middle" fill="#5a534a" font-size="11.5">SKUs + what changed</text>
+  <rect x="376" y="22" width="150" height="66" rx="8" fill="#fbf1ee" stroke="#b4452a"/>
+  <text x="451" y="48" text-anchor="middle" font-weight="600">3. Developer</text>
+  <text x="451" y="68" text-anchor="middle" fill="#5a534a" font-size="11.5">checks and publishes</text>
+  <rect x="562" y="22" width="150" height="66" rx="8" fill="#eef5ef" stroke="#2f6b3a"/>
+  <text x="637" y="48" text-anchor="middle" font-weight="600">4. You check</text>
+  <text x="637" y="68" text-anchor="middle" fill="#5a534a" font-size="11.5">the live product page</text>
+  <line x1="156" y1="55" x2="186" y2="55" stroke="#8a7f72" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="342" y1="55" x2="372" y2="55" stroke="#8a7f72" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="528" y1="55" x2="558" y2="55" stroke="#8a7f72" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="360" y="112" text-anchor="middle" fill="#6f675d" font-size="11.5">Allow one working day; same day for urgent fixes.</text>
+</svg>
+
+<div class="callout"><b>Before you start:</b> ask the developer whether the admin's catalogue is up to date with the website. They keep the two in step with <b>Import from site</b>; you never need to press it yourself.</div>
+
+<h3>To edit a product</h3>
+<ol>
+  <li>Click <b>Catalog</b> in the left-hand menu.</li>
+  <li>Click the category: <b>Fine Jewellery</b> or <b>High Jewellery</b>.</li>
+  <li>Click the collection the piece belongs to (pieces with no collection are under <b>Not in a collection</b>).</li>
+  <li>Find the piece. Use <b>Search products…</b> with its name or SKU (for example GD25-1069).</li>
+  <li>Click <b>Edit</b> on its row. The edit form opens at the top of the page.</li>
+</ol>
+<figure><img src="img/05-cat-products.jpg"><figcaption>Figure 5. The pieces in a collection. Each row has Edit, Unpublish and Archive. Import from site and Export data.js (top) are for the developer.</figcaption></figure>
+</div>
+
+<div class="section">
+<div class="two">
+<div>
+<ol start="6">
+  <li>Change only the fields you need:
+    <ul>
+      <li><b>Name</b>: as shown on the product card and page.</li>
+      <li><b>SKU / Ref</b>: the house reference; must match the stock register.</li>
+      <li><b>Type</b>: Rings, Earrings, Pendants, Necklaces, Bracelets.</li>
+      <li><b>Collection</b>: choose from the list; never type a new name.</li>
+      <li><b>Metal</b>: for example "White Gold" or "18k Rose Gold".</li>
+      <li><b>Stone</b>, <b>Shape</b>: for example "Mint Garnet", "Pears".</li>
+      <li><b>Stone ct</b>, <b>Diamond ct</b>, <b>Net g</b>, <b>Gross g</b>: numbers only, no units (2.47, not "2.47 ct").</li>
+      <li><b>Story</b>: the paragraph on the product page.</li>
+    </ul></li>
+  <li>Leave <b>Slug</b> exactly as it is. It is the piece's web address; changing it breaks every link to the piece.</li>
+  <li><b>Photographs</b> shows the piece's pictures in order. The first is the one on the product card. Use the arrows to reorder and the bin to remove one.</li>
+  <li>Click <b>Save</b>. A "Product saved." message confirms it.</li>
+  <li>Email the developer the SKUs you changed and ask for them to be published (see "Requesting a publish").</li>
+</ol>
+</div>
+<figure><img src="img/06-cat-edit.jpg"><figcaption>Figure 6. The edit form for one piece, with its photographs at the bottom.</figcaption></figure>
+</div>
+</div>
+
+<div class="section">
+<h3 style="margin-top:0">How the fields appear on the website</h3>
+<figure><img src="img/14-live-product.jpg"><figcaption>Figure 7. The same piece live on gem-experience.com: Name (title), SKU / Ref (top), Story (paragraph), Stone, Stone ct, Diamond ct and Metal (the boxes). The photographs are on the left, in the order set in the admin.</figcaption></figure>
+
+<h3>To take a piece off the website</h3>
+<ul>
+  <li><b>Unpublish</b>: takes the piece off the website for now, for example while it is out on loan or being re-photographed. <b>Publish</b> on the same row brings it back.</li>
+  <li><b>Archive</b>: for sold or discontinued pieces. It leaves the website and stays in the admin as a record.</li>
+  <li>There is no Delete, on purpose. Nothing you do here can erase a product.</li>
+</ul>
+<p>Both take effect at the next publish. If a piece must come down urgently (a wrong photo, wrong details, a sold one-off), call or WhatsApp the developer as well.</p>
+
+<h3>Requesting a publish</h3>
+<p>Send the developer one email per batch of changes, with:</p>
+<ul>
+  <li>the SKUs and a one-line note of what changed ("GD25-1069: story rewritten, stone ct corrected to 2.47");</li>
+  <li>whether it is urgent or can wait for the next weekly publish.</li>
+</ul>
+<p>The developer exports the catalogue, checks it, and publishes. Check the live page afterwards and reply to confirm.</p>
+</div>
+
+<div class="section">
+<h2>5. Uploading new products</h2>
+<p class="lead">New pieces reach the website through a <b>product sheet and a photo folder</b> sent to the developer.</p>
+<p>Photographs are processed before they go live: a matching background, colour and sparkle grading, and resizing for phones. That keeps every piece looking the same on the site, so new photographs always go to the developer as originals.</p>
+
+<h3>A. Prepare the product sheet</h3>
+<p>Use the house template, <i>Fine Jewellery for website.xlsx</i>, <b>Sheet1</b> only. One row per piece:</p>
+<table>
+<tr><th>Column</th><th>Example</th><th>Rules</th></tr>
+<tr><td>SKU</td><td>GD26-806</td><td>Exactly as in the stock register; starts with G</td></tr>
+<tr><td>Title</td><td>Tanzanite &amp; Pink Spinel Ring</td><td>Stones joined with "&amp;", then the type</td></tr>
+<tr><td>Type</td><td>Ring</td><td>Ring, Earring, Pendant, Necklace, Bangle, Bracelet</td></tr>
+<tr><td>Collection</td><td>Bloom</td><td>An existing collection, or "N/A"</td></tr>
+<tr><td>Stone wt (ct)</td><td>2.35</td><td>Number only</td></tr>
+<tr><td>Diamond wt (ct)</td><td>0.42</td><td>Number only; blank if none</td></tr>
+<tr><td>Net wt (g)</td><td>4.10</td><td>Number only</td></tr>
+<tr><td>Gross wt (g)</td><td>4.57</td><td>Number only</td></tr>
+<tr><td>Metal</td><td>18kt White &amp; Rose Gold</td><td>Karat, then colours</td></tr>
+</table>
+<div class="callout warn">Never add client names, costs, prices or stock notes to Sheet1. Keep them on a separate sheet and tell the developer it must not be published.</div>
+
+<h3>B. Prepare the photographs</h3>
+<ol>
+  <li>Make one folder per type (Rings, Earrings, Pendants…), and inside it one folder per SKU.</li>
+  <li>Name the photos after the SKU: <b>GD26-806.jpg</b> is the main image, then <b>GD26-806_1.jpg</b>, <b>GD26-806_2.jpg</b> for the other angles.</li>
+  <li>The first photo is shown on the product card: make it the clean front view on a plain background.</li>
+  <li>Send originals (JPG or PNG, at least 2000 px on the long side). Do not crop, filter or compress them.</li>
+</ol>
+<table style="width:60%">
+<tr><th>Example folder layout</th></tr>
+<tr><td style="font-family:Menlo,monospace;font-size:8.8pt;line-height:1.6">Rings/<br>&nbsp;&nbsp;GD26-806/<br>&nbsp;&nbsp;&nbsp;&nbsp;GD26-806.jpg &nbsp;&nbsp;&nbsp;← main photo<br>&nbsp;&nbsp;&nbsp;&nbsp;GD26-806_1.jpg<br>&nbsp;&nbsp;&nbsp;&nbsp;GD26-806_2.jpg<br>Earrings/<br>&nbsp;&nbsp;GD26-812/ …</td></tr>
+</table>
+
+<h3>C. Send them</h3>
+<ol>
+  <li>Zip the photo folder, or share it from Google Drive.</li>
+  <li>Email the developer the sheet and the link, subject <i>New products – &lt;date&gt; – &lt;number of pieces&gt;</i>.</li>
+  <li>Say which pieces are the <b>same design in different stones</b>, so they can be grouped on one card.</li>
+  <li>Note any write-ups (story paragraphs) you want in place of the standard one.</li>
+</ol>
+
+<h3>D. Check after publishing</h3>
+<ol>
+  <li>The developer replies with the list of new pieces once they are live.</li>
+  <li>Within two working days, open each piece on gem-experience.com and check name, stones, weights, metal and photos against the sheet.</li>
+  <li>Reply with corrections by SKU. Text fixes and photo order you can then change yourself (section 4).</li>
+</ol>
+</div>
+
+<div class="section">
+<h3 style="margin-top:0">Adding a single piece in the admin (optional)</h3>
+<ol>
+  <li><b>Catalog</b> → category → collection → <b>Add product</b>.</li>
+  <li>Fill in <b>Slug</b> (the SKU in lower case, for example gd26-806), <b>Name</b>, <b>SKU / Ref</b>, <b>Type</b>, <b>Metal</b>, <b>Stone</b>, the weights and <b>Story</b>.</li>
+  <li>Leave <b>Status</b> as <b>draft</b>, keep <b>Price on enquiry</b> ticked, and click <b>Save</b>. A draft stays off the website.</li>
+  <li>Send the developer the SKU and the photo folder (B above). They add the processed photographs and publish it.</li>
+</ol>
+<figure><img src="img/07-cat-new.jpg"><figcaption>Figure 8. Add product: the empty form for a new piece.</figcaption></figure>
+</div>
+
+<div class="section">
+<h2>6. Menu, contact details and FAQs</h2>
+<p class="lead">These screens change the live website directly, within about ten minutes. No developer is needed, so check your work before saving.</p>
+<h3>Menu</h3>
+<ol>
+  <li>Click <b>Menu</b>. Choose <b>Main menu</b>, <b>Secondary</b> or <b>Footer</b> at the top.</li>
+  <li>Use the arrows to reorder, the pencil to rename, <b>Add inside…</b> to add a sub-item.</li>
+  <li>Links are written from the site root with a trailing slash, for example <b>fine-jewellery/</b>.</li>
+  <li>Open the website after ten minutes (or press Ctrl+Shift+R / Cmd+Shift+R) and check the menu.</li>
+</ol>
+<figure><img src="img/09-menu.jpg"><figcaption>Figure 9. Menu: arrows reorder, the pencil edits, the bin removes. (Sample data.)</figcaption></figure>
+<h3>Contact, Offices, FAQs, Events, Blog</h3>
+<ul>
+  <li><b>Contact</b>: phone, WhatsApp and email lines. Keep the order UAE · India · Tanzania.</li>
+  <li><b>Offices</b>: one card per atelier, with address, phone and photo.</li>
+  <li><b>FAQs</b>: questions grouped by category; untick <b>Published</b> to hide one without deleting it.</li>
+  <li><b>Events</b>: an event moves from Upcoming to Past on its own after its date.</li>
+  <li><b>Blog</b>: write as a draft, preview, then mark it published.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>7. Photo and writing standards</h2>
+<h3>Photographs</h3>
+<ul>
+  <li>Product stills: plain, light background, the piece centred, no props, no watermark or logo.</li>
+  <li>Model and editorial photos: the piece clearly visible; at least 2000 px wide.</li>
+  <li>Uploading through <b>Media</b>: JPG or WebP for photos, MP4 for video, each under 20 MB; upload large batches a few at a time.</li>
+  <li>Name files plainly before uploading (tanzanite-ring-front.jpg, not IMG_4482.jpg). A file cannot be renamed once uploaded.</li>
+  <li>To replace a photo, upload a new file with a new name and switch the page to it. Visitors' browsers keep old images for up to 30 days.</li>
+  <li>Only upload photographs the house owns or has written permission to use.</li>
+</ul>
+<h3>Writing</h3>
+<ul>
+  <li>British spelling: jewellery, colour, centre, grey.</li>
+  <li>Metal written as "18k White Gold"; weights as "2.35 carats" in prose and as plain numbers in the weight fields.</li>
+  <li>Stone names capitalised as on the site: Tanzanite, Pink Spinel, Tsavorite, Mint Garnet.</li>
+  <li>No prices anywhere on the site; every piece is price on enquiry.</li>
+  <li>Offices and emails listed in this order: UAE · India · Tanzania.</li>
+  <li>The house voice: short, factual sentences, with no exclamation marks and no "stunning" or "amazing".</li>
+  <li>Read every change once on the live website after it appears.</li>
+</ul>
+<figure><img src="img/10-contact.jpg"><figcaption>Figure 10. Contact: the numbers and emails shown across the site. (Sample data.)</figcaption></figure>
+</div>
+
+<div class="section">
+<h2>8. Do it yourself, or ask the developer</h2>
+<p>If a job is not in the left-hand column, treat it as a developer job.</p>
+<table>
+<tr><th style="width:50%">You can do it yourself</th><th>Ask the developer</th></tr>
+<tr><td>Edit a product's name, story, stones, weights, metal or collection (then request a publish)</td><td>Publish product changes to the website</td></tr>
+<tr><td>Reorder or remove a product's photographs (then request a publish)</td><td>Add new product photographs (they are processed first)</td></tr>
+<tr><td>Unpublish or archive a piece (then request a publish)</td><td>Upload a batch of new products</td></tr>
+<tr><td>Answer and close leads, quotations and gift requests</td><td>Create a new collection or category</td></tr>
+<tr><td>Update an order's status</td><td>Add a new page or section, or change the design</td></tr>
+<tr><td>Change the menu, office cards, contact details and WhatsApp numbers</td><td>Change the homepage, Collector's Bench, postcards or 3D views</td></tr>
+<tr><td>Add, edit or hide FAQs</td><td>Change page titles and descriptions for Google (SEO)</td></tr>
+<tr><td>Write and publish blog articles</td><td>Add a staff member or change a role</td></tr>
+<tr><td>Add and update events</td><td>Change the emails the website sends, or who receives them</td></tr>
+<tr><td>Upload photos and videos to Media</td><td>Anything in Supabase, the server, the domain or email settings</td></tr>
+<tr><td>Reset your own password (Forgot password?)</td><td><b>Import from site</b> and <b>Export data.js</b> in Catalog</td></tr>
+<tr><td>Read Activity, Audit log and Traffic</td><td>Anything that shows an error message you do not understand</td></tr>
+</table>
+
+<h2 style="margin-top:16pt">9. What not to do</h2>
+<p>Each of these breaks pages or loses work, and most can only be put right by the developer.</p>
+<ol class="donts">
+  <li><b>Do not click Import from site</b> unless the developer asks you to. It overwrites every product in the admin with the live version, wiping unsent edits, yours and colleagues'.</li>
+  <li><b>Do not click Export data.js</b> expecting it to publish. It only downloads two files; nothing changes on the website.</li>
+  <li><b>Do not change a product's Slug</b>, or the link of a menu item that already exists. Links shared on WhatsApp, Instagram and Google stop working.</li>
+  <li><b>Do not delete menu items, offices, FAQs or events to "tidy up"</b> without checking with the team. They disappear from the live site within minutes.</li>
+  <li><b>Do not put prices, client names, stock notes or internal costs</b> in any field. Anything in the admin can end up on the public website.</li>
+  <li><b>Do not share your login, or sign in as someone else.</b> Every change is recorded against the account that made it.</li>
+  <li><b>Do not edit in two tabs or on two computers at once</b>, or at the same time as a colleague on the same item. The last save silently replaces the other.</li>
+  <li><b>Do not upload photos you do not own</b>, or files with symbols in the name (#, %, &amp;).</li>
+  <li><b>Do not open Supabase, the server or the domain settings</b>, even if you are given access. Changes there can take the whole site down.</li>
+  <li><b>Do not ignore an error message.</b> Take a screenshot, stop, and send it to the developer before trying again.</li>
+</ol>
+</div>
+
+<div class="section">
+<h2>10. Troubleshooting and support</h2>
+<p>Most problems are fixed by waiting ten minutes or reloading the page. If not, contact the developer with a screenshot.</p>
+<table>
+<tr><th style="width:38%">What you see</th><th>What to do</th></tr>
+<tr><td>A content change is not on the website</td><td>Wait 10 minutes, then reload the website with Ctrl+Shift+R (Cmd+Shift+R on a Mac)</td></tr>
+<tr><td>A product change is not on the website</td><td>Expected until the developer publishes; check you requested it</td></tr>
+<tr><td>"Invalid login credentials"</td><td>Check the email for typos and Caps Lock, then use <b>Forgot password?</b></td></tr>
+<tr><td>No reset code arrives</td><td>Check spam; after five minutes click <b>Send a new code</b></td></tr>
+<tr><td>"This account is not staff"</td><td>Sign out and ask the developer to give your account a role</td></tr>
+<tr><td>A red error message after Save</td><td>Nothing was saved. Screenshot it and send it to the developer</td></tr>
+<tr><td>An upload stays at "Uploading…"</td><td>The file is probably too large; resize it under 20 MB and try again</td></tr>
+<tr><td>The admin looks broken or blank</td><td>Reload; try another browser; then contact the developer</td></tr>
+<tr><td>You made a mistake</td><td>Tell the developer the screen, the item and roughly when. Every change is in the Audit log, so it can usually be traced and put back</td></tr>
+</table>
+
+<h3>When you contact the developer, include</h3>
+<ol>
+  <li>What you were trying to do.</li>
+  <li>The screen and the item (SKU, FAQ, office…).</li>
+  <li>A screenshot, including any error message.</li>
+  <li>Whether it is urgent: the live site is wrong now, or it can wait.</li>
+</ol>
+<p style="margin-top:14pt;color:#6f675d">Keep this SOP with the team, and ask the developer to update it whenever the admin changes. Screens marked "sample data" show example entries, not real clients.</p>
+</div>
+
+</body></html>

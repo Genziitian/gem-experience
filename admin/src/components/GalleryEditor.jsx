@@ -15,7 +15,7 @@ import { useState } from "react";
 import { Icon } from "./ui.jsx";
 import MediaPicker from "./MediaPicker.jsx";
 
-function List({ title, note, items, focal, onChange, onFocal, storefront }) {
+function List({ title, note, items, focal, onChange, onFocal, storefront, example = "img/pieces/weaver/p1.webp" }) {
   const [picking, setPicking] = useState(false);
   const [raw, setRaw] = useState("");
 
@@ -45,7 +45,7 @@ function List({ title, note, items, focal, onChange, onFocal, storefront }) {
       <p className="panel-note">{note}</p>
 
       <div className="field-row">
-        <input value={raw} placeholder="img/pieces/weaver/p1.webp"
+        <input value={raw} placeholder={example}
                onChange={(e) => setRaw(e.target.value)}
                onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); add(raw); } }} />
         <button type="button" className="btn btn--ghost" onClick={() => add(raw)}>Add</button>
@@ -58,7 +58,7 @@ function List({ title, note, items, focal, onChange, onFocal, storefront }) {
           <div className="gal-thumb">
             {/* the preview crops exactly as the phone does, so the slider is
                 showing the real result rather than an approximation */}
-            <img src={storefront + src} alt=""
+            <img src={/^https?:/.test(src) ? src : storefront + src} alt=""
                  style={onFocal ? { objectPosition: `center ${focal[src] ?? 60}%` } : undefined} />
           </div>
           <div className="gal-body">
@@ -97,7 +97,21 @@ function List({ title, note, items, focal, onChange, onFocal, storefront }) {
   );
 }
 
-export default function GalleryEditor({ gallery, models, focal, onChange, storefront = "/" }) {
+/* `fine`: a Fine Jewellery piece has its photographs only, in the order the
+   product page shows them; the editorial rows and phone crop are High Jewellery's. */
+export default function GalleryEditor({ gallery, models, focal, onChange, storefront = "/", fine = false }) {
+  if (fine) {
+    return (
+      <div className="gal-editor full">
+        <List
+          title="Photographs"
+          note="In order: the first is the one on the product card and the page opens on. Paths are inside fine-jewellery/, for example img/products/gd26-806.webp."
+          items={gallery} focal={focal} storefront={storefront} example="img/products/gd26-806-1.webp"
+          onChange={(v) => onChange({ gallery: v, models, focal })}
+        />
+      </div>
+    );
+  }
   return (
     <div className="gal-editor full">
       <List

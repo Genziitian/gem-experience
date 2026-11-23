@@ -710,6 +710,8 @@ input::placeholder, textarea::placeholder { color: var(--faint); }
   box-shadow: var(--shadow-lg);
 }
 .login-card h1 { font-size: 20px; }
+.login-card .panel-note { margin: -6px 0 0; }
+.login-alt { justify-self: center; font-size: 13px; }
 .steps { margin: 0; padding-left: 18px; display: grid; gap: 7px; color: var(--muted); font-size: 13px; }
 .steps a { color: var(--primary); }
 

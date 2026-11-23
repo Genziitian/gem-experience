@@ -51,3 +51,4 @@ api/node_modules/
 
 # Python bytecode from tools/
 __pycache__/
+supabase/auth-emails/.previous-*.json

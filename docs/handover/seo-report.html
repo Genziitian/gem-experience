@@ -72,7 +72,7 @@ code { font: 8.8pt Menlo, monospace; background: #f3efe8; padding: 0 3pt; border
 <tr><td>Structured data (what Google understands)</td><td class="ok">Strong</td><td>Organisation, 390 products, breadcrumbs, FAQs, offices, events</td></tr>
 <tr><td>AI readiness (GEO)</td><td class="ok">Strong</td><td><code>llms.txt</code> summary and a full catalogue file written for AI assistants</td></tr>
 <tr><td>Answer readiness (AEO)</td><td class="mid">Good</td><td>FAQ and gemstone Q&amp;A marked up; the gemstone answers need a plain first sentence</td></tr>
-<tr><td>Page speed (mobile)</td><td class="mid">Good</td><td>Homepage and guides are fast; shop pages were 3.9–4.6 s, fixed in this update</td></tr>
+<tr><td>Page speed (mobile)</td><td class="mid">Good</td><td>Speed scores 89–98; shop pages improved from 3.9–4.6 s to 3.1–3.4 s</td></tr>
 <tr><td>Content depth</td><td class="bad">Weak</td><td>Journal has 0 articles; homepage has about 20 words of text</td></tr>
 <tr><td>Reputation signals</td><td class="bad">Weak</td><td>No reviews, no Google Business Profiles verified, few outside links</td></tr>
 </table>
@@ -80,27 +80,27 @@ code { font: 8.8pt Menlo, monospace; background: #f3efe8; padding: 0 3pt; border
 
 <div class="section">
 <h2>2. Measured scores</h2>
-<p>Google Lighthouse, mobile, run on the live site on 23 November 2026 (before this update's speed fixes went live).</p>
+<p>Google Lighthouse, mobile, run on the live site on 23 November 2026, before and after this update went live.</p>
 <table>
-<tr><th>Page</th><th class="num">SEO</th><th class="num">Accessibility</th><th class="num">Best practice</th><th class="num">Speed</th><th class="num">Main image shown</th></tr>
-<tr><td>Homepage</td><td class="num ok">100</td><td class="num ok">98</td><td class="num ok">100</td><td class="num ok">97</td><td class="num ok">2.5 s</td></tr>
-<tr><td>Fine Jewellery</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">100</td><td class="num mid">85</td><td class="num bad">3.9 s</td></tr>
-<tr><td>Product page (Mint Garnet Ring)</td><td class="num ok">100</td><td class="num ok">98</td><td class="num ok">100</td><td class="num mid">82</td><td class="num bad">4.6 s</td></tr>
-<tr><td>High Jewellery piece (Celestine)</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">100</td><td class="num mid">82</td><td class="num bad">4.2 s</td></tr>
-<tr><td>Gemstone guide (Tanzanite)</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">98</td><td class="num ok">1.5 s</td></tr>
+<tr><th>Page</th><th class="num">SEO</th><th class="num">Accessibility</th><th class="num">Best practice</th><th class="num">Speed before → after</th><th class="num">Main image before → after</th></tr>
+<tr><td>Homepage</td><td class="num ok">100</td><td class="num ok">98</td><td class="num ok">100</td><td class="num ok">97 → 96</td><td class="num">2.5 s → 2.7 s</td></tr>
+<tr><td>Fine Jewellery</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">85 → 91</td><td class="num">3.9 s → <span class="ok">3.1 s</span></td></tr>
+<tr><td>Product page (Mint Garnet Ring)</td><td class="num ok">100</td><td class="num ok">98</td><td class="num ok">100</td><td class="num ok">82 → 91</td><td class="num">4.6 s → <span class="ok">3.2 s</span></td></tr>
+<tr><td>High Jewellery piece (Celestine)</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">82 → 89</td><td class="num">4.2 s → <span class="ok">3.4 s</span></td></tr>
+<tr><td>Gemstone guide (Tanzanite)</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">100</td><td class="num ok">98 → 98</td><td class="num ok">1.5 s → 1.5 s</td></tr>
 </table>
-<p>Google's target for "main image shown" (Largest Contentful Paint) is under 2.5 seconds. The three slow pages were waiting to load their main photograph until after everything else; this update makes it load first (section 3). Scores will be re-measured after the update is live.</p>
+<p>Google's target for "main image shown" (Largest Contentful Paint) is under 2.5 seconds. The shop pages were loading and fading in their main photograph after everything else; it now loads first and shows at once, saving about 1 to 1.5 seconds. The rest of the gap is the server's distance from visitors (about 0.65 s before the first byte arrives); a CDN such as Cloudflare is the next step. The homepage's small change is normal run-to-run variation.</p>
 
 <h3>Site health checks</h3>
 <table>
 <tr><th style="width:55%">Check</th><th>Result</th></tr>
-<tr><td>HTTPS, and http/www sent to one address</td><td class="ok">Yes (www over http takes 2 hops; fix prepared)</td></tr>
+<tr><td>HTTPS, and http/www sent to one address</td><td class="ok">Yes, in one step</td></tr>
 <tr><td>Missing pages return a proper 404</td><td class="ok">Yes</td></tr>
 <tr><td>Private pages (account, cart, checkout, admin) hidden from Google</td><td class="ok">Yes</td></tr>
 <tr><td>Duplicate titles or descriptions</td><td class="ok">None on public pages</td></tr>
 <tr><td>Images without a text description (alt)</td><td class="ok">None</td></tr>
 <tr><td>Structured data blocks that fail to read</td><td class="ok">0 of 421</td></tr>
-<tr><td>Security headers (HSTS and others)</td><td class="mid">Not sent; fix prepared</td></tr>
+<tr><td>Security headers (HSTS and others)</td><td class="ok">Sent on every page</td></tr>
 <tr><td>Server response time</td><td class="mid">~650 ms; a CDN would halve it</td></tr>
 </table>
 </div>
@@ -122,7 +122,7 @@ code { font: 8.8pt Menlo, monospace; background: #f3efe8; padding: 0 3pt; border
 <tr><td><span class="tag t-aeo">AEO</span></td><td>Gemstone guides marked up as questions and answers (14 answers across tanzanite, spinel, tsavorite, rhodolite and Malaya garnet)</td><td>Makes them eligible to be quoted for "What is tanzanite?" and similar questions.</td></tr>
 <tr><td><span class="tag t-aeo">AEO</span></td><td>Client-care FAQs (already marked up) kept in sync from the admin</td><td>Answers to delivery, pricing and care questions can appear directly in search.</td></tr>
 </table>
-<div class="callout">These changes are built and checked, and go live with the next website deployment. The server-side fixes (security headers, one-hop redirect, compressing the sitemap) are prepared and applied at the same time.</div>
+<div class="callout">All of these are live on gem-experience.com since 23 November 2026, together with the server fixes (security headers, one-step redirect, compressed sitemap). All 420 pages were sent to Bing through IndexNow the same day.</div>
 </div>
 
 <div class="section">
@@ -172,7 +172,7 @@ code { font: 8.8pt Menlo, monospace; background: #f3efe8; padding: 0 3pt; border
 <h2>6. 90-day plan</h2>
 <table>
 <tr><th style="width:18%">When</th><th>What</th><th style="width:22%">Who</th></tr>
-<tr><td>Week 1</td><td>Deploy this update; apply server fixes; send all pages to Bing via IndexNow</td><td>Developer</td></tr>
+<tr><td>Done</td><td>Update deployed; server fixes applied; all pages sent to Bing via IndexNow</td><td>Developer</td></tr>
 <tr><td>Week 1</td><td>Search Console and Bing Webmaster verification; submit sitemap</td><td>Gem Experience + developer</td></tr>
 <tr><td>Weeks 1–2</td><td>Google Business Profiles for Dubai, Jaipur and Arusha; confirm the Arusha number</td><td>Gem Experience</td></tr>
 <tr><td>Weeks 2–4</td><td>Gemstone guide first sentences; homepage text; founder and team profiles</td><td>Gem Experience writes, developer places</td></tr>

@@ -354,8 +354,9 @@
       var img = el("img", "fj-plate-img", withSrcset({
         src: src, alt: alt || "", loading: first ? "eager" : "lazy", decoding: "async"
       }, sizes || "(max-width: 700px) 50vw, 420px"));
-      // the product's own photograph is the first thing on its page
-      if (first) img.setAttribute("fetchpriority", "high");
+      // the product's own photograph is the first thing on its page: fetched
+      // first and shown at once, not faded in after the script has settled
+      if (first) { img.setAttribute("fetchpriority", "high"); wrap.classList.add("has-img"); }
       img.addEventListener("error", function () { img.remove(); wrap.classList.remove("has-img"); });
       img.addEventListener("load", function () { wrap.classList.add("has-img"); });
       wrap.appendChild(img);

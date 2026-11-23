@@ -374,7 +374,7 @@ function fjProductPre(p) {
 <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/fine-jewellery/">Fine Jewellery</a>${col ? ` / <a href="/fine-jewellery/#/${esc(col.id)}">${esc(col.name)}</a>` : ""}</nav>
 <h1>${esc(p.name)}</h1>
 ${p.subtitle ? `<p>${esc(p.subtitle)}</p>\n` : ""}<p>${esc(fjDescription(p))}</p>
-<img src="${esc(fjImg(p.images[0]))}" alt="${esc([p.name, p.subtitle].filter(Boolean).join(", "))}" width="800" height="800">
+<img src="${esc(fjImg(p.images[0]))}" srcset="${esc(fjImg(p.images[0]).replace(/\.webp$/, ".w640.webp"))} 640w, ${esc(fjImg(p.images[0]))} 1400w" sizes="(max-width: 900px) 100vw, 560px" alt="${esc([p.name, p.subtitle].filter(Boolean).join(", "))}" width="800" height="800">
 <dl>${specs.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
 <p>Price on request. Made to order from Gem Experience.</p>
 <p><a href="/quotation/?ref=${encodeURIComponent(p.sku || p.id)}&amp;name=${encodeURIComponent(p.name)}">Request a quotation</a> · <a href="/contact/">Contact an adviser</a></p>

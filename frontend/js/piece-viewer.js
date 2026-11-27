@@ -52,8 +52,11 @@ function overlay(title) {
   box.setAttribute("role", "dialog");
   box.setAttribute("aria-modal", "true");
   box.setAttribute("aria-label", (title ? title + ", " : "") + "360° view");
+  /* Same frame as the photographic 360° view (/js/spin-viewer.js), so the
+     two read as one feature: studio ground, title, hint, close. */
   box.innerHTML =
     '<div class="pv-stage"></div>' +
+    '<div class="pv-top"><span class="pv-kicker">3D view</span><h2 class="pv-title"></h2></div>' +
     '<p class="pv-status" aria-live="polite">Loading the 3D model…</p>' +
     '<p class="pv-hint">Drag to turn · Pinch or scroll to zoom</p>' +
     '<button class="pv-close" type="button" aria-label="Close the 360° view">×</button>';
@@ -61,7 +64,11 @@ function overlay(title) {
     const s = document.createElement("style");
     s.id = "pv-css";
     s.textContent =
-      ".pv{position:fixed;inset:0;z-index:300;background:#f2f2f2;display:grid}" +
+      ".pv{position:fixed;inset:0;z-index:300;background:radial-gradient(120% 90% at 50% 42%,#f6f6f5 0%,#f2f2f2 55%,#e6e3de 100%);display:grid}" +
+      ".pv-top{position:absolute;left:24px;right:80px;top:22px;display:flex;align-items:baseline;gap:14px;pointer-events:none;z-index:1}" +
+      ".pv-kicker{font:500 10.5px/1 Jost,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#8a8279}" +
+      ".pv-title{font:400 24px/1.1 'EB Garamond',Georgia,serif;margin:0;color:#17140f}" +
+      "@media (max-width:600px){.pv-title{font-size:20px}.pv-top{left:18px;flex-direction:column;gap:6px}}" +
       ".pv-stage{position:absolute;inset:0;cursor:grab}.pv-stage:active{cursor:grabbing}" +
       ".pv-stage canvas{display:block;width:100%;height:100%;touch-action:none}" +
       ".pv-status{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;font:300 13px/1.4 Jost,sans-serif;letter-spacing:.08em;color:#6f675d}" +
@@ -69,6 +76,7 @@ function overlay(title) {
       ".pv-close{position:absolute;top:16px;right:16px;width:46px;height:46px;border:0;border-radius:50%;background:#fff;box-shadow:0 1px 8px rgba(0,0,0,.14);font:300 28px/46px Jost,sans-serif;color:#17140f;cursor:pointer}";
     document.head.appendChild(s);
   }
+  box.querySelector(".pv-title").textContent = title || "";
   return box;
 }
 
@@ -81,7 +89,7 @@ export function open(opts) {
   const stage = box.querySelector(".pv-stage");
   const status = box.querySelector(".pv-status");
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(stage.clientWidth, stage.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -90,7 +98,7 @@ export function open(opts) {
   stage.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xf2f2f2);
+  scene.background = null; // the overlay's studio ground shows through
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
 

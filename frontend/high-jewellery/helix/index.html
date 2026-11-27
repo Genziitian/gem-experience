@@ -50,7 +50,9 @@
     <span class="st-kicker">High Jewellery</span>
     <h1 class="st-title">Helix</h1>
     <p class="st-lede">The Helix Necklace takes the spiral at the foundation of life and sets it inside the calm geometry of the circle.</p>
-    <a class="pg-btn st-enquire" href="/quotation/?ref=helix&amp;name=Helix">Enquire now</a>
+    <div class="st-actions">
+      <a class="pg-btn st-enquire" href="/quotation/?ref=helix&amp;name=Helix">Enquire now</a>
+    </div>
   </header>
 
   <section class="st-pair">
@@ -117,5 +119,16 @@
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
+<script>
+/* "View in 360°": the piece turned from its own photographs (/js/spin-viewer.js) */
+document.querySelectorAll(".st-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
+    });
+  });
+});
+</script>
 </body>
 </html>

@@ -163,7 +163,18 @@ window.HJ_DATA = {
           "stoneCt": "8.82",
           "diamondCt": "18.76"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/shamsa/p1.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/shamsa/p2.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "jardin-bleu",
@@ -208,7 +219,18 @@ window.HJ_DATA = {
           "stone": "Tanzanite and Aquamarine (41 ct Asscher-cut tanzanite centre)",
           "diamondCt": "42.43"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/jardin-bleu/p3.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/jardin-bleu/p4.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "hive",
@@ -322,7 +344,18 @@ window.HJ_DATA = {
           "netG": "28.902",
           "grossG": "35.71"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/usambara/p5.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/usambara/p6.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "ember",
@@ -366,7 +399,18 @@ window.HJ_DATA = {
           "stone": "Pink Spinel (23.7 ct centre and 156 disc-cut)",
           "diamondCt": "34.18"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/ember/p1.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/ember/p2.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "dew-fall",
@@ -439,7 +483,18 @@ window.HJ_DATA = {
           "metal": "18k White Gold",
           "stone": "Aquamarine 1.25 ct · Pink Spinel 3.24 ct"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/celestine/p1.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/celestine/p2.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "merelani",
@@ -553,7 +608,18 @@ window.HJ_DATA = {
           "netG": "12.282",
           "grossG": "16.16"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/rihla/p3.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/rihla/p4.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "serengeti",
@@ -679,7 +745,18 @@ window.HJ_DATA = {
           "stoneCt": "16.05",
           "diamondCt": "32.10"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/mahenge/p1.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/mahenge/p2.webp",
+            "sideCrop": "right"
+          }
+        ]
+      }
     },
     {
       "id": "oldoinyo",

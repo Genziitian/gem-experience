@@ -41,6 +41,8 @@
   letter-spacing: -0.015em;
 }
 .st-enquire { margin-top: 10px; }
+.st-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+.st-actions .st-enquire { margin-top: 0; }
 .st-lede {
   margin: 0;
   max-width: 62ch;

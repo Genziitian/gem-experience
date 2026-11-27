@@ -404,6 +404,7 @@
     var a = el("a", "fj-card", { href: "#/p/" + p.id });
     var pl = plate(p.tone, p.sku, mainImage(p), p.name, p.hover || "");
     if (window.Gem && window.Gem.wishlist) pl.appendChild(window.Gem.wishlist.button(wishItem(p), "corner"));
+    if (p.spin) pl.appendChild(el("span", "fj-card-360", { text: "360°" }));
     a.appendChild(pl);
     var body = el("div", "fj-card-body");
     body.appendChild(el("span", "fj-card-type", { text: p.collection || p.type }));
@@ -660,6 +661,18 @@
     var shots = p.images || [];
     var hero = plate(p.tone, p.sku, shots[0], p.name, "", "(max-width: 900px) 100vw, 560px", true);
     media.appendChild(hero);
+    /* A piece photographed from the front and the side turns in 360°
+       (/js/spin-viewer.js, loaded only when asked for). */
+    if (p.spin) {
+      var spinBtn = el("button", "fj-360", { type: "button" });
+      spinBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><path d="M12 2.5v19"/><path d="M18.5 15.6l2 .9-.9 2"/></svg><span>View in 360°</span>';
+      spinBtn.addEventListener("click", function () {
+        import("/js/spin-viewer.js?v=1").then(function (m) {
+          m.open({ title: headline(p), base: "/fine-jewellery/", views: p.spin.views, returnFocus: spinBtn });
+        });
+      });
+      hero.appendChild(spinBtn);
+    }
     if (shots.length > 1) {
       var thumbs = el("div", "fj-pdp-thumbs");
       shots.forEach(function (src, i) {

@@ -3995,7 +3995,21 @@ window.FJ_DATA = {
       ],
       "hover": "img/products/gd25-727-1.webp",
       "subtitle": "Aquamarine and diamonds",
-      "specName": "Aquamarine and diamond spectrum ring"
+      "specName": "Aquamarine and diamond spectrum ring",
+      "spin": {
+        "views": [
+          {
+            "label": "White gold",
+            "front": "img/products/gd25-727-1.webp",
+            "side": "img/products/gd25-727-2.webp"
+          },
+          {
+            "label": "With enamel",
+            "front": "img/products/gd25-727-4.webp",
+            "side": "img/products/gd25-727-5.webp"
+          }
+        ]
+      }
     },
     {
       "id": "gd25-665",
@@ -4158,7 +4172,21 @@ window.FJ_DATA = {
       "hover": "img/products/gd25-910-1.webp",
       "subtitle": "Tsavorite and diamonds",
       "specName": "Tsavorite and diamond spectrum ring",
-      "design": "gd25-911"
+      "design": "gd25-911",
+      "spin": {
+        "views": [
+          {
+            "label": "White gold",
+            "front": "img/products/gd25-910-1.webp",
+            "side": "img/products/gd25-910-2.webp"
+          },
+          {
+            "label": "With enamel",
+            "front": "img/products/gd25-910-4.webp",
+            "side": "img/products/gd25-910-5.webp"
+          }
+        ]
+      }
     },
     {
       "id": "gd25-911",
@@ -4241,7 +4269,21 @@ window.FJ_DATA = {
       "hover": "img/products/gd25-652-1.webp",
       "subtitle": "Tanzanite and diamonds",
       "specName": "Tanzanite and diamond spectrum ring",
-      "design": "gd25-652"
+      "design": "gd25-652",
+      "spin": {
+        "views": [
+          {
+            "label": "White gold",
+            "front": "img/products/gd25-652-1.webp",
+            "side": "img/products/gd25-652-2.webp"
+          },
+          {
+            "label": "With enamel",
+            "front": "img/products/gd25-652-4.webp",
+            "side": "img/products/gd25-652-5.webp"
+          }
+        ]
+      }
     },
     {
       "id": "gd26-36",

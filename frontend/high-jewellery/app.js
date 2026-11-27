@@ -52,8 +52,15 @@
      instead: the piece itself, in 3D. */
   var VISUALISER = false;
 
+  /* A piece photographed from the front and the side turns in 360°. */
+  function openSpin(p, from) {
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: p.name, base: "/high-jewellery/", views: p.spin.views, returnFocus: from });
+    });
+  }
+
   function openModel(p, from) {
-    import("/js/piece-viewer.js?v=1").then(function (m) {
+    import("/js/piece-viewer.js?v=2").then(function (m) {
       m.open({ src: "/high-jewellery/" + p.model.src, metal: p.model.metal, gem: p.model.gem, title: p.name, returnFocus: from });
     });
   }
@@ -325,7 +332,7 @@
       : el("div", cls + " card--inert");
     var fr = frame(cardImg(p), p.name, null, opts.eager);
     if (!opts.related && window.Gem && window.Gem.wishlist) fr.appendChild(window.Gem.wishlist.button(hjWishItem(p), "corner"));
-    if ((VISUALISER && p.visualiser) || p.model) {
+    if ((VISUALISER && p.visualiser) || p.model || p.spin) {
       var tag = el("span", "card-viz");
       tag.textContent = "360°";
       fr.appendChild(tag);
@@ -893,6 +900,17 @@
       vizBtn.appendChild(vizTxt);
       vizBtn.addEventListener("click", function () { openVisualiser(p); });
       panel.appendChild(vizBtn);
+    } else if (p.spin) {
+      var spinBtn = el("button", "viz-launch", { type: "button" });
+      spinBtn.appendChild(svg(16, { stroke: "currentColor", sw: 1.2, round: true }, [
+        "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z",
+        "M12 2c2.5 2.8 4 6.2 4 10s-1.5 7.2-4 10c-2.5-2.8-4-6.2-4-10S9.5 4.8 12 2Z",
+        "M2 12h20"
+      ]));
+      var spinTxt = el("span"); spinTxt.textContent = "View the piece in 360°";
+      spinBtn.appendChild(spinTxt);
+      spinBtn.addEventListener("click", function () { openSpin(p, spinBtn); });
+      panel.appendChild(spinBtn);
     } else if (p.model) {
       var modelBtn = el("button", "viz-launch", { type: "button" });
       modelBtn.appendChild(svg(16, { stroke: "currentColor", sw: 1.2, round: true }, [

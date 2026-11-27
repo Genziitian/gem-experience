@@ -50,7 +50,9 @@
     <span class="st-kicker">Where the Sea Rises in Elegance</span>
     <h1 class="st-title">Wimbi</h1>
     <p class="st-lede">Inspired by the powerful high tides of the Tanzanian sea, Wimbi, meaning wave in Swahili, captures the untamed rhythm of nature in motion. Its sculptural design mirrors the fluid crest of waves rising and falling with grace.</p>
-    <a class="pg-btn st-enquire" href="/quotation/?ref=serengeti&amp;name=Wimbi">Enquire now</a>
+    <div class="st-actions">
+      <a class="pg-btn st-enquire" href="/quotation/?ref=serengeti&amp;name=Wimbi">Enquire now</a>
+    </div>
   </header>
 
   <section class="st-pair">
@@ -117,5 +119,16 @@
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
+<script>
+/* "View in 360°": the piece turned from its own photographs (/js/spin-viewer.js) */
+document.querySelectorAll(".st-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
+    });
+  });
+});
+</script>
 </body>
 </html>

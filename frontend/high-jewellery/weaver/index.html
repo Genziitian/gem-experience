@@ -50,7 +50,9 @@
     <span class="st-kicker">Dancing Weaver</span>
     <h1 class="st-title">Weaver</h1>
     <p class="st-lede">The overlapping pattern is taken from a bird's nest, strand laid over strand, the kind of fine detail that is easy to walk past.</p>
-    <a class="pg-btn st-enquire" href="/quotation/?ref=weaver&amp;name=Weaver">Enquire now</a>
+    <div class="st-actions">
+      <a class="pg-btn st-enquire" href="/quotation/?ref=weaver&amp;name=Weaver">Enquire now</a>
+    </div>
   </header>
 
   <section class="st-pair">
@@ -133,5 +135,16 @@
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
+<script>
+/* "View in 360°": the piece turned from its own photographs (/js/spin-viewer.js) */
+document.querySelectorAll(".st-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
+    });
+  });
+});
+</script>
 </body>
 </html>

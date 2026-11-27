@@ -121,7 +121,10 @@ function build(id) {
     <span class="st-kicker">${esc(story.kicker || "High Jewellery")}</span>
     <h1 class="st-title">${esc(name)}</h1>
     <p class="st-lede">${esc(story.lede)}</p>
-    <a class="pg-btn st-enquire" href="/quotation/?ref=${encodeURIComponent(piece.ref && piece.ref !== "—" ? piece.ref : id)}&amp;name=${encodeURIComponent(name)}">Enquire now</a>
+    <div class="st-actions">
+      <a class="pg-btn st-enquire" href="/quotation/?ref=${encodeURIComponent(piece.ref && piece.ref !== "—" ? piece.ref : id)}&amp;name=${encodeURIComponent(name)}">Enquire now</a>${piece.spin ? `
+      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="${esc(JSON.stringify({ title: name, views: piece.spin.views }))}">View in 360°</button>` : ""}
+    </div>
   </header>`);
 
   // the piece itself beside the piece worn
@@ -312,6 +315,17 @@ ${bands.join("\n\n")}
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
+<script>
+/* "View in 360°": the piece turned from its own photographs (/js/spin-viewer.js) */
+document.querySelectorAll(".st-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
+    });
+  });
+});
+</script>
 </body>
 </html>
 `;
@@ -384,6 +398,17 @@ ${cards}
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
+<script>
+/* "View in 360°": the piece turned from its own photographs (/js/spin-viewer.js) */
+document.querySelectorAll(".st-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
+    });
+  });
+});
+</script>
 </body>
 </html>
 `;

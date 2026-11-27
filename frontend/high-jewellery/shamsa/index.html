@@ -50,7 +50,10 @@
     <span class="st-kicker">High Jewellery</span>
     <h1 class="st-title">Shamsa</h1>
     <p class="st-lede">Inspired by the sun, a study in incandescence and inner energy. Shamsa is a radiant composition in brushed yellow gold, centred by a vibrant stone that anchors a burst of sculpted rays unfolding in symmetry.</p>
-    <a class="pg-btn st-enquire" href="/quotation/?ref=shamsa&amp;name=Shamsa">Enquire now</a>
+    <div class="st-actions">
+      <a class="pg-btn st-enquire" href="/quotation/?ref=shamsa&amp;name=Shamsa">Enquire now</a>
+      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Shamsa&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Earring&quot;,&quot;front&quot;:&quot;img/pieces/shamsa/p1.webp&quot;,&quot;frontCrop&quot;:&quot;left&quot;,&quot;side&quot;:&quot;img/pieces/shamsa/p2.webp&quot;,&quot;sideCrop&quot;:&quot;right&quot;}]}">View in 360°</button>
+    </div>
   </header>
 
   <section class="st-pair">
@@ -173,5 +176,16 @@
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
 <script src="/js/analytics.js" defer></script>
+<script>
+/* "View in 360°": the piece turned from its own photographs (/js/spin-viewer.js) */
+document.querySelectorAll(".st-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=1").then(function (m) {
+      m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
+    });
+  });
+});
+</script>
 </body>
 </html>

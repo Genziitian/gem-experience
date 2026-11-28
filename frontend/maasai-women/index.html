@@ -119,6 +119,15 @@
 <script src="/js/gift-note.js"></script>
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
+<script>
+/* "View in 360°" on GE Icons: the piece turned from its own photographs */
+document.querySelectorAll(".hp-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=2").then(function (m) { m.open({ title: o.title, views: o.views, returnFocus: b }); });
+  });
+});
+</script>
 <script src="/js/analytics.js" defer></script>
 </body>
 </html>

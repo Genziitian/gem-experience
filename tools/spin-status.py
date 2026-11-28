@@ -125,7 +125,13 @@ for iid, a in re.findall(r'<article class="hp-gi" id="([^"]+)">([\s\S]*?)</artic
     ref = (re.search(r"<dt>Ref[^<]*</dt>\s*<dd>([^<]+)", a) or [None, ""])[1]
     n = a.count("<img ")
     url = f"{ORIGIN}/icons/#{iid}"
-    rows.append([ref, name, kind, n, "No", "—", f"{n} photograph{'s' if n != 1 else ''}, worn or styled; {NEED}", (url, url)])
+    m = re.search(r'class="pg-btn pg-btn--ghost hp-360" data-spin="([^"]+)"', a)
+    if m:
+        views = json.loads(m.group(1).replace("&quot;", '"').replace("&amp;", "&").replace("&#39;", "'"))["views"]
+        yes, how, note = describe({"spin": {"views": views}})
+    else:
+        yes, how, note = "No", "—", f"{n} photographs, worn on a model only; {NEED}"
+    rows.append([ref, name, kind, n, yes, how, note, (url, url)])
 gi = sheet("GE Icons", ["Ref", "Name", "Kind", "Photos", "360° view", "How", "Note", "Page"], rows, [13, 26, 26, 8, 10, 12, 60, 44], 5)
 
 # Summary

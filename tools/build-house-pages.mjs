@@ -34,6 +34,24 @@ const HOURS = [
    repeats what the description states; ref and the details come from each
    piece's own sheet ("GE ICONS (Signature Style)/<piece>/*.xlsx"). Tangerine and
    Scarlet have model photographs only. */
+/* 360° views (/js/spin-viewer.js) from the studio photographs each piece has:
+   no side view, so each turns on its stand; a piece shot two ways gets a
+   switch between them. Tangerine and Scarlet are photographed worn only, and
+   a model shot cannot be cut out of its background. */
+const ICON_SPIN = {
+  "urns-vase-i": [["Earrings", 1]],
+  "urns-vase-ii": [["Earrings", 1]],
+  "bleu-bow": [["From above", 1], ["Angled", 2]],
+  "le-fleur": [["From above", 1], ["Angled", 2]],
+  "blue-belle-diva": [["From above", 1], ["Angled", 2]],
+  "jardin-de-tulips": [["Front", 1], ["Angled", 2]],
+  "festoon": [["Front", 1], ["Laid flat", 2]],
+  "pink-monarch": [["Front", 1], ["Angled", 2]],
+  "grossular-pear": [["Ring", 1], ["The stone", 2]],
+  "grossular-heart": [["Ring", 1], ["The stone", 2]],
+  "grossular-oval": [["Ring", 1], ["The stone", 2]],
+};
+
 const ICONS = [
   { slug: "tangerine", title: "Tangerine", kind: "Set: necklace and earrings", facts: "122.6 ct morganite", model: [1, 2],
     p: ["Tangerine, is an iconic jewellery set that has graced the lobes and necks of queens and princesses throughout the ages. Crafted from the finest morganite stone, this set consists of earrings and a pendant with an impressive total weight of 122.6 carats.",
@@ -397,7 +415,8 @@ function block(b) {
             ["Net weight", i.d.netG + " g"], ["Gross weight", i.d.grossG + " g"],
           ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
           <div class="pg-actions">
-            <a class="pg-btn" href="${enquire}">Request a quotation</a>
+            <a class="pg-btn" href="${enquire}">Request a quotation</a>${ICON_SPIN[i.slug] ? `
+            <button type="button" class="pg-btn pg-btn--ghost hp-360" data-spin="${esc(JSON.stringify({ title: i.title, views: ICON_SPIN[i.slug].map(([label, n]) => ({ label, front: `/icons/img/${i.slug}-${n}.webp` })) }))}">View in 360°</button>` : ""}
             <a class="pg-btn pg-btn--ghost" href="/appointment/">Book a private viewing</a>
           </div>
         </div>
@@ -462,6 +481,15 @@ ${p.blocks.map(block).join("\n\n")}
 <script src="/js/gift-note.js"></script>
 <script src="/js/shell.js"></script>
 <script>GemShell.mount({ prefix: "/" });</script>
+<script>
+/* "View in 360°" on GE Icons: the piece turned from its own photographs */
+document.querySelectorAll(".hp-360").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var o = JSON.parse(b.getAttribute("data-spin"));
+    import("/js/spin-viewer.js?v=2").then(function (m) { m.open({ title: o.title, views: o.views, returnFocus: b }); });
+  });
+});
+</script>
 <script src="/js/analytics.js" defer></script>
 </body>
 </html>

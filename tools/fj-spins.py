@@ -10,6 +10,7 @@ piece from a front view (0°) and a side view (90°):
   rings, bangles   0 from above · 1 through the band (front) · 2 edge-on (side)
   earrings         0 the pair face-on · 1 the pair, the right one in profile
   pendants         0 face-on · 1 tilted (not a side view)
+  one or two       the first studio photograph turns on its stand
 
 The order is not trusted blindly: a photograph must be on the studio ground
 (not a model shot), the band view roughly round, the edge view narrow, the
@@ -83,7 +84,12 @@ def plan(p):
     imgs = p.get("images") or []
     kind = (p.get("type") or "").lower()
     if len(imgs) < 3:
-        return None, "fewer than 3 photographs"
+        # one or two photographs: no side view, so the first studio photograph
+        # turns on its stand (a model shot cannot be cut out)
+        for src in imgs:
+            if look(src)[0]:
+                return {"views": [{"front": src}]}, "front only (1–2 photographs)"
+        return None, "no studio photograph"
     looks = [look(s) for s in imgs[:3]]
     if kind in ("rings", "bracelets"):
         # the band view (a loop) and the edge view (no loop, about as tall),

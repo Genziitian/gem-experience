@@ -52,7 +52,7 @@
     <p class="st-lede">A celestial garland caught in a moment of cosmic bloom. Celestine gathers flowers like a bouquet that shimmers like stars. Pavé petals bloom along sweeping, vine-like curves, framing the neckline in a luminous scatter.</p>
     <div class="st-actions">
       <a class="pg-btn st-enquire" href="/quotation/?ref=celestine&amp;name=Celestine">Enquire now</a>
-      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Celestine&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Earring&quot;,&quot;front&quot;:&quot;img/pieces/celestine/p1.webp&quot;,&quot;frontCrop&quot;:&quot;left&quot;,&quot;side&quot;:&quot;img/pieces/celestine/p2.webp&quot;,&quot;sideCrop&quot;:&quot;right&quot;}]}">View in 360°</button>
+      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Celestine&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Earring&quot;,&quot;front&quot;:&quot;img/pieces/celestine/p1.webp&quot;,&quot;frontCrop&quot;:&quot;left&quot;,&quot;side&quot;:&quot;img/pieces/celestine/p2.webp&quot;,&quot;sideCrop&quot;:&quot;right&quot;},{&quot;label&quot;:&quot;Necklace&quot;,&quot;front&quot;:&quot;img/pieces/celestine/p8.webp&quot;},{&quot;label&quot;:&quot;Bracelet&quot;,&quot;front&quot;:&quot;img/pieces/celestine/p4.webp&quot;}]}">View in 360°</button>
     </div>
   </header>
 
@@ -169,7 +169,7 @@
 document.querySelectorAll(".st-360").forEach(function (b) {
   b.addEventListener("click", function () {
     var o = JSON.parse(b.getAttribute("data-spin"));
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
     });
   });

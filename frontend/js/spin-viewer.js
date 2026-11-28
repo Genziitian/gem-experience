@@ -201,8 +201,8 @@ export function open(opts) {
   let closed = false, raf = 0, last = performance.now();
 
   Promise.all(views.map(async (v) => {
-    const [f, s] = await Promise.all([load(url(v.front)), load(url(v.side))]);
-    return { label: v.label, front: cutOut(f, v.frontCrop), side: cutOut(s, v.sideCrop) };
+    const [f, s] = await Promise.all([load(url(v.front)), v.side ? load(url(v.side)) : null]);
+    return { label: v.label, front: cutOut(f, v.frontCrop), side: s ? cutOut(s, v.sideCrop) : null };
   })).then((list) => {
     if (closed) return;
     frames = list;
@@ -360,10 +360,16 @@ export function open(opts) {
     const a = ((angle % 360) + 360) % 360;
     const seg = Math.floor(a / 90), t = (a - seg * 90) / 90;
     // keys: 0 front, 1 side, 2 front (far side), 3 side (far side)
-    const key = (k) => ({ f: k % 2 ? v.side : v.front, mirror: k >= 2 });
+    /* A piece photographed only from the front turns on its stand: it narrows
+       towards the side (never to nothing: a necklace on a stand still has
+       depth) and shows the front, mirrored, on the far side. */
+    const single = !v.side;
+    const key = (k) => ({ f: single ? v.front : k % 2 ? v.side : v.front, mirror: single ? false : k >= 2 });
     const A = key(seg % 4), B = key((seg + 1) % 4);
-    const wB = smooth(0.42, 0.58, t);
+    const wB = single ? 0 : smooth(0.42, 0.58, t);
     const turn = t * Math.PI / 2;
+    const cosA = Math.cos(a * Math.PI / 180);
+    const singleSqueeze = 0.3 + 0.7 * Math.abs(cosA);
 
     // one scale for both photographs of a view, so the piece keeps its size
     const ref = v.front;
@@ -372,7 +378,8 @@ export function open(opts) {
     const sweep = (1 - (a % 120) / 120);
 
     // contact shadow, as wide as the piece currently is
-    const width = (A.f.w * Math.cos(turn) * (1 - wB) + B.f.w * Math.sin(turn) * wB) * scale;
+    const width = single ? v.front.w * singleSqueeze * scale
+      : (A.f.w * Math.cos(turn) * (1 - wB) + B.f.w * Math.sin(turn) * wB) * scale;
     const floorY = cy + (ref.h * scale) / 2 + 6;
     const sg = ctx.createRadialGradient(cx, floorY, 0, cx, floorY, Math.max(30, width * 0.62));
     sg.addColorStop(0, "rgba(40,32,24,0.16)");
@@ -381,8 +388,10 @@ export function open(opts) {
     ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(cx, floorY, Math.max(30, width * 0.62), 0, Math.PI * 2); ctx.fill();
     ctx.restore();
 
-    const dA = drawFrame(A.f, cx, cy, scale, Math.cos(turn), A.mirror, 1 - wB, sweep);
-    const dB = drawFrame(B.f, cx, cy, scale, Math.sin(turn), B.mirror, wB, sweep);
+    const dA = single
+      ? drawFrame(v.front, cx, cy, scale, singleSqueeze, cosA < 0, 1, sweep)
+      : drawFrame(A.f, cx, cy, scale, Math.cos(turn), A.mirror, 1 - wB, sweep);
+    const dB = single ? null : drawFrame(B.f, cx, cy, scale, Math.sin(turn), B.mirror, wB, sweep);
 
     /* The stones catch the light: each sparkle flashes as the piece turns
        past its own angle, more often while it is moving. */

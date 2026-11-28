@@ -52,6 +52,7 @@
     <p class="st-lede">Mediterranea gathers pink spinel edge to edge in rose gold, a collar that narrows to a point at the throat, with earrings drawn in the same curve.</p>
     <div class="st-actions">
       <a class="pg-btn st-enquire" href="/quotation/?ref=GD23-442%20%C2%B7%20GD23-442%20A&amp;name=Mediterranea">Enquire now</a>
+      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Mediterranea&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Necklace&quot;,&quot;front&quot;:&quot;img/pieces/oldoinyo/p3.webp&quot;},{&quot;label&quot;:&quot;Earrings&quot;,&quot;front&quot;:&quot;img/pieces/oldoinyo/p1.webp&quot;}]}">View in 360°</button>
     </div>
   </header>
 
@@ -131,7 +132,7 @@
 document.querySelectorAll(".st-360").forEach(function (b) {
   b.addEventListener("click", function () {
     var o = JSON.parse(b.getAttribute("data-spin"));
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
     });
   });

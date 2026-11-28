@@ -54,7 +54,7 @@
 
   /* A piece photographed from the front and the side turns in 360°. */
   function openSpin(p, from) {
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: p.name, base: "/high-jewellery/", views: p.spin.views, returnFocus: from });
     });
   }
@@ -330,6 +330,15 @@
     var a = p.storyUrl
       ? el("a", cls, { href: p.storyUrl })
       : el("div", cls + " card--inert");
+    /* no story page yet, but a 360° view: the card opens that instead */
+    if (!p.storyUrl && p.spin && !opts.related) {
+      a.className = cls + " card--spin";
+      a.setAttribute("role", "button");
+      a.setAttribute("tabindex", "0");
+      a.setAttribute("aria-label", p.name + ": view in 360°");
+      a.addEventListener("click", function (e) { if (!e.target.closest(".wish-btn, button")) openSpin(p, a); });
+      a.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openSpin(p, a); } });
+    }
     var fr = frame(cardImg(p), p.name, null, opts.eager);
     if (!opts.related && window.Gem && window.Gem.wishlist) fr.appendChild(window.Gem.wishlist.button(hjWishItem(p), "corner"));
     if ((VISUALISER && p.visualiser) || p.model || p.spin) {
@@ -911,7 +920,9 @@
       spinBtn.appendChild(spinTxt);
       spinBtn.addEventListener("click", function () { openSpin(p, spinBtn); });
       panel.appendChild(spinBtn);
-    } else if (p.model) {
+    }
+    // a piece with a CAD model also opens it in 3D, beside the photographs' 360°
+    if (p.model && !(VISUALISER && p.visualiser)) {
       var modelBtn = el("button", "viz-launch", { type: "button" });
       modelBtn.appendChild(svg(16, { stroke: "currentColor", sw: 1.2, round: true }, [
         "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z",

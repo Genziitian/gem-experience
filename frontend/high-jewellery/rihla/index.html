@@ -52,7 +52,7 @@
     <p class="st-lede">Rihla is Arabic for the journey. The piece was made for the night sky, and for the rare moments that stop us where we stand.</p>
     <div class="st-actions">
       <a class="pg-btn st-enquire" href="/quotation/?ref=GD26-11%20%C2%B7%20GD26-12&amp;name=Rihla">Enquire now</a>
-      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Rihla&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Earring&quot;,&quot;front&quot;:&quot;img/pieces/rihla/p3.webp&quot;,&quot;frontCrop&quot;:&quot;left&quot;,&quot;side&quot;:&quot;img/pieces/rihla/p4.webp&quot;,&quot;sideCrop&quot;:&quot;right&quot;}]}">View in 360°</button>
+      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Rihla&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Earring&quot;,&quot;front&quot;:&quot;img/pieces/rihla/p3.webp&quot;,&quot;frontCrop&quot;:&quot;left&quot;,&quot;side&quot;:&quot;img/pieces/rihla/p4.webp&quot;,&quot;sideCrop&quot;:&quot;right&quot;},{&quot;label&quot;:&quot;Necklace&quot;,&quot;front&quot;:&quot;img/pieces/rihla/p1.webp&quot;}]}">View in 360°</button>
     </div>
   </header>
 
@@ -150,7 +150,7 @@
 document.querySelectorAll(".st-360").forEach(function (b) {
   b.addEventListener("click", function () {
     var o = JSON.parse(b.getAttribute("data-spin"));
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
     });
   });

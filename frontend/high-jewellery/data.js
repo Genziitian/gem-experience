@@ -77,7 +77,19 @@ window.HJ_DATA = {
           "stone": "Tanzanite",
           "stoneCt": "28.25"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/weaver/p3.webp"
+          },
+          {
+            "label": "Earrings",
+            "front": "img/pieces/weaver/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "the-crown",
@@ -123,7 +135,22 @@ window.HJ_DATA = {
           "stone": "Royal Blue Tanzanite",
           "stoneCt": "18.45"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/the-crown/p1.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/the-crown/p2.webp",
+            "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/the-crown/p3.webp"
+          }
+        ]
+      }
     },
     {
       "id": "shamsa",
@@ -172,6 +199,10 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/shamsa/p2.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Bracelet",
+            "front": "img/pieces/shamsa/p4.webp"
           }
         ]
       }
@@ -228,6 +259,10 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/jardin-bleu/p4.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/jardin-bleu/p1.webp"
           }
         ]
       }
@@ -261,7 +296,19 @@ window.HJ_DATA = {
           "stone": "Tanzanite and Ceramic",
           "stoneCt": "17.92"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/hive/p4.webp"
+          },
+          {
+            "label": "Earrings",
+            "front": "img/pieces/hive/p3.webp"
+          }
+        ]
+      }
     },
     {
       "id": "georgie",
@@ -289,7 +336,15 @@ window.HJ_DATA = {
           "stone": "Tanzanite and 19 Natural Pearls",
           "stoneCt": "12.35"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/georgie/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "usambara",
@@ -353,6 +408,10 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/usambara/p6.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/usambara/p7.webp"
           }
         ]
       }
@@ -408,6 +467,10 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/ember/p2.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/ember/p4.webp"
           }
         ]
       }
@@ -439,7 +502,15 @@ window.HJ_DATA = {
           "stoneCt": "10.37",
           "diamondCt": "17"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/dew-fall/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "celestine",
@@ -492,6 +563,14 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/celestine/p2.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/celestine/p8.webp"
+          },
+          {
+            "label": "Bracelet",
+            "front": "img/pieces/celestine/p4.webp"
           }
         ]
       }
@@ -527,7 +606,22 @@ window.HJ_DATA = {
           "stone": "Pink Spinel",
           "stoneCt": "36.5"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Earring",
+            "front": "img/pieces/merelani/p1.webp",
+            "frontCrop": "left",
+            "side": "img/pieces/merelani/p2.webp",
+            "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/merelani/p3.webp"
+          }
+        ]
+      }
     },
     {
       "id": "helix",
@@ -556,7 +650,15 @@ window.HJ_DATA = {
           "stoneCt": "9.16",
           "diamondCt": "12"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/helix/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "rihla",
@@ -617,6 +719,10 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/rihla/p4.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/rihla/p1.webp"
           }
         ]
       }
@@ -654,7 +760,15 @@ window.HJ_DATA = {
           "stone": "Rhodolite",
           "stoneCt": "21.86"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/serengeti/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "rift",
@@ -698,6 +812,18 @@ window.HJ_DATA = {
         "src": "models/rift.glb",
         "metal": "white",
         "gem": "#21a04a"
+      },
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/rift/p1.webp"
+          },
+          {
+            "label": "Earrings",
+            "front": "img/pieces/rift/p2.webp"
+          }
+        ]
       }
     },
     {
@@ -754,6 +880,10 @@ window.HJ_DATA = {
             "frontCrop": "left",
             "side": "img/pieces/mahenge/p2.webp",
             "sideCrop": "right"
+          },
+          {
+            "label": "Necklace",
+            "front": "img/pieces/mahenge/p4.webp"
           }
         ]
       }
@@ -802,7 +932,19 @@ window.HJ_DATA = {
           "netG": "14.692",
           "grossG": "17.03"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/oldoinyo/p3.webp"
+          },
+          {
+            "label": "Earrings",
+            "front": "img/pieces/oldoinyo/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "dancing-weaver",
@@ -843,7 +985,19 @@ window.HJ_DATA = {
           "grossG": "18.34"
         }
       ],
-      "card": "img/dancing-weaver-set-2.webp"
+      "card": "img/dancing-weaver-set-2.webp",
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/dancing-weaver/p1.webp"
+          },
+          {
+            "label": "Earrings",
+            "front": "img/pieces/dancing-weaver/p2.webp"
+          }
+        ]
+      }
     },
     {
       "id": "marinas-heart",
@@ -872,7 +1026,15 @@ window.HJ_DATA = {
           "netG": "48.842",
           "grossG": "58.09"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/marinas-heart/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "murre",
@@ -901,7 +1063,15 @@ window.HJ_DATA = {
           "netG": "57.05",
           "grossG": "61.998"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/murre/p1.webp"
+          }
+        ]
+      }
     },
     {
       "id": "poireen-bleu",
@@ -930,7 +1100,15 @@ window.HJ_DATA = {
           "netG": "51.424",
           "grossG": "56.7"
         }
-      ]
+      ],
+      "spin": {
+        "views": [
+          {
+            "label": "Necklace",
+            "front": "img/pieces/poireen-bleu/p1.webp"
+          }
+        ]
+      }
     }
   ],
   "focal": {

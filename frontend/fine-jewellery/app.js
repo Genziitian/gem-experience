@@ -667,7 +667,7 @@
       var spinBtn = el("button", "fj-360", { type: "button" });
       spinBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><path d="M12 2.5v19"/><path d="M18.5 15.6l2 .9-.9 2"/></svg><span>View in 360°</span>';
       spinBtn.addEventListener("click", function () {
-        import("/js/spin-viewer.js?v=1").then(function (m) {
+        import("/js/spin-viewer.js?v=2").then(function (m) {
           m.open({ title: headline(p), base: "/fine-jewellery/", views: p.spin.views, returnFocus: spinBtn });
         });
       });

@@ -1268,3 +1268,6 @@ button {
   .hj-pause { min-height: 34vh; padding: clamp(80px, 9vw, 140px) 20px 0; }
   .hj-pause--last { min-height: 0; padding-bottom: clamp(60px, 7vw, 100px); }
 }
+
+/* a piece with no story page yet opens its 360° view from the card */
+.card--spin { cursor: pointer; }

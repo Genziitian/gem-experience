@@ -52,6 +52,7 @@
     <p class="st-lede">Inspired by the powerful high tides of the Tanzanian sea, Wimbi, meaning wave in Swahili, captures the untamed rhythm of nature in motion. Its sculptural design mirrors the fluid crest of waves rising and falling with grace.</p>
     <div class="st-actions">
       <a class="pg-btn st-enquire" href="/quotation/?ref=serengeti&amp;name=Wimbi">Enquire now</a>
+      <button type="button" class="pg-btn pg-btn--ghost st-360" data-spin="{&quot;title&quot;:&quot;Wimbi&quot;,&quot;views&quot;:[{&quot;label&quot;:&quot;Necklace&quot;,&quot;front&quot;:&quot;img/pieces/serengeti/p1.webp&quot;}]}">View in 360°</button>
     </div>
   </header>
 
@@ -124,7 +125,7 @@
 document.querySelectorAll(".st-360").forEach(function (b) {
   b.addEventListener("click", function () {
     var o = JSON.parse(b.getAttribute("data-spin"));
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
     });
   });

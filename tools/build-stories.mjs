@@ -320,7 +320,7 @@ ${bands.join("\n\n")}
 document.querySelectorAll(".st-360").forEach(function (b) {
   b.addEventListener("click", function () {
     var o = JSON.parse(b.getAttribute("data-spin"));
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
     });
   });
@@ -403,7 +403,7 @@ ${cards}
 document.querySelectorAll(".st-360").forEach(function (b) {
   b.addEventListener("click", function () {
     var o = JSON.parse(b.getAttribute("data-spin"));
-    import("/js/spin-viewer.js?v=1").then(function (m) {
+    import("/js/spin-viewer.js?v=2").then(function (m) {
       m.open({ title: o.title, base: "/high-jewellery/", views: o.views, returnFocus: b });
     });
   });
